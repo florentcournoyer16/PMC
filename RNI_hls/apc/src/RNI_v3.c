@@ -1,0 +1,73 @@
+#include "model.h"
+#include <stdio.h>
+
+//prend un array Inputs[nb de weights de la premiere neurone de la premiere couche] -> Inputs[4].
+//Output[nb neurones de layers[2]] -> Output[]
+
+void RNI(int input[INPUT_LAYER_LENGHT], int output[OUTPUT_LAYER_LENGHT])
+{
+#pragma HLS INTERFACE mode=m_axi port=input offset=slave depth=512 bundle=gmem
+#pragma HLS INTERFACE mode=m_axi port=output offset=slave depth=512 bundle=gmem
+
+#pragma HLS INTERFACE mode=s_axilite port=input bundle=control
+#pragma HLS INTERFACE mode=s_axilite port=output bundle=control
+#pragma HLS INTERFACE mode=s_axilite port=return bundle=control
+
+	static int n_i = 0;
+	static int w_i = 0;
+	// boucler dans chaque layer (for i < 2)
+	LAYERS_LOOP: for(int i= 0; i < LAYERS_LENGHT; i++)
+	{
+		NEURONES_LOOP: for(int j = n_i; j < n_i+LAYERS[i];  j++)
+		{
+			WEIGHTS_LOOP: for(int k = w_i; k < w_i+NEURONS[j]; k++)
+			{
+				if(i == 0)
+				{
+					// accumulate layer 0
+//					printf("%d ~~ ", NEURONS_MEM[j]);
+//					printf("%d ~~ ", THRESHOLDS[i]);
+//					printf("%d \n", WEIGHTS[k]);
+					NEURONS_MEM[j] += WEIGHTS[k]*input[k-w_i];
+				}
+				else
+				{
+					// accumulate layer > 0
+					// if neuron from previous layer fires then accumulate
+//					printf("%d ++ ", NEURONS_MEM[j]);
+//					printf("%d\n", THRESHOLDS[i]);
+					if(NEURONS_STATE[n_i-k+w_i-1] == 1)
+					{
+						NEURONS_MEM[j] += WEIGHTS[k]*1;
+					}
+				}
+
+			}
+
+			// check for leak or fire
+			// if fire
+			if (NEURONS_MEM[j]>THRESHOLDS[i])
+			{
+				NEURONS_STATE[j] = 1;
+				NEURONS_MEM[j]=RESET_MECHANISM_VALS[i];
+			}
+//			// leak
+//			else
+//			{
+//				// leak toward reset val
+//				NEURONS_STATE[j] = 0;
+//				NEURONS_MEM[j]=NEURONS_MEM[j]-1;//FONCTION DE LEAKAGE
+//			}
+			w_i += NEURONS[j];
+		}
+		n_i += LAYERS[i];
+	}
+
+	//formation du output
+	int k = NEURONS_MEM_LENGHT-LAYERS[LAYERS_LENGHT-1];
+	for(int j = k; j < NEURONS_MEM_LENGHT; j++)
+	{
+		output[j-k] = NEURONS_MEM[j];
+	}
+	return;
+}

@@ -1,0 +1,24 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/mohr0901/Documents/RNI/RNI_hls/RNI/csynth.tcl:18:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="RNI" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=RNI" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/mohr0901/Documents/RNI/RNI_hls/RNI/directives.tcl:7:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="RNI" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=RNI" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="RNI_hls/apc/src/RNI_v3.c:9:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="RNI" ARG_PragmaIsValid="1" ARG_PragmaOptions="mode=m_axi port=input offset=slave depth=512 bundle=gmem" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="RNI_hls/apc/src/RNI_v3.c:10:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="RNI" ARG_PragmaIsValid="1" ARG_PragmaOptions="mode=m_axi port=output offset=slave depth=512 bundle=gmem" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="RNI_hls/apc/src/RNI_v3.c:12:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="RNI" ARG_PragmaIsValid="1" ARG_PragmaOptions="mode=s_axilite port=input bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="RNI_hls/apc/src/RNI_v3.c:13:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="RNI" ARG_PragmaIsValid="1" ARG_PragmaOptions="mode=s_axilite port=output bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="RNI_hls/apc/src/RNI_v3.c:14:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="RNI" ARG_PragmaIsValid="1" ARG_PragmaOptions="mode=s_axilite port=return bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+
