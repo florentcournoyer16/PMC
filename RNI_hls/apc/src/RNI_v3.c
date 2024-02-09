@@ -1,11 +1,12 @@
-#include "model.h"
+#include "../inc/model_v3.h"
 #include <stdio.h>
 
-//prend un array Inputs[nb de weights de la premiere neurone de la premiere couche] -> Inputs[4].
-//Output[nb neurones de layers[2]] -> Output[]
+// input[INPUT_LAYER_LENGHT] -> input[4].
+// output[OUTPUT_LAYER_LENGHT] -> output[10]
 
 void RNI(int input[INPUT_LAYER_LENGHT], int output[OUTPUT_LAYER_LENGHT])
 {
+
 #pragma HLS INTERFACE mode=m_axi port=input offset=slave depth=512 bundle=gmem
 #pragma HLS INTERFACE mode=m_axi port=output offset=slave depth=512 bundle=gmem
 
@@ -25,17 +26,17 @@ void RNI(int input[INPUT_LAYER_LENGHT], int output[OUTPUT_LAYER_LENGHT])
 				if(i == 0)
 				{
 					// accumulate layer 0
-//					printf("%d ~~ ", NEURONS_MEM[j]);
-//					printf("%d ~~ ", THRESHOLDS[i]);
-//					printf("%d \n", WEIGHTS[k]);
+					// printf("%d ~~ ", NEURONS_MEM[j]);
+					// printf("%d ~~ ", THRESHOLDS[i]);
+					// printf("%d \n", WEIGHTS[k]);
 					NEURONS_MEM[j] += WEIGHTS[k]*input[k-w_i];
 				}
 				else
 				{
 					// accumulate layer > 0
 					// if neuron from previous layer fires then accumulate
-//					printf("%d ++ ", NEURONS_MEM[j]);
-//					printf("%d\n", THRESHOLDS[i]);
+					// printf("%d ++ ", NEURONS_MEM[j]);
+					// printf("%d\n", THRESHOLDS[i]);
 					if(NEURONS_STATE[n_i-k+w_i-1] == 1)
 					{
 						NEURONS_MEM[j] += WEIGHTS[k]*1;
@@ -51,19 +52,19 @@ void RNI(int input[INPUT_LAYER_LENGHT], int output[OUTPUT_LAYER_LENGHT])
 				NEURONS_STATE[j] = 1;
 				NEURONS_MEM[j]=RESET_MECHANISM_VALS[i];
 			}
-//			// leak
-//			else
-//			{
-//				// leak toward reset val
-//				NEURONS_STATE[j] = 0;
-//				NEURONS_MEM[j]=NEURONS_MEM[j]-1;//FONCTION DE LEAKAGE
-//			}
+			// leak
+			// else
+			// {
+			// 	// leak toward reset val
+			// 	NEURONS_STATE[j] = 0;
+			// 	NEURONS_MEM[j]=NEURONS_MEM[j]-1;//FONCTION DE LEAKAGE
+			// }
 			w_i += NEURONS[j];
 		}
 		n_i += LAYERS[i];
 	}
 
-	//formation du output
+	// formation du output
 	int k = NEURONS_MEM_LENGHT-LAYERS[LAYERS_LENGHT-1];
 	for(int j = k; j < NEURONS_MEM_LENGHT; j++)
 	{

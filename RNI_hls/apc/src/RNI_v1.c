@@ -1,10 +1,9 @@
-#include "model.h"
+#include "../inc/model_v2.h"
 
 //prend un array Inputs[nb de weights de la premiere neurone de la premiere couche] -> Inputs[4].
 //Output[nb neurones de layers[2]] -> Output[]
 
-void RNI(int inputs[layers.layers[0].neurons[0].input_weights_lenght],
-		int output[layers.layers[(layers.layers_lenght)-1].neurons_lenght]/*int output[layers.layers[layers.layers_lenght].neurons_lenght]*/)
+void RNI(int inputs[layers.layers[0].neurons[0].input_weights_lenght], int output[layers.layers[(layers.layers_lenght)-1].neurons_lenght]/*int output[layers.layers[layers.layers_lenght].neurons_lenght]*/)
 {
 	static int charges_tmp[18];
 	static int salut_tmp[18];
@@ -20,7 +19,7 @@ void RNI(int inputs[layers.layers[0].neurons[0].input_weights_lenght],
 	{
 		charges_tmp[i] += inputs[i];
 
-		if(*charge_ptr > layers.l.threshold)
+		if(*charge_ptr > layers.layers[i].threshold)
 		{
 			*salut_ptr = 1;
 			*charge_ptr = 0;
@@ -55,4 +54,3 @@ void RNI(int inputs[layers.layers[0].neurons[0].input_weights_lenght],
 	}
 
 }
-

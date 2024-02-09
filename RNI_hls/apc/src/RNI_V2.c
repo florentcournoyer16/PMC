@@ -1,4 +1,4 @@
-#include "model.h"
+#include "../inc/model_v2.h"
 
 //prend un array Inputs[nb de weights de la premiere neurone de la premiere couche] -> Inputs[4].
 //Output[nb neurones de layers[2]] -> Output[]
@@ -15,8 +15,8 @@ void RNI(int inputs[layers.layers[0].neurons[0].input_weights_lenght],
 			count_neurons=count_neurons+(layers.layers[i].neurons_lenght);
 
 		}
-static int neuron_value[count_neurons]={0};
-static int neuron_state[count_neurons]={0};
+static int neuron_value[NEURONS_MEM_TOTAL_LENGHT]={0};
+static int neuron_state[NEURONS_MEM_TOTAL_LENGHT]={0};
 /*
 // boucler dans chaque layer (for i < 2)
 	for(int l= 0; l < layers.layers_lenght; i++)
@@ -29,11 +29,11 @@ static int neuron_state[count_neurons]={0};
 		for(int j = 0; j < layers.layers[0].neurons_lenght; j++)
 		{
 			for(int k = 0; k < layers.layers[0].neurons[j].input_weights_lenght; k++)
-					{
-						//accumulate
-						neuron_value[j]=neuron_value[j]+(layers.layers[0].neurons[j].input_weights[k]*inputs[k])
+			{
+				//accumulate
+				neuron_value[j]=neuron_value[j]+(layers.layers[0].neurons[j].input_weights[k]*inputs[k]);
 
-					}
+			}
 			//check for leak or fire
 			//if fire
 			if (neuron_value[j]>layers.layers[0].threshold){
@@ -54,31 +54,32 @@ static int neuron_state[count_neurons]={0};
 				{
 
 					for(int k = 0; k < layers.layers[1].neurons[j].input_weights_lenght; k++)
-							{
-								//accumulate
-								neuron_value[(layers.layer[0].neurons_lenght)+j]=neuron_value[(layers.layer[0].neurons_lenght)+j]+(layers.layers[1].neurons[j].input_weights[k]*neuron_state[k]);
-								//reset neuron precedent
-								neuron_state[k]=0;
+					{
+						//accumulate
+						neuron_value[(layers.layers[0].neurons_lenght)+j]=neuron_value[(layers.layers[0].neurons_lenght)+j]+(layers.layers[1].neurons[j].input_weights[k]*neuron_state[k]);
+						//reset neuron precedent
+						neuron_state[k]=0;
 
-							}
+					}
 					//check for leak or fire
 					//if fire
-					if (neuron_value[(layers.layer[0].neurons_lenght)+j]>layers.layers[1].threshold){
-
-						neuron_value[(layers.layer[0].neurons_lenght)+j]=layers.layers[1].reset_mechanism_val;
-						neuron_state[(layers.layer[0].neurons_lenght)+j]=1;
+					if (neuron_value[(layers.layers[0].neurons_lenght)+j]>layers.layers[1].threshold)
+					{
+						neuron_value[(layers.layers[0].neurons_lenght)+j]=layers.layers[1].reset_mechanism_val;
+						neuron_state[(layers.layers[0].neurons_lenght)+j]=1;
 
 					}
 					//leak
-					else{
-						neuron_value[(layers.layer[0].neurons_lenght)+j]=neuron_value[(layers.layer[0].neurons_lenght)+j]-1;
+					else
+					{
+						neuron_value[(layers.layers[0].neurons_lenght)+j]=neuron_value[(layers.layers[0].neurons_lenght)+j]-1;
 					}
 				}
 
 		//boucler sur la sortie de la dernier couche pour former le ouput.
 		for(int j = 0; j < layers.layers[1].neurons_lenght; j++)
 		{
-			output[j]=neuron_value[(layers.layer[0].neurons_lenght)+j];
+			output[j]=neuron_value[(layers.layers[0].neurons_lenght)+j];
 
 		}
 
@@ -86,6 +87,3 @@ static int neuron_state[count_neurons]={0};
 
 //fin de la fonction
 }
-
-
-
