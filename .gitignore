@@ -90,3 +90,8 @@
 proj/
 .crashReporter/
 *log
+
+# Header file parser
+!header_file_parser/*.py
+!header_file_parser/*.json
+!header_file_parser/*.h

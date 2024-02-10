@@ -6,7 +6,6 @@ void RNI(int inputs[INPUT_LAYER_LENGHT], int output[OUTPUT_LAYER_LENGHT]);
 int main()
 {
 	int in[INPUT_LAYER_LENGHT] = {-3};
-
 	int out[OUTPUT_LAYER_LENGHT] = {0};
 
 	for(int i = 0; i < 5; i++)
