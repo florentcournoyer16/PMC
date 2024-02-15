@@ -96,4 +96,5 @@ proj/
 !header_file_parser/*.json
 !header_file_parser/*.h
 
+# Excel sheets for test
 !*.xlsx
