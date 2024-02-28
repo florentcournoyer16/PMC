@@ -1,15 +1,15 @@
 <dict>
   <key>main-file</key>
-  <string>/home/mohr0901/Documents/RNI/RNI_hls/RNI/.autopilot/db/RNI_v3.pp.0.c</string>
+  <string>/home/mohr0901/Documents/PMC/RNI_hls/RNI/.autopilot/db/RNI_v3.pp.0.c</string>
   <key>diagnostics</key>
   <array>
     <dict>
       <key>level</key>
       <string>warning</string>
       <key>filename</key>
-      <string>/home/mohr0901/Documents/RNI/RNI_hls/RNI/csynth.tcl</string>
+      <string>/home/mohr0901/Documents/PMC/RNI_hls/RNI/csynth.tcl</string>
       <key>line</key>
-      <integer>18</integer>
+      <integer>21</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -23,7 +23,7 @@
       <key>level</key>
       <string>warning</string>
       <key>filename</key>
-      <string>/home/mohr0901/Documents/RNI/RNI_hls/RNI/directives.tcl</string>
+      <string>/home/mohr0901/Documents/PMC/RNI_hls/RNI/directives.tcl</string>
       <key>line</key>
       <integer>7</integer>
       <key>column</key>
@@ -41,11 +41,11 @@
       <key>filename</key>
       <string>RNI_hls/apc/src/RNI_v3.c</string>
       <key>line</key>
-      <integer>9</integer>
+      <integer>17</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=RNI_XLX_SEP_ PragmaOptions=mode=m_axi port=input offset=slave depth=512 bundle=gmem_XLX_SEP_</string>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=RNI_XLX_SEP_ PragmaOptions=mode=m_axi port=input offset=slave depth=4 bundle=gmem_XLX_SEP_</string>
       <key>ID</key>
       <integer>5471</integer>
       <key>WarningOption</key>
@@ -57,11 +57,11 @@
       <key>filename</key>
       <string>RNI_hls/apc/src/RNI_v3.c</string>
       <key>line</key>
-      <integer>10</integer>
+      <integer>18</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=RNI_XLX_SEP_ PragmaOptions=mode=m_axi port=output offset=slave depth=512 bundle=gmem_XLX_SEP_</string>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=RNI_XLX_SEP_ PragmaOptions=mode=m_axi port=output offset=slave depth=10 bundle=gmem_XLX_SEP_</string>
       <key>ID</key>
       <integer>5471</integer>
       <key>WarningOption</key>
@@ -73,7 +73,7 @@
       <key>filename</key>
       <string>RNI_hls/apc/src/RNI_v3.c</string>
       <key>line</key>
-      <integer>12</integer>
+      <integer>20</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -89,7 +89,7 @@
       <key>filename</key>
       <string>RNI_hls/apc/src/RNI_v3.c</string>
       <key>line</key>
-      <integer>13</integer>
+      <integer>21</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -105,7 +105,7 @@
       <key>filename</key>
       <string>RNI_hls/apc/src/RNI_v3.c</string>
       <key>line</key>
-      <integer>14</integer>
+      <integer>22</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>

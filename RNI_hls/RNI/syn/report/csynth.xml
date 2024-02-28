@@ -830,21 +830,21 @@
             <ModuleName>RNI</ModuleName>
             <InstancesList>
                 <Instance>
-                    <InstName>grp_RNI_Pipeline_WEIGHTS_LOOP_fu_208</InstName>
+                    <InstName>grp_RNI_Pipeline_WEIGHTS_LOOP_fu_206</InstName>
                     <ModuleName>RNI_Pipeline_WEIGHTS_LOOP</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>208</ID>
-                    <BindInstances>add_ln39_fu_203_p2 add_ln41_fu_247_p2 mul_8s_32s_32_2_1_U1 add_ln31_fu_254_p2 add_ln23_fu_229_p2 WEIGHTS_U</BindInstances>
+                    <ID>206</ID>
+                    <BindInstances>add_ln47_fu_203_p2 add_ln49_fu_247_p2 mul_8s_32s_32_2_1_U1 add_ln39_fu_254_p2 add_ln31_fu_229_p2 WEIGHTS_U</BindInstances>
                 </Instance>
                 <Instance>
-                    <InstName>grp_RNI_Pipeline_VITIS_LOOP_68_1_fu_228</InstName>
-                    <ModuleName>RNI_Pipeline_VITIS_LOOP_68_1</ModuleName>
+                    <InstName>grp_RNI_Pipeline_VITIS_LOOP_76_1_fu_226</InstName>
+                    <ModuleName>RNI_Pipeline_VITIS_LOOP_76_1</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>228</ID>
-                    <BindInstances>add_ln68_fu_108_p2</BindInstances>
+                    <ID>226</ID>
+                    <BindInstances>add_ln76_fu_108_p2</BindInstances>
                 </Instance>
             </InstancesList>
-            <BindInstances>add_ln19_fu_283_p2 add_fu_301_p2 add8_fu_370_p2 add_ln21_fu_421_p2 NEURONS_U NEURONS_MEM_U NEURONS_STATE_U</BindInstances>
+            <BindInstances>add_ln27_fu_281_p2 add_fu_299_p2 add8_fu_368_p2 add_ln29_fu_419_p2 NEURONS_U NEURONS_MEM_U NEURONS_STATE_U</BindInstances>
         </TopModule>
     </RTLDesignHierarchy>
     <ModuleInformation>
@@ -903,18 +903,18 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="WEIGHTS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln39_fu_203_p2" SOURCE="RNI_hls/apc/src/RNI_v3.c:39" URAM="0" VARIABLE="add_ln39"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="WEIGHTS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln41_fu_247_p2" SOURCE="RNI_hls/apc/src/RNI_v3.c:41" URAM="0" VARIABLE="add_ln41"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="2" ID="" IMPL="auto" LATENCY="1" LOOP="WEIGHTS_LOOP" OPTYPE="mul" PRAGMA="" RTLNAME="mul_8s_32s_32_2_1_U1" SOURCE="RNI_hls/apc/src/RNI_v3.c:31" URAM="0" VARIABLE="mul_ln31"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="WEIGHTS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln31_fu_254_p2" SOURCE="RNI_hls/apc/src/RNI_v3.c:31" URAM="0" VARIABLE="add_ln31"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="WEIGHTS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln23_fu_229_p2" SOURCE="RNI_hls/apc/src/RNI_v3.c:23" URAM="0" VARIABLE="add_ln23"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="WEIGHTS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln47_fu_203_p2" SOURCE="RNI_hls/apc/src/RNI_v3.c:47" URAM="0" VARIABLE="add_ln47"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="WEIGHTS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln49_fu_247_p2" SOURCE="RNI_hls/apc/src/RNI_v3.c:49" URAM="0" VARIABLE="add_ln49"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="2" ID="" IMPL="auto" LATENCY="1" LOOP="WEIGHTS_LOOP" OPTYPE="mul" PRAGMA="" RTLNAME="mul_8s_32s_32_2_1_U1" SOURCE="RNI_hls/apc/src/RNI_v3.c:39" URAM="0" VARIABLE="mul_ln39"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="WEIGHTS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln39_fu_254_p2" SOURCE="RNI_hls/apc/src/RNI_v3.c:39" URAM="0" VARIABLE="add_ln39"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="WEIGHTS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln31_fu_229_p2" SOURCE="RNI_hls/apc/src/RNI_v3.c:31" URAM="0" VARIABLE="add_ln31"/>
                 <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage rom_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_1p" PRAGMA="" RTLNAME="WEIGHTS_U" SOURCE="" URAM="0" VARIABLE="WEIGHTS"/>
             </BindNodes>
         </Module>
         <Module>
-            <Name>RNI_Pipeline_VITIS_LOOP_68_1</Name>
+            <Name>RNI_Pipeline_VITIS_LOOP_76_1</Name>
             <Loops>
-                <VITIS_LOOP_68_1/>
+                <VITIS_LOOP_76_1/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
@@ -933,8 +933,8 @@
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_68_1>
-                        <Name>VITIS_LOOP_68_1</Name>
+                    <VITIS_LOOP_76_1>
+                        <Name>VITIS_LOOP_76_1</Name>
                         <Slack>7.30</Slack>
                         <TripCount>10</TripCount>
                         <Latency>11</Latency>
@@ -943,7 +943,7 @@
                         <PipelineDepth>3</PipelineDepth>
                         <PipelineType>yes</PipelineType>
                         <InstanceList/>
-                    </VITIS_LOOP_68_1>
+                    </VITIS_LOOP_76_1>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
@@ -966,7 +966,7 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_68_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln68_fu_108_p2" SOURCE="RNI_hls/apc/src/RNI_v3.c:68" URAM="0" VARIABLE="add_ln68"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_76_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln76_fu_108_p2" SOURCE="RNI_hls/apc/src/RNI_v3.c:76" URAM="0" VARIABLE="add_ln76"/>
             </BindNodes>
         </Module>
         <Module>
@@ -1013,7 +1013,7 @@
                             <PipelineDepth>undef</PipelineDepth>
                             <PipelineType>no</PipelineType>
                             <InstanceList>
-                                <Instance>grp_RNI_Pipeline_WEIGHTS_LOOP_fu_208</Instance>
+                                <Instance>grp_RNI_Pipeline_WEIGHTS_LOOP_fu_206</Instance>
                             </InstanceList>
                         </NEURONES_LOOP>
                     </LAYERS_LOOP>
@@ -1039,10 +1039,10 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="LAYERS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln19_fu_283_p2" SOURCE="RNI_hls/apc/src/RNI_v3.c:19" URAM="0" VARIABLE="add_ln19"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="LAYERS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_fu_301_p2" SOURCE="" URAM="0" VARIABLE="add"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONES_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add8_fu_370_p2" SOURCE="RNI_hls/apc/src/RNI_v3.c:21" URAM="0" VARIABLE="add8"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONES_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln21_fu_421_p2" SOURCE="RNI_hls/apc/src/RNI_v3.c:21" URAM="0" VARIABLE="add_ln21"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="LAYERS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln27_fu_281_p2" SOURCE="RNI_hls/apc/src/RNI_v3.c:27" URAM="0" VARIABLE="add_ln27"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="LAYERS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_fu_299_p2" SOURCE="" URAM="0" VARIABLE="add"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONES_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add8_fu_368_p2" SOURCE="RNI_hls/apc/src/RNI_v3.c:29" URAM="0" VARIABLE="add8"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONES_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln29_fu_419_p2" SOURCE="RNI_hls/apc/src/RNI_v3.c:29" URAM="0" VARIABLE="add_ln29"/>
                 <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage rom_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_1p" PRAGMA="" RTLNAME="NEURONS_U" SOURCE="" URAM="0" VARIABLE="NEURONS"/>
                 <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="NEURONS_MEM_U" SOURCE="" URAM="0" VARIABLE="NEURONS_MEM"/>
                 <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="NEURONS_STATE_U" SOURCE="" URAM="0" VARIABLE="NEURONS_STATE"/>
@@ -1051,7 +1051,7 @@
     </ModuleInformation>
     <FIFOInformation/>
     <UserConfigCommands>
-        <config_export output="/home/mohr0901/Documents/RNI/RNI_hls/output"/>
+        <config_export flow="syn" output="/home/mohr0901/Documents/RNI/RNI_hls/output" vivado_clock="10"/>
     </UserConfigCommands>
     <Args>
         <Arg ArgName="input" index="0" direction="inout" srcType="int*" srcSize="32">
@@ -1313,27 +1313,27 @@
             <item name="Inferred Burst Summary">
                 <table>
                     <keys size="6">HW Interface, Direction, Length, Width, Loop, Loop Location</keys>
-                    <column name="m_axi_gmem">read, variable, 32, WEIGHTS_LOOP, RNI_hls/apc/src/RNI_v3.c:23:18</column>
-                    <column name="m_axi_gmem">write, 10, 32, VITIS_LOOP_68_1, RNI_hls/apc/src/RNI_v3.c:68:19</column>
+                    <column name="m_axi_gmem">read, variable, 32, WEIGHTS_LOOP, RNI_hls/apc/src/RNI_v3.c:31:18</column>
+                    <column name="m_axi_gmem">write, 10, 32, VITIS_LOOP_76_1, RNI_hls/apc/src/RNI_v3.c:76:19</column>
                 </table>
             </item>
             <item name="All M_AXI Variable Accesses">
                 <table>
                     <keys size="10">HW Interface, Variable, Access Location, Direction, Burst Status, Length, Loop, Loop Location, Resolution, Problem</keys>
-                    <column name="m_axi_gmem">input, RNI_hls/apc/src/RNI_v3.c:31:35, read, Fail, , NEURONES_LOOP, RNI_hls/apc/src/RNI_v3.c:21:18, 214-232, Access call is in the conditional branch</column>
-                    <column name="m_axi_gmem">input, RNI_hls/apc/src/RNI_v3.c:31:35, read, Inferred, variable, WEIGHTS_LOOP, RNI_hls/apc/src/RNI_v3.c:23:18, , </column>
-                    <column name="m_axi_gmem">output, RNI_hls/apc/src/RNI_v3.c:70:15, write, Widen Fail, , VITIS_LOOP_68_1, RNI_hls/apc/src/RNI_v3.c:68:19, 214-353, Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0</column>
-                    <column name="m_axi_gmem">output, RNI_hls/apc/src/RNI_v3.c:70:15, write, Inferred, 10, VITIS_LOOP_68_1, RNI_hls/apc/src/RNI_v3.c:68:19, , </column>
+                    <column name="m_axi_gmem">input, RNI_hls/apc/src/RNI_v3.c:39:35, read, Fail, , NEURONES_LOOP, RNI_hls/apc/src/RNI_v3.c:29:18, 214-232, Access call is in the conditional branch</column>
+                    <column name="m_axi_gmem">input, RNI_hls/apc/src/RNI_v3.c:39:35, read, Inferred, variable, WEIGHTS_LOOP, RNI_hls/apc/src/RNI_v3.c:31:18, , </column>
+                    <column name="m_axi_gmem">output, RNI_hls/apc/src/RNI_v3.c:78:15, write, Widen Fail, , VITIS_LOOP_76_1, RNI_hls/apc/src/RNI_v3.c:76:19, 214-353, Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0</column>
+                    <column name="m_axi_gmem">output, RNI_hls/apc/src/RNI_v3.c:78:15, write, Inferred, 10, VITIS_LOOP_76_1, RNI_hls/apc/src/RNI_v3.c:76:19, , </column>
                 </table>
             </item>
         </section>
     </ReportBurst>
     <PragmaReport>
-        <Pragma type="interface" location="RNI_hls/apc/src/RNI_v3.c:9" status="valid" parentFunction="rni" variable="input" isDirective="0" options="mode=m_axi port=input offset=slave depth=512 bundle=gmem"/>
-        <Pragma type="interface" location="RNI_hls/apc/src/RNI_v3.c:10" status="valid" parentFunction="rni" variable="output" isDirective="0" options="mode=m_axi port=output offset=slave depth=512 bundle=gmem"/>
-        <Pragma type="interface" location="RNI_hls/apc/src/RNI_v3.c:12" status="valid" parentFunction="rni" variable="input" isDirective="0" options="mode=s_axilite port=input bundle=control"/>
-        <Pragma type="interface" location="RNI_hls/apc/src/RNI_v3.c:13" status="valid" parentFunction="rni" variable="output" isDirective="0" options="mode=s_axilite port=output bundle=control"/>
-        <Pragma type="interface" location="RNI_hls/apc/src/RNI_v3.c:14" status="valid" parentFunction="rni" variable="return" isDirective="0" options="mode=s_axilite port=return bundle=control"/>
+        <Pragma type="interface" location="RNI_hls/apc/src/RNI_v3.c:17" status="valid" parentFunction="rni" variable="input" isDirective="0" options="mode=m_axi port=input offset=slave depth=4 bundle=gmem"/>
+        <Pragma type="interface" location="RNI_hls/apc/src/RNI_v3.c:18" status="valid" parentFunction="rni" variable="output" isDirective="0" options="mode=m_axi port=output offset=slave depth=10 bundle=gmem"/>
+        <Pragma type="interface" location="RNI_hls/apc/src/RNI_v3.c:20" status="valid" parentFunction="rni" variable="input" isDirective="0" options="mode=s_axilite port=input bundle=control"/>
+        <Pragma type="interface" location="RNI_hls/apc/src/RNI_v3.c:21" status="valid" parentFunction="rni" variable="output" isDirective="0" options="mode=s_axilite port=output bundle=control"/>
+        <Pragma type="interface" location="RNI_hls/apc/src/RNI_v3.c:22" status="valid" parentFunction="rni" variable="return" isDirective="0" options="mode=s_axilite port=return bundle=control"/>
     </PragmaReport>
 </profile>
 

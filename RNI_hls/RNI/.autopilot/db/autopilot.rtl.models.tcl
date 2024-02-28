@@ -6,7 +6,7 @@ set SynModuleInfo {
       {MODELNAME RNI_flow_control_loop_pipe_sequential_init RTLNAME RNI_flow_control_loop_pipe_sequential_init BINDTYPE interface TYPE internal_upc_flow_control INSTNAME RNI_flow_control_loop_pipe_sequential_init_U}
     }
   }
-  {SRCNAME RNI_Pipeline_VITIS_LOOP_68_1 MODELNAME RNI_Pipeline_VITIS_LOOP_68_1 RTLNAME RNI_RNI_Pipeline_VITIS_LOOP_68_1}
+  {SRCNAME RNI_Pipeline_VITIS_LOOP_76_1 MODELNAME RNI_Pipeline_VITIS_LOOP_76_1 RTLNAME RNI_RNI_Pipeline_VITIS_LOOP_76_1}
   {SRCNAME RNI MODELNAME RNI RTLNAME RNI IS_TOP 1
     SUBMODULES {
       {MODELNAME RNI_NEURONS_ROM_AUTO_1R RTLNAME RNI_NEURONS_ROM_AUTO_1R BINDTYPE storage TYPE rom IMPL auto LATENCY 2 ALLOW_PRAGMA 1}

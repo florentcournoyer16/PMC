@@ -182,8 +182,8 @@ set RtlHierarchyInfo {[
 					{"Name" : "gmem_blk_n_AW", "Type" : "RtlSignal"},
 					{"Name" : "gmem_blk_n_B", "Type" : "RtlSignal"}],
 				"SubConnect" : [
-					{"ID" : "4", "SubInstance" : "grp_RNI_Pipeline_WEIGHTS_LOOP_fu_208", "Port" : "gmem", "Inst_start_state" : "14", "Inst_end_state" : "15"},
-					{"ID" : "8", "SubInstance" : "grp_RNI_Pipeline_VITIS_LOOP_68_1_fu_228", "Port" : "gmem", "Inst_start_state" : "19", "Inst_end_state" : "20"}]},
+					{"ID" : "4", "SubInstance" : "grp_RNI_Pipeline_WEIGHTS_LOOP_fu_206", "Port" : "gmem", "Inst_start_state" : "14", "Inst_end_state" : "15"},
+					{"ID" : "8", "SubInstance" : "grp_RNI_Pipeline_VITIS_LOOP_76_1_fu_226", "Port" : "gmem", "Inst_start_state" : "19", "Inst_end_state" : "20"}]},
 			{"Name" : "input_r", "Type" : "None", "Direction" : "I"},
 			{"Name" : "output_r", "Type" : "None", "Direction" : "I"},
 			{"Name" : "n_i", "Type" : "OVld", "Direction" : "IO"},
@@ -191,14 +191,14 @@ set RtlHierarchyInfo {[
 			{"Name" : "NEURONS", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "WEIGHTS", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "4", "SubInstance" : "grp_RNI_Pipeline_WEIGHTS_LOOP_fu_208", "Port" : "WEIGHTS", "Inst_start_state" : "14", "Inst_end_state" : "15"}]},
+					{"ID" : "4", "SubInstance" : "grp_RNI_Pipeline_WEIGHTS_LOOP_fu_206", "Port" : "WEIGHTS", "Inst_start_state" : "14", "Inst_end_state" : "15"}]},
 			{"Name" : "NEURONS_MEM", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "4", "SubInstance" : "grp_RNI_Pipeline_WEIGHTS_LOOP_fu_208", "Port" : "NEURONS_MEM", "Inst_start_state" : "14", "Inst_end_state" : "15"},
-					{"ID" : "8", "SubInstance" : "grp_RNI_Pipeline_VITIS_LOOP_68_1_fu_228", "Port" : "NEURONS_MEM", "Inst_start_state" : "19", "Inst_end_state" : "20"}]},
+					{"ID" : "4", "SubInstance" : "grp_RNI_Pipeline_WEIGHTS_LOOP_fu_206", "Port" : "NEURONS_MEM", "Inst_start_state" : "14", "Inst_end_state" : "15"},
+					{"ID" : "8", "SubInstance" : "grp_RNI_Pipeline_VITIS_LOOP_76_1_fu_226", "Port" : "NEURONS_MEM", "Inst_start_state" : "19", "Inst_end_state" : "20"}]},
 			{"Name" : "NEURONS_STATE", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "4", "SubInstance" : "grp_RNI_Pipeline_WEIGHTS_LOOP_fu_208", "Port" : "NEURONS_STATE", "Inst_start_state" : "14", "Inst_end_state" : "15"}]}],
+					{"ID" : "4", "SubInstance" : "grp_RNI_Pipeline_WEIGHTS_LOOP_fu_206", "Port" : "NEURONS_STATE", "Inst_start_state" : "14", "Inst_end_state" : "15"}]}],
 		"Loop" : [
 			{"Name" : "NEURONES_LOOP", "PipelineType" : "no",
 				"LoopDec" : {"FSMBitwidth" : "25", "FirstState" : "ap_ST_fsm_state3", "LastState" : ["ap_ST_fsm_state17"], "QuitState" : ["ap_ST_fsm_state3"], "PreState" : ["ap_ST_fsm_state2"], "PostState" : ["ap_ST_fsm_state2"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
@@ -207,7 +207,7 @@ set RtlHierarchyInfo {[
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.NEURONS_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.NEURONS_MEM_U", "Parent" : "0"},
 	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.NEURONS_STATE_U", "Parent" : "0"},
-	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_WEIGHTS_LOOP_fu_208", "Parent" : "0", "Child" : ["5", "6", "7"],
+	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_WEIGHTS_LOOP_fu_206", "Parent" : "0", "Child" : ["5", "6", "7"],
 		"CDFG" : "RNI_Pipeline_WEIGHTS_LOOP",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -222,15 +222,15 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "sext_ln23", "Type" : "None", "Direction" : "I"},
+			{"Name" : "sext_ln31", "Type" : "None", "Direction" : "I"},
 			{"Name" : "gmem", "Type" : "MAXI", "Direction" : "I",
 				"BlockSignal" : [
 					{"Name" : "gmem_blk_n_R", "Type" : "RtlSignal"}]},
 			{"Name" : "j_2", "Type" : "None", "Direction" : "I"},
-			{"Name" : "sext_ln23_2", "Type" : "None", "Direction" : "I"},
-			{"Name" : "sext_ln23_1", "Type" : "None", "Direction" : "I"},
+			{"Name" : "sext_ln31_2", "Type" : "None", "Direction" : "I"},
+			{"Name" : "sext_ln31_1", "Type" : "None", "Direction" : "I"},
 			{"Name" : "cmp12", "Type" : "None", "Direction" : "I"},
-			{"Name" : "trunc_ln23_1", "Type" : "None", "Direction" : "I"},
+			{"Name" : "trunc_ln31_1", "Type" : "None", "Direction" : "I"},
 			{"Name" : "trunc_ln2", "Type" : "None", "Direction" : "I"},
 			{"Name" : "WEIGHTS", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "NEURONS_MEM", "Type" : "Memory", "Direction" : "IO"},
@@ -238,11 +238,11 @@ set RtlHierarchyInfo {[
 		"Loop" : [
 			{"Name" : "WEIGHTS_LOOP", "PipelineType" : "UPC",
 				"LoopDec" : {"FSMBitwidth" : "2", "FirstState" : "ap_ST_fsm_pp0_stage1", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage1_subdone", "LastState" : "ap_ST_fsm_pp0_stage1", "LastStateIter" : "ap_enable_reg_pp0_iter2", "LastStateBlock" : "ap_block_pp0_stage1_subdone", "QuitState" : "ap_ST_fsm_pp0_stage1", "QuitStateIter" : "ap_enable_reg_pp0_iter2", "QuitStateBlock" : "ap_block_pp0_stage1_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_WEIGHTS_LOOP_fu_208.WEIGHTS_U", "Parent" : "4"},
-	{"ID" : "6", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_WEIGHTS_LOOP_fu_208.mul_8s_32s_32_2_1_U1", "Parent" : "4"},
-	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_WEIGHTS_LOOP_fu_208.flow_control_loop_pipe_sequential_init_U", "Parent" : "4"},
-	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_VITIS_LOOP_68_1_fu_228", "Parent" : "0", "Child" : ["9"],
-		"CDFG" : "RNI_Pipeline_VITIS_LOOP_68_1",
+	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_WEIGHTS_LOOP_fu_206.WEIGHTS_U", "Parent" : "4"},
+	{"ID" : "6", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_WEIGHTS_LOOP_fu_206.mul_8s_32s_32_2_1_U1", "Parent" : "4"},
+	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_WEIGHTS_LOOP_fu_206.flow_control_loop_pipe_sequential_init_U", "Parent" : "4"},
+	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_VITIS_LOOP_76_1_fu_226", "Parent" : "0", "Child" : ["9"],
+		"CDFG" : "RNI_Pipeline_VITIS_LOOP_76_1",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
@@ -259,12 +259,12 @@ set RtlHierarchyInfo {[
 			{"Name" : "gmem", "Type" : "MAXI", "Direction" : "O",
 				"BlockSignal" : [
 					{"Name" : "gmem_blk_n_W", "Type" : "RtlSignal"}]},
-			{"Name" : "sext_ln68", "Type" : "None", "Direction" : "I"},
+			{"Name" : "sext_ln76", "Type" : "None", "Direction" : "I"},
 			{"Name" : "NEURONS_MEM", "Type" : "Memory", "Direction" : "I"}],
 		"Loop" : [
-			{"Name" : "VITIS_LOOP_68_1", "PipelineType" : "UPC",
+			{"Name" : "VITIS_LOOP_76_1", "PipelineType" : "UPC",
 				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter2", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter2", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "9", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_VITIS_LOOP_68_1_fu_228.flow_control_loop_pipe_sequential_init_U", "Parent" : "8"},
+	{"ID" : "9", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_VITIS_LOOP_76_1_fu_226.flow_control_loop_pipe_sequential_init_U", "Parent" : "8"},
 	{"ID" : "10", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.control_s_axi_U", "Parent" : "0"},
 	{"ID" : "11", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.gmem_m_axi_U", "Parent" : "0"}]}
 
@@ -281,20 +281,20 @@ set ArgLastReadFirstWriteLatency {
 		NEURONS_MEM {Type IO LastRead -1 FirstWrite -1}
 		NEURONS_STATE {Type IO LastRead -1 FirstWrite -1}}
 	RNI_Pipeline_WEIGHTS_LOOP {
-		sext_ln23 {Type I LastRead 0 FirstWrite -1}
+		sext_ln31 {Type I LastRead 0 FirstWrite -1}
 		gmem {Type I LastRead 2 FirstWrite -1}
 		j_2 {Type I LastRead 0 FirstWrite -1}
-		sext_ln23_2 {Type I LastRead 0 FirstWrite -1}
-		sext_ln23_1 {Type I LastRead 0 FirstWrite -1}
+		sext_ln31_2 {Type I LastRead 0 FirstWrite -1}
+		sext_ln31_1 {Type I LastRead 0 FirstWrite -1}
 		cmp12 {Type I LastRead 0 FirstWrite -1}
-		trunc_ln23_1 {Type I LastRead 0 FirstWrite -1}
+		trunc_ln31_1 {Type I LastRead 0 FirstWrite -1}
 		trunc_ln2 {Type I LastRead 0 FirstWrite -1}
 		WEIGHTS {Type I LastRead -1 FirstWrite -1}
 		NEURONS_MEM {Type IO LastRead 5 FirstWrite 5}
 		NEURONS_STATE {Type I LastRead 2 FirstWrite -1}}
-	RNI_Pipeline_VITIS_LOOP_68_1 {
+	RNI_Pipeline_VITIS_LOOP_76_1 {
 		gmem {Type O LastRead -1 FirstWrite 2}
-		sext_ln68 {Type I LastRead 0 FirstWrite -1}
+		sext_ln76 {Type I LastRead 0 FirstWrite -1}
 		NEURONS_MEM {Type I LastRead 0 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0

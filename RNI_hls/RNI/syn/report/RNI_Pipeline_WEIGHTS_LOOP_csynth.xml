@@ -130,8 +130,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>sext_ln23</name>
-<Object>sext_ln23</Object>
+<name>sext_ln31</name>
+<Object>sext_ln31</Object>
 <Type>scalar</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>
@@ -658,8 +658,8 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>sext_ln23_2</name>
-<Object>sext_ln23_2</Object>
+<name>sext_ln31_2</name>
+<Object>sext_ln31_2</Object>
 <Type>scalar</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>
@@ -669,8 +669,8 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>sext_ln23_1</name>
-<Object>sext_ln23_1</Object>
+<name>sext_ln31_1</name>
+<Object>sext_ln31_1</Object>
 <Type>scalar</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>
@@ -691,8 +691,8 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>trunc_ln23_1</name>
-<Object>trunc_ln23_1</Object>
+<name>trunc_ln31_1</name>
+<Object>trunc_ln31_1</Object>
 <Type>scalar</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>

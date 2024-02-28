@@ -1,22 +1,27 @@
-#include "../inc/model_v3.h"
+#include "../tb/tb.h"
 #include <stdio.h>
 
-void RNI(int inputs[INPUT_LAYER_LENGHT], int output[OUTPUT_LAYER_LENGHT]);
+void RNI(int inputs[INPUT_L], int output[OUTPUT_L]);
 
-int main()
-{
-	int in[INPUT_LAYER_LENGHT] = {-3};
-	int out[OUTPUT_LAYER_LENGHT] = {0};
-
+int UT_LEAK(){
+	RNI(UT_LEAK_INPUT[1], UT_LEAK_OUTPUT);
 	for(int i = 0; i < 5; i++)
 	{
-		RNI(in, out);
+		RNI(UT_LEAK_INPUT[0], UT_LEAK_OUTPUT);
+		printf("L0_N0 = %d", UT_LEAK_INPUT[0][0]);
 	}
-
-	for(int i = 0; i < OUTPUT_LAYER_LENGHT; i++)
-	{
-		printf("%d -- ", out[i]);
-	}
-
-	return 0;
+	return 1;
 }
+
+int UT_MAIN(){
+	UT_LEAK();
+	return 1;
+}
+
+int IT_MAIN(){
+	return 1;
+}
+
+
+
+

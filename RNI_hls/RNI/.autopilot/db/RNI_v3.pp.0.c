@@ -143,7 +143,12 @@
     void _ssdm_op_SpecLicense() __attribute__ ((nothrow));
 # 2 "<built-in>" 2
 # 1 "RNI_hls/apc/src/RNI_v3.c" 2
-# 1 "RNI_hls/apc/src/model.h" 1
+
+
+
+
+
+# 1 "RNI_hls/apc/src/../inc/model_v3.h" 1
 
 
 
@@ -310,7 +315,9 @@ int NEURONS_STATE[14] = {
     0,
 };
 int NEURONS_STATE_LENGHT = 14;
-# 2 "RNI_hls/apc/src/RNI_v3.c" 2
+# 7 "RNI_hls/apc/src/RNI_v3.c" 2
+
+
 # 1 "/usr/include/stdio.h" 1 3 4
 # 27 "/usr/include/stdio.h" 3 4
 # 1 "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h" 1 3 4
@@ -1058,23 +1065,24 @@ extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ ));
 # 885 "/usr/include/stdio.h" 3 4
 extern int __uflow (FILE *);
 extern int __overflow (FILE *, int);
-# 3 "RNI_hls/apc/src/RNI_v3.c" 2
+# 10 "RNI_hls/apc/src/RNI_v3.c" 2
 
 
 
 
 __attribute__((sdx_kernel("RNI", 0))) void RNI(int input[4], int output[10])
 {
-#line 18 "/home/mohr0901/Documents/RNI/RNI_hls/RNI/csynth.tcl"
+#line 21 "/home/mohr0901/Documents/PMC/RNI_hls/RNI/csynth.tcl"
 #pragma HLSDIRECTIVE TOP name=RNI
-# 8 "RNI_hls/apc/src/RNI_v3.c"
+# 15 "RNI_hls/apc/src/RNI_v3.c"
 
-#line 7 "/home/mohr0901/Documents/RNI/RNI_hls/RNI/directives.tcl"
+#line 7 "/home/mohr0901/Documents/PMC/RNI_hls/RNI/directives.tcl"
 #pragma HLSDIRECTIVE TOP name=RNI
-# 8 "RNI_hls/apc/src/RNI_v3.c"
+# 15 "RNI_hls/apc/src/RNI_v3.c"
 
-#pragma HLS INTERFACE mode=m_axi port=input offset=slave depth=512 bundle=gmem
-#pragma HLS INTERFACE mode=m_axi port=output offset=slave depth=512 bundle=gmem
+
+#pragma HLS INTERFACE mode=m_axi port=input offset=slave depth=4 bundle=gmem
+#pragma HLS INTERFACE mode=m_axi port=output offset=slave depth=10 bundle=gmem
 
 #pragma HLS INTERFACE mode=s_axilite port=input bundle=control
 #pragma HLS INTERFACE mode=s_axilite port=output bundle=control
@@ -1132,7 +1140,7 @@ __attribute__((sdx_kernel("RNI", 0))) void RNI(int input[4], int output[10])
 
 
  int k = NEURONS_MEM_LENGHT-LAYERS[LAYERS_LENGHT-1];
- VITIS_LOOP_68_1: for(int j = k; j < NEURONS_MEM_LENGHT; j++)
+ VITIS_LOOP_76_1: for(int j = k; j < NEURONS_MEM_LENGHT; j++)
  {
   output[j-k] = NEURONS_MEM[j];
  }

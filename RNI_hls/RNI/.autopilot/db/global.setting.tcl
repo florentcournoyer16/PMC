@@ -2,7 +2,7 @@
 set TopModule "RNI"
 set ClockPeriod 10
 set ClockList ap_clk
-set HasVivadoClockPeriod 0
+set HasVivadoClockPeriod 1
 set CombLogicFlag 0
 set PipelineFlag 0
 set DataflowTaskPipelineFlag 1
@@ -45,12 +45,12 @@ set TargetInfo xc7z020:-clg400:-1
 set SourceFiles {sc {} c ../apc/src/RNI_v3.c}
 set SourceFlags {sc {} c {{}}}
 set DirectiveFile {}
-set TBFiles {verilog ../apc/tb/RNI.c bc ../apc/tb/RNI.c vhdl ../apc/tb/RNI.c sc ../apc/tb/RNI.c cas ../apc/tb/RNI.c c {}}
+set TBFiles {verilog {../apc/tb/main.c ../apc/tb/tb.h} bc {../apc/tb/main.c ../apc/tb/tb.h} sc {../apc/tb/main.c ../apc/tb/tb.h} vhdl {../apc/tb/main.c ../apc/tb/tb.h} c {} cas {../apc/tb/main.c ../apc/tb/tb.h}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
-set TBTops {verilog {} bc {} vhdl {} sc {} cas {} c {}}
-set TBInstNames {verilog {} bc {} vhdl {} sc {} cas {} c {}}
+set TBTops {verilog {} bc {} sc {} vhdl {} c {} cas {}}
+set TBInstNames {verilog {} bc {} sc {} vhdl {} c {} cas {}}
 set XDCFiles {}
 set ExtraGlobalOptions {"area_timing" 1 "clock_gate" 1 "impl_flow" map "power_gate" 0}
 set TBTVFileNotFound {}

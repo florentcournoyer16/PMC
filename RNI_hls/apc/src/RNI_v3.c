@@ -1,4 +1,11 @@
+#if (UNIT_TEST == 1)
+#include "../inc/model_unit_test.h"
+#elif (INTE_TEST == 1)
+#include "../inc/model_inte_test.h"
+#else
 #include "../inc/model_v3.h"
+#endif
+
 #include <stdio.h>
 
 // input[INPUT_LAYER_LENGHT] -> input[4].
@@ -7,8 +14,8 @@
 void RNI(int input[INPUT_LAYER_LENGHT], int output[OUTPUT_LAYER_LENGHT])
 {
 
-#pragma HLS INTERFACE mode=m_axi port=input offset=slave depth=512 bundle=gmem
-#pragma HLS INTERFACE mode=m_axi port=output offset=slave depth=512 bundle=gmem
+#pragma HLS INTERFACE mode=m_axi port=input offset=slave depth=4 bundle=gmem
+#pragma HLS INTERFACE mode=m_axi port=output offset=slave depth=10 bundle=gmem
 
 #pragma HLS INTERFACE mode=s_axilite port=input bundle=control
 #pragma HLS INTERFACE mode=s_axilite port=output bundle=control

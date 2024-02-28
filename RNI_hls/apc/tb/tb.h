@@ -1,21 +1,58 @@
-#include "../inc/model_v3.h"
+#ifndef TB_H
+#define TB_H
+
+#define UNIT_TEST 0
+#define INTE_TEST 1
+
+#define INPUT_L 	4
+#define OUTPUT_L	10
+#define BASE		int
+
+int UT_MAIN();
+int IT_MAIN();
+
+// --------------------------------------------------
+// UNIT TEST - LEAK FUNCTION
+// --------------------------------------------------
+BASE UT_LEAK_INPUT[2][INPUT_L] = {{0, 0, 0, 0},
+								{10, 10, 10, 10}};
+
+BASE UT_LEAK_OUTPUT[OUTPUT_L] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+BASE UT_LEAK_EXPECTED[5][INPUT_L] = {{9, 9, 9, 9},
+									{8, 8, 8, 8},
+									{7, 7, 7, 7},
+									{6, 6, 6, 6},
+									{5, 5, 5, 5},};
+// --------------------------------------------------
+// UNIT TEST - ACCUMULATION FUNCTION
+// --------------------------------------------------
+BASE UT_ACCUMULATION_INPUT[INPUT_L] = {2, 2, 2, 2};
+
+BASE UT_ACCUMULATION_OUTPUT[OUTPUT_L] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+BASE UT_ACCUMULATION_EXPECTED[5][INPUT_L] = {{1, 1, 1, 1},
+									{2, 2, 2, 2},
+									{3, 3, 3, 3},
+									{4, 4, 4, 4},
+									{5, 5, 5, 5},};
 
 // --------------------------------------------------
 // SINGLE INPUT NO DISCHARGE TEST
 // --------------------------------------------------
-BASE_TYPE TEST_1_I[INPUT_LAYER_LENGHT] = { 1, 1, 1, 1 };
-BASE_TYPE TEST_1_EXPECTED_O[INPUT_LAYER_LENGHT] = { 0, 0, 0, 0 };
+BASE TEST_1_I[INPUT_L] = { 1, 1, 1, 1 };
+BASE TEST_1_EXPECTED_O[INPUT_L] = { 0, 0, 0, 0 };
 
 // --------------------------------------------------
 // SINGLE INPUT SINGLE DISCHARGE TEST
 // --------------------------------------------------
-BASE_TYPE TEST_2_I[INPUT_LAYER_LENGHT] = { 1, 1, -3, 1 };
-BASE_TYPE TEST_2_EXPECTED_O[INPUT_LAYER_LENGHT] = { 1, 1, -3, 1 };
+BASE TEST_2_I[INPUT_L] = { 1, 1, -3, 1 };
+BASE TEST_2_EXPECTED_O[INPUT_L] = { 1, 1, -3, 1 };
 
 // --------------------------------------------------
 // MULTIPLE INPUT NO DISCHARGE TEST
 // --------------------------------------------------
-BASE_TYPE TEST_3_I[10][INPUT_LAYER_LENGHT] = {
+BASE TEST_3_I[10][INPUT_L] = {
     { 1, 3, -5, 2 },
     { 1, 3, -5, 2 },
     { 1, 3, -5, 2 },
@@ -27,7 +64,7 @@ BASE_TYPE TEST_3_I[10][INPUT_LAYER_LENGHT] = {
     { 1, 3, -5, 2 },
     { 1, 3, -5, 2 }
 };
-BASE_TYPE TEST_3_EXPECTED_O[10][INPUT_LAYER_LENGHT] = {
+BASE TEST_3_EXPECTED_O[10][INPUT_L] = {
     { 1, 3, -5, 2 },
     { 1, 3, -5, 2 },
     { 1, 3, -5, 2 },
@@ -43,8 +80,57 @@ BASE_TYPE TEST_3_EXPECTED_O[10][INPUT_LAYER_LENGHT] = {
 // --------------------------------------------------
 // MULTIPLE INPUT SINGLE DISCHARGE TEST
 // --------------------------------------------------
-
+BASE TEST_4_I[10][INPUT_L] = {
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 }
+};
+BASE TEST_4_EXPECTED_O[10][INPUT_L] = {
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 }
+};
 
 // --------------------------------------------------
 // MULTIPLE INPUT MULTIPLE DISCHARGE TEST
 // --------------------------------------------------
+BASE TEST_5_I[10][INPUT_L] = {
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 }
+};
+BASE TEST_5_EXPECTED_O[10][INPUT_L] = {
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 },
+    { 1, 3, -5, 2 }
+};
+
+#endif // TB_H

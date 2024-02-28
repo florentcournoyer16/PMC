@@ -60,14 +60,14 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 4 \
-    name sext_ln23 \
+    name sext_ln31 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_sext_ln23 \
+    corename dc_sext_ln31 \
     op interface \
-    ports { sext_ln23 { I 32 vector } } \
+    ports { sext_ln31 { I 32 vector } } \
 } "
 }
 
@@ -105,14 +105,14 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 7 \
-    name sext_ln23_2 \
+    name sext_ln31_2 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_sext_ln23_2 \
+    corename dc_sext_ln31_2 \
     op interface \
-    ports { sext_ln23_2 { I 62 vector } } \
+    ports { sext_ln31_2 { I 62 vector } } \
 } "
 }
 
@@ -120,14 +120,14 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 8 \
-    name sext_ln23_1 \
+    name sext_ln31_1 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_sext_ln23_1 \
+    corename dc_sext_ln31_1 \
     op interface \
-    ports { sext_ln23_1 { I 32 vector } } \
+    ports { sext_ln31_1 { I 32 vector } } \
 } "
 }
 
@@ -150,14 +150,14 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 10 \
-    name trunc_ln23_1 \
+    name trunc_ln31_1 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_trunc_ln23_1 \
+    corename dc_trunc_ln31_1 \
     op interface \
-    ports { trunc_ln23_1 { I 4 vector } } \
+    ports { trunc_ln31_1 { I 4 vector } } \
 } "
 }
 

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'RNI_Pipeline_WEIGHTS_LOOP'" level="0">
-<item name = "Date">Thu Feb  8 18:39:15 2024
+<item name = "Date">Sat Feb 17 17:22:10 2024
 </item>
 <item name = "Version">2023.1.1 (Build 3869133 on Jun 15 2023)</item>
 <item name = "Project">RNI_hls</item>
@@ -80,17 +80,17 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln23_fu_229_p2">+, 0, 0, 71, 64, 1</column>
-<column name="add_ln31_fu_254_p2">+, 0, 0, 39, 32, 32</column>
-<column name="add_ln39_1_fu_208_p2">+, 0, 0, 7, 4, 4</column>
-<column name="add_ln39_fu_203_p2">+, 0, 0, 13, 4, 2</column>
-<column name="add_ln41_fu_247_p2">+, 0, 0, 39, 32, 32</column>
-<column name="sub_ln39_fu_213_p2">-, 0, 0, 7, 4, 4</column>
+<column name="add_ln31_fu_229_p2">+, 0, 0, 71, 64, 1</column>
+<column name="add_ln39_fu_254_p2">+, 0, 0, 39, 32, 32</column>
+<column name="add_ln47_1_fu_208_p2">+, 0, 0, 7, 4, 4</column>
+<column name="add_ln47_fu_203_p2">+, 0, 0, 13, 4, 2</column>
+<column name="add_ln49_fu_247_p2">+, 0, 0, 39, 32, 32</column>
+<column name="sub_ln47_fu_213_p2">-, 0, 0, 7, 4, 4</column>
 <column name="ap_block_pp0_stage0_11001">and, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state3_pp0_stage0_iter1">and, 0, 0, 2, 1, 1</column>
 <column name="ap_condition_275">and, 0, 0, 2, 1, 1</column>
 <column name="ap_predicate_op43_read_state3">and, 0, 0, 2, 1, 1</column>
-<column name="icmp_ln23_fu_194_p2">icmp, 0, 0, 71, 64, 64</column>
+<column name="icmp_ln31_fu_194_p2">icmp, 0, 0, 71, 64, 64</column>
 <column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
 </table>
 </item>
@@ -119,14 +119,14 @@
 <column name="ap_enable_reg_pp0_iter2">1, 0, 1, 0</column>
 <column name="ap_loop_exit_ready_pp0_iter1_reg">1, 0, 1, 0</column>
 <column name="gmem_addr_read_reg_331">32, 0, 32, 0</column>
-<column name="icmp_ln23_reg_307">1, 0, 1, 0</column>
+<column name="icmp_ln31_reg_307">1, 0, 1, 0</column>
 <column name="j_2_cast_reg_291">4, 0, 64, 60</column>
 <column name="k_1_reg_296">64, 0, 64, 0</column>
 <column name="k_1_reg_296_pp0_iter1_reg">64, 0, 64, 0</column>
 <column name="k_fu_68">64, 0, 64, 0</column>
-<column name="mul_ln31_reg_350">32, 0, 32, 0</column>
-<column name="sext_ln23_1_cast_reg_281">64, 0, 64, 0</column>
-<column name="sub_ln39_reg_311">4, 0, 4, 0</column>
+<column name="mul_ln39_reg_350">32, 0, 32, 0</column>
+<column name="sext_ln31_1_cast_reg_281">64, 0, 64, 0</column>
+<column name="sub_ln47_reg_311">4, 0, 4, 0</column>
 </table>
 </item>
 </section>
@@ -142,7 +142,7 @@
 <column name="ap_done">out, 1, ap_ctrl_hs, RNI_Pipeline_WEIGHTS_LOOP, return value</column>
 <column name="ap_idle">out, 1, ap_ctrl_hs, RNI_Pipeline_WEIGHTS_LOOP, return value</column>
 <column name="ap_ready">out, 1, ap_ctrl_hs, RNI_Pipeline_WEIGHTS_LOOP, return value</column>
-<column name="sext_ln23">in, 32, ap_none, sext_ln23, scalar</column>
+<column name="sext_ln31">in, 32, ap_none, sext_ln31, scalar</column>
 <column name="m_axi_gmem_AWVALID">out, 1, m_axi, gmem, pointer</column>
 <column name="m_axi_gmem_AWREADY">in, 1, m_axi, gmem, pointer</column>
 <column name="m_axi_gmem_AWADDR">out, 64, m_axi, gmem, pointer</column>
@@ -190,10 +190,10 @@
 <column name="m_axi_gmem_BID">in, 1, m_axi, gmem, pointer</column>
 <column name="m_axi_gmem_BUSER">in, 1, m_axi, gmem, pointer</column>
 <column name="j_2">in, 4, ap_none, j_2, scalar</column>
-<column name="sext_ln23_2">in, 62, ap_none, sext_ln23_2, scalar</column>
-<column name="sext_ln23_1">in, 32, ap_none, sext_ln23_1, scalar</column>
+<column name="sext_ln31_2">in, 62, ap_none, sext_ln31_2, scalar</column>
+<column name="sext_ln31_1">in, 32, ap_none, sext_ln31_1, scalar</column>
 <column name="cmp12">in, 1, ap_none, cmp12, scalar</column>
-<column name="trunc_ln23_1">in, 4, ap_none, trunc_ln23_1, scalar</column>
+<column name="trunc_ln31_1">in, 4, ap_none, trunc_ln31_1, scalar</column>
 <column name="trunc_ln2">in, 4, ap_none, trunc_ln2, scalar</column>
 <column name="NEURONS_MEM_address0">out, 4, ap_memory, NEURONS_MEM, array</column>
 <column name="NEURONS_MEM_ce0">out, 1, ap_memory, NEURONS_MEM, array</column>

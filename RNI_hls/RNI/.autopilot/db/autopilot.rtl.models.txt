@@ -8,5 +8,5 @@ RNI_NEURONS_STATE_RAM_AUTO_1R1W
 RNI_gmem_m_axi
 RNI_control_s_axi
 RNI_Pipeline_WEIGHTS_LOOP
-RNI_Pipeline_VITIS_LOOP_68_1
+RNI_Pipeline_VITIS_LOOP_76_1
 RNI
