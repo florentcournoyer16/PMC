@@ -92,9 +92,9 @@ proj/
 *log
 
 # Header file parser
-!header_file_parser/*.py
-!header_file_parser/*.json
-!header_file_parser/*.h
+!parsers/*.py
+!parsers/models/*.json
+!parsers/outputs/*.h
 
 # Excel sheets for test
 !*.xlsx

@@ -3,7 +3,7 @@
 #elif (INTE_TEST == 1)
 #include "../inc/model_inte_test.h"
 #else
-#include "../inc/model_4_input_AE_SNN_mat.h"
+#include "../inc/model_v3_FIRST_RNI.h"
 #endif
 
 #include <stdio.h>

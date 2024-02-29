@@ -1,7 +1,8 @@
 from json import load
 
-INPUT_FILE_PATH = r'header_file_parser/model_4_input_AE_SNN_info.json'
-OUTPUT_FILE_PATH = r'header_file_parser/model_4_input_AE_SNN_mat.h'
+INPUT_FILE_PATH = r'parsers/models/model_FIRST_RNI.json'
+network_name = INPUT_FILE_PATH.split('/')[-1].strip('model_').strip('.json')
+OUTPUT_FILE_PATH = f'parsers/outputs/model_v3_{network_name}.h'
 
 def main():
     with open(INPUT_FILE_PATH, mode='r', encoding='utf8') as model_file:
@@ -57,9 +58,9 @@ def generate_cpp_header(input_model_dict, header_filename, base_type='int'):
         header_file.write(f"#define BASE_TYPE {base_type}\n\n")
 
         for key, values in output_model_dict.items():
-            header_file.write(f"BASE_TYPE {key}[{len(values)}] = {{\n")
+            header_file.write(f"BASE_TYPE {key}[{len(values)}] = {{ ")
             for val in values:
-                header_file.write(f"\t{val},\n")
+                header_file.write(f"{val}, ")
             header_file.write("};\n")
             header_file.write(f"#define {key}_LENGHT {len(values)}\n\n")
 
