@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'RNI_Pipeline_WEIGHTS_LOOP'" level="0">
-<item name = "Date">Sat Feb 17 17:22:09 2024
+<item name = "Date">Wed Feb 28 20:09:40 2024
 </item>
 <item name = "Version">2023.1.1 (Build 3869133 on Jun 15 2023)</item>
 <item name = "Project">RNI_hls</item>
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- WEIGHTS_LOOP">?, ?, 5, 2, 1, ?, yes</column>
+<column name="- WEIGHTS_LOOP">?, ?, 5, 3, 1, ?, yes</column>
 </table>
 </item>
 </section>

@@ -4,7 +4,7 @@
 == Synthesis Summary Report of 'RNI'
 ================================================================
 + General Information: 
-    * Date:           Sat Feb 17 17:22:10 2024
+    * Date:           Wed Feb 28 20:09:41 2024
     * Version:        2023.1.1 (Build 3869133 on Jun 15 2023)
     * Project:        RNI_hls
     * Solution:       RNI (Vivado IP Flow Target)
@@ -15,18 +15,16 @@
 + Performance & Resource Estimates: 
     
     PS: '+' for module; 'o' for loop; '*' for dataflow
-    +---------------------------------+------+------+---------+---------+----------+---------+------+----------+--------+---------+-----------+-----------+-----+
-    |             Modules             | Issue|      | Latency | Latency | Iteration|         | Trip |          |        |         |           |           |     |
-    |             & Loops             | Type | Slack| (cycles)|   (ns)  |  Latency | Interval| Count| Pipelined|  BRAM  |   DSP   |     FF    |    LUT    | URAM|
-    +---------------------------------+------+------+---------+---------+----------+---------+------+----------+--------+---------+-----------+-----------+-----+
-    |+ RNI                            |     -|  0.00|        -|        -|         -|        -|     -|        no|  4 (1%)|  2 (~0%)|  2237 (2%)|  2283 (4%)|    -|
-    | + RNI_Pipeline_VITIS_LOOP_76_1  |     -|  0.00|       13|  130.000|         -|       13|     -|        no|       -|        -|   42 (~0%)|   75 (~0%)|    -|
-    |  o VITIS_LOOP_76_1              |     -|  7.30|       11|  110.000|         3|        1|    10|       yes|       -|        -|          -|          -|    -|
-    | o LAYERS_LOOP                   |     -|  7.30|        -|        -|         -|        -|     -|        no|       -|        -|          -|          -|    -|
-    |  o NEURONES_LOOP                |     -|  7.30|        -|        -|         -|        -|     -|        no|       -|        -|          -|          -|    -|
-    |   + RNI_Pipeline_WEIGHTS_LOOP   |     -|  0.00|        -|        -|         -|        -|     -|        no|       -|  2 (~0%)|  526 (~0%)|  401 (~0%)|    -|
-    |    o WEIGHTS_LOOP               |    II|  7.30|        -|        -|         5|        2|     -|       yes|       -|        -|          -|          -|    -|
-    +---------------------------------+------+------+---------+---------+----------+---------+------+----------+--------+---------+-----------+-----------+-----+
+    +--------------------------------+--------+-------+---------+--------+----------+---------+------+----------+----------+---------+-----------+-----------+-----+
+    |             Modules            |  Issue |       | Latency | Latency| Iteration|         | Trip |          |          |         |           |           |     |
+    |             & Loops            |  Type  | Slack | (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined|   BRAM   |   DSP   |     FF    |    LUT    | URAM|
+    +--------------------------------+--------+-------+---------+--------+----------+---------+------+----------+----------+---------+-----------+-----------+-----+
+    |+ RNI                           |  Timing|  -0.61|        -|       -|         -|        -|     -|        no|  29 (10%)|  2 (~0%)|  2323 (2%)|  2533 (4%)|    -|
+    | o LAYERS_LOOP                  |       -|   7.30|        -|       -|         -|        -|     -|        no|         -|        -|          -|          -|    -|
+    |  o NEURONES_LOOP               |       -|   7.30|        -|       -|         -|        -|     -|        no|         -|        -|          -|          -|    -|
+    |   + RNI_Pipeline_WEIGHTS_LOOP  |       -|   0.00|        -|       -|         -|        -|     -|        no|   22 (7%)|  2 (~0%)|  522 (~0%)|  473 (~0%)|    -|
+    |    o WEIGHTS_LOOP              |      II|   7.30|        -|       -|         5|        3|     -|       yes|         -|        -|          -|          -|    -|
+    +--------------------------------+--------+-------+---------+--------+----------+---------+------+----------+----------+---------+-----------+-----------+-----+
 
 
 ================================================================
@@ -100,45 +98,47 @@
  Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
 
 * Inferred Burst Summary
-+--------------+-----------+----------+-------+-----------------+--------------------------------+
-| HW Interface | Direction | Length   | Width | Loop            | Loop Location                  |
-+--------------+-----------+----------+-------+-----------------+--------------------------------+
-| m_axi_gmem   | read      | variable | 32    | WEIGHTS_LOOP    | RNI_hls/apc/src/RNI_v3.c:31:18 |
-| m_axi_gmem   | write     | 10       | 32    | VITIS_LOOP_76_1 | RNI_hls/apc/src/RNI_v3.c:76:19 |
-+--------------+-----------+----------+-------+-----------------+--------------------------------+
++--------------+-----------+----------+-------+---------------+--------------------------------+
+| HW Interface | Direction | Length   | Width | Loop          | Loop Location                  |
++--------------+-----------+----------+-------+---------------+--------------------------------+
+| m_axi_gmem   | write     | variable | 32    | NEURONES_LOOP | RNI_hls/apc/src/RNI_v3.c:29:18 |
+| m_axi_gmem   | read      | variable | 32    | WEIGHTS_LOOP  | RNI_hls/apc/src/RNI_v3.c:31:18 |
++--------------+-----------+----------+-------+---------------+--------------------------------+
 
 * All M_AXI Variable Accesses
-+--------------+----------+--------------------------------+-----------+--------------+----------+-----------------+--------------------------------+------------+-------------------------------------------------------------------------------------------------------+
-| HW Interface | Variable | Access Location                | Direction | Burst Status | Length   | Loop            | Loop Location                  | Resolution | Problem                                                                                               |
-+--------------+----------+--------------------------------+-----------+--------------+----------+-----------------+--------------------------------+------------+-------------------------------------------------------------------------------------------------------+
-| m_axi_gmem   | input    | RNI_hls/apc/src/RNI_v3.c:39:35 | read      | Fail         |          | NEURONES_LOOP   | RNI_hls/apc/src/RNI_v3.c:29:18 | 214-232    | Access call is in the conditional branch                                                              |
-| m_axi_gmem   | input    | RNI_hls/apc/src/RNI_v3.c:39:35 | read      | Inferred     | variable | WEIGHTS_LOOP    | RNI_hls/apc/src/RNI_v3.c:31:18 |            |                                                                                                       |
-| m_axi_gmem   | output   | RNI_hls/apc/src/RNI_v3.c:78:15 | write     | Widen Fail   |          | VITIS_LOOP_76_1 | RNI_hls/apc/src/RNI_v3.c:76:19 | 214-353    | Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
-| m_axi_gmem   | output   | RNI_hls/apc/src/RNI_v3.c:78:15 | write     | Inferred     | 10       | VITIS_LOOP_76_1 | RNI_hls/apc/src/RNI_v3.c:76:19 |            |                                                                                                       |
-+--------------+----------+--------------------------------+-----------+--------------+----------+-----------------+--------------------------------+------------+-------------------------------------------------------------------------------------------------------+
++--------------+----------+--------------------------------+-----------+--------------+----------+---------------+--------------------------------+------------+------------------------------------------+
+| HW Interface | Variable | Access Location                | Direction | Burst Status | Length   | Loop          | Loop Location                  | Resolution | Problem                                  |
++--------------+----------+--------------------------------+-----------+--------------+----------+---------------+--------------------------------+------------+------------------------------------------+
+| m_axi_gmem   | input    | RNI_hls/apc/src/RNI_v3.c:39:35 | read      | Fail         |          | NEURONES_LOOP | RNI_hls/apc/src/RNI_v3.c:29:18 | 214-232    | Access call is in the conditional branch |
+| m_axi_gmem   | input    | RNI_hls/apc/src/RNI_v3.c:39:35 | read      | Inferred     | variable | WEIGHTS_LOOP  | RNI_hls/apc/src/RNI_v3.c:31:18 |            |                                          |
+| m_axi_gmem   | output   | RNI_hls/apc/src/RNI_v3.c:59:35 | write     | Fail         |          | LAYERS_LOOP   | RNI_hls/apc/src/RNI_v3.c:27:15 | 214-232    | Access call is in the conditional branch |
+| m_axi_gmem   | output   | RNI_hls/apc/src/RNI_v3.c:59:35 | write     | Inferred     | variable | NEURONES_LOOP | RNI_hls/apc/src/RNI_v3.c:29:18 |            |                                          |
++--------------+----------+--------------------------------+-----------+--------------+----------+---------------+--------------------------------+------------+------------------------------------------+
 
     * Resolution URL: www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=XXX-YYY.html (replace XXX-YYY with column value)
 
 ================================================================
 == Bind Op Report
 ================================================================
-+---------------------------------+-----+--------+----------+-----+--------+---------+
-| Name                            | DSP | Pragma | Variable | Op  | Impl   | Latency |
-+---------------------------------+-----+--------+----------+-----+--------+---------+
-| + RNI                           | 2   |        |          |     |        |         |
-|   add_ln27_fu_281_p2            | -   |        | add_ln27 | add | fabric | 0       |
-|   add_fu_299_p2                 | -   |        | add      | add | fabric | 0       |
-|   add8_fu_368_p2                | -   |        | add8     | add | fabric | 0       |
-|   add_ln29_fu_419_p2            | -   |        | add_ln29 | add | fabric | 0       |
-|  + RNI_Pipeline_WEIGHTS_LOOP    | 2   |        |          |     |        |         |
-|    add_ln47_fu_203_p2           | -   |        | add_ln47 | add | fabric | 0       |
-|    add_ln49_fu_247_p2           | -   |        | add_ln49 | add | fabric | 0       |
-|    mul_8s_32s_32_2_1_U1         | 2   |        | mul_ln39 | mul | auto   | 1       |
-|    add_ln39_fu_254_p2           | -   |        | add_ln39 | add | fabric | 0       |
-|    add_ln31_fu_229_p2           | -   |        | add_ln31 | add | fabric | 0       |
-|  + RNI_Pipeline_VITIS_LOOP_76_1 | 0   |        |          |     |        |         |
-|    add_ln76_fu_108_p2           | -   |        | add_ln76 | add | fabric | 0       |
-+---------------------------------+-----+--------+----------+-----+--------+---------+
++------------------------------+-----+--------+------------+-----+--------+---------+
+| Name                         | DSP | Pragma | Variable   | Op  | Impl   | Latency |
++------------------------------+-----+--------+------------+-----+--------+---------+
+| + RNI                        | 2   |        |            |     |        |         |
+|   add_ln27_fu_295_p2         | -   |        | add_ln27   | add | fabric | 0       |
+|   add_fu_327_p2              | -   |        | add        | add | fabric | 0       |
+|   add_ln29_fu_363_p2         | -   |        | add_ln29   | add | fabric | 0       |
+|   add_ln29_1_fu_373_p2       | -   |        | add_ln29_1 | add | fabric | 0       |
+|   add_ln50_fu_450_p2         | -   |        | add_ln50   | add | fabric | 0       |
+|   add_ln50_1_fu_459_p2       | -   |        | add_ln50_1 | add | fabric | 0       |
+|   add8_fu_485_p2             | -   |        | add8       | add | fabric | 0       |
+|   add_ln29_2_fu_524_p2       | -   |        | add_ln29_2 | add | fabric | 0       |
+|  + RNI_Pipeline_WEIGHTS_LOOP | 2   |        |            |     |        |         |
+|    add_ln47_fu_235_p2        | -   |        | add_ln47   | add | fabric | 0       |
+|    add_ln49_fu_282_p2        | -   |        | add_ln49   | add | fabric | 0       |
+|    mul_11s_32s_32_2_1_U1     | 2   |        | mul_ln39   | mul | auto   | 1       |
+|    add_ln39_fu_289_p2        | -   |        | add_ln39   | add | fabric | 0       |
+|    add_ln31_fu_268_p2        | -   |        | add_ln31   | add | fabric | 0       |
++------------------------------+-----+--------+------------+-----+--------+---------+
 
 
 ================================================================
@@ -147,12 +147,12 @@
 +------------------------------+------+------+--------+---------------+---------+------+---------+
 | Name                         | BRAM | URAM | Pragma | Variable      | Storage | Impl | Latency |
 +------------------------------+------+------+--------+---------------+---------+------+---------+
-| + RNI                        | 4    | 0    |        |               |         |      |         |
-|   NEURONS_U                  | -    | -    |        | NEURONS       | rom_1p  | auto | 1       |
-|   NEURONS_MEM_U              | -    | -    |        | NEURONS_MEM   | ram_1p  | auto | 1       |
+| + RNI                        | 29   | 0    |        |               |         |      |         |
+|   NEURONS_U                  | 1    | -    |        | NEURONS       | rom_1p  | auto | 1       |
+|   NEURONS_MEM_U              | 2    | -    |        | NEURONS_MEM   | ram_1p  | auto | 1       |
 |   NEURONS_STATE_U            | -    | -    |        | NEURONS_STATE | ram_1p  | auto | 1       |
-|  + RNI_Pipeline_WEIGHTS_LOOP | 0    | 0    |        |               |         |      |         |
-|    WEIGHTS_U                 | -    | -    |        | WEIGHTS       | rom_1p  | auto | 1       |
+|  + RNI_Pipeline_WEIGHTS_LOOP | 22   | 0    |        |               |         |      |         |
+|    WEIGHTS_U                 | 22   | -    |        | WEIGHTS       | rom_1p  | auto | 1       |
 +------------------------------+------+------+--------+---------------+---------+------+---------+
 
 
@@ -160,14 +160,14 @@
 == Pragma Report
 ================================================================
 * Valid Pragma Syntax
-+-----------+----------------------------------------------------------+--------------------------------------------+
-| Type      | Options                                                  | Location                                   |
-+-----------+----------------------------------------------------------+--------------------------------------------+
-| interface | mode=m_axi port=input offset=slave depth=4 bundle=gmem   | RNI_hls/apc/src/RNI_v3.c:17 in rni, input  |
-| interface | mode=m_axi port=output offset=slave depth=10 bundle=gmem | RNI_hls/apc/src/RNI_v3.c:18 in rni, output |
-| interface | mode=s_axilite port=input bundle=control                 | RNI_hls/apc/src/RNI_v3.c:20 in rni, input  |
-| interface | mode=s_axilite port=output bundle=control                | RNI_hls/apc/src/RNI_v3.c:21 in rni, output |
-| interface | mode=s_axilite port=return bundle=control                | RNI_hls/apc/src/RNI_v3.c:22 in rni, return |
-+-----------+----------------------------------------------------------+--------------------------------------------+
++-----------+-----------------------------------------------------------+--------------------------------------------+
+| Type      | Options                                                   | Location                                   |
++-----------+-----------------------------------------------------------+--------------------------------------------+
+| interface | mode=m_axi port=input offset=slave depth=512 bundle=gmem  | RNI_hls/apc/src/RNI_v3.c:17 in rni, input  |
+| interface | mode=m_axi port=output offset=slave depth=512 bundle=gmem | RNI_hls/apc/src/RNI_v3.c:18 in rni, output |
+| interface | mode=s_axilite port=input bundle=control                  | RNI_hls/apc/src/RNI_v3.c:20 in rni, input  |
+| interface | mode=s_axilite port=output bundle=control                 | RNI_hls/apc/src/RNI_v3.c:21 in rni, output |
+| interface | mode=s_axilite port=return bundle=control                 | RNI_hls/apc/src/RNI_v3.c:22 in rni, return |
++-----------+-----------------------------------------------------------+--------------------------------------------+
 
 

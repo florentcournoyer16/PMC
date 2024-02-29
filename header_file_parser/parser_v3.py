@@ -1,7 +1,7 @@
 from json import load
 
-INPUT_FILE_PATH = r'header_file_parser/model.json'
-OUTPUT_FILE_PATH = r'header_file_parser/model_v3.h'
+INPUT_FILE_PATH = r'header_file_parser/model_4_input_AE_SNN_info.json'
+OUTPUT_FILE_PATH = r'header_file_parser/model_4_input_AE_SNN_mat.h'
 
 def main():
     with open(INPUT_FILE_PATH, mode='r', encoding='utf8') as model_file:

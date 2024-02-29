@@ -1,6 +1,6 @@
 # This script segment is generated automatically by AutoPilot
 
-set name RNI_mul_8s_32s_32_2_1
+set name RNI_mul_11s_32s_32_2_1
 if {${::AESL::PGuard_rtl_comp_handler}} {
 	::AP::rtl_comp_handler $name BINDTYPE {op} TYPE {mul} IMPL {auto} LATENCY 1 ALLOW_PRAGMA 1
 }
@@ -22,14 +22,14 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 12 \
+    id 14 \
     name NEURONS_MEM \
     reset_level 1 \
     sync_rst true \
     dir IO \
     corename NEURONS_MEM \
     op interface \
-    ports { NEURONS_MEM_address0 { O 4 vector } NEURONS_MEM_ce0 { O 1 bit } NEURONS_MEM_we0 { O 1 bit } NEURONS_MEM_d0 { O 32 vector } NEURONS_MEM_q0 { I 32 vector } } \
+    ports { NEURONS_MEM_address0 { O 10 vector } NEURONS_MEM_ce0 { O 1 bit } NEURONS_MEM_we0 { O 1 bit } NEURONS_MEM_d0 { O 32 vector } NEURONS_MEM_q0 { I 32 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'NEURONS_MEM'"
@@ -41,14 +41,14 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 13 \
+    id 15 \
     name NEURONS_STATE \
     reset_level 1 \
     sync_rst true \
-    dir I \
+    dir IO \
     corename NEURONS_STATE \
     op interface \
-    ports { NEURONS_STATE_address0 { O 4 vector } NEURONS_STATE_ce0 { O 1 bit } NEURONS_STATE_q0 { I 1 vector } } \
+    ports { NEURONS_STATE_address0 { O 10 vector } NEURONS_STATE_ce0 { O 1 bit } NEURONS_STATE_we0 { O 1 bit } NEURONS_STATE_d0 { O 1 vector } NEURONS_STATE_q0 { I 1 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'NEURONS_STATE'"
@@ -90,14 +90,14 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 6 \
-    name j_2 \
+    name j_1 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_j_2 \
+    corename dc_j_1 \
     op interface \
-    ports { j_2 { I 4 vector } } \
+    ports { j_1 { I 10 vector } } \
 } "
 }
 
@@ -157,7 +157,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_trunc_ln31_1 \
     op interface \
-    ports { trunc_ln31_1 { I 4 vector } } \
+    ports { trunc_ln31_1 { I 10 vector } } \
 } "
 }
 
@@ -165,14 +165,44 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 11 \
-    name trunc_ln2 \
+    name trunc_ln29_1 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_trunc_ln2 \
+    corename dc_trunc_ln29_1 \
     op interface \
-    ports { trunc_ln2 { I 4 vector } } \
+    ports { trunc_ln29_1 { I 10 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 12 \
+    name icmp_ln50 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_icmp_ln50 \
+    op interface \
+    ports { icmp_ln50 { I 1 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 13 \
+    name add8 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_add8 \
+    op interface \
+    ports { add8 { I 32 vector } } \
 } "
 }
 

@@ -165,6 +165,15 @@ int main()
 		UT_MAIN();
 	else if(INTE_TEST)
 		IT_MAIN();
+	int outp[512] = {0};
+	int data2[512] = {50};
+	RNI(data, outp);
+
+	printf("[");
+	for(int i = 0; i<512; i++){
+		printf("%d, ", outp[i]);
+	}
+	printf("]");
 
 	return 0;
 }

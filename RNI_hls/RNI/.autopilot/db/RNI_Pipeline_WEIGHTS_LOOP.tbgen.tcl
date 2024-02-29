@@ -17,29 +17,33 @@ set C_modelType { void 0 }
 set C_modelArgList {
 	{ sext_ln31 int 32 regular  }
 	{ gmem int 32 regular {axi_master 0}  }
-	{ j_2 int 4 regular  }
+	{ j_1 int 10 regular  }
 	{ sext_ln31_2 int 62 regular  }
 	{ sext_ln31_1 int 32 regular  }
 	{ cmp12 int 1 regular  }
-	{ trunc_ln31_1 int 4 regular  }
-	{ trunc_ln2 int 4 regular  }
-	{ NEURONS_MEM int 32 regular {array 14 { 2 3 } 1 1 } {global 2}  }
-	{ NEURONS_STATE int 1 regular {array 14 { 1 3 } 1 1 } {global 0}  }
+	{ trunc_ln31_1 int 10 regular  }
+	{ trunc_ln29_1 int 10 regular  }
+	{ icmp_ln50 int 1 regular  }
+	{ add8 int 32 regular  }
+	{ NEURONS_MEM int 32 regular {array 548 { 2 3 } 1 1 } {global 2}  }
+	{ NEURONS_STATE int 1 regular {array 548 { 2 3 } 1 1 } {global 2}  }
 }
 set hasAXIMCache 0
 set C_modelArgMapList {[ 
 	{ "Name" : "sext_ln31", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
  	{ "Name" : "gmem", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[ {"cElement": [{"cName": "input_r","offset": { "type": "dynamic","port_name": "input_r","bundle": "control"},"direction": "READONLY"},{"cName": "output_r","offset": { "type": "dynamic","port_name": "output_r","bundle": "control"},"direction": "WRITEONLY"}]}]} , 
- 	{ "Name" : "j_2", "interface" : "wire", "bitwidth" : 4, "direction" : "READONLY"} , 
+ 	{ "Name" : "j_1", "interface" : "wire", "bitwidth" : 10, "direction" : "READONLY"} , 
  	{ "Name" : "sext_ln31_2", "interface" : "wire", "bitwidth" : 62, "direction" : "READONLY"} , 
  	{ "Name" : "sext_ln31_1", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
  	{ "Name" : "cmp12", "interface" : "wire", "bitwidth" : 1, "direction" : "READONLY"} , 
- 	{ "Name" : "trunc_ln31_1", "interface" : "wire", "bitwidth" : 4, "direction" : "READONLY"} , 
- 	{ "Name" : "trunc_ln2", "interface" : "wire", "bitwidth" : 4, "direction" : "READONLY"} , 
+ 	{ "Name" : "trunc_ln31_1", "interface" : "wire", "bitwidth" : 10, "direction" : "READONLY"} , 
+ 	{ "Name" : "trunc_ln29_1", "interface" : "wire", "bitwidth" : 10, "direction" : "READONLY"} , 
+ 	{ "Name" : "icmp_ln50", "interface" : "wire", "bitwidth" : 1, "direction" : "READONLY"} , 
+ 	{ "Name" : "add8", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
  	{ "Name" : "NEURONS_MEM", "interface" : "memory", "bitwidth" : 32, "direction" : "READWRITE", "extern" : 0} , 
- 	{ "Name" : "NEURONS_STATE", "interface" : "memory", "bitwidth" : 1, "direction" : "READONLY", "extern" : 0} ]}
+ 	{ "Name" : "NEURONS_STATE", "interface" : "memory", "bitwidth" : 1, "direction" : "READWRITE", "extern" : 0} ]}
 # RTL Port declarations: 
-set portNum 67
+set portNum 71
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -47,7 +51,6 @@ set portList {
 	{ ap_done sc_out sc_logic 1 predone -1 } 
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
-	{ sext_ln31 sc_in sc_lv 32 signal 0 } 
 	{ m_axi_gmem_AWVALID sc_out sc_logic 1 signal 1 } 
 	{ m_axi_gmem_AWREADY sc_in sc_logic 1 signal 1 } 
 	{ m_axi_gmem_AWADDR sc_out sc_lv 64 signal 1 } 
@@ -94,20 +97,25 @@ set portList {
 	{ m_axi_gmem_BRESP sc_in sc_lv 2 signal 1 } 
 	{ m_axi_gmem_BID sc_in sc_lv 1 signal 1 } 
 	{ m_axi_gmem_BUSER sc_in sc_lv 1 signal 1 } 
-	{ j_2 sc_in sc_lv 4 signal 2 } 
+	{ sext_ln31 sc_in sc_lv 32 signal 0 } 
+	{ j_1 sc_in sc_lv 10 signal 2 } 
 	{ sext_ln31_2 sc_in sc_lv 62 signal 3 } 
 	{ sext_ln31_1 sc_in sc_lv 32 signal 4 } 
 	{ cmp12 sc_in sc_lv 1 signal 5 } 
-	{ trunc_ln31_1 sc_in sc_lv 4 signal 6 } 
-	{ trunc_ln2 sc_in sc_lv 4 signal 7 } 
-	{ NEURONS_MEM_address0 sc_out sc_lv 4 signal 8 } 
-	{ NEURONS_MEM_ce0 sc_out sc_logic 1 signal 8 } 
-	{ NEURONS_MEM_we0 sc_out sc_logic 1 signal 8 } 
-	{ NEURONS_MEM_d0 sc_out sc_lv 32 signal 8 } 
-	{ NEURONS_MEM_q0 sc_in sc_lv 32 signal 8 } 
-	{ NEURONS_STATE_address0 sc_out sc_lv 4 signal 9 } 
-	{ NEURONS_STATE_ce0 sc_out sc_logic 1 signal 9 } 
-	{ NEURONS_STATE_q0 sc_in sc_lv 1 signal 9 } 
+	{ trunc_ln31_1 sc_in sc_lv 10 signal 6 } 
+	{ trunc_ln29_1 sc_in sc_lv 10 signal 7 } 
+	{ icmp_ln50 sc_in sc_lv 1 signal 8 } 
+	{ add8 sc_in sc_lv 32 signal 9 } 
+	{ NEURONS_MEM_address0 sc_out sc_lv 10 signal 10 } 
+	{ NEURONS_MEM_ce0 sc_out sc_logic 1 signal 10 } 
+	{ NEURONS_MEM_we0 sc_out sc_logic 1 signal 10 } 
+	{ NEURONS_MEM_d0 sc_out sc_lv 32 signal 10 } 
+	{ NEURONS_MEM_q0 sc_in sc_lv 32 signal 10 } 
+	{ NEURONS_STATE_address0 sc_out sc_lv 10 signal 11 } 
+	{ NEURONS_STATE_ce0 sc_out sc_logic 1 signal 11 } 
+	{ NEURONS_STATE_we0 sc_out sc_logic 1 signal 11 } 
+	{ NEURONS_STATE_d0 sc_out sc_lv 1 signal 11 } 
+	{ NEURONS_STATE_q0 sc_in sc_lv 1 signal 11 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -116,7 +124,6 @@ set NewPortList {[
  	{ "name": "ap_done", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "predone", "bundle":{"name": "ap_done", "role": "default" }} , 
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
- 	{ "name": "sext_ln31", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "sext_ln31", "role": "default" }} , 
  	{ "name": "m_axi_gmem_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem", "role": "AWVALID" }} , 
  	{ "name": "m_axi_gmem_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem", "role": "AWREADY" }} , 
  	{ "name": "m_axi_gmem_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem", "role": "AWADDR" }} , 
@@ -163,19 +170,24 @@ set NewPortList {[
  	{ "name": "m_axi_gmem_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem", "role": "BRESP" }} , 
  	{ "name": "m_axi_gmem_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem", "role": "BID" }} , 
  	{ "name": "m_axi_gmem_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem", "role": "BUSER" }} , 
- 	{ "name": "j_2", "direction": "in", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "j_2", "role": "default" }} , 
+ 	{ "name": "sext_ln31", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "sext_ln31", "role": "default" }} , 
+ 	{ "name": "j_1", "direction": "in", "datatype": "sc_lv", "bitwidth":10, "type": "signal", "bundle":{"name": "j_1", "role": "default" }} , 
  	{ "name": "sext_ln31_2", "direction": "in", "datatype": "sc_lv", "bitwidth":62, "type": "signal", "bundle":{"name": "sext_ln31_2", "role": "default" }} , 
  	{ "name": "sext_ln31_1", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "sext_ln31_1", "role": "default" }} , 
  	{ "name": "cmp12", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "cmp12", "role": "default" }} , 
- 	{ "name": "trunc_ln31_1", "direction": "in", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "trunc_ln31_1", "role": "default" }} , 
- 	{ "name": "trunc_ln2", "direction": "in", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "trunc_ln2", "role": "default" }} , 
- 	{ "name": "NEURONS_MEM_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "NEURONS_MEM", "role": "address0" }} , 
+ 	{ "name": "trunc_ln31_1", "direction": "in", "datatype": "sc_lv", "bitwidth":10, "type": "signal", "bundle":{"name": "trunc_ln31_1", "role": "default" }} , 
+ 	{ "name": "trunc_ln29_1", "direction": "in", "datatype": "sc_lv", "bitwidth":10, "type": "signal", "bundle":{"name": "trunc_ln29_1", "role": "default" }} , 
+ 	{ "name": "icmp_ln50", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "icmp_ln50", "role": "default" }} , 
+ 	{ "name": "add8", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "add8", "role": "default" }} , 
+ 	{ "name": "NEURONS_MEM_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":10, "type": "signal", "bundle":{"name": "NEURONS_MEM", "role": "address0" }} , 
  	{ "name": "NEURONS_MEM_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "NEURONS_MEM", "role": "ce0" }} , 
  	{ "name": "NEURONS_MEM_we0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "NEURONS_MEM", "role": "we0" }} , 
  	{ "name": "NEURONS_MEM_d0", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "NEURONS_MEM", "role": "d0" }} , 
  	{ "name": "NEURONS_MEM_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "NEURONS_MEM", "role": "q0" }} , 
- 	{ "name": "NEURONS_STATE_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "NEURONS_STATE", "role": "address0" }} , 
+ 	{ "name": "NEURONS_STATE_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":10, "type": "signal", "bundle":{"name": "NEURONS_STATE", "role": "address0" }} , 
  	{ "name": "NEURONS_STATE_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "NEURONS_STATE", "role": "ce0" }} , 
+ 	{ "name": "NEURONS_STATE_we0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "NEURONS_STATE", "role": "we0" }} , 
+ 	{ "name": "NEURONS_STATE_d0", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "NEURONS_STATE", "role": "d0" }} , 
  	{ "name": "NEURONS_STATE_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "NEURONS_STATE", "role": "q0" }}  ]}
 
 set RtlHierarchyInfo {[
@@ -198,20 +210,22 @@ set RtlHierarchyInfo {[
 			{"Name" : "gmem", "Type" : "MAXI", "Direction" : "I",
 				"BlockSignal" : [
 					{"Name" : "gmem_blk_n_R", "Type" : "RtlSignal"}]},
-			{"Name" : "j_2", "Type" : "None", "Direction" : "I"},
+			{"Name" : "j_1", "Type" : "None", "Direction" : "I"},
 			{"Name" : "sext_ln31_2", "Type" : "None", "Direction" : "I"},
 			{"Name" : "sext_ln31_1", "Type" : "None", "Direction" : "I"},
 			{"Name" : "cmp12", "Type" : "None", "Direction" : "I"},
 			{"Name" : "trunc_ln31_1", "Type" : "None", "Direction" : "I"},
-			{"Name" : "trunc_ln2", "Type" : "None", "Direction" : "I"},
+			{"Name" : "trunc_ln29_1", "Type" : "None", "Direction" : "I"},
+			{"Name" : "icmp_ln50", "Type" : "None", "Direction" : "I"},
+			{"Name" : "add8", "Type" : "None", "Direction" : "I"},
 			{"Name" : "WEIGHTS", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "NEURONS_MEM", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "NEURONS_STATE", "Type" : "Memory", "Direction" : "I"}],
+			{"Name" : "NEURONS_STATE", "Type" : "Memory", "Direction" : "IO"}],
 		"Loop" : [
 			{"Name" : "WEIGHTS_LOOP", "PipelineType" : "UPC",
-				"LoopDec" : {"FSMBitwidth" : "2", "FirstState" : "ap_ST_fsm_pp0_stage1", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage1_subdone", "LastState" : "ap_ST_fsm_pp0_stage1", "LastStateIter" : "ap_enable_reg_pp0_iter2", "LastStateBlock" : "ap_block_pp0_stage1_subdone", "QuitState" : "ap_ST_fsm_pp0_stage1", "QuitStateIter" : "ap_enable_reg_pp0_iter2", "QuitStateBlock" : "ap_block_pp0_stage1_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+				"LoopDec" : {"FSMBitwidth" : "3", "FirstState" : "ap_ST_fsm_pp0_stage1", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage1_subdone", "LastState" : "ap_ST_fsm_pp0_stage2", "LastStateIter" : "ap_enable_reg_pp0_iter1", "LastStateBlock" : "ap_block_pp0_stage2_subdone", "QuitState" : "ap_ST_fsm_pp0_stage2", "QuitStateIter" : "ap_enable_reg_pp0_iter1", "QuitStateBlock" : "ap_block_pp0_stage2_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.WEIGHTS_U", "Parent" : "0"},
-	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_8s_32s_32_2_1_U1", "Parent" : "0"},
+	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_11s_32s_32_2_1_U1", "Parent" : "0"},
 	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.flow_control_loop_pipe_sequential_init_U", "Parent" : "0"}]}
 
 
@@ -219,15 +233,17 @@ set ArgLastReadFirstWriteLatency {
 	RNI_Pipeline_WEIGHTS_LOOP {
 		sext_ln31 {Type I LastRead 0 FirstWrite -1}
 		gmem {Type I LastRead 2 FirstWrite -1}
-		j_2 {Type I LastRead 0 FirstWrite -1}
+		j_1 {Type I LastRead 0 FirstWrite -1}
 		sext_ln31_2 {Type I LastRead 0 FirstWrite -1}
 		sext_ln31_1 {Type I LastRead 0 FirstWrite -1}
 		cmp12 {Type I LastRead 0 FirstWrite -1}
 		trunc_ln31_1 {Type I LastRead 0 FirstWrite -1}
-		trunc_ln2 {Type I LastRead 0 FirstWrite -1}
+		trunc_ln29_1 {Type I LastRead 0 FirstWrite -1}
+		icmp_ln50 {Type I LastRead 0 FirstWrite -1}
+		add8 {Type I LastRead 0 FirstWrite -1}
 		WEIGHTS {Type I LastRead -1 FirstWrite -1}
-		NEURONS_MEM {Type IO LastRead 5 FirstWrite 5}
-		NEURONS_STATE {Type I LastRead 2 FirstWrite -1}}}
+		NEURONS_MEM {Type IO LastRead 4 FirstWrite 5}
+		NEURONS_STATE {Type IO LastRead 2 FirstWrite 3}}}
 
 set hasDtUnsupportedChannel 0
 
@@ -243,12 +259,14 @@ set PipelineEnableSignalInfo {[
 set Spec2ImplPortList { 
 	sext_ln31 { ap_none {  { sext_ln31 in_data 0 32 } } }
 	 { m_axi {  { m_axi_gmem_AWVALID VALID 1 1 }  { m_axi_gmem_AWREADY READY 0 1 }  { m_axi_gmem_AWADDR ADDR 1 64 }  { m_axi_gmem_AWID ID 1 1 }  { m_axi_gmem_AWLEN SIZE 1 32 }  { m_axi_gmem_AWSIZE BURST 1 3 }  { m_axi_gmem_AWBURST LOCK 1 2 }  { m_axi_gmem_AWLOCK CACHE 1 2 }  { m_axi_gmem_AWCACHE PROT 1 4 }  { m_axi_gmem_AWPROT QOS 1 3 }  { m_axi_gmem_AWQOS REGION 1 4 }  { m_axi_gmem_AWREGION USER 1 4 }  { m_axi_gmem_AWUSER DATA 1 1 }  { m_axi_gmem_WVALID VALID 1 1 }  { m_axi_gmem_WREADY READY 0 1 }  { m_axi_gmem_WDATA FIFONUM 1 32 }  { m_axi_gmem_WSTRB STRB 1 4 }  { m_axi_gmem_WLAST LAST 1 1 }  { m_axi_gmem_WID ID 1 1 }  { m_axi_gmem_WUSER DATA 1 1 }  { m_axi_gmem_ARVALID VALID 1 1 }  { m_axi_gmem_ARREADY READY 0 1 }  { m_axi_gmem_ARADDR ADDR 1 64 }  { m_axi_gmem_ARID ID 1 1 }  { m_axi_gmem_ARLEN SIZE 1 32 }  { m_axi_gmem_ARSIZE BURST 1 3 }  { m_axi_gmem_ARBURST LOCK 1 2 }  { m_axi_gmem_ARLOCK CACHE 1 2 }  { m_axi_gmem_ARCACHE PROT 1 4 }  { m_axi_gmem_ARPROT QOS 1 3 }  { m_axi_gmem_ARQOS REGION 1 4 }  { m_axi_gmem_ARREGION USER 1 4 }  { m_axi_gmem_ARUSER DATA 1 1 }  { m_axi_gmem_RVALID VALID 0 1 }  { m_axi_gmem_RREADY READY 1 1 }  { m_axi_gmem_RDATA FIFONUM 0 32 }  { m_axi_gmem_RLAST LAST 0 1 }  { m_axi_gmem_RID ID 0 1 }  { m_axi_gmem_RFIFONUM LEN 0 9 }  { m_axi_gmem_RUSER DATA 0 1 }  { m_axi_gmem_RRESP RESP 0 2 }  { m_axi_gmem_BVALID VALID 0 1 }  { m_axi_gmem_BREADY READY 1 1 }  { m_axi_gmem_BRESP RESP 0 2 }  { m_axi_gmem_BID ID 0 1 }  { m_axi_gmem_BUSER DATA 0 1 } } }
-	j_2 { ap_none {  { j_2 in_data 0 4 } } }
+	j_1 { ap_none {  { j_1 in_data 0 10 } } }
 	sext_ln31_2 { ap_none {  { sext_ln31_2 in_data 0 62 } } }
 	sext_ln31_1 { ap_none {  { sext_ln31_1 in_data 0 32 } } }
 	cmp12 { ap_none {  { cmp12 in_data 0 1 } } }
-	trunc_ln31_1 { ap_none {  { trunc_ln31_1 in_data 0 4 } } }
-	trunc_ln2 { ap_none {  { trunc_ln2 in_data 0 4 } } }
-	NEURONS_MEM { ap_memory {  { NEURONS_MEM_address0 mem_address 1 4 }  { NEURONS_MEM_ce0 mem_ce 1 1 }  { NEURONS_MEM_we0 mem_we 1 1 }  { NEURONS_MEM_d0 mem_din 1 32 }  { NEURONS_MEM_q0 in_data 0 32 } } }
-	NEURONS_STATE { ap_memory {  { NEURONS_STATE_address0 mem_address 1 4 }  { NEURONS_STATE_ce0 mem_ce 1 1 }  { NEURONS_STATE_q0 mem_dout 0 1 } } }
+	trunc_ln31_1 { ap_none {  { trunc_ln31_1 in_data 0 10 } } }
+	trunc_ln29_1 { ap_none {  { trunc_ln29_1 in_data 0 10 } } }
+	icmp_ln50 { ap_none {  { icmp_ln50 in_data 0 1 } } }
+	add8 { ap_none {  { add8 in_data 0 32 } } }
+	NEURONS_MEM { ap_memory {  { NEURONS_MEM_address0 mem_address 1 10 }  { NEURONS_MEM_ce0 mem_ce 1 1 }  { NEURONS_MEM_we0 mem_we 1 1 }  { NEURONS_MEM_d0 mem_din 1 32 }  { NEURONS_MEM_q0 mem_dout 0 32 } } }
+	NEURONS_STATE { ap_memory {  { NEURONS_STATE_address0 mem_address 1 10 }  { NEURONS_STATE_ce0 mem_ce 1 1 }  { NEURONS_STATE_we0 mem_we 1 1 }  { NEURONS_STATE_d0 mem_din 1 1 }  { NEURONS_STATE_q0 in_data 0 1 } } }
 }

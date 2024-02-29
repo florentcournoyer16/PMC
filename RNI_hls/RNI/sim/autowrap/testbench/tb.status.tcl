@@ -1,1 +1,1 @@
-set ::AESL_AUTOSIM::gTopFileName /home/mohr0901/Documents/RNI/RNI_hls/RNI/./sim/autowrap/testbench/RNI_v3.c_pre.c.tb.c
+set ::AESL_AUTOSIM::gTopFileName /home/mohr0901/Documents/PMC/RNI_hls/RNI/./sim/autowrap/testbench/RNI_v3.c_pre.c.tb.c

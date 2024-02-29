@@ -86,7 +86,7 @@ set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part_repo_paths {/home/mohr0901/Downloads/pynq-z2/A.0} [current_project]
 set_property board_part tul.com.tw:pynq-z2:part0:1.0 [current_project]
-set_property ip_repo_paths /home/mohr0901/Documents/RNI/RNI_hls/output/export [current_project]
+set_property ip_repo_paths /home/mohr0901/Documents/PMC/RNI_hls/output/export [current_project]
 update_ip_catalog
 set_property ip_output_repo /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]

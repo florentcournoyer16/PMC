@@ -85,7 +85,7 @@ set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part_repo_paths {/home/mohr0901/Downloads/pynq-z2/A.0} [current_project]
 set_property board_part tul.com.tw:pynq-z2:part0:1.0 [current_project]
-set_property ip_repo_paths /home/mohr0901/Documents/RNI/RNI_hls/output/export [current_project]
+set_property ip_repo_paths /home/mohr0901/Documents/PMC/RNI_hls/output/export [current_project]
 update_ip_catalog
 set_property ip_output_repo /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
@@ -94,15 +94,15 @@ OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v
 add_files /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.srcs/sources_1/bd/design_1/design_1.bd
 set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.gen/sources_1/bd/design_1/ip/design_1_RNI_0_0/constraints/RNI_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.gen/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc]
-set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.gen/sources_1/bd/design_1/ip/design_1_rst_ps7_0_100M_0/design_1_rst_ps7_0_100M_0_board.xdc]
-set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.gen/sources_1/bd/design_1/ip/design_1_rst_ps7_0_100M_0/design_1_rst_ps7_0_100M_0.xdc]
-set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.gen/sources_1/bd/design_1/ip/design_1_rst_ps7_0_100M_0/design_1_rst_ps7_0_100M_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.gen/sources_1/bd/design_1/ip/design_1_processing_system7_0_1/design_1_processing_system7_0_1.xdc]
+set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.gen/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0_board.xdc]
+set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.gen/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0.xdc]
+set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.gen/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.gen/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.gen/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1_ooc.xdc]
 set_property used_in_synthesis false [get_files -all /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.gen/sources_1/bd/design_1/ip/design_1_auto_us_0/design_1_auto_us_0_clocks.xdc]
 set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.gen/sources_1/bd/design_1/ip/design_1_auto_us_0/design_1_auto_us_0_clocks.xdc]
 set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.gen/sources_1/bd/design_1/ip/design_1_auto_us_0/design_1_auto_us_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.gen/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.gen/sources_1/bd/design_1/design_1_ooc.xdc]
 
 OPTRACE "Adding files" END { }

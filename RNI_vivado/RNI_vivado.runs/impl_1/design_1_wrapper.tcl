@@ -134,7 +134,7 @@ OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
   set_property webtalk.parent_dir /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.cache/wt [current_project]
   set_property parent.project_path /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.xpr [current_project]
-  set_property ip_repo_paths /home/mohr0901/Documents/RNI/RNI_hls/output/export [current_project]
+  set_property ip_repo_paths /home/mohr0901/Documents/PMC/RNI_hls/output/export [current_project]
   update_ip_catalog
   set_property ip_output_repo /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]

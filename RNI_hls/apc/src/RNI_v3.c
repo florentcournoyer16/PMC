@@ -3,7 +3,7 @@
 #elif (INTE_TEST == 1)
 #include "../inc/model_inte_test.h"
 #else
-#include "../inc/model_v3.h"
+#include "../inc/model_4_input_AE_SNN_mat.h"
 #endif
 
 #include <stdio.h>
@@ -14,8 +14,8 @@
 void RNI(int input[INPUT_LAYER_LENGHT], int output[OUTPUT_LAYER_LENGHT])
 {
 
-#pragma HLS INTERFACE mode=m_axi port=input offset=slave depth=4 bundle=gmem
-#pragma HLS INTERFACE mode=m_axi port=output offset=slave depth=10 bundle=gmem
+#pragma HLS INTERFACE mode=m_axi port=input offset=slave depth=512 bundle=gmem
+#pragma HLS INTERFACE mode=m_axi port=output offset=slave depth=512 bundle=gmem
 
 #pragma HLS INTERFACE mode=s_axilite port=input bundle=control
 #pragma HLS INTERFACE mode=s_axilite port=output bundle=control
@@ -44,12 +44,19 @@ void RNI(int input[INPUT_LAYER_LENGHT], int output[OUTPUT_LAYER_LENGHT])
 					// if neuron from previous layer fires then accumulate
 					// printf("%d ++ ", NEURONS_MEM[j]);
 					// printf("%d\n", THRESHOLDS[i]);
-					if(NEURONS_STATE[n_i-k+w_i-1] == 1)
+					if(NEURONS_STATE[n_i-k+w_i-1] != 0)
 					{
-						NEURONS_MEM[j] += WEIGHTS[k]*1;
+						NEURONS_MEM[j] += WEIGHTS[k]*NEURONS_STATE[n_i-k+w_i-1];
+						if((j == n_i+LAYERS[i]-1) && (k == w_i+NEURONS[j])){
+							NEURONS_STATE[n_i-k+w_i-1] = 0;
+						}
 					}
 				}
 
+			}
+
+			if(i==LAYERS_LENGHT-1){
+				output[j-(NEURONS_STATE_LENGHT-LAYERS[LAYERS_LENGHT-1])] = NEURONS_MEM[j];
 			}
 
 			// check for leak or fire
@@ -59,23 +66,11 @@ void RNI(int input[INPUT_LAYER_LENGHT], int output[OUTPUT_LAYER_LENGHT])
 				NEURONS_STATE[j] = 1;
 				NEURONS_MEM[j]=RESET_MECHANISM_VALS[i];
 			}
-			// leak
-			// else
-			// {
-			// 	// leak toward reset val
-			// 	NEURONS_STATE[j] = 0;
-			// 	NEURONS_MEM[j]=NEURONS_MEM[j]-1;//FONCTION DE LEAKAGE
-			// }
+
 			w_i += NEURONS[j];
 		}
 		n_i += LAYERS[i];
 	}
 
-	// formation du output
-	int k = NEURONS_MEM_LENGHT-LAYERS[LAYERS_LENGHT-1];
-	for(int j = k; j < NEURONS_MEM_LENGHT; j++)
-	{
-		output[j-k] = NEURONS_MEM[j];
-	}
 	return;
 }

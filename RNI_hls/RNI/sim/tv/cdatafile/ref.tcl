@@ -1,5 +1,5 @@
 set depth_list {
-  {gmem 14}
+  {gmem 1024}
   {input_r 1}
   {output_r 1}
 }
