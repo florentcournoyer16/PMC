@@ -1,7 +1,8 @@
 from json import load
 
-INPUT_FILE_PATH = r'header_file_parser/model.json'
-OUTPUT_FILE_PATH = r'header_file_parser/model_v2.h'
+INPUT_FILE_PATH = r'parser/model/input/model_EXAMPLE.json'
+network_name = INPUT_FILE_PATH.split('/')[-1].strip('model_').strip('.json')
+OUTPUT_FILE_PATH = f'parser/model/output/model_v2_{network_name}.h'
 
 def main():
     with open(INPUT_FILE_PATH, mode='r', encoding='utf8') as model_file:
