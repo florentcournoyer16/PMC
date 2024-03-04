@@ -12,30 +12,30 @@
 # Running On: GRAMS-NSOC, OS: Linux, CPU Frequency: 2837.653 MHz, CPU Physical cores: 4, Host memory: 16712 MB
 #-----------------------------------------------------------
 start_gui
-open_project /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.xpr
+open_project /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.xpr
 update_compile_order -fileset sources_1
-open_bd_design {/home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.srcs/sources_1/bd/design_1/design_1.bd}
+open_bd_design {/home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.srcs/sources_1/bd/design_1/design_1.bd}
 delete_bd_objs [get_bd_nets axi_usb2_device_0_usb_irpt] [get_bd_intf_nets ps7_0_axi_periph_M01_AXI] [get_bd_cells axi_usb2_device_0]
 report_ip_status -name ip_status 
 update_ip_catalog -rebuild -scan_changes
 report_ip_status -name ip_status
 upgrade_ip -vlnv xilinx.com:hls:RNI:1.0 [get_ips  design_1_RNI_0_0] -log ip_upgrade.log
 export_ip_user_files -of_objects [get_ips design_1_RNI_0_0] -no_script -sync -force -quiet
-generate_target all [get_files  /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.srcs/sources_1/bd/design_1/design_1.bd]
+generate_target all [get_files  /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.srcs/sources_1/bd/design_1/design_1.bd]
 catch { config_ip_cache -export [get_ips -all design_1_xbar_0] }
 catch { config_ip_cache -export [get_ips -all design_1_RNI_0_0] }
 catch { config_ip_cache -export [get_ips -all design_1_auto_pc_1] }
 catch { config_ip_cache -export [get_ips -all design_1_auto_pc_0] }
 catch { config_ip_cache -export [get_ips -all design_1_auto_pc_2] }
 catch { config_ip_cache -export [get_ips -all design_1_auto_us_0] }
-export_ip_user_files -of_objects [get_files /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
-create_ip_run [get_files -of_objects [get_fileset sources_1] /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.srcs/sources_1/bd/design_1/design_1.bd]
+export_ip_user_files -of_objects [get_files /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.srcs/sources_1/bd/design_1/design_1.bd]
 launch_runs design_1_RNI_0_0_synth_1 design_1_auto_pc_0_synth_1 design_1_auto_pc_1_synth_1 design_1_xbar_0_synth_1 -jobs 4
 wait_on_run design_1_RNI_0_0_synth_1
 wait_on_run design_1_auto_pc_0_synth_1
 wait_on_run design_1_auto_pc_1_synth_1
 wait_on_run design_1_xbar_0_synth_1
-export_simulation -of_objects [get_files /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.srcs/sources_1/bd/design_1/design_1.bd] -directory /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.ip_user_files/sim_scripts -ip_user_files_dir /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.ip_user_files -ipstatic_source_dir /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.cache/compile_simlib/modelsim} {questa=/home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.cache/compile_simlib/questa} {xcelium=/home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.cache/compile_simlib/xcelium} {vcs=/home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.cache/compile_simlib/vcs} {riviera=/home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+export_simulation -of_objects [get_files /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.srcs/sources_1/bd/design_1/design_1.bd] -directory /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.ip_user_files/sim_scripts -ip_user_files_dir /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.ip_user_files -ipstatic_source_dir /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.cache/compile_simlib/modelsim} {questa=/home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.cache/compile_simlib/questa} {xcelium=/home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.cache/compile_simlib/xcelium} {vcs=/home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.cache/compile_simlib/vcs} {riviera=/home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
 reset_run synth_1
 launch_runs impl_1 -to_step write_bitstream -jobs 4
 wait_on_run impl_1
@@ -117,21 +117,21 @@ reset_run synth_1
 launch_runs impl_1 -to_step write_bitstream -jobs 4
 wait_on_run impl_1
 open_run impl_1
-open_bd_design {/home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.srcs/sources_1/bd/design_1/design_1.bd}
+open_bd_design {/home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.srcs/sources_1/bd/design_1/design_1.bd}
 update_ip_catalog -rebuild -scan_changes
 report_ip_status -name ip_status
 upgrade_ip -vlnv xilinx.com:hls:RNI:1.0 [get_ips  design_1_RNI_0_0] -log ip_upgrade.log
 export_ip_user_files -of_objects [get_ips design_1_RNI_0_0] -no_script -sync -force -quiet
-generate_target all [get_files  /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.srcs/sources_1/bd/design_1/design_1.bd]
+generate_target all [get_files  /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.srcs/sources_1/bd/design_1/design_1.bd]
 catch { config_ip_cache -export [get_ips -all design_1_RNI_0_0] }
 catch { config_ip_cache -export [get_ips -all design_1_auto_pc_0] }
 catch { config_ip_cache -export [get_ips -all design_1_auto_us_0] }
 catch { config_ip_cache -export [get_ips -all design_1_auto_pc_1] }
-export_ip_user_files -of_objects [get_files /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
-create_ip_run [get_files -of_objects [get_fileset sources_1] /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.srcs/sources_1/bd/design_1/design_1.bd]
+export_ip_user_files -of_objects [get_files /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.srcs/sources_1/bd/design_1/design_1.bd]
 launch_runs design_1_RNI_0_0_synth_1 -jobs 4
 wait_on_run design_1_RNI_0_0_synth_1
-export_simulation -of_objects [get_files /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.srcs/sources_1/bd/design_1/design_1.bd] -directory /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.ip_user_files/sim_scripts -ip_user_files_dir /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.ip_user_files -ipstatic_source_dir /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.cache/compile_simlib/modelsim} {questa=/home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.cache/compile_simlib/questa} {xcelium=/home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.cache/compile_simlib/xcelium} {vcs=/home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.cache/compile_simlib/vcs} {riviera=/home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+export_simulation -of_objects [get_files /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.srcs/sources_1/bd/design_1/design_1.bd] -directory /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.ip_user_files/sim_scripts -ip_user_files_dir /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.ip_user_files -ipstatic_source_dir /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.cache/compile_simlib/modelsim} {questa=/home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.cache/compile_simlib/questa} {xcelium=/home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.cache/compile_simlib/xcelium} {vcs=/home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.cache/compile_simlib/vcs} {riviera=/home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
 reset_run synth_1
 launch_runs impl_1 -to_step write_bitstream -jobs 4
 wait_on_run impl_1
@@ -144,16 +144,16 @@ update_ip_catalog -rebuild -scan_changes
 report_ip_status -name ip_status
 upgrade_ip -vlnv xilinx.com:hls:RNI:1.0 [get_ips  design_1_RNI_0_0] -log ip_upgrade.log
 export_ip_user_files -of_objects [get_ips design_1_RNI_0_0] -no_script -sync -force -quiet
-generate_target all [get_files  /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.srcs/sources_1/bd/design_1/design_1.bd]
+generate_target all [get_files  /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.srcs/sources_1/bd/design_1/design_1.bd]
 catch { config_ip_cache -export [get_ips -all design_1_RNI_0_0] }
 catch { config_ip_cache -export [get_ips -all design_1_auto_pc_0] }
 catch { config_ip_cache -export [get_ips -all design_1_auto_us_0] }
 catch { config_ip_cache -export [get_ips -all design_1_auto_pc_1] }
-export_ip_user_files -of_objects [get_files /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
-create_ip_run [get_files -of_objects [get_fileset sources_1] /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.srcs/sources_1/bd/design_1/design_1.bd]
+export_ip_user_files -of_objects [get_files /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.srcs/sources_1/bd/design_1/design_1.bd]
 launch_runs design_1_RNI_0_0_synth_1 -jobs 4
 wait_on_run design_1_RNI_0_0_synth_1
-export_simulation -of_objects [get_files /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.srcs/sources_1/bd/design_1/design_1.bd] -directory /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.ip_user_files/sim_scripts -ip_user_files_dir /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.ip_user_files -ipstatic_source_dir /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.cache/compile_simlib/modelsim} {questa=/home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.cache/compile_simlib/questa} {xcelium=/home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.cache/compile_simlib/xcelium} {vcs=/home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.cache/compile_simlib/vcs} {riviera=/home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+export_simulation -of_objects [get_files /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.srcs/sources_1/bd/design_1/design_1.bd] -directory /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.ip_user_files/sim_scripts -ip_user_files_dir /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.ip_user_files -ipstatic_source_dir /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.cache/compile_simlib/modelsim} {questa=/home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.cache/compile_simlib/questa} {xcelium=/home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.cache/compile_simlib/xcelium} {vcs=/home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.cache/compile_simlib/vcs} {riviera=/home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
 reset_run synth_1
 launch_runs impl_1 -to_step write_bitstream -jobs 4
 wait_on_run impl_1
@@ -161,16 +161,16 @@ update_ip_catalog -rebuild -scan_changes
 report_ip_status -name ip_status
 upgrade_ip -vlnv xilinx.com:hls:RNI:1.0 [get_ips  design_1_RNI_0_0] -log ip_upgrade.log
 export_ip_user_files -of_objects [get_ips design_1_RNI_0_0] -no_script -sync -force -quiet
-generate_target all [get_files  /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.srcs/sources_1/bd/design_1/design_1.bd]
+generate_target all [get_files  /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.srcs/sources_1/bd/design_1/design_1.bd]
 catch { config_ip_cache -export [get_ips -all design_1_RNI_0_0] }
 catch { config_ip_cache -export [get_ips -all design_1_auto_pc_0] }
 catch { config_ip_cache -export [get_ips -all design_1_auto_us_0] }
 catch { config_ip_cache -export [get_ips -all design_1_auto_pc_1] }
-export_ip_user_files -of_objects [get_files /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
-create_ip_run [get_files -of_objects [get_fileset sources_1] /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.srcs/sources_1/bd/design_1/design_1.bd]
+export_ip_user_files -of_objects [get_files /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.srcs/sources_1/bd/design_1/design_1.bd]
 launch_runs design_1_RNI_0_0_synth_1 -jobs 4
 wait_on_run design_1_RNI_0_0_synth_1
-export_simulation -of_objects [get_files /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.srcs/sources_1/bd/design_1/design_1.bd] -directory /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.ip_user_files/sim_scripts -ip_user_files_dir /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.ip_user_files -ipstatic_source_dir /home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.cache/compile_simlib/modelsim} {questa=/home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.cache/compile_simlib/questa} {xcelium=/home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.cache/compile_simlib/xcelium} {vcs=/home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.cache/compile_simlib/vcs} {riviera=/home/mohr0901/Documents/PMC/RNI_vivado/RNI_vivado.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+export_simulation -of_objects [get_files /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.srcs/sources_1/bd/design_1/design_1.bd] -directory /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.ip_user_files/sim_scripts -ip_user_files_dir /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.ip_user_files -ipstatic_source_dir /home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.cache/compile_simlib/modelsim} {questa=/home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.cache/compile_simlib/questa} {xcelium=/home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.cache/compile_simlib/xcelium} {vcs=/home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.cache/compile_simlib/vcs} {riviera=/home/mohr0901/Documents/PMC/C_RNI_VIVADO/C_RNI_VIVADO.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
 reset_run synth_1
 launch_runs impl_1 -to_step write_bitstream -jobs 4
 wait_on_run impl_1
