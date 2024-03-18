@@ -3,7 +3,11 @@
         <hiertable>
             <header size="6" col0="Function" col1="Location" col2="Compile/Link" col3="Unroll/Inline" col4="Performance/Pipeline" col5="Optimizations"/>
             <rows>
-                <row id="0" col0="RNI" col1="RNI.c:9" col2="161" col3="154" col4="114" col5="123"/>
+                <row id="0" col0="RNI" col1="RNI_2.cpp:12" col2="3770" col3="508" col4="363" col5="403">
+                    <row id="1" col0="input_layer" col1="RNI_2.cpp:49" col2="221" col3="45" col4="" col5=""/>
+                    <row id="6" col0="inner_layer" col1="RNI_2.cpp:65" col2="2184" col2_disp="2,184 (2 calls)" col3="264" col3_disp="264 (2 calls)" col4="168" col4_disp="168 (2 calls)" col5="178" col5_disp="178 (2 calls)"/>
+                    <row id="3" col0="output_layer" col1="RNI_2.cpp:89" col2="294" col3="60" col4="" col5=""/>
+                </row>
             </rows>
             <notes/>
         </hiertable>

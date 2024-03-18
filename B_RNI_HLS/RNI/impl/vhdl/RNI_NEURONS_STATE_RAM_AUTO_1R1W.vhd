@@ -12,8 +12,8 @@ entity RNI_NEURONS_STATE_RAM_AUTO_1R1W is
     generic(
         MEM_TYPE        : string    := "auto"; 
         DataWidth       : integer   := 1; 
-        AddressWidth    : integer   := 4;
-        AddressRange    : integer   := 14
+        AddressWidth    : integer   := 6;
+        AddressRange    : integer   := 40
     ); 
     port (
         address0    : in std_logic_vector(AddressWidth-1 downto 0); 

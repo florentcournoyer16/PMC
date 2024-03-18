@@ -76,44 +76,6 @@ void XRni_DisableAutoRestart(XRni *InstancePtr) {
     XRni_WriteReg(InstancePtr->Control_BaseAddress, XRNI_CONTROL_ADDR_AP_CTRL, 0);
 }
 
-void XRni_Set_input_r(XRni *InstancePtr, u64 Data) {
-    Xil_AssertVoid(InstancePtr != NULL);
-    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    XRni_WriteReg(InstancePtr->Control_BaseAddress, XRNI_CONTROL_ADDR_INPUT_R_DATA, (u32)(Data));
-    XRni_WriteReg(InstancePtr->Control_BaseAddress, XRNI_CONTROL_ADDR_INPUT_R_DATA + 4, (u32)(Data >> 32));
-}
-
-u64 XRni_Get_input_r(XRni *InstancePtr) {
-    u64 Data;
-
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    Data = XRni_ReadReg(InstancePtr->Control_BaseAddress, XRNI_CONTROL_ADDR_INPUT_R_DATA);
-    Data += (u64)XRni_ReadReg(InstancePtr->Control_BaseAddress, XRNI_CONTROL_ADDR_INPUT_R_DATA + 4) << 32;
-    return Data;
-}
-
-void XRni_Set_output_r(XRni *InstancePtr, u64 Data) {
-    Xil_AssertVoid(InstancePtr != NULL);
-    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    XRni_WriteReg(InstancePtr->Control_BaseAddress, XRNI_CONTROL_ADDR_OUTPUT_R_DATA, (u32)(Data));
-    XRni_WriteReg(InstancePtr->Control_BaseAddress, XRNI_CONTROL_ADDR_OUTPUT_R_DATA + 4, (u32)(Data >> 32));
-}
-
-u64 XRni_Get_output_r(XRni *InstancePtr) {
-    u64 Data;
-
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    Data = XRni_ReadReg(InstancePtr->Control_BaseAddress, XRNI_CONTROL_ADDR_OUTPUT_R_DATA);
-    Data += (u64)XRni_ReadReg(InstancePtr->Control_BaseAddress, XRNI_CONTROL_ADDR_OUTPUT_R_DATA + 4) << 32;
-    return Data;
-}
-
 void XRni_InterruptGlobalEnable(XRni *InstancePtr) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
