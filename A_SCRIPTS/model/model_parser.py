@@ -20,6 +20,8 @@ def main():
 def fill_output_model_dict(layers, output_model_dict):
     total_weights = 0
     total_layers = 0
+    output_model_dict["NEURONS_INDEX"].append(0)
+    output_model_dict["WEIGHTS_INDEX"].append(0)
     for layer_name, layer_content in layers.items():
         if "weight" in layer_name:
             for weights in layer_content:
