@@ -66,7 +66,7 @@ def generate_cpp_header(input_model_dict, header_filename, base_type_lenght = 8)
         header_file.write('#define MODEL_H\n\n')
 
         header_file.write(f"#define BASE_TYPE_LENGHT {base_type_lenght}\n")
-        header_file.write(f"#define BASE_TYPE ap_int< {base_type_lenght} >\n\n")
+        header_file.write("#define BASE_TYPE ap_int< BASE_TYPE_LENGHT >\n\n")
 
         for key, values in output_model_dict.items():
             header_file.write(f"BASE_TYPE {key}[{len(values)}] = {{ ")
