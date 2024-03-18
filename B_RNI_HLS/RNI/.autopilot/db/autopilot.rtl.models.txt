@@ -1,0 +1,10 @@
+RNI_mul_8s_32s_32_2_1
+RNI_RNI_Pipeline_WEIGHTS_LOOP_WEIGHTS_ROM_AUTO_1R
+RNI_flow_control_loop_pipe_sequential_init
+RNI_NEURONS_MEM_RAM_AUTO_1R1W
+RNI_NEURONS_ROM_AUTO_1R
+RNI_NEURONS_STATE_RAM_AUTO_1R1W
+RNI_gmem_m_axi
+RNI_control_s_axi
+RNI_Pipeline_WEIGHTS_LOOP
+RNI

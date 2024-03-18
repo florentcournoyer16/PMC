@@ -18,6 +18,9 @@ void RNI(int input[INPUT_LAYER_LENGHT], int output[OUTPUT_LAYER_LENGHT])
 
 	static int n_i = 0;
 	static int w_i = 0;
+	static int neurons_mem_save[NEURONS_MEM_LENGHT];//14
+
+
 	// boucler dans chaque layer (for i < 2)
 	LAYERS_LOOP: for(int i= 0; i < LAYERS_LENGHT; i++)
 	{
@@ -48,7 +51,9 @@ void RNI(int input[INPUT_LAYER_LENGHT], int output[OUTPUT_LAYER_LENGHT])
 					}
 				}
 
-			}
+
+
+			}// fin de la boucle des weights
 
 			if(i==LAYERS_LENGHT-1){
 				output[j-(NEURONS_STATE_LENGHT-LAYERS[LAYERS_LENGHT-1])] = NEURONS_MEM[j];

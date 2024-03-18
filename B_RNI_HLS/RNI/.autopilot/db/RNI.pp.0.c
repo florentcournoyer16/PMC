@@ -932,8 +932,16 @@ extern int __uflow (FILE *);
 extern int __overflow (FILE *, int);
 # 8 "B_RNI_HLS/apc/src/RNI.c" 2
 
-void RNI(int input[4], int output[10])
+__attribute__((sdx_kernel("RNI", 0))) void RNI(int input[4], int output[10])
 {
+#line 20 "/home/mohr0901/Documents/PMC/B_RNI_HLS/RNI/csynth.tcl"
+#pragma HLSDIRECTIVE TOP name=RNI
+# 10 "B_RNI_HLS/apc/src/RNI.c"
+
+#line 7 "/home/mohr0901/Documents/PMC/B_RNI_HLS/RNI/directives.tcl"
+#pragma HLSDIRECTIVE TOP name=RNI
+# 10 "B_RNI_HLS/apc/src/RNI.c"
+
 
 #pragma HLS INTERFACE mode=m_axi port=input offset=slave depth=512 bundle=gmem
 #pragma HLS INTERFACE mode=m_axi port=output offset=slave depth=512 bundle=gmem
@@ -945,19 +953,24 @@ void RNI(int input[4], int output[10])
  static int n_i = 0;
  static int w_i = 0;
 
+ static int neuron_mem_value= 0;
+
  LAYERS_LOOP: for(int i= 0; i < 2; i++)
  {
   NEURONES_LOOP: for(int j = n_i; j < n_i+LAYERS[i]; j++)
   {
+   neuron_mem_value=NEURONS_MEM[j] ;
+
    WEIGHTS_LOOP: for(int k = w_i; k < w_i+NEURONS[j]; k++)
    {
+
     if(i == 0)
     {
 
 
 
 
-     NEURONS_MEM[j] += WEIGHTS[k]*input[k-w_i];
+     NEURONS_MEM[j] =neuron_mem_value+ WEIGHTS[k]*input[k-w_i];
     }
     else
     {
@@ -967,7 +980,7 @@ void RNI(int input[4], int output[10])
 
      if(NEURONS_STATE[n_i-k+w_i-1] != 0)
      {
-      NEURONS_MEM[j] += WEIGHTS[k]*NEURONS_STATE[n_i-k+w_i-1];
+      NEURONS_MEM[j] =neuron_mem_value+WEIGHTS[k]*NEURONS_STATE[n_i-k+w_i-1];
       if((j == n_i+LAYERS[i]-1) && (k == w_i+NEURONS[j])){
        NEURONS_STATE[n_i-k+w_i-1] = 0;
       }
