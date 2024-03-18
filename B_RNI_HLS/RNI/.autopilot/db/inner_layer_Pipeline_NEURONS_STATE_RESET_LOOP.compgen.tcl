@@ -11,7 +11,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 25 \
+    id 33 \
     name NEURONS_STATE \
     reset_level 1 \
     sync_rst true \
@@ -29,37 +29,22 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 22 \
-    name zext_ln84 \
+    id 31 \
+    name neuron_state_index \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_zext_ln84 \
+    corename dc_neuron_state_index \
     op interface \
-    ports { zext_ln84 { I 6 vector } } \
+    ports { neuron_state_index { I 6 vector } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 23 \
-    name NEURONS_INDEX_load_cast \
-    type other \
-    dir I \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_NEURONS_INDEX_load_cast \
-    op interface \
-    ports { NEURONS_INDEX_load_cast { I 6 vector } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 24 \
+    id 32 \
     name neuron_index \
     type other \
     dir I \

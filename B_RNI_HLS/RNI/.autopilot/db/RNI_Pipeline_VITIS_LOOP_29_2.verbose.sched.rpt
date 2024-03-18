@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'RNI_Pipeline_VITIS_LOOP_29_2'
 ================================================================
-* Date:           Mon Mar 18 18:56:06 2024
+* Date:           Mon Mar 18 19:54:07 2024
 
 * Version:        2023.1.1 (Build 3869133 on Jun 15 2023)
 * Project:        B_RNI_HLS
@@ -90,36 +90,36 @@ ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%input_list_1_1 = alloca i32 1"   --
 ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%input_list_1_2 = alloca i32 1"   --->   Operation 7 'alloca' 'input_list_1_2' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%input_list_1_3 = alloca i32 1"   --->   Operation 8 'alloca' 'input_list_1_3' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%sext_ln29_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %sext_ln29"   --->   Operation 9 'read' 'sext_ln29_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%input_list_0_039_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %input_list_0_039"   --->   Operation 10 'read' 'input_list_0_039_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%input_list_1_040_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %input_list_1_040"   --->   Operation 11 'read' 'input_list_1_040_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%input_list_2_041_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %input_list_2_041"   --->   Operation 12 'read' 'input_list_2_041_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%input_list_3_042_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %input_list_3_042"   --->   Operation 13 'read' 'input_list_3_042_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 14 [1/1] (1.58ns)   --->   "%store_ln0 = store i8 %input_list_3_042_read, i8 %input_list_1_3"   --->   Operation 14 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
-ST_1 : Operation 15 [1/1] (1.58ns)   --->   "%store_ln0 = store i8 %input_list_2_041_read, i8 %input_list_1_2"   --->   Operation 15 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
-ST_1 : Operation 16 [1/1] (1.58ns)   --->   "%store_ln0 = store i8 %input_list_1_040_read, i8 %input_list_1_1"   --->   Operation 16 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
-ST_1 : Operation 17 [1/1] (1.58ns)   --->   "%store_ln0 = store i8 %input_list_0_039_read, i8 %input_list_1"   --->   Operation 17 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%input_list_0_01_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %input_list_0_01"   --->   Operation 10 'read' 'input_list_0_01_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%input_list_1_02_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %input_list_1_02"   --->   Operation 11 'read' 'input_list_1_02_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%input_list_2_03_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %input_list_2_03"   --->   Operation 12 'read' 'input_list_2_03_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%input_list_3_04_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %input_list_3_04"   --->   Operation 13 'read' 'input_list_3_04_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (1.58ns)   --->   "%store_ln0 = store i8 %input_list_3_04_read, i8 %input_list_1_3"   --->   Operation 14 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 15 [1/1] (1.58ns)   --->   "%store_ln0 = store i8 %input_list_2_03_read, i8 %input_list_1_2"   --->   Operation 15 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 16 [1/1] (1.58ns)   --->   "%store_ln0 = store i8 %input_list_1_02_read, i8 %input_list_1_1"   --->   Operation 16 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 17 [1/1] (1.58ns)   --->   "%store_ln0 = store i8 %input_list_0_01_read, i8 %input_list_1"   --->   Operation 17 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
 ST_1 : Operation 18 [1/1] (1.58ns)   --->   "%store_ln0 = store i3 0, i3 %i"   --->   Operation 18 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
 ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc"   --->   Operation 19 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%i_1 = load i3 %i" [B_RNI_HLS/apc/src/RNI_2.cpp:30]   --->   Operation 20 'load' 'i_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%i_2 = load i3 %i" [B_RNI_HLS/apc/src/RNI_2.cpp:30]   --->   Operation 20 'load' 'i_2' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%specpipeline_ln0 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 1, i32 0, void @p_str"   --->   Operation 21 'specpipeline' 'specpipeline_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 22 [1/1] (1.65ns)   --->   "%icmp_ln29 = icmp_eq  i3 %i_1, i3 4" [B_RNI_HLS/apc/src/RNI_2.cpp:29]   --->   Operation 22 'icmp' 'icmp_ln29' <Predicate = true> <Delay = 1.65> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.65> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 23 [1/1] (1.65ns)   --->   "%add_ln29 = add i3 %i_1, i3 1" [B_RNI_HLS/apc/src/RNI_2.cpp:29]   --->   Operation 23 'add' 'add_ln29' <Predicate = true> <Delay = 1.65> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.65> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%br_ln29 = br i1 %icmp_ln29, void %for.inc.split, void %INPUT_LAYER_WEIGHTS_LOOP.i.preheader.exitStub" [B_RNI_HLS/apc/src/RNI_2.cpp:29]   --->   Operation 24 'br' 'br_ln29' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (1.65ns)   --->   "%icmp_ln29 = icmp_eq  i3 %i_2, i3 4" [B_RNI_HLS/apc/src/RNI_2.cpp:29]   --->   Operation 22 'icmp' 'icmp_ln29' <Predicate = true> <Delay = 1.65> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.65> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 23 [1/1] (1.65ns)   --->   "%add_ln29 = add i3 %i_2, i3 1" [B_RNI_HLS/apc/src/RNI_2.cpp:29]   --->   Operation 23 'add' 'add_ln29' <Predicate = true> <Delay = 1.65> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.65> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%br_ln29 = br i1 %icmp_ln29, void %for.inc.split, void %WEIGHTS_LOOP.i.preheader.exitStub" [B_RNI_HLS/apc/src/RNI_2.cpp:29]   --->   Operation 24 'br' 'br_ln29' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%speclooptripcount_ln29 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 4, i64 4, i64 4" [B_RNI_HLS/apc/src/RNI_2.cpp:29]   --->   Operation 25 'speclooptripcount' 'speclooptripcount_ln29' <Predicate = (!icmp_ln29)> <Delay = 0.00>
-ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%specloopname_ln29 = specloopname void @_ssdm_op_SpecLoopName, void @empty" [B_RNI_HLS/apc/src/RNI_2.cpp:29]   --->   Operation 26 'specloopname' 'specloopname_ln29' <Predicate = (!icmp_ln29)> <Delay = 0.00>
-ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%trunc_ln30 = trunc i3 %i_1" [B_RNI_HLS/apc/src/RNI_2.cpp:30]   --->   Operation 27 'trunc' 'trunc_ln30' <Predicate = (!icmp_ln29)> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%specloopname_ln29 = specloopname void @_ssdm_op_SpecLoopName, void @empty_6" [B_RNI_HLS/apc/src/RNI_2.cpp:29]   --->   Operation 26 'specloopname' 'specloopname_ln29' <Predicate = (!icmp_ln29)> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%trunc_ln30 = trunc i3 %i_2" [B_RNI_HLS/apc/src/RNI_2.cpp:30]   --->   Operation 27 'trunc' 'trunc_ln30' <Predicate = (!icmp_ln29)> <Delay = 0.00>
 ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%shl_ln = bitconcatenate i5 @_ssdm_op_BitConcatenate.i5.i2.i3, i2 %trunc_ln30, i3 0" [B_RNI_HLS/apc/src/RNI_2.cpp:30]   --->   Operation 28 'bitconcatenate' 'shl_ln' <Predicate = (!icmp_ln29)> <Delay = 0.00>
 ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%shl_lncast = zext i5 %shl_ln" [B_RNI_HLS/apc/src/RNI_2.cpp:30]   --->   Operation 29 'zext' 'shl_lncast' <Predicate = (!icmp_ln29)> <Delay = 0.00>
 ST_1 : Operation 30 [1/1] (3.14ns)   --->   "%shl_ln30 = shl i8 %sext_ln29_read, i8 %shl_lncast" [B_RNI_HLS/apc/src/RNI_2.cpp:30]   --->   Operation 30 'shl' 'shl_ln30' <Predicate = (!icmp_ln29)> <Delay = 3.14> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 31 [1/1] (1.86ns)   --->   "%switch_ln30 = switch i2 %trunc_ln30, void %branch3, i2 0, void %for.inc.split.for.inc.split29_crit_edge, i2 1, void %for.inc.split.for.inc.split29_crit_edge7, i2 2, void %branch2" [B_RNI_HLS/apc/src/RNI_2.cpp:30]   --->   Operation 31 'switch' 'switch_ln30' <Predicate = (!icmp_ln29)> <Delay = 1.86>
+ST_1 : Operation 31 [1/1] (1.86ns)   --->   "%switch_ln30 = switch i2 %trunc_ln30, void %branch3, i2 0, void %for.inc.split.for.inc.split8_crit_edge, i2 1, void %for.inc.split.for.inc.split8_crit_edge7, i2 2, void %branch2" [B_RNI_HLS/apc/src/RNI_2.cpp:30]   --->   Operation 31 'switch' 'switch_ln30' <Predicate = (!icmp_ln29)> <Delay = 1.86>
 ST_1 : Operation 32 [1/1] (1.58ns)   --->   "%store_ln30 = store i8 %shl_ln30, i8 %input_list_1_2" [B_RNI_HLS/apc/src/RNI_2.cpp:30]   --->   Operation 32 'store' 'store_ln30' <Predicate = (!icmp_ln29 & trunc_ln30 == 2)> <Delay = 1.58>
-ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%br_ln30 = br void %for.inc.split29" [B_RNI_HLS/apc/src/RNI_2.cpp:30]   --->   Operation 33 'br' 'br_ln30' <Predicate = (!icmp_ln29 & trunc_ln30 == 2)> <Delay = 0.00>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%br_ln30 = br void %for.inc.split8" [B_RNI_HLS/apc/src/RNI_2.cpp:30]   --->   Operation 33 'br' 'br_ln30' <Predicate = (!icmp_ln29 & trunc_ln30 == 2)> <Delay = 0.00>
 ST_1 : Operation 34 [1/1] (1.58ns)   --->   "%store_ln30 = store i8 %shl_ln30, i8 %input_list_1_1" [B_RNI_HLS/apc/src/RNI_2.cpp:30]   --->   Operation 34 'store' 'store_ln30' <Predicate = (!icmp_ln29 & trunc_ln30 == 1)> <Delay = 1.58>
-ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%br_ln30 = br void %for.inc.split29" [B_RNI_HLS/apc/src/RNI_2.cpp:30]   --->   Operation 35 'br' 'br_ln30' <Predicate = (!icmp_ln29 & trunc_ln30 == 1)> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%br_ln30 = br void %for.inc.split8" [B_RNI_HLS/apc/src/RNI_2.cpp:30]   --->   Operation 35 'br' 'br_ln30' <Predicate = (!icmp_ln29 & trunc_ln30 == 1)> <Delay = 0.00>
 ST_1 : Operation 36 [1/1] (1.58ns)   --->   "%store_ln30 = store i8 %shl_ln30, i8 %input_list_1" [B_RNI_HLS/apc/src/RNI_2.cpp:30]   --->   Operation 36 'store' 'store_ln30' <Predicate = (!icmp_ln29 & trunc_ln30 == 0)> <Delay = 1.58>
-ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%br_ln30 = br void %for.inc.split29" [B_RNI_HLS/apc/src/RNI_2.cpp:30]   --->   Operation 37 'br' 'br_ln30' <Predicate = (!icmp_ln29 & trunc_ln30 == 0)> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%br_ln30 = br void %for.inc.split8" [B_RNI_HLS/apc/src/RNI_2.cpp:30]   --->   Operation 37 'br' 'br_ln30' <Predicate = (!icmp_ln29 & trunc_ln30 == 0)> <Delay = 0.00>
 ST_1 : Operation 38 [1/1] (1.58ns)   --->   "%store_ln30 = store i8 %shl_ln30, i8 %input_list_1_3" [B_RNI_HLS/apc/src/RNI_2.cpp:30]   --->   Operation 38 'store' 'store_ln30' <Predicate = (!icmp_ln29 & trunc_ln30 == 3)> <Delay = 1.58>
-ST_1 : Operation 39 [1/1] (0.00ns)   --->   "%br_ln30 = br void %for.inc.split29" [B_RNI_HLS/apc/src/RNI_2.cpp:30]   --->   Operation 39 'br' 'br_ln30' <Predicate = (!icmp_ln29 & trunc_ln30 == 3)> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "%br_ln30 = br void %for.inc.split8" [B_RNI_HLS/apc/src/RNI_2.cpp:30]   --->   Operation 39 'br' 'br_ln30' <Predicate = (!icmp_ln29 & trunc_ln30 == 3)> <Delay = 0.00>
 ST_1 : Operation 40 [1/1] (1.58ns)   --->   "%store_ln29 = store i3 %add_ln29, i3 %i" [B_RNI_HLS/apc/src/RNI_2.cpp:29]   --->   Operation 40 'store' 'store_ln29' <Predicate = (!icmp_ln29)> <Delay = 1.58>
 ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%br_ln29 = br void %for.inc" [B_RNI_HLS/apc/src/RNI_2.cpp:29]   --->   Operation 41 'br' 'br_ln29' <Predicate = (!icmp_ln29)> <Delay = 0.00>
 ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%input_list_1_load = load i8 %input_list_1"   --->   Operation 42 'load' 'input_list_1_load' <Predicate = (icmp_ln29)> <Delay = 0.00>

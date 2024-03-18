@@ -34406,10 +34406,10 @@ private:
 
 
 
-ap_int< 8 > NEURONS_INDEX[4] = { 16, 20, 36, 40, };
+ap_int< 8 > NEURONS_INDEX[5] = { 0, 16, 20, 36, 40, };
 
 
-ap_int< 8 > WEIGHTS_INDEX[40] = { 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 80, 96, 112, 128, 132, 136, 140, 144, 148, 152, 156, 160, 164, 168, 172, 176, 180, 184, 188, 192, 208, 224, 240, 256, };
+ap_int< 8 > WEIGHTS_INDEX[41] = { 0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 80, 96, 112, 128, 132, 136, 140, 144, 148, 152, 156, 160, 164, 168, 172, 176, 180, 184, 188, 192, 208, 224, 240, 256, };
 
 
 ap_int< 8 > WEIGHTS[256] = { -1, -4, -2, -2, -1, -6, 1, -5, -2, -4, -1, -1, -5, -3, 0, -3, -11, -12, -18, -19, -2, -1, 3, 0, -6, -7, -7, -7, 2, 3, 4, 2, -3, -5, 1, -1, -1, -5, -3, -1, 0, 4, 1, 5, 4, 3, 6, 4, 8, 9, 4, 8, 4, 5, 1, 1, 4, 7, 7, 6, 4, 3, 6, 4, 11, 42, 14, 21, 76, -14, -1, 17, 9, 19, 45, 5, 42, 16, -12, 27, -2, -4, -3, -3, -13, 7, 16, 9, -5, -3, 2, 12, 13, 2, 9, 13, 1, 7, 2, 1, 4, -16, 16, -9, 6, 2, -3, -12, 0, -3, -5, -11, 5, 7, 7, 6, 15, 45, 8, 0, 7, 6, -3, 2, -15, -4, -12, 15, 8, -45, 76, -16, -8, -2, 1, -7, 64, 21, -4, -102, 61, -44, -48, 71, 44, -45, 82, 3, -53, 1, 22, -4, 16, 43, 25, -51, -48, 11, 8, 22, 65, -74, 10, 16, 6, 28, 31, -95, -88, 1, 31, 4, 81, 63, -90, -56, 11, -115, -41, 84, -28, -57, 119, -74, 0, -11, -8, 10, 10, -18, 19, 24, -7, 0, 25, -5, -28, 1, 0, 0, -14, 2, 1, 35, -6, -18, 0, 0, -8, 0, 35, -7, -36, 1, 3, -1, -18, 7, 0, 46, -6, -29, 0, 0, -11, 0, 23, -3, -34, 1, 0, 1, -15, 1, 2, 32, -8, -16, -2, 1, -12, 0, 33, -6, -43, 1, 1, 0, -18, 4, 1, 40, -8, -24, 0, 0, };
@@ -34461,7 +34461,7 @@ __attribute__((sdx_kernel("RNI", 0))) void RNI (
 
  VITIS_LOOP_23_1: while (true)
  {
-  ap_axis< 4*8, 2, 5, 6 > input_buffer;
+  ap_axis< 4 * 8, 2, 5, 6 > input_buffer;
   input_stream.read(input_buffer);
 
   ap_int< 8 > input_list[4];
@@ -34476,7 +34476,7 @@ __attribute__((sdx_kernel("RNI", 0))) void RNI (
   inner_layer(2);
   output_layer(output_list);
 
-  ap_axis< 4*8, 2, 5, 6 > output_buffer;
+  ap_axis< 4 * 8, 2, 5, 6 > output_buffer;
   VITIS_LOOP_41_3: for (ap_int< 8 > i = 0; i < 4; ++i) {
    output_buffer.data &= output_list[i] << 8 * i;
   }
@@ -34487,60 +34487,69 @@ __attribute__((sdx_kernel("RNI", 0))) void RNI (
 
 void input_layer(ap_int< 8 > input_list[4])
 {
- INPUT_LAYER_NEURONS_LOOP: for(int neurons_index = 0; neurons_index < NEURONS_INDEX[0]; ++neurons_index)
+ ap_int< 8 > layer_index = 0;
+ NEURONS_LOOP: for(ap_int< 8 > neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1]; ++neuron_index)
  {
-  INPUT_LAYER_WEIGHTS_LOOP: for(int weights_index = 0; weights_index < WEIGHTS_INDEX[0]; ++weights_index)
+  WEIGHTS_LOOP: for(int weight_index = NEURONS_INDEX[neuron_index]; weight_index < WEIGHTS_INDEX[neuron_index + 1]; ++weight_index)
   {
-   NEURONS_MEMBRANE[neurons_index] += WEIGHTS[weights_index] * input_list[weights_index];
+   ap_int< 8 > temp = NEURONS_MEMBRANE[neuron_index] + (WEIGHTS[weight_index] * input_list[weight_index]);
+   NEURONS_MEMBRANE[neuron_index] = temp;
   }
-  if (NEURONS_MEMBRANE[neurons_index] > THRESHOLDS[0])
+  if (NEURONS_MEMBRANE[neuron_index] > THRESHOLDS[layer_index])
   {
-   NEURONS_STATE[neurons_index] = 1;
-   NEURONS_MEMBRANE[neurons_index] = RESET_MECHANISM_VALS[0];
+   NEURONS_STATE[neuron_index] = 1;
+   NEURONS_MEMBRANE[neuron_index] = RESET_MECHANISM_VALS[layer_index];
   }
  }
 }
 
 void inner_layer(ap_int< 8 > layer_index)
 {
- INNER_LAYER_NEURONS_LOOP: for(ap_int< 8 > neuron_index = NEURONS_INDEX[layer_index-1]; neuron_index < NEURONS_INDEX[layer_index]; ++neuron_index)
+ NEURONS_LOOP: for(ap_int< 8 > neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1]; ++neuron_index)
  {
-  INNER_LAYER_WEIGHTS_LOOP: for(ap_int< 8 > weights_index = WEIGHTS_INDEX[neuron_index-1]; weights_index < WEIGHTS_INDEX[neuron_index]; ++weights_index)
+  WEIGHTS_LOOP: for(ap_int< 8 > weight_index = WEIGHTS_INDEX[neuron_index]; weight_index < WEIGHTS_INDEX[neuron_index + 1]; ++weight_index)
   {
-   ap_int< 8 > neuron_state = NEURONS_STATE[neuron_index - NEURONS_INDEX[layer_index-1]];
+   ap_int< 8 > neuron_state = NEURONS_STATE[NEURONS_INDEX[layer_index - 1] + weight_index - WEIGHTS_INDEX[neuron_index]];
    if (neuron_state == 1)
    {
-    NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weights_index];
+    ap_int< 8 > temp = NEURONS_MEMBRANE[neuron_index] + WEIGHTS[weight_index];
+    NEURONS_MEMBRANE[neuron_index] = temp;
    }
   }
   if (NEURONS_MEMBRANE[neuron_index] > THRESHOLDS[layer_index])
   {
    NEURONS_STATE[neuron_index] = 1;
-   NEURONS_MEMBRANE[neuron_index] = RESET_MECHANISM_VALS[0];
+   NEURONS_MEMBRANE[neuron_index] = RESET_MECHANISM_VALS[layer_index];
   }
  }
 
- NEURONS_STATE_RESET_LOOP: for(ap_int< 8 > neuron_index = NEURONS_INDEX[layer_index-1]; neuron_index < NEURONS_INDEX[layer_index]; ++neuron_index) {
-  NEURONS_STATE[neuron_index - NEURONS_INDEX[layer_index-1]] = 0;
+ NEURONS_STATE_RESET_LOOP: for(ap_int< 8 > neuron_state_index = NEURONS_INDEX[layer_index - 1]; neuron_state_index < NEURONS_INDEX[layer_index]; ++neuron_state_index) {
+  NEURONS_STATE[neuron_state_index] = 0;
  }
 }
 
 void output_layer(ap_int< 8 > output_list[4])
 {
- OUTPUT_LAYER_NEURONS_LOOP: for(int neuron_index = NEURONS_INDEX[4 -2]; neuron_index < NEURONS_INDEX[4 -1]; ++neuron_index)
+ ap_int< 8 > layer_index = 5 - 1;
+ NEURONS_LOOP: for(ap_int< 8 > neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1]; ++neuron_index)
  {
-  OUTPUT_LAYER_WEIGHTS_LOOP: for(int weights_index = WEIGHTS_INDEX[neuron_index-1]; weights_index < WEIGHTS_INDEX[neuron_index]; ++weights_index)
+  WEIGHTS_LOOP: for(ap_int< 8 > weight_index = WEIGHTS_INDEX[neuron_index]; weight_index < WEIGHTS_INDEX[neuron_index + 1]; ++weight_index)
   {
-   ap_int< 8 > neuron_state = NEURONS_STATE[neuron_index - NEURONS_INDEX[4 -2]];
+   ap_int< 8 > neuron_state = NEURONS_STATE[NEURONS_INDEX[layer_index - 1] + weight_index - WEIGHTS_INDEX[neuron_index]];
    if (neuron_state == 1)
    {
-    NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weights_index];
+    ap_int< 8 > temp = NEURONS_MEMBRANE[neuron_index] + WEIGHTS[weight_index];
+    NEURONS_MEMBRANE[neuron_index] = temp;
    }
   }
-  if (NEURONS_MEMBRANE[neuron_index] > THRESHOLDS[0])
+  if (NEURONS_MEMBRANE[neuron_index] > THRESHOLDS[layer_index])
   {
-   NEURONS_MEMBRANE[neuron_index] = RESET_MECHANISM_VALS[0];
+   NEURONS_MEMBRANE[neuron_index] = RESET_MECHANISM_VALS[layer_index];
    output_list[neuron_index % 4] = 1;
   }
+ }
+
+ RESET_LOOP: for(ap_int< 8 > neuron_state_index = NEURONS_INDEX[layer_index - 1]; neuron_state_index < NEURONS_INDEX[layer_index]; ++neuron_state_index) {
+  NEURONS_STATE[neuron_state_index] = 0;
  }
 }

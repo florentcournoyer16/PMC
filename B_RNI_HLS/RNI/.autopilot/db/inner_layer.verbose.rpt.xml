@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'inner_layer'" level="0">
-<item name = "Date">Mon Mar 18 18:56:09 2024
+<item name = "Date">Mon Mar 18 19:54:09 2024
 </item>
 <item name = "Version">2023.1.1 (Build 3869133 on Jun 15 2023)</item>
 <item name = "Project">B_RNI_HLS</item>
@@ -31,13 +31,13 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_inner_layer_Pipeline_INNER_LAYER_WEIGHTS_LOOP_fu_137">inner_layer_Pipeline_INNER_LAYER_WEIGHTS_LOOP, 2, 512, 20.000 ns, 5.120 us, 2, 512, no</column>
-<column name="grp_inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP_fu_150">inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP, 2, 257, 20.000 ns, 2.570 us, 2, 257, no</column>
+<column name="grp_inner_layer_Pipeline_WEIGHTS_LOOP_fu_144">inner_layer_Pipeline_WEIGHTS_LOOP, 2, 513, 20.000 ns, 5.130 us, 2, 513, no</column>
+<column name="grp_inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP_fu_161">inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP, 2, 257, 20.000 ns, 2.570 us, 2, 257, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- INNER_LAYER_NEURONS_LOOP">0, 132090, 5 ~ 518, -, -, 0 ~ 255, no</column>
+<column name="- NEURONS_LOOP">0, 132090, 7 ~ 518, -, -, 0 ~ 255, no</column>
 </table>
 </item>
 </section>
@@ -50,12 +50,12 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 204, -</column>
+<column name="Expression">-, -, 0, 183, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">1, -, 164, 280, -</column>
-<column name="Memory">0, -, 28, 6, -</column>
-<column name="Multiplexer">-, -, -, 186, -</column>
-<column name="Register">-, -, 124, -, -</column>
+<column name="Instance">1, -, 235, 310, -</column>
+<column name="Memory">0, -, 34, 7, -</column>
+<column name="Multiplexer">-, -, -, 192, -</column>
+<column name="Register">-, -, 127, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
 <specialColumn name="Utilization (%)">~0, 0, ~0, 1, 0</specialColumn>
 </table>
@@ -64,8 +64,8 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="grp_inner_layer_Pipeline_INNER_LAYER_WEIGHTS_LOOP_fu_137">inner_layer_Pipeline_INNER_LAYER_WEIGHTS_LOOP, 1, 0, 154, 209, 0</column>
-<column name="grp_inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP_fu_150">inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP, 0, 0, 10, 71, 0</column>
+<column name="grp_inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP_fu_161">inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP, 0, 0, 8, 55, 0</column>
+<column name="grp_inner_layer_Pipeline_WEIGHTS_LOOP_fu_144">inner_layer_Pipeline_WEIGHTS_LOOP, 1, 0, 227, 255, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
@@ -74,8 +74,8 @@
 </item>
 <item name = "Memory"><table name="" hasTotal="1">
 <keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
-<column name="NEURONS_INDEX_U">inner_layer_NEURONS_INDEX_ROM_AUTO_1R, 0, 12, 1, 0, 4, 6, 1, 24</column>
-<column name="WEIGHTS_INDEX_U">inner_layer_WEIGHTS_INDEX_ROM_AUTO_1R, 0, 16, 5, 0, 40, 8, 1, 320</column>
+<column name="NEURONS_INDEX_U">inner_layer_NEURONS_INDEX_ROM_AUTO_1R, 0, 18, 1, 0, 5, 6, 1, 30</column>
+<column name="WEIGHTS_INDEX_U">inner_layer_WEIGHTS_INDEX_ROM_AUTO_1R, 0, 16, 6, 0, 41, 8, 1, 328</column>
 </table>
 </item>
 <item name = "FIFO"><table name="" hasTotal="1">
@@ -84,45 +84,42 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln67_fu_237_p2">+, 0, 0, 71, 64, 1</column>
-<column name="add_ln69_fu_205_p2">+, 0, 0, 14, 6, 2</column>
-<column name="sub_i135_fu_222_p2">-, 0, 0, 14, 6, 6</column>
-<column name="ap_block_state6_on_subcall_done">and, 0, 0, 2, 1, 1</column>
-<column name="icmp_ln67_fu_200_p2">icmp, 0, 0, 71, 64, 64</column>
-<column name="icmp_ln69_fu_216_p2">icmp, 0, 0, 15, 8, 8</column>
-<column name="icmp_ln77_fu_231_p2">icmp, 0, 0, 15, 8, 5</column>
-<column name="xor_ln67_fu_163_p2">xor, 0, 0, 2, 1, 2</column>
+<column name="add_i_i178_fu_226_p2">+, 0, 0, 14, 6, 1</column>
+<column name="add_i_i209_fu_178_p2">+, 0, 0, 10, 2, 1</column>
+<column name="add_ln69_fu_248_p2">+, 0, 0, 71, 64, 1</column>
+<column name="icmp_ln69_fu_221_p2">icmp, 0, 0, 71, 64, 64</column>
+<column name="icmp_ln80_fu_242_p2">icmp, 0, 0, 15, 8, 5</column>
+<column name="sub_i_i149_fu_189_p2">xor, 0, 0, 2, 1, 2</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="NEURONS_MEMBRANE_address0">14, 3, 6, 18</column>
+<column name="NEURONS_MEMBRANE_address0">20, 4, 6, 24</column>
 <column name="NEURONS_MEMBRANE_ce0">14, 3, 1, 3</column>
 <column name="NEURONS_MEMBRANE_d0">14, 3, 8, 24</column>
 <column name="NEURONS_MEMBRANE_we0">14, 3, 1, 3</column>
 <column name="NEURONS_STATE_address0">20, 4, 6, 24</column>
-<column name="NEURONS_STATE_ce0">14, 3, 1, 3</column>
+<column name="NEURONS_STATE_ce0">20, 4, 1, 4</column>
 <column name="NEURONS_STATE_d0">14, 3, 1, 3</column>
 <column name="NEURONS_STATE_we0">14, 3, 1, 3</column>
-<column name="ap_NS_fsm">59, 11, 1, 11</column>
-<column name="neuron_index_1_fu_42">9, 2, 64, 128</column>
+<column name="ap_NS_fsm">53, 10, 1, 10</column>
+<column name="neuron_index_1_fu_44">9, 2, 64, 128</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="NEURONS_INDEX_load_reg_271">6, 0, 6, 0</column>
-<column name="NEURONS_MEMBRANE_addr_reg_313">6, 0, 6, 0</column>
-<column name="NEURONS_STATE_load_reg_327">1, 0, 1, 0</column>
-<column name="WEIGHTS_INDEX_load_reg_308">8, 0, 8, 0</column>
-<column name="ap_CS_fsm">10, 0, 10, 0</column>
-<column name="grp_inner_layer_Pipeline_INNER_LAYER_WEIGHTS_LOOP_fu_137_ap_start_reg">1, 0, 1, 0</column>
-<column name="grp_inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP_fu_150_ap_start_reg">1, 0, 1, 0</column>
-<column name="icmp_ln69_reg_318">1, 0, 1, 0</column>
-<column name="neuron_index_1_fu_42">64, 0, 64, 0</column>
-<column name="neuron_index_reg_264">6, 0, 6, 0</column>
-<column name="trunc_ln67_1_reg_284">6, 0, 6, 0</column>
-<column name="weights_index_reg_303">8, 0, 8, 0</column>
-<column name="zext_ln67_1_reg_276">6, 0, 64, 58</column>
+<column name="NEURONS_MEMBRANE_addr_reg_332">6, 0, 6, 0</column>
+<column name="WEIGHTS_INDEX_load_reg_322">8, 0, 8, 0</column>
+<column name="ap_CS_fsm">9, 0, 9, 0</column>
+<column name="grp_inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP_fu_161_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_inner_layer_Pipeline_WEIGHTS_LOOP_fu_144_ap_start_reg">1, 0, 1, 0</column>
+<column name="neuron_index_1_fu_44">64, 0, 64, 0</column>
+<column name="neuron_index_reg_280">6, 0, 6, 0</column>
+<column name="neuron_state_index_reg_290">6, 0, 6, 0</column>
+<column name="trunc_ln69_reg_299">6, 0, 6, 0</column>
+<column name="trunc_ln71_reg_327">6, 0, 6, 0</column>
+<column name="weight_index_reg_317">8, 0, 8, 0</column>
+<column name="zext_ln69_1_reg_285">6, 0, 64, 58</column>
 </table>
 </item>
 </section>

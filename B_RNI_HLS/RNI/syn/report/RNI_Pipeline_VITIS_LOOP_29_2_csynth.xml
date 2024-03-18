@@ -130,8 +130,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>input_list_3_042</name>
-<Object>input_list_3_042</Object>
+<name>input_list_3_04</name>
+<Object>input_list_3_04</Object>
 <Type>scalar</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>
@@ -141,8 +141,8 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>input_list_2_041</name>
-<Object>input_list_2_041</Object>
+<name>input_list_2_03</name>
+<Object>input_list_2_03</Object>
 <Type>scalar</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>
@@ -152,8 +152,8 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>input_list_1_040</name>
-<Object>input_list_1_040</Object>
+<name>input_list_1_02</name>
+<Object>input_list_1_02</Object>
 <Type>scalar</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>
@@ -163,8 +163,8 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>input_list_0_039</name>
-<Object>input_list_0_039</Object>
+<name>input_list_0_01</name>
+<Object>input_list_0_01</Object>
 <Type>scalar</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>

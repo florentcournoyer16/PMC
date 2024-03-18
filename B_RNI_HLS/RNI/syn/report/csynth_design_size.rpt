@@ -6,10 +6,10 @@
 +-----------------+--------------+-----------------+---------------+----------------------+---------------+
 | Function        | Location     | Compile/Link    | Unroll/Inline | Performance/Pipeline | Optimizations |
 +-----------------+--------------+-----------------+---------------+----------------------+---------------+
-| + RNI           | RNI_2.cpp:12 | 3,770           | 508           | 363                  | 403           |
-|    input_layer  | RNI_2.cpp:49 |   221           |  45           |                      |               |
-|    inner_layer  | RNI_2.cpp:65 | 2,184 (2 calls) | 264 (2 calls) | 168 (2 calls)        | 178 (2 calls) |
-|    output_layer | RNI_2.cpp:89 |   294           |  60           |                      |               |
+| + RNI           | RNI_2.cpp:12 | 5,236           | 560           | 349                  | 384           |
+|    input_layer  | RNI_2.cpp:49 |   682           |  69           |                      |               |
+|    inner_layer  | RNI_2.cpp:67 | 2,270 (2 calls) | 268 (2 calls) | 178 (2 calls)        | 182 (2 calls) |
+|    output_layer | RNI_2.cpp:92 | 1,213           |  84           |                      |               |
 +-----------------+--------------+-----------------+---------------+----------------------+---------------+
 
 * Description of Compilation Phases

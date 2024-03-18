@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'RNI_Pipeline_VITIS_LOOP_29_2'" level="0">
-<item name = "Date">Mon Mar 18 18:56:08 2024
+<item name = "Date">Mon Mar 18 19:54:09 2024
 </item>
 <item name = "Version">2023.1.1 (Build 3869133 on Jun 15 2023)</item>
 <item name = "Project">B_RNI_HLS</item>
@@ -86,7 +86,7 @@
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
 <column name="ap_done_int">9, 2, 1, 2</column>
-<column name="ap_sig_allocacmp_i_1">9, 2, 3, 6</column>
+<column name="ap_sig_allocacmp_i_2">9, 2, 3, 6</column>
 <column name="i_fu_54">9, 2, 3, 6</column>
 <column name="input_list_1_1_fu_62">9, 2, 8, 16</column>
 <column name="input_list_1_2_fu_66">9, 2, 8, 16</column>
@@ -118,10 +118,10 @@
 <column name="ap_done">out, 1, ap_ctrl_hs, RNI_Pipeline_VITIS_LOOP_29_2, return value</column>
 <column name="ap_idle">out, 1, ap_ctrl_hs, RNI_Pipeline_VITIS_LOOP_29_2, return value</column>
 <column name="ap_ready">out, 1, ap_ctrl_hs, RNI_Pipeline_VITIS_LOOP_29_2, return value</column>
-<column name="input_list_3_042">in, 8, ap_none, input_list_3_042, scalar</column>
-<column name="input_list_2_041">in, 8, ap_none, input_list_2_041, scalar</column>
-<column name="input_list_1_040">in, 8, ap_none, input_list_1_040, scalar</column>
-<column name="input_list_0_039">in, 8, ap_none, input_list_0_039, scalar</column>
+<column name="input_list_3_04">in, 8, ap_none, input_list_3_04, scalar</column>
+<column name="input_list_2_03">in, 8, ap_none, input_list_2_03, scalar</column>
+<column name="input_list_1_02">in, 8, ap_none, input_list_1_02, scalar</column>
+<column name="input_list_0_01">in, 8, ap_none, input_list_0_01, scalar</column>
 <column name="sext_ln29">in, 8, ap_none, sext_ln29, scalar</column>
 <column name="input_list_3_1_out">out, 8, ap_vld, input_list_3_1_out, pointer</column>
 <column name="input_list_3_1_out_ap_vld">out, 1, ap_vld, input_list_3_1_out, pointer</column>

@@ -16,8 +16,7 @@ port (
     ap_done : OUT STD_LOGIC;
     ap_idle : OUT STD_LOGIC;
     ap_ready : OUT STD_LOGIC;
-    zext_ln84 : IN STD_LOGIC_VECTOR (5 downto 0);
-    NEURONS_INDEX_load_cast : IN STD_LOGIC_VECTOR (5 downto 0);
+    neuron_state_index : IN STD_LOGIC_VECTOR (5 downto 0);
     neuron_index : IN STD_LOGIC_VECTOR (5 downto 0);
     NEURONS_STATE_address0 : OUT STD_LOGIC_VECTOR (5 downto 0);
     NEURONS_STATE_ce0 : OUT STD_LOGIC;
@@ -33,7 +32,7 @@ architecture behav of RNI_inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP is
     constant ap_const_lv32_0 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
     constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
     constant ap_const_lv1_1 : STD_LOGIC_VECTOR (0 downto 0) := "1";
-    constant ap_const_lv8_1 : STD_LOGIC_VECTOR (7 downto 0) := "00000001";
+    constant ap_const_lv6_1 : STD_LOGIC_VECTOR (5 downto 0) := "000001";
     constant ap_const_boolean_1 : BOOLEAN := true;
 
 attribute shreg_extract : string;
@@ -43,19 +42,15 @@ attribute shreg_extract : string;
     signal ap_CS_fsm_state1 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state1 : signal is "none";
     signal ap_block_state1_pp0_stage0_iter0 : BOOLEAN;
-    signal icmp_ln84_fu_88_p2 : STD_LOGIC_VECTOR (0 downto 0);
+    signal icmp_ln87_fu_72_p2 : STD_LOGIC_VECTOR (0 downto 0);
     signal ap_condition_exit_pp0_iter0_stage0 : STD_LOGIC;
     signal ap_loop_exit_ready : STD_LOGIC;
     signal ap_ready_int : STD_LOGIC;
-    signal zext_ln85_fu_104_p1 : STD_LOGIC_VECTOR (63 downto 0);
-    signal neuron_index_1_fu_36 : STD_LOGIC_VECTOR (7 downto 0);
-    signal zext_ln84_cast_fu_76_p1 : STD_LOGIC_VECTOR (7 downto 0);
-    signal neuron_index_3_fu_109_p2 : STD_LOGIC_VECTOR (7 downto 0);
+    signal neuron_state_index_1_cast4_fu_78_p1 : STD_LOGIC_VECTOR (63 downto 0);
+    signal neuron_state_index_1_fu_34 : STD_LOGIC_VECTOR (5 downto 0);
+    signal add_ln87_fu_83_p2 : STD_LOGIC_VECTOR (5 downto 0);
     signal ap_loop_init : STD_LOGIC;
-    signal ap_sig_allocacmp_neuron_index_2 : STD_LOGIC_VECTOR (7 downto 0);
-    signal NEURONS_INDEX_load_cast_cast_fu_72_p1 : STD_LOGIC_VECTOR (7 downto 0);
-    signal trunc_ln85_fu_94_p1 : STD_LOGIC_VECTOR (5 downto 0);
-    signal sub_ln85_fu_98_p2 : STD_LOGIC_VECTOR (5 downto 0);
+    signal ap_sig_allocacmp_neuron_state_index_2 : STD_LOGIC_VECTOR (5 downto 0);
     signal ap_done_reg : STD_LOGIC := '0';
     signal ap_continue_int : STD_LOGIC;
     signal ap_done_int : STD_LOGIC;
@@ -130,14 +125,14 @@ begin
     end process;
 
 
-    neuron_index_1_fu_36_assign_proc : process (ap_clk)
+    neuron_state_index_1_fu_34_assign_proc : process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((ap_start_int = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state1))) then
-                if ((icmp_ln84_fu_88_p2 = ap_const_lv1_1)) then 
-                    neuron_index_1_fu_36 <= neuron_index_3_fu_109_p2;
+                if ((icmp_ln87_fu_72_p2 = ap_const_lv1_1)) then 
+                    neuron_state_index_1_fu_34 <= add_ln87_fu_83_p2;
                 elsif ((ap_loop_init = ap_const_logic_1)) then 
-                    neuron_index_1_fu_36 <= zext_ln84_cast_fu_76_p1;
+                    neuron_state_index_1_fu_34 <= neuron_state_index;
                 end if;
             end if; 
         end if;
@@ -152,8 +147,7 @@ begin
                 ap_NS_fsm <= "X";
         end case;
     end process;
-    NEURONS_INDEX_load_cast_cast_fu_72_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(NEURONS_INDEX_load_cast),8));
-    NEURONS_STATE_address0 <= zext_ln85_fu_104_p1(6 - 1 downto 0);
+    NEURONS_STATE_address0 <= neuron_state_index_1_cast4_fu_78_p1(6 - 1 downto 0);
 
     NEURONS_STATE_ce0_assign_proc : process(ap_CS_fsm_state1, ap_start_int)
     begin
@@ -166,15 +160,16 @@ begin
 
     NEURONS_STATE_d0 <= ap_const_lv1_0;
 
-    NEURONS_STATE_we0_assign_proc : process(ap_CS_fsm_state1, icmp_ln84_fu_88_p2, ap_start_int)
+    NEURONS_STATE_we0_assign_proc : process(ap_CS_fsm_state1, icmp_ln87_fu_72_p2, ap_start_int)
     begin
-        if (((ap_start_int = ap_const_logic_1) and (icmp_ln84_fu_88_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+        if (((ap_start_int = ap_const_logic_1) and (icmp_ln87_fu_72_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
             NEURONS_STATE_we0 <= ap_const_logic_1;
         else 
             NEURONS_STATE_we0 <= ap_const_logic_0;
         end if; 
     end process;
 
+    add_ln87_fu_83_p2 <= std_logic_vector(unsigned(ap_sig_allocacmp_neuron_state_index_2) + unsigned(ap_const_lv6_1));
     ap_CS_fsm_state1 <= ap_CS_fsm(0);
 
     ap_ST_fsm_state1_blk_assign_proc : process(ap_start_int)
@@ -193,9 +188,9 @@ begin
     end process;
 
 
-    ap_condition_exit_pp0_iter0_stage0_assign_proc : process(ap_CS_fsm_state1, icmp_ln84_fu_88_p2, ap_start_int)
+    ap_condition_exit_pp0_iter0_stage0_assign_proc : process(ap_CS_fsm_state1, icmp_ln87_fu_72_p2, ap_start_int)
     begin
-        if (((ap_start_int = ap_const_logic_1) and (icmp_ln84_fu_88_p2 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+        if (((ap_start_int = ap_const_logic_1) and (icmp_ln87_fu_72_p2 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
             ap_condition_exit_pp0_iter0_stage0 <= ap_const_logic_1;
         else 
             ap_condition_exit_pp0_iter0_stage0 <= ap_const_logic_0;
@@ -234,19 +229,15 @@ begin
     end process;
 
 
-    ap_sig_allocacmp_neuron_index_2_assign_proc : process(ap_CS_fsm_state1, neuron_index_1_fu_36, zext_ln84_cast_fu_76_p1, ap_loop_init)
+    ap_sig_allocacmp_neuron_state_index_2_assign_proc : process(ap_CS_fsm_state1, neuron_state_index, neuron_state_index_1_fu_34, ap_loop_init)
     begin
         if (((ap_loop_init = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
-            ap_sig_allocacmp_neuron_index_2 <= zext_ln84_cast_fu_76_p1;
+            ap_sig_allocacmp_neuron_state_index_2 <= neuron_state_index;
         else 
-            ap_sig_allocacmp_neuron_index_2 <= neuron_index_1_fu_36;
+            ap_sig_allocacmp_neuron_state_index_2 <= neuron_state_index_1_fu_34;
         end if; 
     end process;
 
-    icmp_ln84_fu_88_p2 <= "1" when (signed(ap_sig_allocacmp_neuron_index_2) < signed(NEURONS_INDEX_load_cast_cast_fu_72_p1)) else "0";
-    neuron_index_3_fu_109_p2 <= std_logic_vector(unsigned(ap_sig_allocacmp_neuron_index_2) + unsigned(ap_const_lv8_1));
-    sub_ln85_fu_98_p2 <= std_logic_vector(unsigned(trunc_ln85_fu_94_p1) - unsigned(neuron_index));
-    trunc_ln85_fu_94_p1 <= ap_sig_allocacmp_neuron_index_2(6 - 1 downto 0);
-    zext_ln84_cast_fu_76_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(zext_ln84),8));
-    zext_ln85_fu_104_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(sub_ln85_fu_98_p2),64));
+    icmp_ln87_fu_72_p2 <= "1" when (unsigned(ap_sig_allocacmp_neuron_state_index_2) < unsigned(neuron_index)) else "0";
+    neuron_state_index_1_cast4_fu_78_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(ap_sig_allocacmp_neuron_state_index_2),64));
 end behav;

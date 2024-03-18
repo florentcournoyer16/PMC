@@ -4,7 +4,7 @@
 == Synthesis Summary Report of 'RNI'
 ================================================================
 + General Information: 
-    * Date:           Mon Mar 18 18:56:09 2024
+    * Date:           Mon Mar 18 19:54:10 2024
     * Version:        2023.1.1 (Build 3869133 on Jun 15 2023)
     * Project:        B_RNI_HLS
     * Solution:       RNI (Vivado IP Flow Target)
@@ -15,26 +15,28 @@
 + Performance & Resource Estimates: 
     
     PS: '+' for module; 'o' for loop; '*' for dataflow
-    +-----------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+---------+----+-----------+-----------+-----+
-    |                       Modules                       | Issue|      | Latency |  Latency  | Iteration|         | Trip |          |         |    |           |           |     |
-    |                       & Loops                       | Type | Slack| (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined|  BRAM   | DSP|     FF    |    LUT    | URAM|
-    +-----------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+---------+----+-----------+-----------+-----+
-    |+ RNI                                                |     -|  0.74|        -|          -|         -|        -|     -|        no|  2 (~0%)|   -|  719 (~0%)|  1610 (3%)|    -|
-    | o VITIS_LOOP_23_1                                   |     -|  7.30|        -|          -|    266821|        -|     -|        no|        -|   -|          -|          -|    -|
-    |  + RNI_Pipeline_VITIS_LOOP_29_2                     |     -|  2.56|        6|     60.000|         -|        6|     -|        no|        -|   -|   37 (~0%)|  104 (~0%)|    -|
-    |   o VITIS_LOOP_29_2                                 |     -|  7.30|        4|     40.000|         1|        1|     4|       yes|        -|   -|          -|          -|    -|
-    |  + RNI_Pipeline_INPUT_LAYER_NEURONS_LOOP            |     -|  1.31|       35|    350.000|         -|       35|     -|        no|        -|   -|   35 (~0%)|  177 (~0%)|    -|
-    |   o INPUT_LAYER_NEURONS_LOOP                        |    II|  7.30|       33|    330.000|         4|        2|    16|       yes|        -|   -|          -|          -|    -|
-    |  + inner_layer                                      |     -|  0.74|   132351|  1.324e+06|         -|   132351|     -|        no|  1 (~0%)|   -|  316 (~0%)|   676 (1%)|    -|
-    |   + inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP   |     -|  3.06|      257|  2.570e+03|         -|      257|     -|        no|        -|   -|   10 (~0%)|   71 (~0%)|    -|
-    |    o NEURONS_STATE_RESET_LOOP                       |     -|  7.30|      255|  2.550e+03|         1|        1|   255|       yes|        -|   -|          -|          -|    -|
-    |   o INNER_LAYER_NEURONS_LOOP                        |     -|  7.30|   132090|  1.321e+06|       518|        -|   255|        no|        -|   -|          -|          -|    -|
-    |    + inner_layer_Pipeline_INNER_LAYER_WEIGHTS_LOOP  |     -|  0.74|      512|  5.120e+03|         -|      512|     -|        no|  1 (~0%)|   -|  154 (~0%)|  209 (~0%)|    -|
-    |     o INNER_LAYER_WEIGHTS_LOOP                      |    II|  7.30|      510|  5.100e+03|         3|        2|   255|       yes|        -|   -|          -|          -|    -|
-    |  o OUTPUT_LAYER_NEURONS_LOOP                        |     -|  7.30|     2068|  2.068e+04|       517|        -|     4|        no|        -|   -|          -|          -|    -|
-    |   + RNI_Pipeline_OUTPUT_LAYER_WEIGHTS_LOOP          |     -|  0.74|      512|  5.120e+03|         -|      512|     -|        no|        -|   -|  154 (~0%)|  209 (~0%)|    -|
-    |    o OUTPUT_LAYER_WEIGHTS_LOOP                      |    II|  7.30|      510|  5.100e+03|         3|        2|   255|       yes|        -|   -|          -|          -|    -|
-    +-----------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+---------+----+-----------+-----------+-----+
+    +----------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+---------+---------+-----------+-----------+-----+
+    |                       Modules                      | Issue|      | Latency |  Latency  | Iteration|         | Trip |          |         |         |           |           |     |
+    |                       & Loops                      | Type | Slack| (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined|  BRAM   |   DSP   |     FF    |    LUT    | URAM|
+    +----------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+---------+---------+-----------+-----------+-----+
+    |+ RNI                                               |     -|  0.74|        -|          -|         -|        -|     -|        no|  2 (~0%)|  1 (~0%)|  823 (~0%)|  1714 (3%)|    -|
+    | o VITIS_LOOP_23_1                                  |     -|  7.30|        -|          -|    268979|        -|     -|        no|        -|        -|          -|          -|    -|
+    |  + RNI_Pipeline_VITIS_LOOP_29_2                    |     -|  2.56|        6|     60.000|         -|        6|     -|        no|        -|        -|   37 (~0%)|  104 (~0%)|    -|
+    |   o VITIS_LOOP_29_2                                |     -|  7.30|        4|     40.000|         1|        1|     4|       yes|        -|        -|          -|          -|    -|
+    |  + inner_layer                                     |     -|  0.74|   132351|  1.324e+06|         -|   132351|     -|        no|  1 (~0%)|        -|  396 (~0%)|   692 (1%)|    -|
+    |   + inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP  |     -|  3.15|      257|  2.570e+03|         -|      257|     -|        no|        -|        -|    8 (~0%)|   55 (~0%)|    -|
+    |    o NEURONS_STATE_RESET_LOOP                      |     -|  7.30|      255|  2.550e+03|         1|        1|   255|       yes|        -|        -|          -|          -|    -|
+    |   o NEURONS_LOOP                                   |     -|  7.30|   132090|  1.321e+06|       518|        -|   255|        no|        -|        -|          -|          -|    -|
+    |    + inner_layer_Pipeline_WEIGHTS_LOOP             |     -|  0.74|      513|  5.130e+03|         -|      513|     -|        no|  1 (~0%)|        -|  227 (~0%)|  255 (~0%)|    -|
+    |     o WEIGHTS_LOOP                                 |    II|  7.30|      511|  5.110e+03|         4|        2|   255|       yes|        -|        -|          -|          -|    -|
+    |  + RNI_Pipeline_VITIS_LOOP_41_3                    |     -|  3.64|        6|     60.000|         -|        6|     -|        no|        -|        -|   37 (~0%)|  174 (~0%)|    -|
+    |   o VITIS_LOOP_41_3                                |     -|  7.30|        4|     40.000|         1|        1|     4|       yes|        -|        -|          -|          -|    -|
+    |  + RNI_Pipeline_RESET_LOOP                         |     -|  3.15|        6|     60.000|         -|        6|     -|        no|        -|        -|    8 (~0%)|   55 (~0%)|    -|
+    |   o RESET_LOOP                                     |     -|  7.30|        4|     40.000|         1|        1|     4|       yes|        -|        -|          -|          -|    -|
+    |  o NEURONS_LOOP                                    |     -|  7.30|     4256|  4.256e+04|       266|        -|    16|        no|        -|        -|          -|          -|    -|
+    |   + RNI_Pipeline_WEIGHTS_LOOP                      |     -|  2.19|      260|  2.600e+03|         -|      260|     -|        no|        -|  1 (~0%)|  156 (~0%)|  250 (~0%)|    -|
+    |    o WEIGHTS_LOOP                                  |     -|  7.30|      258|  2.580e+03|         5|        1|   255|       yes|        -|        -|          -|          -|    -|
+    +----------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+---------+---------+-----------+-----------+-----+
 
 
 ================================================================
@@ -99,51 +101,52 @@
 ================================================================
 == Bind Op Report
 ================================================================
-+---------------------------------------------------+-----+--------+----------------+-----+--------+---------+
-| Name                                              | DSP | Pragma | Variable       | Op  | Impl   | Latency |
-+---------------------------------------------------+-----+--------+----------------+-----+--------+---------+
-| + RNI                                             | 0   |        |                |     |        |         |
-|   add_ln93_fu_390_p2                              | -   |        | add_ln93       | add | fabric | 0       |
-|   neuron_index_5_fu_432_p2                        | -   |        | neuron_index_5 | add | fabric | 0       |
-|  + RNI_Pipeline_VITIS_LOOP_29_2                   | 0   |        |                |     |        |         |
-|    add_ln29_fu_166_p2                             | -   |        | add_ln29       | add | fabric | 0       |
-|  + RNI_Pipeline_INPUT_LAYER_NEURONS_LOOP          | 0   |        |                |     |        |         |
-|    add_ln51_fu_132_p2                             | -   |        | add_ln51       | add | fabric | 0       |
-|    newFirst_fu_169_p2                             | -   |        | newFirst       | add | fabric | 0       |
-|    newFirst10_fu_174_p2                           | -   |        | newFirst10     | add | fabric | 0       |
-|  + inner_layer                                    | 0   |        |                |     |        |         |
-|    add_ln69_fu_205_p2                             | -   |        | add_ln69       | add | fabric | 0       |
-|    sub_i135_fu_222_p2                             | -   |        | sub_i135       | sub | fabric | 0       |
-|    add_ln67_fu_237_p2                             | -   |        | add_ln67       | add | fabric | 0       |
-|   + inner_layer_Pipeline_INNER_LAYER_WEIGHTS_LOOP | 0   |        |                |     |        |         |
-|     NEURONS_MEMBRANE_d0                           | -   |        | add_ln74       | add | fabric | 0       |
-|     add_ln69_fu_121_p2                            | -   |        | add_ln69       | add | fabric | 0       |
-|   + inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP | 0   |        |                |     |        |         |
-|     sub_ln85_fu_98_p2                             | -   |        | sub_ln85       | sub | fabric | 0       |
-|     neuron_index_3_fu_109_p2                      | -   |        | neuron_index_3 | add | fabric | 0       |
-|  + RNI_Pipeline_OUTPUT_LAYER_WEIGHTS_LOOP         | 0   |        |                |     |        |         |
-|    NEURONS_MEMBRANE_d0                            | -   |        | add_ln98       | add | fabric | 0       |
-|    add_ln93_fu_121_p2                             | -   |        | add_ln93       | add | fabric | 0       |
-+---------------------------------------------------+-----+--------+----------------+-----+--------+---------+
++---------------------------------------------------+-----+--------+-------------+-----+--------+---------+
+| Name                                              | DSP | Pragma | Variable    | Op  | Impl   | Latency |
++---------------------------------------------------+-----+--------+-------------+-----+--------+---------+
+| + RNI                                             | 1   |        |             |     |        |         |
+|   add_ln52_fu_387_p2                              | -   |        | add_ln52    | add | fabric | 0       |
+|   add_i_i67_i_fu_407_p2                           | -   |        | add_i_i67_i | add | fabric | 0       |
+|  + RNI_Pipeline_VITIS_LOOP_29_2                   | 0   |        |             |     |        |         |
+|    add_ln29_fu_166_p2                             | -   |        | add_ln29    | add | fabric | 0       |
+|  + inner_layer                                    | 0   |        |             |     |        |         |
+|    add_i_i209_fu_178_p2                           | -   |        | add_i_i209  | add | fabric | 0       |
+|    add_i_i178_fu_226_p2                           | -   |        | add_i_i178  | add | fabric | 0       |
+|    add_ln69_fu_248_p2                             | -   |        | add_ln69    | add | fabric | 0       |
+|   + inner_layer_Pipeline_WEIGHTS_LOOP             | 0   |        |             |     |        |         |
+|     NEURONS_MEMBRANE_d0                           | -   |        | temp        | add | fabric | 0       |
+|     add_ln71_fu_160_p2                            | -   |        | add_ln71    | add | fabric | 0       |
+|   + inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP | 0   |        |             |     |        |         |
+|     add_ln87_fu_83_p2                             | -   |        | add_ln87    | add | fabric | 0       |
+|  + RNI_Pipeline_VITIS_LOOP_41_3                   | 0   |        |             |     |        |         |
+|    add_ln41_fu_63_p2                              | -   |        | add_ln41    | add | fabric | 0       |
+|  + RNI_Pipeline_WEIGHTS_LOOP                      | 1   |        |             |     |        |         |
+|    mac_muladd_8s_8s_8ns_8_4_1_U11                 | 1   |        | mul_ln56    | mul | dsp48  | 3       |
+|    mac_muladd_8s_8s_8ns_8_4_1_U11                 | 1   |        | temp        | add | dsp48  | 3       |
+|    add_ln54_fu_153_p2                             | -   |        | add_ln54    | add | fabric | 0       |
+|  + RNI_Pipeline_RESET_LOOP                        | 0   |        |             |     |        |         |
+|    add_ln113_fu_67_p2                             | -   |        | add_ln113   | add | fabric | 0       |
++---------------------------------------------------+-----+--------+-------------+-----+--------+---------+
 
 
 ================================================================
 == Bind Storage Report
 ================================================================
-+---------------------------------------------------+------+------+--------+------------------+---------+------+---------+
-| Name                                              | BRAM | URAM | Pragma | Variable         | Storage | Impl | Latency |
-+---------------------------------------------------+------+------+--------+------------------+---------+------+---------+
-| + RNI                                             | 2    | 0    |        |                  |         |      |         |
-|   NEURONS_MEMBRANE_U                              | -    | -    |        | NEURONS_MEMBRANE | ram_s2p | auto | 1       |
-|   NEURONS_STATE_U                                 | -    | -    |        | NEURONS_STATE    | ram_1p  | auto | 1       |
-|   WEIGHTS_INDEX_U                                 | -    | -    |        | WEIGHTS_INDEX    | rom_2p  | auto | 1       |
-|   WEIGHTS_U                                       | 1    | -    |        | WEIGHTS          | rom_1p  | auto | 1       |
-|  + inner_layer                                    | 1    | 0    |        |                  |         |      |         |
-|    NEURONS_INDEX_U                                | -    | -    |        | NEURONS_INDEX    | rom_2p  | auto | 1       |
-|    WEIGHTS_INDEX_U                                | -    | -    |        | WEIGHTS_INDEX    | rom_2p  | auto | 1       |
-|   + inner_layer_Pipeline_INNER_LAYER_WEIGHTS_LOOP | 1    | 0    |        |                  |         |      |         |
-|     WEIGHTS_U                                     | 1    | -    |        | WEIGHTS          | rom_1p  | auto | 1       |
-+---------------------------------------------------+------+------+--------+------------------+---------+------+---------+
++---------------------------------------+------+------+--------+------------------+---------+------+---------+
+| Name                                  | BRAM | URAM | Pragma | Variable         | Storage | Impl | Latency |
++---------------------------------------+------+------+--------+------------------+---------+------+---------+
+| + RNI                                 | 2    | 0    |        |                  |         |      |         |
+|   NEURONS_INDEX_U                     | -    | -    |        | NEURONS_INDEX    | rom_np  | auto | 1       |
+|   WEIGHTS_INDEX_U                     | -    | -    |        | WEIGHTS_INDEX    | rom_2p  | auto | 1       |
+|   NEURONS_MEMBRANE_U                  | -    | -    |        | NEURONS_MEMBRANE | ram_1p  | auto | 1       |
+|   WEIGHTS_U                           | 1    | -    |        | WEIGHTS          | rom_1p  | auto | 1       |
+|   NEURONS_STATE_U                     | -    | -    |        | NEURONS_STATE    | ram_1p  | auto | 1       |
+|  + inner_layer                        | 1    | 0    |        |                  |         |      |         |
+|    NEURONS_INDEX_U                    | -    | -    |        | NEURONS_INDEX    | rom_np  | auto | 1       |
+|    WEIGHTS_INDEX_U                    | -    | -    |        | WEIGHTS_INDEX    | rom_2p  | auto | 1       |
+|   + inner_layer_Pipeline_WEIGHTS_LOOP | 1    | 0    |        |                  |         |      |         |
+|     WEIGHTS_U                         | 1    | -    |        | WEIGHTS          | rom_1p  | auto | 1       |
++---------------------------------------+------+------+--------+------------------+---------+------+---------+
 
 
 ================================================================

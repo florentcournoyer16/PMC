@@ -84,26 +84,27 @@ set RtlHierarchyInfo {[
 			{"Name" : "NEURONS_INDEX", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "NEURONS_STATE", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "6", "SubInstance" : "grp_inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP_fu_150", "Port" : "NEURONS_STATE", "Inst_start_state" : "9", "Inst_end_state" : "10"}]},
+					{"ID" : "3", "SubInstance" : "grp_inner_layer_Pipeline_WEIGHTS_LOOP_fu_144", "Port" : "NEURONS_STATE", "Inst_start_state" : "4", "Inst_end_state" : "5"},
+					{"ID" : "6", "SubInstance" : "grp_inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP_fu_161", "Port" : "NEURONS_STATE", "Inst_start_state" : "8", "Inst_end_state" : "9"}]},
 			{"Name" : "WEIGHTS_INDEX", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "WEIGHTS", "Type" : "Memory", "Direction" : "I",
-				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_inner_layer_Pipeline_INNER_LAYER_WEIGHTS_LOOP_fu_137", "Port" : "WEIGHTS", "Inst_start_state" : "5", "Inst_end_state" : "6"}]},
 			{"Name" : "NEURONS_MEMBRANE", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_inner_layer_Pipeline_INNER_LAYER_WEIGHTS_LOOP_fu_137", "Port" : "NEURONS_MEMBRANE", "Inst_start_state" : "5", "Inst_end_state" : "6"}]}],
+					{"ID" : "3", "SubInstance" : "grp_inner_layer_Pipeline_WEIGHTS_LOOP_fu_144", "Port" : "NEURONS_MEMBRANE", "Inst_start_state" : "4", "Inst_end_state" : "5"}]},
+			{"Name" : "WEIGHTS", "Type" : "Memory", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "3", "SubInstance" : "grp_inner_layer_Pipeline_WEIGHTS_LOOP_fu_144", "Port" : "WEIGHTS", "Inst_start_state" : "4", "Inst_end_state" : "5"}]}],
 		"Loop" : [
-			{"Name" : "INNER_LAYER_NEURONS_LOOP", "PipelineType" : "no",
-				"LoopDec" : {"FSMBitwidth" : "10", "FirstState" : "ap_ST_fsm_state3", "LastState" : ["ap_ST_fsm_state8"], "QuitState" : ["ap_ST_fsm_state3"], "PreState" : ["ap_ST_fsm_state2"], "PostState" : ["ap_ST_fsm_state9"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+			{"Name" : "NEURONS_LOOP", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "9", "FirstState" : "ap_ST_fsm_state3", "LastState" : ["ap_ST_fsm_state7"], "QuitState" : ["ap_ST_fsm_state3"], "PreState" : ["ap_ST_fsm_state2"], "PostState" : ["ap_ST_fsm_state8"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.NEURONS_INDEX_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.WEIGHTS_INDEX_U", "Parent" : "0"},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_inner_layer_Pipeline_INNER_LAYER_WEIGHTS_LOOP_fu_137", "Parent" : "0", "Child" : ["4", "5"],
-		"CDFG" : "inner_layer_Pipeline_INNER_LAYER_WEIGHTS_LOOP",
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_inner_layer_Pipeline_WEIGHTS_LOOP_fu_144", "Parent" : "0", "Child" : ["4", "5"],
+		"CDFG" : "inner_layer_Pipeline_WEIGHTS_LOOP",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "2", "EstimateLatencyMax" : "512",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "2", "EstimateLatencyMax" : "513",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -112,18 +113,20 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "sext_ln69", "Type" : "None", "Direction" : "I"},
+			{"Name" : "sext_ln71", "Type" : "None", "Direction" : "I"},
 			{"Name" : "neuron_index_1", "Type" : "None", "Direction" : "I"},
-			{"Name" : "sext_ln69_1", "Type" : "None", "Direction" : "I"},
-			{"Name" : "neuron_state", "Type" : "None", "Direction" : "I"},
-			{"Name" : "WEIGHTS", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "NEURONS_MEMBRANE", "Type" : "Memory", "Direction" : "IO"}],
+			{"Name" : "sext_ln71_1", "Type" : "None", "Direction" : "I"},
+			{"Name" : "neuron_state_index", "Type" : "None", "Direction" : "I"},
+			{"Name" : "trunc_ln", "Type" : "None", "Direction" : "I"},
+			{"Name" : "NEURONS_STATE", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "NEURONS_MEMBRANE", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "WEIGHTS", "Type" : "Memory", "Direction" : "I"}],
 		"Loop" : [
-			{"Name" : "INNER_LAYER_WEIGHTS_LOOP", "PipelineType" : "UPC",
-				"LoopDec" : {"FSMBitwidth" : "2", "FirstState" : "ap_ST_fsm_pp0_stage1", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage1_subdone", "LastState" : "ap_ST_fsm_pp0_stage1", "LastStateIter" : "ap_enable_reg_pp0_iter1", "LastStateBlock" : "ap_block_pp0_stage1_subdone", "QuitState" : "ap_ST_fsm_pp0_stage1", "QuitStateIter" : "ap_enable_reg_pp0_iter1", "QuitStateBlock" : "ap_block_pp0_stage1_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_inner_layer_Pipeline_INNER_LAYER_WEIGHTS_LOOP_fu_137.WEIGHTS_U", "Parent" : "3"},
-	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_inner_layer_Pipeline_INNER_LAYER_WEIGHTS_LOOP_fu_137.flow_control_loop_pipe_sequential_init_U", "Parent" : "3"},
-	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP_fu_150", "Parent" : "0", "Child" : ["7"],
+			{"Name" : "WEIGHTS_LOOP", "PipelineType" : "UPC",
+				"LoopDec" : {"FSMBitwidth" : "2", "FirstState" : "ap_ST_fsm_pp0_stage1", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage1_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter2", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter2", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_inner_layer_Pipeline_WEIGHTS_LOOP_fu_144.WEIGHTS_U", "Parent" : "3"},
+	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_inner_layer_Pipeline_WEIGHTS_LOOP_fu_144.flow_control_loop_pipe_sequential_init_U", "Parent" : "3"},
+	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP_fu_161", "Parent" : "0", "Child" : ["7"],
 		"CDFG" : "inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -138,34 +141,34 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "zext_ln84", "Type" : "None", "Direction" : "I"},
-			{"Name" : "NEURONS_INDEX_load_cast", "Type" : "None", "Direction" : "I"},
+			{"Name" : "neuron_state_index", "Type" : "None", "Direction" : "I"},
 			{"Name" : "neuron_index", "Type" : "None", "Direction" : "I"},
 			{"Name" : "NEURONS_STATE", "Type" : "Memory", "Direction" : "O"}],
 		"Loop" : [
 			{"Name" : "NEURONS_STATE_RESET_LOOP", "PipelineType" : "UPC",
 				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_state1", "FirstStateIter" : "", "FirstStateBlock" : "ap_ST_fsm_state1_blk", "LastState" : "ap_ST_fsm_state1", "LastStateIter" : "", "LastStateBlock" : "ap_ST_fsm_state1_blk", "QuitState" : "ap_ST_fsm_state1", "QuitStateIter" : "", "QuitStateBlock" : "ap_ST_fsm_state1_blk", "OneDepthLoop" : "1", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP_fu_150.flow_control_loop_pipe_sequential_init_U", "Parent" : "6"}]}
+	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP_fu_161.flow_control_loop_pipe_sequential_init_U", "Parent" : "6"}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	inner_layer {
 		layer_index_val {Type I LastRead 0 FirstWrite -1}
 		NEURONS_INDEX {Type I LastRead -1 FirstWrite -1}
-		NEURONS_STATE {Type IO LastRead 3 FirstWrite 0}
+		NEURONS_STATE {Type IO LastRead 1 FirstWrite -1}
 		WEIGHTS_INDEX {Type I LastRead -1 FirstWrite -1}
-		WEIGHTS {Type I LastRead -1 FirstWrite -1}
-		NEURONS_MEMBRANE {Type IO LastRead 6 FirstWrite 3}}
-	inner_layer_Pipeline_INNER_LAYER_WEIGHTS_LOOP {
-		sext_ln69 {Type I LastRead 0 FirstWrite -1}
+		NEURONS_MEMBRANE {Type IO LastRead 5 FirstWrite 4}
+		WEIGHTS {Type I LastRead -1 FirstWrite -1}}
+	inner_layer_Pipeline_WEIGHTS_LOOP {
+		sext_ln71 {Type I LastRead 0 FirstWrite -1}
 		neuron_index_1 {Type I LastRead 0 FirstWrite -1}
-		sext_ln69_1 {Type I LastRead 0 FirstWrite -1}
-		neuron_state {Type I LastRead 0 FirstWrite -1}
-		WEIGHTS {Type I LastRead -1 FirstWrite -1}
-		NEURONS_MEMBRANE {Type IO LastRead 2 FirstWrite 3}}
+		sext_ln71_1 {Type I LastRead 0 FirstWrite -1}
+		neuron_state_index {Type I LastRead 0 FirstWrite -1}
+		trunc_ln {Type I LastRead 0 FirstWrite -1}
+		NEURONS_STATE {Type I LastRead 1 FirstWrite -1}
+		NEURONS_MEMBRANE {Type IO LastRead 3 FirstWrite 4}
+		WEIGHTS {Type I LastRead -1 FirstWrite -1}}
 	inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP {
-		zext_ln84 {Type I LastRead 0 FirstWrite -1}
-		NEURONS_INDEX_load_cast {Type I LastRead 0 FirstWrite -1}
+		neuron_state_index {Type I LastRead 0 FirstWrite -1}
 		neuron_index {Type I LastRead 0 FirstWrite -1}
 		NEURONS_STATE {Type O LastRead -1 FirstWrite 0}}}
 

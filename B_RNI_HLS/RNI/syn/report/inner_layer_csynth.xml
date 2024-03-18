@@ -23,16 +23,16 @@
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
 <Best-caseLatency>6</Best-caseLatency>
-<Average-caseLatency>17151</Average-caseLatency>
+<Average-caseLatency>33407</Average-caseLatency>
 <Worst-caseLatency>132351</Worst-caseLatency>
 <Best-caseRealTimeLatency>60.000 ns</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>0.172 ms</Average-caseRealTimeLatency>
+<Average-caseRealTimeLatency>0.334 ms</Average-caseRealTimeLatency>
 <Worst-caseRealTimeLatency>1.324 ms</Worst-caseRealTimeLatency>
 <Interval-min>6</Interval-min>
 <Interval-max>132351</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
-<INNER_LAYER_NEURONS_LOOP>
+<NEURONS_LOOP>
 <Slack>7.30</Slack>
 <TripCount>
 <range>
@@ -54,21 +54,21 @@
 </AbsoluteTimeLatency>
 <IterationLatency>
 <range>
-<min>5</min>
+<min>7</min>
 <max>518</max>
 </range>
 </IterationLatency>
 <InstanceList>
 </InstanceList>
-</INNER_LAYER_NEURONS_LOOP>
+</NEURONS_LOOP>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
 <BRAM_18K>1</BRAM_18K>
-<FF>316</FF>
-<LUT>676</LUT>
+<FF>396</FF>
+<LUT>692</LUT>
 <DSP>0</DSP>
 <URAM>0</URAM>
 </Resources>

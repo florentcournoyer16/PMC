@@ -3,71 +3,57 @@
 
 <trans_list>
 
-<trans id="66" from="1" to="2">
+<trans id="63" from="1" to="2">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="67" from="2" to="3">
+<trans id="64" from="2" to="3">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="68" from="3" to="4">
-<condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln67" val="1"/>
-</and_exp></or_exp>
-</condition>
-</trans>
-
-<trans id="69" from="3" to="9">
-<condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln67" val="0"/>
-</and_exp></or_exp>
-</condition>
-</trans>
-
-<trans id="71" from="4" to="5">
+<trans id="65" from="3" to="4">
 <condition id="-1">
 <or_exp><and_exp><literal name="icmp_ln69" val="1"/>
 </and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="72" from="4" to="6">
+<trans id="66" from="3" to="8">
 <condition id="-1">
 <or_exp><and_exp><literal name="icmp_ln69" val="0"/>
 </and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="74" from="5" to="6">
+<trans id="68" from="4" to="5">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="75" from="6" to="7">
+<trans id="69" from="5" to="6">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="77" from="7" to="8">
+<trans id="70" from="6" to="7">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="78" from="8" to="3">
+<trans id="71" from="7" to="3">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="79" from="9" to="10">
+<trans id="72" from="8" to="9">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
@@ -80,7 +66,7 @@
 
 <state id="1" st_id="1">
 
-<operation id="11" st_id="1" stage="1" lat="1">
+<operation id="10" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -95,7 +81,7 @@ entry:0 %neuron_index_1 = alloca i32 1
 <StgValue><ssdm name="neuron_index_1"/></StgValue>
 </operation>
 
-<operation id="12" st_id="1" stage="1" lat="1">
+<operation id="11" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -110,6 +96,21 @@ entry:1 %layer_index_val_read = read i2 @_ssdm_op_Read.ap_auto.i2, i2 %layer_ind
 <StgValue><ssdm name="layer_index_val_read"/></StgValue>
 </operation>
 
+<operation id="12" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="9" bw="64" op_0_bw="2">
+<![CDATA[
+entry:2 %zext_ln69_2 = zext i2 %layer_index_val_read
+
+]]></Node>
+<StgValue><ssdm name="zext_ln69_2"/></StgValue>
+</operation>
+
 <operation id="13" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
@@ -117,27 +118,27 @@ entry:1 %layer_index_val_read = read i2 @_ssdm_op_Read.ap_auto.i2, i2 %layer_ind
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="9" bw="1" op_0_bw="2">
+<Node id="10" bw="3" op_0_bw="6" op_1_bw="64" op_2_bw="64">
 <![CDATA[
-entry:2 %trunc_ln67 = trunc i2 %layer_index_val_read
+entry:3 %NEURONS_INDEX_addr = getelementptr i6 %NEURONS_INDEX, i64 0, i64 %zext_ln69_2
 
 ]]></Node>
-<StgValue><ssdm name="trunc_ln67"/></StgValue>
+<StgValue><ssdm name="NEURONS_INDEX_addr"/></StgValue>
 </operation>
 
-<operation id="14" st_id="1" stage="1" lat="1">
-<core>LogicGate</core>
-<MemPortIdVec></MemPortIdVec>
+<operation id="14" st_id="1" stage="2" lat="2">
+<core>ROM</core>
+<MemPortIdVec>2 </MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="10" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="11" bw="6" op_0_bw="3">
 <![CDATA[
-entry:3 %xor_ln67 = xor i1 %trunc_ln67, i1 1
+entry:4 %neuron_index = load i3 %NEURONS_INDEX_addr
 
 ]]></Node>
-<StgValue><ssdm name="xor_ln67"/></StgValue>
+<StgValue><ssdm name="neuron_index"/></StgValue>
 </operation>
 
 <operation id="15" st_id="1" stage="1" lat="1">
@@ -147,42 +148,42 @@ entry:3 %xor_ln67 = xor i1 %trunc_ln67, i1 1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="11" bw="64" op_0_bw="1">
+<Node id="12" bw="1" op_0_bw="2">
 <![CDATA[
-entry:4 %zext_ln67_2 = zext i1 %xor_ln67
+entry:5 %empty = trunc i2 %layer_index_val_read
 
 ]]></Node>
-<StgValue><ssdm name="zext_ln67_2"/></StgValue>
+<StgValue><ssdm name="empty"/></StgValue>
 </operation>
 
 <operation id="16" st_id="1" stage="1" lat="1">
+<core>Adder</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="13" bw="2" op_0_bw="2" op_1_bw="2">
+<![CDATA[
+entry:6 %add_i_i209 = add i2 %layer_index_val_read, i2 1
+
+]]></Node>
+<StgValue><ssdm name="add_i_i209"/></StgValue>
+</operation>
+
+<operation id="17" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="12" bw="2" op_0_bw="6" op_1_bw="64" op_2_bw="64">
+<Node id="14" bw="64" op_0_bw="2">
 <![CDATA[
-entry:5 %NEURONS_INDEX_addr = getelementptr i6 %NEURONS_INDEX, i64 0, i64 %zext_ln67_2
+entry:7 %conv_i186 = zext i2 %add_i_i209
 
 ]]></Node>
-<StgValue><ssdm name="NEURONS_INDEX_addr"/></StgValue>
-</operation>
-
-<operation id="17" st_id="1" stage="2" lat="2">
-<core>ROM</core>
-<MemPortIdVec>1 </MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="13" bw="6" op_0_bw="2">
-<![CDATA[
-entry:6 %neuron_index = load i2 %NEURONS_INDEX_addr
-
-]]></Node>
-<StgValue><ssdm name="neuron_index"/></StgValue>
+<StgValue><ssdm name="conv_i186"/></StgValue>
 </operation>
 
 <operation id="18" st_id="1" stage="1" lat="1">
@@ -192,120 +193,120 @@ entry:6 %neuron_index = load i2 %NEURONS_INDEX_addr
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="14" bw="64" op_0_bw="2">
+<Node id="15" bw="3" op_0_bw="6" op_1_bw="64" op_2_bw="64">
 <![CDATA[
-entry:7 %conv_i199 = zext i2 %layer_index_val_read
-
-]]></Node>
-<StgValue><ssdm name="conv_i199"/></StgValue>
-</operation>
-
-<operation id="19" st_id="1" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="15" bw="2" op_0_bw="6" op_1_bw="64" op_2_bw="64">
-<![CDATA[
-entry:8 %NEURONS_INDEX_addr_1 = getelementptr i6 %NEURONS_INDEX, i64 0, i64 %conv_i199
+entry:8 %NEURONS_INDEX_addr_1 = getelementptr i6 %NEURONS_INDEX, i64 0, i64 %conv_i186
 
 ]]></Node>
 <StgValue><ssdm name="NEURONS_INDEX_addr_1"/></StgValue>
 </operation>
 
-<operation id="20" st_id="1" stage="2" lat="2">
-<core>ROM</core>
-<MemPortIdVec>0 </MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="16" bw="6" op_0_bw="2">
-<![CDATA[
-entry:9 %NEURONS_INDEX_load = load i2 %NEURONS_INDEX_addr_1
-
-]]></Node>
-<StgValue><ssdm name="NEURONS_INDEX_load"/></StgValue>
-</operation>
-</state>
-
-<state id="2" st_id="2">
-
-<operation id="21" st_id="2" stage="1" lat="2">
+<operation id="19" st_id="1" stage="2" lat="2">
 <core>ROM</core>
 <MemPortIdVec>1 </MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="13" bw="6" op_0_bw="2">
+<Node id="16" bw="6" op_0_bw="3">
 <![CDATA[
-entry:6 %neuron_index = load i2 %NEURONS_INDEX_addr
+entry:9 %NEURONS_INDEX_load = load i3 %NEURONS_INDEX_addr_1
 
 ]]></Node>
-<StgValue><ssdm name="neuron_index"/></StgValue>
+<StgValue><ssdm name="NEURONS_INDEX_load"/></StgValue>
 </operation>
 
-<operation id="22" st_id="2" stage="1" lat="2">
+<operation id="20" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="17" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+entry:10 %sub_i_i149 = xor i1 %empty, i1 1
+
+]]></Node>
+<StgValue><ssdm name="sub_i_i149"/></StgValue>
+</operation>
+
+<operation id="21" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="18" bw="64" op_0_bw="1">
+<![CDATA[
+entry:11 %conv_i126 = zext i1 %sub_i_i149
+
+]]></Node>
+<StgValue><ssdm name="conv_i126"/></StgValue>
+</operation>
+
+<operation id="22" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="19" bw="3" op_0_bw="6" op_1_bw="64" op_2_bw="64">
+<![CDATA[
+entry:12 %NEURONS_INDEX_addr_2 = getelementptr i6 %NEURONS_INDEX, i64 0, i64 %conv_i126
+
+]]></Node>
+<StgValue><ssdm name="NEURONS_INDEX_addr_2"/></StgValue>
+</operation>
+
+<operation id="23" st_id="1" stage="2" lat="2">
 <core>ROM</core>
 <MemPortIdVec>0 </MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="16" bw="6" op_0_bw="2">
+<Node id="22" bw="6" op_0_bw="3">
 <![CDATA[
-entry:9 %NEURONS_INDEX_load = load i2 %NEURONS_INDEX_addr_1
+entry:15 %neuron_state_index = load i3 %NEURONS_INDEX_addr_2
+
+]]></Node>
+<StgValue><ssdm name="neuron_state_index"/></StgValue>
+</operation>
+</state>
+
+<state id="2" st_id="2">
+
+<operation id="24" st_id="2" stage="1" lat="2">
+<core>ROM</core>
+<MemPortIdVec>2 </MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="11" bw="6" op_0_bw="3">
+<![CDATA[
+entry:4 %neuron_index = load i3 %NEURONS_INDEX_addr
+
+]]></Node>
+<StgValue><ssdm name="neuron_index"/></StgValue>
+</operation>
+
+<operation id="25" st_id="2" stage="1" lat="2">
+<core>ROM</core>
+<MemPortIdVec>1 </MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="16" bw="6" op_0_bw="3">
+<![CDATA[
+entry:9 %NEURONS_INDEX_load = load i3 %NEURONS_INDEX_addr_1
 
 ]]></Node>
 <StgValue><ssdm name="NEURONS_INDEX_load"/></StgValue>
-</operation>
-
-<operation id="23" st_id="2" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="17" bw="64" op_0_bw="6">
-<![CDATA[
-entry:10 %zext_ln67 = zext i6 %neuron_index
-
-]]></Node>
-<StgValue><ssdm name="zext_ln67"/></StgValue>
-</operation>
-
-<operation id="24" st_id="2" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="18" bw="64" op_0_bw="6">
-<![CDATA[
-entry:11 %zext_ln67_1 = zext i6 %NEURONS_INDEX_load
-
-]]></Node>
-<StgValue><ssdm name="zext_ln67_1"/></StgValue>
-</operation>
-
-<operation id="25" st_id="2" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="19" bw="0" op_0_bw="64" op_1_bw="64">
-<![CDATA[
-entry:12 %store_ln67 = store i64 %zext_ln67, i64 %neuron_index_1
-
-]]></Node>
-<StgValue><ssdm name="store_ln67"/></StgValue>
 </operation>
 
 <operation id="26" st_id="2" stage="1" lat="1">
@@ -315,168 +316,228 @@ entry:12 %store_ln67 = store i64 %zext_ln67, i64 %neuron_index_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="20" bw="0" op_0_bw="0">
+<Node id="20" bw="64" op_0_bw="6">
 <![CDATA[
-entry:13 %br_ln67 = br void %INNER_LAYER_WEIGHTS_LOOP
+entry:13 %zext_ln69 = zext i6 %neuron_index
 
 ]]></Node>
-<StgValue><ssdm name="br_ln67"/></StgValue>
+<StgValue><ssdm name="zext_ln69"/></StgValue>
+</operation>
+
+<operation id="27" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="21" bw="64" op_0_bw="6">
+<![CDATA[
+entry:14 %zext_ln69_1 = zext i6 %NEURONS_INDEX_load
+
+]]></Node>
+<StgValue><ssdm name="zext_ln69_1"/></StgValue>
+</operation>
+
+<operation id="28" st_id="2" stage="1" lat="2">
+<core>ROM</core>
+<MemPortIdVec>0 </MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="22" bw="6" op_0_bw="3">
+<![CDATA[
+entry:15 %neuron_state_index = load i3 %NEURONS_INDEX_addr_2
+
+]]></Node>
+<StgValue><ssdm name="neuron_state_index"/></StgValue>
+</operation>
+
+<operation id="29" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="23" bw="0" op_0_bw="64" op_1_bw="64">
+<![CDATA[
+entry:16 %store_ln69 = store i64 %zext_ln69, i64 %neuron_index_1
+
+]]></Node>
+<StgValue><ssdm name="store_ln69"/></StgValue>
+</operation>
+
+<operation id="30" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="24" bw="0" op_0_bw="0">
+<![CDATA[
+entry:17 %br_ln69 = br void %WEIGHTS_LOOP
+
+]]></Node>
+<StgValue><ssdm name="br_ln69"/></StgValue>
 </operation>
 </state>
 
 <state id="3" st_id="3">
 
-<operation id="27" st_id="3" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="22" bw="64" op_0_bw="64" op_1_bw="0">
-<![CDATA[
-INNER_LAYER_WEIGHTS_LOOP:0 %neuron_index_4 = load i64 %neuron_index_1
-
-]]></Node>
-<StgValue><ssdm name="neuron_index_4"/></StgValue>
-</operation>
-
-<operation id="28" st_id="3" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="23" bw="6" op_0_bw="64">
-<![CDATA[
-INNER_LAYER_WEIGHTS_LOOP:1 %trunc_ln67_1 = trunc i64 %neuron_index_4
-
-]]></Node>
-<StgValue><ssdm name="trunc_ln67_1"/></StgValue>
-</operation>
-
-<operation id="29" st_id="3" stage="1" lat="1">
-<core>Cmp</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="24" bw="1" op_0_bw="64" op_1_bw="64">
-<![CDATA[
-INNER_LAYER_WEIGHTS_LOOP:2 %icmp_ln67 = icmp_slt  i64 %neuron_index_4, i64 %zext_ln67_1
-
-]]></Node>
-<StgValue><ssdm name="icmp_ln67"/></StgValue>
-</operation>
-
-<operation id="30" st_id="3" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="25" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
-<![CDATA[
-INNER_LAYER_WEIGHTS_LOOP:3 %br_ln67 = br i1 %icmp_ln67, void %for.inc57.preheader, void %INNER_LAYER_WEIGHTS_LOOP.split
-
-]]></Node>
-<StgValue><ssdm name="br_ln67"/></StgValue>
-</operation>
-
 <operation id="31" st_id="3" stage="1" lat="1">
-<core>Adder</core>
+<core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln67" val="1"/>
-</and_exp></or_exp>
+<or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="29" bw="6" op_0_bw="6" op_1_bw="6">
+<Node id="26" bw="64" op_0_bw="64" op_1_bw="0">
 <![CDATA[
-INNER_LAYER_WEIGHTS_LOOP.split:2 %add_ln69 = add i6 %trunc_ln67_1, i6 63
+WEIGHTS_LOOP:0 %neuron_index_2 = load i64 %neuron_index_1
 
 ]]></Node>
-<StgValue><ssdm name="add_ln69"/></StgValue>
+<StgValue><ssdm name="neuron_index_2"/></StgValue>
 </operation>
 
 <operation id="32" st_id="3" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln67" val="1"/>
-</and_exp></or_exp>
+<or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="30" bw="64" op_0_bw="6">
+<Node id="27" bw="6" op_0_bw="64">
 <![CDATA[
-INNER_LAYER_WEIGHTS_LOOP.split:3 %zext_ln69 = zext i6 %add_ln69
+WEIGHTS_LOOP:1 %trunc_ln69 = trunc i64 %neuron_index_2
 
 ]]></Node>
-<StgValue><ssdm name="zext_ln69"/></StgValue>
+<StgValue><ssdm name="trunc_ln69"/></StgValue>
 </operation>
 
 <operation id="33" st_id="3" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="28" bw="1" op_0_bw="64" op_1_bw="64">
+<![CDATA[
+WEIGHTS_LOOP:2 %icmp_ln69 = icmp_slt  i64 %neuron_index_2, i64 %zext_ln69_1
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln69"/></StgValue>
+</operation>
+
+<operation id="34" st_id="3" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln67" val="1"/>
-</and_exp></or_exp>
+<or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="31" bw="6" op_0_bw="8" op_1_bw="64" op_2_bw="64">
+<Node id="29" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
-INNER_LAYER_WEIGHTS_LOOP.split:4 %WEIGHTS_INDEX_addr = getelementptr i8 %WEIGHTS_INDEX, i64 0, i64 %zext_ln69
+WEIGHTS_LOOP:3 %br_ln69 = br i1 %icmp_ln69, void %for.inc59.preheader, void %WEIGHTS_LOOP.split
 
 ]]></Node>
-<StgValue><ssdm name="WEIGHTS_INDEX_addr"/></StgValue>
-</operation>
-
-<operation id="34" st_id="3" stage="2" lat="2">
-<core>ROM</core>
-<MemPortIdVec>1 </MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln67" val="1"/>
-</and_exp></or_exp>
-</condition>
-
-<Node id="32" bw="8" op_0_bw="6">
-<![CDATA[
-INNER_LAYER_WEIGHTS_LOOP.split:5 %weights_index = load i6 %WEIGHTS_INDEX_addr
-
-]]></Node>
-<StgValue><ssdm name="weights_index"/></StgValue>
+<StgValue><ssdm name="br_ln69"/></StgValue>
 </operation>
 
 <operation id="35" st_id="3" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln67" val="1"/>
+<or_exp><and_exp><literal name="icmp_ln69" val="1"/>
 </and_exp></or_exp>
 </condition>
 
 <Node id="33" bw="6" op_0_bw="8" op_1_bw="64" op_2_bw="64">
 <![CDATA[
-INNER_LAYER_WEIGHTS_LOOP.split:6 %WEIGHTS_INDEX_addr_1 = getelementptr i8 %WEIGHTS_INDEX, i64 0, i64 %neuron_index_4
+WEIGHTS_LOOP.split:2 %WEIGHTS_INDEX_addr = getelementptr i8 %WEIGHTS_INDEX, i64 0, i64 %neuron_index_2
 
 ]]></Node>
-<StgValue><ssdm name="WEIGHTS_INDEX_addr_1"/></StgValue>
+<StgValue><ssdm name="WEIGHTS_INDEX_addr"/></StgValue>
 </operation>
 
 <operation id="36" st_id="3" stage="2" lat="2">
 <core>ROM</core>
-<MemPortIdVec>0 </MemPortIdVec>
+<MemPortIdVec>1 </MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln67" val="1"/>
+<or_exp><and_exp><literal name="icmp_ln69" val="1"/>
 </and_exp></or_exp>
 </condition>
 
 <Node id="34" bw="8" op_0_bw="6">
 <![CDATA[
-INNER_LAYER_WEIGHTS_LOOP.split:7 %WEIGHTS_INDEX_load = load i6 %WEIGHTS_INDEX_addr_1
+WEIGHTS_LOOP.split:3 %weight_index = load i6 %WEIGHTS_INDEX_addr
+
+]]></Node>
+<StgValue><ssdm name="weight_index"/></StgValue>
+</operation>
+
+<operation id="37" st_id="3" stage="1" lat="1">
+<core>Adder</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="icmp_ln69" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="35" bw="6" op_0_bw="6" op_1_bw="6">
+<![CDATA[
+WEIGHTS_LOOP.split:4 %add_i_i178 = add i6 %trunc_ln69, i6 1
+
+]]></Node>
+<StgValue><ssdm name="add_i_i178"/></StgValue>
+</operation>
+
+<operation id="38" st_id="3" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="icmp_ln69" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="36" bw="64" op_0_bw="6">
+<![CDATA[
+WEIGHTS_LOOP.split:5 %conv_i155 = zext i6 %add_i_i178
+
+]]></Node>
+<StgValue><ssdm name="conv_i155"/></StgValue>
+</operation>
+
+<operation id="39" st_id="3" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="icmp_ln69" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="37" bw="6" op_0_bw="8" op_1_bw="64" op_2_bw="64">
+<![CDATA[
+WEIGHTS_LOOP.split:6 %WEIGHTS_INDEX_addr_1 = getelementptr i8 %WEIGHTS_INDEX, i64 0, i64 %conv_i155
+
+]]></Node>
+<StgValue><ssdm name="WEIGHTS_INDEX_addr_1"/></StgValue>
+</operation>
+
+<operation id="40" st_id="3" stage="2" lat="2">
+<core>ROM</core>
+<MemPortIdVec>0 </MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="icmp_ln69" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="38" bw="8" op_0_bw="6">
+<![CDATA[
+WEIGHTS_LOOP.split:7 %WEIGHTS_INDEX_load = load i6 %WEIGHTS_INDEX_addr_1
 
 ]]></Node>
 <StgValue><ssdm name="WEIGHTS_INDEX_load"/></StgValue>
@@ -485,94 +546,34 @@ INNER_LAYER_WEIGHTS_LOOP.split:7 %WEIGHTS_INDEX_load = load i6 %WEIGHTS_INDEX_ad
 
 <state id="4" st_id="4">
 
-<operation id="37" st_id="4" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="27" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="64">
-<![CDATA[
-INNER_LAYER_WEIGHTS_LOOP.split:0 %speclooptripcount_ln67 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 0, i64 255, i64 127
-
-]]></Node>
-<StgValue><ssdm name="speclooptripcount_ln67"/></StgValue>
-</operation>
-
-<operation id="38" st_id="4" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="28" bw="0" op_0_bw="0" op_1_bw="0">
-<![CDATA[
-INNER_LAYER_WEIGHTS_LOOP.split:1 %specloopname_ln67 = specloopname void @_ssdm_op_SpecLoopName, void @empty_2
-
-]]></Node>
-<StgValue><ssdm name="specloopname_ln67"/></StgValue>
-</operation>
-
-<operation id="39" st_id="4" stage="1" lat="2">
+<operation id="41" st_id="4" stage="1" lat="2">
 <core>ROM</core>
 <MemPortIdVec>1 </MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="32" bw="8" op_0_bw="6">
+<Node id="34" bw="8" op_0_bw="6">
 <![CDATA[
-INNER_LAYER_WEIGHTS_LOOP.split:5 %weights_index = load i6 %WEIGHTS_INDEX_addr
+WEIGHTS_LOOP.split:3 %weight_index = load i6 %WEIGHTS_INDEX_addr
 
 ]]></Node>
-<StgValue><ssdm name="weights_index"/></StgValue>
+<StgValue><ssdm name="weight_index"/></StgValue>
 </operation>
 
-<operation id="40" st_id="4" stage="1" lat="2">
+<operation id="42" st_id="4" stage="1" lat="2">
 <core>ROM</core>
 <MemPortIdVec>0 </MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="34" bw="8" op_0_bw="6">
+<Node id="38" bw="8" op_0_bw="6">
 <![CDATA[
-INNER_LAYER_WEIGHTS_LOOP.split:7 %WEIGHTS_INDEX_load = load i6 %WEIGHTS_INDEX_addr_1
+WEIGHTS_LOOP.split:7 %WEIGHTS_INDEX_load = load i6 %WEIGHTS_INDEX_addr_1
 
 ]]></Node>
 <StgValue><ssdm name="WEIGHTS_INDEX_load"/></StgValue>
-</operation>
-
-<operation id="41" st_id="4" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="35" bw="6" op_0_bw="8" op_1_bw="64" op_2_bw="64">
-<![CDATA[
-INNER_LAYER_WEIGHTS_LOOP.split:8 %NEURONS_MEMBRANE_addr = getelementptr i8 %NEURONS_MEMBRANE, i64 0, i64 %neuron_index_4
-
-]]></Node>
-<StgValue><ssdm name="NEURONS_MEMBRANE_addr"/></StgValue>
-</operation>
-
-<operation id="42" st_id="4" stage="1" lat="1">
-<core>Cmp</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="36" bw="1" op_0_bw="8" op_1_bw="8">
-<![CDATA[
-INNER_LAYER_WEIGHTS_LOOP.split:9 %icmp_ln69 = icmp_slt  i8 %weights_index, i8 %WEIGHTS_INDEX_load
-
-]]></Node>
-<StgValue><ssdm name="icmp_ln69"/></StgValue>
 </operation>
 
 <operation id="43" st_id="4" stage="1" lat="1">
@@ -582,610 +583,552 @@ INNER_LAYER_WEIGHTS_LOOP.split:9 %icmp_ln69 = icmp_slt  i8 %weights_index, i8 %W
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="37" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="40" bw="6" op_0_bw="8">
 <![CDATA[
-INNER_LAYER_WEIGHTS_LOOP.split:10 %br_ln69 = br i1 %icmp_ln69, void %for.end, void %for.body12.lr.ph
+WEIGHTS_LOOP.split:9 %trunc_ln71 = trunc i8 %weight_index
 
 ]]></Node>
-<StgValue><ssdm name="br_ln69"/></StgValue>
+<StgValue><ssdm name="trunc_ln71"/></StgValue>
 </operation>
 
-<operation id="44" st_id="4" stage="1" lat="1">
-<core>Adder</core>
+<operation id="44" st_id="4" stage="2" lat="2">
+<core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln69" val="1"/>
-</and_exp></or_exp>
+<or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="39" bw="6" op_0_bw="6" op_1_bw="6">
+<Node id="41" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="6" op_3_bw="8" op_4_bw="6" op_5_bw="6" op_6_bw="1" op_7_bw="8" op_8_bw="8">
 <![CDATA[
-for.body12.lr.ph:0 %sub_i135 = sub i6 %trunc_ln67_1, i6 %neuron_index
+WEIGHTS_LOOP.split:10 %call_ln71 = call void @inner_layer_Pipeline_WEIGHTS_LOOP, i8 %weight_index, i6 %trunc_ln69, i8 %WEIGHTS_INDEX_load, i6 %neuron_state_index, i6 %trunc_ln71, i1 %NEURONS_STATE, i8 %NEURONS_MEMBRANE, i8 %WEIGHTS
 
 ]]></Node>
-<StgValue><ssdm name="sub_i135"/></StgValue>
-</operation>
-
-<operation id="45" st_id="4" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln69" val="1"/>
-</and_exp></or_exp>
-</condition>
-
-<Node id="40" bw="64" op_0_bw="6">
-<![CDATA[
-for.body12.lr.ph:1 %conv_i113 = zext i6 %sub_i135
-
-]]></Node>
-<StgValue><ssdm name="conv_i113"/></StgValue>
-</operation>
-
-<operation id="46" st_id="4" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln69" val="1"/>
-</and_exp></or_exp>
-</condition>
-
-<Node id="41" bw="6" op_0_bw="1" op_1_bw="64" op_2_bw="64">
-<![CDATA[
-for.body12.lr.ph:2 %NEURONS_STATE_addr = getelementptr i1 %NEURONS_STATE, i64 0, i64 %conv_i113
-
-]]></Node>
-<StgValue><ssdm name="NEURONS_STATE_addr"/></StgValue>
-</operation>
-
-<operation id="47" st_id="4" stage="2" lat="2">
-<core>RAM</core>
-<MemPortIdVec>0 </MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln69" val="1"/>
-</and_exp></or_exp>
-</condition>
-
-<Node id="42" bw="1" op_0_bw="6">
-<![CDATA[
-for.body12.lr.ph:3 %NEURONS_STATE_load = load i6 %NEURONS_STATE_addr
-
-]]></Node>
-<StgValue><ssdm name="NEURONS_STATE_load"/></StgValue>
+<StgValue><ssdm name="call_ln71"/></StgValue>
 </operation>
 </state>
 
 <state id="5" st_id="5">
 
-<operation id="48" st_id="5" stage="1" lat="2">
-<core>RAM</core>
-<MemPortIdVec>0 </MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="42" bw="1" op_0_bw="6">
-<![CDATA[
-for.body12.lr.ph:3 %NEURONS_STATE_load = load i6 %NEURONS_STATE_addr
-
-]]></Node>
-<StgValue><ssdm name="NEURONS_STATE_load"/></StgValue>
-</operation>
-
-<operation id="49" st_id="5" stage="2" lat="2">
+<operation id="45" st_id="5" stage="1" lat="2">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="43" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="6" op_3_bw="8" op_4_bw="1" op_5_bw="8" op_6_bw="8">
+<Node id="41" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="6" op_3_bw="8" op_4_bw="6" op_5_bw="6" op_6_bw="1" op_7_bw="8" op_8_bw="8">
 <![CDATA[
-for.body12.lr.ph:4 %call_ln69 = call void @inner_layer_Pipeline_INNER_LAYER_WEIGHTS_LOOP, i8 %weights_index, i6 %trunc_ln67_1, i8 %WEIGHTS_INDEX_load, i1 %NEURONS_STATE_load, i8 %WEIGHTS, i8 %NEURONS_MEMBRANE
+WEIGHTS_LOOP.split:10 %call_ln71 = call void @inner_layer_Pipeline_WEIGHTS_LOOP, i8 %weight_index, i6 %trunc_ln69, i8 %WEIGHTS_INDEX_load, i6 %neuron_state_index, i6 %trunc_ln71, i1 %NEURONS_STATE, i8 %NEURONS_MEMBRANE, i8 %WEIGHTS
 
 ]]></Node>
-<StgValue><ssdm name="call_ln69"/></StgValue>
+<StgValue><ssdm name="call_ln71"/></StgValue>
 </operation>
 </state>
 
 <state id="6" st_id="6">
 
-<operation id="50" st_id="6" stage="1" lat="2">
-<core></core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln69" val="1"/>
-</and_exp></or_exp>
-</condition>
-
-<Node id="43" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="6" op_3_bw="8" op_4_bw="1" op_5_bw="8" op_6_bw="8">
-<![CDATA[
-for.body12.lr.ph:4 %call_ln69 = call void @inner_layer_Pipeline_INNER_LAYER_WEIGHTS_LOOP, i8 %weights_index, i6 %trunc_ln67_1, i8 %WEIGHTS_INDEX_load, i1 %NEURONS_STATE_load, i8 %WEIGHTS, i8 %NEURONS_MEMBRANE
-
-]]></Node>
-<StgValue><ssdm name="call_ln69"/></StgValue>
-</operation>
-
-<operation id="51" st_id="6" stage="1" lat="1">
+<operation id="46" st_id="6" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln69" val="1"/>
-</and_exp></or_exp>
+<or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="44" bw="0" op_0_bw="0">
+<Node id="39" bw="6" op_0_bw="8" op_1_bw="64" op_2_bw="64">
 <![CDATA[
-for.body12.lr.ph:5 %br_ln0 = br void %for.end
+WEIGHTS_LOOP.split:8 %NEURONS_MEMBRANE_addr = getelementptr i8 %NEURONS_MEMBRANE, i64 0, i64 %neuron_index_2
 
 ]]></Node>
-<StgValue><ssdm name="br_ln0"/></StgValue>
+<StgValue><ssdm name="NEURONS_MEMBRANE_addr"/></StgValue>
+</operation>
+
+<operation id="47" st_id="6" stage="2" lat="2">
+<core>RAM</core>
+<MemPortIdVec>0 </MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="42" bw="8" op_0_bw="6" op_1_bw="0">
+<![CDATA[
+WEIGHTS_LOOP.split:11 %NEURONS_MEMBRANE_load = load i6 %NEURONS_MEMBRANE_addr
+
+]]></Node>
+<StgValue><ssdm name="NEURONS_MEMBRANE_load"/></StgValue>
 </operation>
 </state>
 
 <state id="7" st_id="7">
 
-<operation id="52" st_id="7" stage="2" lat="2">
+<operation id="48" st_id="7" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="31" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="64">
+<![CDATA[
+WEIGHTS_LOOP.split:0 %speclooptripcount_ln69 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 0, i64 255, i64 127
+
+]]></Node>
+<StgValue><ssdm name="speclooptripcount_ln69"/></StgValue>
+</operation>
+
+<operation id="49" st_id="7" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="32" bw="0" op_0_bw="0" op_1_bw="0">
+<![CDATA[
+WEIGHTS_LOOP.split:1 %specloopname_ln69 = specloopname void @_ssdm_op_SpecLoopName, void @empty_7
+
+]]></Node>
+<StgValue><ssdm name="specloopname_ln69"/></StgValue>
+</operation>
+
+<operation id="50" st_id="7" stage="1" lat="2">
 <core>RAM</core>
 <MemPortIdVec>0 </MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="46" bw="8" op_0_bw="6" op_1_bw="0">
+<Node id="42" bw="8" op_0_bw="6" op_1_bw="0">
 <![CDATA[
-for.end:0 %NEURONS_MEMBRANE_load = load i6 %NEURONS_MEMBRANE_addr
-
-]]></Node>
-<StgValue><ssdm name="NEURONS_MEMBRANE_load"/></StgValue>
-</operation>
-</state>
-
-<state id="8" st_id="8">
-
-<operation id="53" st_id="8" stage="1" lat="2">
-<core>RAM</core>
-<MemPortIdVec>0 </MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="46" bw="8" op_0_bw="6" op_1_bw="0">
-<![CDATA[
-for.end:0 %NEURONS_MEMBRANE_load = load i6 %NEURONS_MEMBRANE_addr
+WEIGHTS_LOOP.split:11 %NEURONS_MEMBRANE_load = load i6 %NEURONS_MEMBRANE_addr
 
 ]]></Node>
 <StgValue><ssdm name="NEURONS_MEMBRANE_load"/></StgValue>
 </operation>
 
-<operation id="54" st_id="8" stage="1" lat="1">
+<operation id="51" st_id="7" stage="1" lat="1">
 <core>Cmp</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="47" bw="1" op_0_bw="8" op_1_bw="8">
+<Node id="43" bw="1" op_0_bw="8" op_1_bw="8">
 <![CDATA[
-for.end:1 %icmp_ln77 = icmp_sgt  i8 %NEURONS_MEMBRANE_load, i8 25
+WEIGHTS_LOOP.split:12 %icmp_ln80 = icmp_sgt  i8 %NEURONS_MEMBRANE_load, i8 25
 
 ]]></Node>
-<StgValue><ssdm name="icmp_ln77"/></StgValue>
+<StgValue><ssdm name="icmp_ln80"/></StgValue>
 </operation>
 
-<operation id="55" st_id="8" stage="1" lat="1">
+<operation id="52" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="48" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="44" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
-for.end:2 %br_ln77 = br i1 %icmp_ln77, void %for.inc37, void %if.then31
+WEIGHTS_LOOP.split:13 %br_ln80 = br i1 %icmp_ln80, void %for.inc44, void %if.then35
 
 ]]></Node>
-<StgValue><ssdm name="br_ln77"/></StgValue>
+<StgValue><ssdm name="br_ln80"/></StgValue>
 </operation>
 
-<operation id="56" st_id="8" stage="1" lat="1">
+<operation id="53" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln77" val="1"/>
+<or_exp><and_exp><literal name="icmp_ln80" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="50" bw="6" op_0_bw="1" op_1_bw="64" op_2_bw="64">
+<Node id="46" bw="6" op_0_bw="1" op_1_bw="64" op_2_bw="64">
 <![CDATA[
-if.then31:0 %NEURONS_STATE_addr_1 = getelementptr i1 %NEURONS_STATE, i64 0, i64 %neuron_index_4
+if.then35:0 %NEURONS_STATE_addr = getelementptr i1 %NEURONS_STATE, i64 0, i64 %neuron_index_2
 
 ]]></Node>
-<StgValue><ssdm name="NEURONS_STATE_addr_1"/></StgValue>
+<StgValue><ssdm name="NEURONS_STATE_addr"/></StgValue>
 </operation>
 
-<operation id="57" st_id="8" stage="1" lat="1">
+<operation id="54" st_id="7" stage="1" lat="1">
 <core>RAM</core>
 <MemPortIdVec>0 </MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln77" val="1"/>
+<or_exp><and_exp><literal name="icmp_ln80" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="51" bw="0" op_0_bw="1" op_1_bw="6" op_2_bw="0">
+<Node id="47" bw="0" op_0_bw="1" op_1_bw="6" op_2_bw="0">
 <![CDATA[
-if.then31:1 %store_ln79 = store i1 1, i6 %NEURONS_STATE_addr_1
+if.then35:1 %store_ln82 = store i1 1, i6 %NEURONS_STATE_addr
 
 ]]></Node>
-<StgValue><ssdm name="store_ln79"/></StgValue>
+<StgValue><ssdm name="store_ln82"/></StgValue>
 </operation>
 
-<operation id="58" st_id="8" stage="1" lat="1">
+<operation id="55" st_id="7" stage="1" lat="1">
 <core>RAM</core>
 <MemPortIdVec>0 </MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln77" val="1"/>
+<or_exp><and_exp><literal name="icmp_ln80" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="52" bw="0" op_0_bw="8" op_1_bw="6" op_2_bw="0" op_3_bw="0">
+<Node id="48" bw="0" op_0_bw="8" op_1_bw="6" op_2_bw="0" op_3_bw="0">
 <![CDATA[
-if.then31:2 %store_ln80 = store i8 0, i6 %NEURONS_MEMBRANE_addr
+if.then35:2 %store_ln83 = store i8 0, i6 %NEURONS_MEMBRANE_addr
 
 ]]></Node>
-<StgValue><ssdm name="store_ln80"/></StgValue>
+<StgValue><ssdm name="store_ln83"/></StgValue>
 </operation>
 
-<operation id="59" st_id="8" stage="1" lat="1">
+<operation id="56" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln77" val="1"/>
+<or_exp><and_exp><literal name="icmp_ln80" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="53" bw="0" op_0_bw="0">
+<Node id="49" bw="0" op_0_bw="0">
 <![CDATA[
-if.then31:3 %br_ln81 = br void %for.inc37
+if.then35:3 %br_ln84 = br void %for.inc44
 
 ]]></Node>
-<StgValue><ssdm name="br_ln81"/></StgValue>
+<StgValue><ssdm name="br_ln84"/></StgValue>
 </operation>
 
-<operation id="60" st_id="8" stage="1" lat="1">
+<operation id="57" st_id="7" stage="1" lat="1">
 <core>Adder</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="55" bw="64" op_0_bw="64" op_1_bw="64">
+<Node id="51" bw="64" op_0_bw="64" op_1_bw="64">
 <![CDATA[
-for.inc37:0 %add_ln67 = add i64 %neuron_index_4, i64 1
+for.inc44:0 %add_ln69 = add i64 %neuron_index_2, i64 1
 
 ]]></Node>
-<StgValue><ssdm name="add_ln67"/></StgValue>
+<StgValue><ssdm name="add_ln69"/></StgValue>
 </operation>
 
-<operation id="61" st_id="8" stage="1" lat="1">
+<operation id="58" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="56" bw="0" op_0_bw="64" op_1_bw="64" op_2_bw="0" op_3_bw="0">
+<Node id="52" bw="0" op_0_bw="64" op_1_bw="64" op_2_bw="0" op_3_bw="0">
 <![CDATA[
-for.inc37:1 %store_ln67 = store i64 %add_ln67, i64 %neuron_index_1
+for.inc44:1 %store_ln69 = store i64 %add_ln69, i64 %neuron_index_1
 
 ]]></Node>
-<StgValue><ssdm name="store_ln67"/></StgValue>
+<StgValue><ssdm name="store_ln69"/></StgValue>
 </operation>
 
-<operation id="62" st_id="8" stage="1" lat="1">
+<operation id="59" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="57" bw="0" op_0_bw="0">
+<Node id="53" bw="0" op_0_bw="0">
 <![CDATA[
-for.inc37:2 %br_ln67 = br void %INNER_LAYER_WEIGHTS_LOOP
+for.inc44:2 %br_ln69 = br void %WEIGHTS_LOOP
 
 ]]></Node>
-<StgValue><ssdm name="br_ln67"/></StgValue>
+<StgValue><ssdm name="br_ln69"/></StgValue>
+</operation>
+</state>
+
+<state id="8" st_id="8">
+
+<operation id="60" st_id="8" stage="2" lat="2">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="55" bw="0" op_0_bw="0" op_1_bw="6" op_2_bw="6" op_3_bw="1">
+<![CDATA[
+for.inc59.preheader:0 %call_ln69 = call void @inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP, i6 %neuron_state_index, i6 %neuron_index, i1 %NEURONS_STATE
+
+]]></Node>
+<StgValue><ssdm name="call_ln69"/></StgValue>
 </operation>
 </state>
 
 <state id="9" st_id="9">
 
-<operation id="63" st_id="9" stage="2" lat="2">
+<operation id="61" st_id="9" stage="1" lat="2">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="59" bw="0" op_0_bw="0" op_1_bw="6" op_2_bw="6" op_3_bw="6" op_4_bw="1">
+<Node id="55" bw="0" op_0_bw="0" op_1_bw="6" op_2_bw="6" op_3_bw="1">
 <![CDATA[
-for.inc57.preheader:0 %call_ln67 = call void @inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP, i6 %neuron_index, i6 %NEURONS_INDEX_load, i6 %neuron_index, i1 %NEURONS_STATE
+for.inc59.preheader:0 %call_ln69 = call void @inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP, i6 %neuron_state_index, i6 %neuron_index, i1 %NEURONS_STATE
 
 ]]></Node>
-<StgValue><ssdm name="call_ln67"/></StgValue>
-</operation>
-</state>
-
-<state id="10" st_id="10">
-
-<operation id="64" st_id="10" stage="1" lat="2">
-<core></core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="59" bw="0" op_0_bw="0" op_1_bw="6" op_2_bw="6" op_3_bw="6" op_4_bw="1">
-<![CDATA[
-for.inc57.preheader:0 %call_ln67 = call void @inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP, i6 %neuron_index, i6 %NEURONS_INDEX_load, i6 %neuron_index, i1 %NEURONS_STATE
-
-]]></Node>
-<StgValue><ssdm name="call_ln67"/></StgValue>
+<StgValue><ssdm name="call_ln69"/></StgValue>
 </operation>
 
-<operation id="65" st_id="10" stage="1" lat="1">
+<operation id="62" st_id="9" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="60" bw="0">
+<Node id="56" bw="0">
 <![CDATA[
-for.inc57.preheader:1 %ret_ln87 = ret
+for.inc59.preheader:1 %ret_ln90 = ret
 
 ]]></Node>
-<StgValue><ssdm name="ret_ln87"/></StgValue>
+<StgValue><ssdm name="ret_ln90"/></StgValue>
 </operation>
 </state>
 </state_list>
 
 
 <ports>
-<port id="80" name="layer_index_val" dir="0" iftype="0">
+<port id="73" name="layer_index_val" dir="0" iftype="0">
 <core>NULL</core><StgValue><ssdm name="layer_index_val"/></StgValue>
 </port>
-<port id="81" name="NEURONS_INDEX" dir="0" iftype="1">
-<core>ROM</core><StgValue><ssdm name="NEURONS_INDEX"/><MemPortTyVec>1 1 </MemPortTyVec>
+<port id="74" name="NEURONS_INDEX" dir="0" iftype="1">
+<core>ROM</core><StgValue><ssdm name="NEURONS_INDEX"/><MemPortTyVec>1 1 1 </MemPortTyVec>
 </StgValue>
 </port>
-<port id="82" name="NEURONS_STATE" dir="2" iftype="1">
+<port id="75" name="NEURONS_STATE" dir="2" iftype="1">
 <core>RAM</core><StgValue><ssdm name="NEURONS_STATE"/><MemPortTyVec>2 3 </MemPortTyVec>
 </StgValue>
 </port>
-<port id="83" name="WEIGHTS_INDEX" dir="0" iftype="1">
+<port id="76" name="WEIGHTS_INDEX" dir="0" iftype="1">
 <core>ROM</core><StgValue><ssdm name="WEIGHTS_INDEX"/><MemPortTyVec>1 1 </MemPortTyVec>
 </StgValue>
 </port>
-<port id="84" name="WEIGHTS" dir="0" iftype="1">
-<core>ROM</core><StgValue><ssdm name="WEIGHTS"/><MemPortTyVec>1 </MemPortTyVec>
+<port id="77" name="NEURONS_MEMBRANE" dir="2" iftype="1">
+<core>RAM</core><StgValue><ssdm name="NEURONS_MEMBRANE"/><MemPortTyVec>2 3 </MemPortTyVec>
 </StgValue>
 </port>
-<port id="85" name="NEURONS_MEMBRANE" dir="2" iftype="1">
-<core>RAM</core><StgValue><ssdm name="NEURONS_MEMBRANE"/><MemPortTyVec>2 3 </MemPortTyVec>
+<port id="78" name="WEIGHTS" dir="0" iftype="1">
+<core>ROM</core><StgValue><ssdm name="WEIGHTS"/><MemPortTyVec>1 </MemPortTyVec>
 </StgValue>
 </port>
 </ports>
 
 
 <dataflows>
-<dataflow id="87" from="StgValue_86" to="neuron_index_1" fromId="86" toId="11">
+<dataflow id="80" from="StgValue_79" to="neuron_index_1" fromId="79" toId="10">
 </dataflow>
-<dataflow id="89" from="_ssdm_op_Read.ap_auto.i2" to="layer_index_val_read" fromId="88" toId="12">
+<dataflow id="82" from="_ssdm_op_Read.ap_auto.i2" to="layer_index_val_read" fromId="81" toId="11">
 </dataflow>
-<dataflow id="90" from="layer_index_val" to="layer_index_val_read" fromId="80" toId="12">
+<dataflow id="83" from="layer_index_val" to="layer_index_val_read" fromId="73" toId="11">
 </dataflow>
-<dataflow id="91" from="layer_index_val_read" to="trunc_ln67" fromId="12" toId="13">
+<dataflow id="84" from="layer_index_val_read" to="zext_ln69_2" fromId="11" toId="12">
 </dataflow>
-<dataflow id="92" from="trunc_ln67" to="xor_ln67" fromId="13" toId="14">
+<dataflow id="85" from="NEURONS_INDEX" to="NEURONS_INDEX_addr" fromId="74" toId="13">
 </dataflow>
-<dataflow id="94" from="StgValue_93" to="xor_ln67" fromId="93" toId="14">
+<dataflow id="87" from="StgValue_86" to="NEURONS_INDEX_addr" fromId="86" toId="13">
 </dataflow>
-<dataflow id="95" from="xor_ln67" to="zext_ln67_2" fromId="14" toId="15">
+<dataflow id="88" from="zext_ln69_2" to="NEURONS_INDEX_addr" fromId="12" toId="13">
 </dataflow>
-<dataflow id="96" from="NEURONS_INDEX" to="NEURONS_INDEX_addr" fromId="81" toId="16">
+<dataflow id="89" from="NEURONS_INDEX_addr" to="neuron_index" fromId="13" toId="14">
 </dataflow>
-<dataflow id="98" from="StgValue_97" to="NEURONS_INDEX_addr" fromId="97" toId="16">
+<dataflow id="90" from="layer_index_val_read" to="empty" fromId="11" toId="15">
 </dataflow>
-<dataflow id="99" from="zext_ln67_2" to="NEURONS_INDEX_addr" fromId="15" toId="16">
+<dataflow id="91" from="layer_index_val_read" to="add_i_i209" fromId="11" toId="16">
 </dataflow>
-<dataflow id="100" from="NEURONS_INDEX_addr" to="neuron_index" fromId="16" toId="17">
+<dataflow id="93" from="StgValue_92" to="add_i_i209" fromId="92" toId="16">
 </dataflow>
-<dataflow id="101" from="layer_index_val_read" to="conv_i199" fromId="12" toId="18">
+<dataflow id="94" from="add_i_i209" to="conv_i186" fromId="16" toId="17">
 </dataflow>
-<dataflow id="102" from="NEURONS_INDEX" to="NEURONS_INDEX_addr_1" fromId="81" toId="19">
+<dataflow id="95" from="NEURONS_INDEX" to="NEURONS_INDEX_addr_1" fromId="74" toId="18">
 </dataflow>
-<dataflow id="103" from="StgValue_97" to="NEURONS_INDEX_addr_1" fromId="97" toId="19">
+<dataflow id="96" from="StgValue_86" to="NEURONS_INDEX_addr_1" fromId="86" toId="18">
 </dataflow>
-<dataflow id="104" from="conv_i199" to="NEURONS_INDEX_addr_1" fromId="18" toId="19">
+<dataflow id="97" from="conv_i186" to="NEURONS_INDEX_addr_1" fromId="17" toId="18">
 </dataflow>
-<dataflow id="105" from="NEURONS_INDEX_addr_1" to="NEURONS_INDEX_load" fromId="19" toId="20">
+<dataflow id="98" from="NEURONS_INDEX_addr_1" to="NEURONS_INDEX_load" fromId="18" toId="19">
 </dataflow>
-<dataflow id="106" from="NEURONS_INDEX_addr" to="neuron_index" fromId="16" toId="21">
+<dataflow id="99" from="empty" to="sub_i_i149" fromId="15" toId="20">
 </dataflow>
-<dataflow id="107" from="NEURONS_INDEX_addr_1" to="NEURONS_INDEX_load" fromId="19" toId="22">
+<dataflow id="101" from="StgValue_100" to="sub_i_i149" fromId="100" toId="20">
 </dataflow>
-<dataflow id="108" from="neuron_index" to="zext_ln67" fromId="21" toId="23">
+<dataflow id="102" from="sub_i_i149" to="conv_i126" fromId="20" toId="21">
 </dataflow>
-<dataflow id="109" from="NEURONS_INDEX_load" to="zext_ln67_1" fromId="22" toId="24">
+<dataflow id="103" from="NEURONS_INDEX" to="NEURONS_INDEX_addr_2" fromId="74" toId="22">
 </dataflow>
-<dataflow id="110" from="zext_ln67" to="store_ln67" fromId="23" toId="25">
+<dataflow id="104" from="StgValue_86" to="NEURONS_INDEX_addr_2" fromId="86" toId="22">
 </dataflow>
-<dataflow id="111" from="neuron_index_1" to="store_ln67" fromId="11" toId="25">
+<dataflow id="105" from="conv_i126" to="NEURONS_INDEX_addr_2" fromId="21" toId="22">
 </dataflow>
-<dataflow id="112" from="neuron_index_1" to="neuron_index_4" fromId="11" toId="27">
+<dataflow id="106" from="NEURONS_INDEX_addr_2" to="neuron_state_index" fromId="22" toId="23">
 </dataflow>
-<dataflow id="113" from="neuron_index_4" to="trunc_ln67_1" fromId="27" toId="28">
+<dataflow id="107" from="NEURONS_INDEX_addr" to="neuron_index" fromId="13" toId="24">
 </dataflow>
-<dataflow id="114" from="neuron_index_4" to="icmp_ln67" fromId="27" toId="29">
+<dataflow id="108" from="NEURONS_INDEX_addr_1" to="NEURONS_INDEX_load" fromId="18" toId="25">
 </dataflow>
-<dataflow id="115" from="zext_ln67_1" to="icmp_ln67" fromId="24" toId="29">
+<dataflow id="109" from="neuron_index" to="zext_ln69" fromId="24" toId="26">
 </dataflow>
-<dataflow id="116" from="icmp_ln67" to="br_ln67" fromId="29" toId="30">
+<dataflow id="110" from="NEURONS_INDEX_load" to="zext_ln69_1" fromId="25" toId="27">
 </dataflow>
-<dataflow id="117" from="trunc_ln67_1" to="add_ln69" fromId="28" toId="31">
+<dataflow id="111" from="NEURONS_INDEX_addr_2" to="neuron_state_index" fromId="22" toId="28">
 </dataflow>
-<dataflow id="119" from="StgValue_118" to="add_ln69" fromId="118" toId="31">
+<dataflow id="112" from="zext_ln69" to="store_ln69" fromId="26" toId="29">
 </dataflow>
-<dataflow id="120" from="add_ln69" to="zext_ln69" fromId="31" toId="32">
+<dataflow id="113" from="neuron_index_1" to="store_ln69" fromId="10" toId="29">
 </dataflow>
-<dataflow id="121" from="WEIGHTS_INDEX" to="WEIGHTS_INDEX_addr" fromId="83" toId="33">
+<dataflow id="114" from="neuron_index_1" to="neuron_index_2" fromId="10" toId="31">
 </dataflow>
-<dataflow id="122" from="StgValue_97" to="WEIGHTS_INDEX_addr" fromId="97" toId="33">
+<dataflow id="115" from="neuron_index_2" to="trunc_ln69" fromId="31" toId="32">
 </dataflow>
-<dataflow id="123" from="zext_ln69" to="WEIGHTS_INDEX_addr" fromId="32" toId="33">
+<dataflow id="116" from="neuron_index_2" to="icmp_ln69" fromId="31" toId="33">
 </dataflow>
-<dataflow id="124" from="WEIGHTS_INDEX_addr" to="weights_index" fromId="33" toId="34">
+<dataflow id="117" from="zext_ln69_1" to="icmp_ln69" fromId="27" toId="33">
 </dataflow>
-<dataflow id="125" from="WEIGHTS_INDEX" to="WEIGHTS_INDEX_addr_1" fromId="83" toId="35">
+<dataflow id="118" from="icmp_ln69" to="br_ln69" fromId="33" toId="34">
 </dataflow>
-<dataflow id="126" from="StgValue_97" to="WEIGHTS_INDEX_addr_1" fromId="97" toId="35">
+<dataflow id="119" from="WEIGHTS_INDEX" to="WEIGHTS_INDEX_addr" fromId="76" toId="35">
 </dataflow>
-<dataflow id="127" from="neuron_index_4" to="WEIGHTS_INDEX_addr_1" fromId="27" toId="35">
+<dataflow id="120" from="StgValue_86" to="WEIGHTS_INDEX_addr" fromId="86" toId="35">
 </dataflow>
-<dataflow id="128" from="WEIGHTS_INDEX_addr_1" to="WEIGHTS_INDEX_load" fromId="35" toId="36">
+<dataflow id="121" from="neuron_index_2" to="WEIGHTS_INDEX_addr" fromId="31" toId="35">
 </dataflow>
-<dataflow id="130" from="_ssdm_op_SpecLoopTripCount" to="speclooptripcount_ln67" fromId="129" toId="37">
+<dataflow id="122" from="WEIGHTS_INDEX_addr" to="weight_index" fromId="35" toId="36">
 </dataflow>
-<dataflow id="131" from="StgValue_97" to="speclooptripcount_ln67" fromId="97" toId="37">
+<dataflow id="123" from="trunc_ln69" to="add_i_i178" fromId="32" toId="37">
 </dataflow>
-<dataflow id="133" from="StgValue_132" to="speclooptripcount_ln67" fromId="132" toId="37">
+<dataflow id="125" from="StgValue_124" to="add_i_i178" fromId="124" toId="37">
 </dataflow>
-<dataflow id="135" from="StgValue_134" to="speclooptripcount_ln67" fromId="134" toId="37">
+<dataflow id="126" from="add_i_i178" to="conv_i155" fromId="37" toId="38">
 </dataflow>
-<dataflow id="137" from="_ssdm_op_SpecLoopName" to="specloopname_ln67" fromId="136" toId="38">
+<dataflow id="127" from="WEIGHTS_INDEX" to="WEIGHTS_INDEX_addr_1" fromId="76" toId="39">
 </dataflow>
-<dataflow id="139" from="empty_2" to="specloopname_ln67" fromId="138" toId="38">
+<dataflow id="128" from="StgValue_86" to="WEIGHTS_INDEX_addr_1" fromId="86" toId="39">
 </dataflow>
-<dataflow id="140" from="WEIGHTS_INDEX_addr" to="weights_index" fromId="33" toId="39">
+<dataflow id="129" from="conv_i155" to="WEIGHTS_INDEX_addr_1" fromId="38" toId="39">
 </dataflow>
-<dataflow id="141" from="WEIGHTS_INDEX_addr_1" to="WEIGHTS_INDEX_load" fromId="35" toId="40">
+<dataflow id="130" from="WEIGHTS_INDEX_addr_1" to="WEIGHTS_INDEX_load" fromId="39" toId="40">
 </dataflow>
-<dataflow id="142" from="NEURONS_MEMBRANE" to="NEURONS_MEMBRANE_addr" fromId="85" toId="41">
+<dataflow id="131" from="WEIGHTS_INDEX_addr" to="weight_index" fromId="35" toId="41">
 </dataflow>
-<dataflow id="143" from="StgValue_97" to="NEURONS_MEMBRANE_addr" fromId="97" toId="41">
+<dataflow id="132" from="WEIGHTS_INDEX_addr_1" to="WEIGHTS_INDEX_load" fromId="39" toId="42">
 </dataflow>
-<dataflow id="144" from="neuron_index_4" to="NEURONS_MEMBRANE_addr" fromId="27" toId="41">
+<dataflow id="133" from="weight_index" to="trunc_ln71" fromId="41" toId="43">
 </dataflow>
-<dataflow id="145" from="weights_index" to="icmp_ln69" fromId="39" toId="42">
+<dataflow id="135" from="inner_layer_Pipeline_WEIGHTS_LOOP" to="call_ln71" fromId="134" toId="44">
 </dataflow>
-<dataflow id="146" from="WEIGHTS_INDEX_load" to="icmp_ln69" fromId="40" toId="42">
+<dataflow id="136" from="weight_index" to="call_ln71" fromId="41" toId="44">
 </dataflow>
-<dataflow id="147" from="icmp_ln69" to="br_ln69" fromId="42" toId="43">
+<dataflow id="137" from="trunc_ln69" to="call_ln71" fromId="32" toId="44">
 </dataflow>
-<dataflow id="148" from="trunc_ln67_1" to="sub_i135" fromId="28" toId="44">
+<dataflow id="138" from="WEIGHTS_INDEX_load" to="call_ln71" fromId="42" toId="44">
 </dataflow>
-<dataflow id="149" from="neuron_index" to="sub_i135" fromId="21" toId="44">
+<dataflow id="139" from="neuron_state_index" to="call_ln71" fromId="28" toId="44">
 </dataflow>
-<dataflow id="150" from="sub_i135" to="conv_i113" fromId="44" toId="45">
+<dataflow id="140" from="trunc_ln71" to="call_ln71" fromId="43" toId="44">
 </dataflow>
-<dataflow id="151" from="NEURONS_STATE" to="NEURONS_STATE_addr" fromId="82" toId="46">
+<dataflow id="141" from="NEURONS_STATE" to="call_ln71" fromId="75" toId="44">
 </dataflow>
-<dataflow id="152" from="StgValue_97" to="NEURONS_STATE_addr" fromId="97" toId="46">
+<dataflow id="142" from="NEURONS_MEMBRANE" to="call_ln71" fromId="77" toId="44">
 </dataflow>
-<dataflow id="153" from="conv_i113" to="NEURONS_STATE_addr" fromId="45" toId="46">
+<dataflow id="143" from="WEIGHTS" to="call_ln71" fromId="78" toId="44">
 </dataflow>
-<dataflow id="154" from="NEURONS_STATE_addr" to="NEURONS_STATE_load" fromId="46" toId="47">
+<dataflow id="144" from="inner_layer_Pipeline_WEIGHTS_LOOP" to="call_ln71" fromId="134" toId="45">
 </dataflow>
-<dataflow id="155" from="NEURONS_STATE_addr" to="NEURONS_STATE_load" fromId="46" toId="48">
+<dataflow id="145" from="weight_index" to="call_ln71" fromId="41" toId="45">
 </dataflow>
-<dataflow id="157" from="inner_layer_Pipeline_INNER_LAYER_WEIGHTS_LOOP" to="call_ln69" fromId="156" toId="49">
+<dataflow id="146" from="trunc_ln69" to="call_ln71" fromId="32" toId="45">
 </dataflow>
-<dataflow id="158" from="weights_index" to="call_ln69" fromId="39" toId="49">
+<dataflow id="147" from="WEIGHTS_INDEX_load" to="call_ln71" fromId="42" toId="45">
 </dataflow>
-<dataflow id="159" from="trunc_ln67_1" to="call_ln69" fromId="28" toId="49">
+<dataflow id="148" from="neuron_state_index" to="call_ln71" fromId="28" toId="45">
 </dataflow>
-<dataflow id="160" from="WEIGHTS_INDEX_load" to="call_ln69" fromId="40" toId="49">
+<dataflow id="149" from="trunc_ln71" to="call_ln71" fromId="43" toId="45">
 </dataflow>
-<dataflow id="161" from="NEURONS_STATE_load" to="call_ln69" fromId="48" toId="49">
+<dataflow id="150" from="NEURONS_STATE" to="call_ln71" fromId="75" toId="45">
 </dataflow>
-<dataflow id="162" from="WEIGHTS" to="call_ln69" fromId="84" toId="49">
+<dataflow id="151" from="NEURONS_MEMBRANE" to="call_ln71" fromId="77" toId="45">
 </dataflow>
-<dataflow id="163" from="NEURONS_MEMBRANE" to="call_ln69" fromId="85" toId="49">
+<dataflow id="152" from="WEIGHTS" to="call_ln71" fromId="78" toId="45">
 </dataflow>
-<dataflow id="164" from="inner_layer_Pipeline_INNER_LAYER_WEIGHTS_LOOP" to="call_ln69" fromId="156" toId="50">
+<dataflow id="153" from="NEURONS_MEMBRANE" to="NEURONS_MEMBRANE_addr" fromId="77" toId="46">
 </dataflow>
-<dataflow id="165" from="weights_index" to="call_ln69" fromId="39" toId="50">
+<dataflow id="154" from="StgValue_86" to="NEURONS_MEMBRANE_addr" fromId="86" toId="46">
 </dataflow>
-<dataflow id="166" from="trunc_ln67_1" to="call_ln69" fromId="28" toId="50">
+<dataflow id="155" from="neuron_index_2" to="NEURONS_MEMBRANE_addr" fromId="31" toId="46">
 </dataflow>
-<dataflow id="167" from="WEIGHTS_INDEX_load" to="call_ln69" fromId="40" toId="50">
+<dataflow id="156" from="NEURONS_MEMBRANE_addr" to="NEURONS_MEMBRANE_load" fromId="46" toId="47">
 </dataflow>
-<dataflow id="168" from="NEURONS_STATE_load" to="call_ln69" fromId="48" toId="50">
+<dataflow id="158" from="_ssdm_op_SpecLoopTripCount" to="speclooptripcount_ln69" fromId="157" toId="48">
 </dataflow>
-<dataflow id="169" from="WEIGHTS" to="call_ln69" fromId="84" toId="50">
+<dataflow id="159" from="StgValue_86" to="speclooptripcount_ln69" fromId="86" toId="48">
 </dataflow>
-<dataflow id="170" from="NEURONS_MEMBRANE" to="call_ln69" fromId="85" toId="50">
+<dataflow id="161" from="StgValue_160" to="speclooptripcount_ln69" fromId="160" toId="48">
 </dataflow>
-<dataflow id="171" from="NEURONS_MEMBRANE_addr" to="NEURONS_MEMBRANE_load" fromId="41" toId="52">
+<dataflow id="163" from="StgValue_162" to="speclooptripcount_ln69" fromId="162" toId="48">
 </dataflow>
-<dataflow id="172" from="NEURONS_MEMBRANE_addr" to="NEURONS_MEMBRANE_load" fromId="41" toId="53">
+<dataflow id="165" from="_ssdm_op_SpecLoopName" to="specloopname_ln69" fromId="164" toId="49">
 </dataflow>
-<dataflow id="173" from="NEURONS_MEMBRANE_load" to="icmp_ln77" fromId="53" toId="54">
+<dataflow id="167" from="empty_7" to="specloopname_ln69" fromId="166" toId="49">
 </dataflow>
-<dataflow id="175" from="StgValue_174" to="icmp_ln77" fromId="174" toId="54">
+<dataflow id="168" from="NEURONS_MEMBRANE_addr" to="NEURONS_MEMBRANE_load" fromId="46" toId="50">
 </dataflow>
-<dataflow id="176" from="icmp_ln77" to="br_ln77" fromId="54" toId="55">
+<dataflow id="169" from="NEURONS_MEMBRANE_load" to="icmp_ln80" fromId="50" toId="51">
 </dataflow>
-<dataflow id="177" from="NEURONS_STATE" to="NEURONS_STATE_addr_1" fromId="82" toId="56">
+<dataflow id="171" from="StgValue_170" to="icmp_ln80" fromId="170" toId="51">
 </dataflow>
-<dataflow id="178" from="StgValue_97" to="NEURONS_STATE_addr_1" fromId="97" toId="56">
+<dataflow id="172" from="icmp_ln80" to="br_ln80" fromId="51" toId="52">
 </dataflow>
-<dataflow id="179" from="neuron_index_4" to="NEURONS_STATE_addr_1" fromId="27" toId="56">
+<dataflow id="173" from="NEURONS_STATE" to="NEURONS_STATE_addr" fromId="75" toId="53">
 </dataflow>
-<dataflow id="180" from="StgValue_93" to="store_ln79" fromId="93" toId="57">
+<dataflow id="174" from="StgValue_86" to="NEURONS_STATE_addr" fromId="86" toId="53">
 </dataflow>
-<dataflow id="181" from="NEURONS_STATE_addr_1" to="store_ln79" fromId="56" toId="57">
+<dataflow id="175" from="neuron_index_2" to="NEURONS_STATE_addr" fromId="31" toId="53">
 </dataflow>
-<dataflow id="183" from="StgValue_182" to="store_ln80" fromId="182" toId="58">
+<dataflow id="176" from="StgValue_100" to="store_ln82" fromId="100" toId="54">
 </dataflow>
-<dataflow id="184" from="NEURONS_MEMBRANE_addr" to="store_ln80" fromId="41" toId="58">
+<dataflow id="177" from="NEURONS_STATE_addr" to="store_ln82" fromId="53" toId="54">
 </dataflow>
-<dataflow id="185" from="neuron_index_4" to="add_ln67" fromId="27" toId="60">
+<dataflow id="179" from="StgValue_178" to="store_ln83" fromId="178" toId="55">
 </dataflow>
-<dataflow id="187" from="StgValue_186" to="add_ln67" fromId="186" toId="60">
+<dataflow id="180" from="NEURONS_MEMBRANE_addr" to="store_ln83" fromId="46" toId="55">
 </dataflow>
-<dataflow id="188" from="add_ln67" to="store_ln67" fromId="60" toId="61">
+<dataflow id="181" from="neuron_index_2" to="add_ln69" fromId="31" toId="57">
 </dataflow>
-<dataflow id="189" from="neuron_index_1" to="store_ln67" fromId="11" toId="61">
+<dataflow id="183" from="StgValue_182" to="add_ln69" fromId="182" toId="57">
 </dataflow>
-<dataflow id="191" from="inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP" to="call_ln67" fromId="190" toId="63">
+<dataflow id="184" from="add_ln69" to="store_ln69" fromId="57" toId="58">
 </dataflow>
-<dataflow id="192" from="neuron_index" to="call_ln67" fromId="21" toId="63">
+<dataflow id="185" from="neuron_index_1" to="store_ln69" fromId="10" toId="58">
 </dataflow>
-<dataflow id="193" from="NEURONS_INDEX_load" to="call_ln67" fromId="22" toId="63">
+<dataflow id="187" from="inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP" to="call_ln69" fromId="186" toId="60">
 </dataflow>
-<dataflow id="194" from="neuron_index" to="call_ln67" fromId="21" toId="63">
+<dataflow id="188" from="neuron_state_index" to="call_ln69" fromId="28" toId="60">
 </dataflow>
-<dataflow id="195" from="NEURONS_STATE" to="call_ln67" fromId="82" toId="63">
+<dataflow id="189" from="neuron_index" to="call_ln69" fromId="24" toId="60">
 </dataflow>
-<dataflow id="196" from="inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP" to="call_ln67" fromId="190" toId="64">
+<dataflow id="190" from="NEURONS_STATE" to="call_ln69" fromId="75" toId="60">
 </dataflow>
-<dataflow id="197" from="neuron_index" to="call_ln67" fromId="21" toId="64">
+<dataflow id="191" from="inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP" to="call_ln69" fromId="186" toId="61">
 </dataflow>
-<dataflow id="198" from="NEURONS_INDEX_load" to="call_ln67" fromId="22" toId="64">
+<dataflow id="192" from="neuron_state_index" to="call_ln69" fromId="28" toId="61">
 </dataflow>
-<dataflow id="199" from="neuron_index" to="call_ln67" fromId="21" toId="64">
+<dataflow id="193" from="neuron_index" to="call_ln69" fromId="24" toId="61">
 </dataflow>
-<dataflow id="200" from="NEURONS_STATE" to="call_ln67" fromId="82" toId="64">
+<dataflow id="194" from="NEURONS_STATE" to="call_ln69" fromId="75" toId="61">
 </dataflow>
-<dataflow id="201" from="icmp_ln67" to="StgValue_3" fromId="29" toId="3">
+<dataflow id="195" from="icmp_ln69" to="StgValue_3" fromId="33" toId="3">
 </dataflow>
-<dataflow id="202" from="icmp_ln69" to="StgValue_4" fromId="42" toId="4">
-</dataflow>
-<dataflow id="203" from="icmp_ln69" to="StgValue_6" fromId="42" toId="6">
-</dataflow>
-<dataflow id="204" from="icmp_ln77" to="StgValue_8" fromId="54" toId="8">
+<dataflow id="196" from="icmp_ln80" to="StgValue_7" fromId="51" toId="7">
 </dataflow>
 </dataflows>
 

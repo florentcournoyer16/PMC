@@ -11,14 +11,14 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 1 \
-    name input_list_3_042 \
+    name input_list_3_04 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_input_list_3_042 \
+    corename dc_input_list_3_04 \
     op interface \
-    ports { input_list_3_042 { I 8 vector } } \
+    ports { input_list_3_04 { I 8 vector } } \
 } "
 }
 
@@ -26,14 +26,14 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 2 \
-    name input_list_2_041 \
+    name input_list_2_03 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_input_list_2_041 \
+    corename dc_input_list_2_03 \
     op interface \
-    ports { input_list_2_041 { I 8 vector } } \
+    ports { input_list_2_03 { I 8 vector } } \
 } "
 }
 
@@ -41,14 +41,14 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 3 \
-    name input_list_1_040 \
+    name input_list_1_02 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_input_list_1_040 \
+    corename dc_input_list_1_02 \
     op interface \
-    ports { input_list_1_040 { I 8 vector } } \
+    ports { input_list_1_02 { I 8 vector } } \
 } "
 }
 
@@ -56,14 +56,14 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 4 \
-    name input_list_0_039 \
+    name input_list_0_01 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_input_list_0_039 \
+    corename dc_input_list_0_01 \
     op interface \
-    ports { input_list_0_039 { I 8 vector } } \
+    ports { input_list_0_01 { I 8 vector } } \
 } "
 }
 

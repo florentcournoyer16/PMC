@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP'" level="0">
-<item name = "Date">Mon Mar 18 18:56:07 2024
+<item name = "Date">Mon Mar 18 19:54:07 2024
 </item>
 <item name = "Version">2023.1.1 (Build 3869133 on Jun 15 2023)</item>
 <item name = "Project">B_RNI_HLS</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 4.237 ns, 2.70 ns</column>
+<column name="ap_clk">10.00 ns, 4.147 ns, 2.70 ns</column>
 </table>
 </item>
 </section>

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP'" level="0">
-<item name = "Date">Mon Mar 18 18:56:08 2024
+<item name = "Date">Mon Mar 18 19:54:09 2024
 </item>
 <item name = "Version">2023.1.1 (Build 3869133 on Jun 15 2023)</item>
 <item name = "Project">B_RNI_HLS</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 4.237 ns, 2.70 ns</column>
+<column name="ap_clk">10.00 ns, 4.147 ns, 2.70 ns</column>
 </table>
 </item>
 </section>
@@ -48,12 +48,12 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 44, -</column>
+<column name="Expression">-, -, 0, 28, -</column>
 <column name="FIFO">-, -, -, -, -</column>
 <column name="Instance">-, -, -, -, -</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, -, 27, -</column>
-<column name="Register">-, -, 10, -, -</column>
+<column name="Register">-, -, 8, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
 <specialColumn name="Utilization (%)">0, 0, ~0, ~0, 0</specialColumn>
 </table>
@@ -78,23 +78,22 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="neuron_index_3_fu_109_p2">+, 0, 0, 15, 8, 1</column>
-<column name="sub_ln85_fu_98_p2">-, 0, 0, 14, 6, 6</column>
-<column name="icmp_ln84_fu_88_p2">icmp, 0, 0, 15, 8, 8</column>
+<column name="add_ln87_fu_83_p2">+, 0, 0, 14, 6, 1</column>
+<column name="icmp_ln87_fu_72_p2">icmp, 0, 0, 14, 6, 6</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
 <column name="ap_done_int">9, 2, 1, 2</column>
-<column name="ap_sig_allocacmp_neuron_index_2">9, 2, 8, 16</column>
-<column name="neuron_index_1_fu_36">9, 2, 8, 16</column>
+<column name="ap_sig_allocacmp_neuron_state_index_2">9, 2, 6, 12</column>
+<column name="neuron_state_index_1_fu_34">9, 2, 6, 12</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
 <column name="ap_CS_fsm">1, 0, 1, 0</column>
 <column name="ap_done_reg">1, 0, 1, 0</column>
-<column name="neuron_index_1_fu_36">8, 0, 8, 0</column>
+<column name="neuron_state_index_1_fu_34">6, 0, 6, 0</column>
 </table>
 </item>
 </section>
@@ -110,8 +109,7 @@
 <column name="ap_done">out, 1, ap_ctrl_hs, inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP, return value</column>
 <column name="ap_idle">out, 1, ap_ctrl_hs, inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP, return value</column>
 <column name="ap_ready">out, 1, ap_ctrl_hs, inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP, return value</column>
-<column name="zext_ln84">in, 6, ap_none, zext_ln84, scalar</column>
-<column name="NEURONS_INDEX_load_cast">in, 6, ap_none, NEURONS_INDEX_load_cast, scalar</column>
+<column name="neuron_state_index">in, 6, ap_none, neuron_state_index, scalar</column>
 <column name="neuron_index">in, 6, ap_none, neuron_index, scalar</column>
 <column name="NEURONS_STATE_address0">out, 6, ap_memory, NEURONS_STATE, array</column>
 <column name="NEURONS_STATE_ce0">out, 1, ap_memory, NEURONS_STATE, array</column>

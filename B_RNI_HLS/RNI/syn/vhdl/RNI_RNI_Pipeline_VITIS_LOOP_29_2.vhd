@@ -16,10 +16,10 @@ port (
     ap_done : OUT STD_LOGIC;
     ap_idle : OUT STD_LOGIC;
     ap_ready : OUT STD_LOGIC;
-    input_list_3_042 : IN STD_LOGIC_VECTOR (7 downto 0);
-    input_list_2_041 : IN STD_LOGIC_VECTOR (7 downto 0);
-    input_list_1_040 : IN STD_LOGIC_VECTOR (7 downto 0);
-    input_list_0_039 : IN STD_LOGIC_VECTOR (7 downto 0);
+    input_list_3_04 : IN STD_LOGIC_VECTOR (7 downto 0);
+    input_list_2_03 : IN STD_LOGIC_VECTOR (7 downto 0);
+    input_list_1_02 : IN STD_LOGIC_VECTOR (7 downto 0);
+    input_list_0_01 : IN STD_LOGIC_VECTOR (7 downto 0);
     sext_ln29 : IN STD_LOGIC_VECTOR (7 downto 0);
     input_list_3_1_out : OUT STD_LOGIC_VECTOR (7 downto 0);
     input_list_3_1_out_ap_vld : OUT STD_LOGIC;
@@ -62,7 +62,7 @@ attribute shreg_extract : string;
     signal i_fu_54 : STD_LOGIC_VECTOR (2 downto 0);
     signal add_ln29_fu_166_p2 : STD_LOGIC_VECTOR (2 downto 0);
     signal ap_loop_init : STD_LOGIC;
-    signal ap_sig_allocacmp_i_1 : STD_LOGIC_VECTOR (2 downto 0);
+    signal ap_sig_allocacmp_i_2 : STD_LOGIC_VECTOR (2 downto 0);
     signal input_list_1_fu_58 : STD_LOGIC_VECTOR (7 downto 0);
     signal shl_ln30_fu_188_p2 : STD_LOGIC_VECTOR (7 downto 0);
     signal trunc_ln30_fu_172_p1 : STD_LOGIC_VECTOR (1 downto 0);
@@ -165,7 +165,7 @@ begin
                 if (((trunc_ln30_fu_172_p1 = ap_const_lv2_1) and (icmp_ln29_fu_160_p2 = ap_const_lv1_0))) then 
                     input_list_1_1_fu_62 <= shl_ln30_fu_188_p2;
                 elsif ((ap_loop_init = ap_const_logic_1)) then 
-                    input_list_1_1_fu_62 <= input_list_1_040;
+                    input_list_1_1_fu_62 <= input_list_1_02;
                 end if;
             end if; 
         end if;
@@ -178,7 +178,7 @@ begin
                 if (((trunc_ln30_fu_172_p1 = ap_const_lv2_2) and (icmp_ln29_fu_160_p2 = ap_const_lv1_0))) then 
                     input_list_1_2_fu_66 <= shl_ln30_fu_188_p2;
                 elsif ((ap_loop_init = ap_const_logic_1)) then 
-                    input_list_1_2_fu_66 <= input_list_2_041;
+                    input_list_1_2_fu_66 <= input_list_2_03;
                 end if;
             end if; 
         end if;
@@ -191,7 +191,7 @@ begin
                 if (((trunc_ln30_fu_172_p1 = ap_const_lv2_3) and (icmp_ln29_fu_160_p2 = ap_const_lv1_0))) then 
                     input_list_1_3_fu_70 <= shl_ln30_fu_188_p2;
                 elsif ((ap_loop_init = ap_const_logic_1)) then 
-                    input_list_1_3_fu_70 <= input_list_3_042;
+                    input_list_1_3_fu_70 <= input_list_3_04;
                 end if;
             end if; 
         end if;
@@ -204,7 +204,7 @@ begin
                 if (((trunc_ln30_fu_172_p1 = ap_const_lv2_0) and (icmp_ln29_fu_160_p2 = ap_const_lv1_0))) then 
                     input_list_1_fu_58 <= shl_ln30_fu_188_p2;
                 elsif ((ap_loop_init = ap_const_logic_1)) then 
-                    input_list_1_fu_58 <= input_list_0_039;
+                    input_list_1_fu_58 <= input_list_0_01;
                 end if;
             end if; 
         end if;
@@ -219,7 +219,7 @@ begin
                 ap_NS_fsm <= "X";
         end case;
     end process;
-    add_ln29_fu_166_p2 <= std_logic_vector(unsigned(ap_sig_allocacmp_i_1) + unsigned(ap_const_lv3_1));
+    add_ln29_fu_166_p2 <= std_logic_vector(unsigned(ap_sig_allocacmp_i_2) + unsigned(ap_const_lv3_1));
     ap_CS_fsm_state1 <= ap_CS_fsm(0);
 
     ap_ST_fsm_state1_blk_assign_proc : process(ap_start_int)
@@ -279,16 +279,16 @@ begin
     end process;
 
 
-    ap_sig_allocacmp_i_1_assign_proc : process(ap_CS_fsm_state1, i_fu_54, ap_loop_init)
+    ap_sig_allocacmp_i_2_assign_proc : process(ap_CS_fsm_state1, i_fu_54, ap_loop_init)
     begin
         if (((ap_loop_init = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
-            ap_sig_allocacmp_i_1 <= ap_const_lv3_0;
+            ap_sig_allocacmp_i_2 <= ap_const_lv3_0;
         else 
-            ap_sig_allocacmp_i_1 <= i_fu_54;
+            ap_sig_allocacmp_i_2 <= i_fu_54;
         end if; 
     end process;
 
-    icmp_ln29_fu_160_p2 <= "1" when (ap_sig_allocacmp_i_1 = ap_const_lv3_4) else "0";
+    icmp_ln29_fu_160_p2 <= "1" when (ap_sig_allocacmp_i_2 = ap_const_lv3_4) else "0";
     input_list_0_1_out <= input_list_1_fu_58;
 
     input_list_0_1_out_ap_vld_assign_proc : process(ap_CS_fsm_state1, icmp_ln29_fu_160_p2, ap_start_int)
@@ -336,5 +336,5 @@ begin
     shl_ln30_fu_188_p2 <= std_logic_vector(shift_left(unsigned(sext_ln29),to_integer(unsigned('0' & shl_lncast_fu_184_p1(8-1 downto 0)))));
     shl_ln_fu_176_p3 <= (trunc_ln30_fu_172_p1 & ap_const_lv3_0);
     shl_lncast_fu_184_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(shl_ln_fu_176_p3),8));
-    trunc_ln30_fu_172_p1 <= ap_sig_allocacmp_i_1(2 - 1 downto 0);
+    trunc_ln30_fu_172_p1 <= ap_sig_allocacmp_i_2(2 - 1 downto 0);
 end behav;

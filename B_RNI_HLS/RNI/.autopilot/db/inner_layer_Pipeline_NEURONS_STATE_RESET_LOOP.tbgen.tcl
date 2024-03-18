@@ -15,19 +15,17 @@ set DLRegItemOffset 0
 set C_modelName {inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP}
 set C_modelType { void 0 }
 set C_modelArgList {
-	{ zext_ln84 int 6 regular  }
-	{ NEURONS_INDEX_load_cast int 6 regular  }
+	{ neuron_state_index int 6 regular  }
 	{ neuron_index int 6 regular  }
 	{ NEURONS_STATE int 1 regular {array 40 { 0 3 } 0 1 } {global 1}  }
 }
 set hasAXIMCache 0
 set C_modelArgMapList {[ 
-	{ "Name" : "zext_ln84", "interface" : "wire", "bitwidth" : 6, "direction" : "READONLY"} , 
- 	{ "Name" : "NEURONS_INDEX_load_cast", "interface" : "wire", "bitwidth" : 6, "direction" : "READONLY"} , 
+	{ "Name" : "neuron_state_index", "interface" : "wire", "bitwidth" : 6, "direction" : "READONLY"} , 
  	{ "Name" : "neuron_index", "interface" : "wire", "bitwidth" : 6, "direction" : "READONLY"} , 
  	{ "Name" : "NEURONS_STATE", "interface" : "memory", "bitwidth" : 1, "direction" : "WRITEONLY", "extern" : 0} ]}
 # RTL Port declarations: 
-set portNum 13
+set portNum 12
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -35,13 +33,12 @@ set portList {
 	{ ap_done sc_out sc_logic 1 predone -1 } 
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
-	{ zext_ln84 sc_in sc_lv 6 signal 0 } 
-	{ NEURONS_INDEX_load_cast sc_in sc_lv 6 signal 1 } 
-	{ neuron_index sc_in sc_lv 6 signal 2 } 
-	{ NEURONS_STATE_address0 sc_out sc_lv 6 signal 3 } 
-	{ NEURONS_STATE_ce0 sc_out sc_logic 1 signal 3 } 
-	{ NEURONS_STATE_we0 sc_out sc_logic 1 signal 3 } 
-	{ NEURONS_STATE_d0 sc_out sc_lv 1 signal 3 } 
+	{ neuron_state_index sc_in sc_lv 6 signal 0 } 
+	{ neuron_index sc_in sc_lv 6 signal 1 } 
+	{ NEURONS_STATE_address0 sc_out sc_lv 6 signal 2 } 
+	{ NEURONS_STATE_ce0 sc_out sc_logic 1 signal 2 } 
+	{ NEURONS_STATE_we0 sc_out sc_logic 1 signal 2 } 
+	{ NEURONS_STATE_d0 sc_out sc_lv 1 signal 2 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -50,8 +47,7 @@ set NewPortList {[
  	{ "name": "ap_done", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "predone", "bundle":{"name": "ap_done", "role": "default" }} , 
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
- 	{ "name": "zext_ln84", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "zext_ln84", "role": "default" }} , 
- 	{ "name": "NEURONS_INDEX_load_cast", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "NEURONS_INDEX_load_cast", "role": "default" }} , 
+ 	{ "name": "neuron_state_index", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "neuron_state_index", "role": "default" }} , 
  	{ "name": "neuron_index", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "neuron_index", "role": "default" }} , 
  	{ "name": "NEURONS_STATE_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "NEURONS_STATE", "role": "address0" }} , 
  	{ "name": "NEURONS_STATE_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "NEURONS_STATE", "role": "ce0" }} , 
@@ -74,8 +70,7 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "zext_ln84", "Type" : "None", "Direction" : "I"},
-			{"Name" : "NEURONS_INDEX_load_cast", "Type" : "None", "Direction" : "I"},
+			{"Name" : "neuron_state_index", "Type" : "None", "Direction" : "I"},
 			{"Name" : "neuron_index", "Type" : "None", "Direction" : "I"},
 			{"Name" : "NEURONS_STATE", "Type" : "Memory", "Direction" : "O"}],
 		"Loop" : [
@@ -86,8 +81,7 @@ set RtlHierarchyInfo {[
 
 set ArgLastReadFirstWriteLatency {
 	inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP {
-		zext_ln84 {Type I LastRead 0 FirstWrite -1}
-		NEURONS_INDEX_load_cast {Type I LastRead 0 FirstWrite -1}
+		neuron_state_index {Type I LastRead 0 FirstWrite -1}
 		neuron_index {Type I LastRead 0 FirstWrite -1}
 		NEURONS_STATE {Type O LastRead -1 FirstWrite 0}}}
 
@@ -102,8 +96,7 @@ set PipelineEnableSignalInfo {[
 ]}
 
 set Spec2ImplPortList { 
-	zext_ln84 { ap_none {  { zext_ln84 in_data 0 6 } } }
-	NEURONS_INDEX_load_cast { ap_none {  { NEURONS_INDEX_load_cast in_data 0 6 } } }
+	neuron_state_index { ap_none {  { neuron_state_index in_data 0 6 } } }
 	neuron_index { ap_none {  { neuron_index in_data 0 6 } } }
 	NEURONS_STATE { ap_memory {  { NEURONS_STATE_address0 mem_address 1 6 }  { NEURONS_STATE_ce0 mem_ce 1 1 }  { NEURONS_STATE_we0 mem_we 1 1 }  { NEURONS_STATE_d0 mem_din 1 1 } } }
 }
