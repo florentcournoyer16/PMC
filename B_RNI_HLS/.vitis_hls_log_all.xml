@@ -3,13 +3,31 @@
   <errorLogs>
     <logs>
       <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
     </logs>
   </errorLogs>
   <warningLogs>
     <logs>
       <synLog>
-        <logs message="WARNING: [RTGEN 206-101] Register 'w_i' is power-on initialization." projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-11T14:17:30.280-0400" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low." projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T18:56:09.488-0400" type="Warning"/>
+        <logs message="WARNING: [HLS 200-2049] Adding the rewind optimization to the pipelined process 'OUTPUT_LAYER_WEIGHTS_LOOP' with inout ports inside a dataflow region can result in the creation of loop-carried dependencies and errors. Use caution when adding the rewind optimization to such loops." projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T18:56:09.351-0400" type="Warning"/>
+        <logs message="WARNING: [HLS 200-2049] Adding the rewind optimization to the pipelined process 'INNER_LAYER_WEIGHTS_LOOP' with inout ports inside a dataflow region can result in the creation of loop-carried dependencies and errors. Use caution when adding the rewind optimization to such loops." projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T18:56:08.815-0400" type="Warning"/>
+        <logs message="WARNING: [HLS 200-2049] Adding the rewind optimization to the pipelined process 'INPUT_LAYER_NEURONS_LOOP' with inout ports inside a dataflow region can result in the creation of loop-carried dependencies and errors. Use caution when adding the rewind optimization to such loops." projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T18:56:08.628-0400" type="Warning"/>
+        <logs message="WARNING: [HLS 200-880] The II Violation in module 'RNI_Pipeline_OUTPUT_LAYER_WEIGHTS_LOOP' (loop 'OUTPUT_LAYER_WEIGHTS_LOOP'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'store' operation ('NEURONS_MEMBRANE_addr_write_ln98', B_RNI_HLS/apc/src/RNI_2.cpp:98->B_RNI_HLS/apc/src/RNI_2.cpp:38) of variable 'add_ln98', B_RNI_HLS/apc/src/RNI_2.cpp:98->B_RNI_HLS/apc/src/RNI_2.cpp:38 on array 'NEURONS_MEMBRANE' and 'load' operation ('NEURONS_MEMBRANE_load', B_RNI_HLS/apc/src/RNI_2.cpp:98->B_RNI_HLS/apc/src/RNI_2.cpp:38) on array 'NEURONS_MEMBRANE'.&#xA;Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=200-880.html" projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T18:56:07.921-0400" type="Warning"/>
+        <logs message="WARNING: [HLS 200-880] The II Violation in module 'inner_layer_Pipeline_INNER_LAYER_WEIGHTS_LOOP' (loop 'INNER_LAYER_WEIGHTS_LOOP'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'store' operation ('NEURONS_MEMBRANE_addr_write_ln74', B_RNI_HLS/apc/src/RNI_2.cpp:74) of variable 'add_ln74', B_RNI_HLS/apc/src/RNI_2.cpp:74 on array 'NEURONS_MEMBRANE' and 'load' operation ('NEURONS_MEMBRANE_load', B_RNI_HLS/apc/src/RNI_2.cpp:74) on array 'NEURONS_MEMBRANE'.&#xA;Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=200-880.html" projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T18:56:07.294-0400" type="Warning"/>
+        <logs message="WARNING: [HLS 200-885] The II Violation in module 'RNI_Pipeline_INPUT_LAYER_NEURONS_LOOP' (loop 'INPUT_LAYER_NEURONS_LOOP'): Unable to schedule 'store' operation ('NEURONS_MEMBRANE_addr_write_ln55', B_RNI_HLS/apc/src/RNI_2.cpp:55->B_RNI_HLS/apc/src/RNI_2.cpp:35) of variable 'newSecond', B_RNI_HLS/apc/src/RNI_2.cpp:55->B_RNI_HLS/apc/src/RNI_2.cpp:35 on array 'NEURONS_MEMBRANE' due to limited memory ports (II = 1). Please consider using a memory core with more ports or partitioning the array 'NEURONS_MEMBRANE'.&#xA;Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=200-885.html" projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T18:56:07.074-0400" type="Warning"/>
+        <logs message="WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_23_1' (B_RNI_HLS/apc/src/RNI_2.cpp:23:19) in function 'RNI' more than one sub loop.&#xA;Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=200-960.html" projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T18:56:06.810-0400" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-561] 'VITIS_LOOP_23_1' (B_RNI_HLS/apc/src/RNI_2.cpp:23:19) in function 'RNI' is an infinite loop." projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T18:56:06.704-0400" type="Warning"/>
+        <logs message="WARNING: [HLS 200-960] Cannot flatten loop 'OUTPUT_LAYER_NEURONS_LOOP' (B_RNI_HLS/apc/src/RNI_2.cpp:91:29) in function 'RNI' the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop.&#xA;Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=200-960.html" projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T18:56:06.699-0400" type="Warning"/>
+        <logs message="WARNING: [HLS 200-960] Cannot flatten loop 'INNER_LAYER_NEURONS_LOOP' (B_RNI_HLS/apc/src/RNI_2.cpp:67:28) in function 'inner_layer' the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop.&#xA;Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=200-960.html" projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T18:56:06.695-0400" type="Warning"/>
       </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
     </logs>
   </warningLogs>
 </vivadoHLSLog:LogRoot>

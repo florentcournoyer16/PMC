@@ -2,7 +2,7 @@
 #define MODEL_H
 
 #define BASE_TYPE_LENGHT 8
-#define BASE_TYPE ap_int< 8 >
+#define BASE_TYPE ap_int< BASE_TYPE_LENGHT >
 
 BASE_TYPE NEURONS_INDEX[4] = { 16, 20, 36, 40, };
 #define NEURONS_INDEX_LENGHT 4

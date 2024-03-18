@@ -6,7 +6,8 @@
 ############################################################
 open_project B_RNI_HLS
 set_top RNI
-add_files B_RNI_HLS/apc/src/RNI.c
+add_files B_RNI_HLS/apc/src/RNI_2.cpp
+add_files B_RNI_HLS/apc/inc/model_4_INPUT.h
 add_files B_RNI_HLS/apc/inc/model_EXAMPLE.h
 add_files B_RNI_HLS/apc/inc/model_FIRST_RNI.h
 add_files -tb B_RNI_HLS/apc/tb/main.c -cflags "-Wno-unknown-pragmas"

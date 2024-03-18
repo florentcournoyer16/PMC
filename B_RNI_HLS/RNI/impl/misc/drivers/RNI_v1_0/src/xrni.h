@@ -90,10 +90,6 @@ u32 XRni_IsReady(XRni *InstancePtr);
 void XRni_EnableAutoRestart(XRni *InstancePtr);
 void XRni_DisableAutoRestart(XRni *InstancePtr);
 
-void XRni_Set_input_r(XRni *InstancePtr, u64 Data);
-u64 XRni_Get_input_r(XRni *InstancePtr);
-void XRni_Set_output_r(XRni *InstancePtr, u64 Data);
-u64 XRni_Get_output_r(XRni *InstancePtr);
 
 void XRni_InterruptGlobalEnable(XRni *InstancePtr);
 void XRni_InterruptGlobalDisable(XRni *InstancePtr);

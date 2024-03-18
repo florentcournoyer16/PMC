@@ -11,7 +11,7 @@ use IEEE.NUMERIC_STD.all;
 
 entity RNI_control_s_axi is
 generic (
-    C_S_AXI_ADDR_WIDTH    : INTEGER := 6;
+    C_S_AXI_ADDR_WIDTH    : INTEGER := 4;
     C_S_AXI_DATA_WIDTH    : INTEGER := 32);
 port (
     ACLK                  :in   STD_LOGIC;
@@ -35,8 +35,6 @@ port (
     RVALID                :out  STD_LOGIC;
     RREADY                :in   STD_LOGIC;
     interrupt             :out  STD_LOGIC;
-    input_r               :out  STD_LOGIC_VECTOR(63 downto 0);
-    output_r              :out  STD_LOGIC_VECTOR(63 downto 0);
     ap_start              :out  STD_LOGIC;
     ap_done               :in   STD_LOGIC;
     ap_ready              :in   STD_LOGIC;
@@ -45,35 +43,25 @@ port (
 end entity RNI_control_s_axi;
 
 -- ------------------------Address Info-------------------
--- 0x00 : Control signals
---        bit 0  - ap_start (Read/Write/COH)
---        bit 1  - ap_done (Read/COR)
---        bit 2  - ap_idle (Read)
---        bit 3  - ap_ready (Read/COR)
---        bit 7  - auto_restart (Read/Write)
---        bit 9  - interrupt (Read)
---        others - reserved
--- 0x04 : Global Interrupt Enable Register
---        bit 0  - Global Interrupt Enable (Read/Write)
---        others - reserved
--- 0x08 : IP Interrupt Enable Register (Read/Write)
---        bit 0 - enable ap_done interrupt (Read/Write)
---        bit 1 - enable ap_ready interrupt (Read/Write)
---        others - reserved
--- 0x0c : IP Interrupt Status Register (Read/TOW)
---        bit 0 - ap_done (Read/TOW)
---        bit 1 - ap_ready (Read/TOW)
---        others - reserved
--- 0x10 : Data signal of input_r
---        bit 31~0 - input_r[31:0] (Read/Write)
--- 0x14 : Data signal of input_r
---        bit 31~0 - input_r[63:32] (Read/Write)
--- 0x18 : reserved
--- 0x1c : Data signal of output_r
---        bit 31~0 - output_r[31:0] (Read/Write)
--- 0x20 : Data signal of output_r
---        bit 31~0 - output_r[63:32] (Read/Write)
--- 0x24 : reserved
+-- 0x0 : Control signals
+--       bit 0  - ap_start (Read/Write/COH)
+--       bit 1  - ap_done (Read/COR)
+--       bit 2  - ap_idle (Read)
+--       bit 3  - ap_ready (Read/COR)
+--       bit 7  - auto_restart (Read/Write)
+--       bit 9  - interrupt (Read)
+--       others - reserved
+-- 0x4 : Global Interrupt Enable Register
+--       bit 0  - Global Interrupt Enable (Read/Write)
+--       others - reserved
+-- 0x8 : IP Interrupt Enable Register (Read/Write)
+--       bit 0 - enable ap_done interrupt (Read/Write)
+--       bit 1 - enable ap_ready interrupt (Read/Write)
+--       others - reserved
+-- 0xc : IP Interrupt Status Register (Read/TOW)
+--       bit 0 - ap_done (Read/TOW)
+--       bit 1 - ap_ready (Read/TOW)
+--       others - reserved
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 architecture behave of RNI_control_s_axi is
@@ -81,17 +69,11 @@ architecture behave of RNI_control_s_axi is
     signal wstate  : states := wrreset;
     signal rstate  : states := rdreset;
     signal wnext, rnext: states;
-    constant ADDR_AP_CTRL         : INTEGER := 16#00#;
-    constant ADDR_GIE             : INTEGER := 16#04#;
-    constant ADDR_IER             : INTEGER := 16#08#;
-    constant ADDR_ISR             : INTEGER := 16#0c#;
-    constant ADDR_INPUT_R_DATA_0  : INTEGER := 16#10#;
-    constant ADDR_INPUT_R_DATA_1  : INTEGER := 16#14#;
-    constant ADDR_INPUT_R_CTRL    : INTEGER := 16#18#;
-    constant ADDR_OUTPUT_R_DATA_0 : INTEGER := 16#1c#;
-    constant ADDR_OUTPUT_R_DATA_1 : INTEGER := 16#20#;
-    constant ADDR_OUTPUT_R_CTRL   : INTEGER := 16#24#;
-    constant ADDR_BITS         : INTEGER := 6;
+    constant ADDR_AP_CTRL : INTEGER := 16#0#;
+    constant ADDR_GIE     : INTEGER := 16#4#;
+    constant ADDR_IER     : INTEGER := 16#8#;
+    constant ADDR_ISR     : INTEGER := 16#c#;
+    constant ADDR_BITS         : INTEGER := 4;
 
     signal waddr               : UNSIGNED(ADDR_BITS-1 downto 0);
     signal wmask               : UNSIGNED(C_S_AXI_DATA_WIDTH-1 downto 0);
@@ -119,8 +101,6 @@ architecture behave of RNI_control_s_axi is
     signal int_gie             : STD_LOGIC := '0';
     signal int_ier             : UNSIGNED(1 downto 0) := (others => '0');
     signal int_isr             : UNSIGNED(1 downto 0) := (others => '0');
-    signal int_input_r         : UNSIGNED(63 downto 0) := (others => '0');
-    signal int_output_r        : UNSIGNED(63 downto 0) := (others => '0');
 
 
 begin
@@ -249,14 +229,6 @@ begin
                         rdata_data(1 downto 0) <= int_ier;
                     when ADDR_ISR =>
                         rdata_data(1 downto 0) <= int_isr;
-                    when ADDR_INPUT_R_DATA_0 =>
-                        rdata_data <= RESIZE(int_input_r(31 downto 0), 32);
-                    when ADDR_INPUT_R_DATA_1 =>
-                        rdata_data <= RESIZE(int_input_r(63 downto 32), 32);
-                    when ADDR_OUTPUT_R_DATA_0 =>
-                        rdata_data <= RESIZE(int_output_r(31 downto 0), 32);
-                    when ADDR_OUTPUT_R_DATA_1 =>
-                        rdata_data <= RESIZE(int_output_r(63 downto 32), 32);
                     when others =>
                         NULL;
                     end case;
@@ -271,8 +243,6 @@ begin
     task_ap_done         <= (ap_done and not auto_restart_status) or auto_restart_done;
     task_ap_ready        <= ap_ready and not int_auto_restart;
     auto_restart_done    <= auto_restart_status and (ap_idle and not int_ap_idle);
-    input_r              <= STD_LOGIC_VECTOR(int_input_r);
-    output_r             <= STD_LOGIC_VECTOR(int_output_r);
 
     process (ACLK)
     begin
@@ -439,50 +409,6 @@ begin
                     int_isr(1) <= '1';
                 elsif (w_hs = '1' and waddr = ADDR_ISR and WSTRB(0) = '1') then
                     int_isr(1) <= int_isr(1) xor WDATA(1); -- toggle on write
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_INPUT_R_DATA_0) then
-                    int_input_r(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_input_r(31 downto 0));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_INPUT_R_DATA_1) then
-                    int_input_r(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_input_r(63 downto 32));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_OUTPUT_R_DATA_0) then
-                    int_output_r(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_output_r(31 downto 0));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_OUTPUT_R_DATA_1) then
-                    int_output_r(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_output_r(63 downto 32));
                 end if;
             end if;
         end if;
