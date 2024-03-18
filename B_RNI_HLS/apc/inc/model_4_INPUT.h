@@ -34,7 +34,7 @@ BASE_TYPE NEURONS_MEMBRANE[40] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 BASE_TYPE NEURONS_STATE[40] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, };
 #define NEURONS_STATE_LENGHT 40
 
-#define INPUT_LAYER_LENGHT 0
+#define INPUT_LAYER_LENGHT 4
 #define OUTPUT_LAYER_LENGHT 4
 
 #endif // MODEL_H

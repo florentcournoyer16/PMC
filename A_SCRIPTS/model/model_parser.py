@@ -77,7 +77,7 @@ def generate_cpp_header(input_model_dict, header_filename, base_type_lenght = 8)
             header_file.write("};\n")
             header_file.write(f"#define {key}_LENGHT {len(values)}\n\n")
 
-        header_file.write(f"#define INPUT_LAYER_LENGHT {output_model_dict['WEIGHTS_INDEX'][0]}\n")
+        header_file.write(f"#define INPUT_LAYER_LENGHT {output_model_dict['WEIGHTS_INDEX'][1]}\n")
         output_layer_lenght = output_model_dict['NEURONS_INDEX'][-1] - output_model_dict['NEURONS_INDEX'][-2]
         header_file.write(f"#define OUTPUT_LAYER_LENGHT {output_layer_lenght}\n\n")
 
