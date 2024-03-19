@@ -31,13 +31,13 @@
         <SummaryOfLoopLatency>
             <VITIS_LOOP_23_1>
                 <Slack>7.30</Slack>
-                <TripCount>inf</TripCount>
+                <TripCount>undef</TripCount>
                 <Latency>undef</Latency>
                 <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
                 <IterationLatency>
                     <range>
-                        <min>97</min>
-                        <max>268979</max>
+                        <min>101</min>
+                        <max>4277</max>
                     </range>
                 </IterationLatency>
                 <InstanceList/>
@@ -47,19 +47,19 @@
                     <Latency>
                         <range>
                             <min>64</min>
-                            <max>4256</max>
+                            <max>4240</max>
                         </range>
                     </Latency>
                     <AbsoluteTimeLatency>
                         <range>
                             <min>640</min>
-                            <max>42560</max>
+                            <max>42400</max>
                         </range>
                     </AbsoluteTimeLatency>
                     <IterationLatency>
                         <range>
                             <min>4</min>
-                            <max>266</max>
+                            <max>265</max>
                         </range>
                     </IterationLatency>
                     <InstanceList/>
@@ -69,10 +69,10 @@
     </PerformanceEstimates>
     <AreaEstimates>
         <Resources>
-            <BRAM_18K>2</BRAM_18K>
+            <BRAM_18K>1</BRAM_18K>
             <DSP>1</DSP>
-            <FF>785</FF>
-            <LUT>1538</LUT>
+            <FF>390</FF>
+            <LUT>866</LUT>
             <URAM>0</URAM>
         </Resources>
         <AvailableResources>
@@ -522,55 +522,39 @@
         </RtlPorts>
     </InterfaceSummary>
     <RTLDesignHierarchy>
-        <TopModule MAX_DEPTH="4">
+        <TopModule MAX_DEPTH="3">
             <ModuleName>RNI</ModuleName>
             <InstancesList>
                 <Instance>
-                    <InstName>grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_282</InstName>
+                    <InstName>grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_258</InstName>
                     <ModuleName>RNI_Pipeline_VITIS_LOOP_29_2</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>282</ID>
+                    <ID>258</ID>
                     <BindInstances>add_ln29_fu_166_p2</BindInstances>
                 </Instance>
                 <Instance>
-                    <InstName>grp_inner_layer_fu_295</InstName>
-                    <ModuleName>inner_layer</ModuleName>
+                    <InstName>grp_RNI_Pipeline_NEURONS_LOOP_fu_271</InstName>
+                    <ModuleName>RNI_Pipeline_NEURONS_LOOP</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>295</ID>
-                    <InstancesList>
-                        <Instance>
-                            <InstName>grp_inner_layer_Pipeline_WEIGHTS_LOOP_fu_144</InstName>
-                            <ModuleName>inner_layer_Pipeline_WEIGHTS_LOOP</ModuleName>
-                            <IsCompInst>true</IsCompInst>
-                            <ID>144</ID>
-                            <BindInstances>NEURONS_MEMBRANE_d0 add_ln73_fu_160_p2 WEIGHTS_U</BindInstances>
-                        </Instance>
-                        <Instance>
-                            <InstName>grp_inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP_fu_161</InstName>
-                            <ModuleName>inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP</ModuleName>
-                            <IsCompInst>true</IsCompInst>
-                            <ID>161</ID>
-                            <BindInstances>add_ln89_fu_83_p2</BindInstances>
-                        </Instance>
-                    </InstancesList>
-                    <BindInstances>add_i_i209_fu_178_p2 add_i_i178_fu_226_p2 add_ln71_fu_248_p2 NEURONS_INDEX_U WEIGHTS_INDEX_U</BindInstances>
+                    <ID>271</ID>
+                    <BindInstances>add_ln74_fu_73_p2</BindInstances>
                 </Instance>
                 <Instance>
-                    <InstName>grp_RNI_Pipeline_WEIGHTS_LOOP_fu_312</InstName>
+                    <InstName>grp_RNI_Pipeline_WEIGHTS_LOOP_fu_277</InstName>
                     <ModuleName>RNI_Pipeline_WEIGHTS_LOOP</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>312</ID>
-                    <BindInstances>mac_muladd_8s_8s_8ns_8_4_1_U11 mac_muladd_8s_8s_8ns_8_4_1_U11 add_ln56_fu_153_p2</BindInstances>
+                    <ID>277</ID>
+                    <BindInstances>mac_muladd_8s_8s_8ns_8_4_1_U11 mac_muladd_8s_8s_8ns_8_4_1_U11 add_ln59_fu_153_p2 WEIGHTS_U</BindInstances>
                 </Instance>
                 <Instance>
-                    <InstName>grp_RNI_Pipeline_RESET_LOOP_fu_328</InstName>
-                    <ModuleName>RNI_Pipeline_RESET_LOOP</ModuleName>
+                    <InstName>grp_RNI_Pipeline_NEURONS_LOOP1_fu_293</InstName>
+                    <ModuleName>RNI_Pipeline_NEURONS_LOOP1</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>328</ID>
-                    <BindInstances>add_ln116_fu_67_p2</BindInstances>
+                    <ID>293</ID>
+                    <BindInstances>add_ln74_fu_73_p2</BindInstances>
                 </Instance>
             </InstancesList>
-            <BindInstances>add_ln54_fu_377_p2 add_i_i67_i_fu_397_p2 NEURONS_INDEX_U WEIGHTS_INDEX_U NEURONS_MEMBRANE_U WEIGHTS_U NEURONS_STATE_U</BindInstances>
+            <BindInstances>add_ln57_fu_346_p2 add_i_i67_i_fu_366_p2 NEURONS_MEMBRANE_U NEURONS_INDEX_U WEIGHTS_INDEX_U</BindInstances>
         </TopModule>
     </RTLDesignHierarchy>
     <ModuleInformation>
@@ -674,6 +658,9 @@
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
+                    <BRAM_18K>1</BRAM_18K>
+                    <AVAIL_BRAM>280</AVAIL_BRAM>
+                    <UTIL_BRAM>~0</UTIL_BRAM>
                     <DSP>1</DSP>
                     <AVAIL_DSP>220</AVAIL_DSP>
                     <UTIL_DSP>~0</UTIL_DSP>
@@ -683,150 +670,20 @@
                     <LUT>250</LUT>
                     <AVAIL_LUT>53200</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
-                    <BRAM_18K>0</BRAM_18K>
-                    <AVAIL_BRAM>280</AVAIL_BRAM>
-                    <UTIL_BRAM>0</UTIL_BRAM>
                     <URAM>0</URAM>
                     <AVAIL_URAM>0</AVAIL_URAM>
                     <UTIL_URAM>0</UTIL_URAM>
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="1" ID="" IMPL="dsp48" LATENCY="3" LOOP="WEIGHTS_LOOP" OPTYPE="mul" PRAGMA="" RTLNAME="mac_muladd_8s_8s_8ns_8_4_1_U11" SOURCE="B_RNI_HLS/apc/src/RNI_2.cpp:58" URAM="0" VARIABLE="mul_ln58"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="1" ID="" IMPL="dsp48" LATENCY="3" LOOP="WEIGHTS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="mac_muladd_8s_8s_8ns_8_4_1_U11" SOURCE="B_RNI_HLS/apc/src/RNI_2.cpp:58" URAM="0" VARIABLE="temp"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="WEIGHTS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln56_fu_153_p2" SOURCE="B_RNI_HLS/apc/src/RNI_2.cpp:56" URAM="0" VARIABLE="add_ln56"/>
-            </BindNodes>
-        </Module>
-        <Module>
-            <Name>inner_layer_Pipeline_WEIGHTS_LOOP</Name>
-            <Loops>
-                <WEIGHTS_LOOP/>
-            </Loops>
-            <PerformanceEstimates>
-                <SummaryOfTimingAnalysis>
-                    <TargetClockPeriod>10.00</TargetClockPeriod>
-                    <ClockUncertainty>2.70</ClockUncertainty>
-                    <EstimatedClockPeriod>6.559</EstimatedClockPeriod>
-                </SummaryOfTimingAnalysis>
-                <SummaryOfOverallLatency>
-                    <Best-caseLatency>2</Best-caseLatency>
-                    <Average-caseLatency>257</Average-caseLatency>
-                    <Worst-caseLatency>513</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>20.000 ns</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>2.570 us</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>5.130 us</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>2 ~ 513</PipelineInitiationInterval>
-                    <PipelineType>no</PipelineType>
-                </SummaryOfOverallLatency>
-                <SummaryOfLoopLatency>
-                    <WEIGHTS_LOOP>
-                        <Name>WEIGHTS_LOOP</Name>
-                        <Slack>7.30</Slack>
-                        <TripCount>
-                            <range>
-                                <min>0</min>
-                                <max>255</max>
-                            </range>
-                        </TripCount>
-                        <Latency>0 ~ 511</Latency>
-                        <AbsoluteTimeLatency>0 ns ~ 5.110 us</AbsoluteTimeLatency>
-                        <PipelineII>2</PipelineII>
-                        <PipelineDepth>4</PipelineDepth>
-                        <PipelineType>yes</PipelineType>
-                        <InstanceList/>
-                    </WEIGHTS_LOOP>
-                </SummaryOfLoopLatency>
-            </PerformanceEstimates>
-            <AreaEstimates>
-                <Resources>
-                    <BRAM_18K>1</BRAM_18K>
-                    <AVAIL_BRAM>280</AVAIL_BRAM>
-                    <UTIL_BRAM>~0</UTIL_BRAM>
-                    <FF>227</FF>
-                    <AVAIL_FF>106400</AVAIL_FF>
-                    <UTIL_FF>~0</UTIL_FF>
-                    <LUT>255</LUT>
-                    <AVAIL_LUT>53200</AVAIL_LUT>
-                    <UTIL_LUT>~0</UTIL_LUT>
-                    <DSP>0</DSP>
-                    <AVAIL_DSP>220</AVAIL_DSP>
-                    <UTIL_DSP>0</UTIL_DSP>
-                    <URAM>0</URAM>
-                    <AVAIL_URAM>0</AVAIL_URAM>
-                    <UTIL_URAM>0</UTIL_URAM>
-                </Resources>
-            </AreaEstimates>
-            <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="WEIGHTS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="NEURONS_MEMBRANE_d0" SOURCE="B_RNI_HLS/apc/src/RNI_2.cpp:78" URAM="0" VARIABLE="temp"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="WEIGHTS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln73_fu_160_p2" SOURCE="B_RNI_HLS/apc/src/RNI_2.cpp:73" URAM="0" VARIABLE="add_ln73"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="1" ID="" IMPL="dsp48" LATENCY="3" LOOP="WEIGHTS_LOOP" OPTYPE="mul" PRAGMA="" RTLNAME="mac_muladd_8s_8s_8ns_8_4_1_U11" SOURCE="B_RNI_HLS/apc/src/RNI_2.cpp:61" URAM="0" VARIABLE="mul_ln61"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="1" ID="" IMPL="dsp48" LATENCY="3" LOOP="WEIGHTS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="mac_muladd_8s_8s_8ns_8_4_1_U11" SOURCE="B_RNI_HLS/apc/src/RNI_2.cpp:61" URAM="0" VARIABLE="temp"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="WEIGHTS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln59_fu_153_p2" SOURCE="B_RNI_HLS/apc/src/RNI_2.cpp:59" URAM="0" VARIABLE="add_ln59"/>
                 <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage rom_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_1p" PRAGMA="" RTLNAME="WEIGHTS_U" SOURCE="" URAM="0" VARIABLE="WEIGHTS"/>
             </BindNodes>
         </Module>
         <Module>
-            <Name>inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP</Name>
-            <Loops>
-                <NEURONS_STATE_RESET_LOOP/>
-            </Loops>
-            <PerformanceEstimates>
-                <SummaryOfTimingAnalysis>
-                    <TargetClockPeriod>10.00</TargetClockPeriod>
-                    <ClockUncertainty>2.70</ClockUncertainty>
-                    <EstimatedClockPeriod>4.147</EstimatedClockPeriod>
-                </SummaryOfTimingAnalysis>
-                <SummaryOfOverallLatency>
-                    <Best-caseLatency>2</Best-caseLatency>
-                    <Average-caseLatency>129</Average-caseLatency>
-                    <Worst-caseLatency>257</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>20.000 ns</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>1.290 us</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>2.570 us</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>2 ~ 257</PipelineInitiationInterval>
-                    <PipelineType>no</PipelineType>
-                </SummaryOfOverallLatency>
-                <SummaryOfLoopLatency>
-                    <NEURONS_STATE_RESET_LOOP>
-                        <Name>NEURONS_STATE_RESET_LOOP</Name>
-                        <Slack>7.30</Slack>
-                        <TripCount>
-                            <range>
-                                <min>0</min>
-                                <max>255</max>
-                            </range>
-                        </TripCount>
-                        <Latency>0 ~ 255</Latency>
-                        <AbsoluteTimeLatency>0 ns ~ 2.550 us</AbsoluteTimeLatency>
-                        <PipelineII>1</PipelineII>
-                        <PipelineDepth>1</PipelineDepth>
-                        <PipelineType>yes</PipelineType>
-                        <InstanceList/>
-                    </NEURONS_STATE_RESET_LOOP>
-                </SummaryOfLoopLatency>
-            </PerformanceEstimates>
-            <AreaEstimates>
-                <Resources>
-                    <FF>8</FF>
-                    <AVAIL_FF>106400</AVAIL_FF>
-                    <UTIL_FF>~0</UTIL_FF>
-                    <LUT>55</LUT>
-                    <AVAIL_LUT>53200</AVAIL_LUT>
-                    <UTIL_LUT>~0</UTIL_LUT>
-                    <BRAM_18K>0</BRAM_18K>
-                    <AVAIL_BRAM>280</AVAIL_BRAM>
-                    <UTIL_BRAM>0</UTIL_BRAM>
-                    <DSP>0</DSP>
-                    <AVAIL_DSP>220</AVAIL_DSP>
-                    <UTIL_DSP>0</UTIL_DSP>
-                    <URAM>0</URAM>
-                    <AVAIL_URAM>0</AVAIL_URAM>
-                    <UTIL_URAM>0</UTIL_URAM>
-                </Resources>
-            </AreaEstimates>
-            <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_STATE_RESET_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln89_fu_83_p2" SOURCE="B_RNI_HLS/apc/src/RNI_2.cpp:89" URAM="0" VARIABLE="add_ln89"/>
-            </BindNodes>
-        </Module>
-        <Module>
-            <Name>inner_layer</Name>
+            <Name>RNI_Pipeline_NEURONS_LOOP</Name>
             <Loops>
                 <NEURONS_LOOP/>
             </Loops>
@@ -835,80 +692,6 @@
                     <TargetClockPeriod>10.00</TargetClockPeriod>
                     <ClockUncertainty>2.70</ClockUncertainty>
                     <EstimatedClockPeriod>6.559</EstimatedClockPeriod>
-                </SummaryOfTimingAnalysis>
-                <SummaryOfOverallLatency>
-                    <Best-caseLatency>6</Best-caseLatency>
-                    <Average-caseLatency>33407</Average-caseLatency>
-                    <Worst-caseLatency>132351</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>60.000 ns</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>0.334 ms</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>1.324 ms</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>6 ~ 132351</PipelineInitiationInterval>
-                    <PipelineType>no</PipelineType>
-                </SummaryOfOverallLatency>
-                <SummaryOfLoopLatency>
-                    <NEURONS_LOOP>
-                        <Name>NEURONS_LOOP</Name>
-                        <Slack>7.30</Slack>
-                        <TripCount>
-                            <range>
-                                <min>0</min>
-                                <max>255</max>
-                            </range>
-                        </TripCount>
-                        <Latency>0 ~ 132090</Latency>
-                        <AbsoluteTimeLatency>0 ns ~ 1.321 ms</AbsoluteTimeLatency>
-                        <IterationLatency>
-                            <range>
-                                <min>7</min>
-                                <max>518</max>
-                            </range>
-                        </IterationLatency>
-                        <PipelineDepth>7 ~ 518</PipelineDepth>
-                        <PipelineType>no</PipelineType>
-                        <InstanceList>
-                            <Instance>grp_inner_layer_Pipeline_WEIGHTS_LOOP_fu_144</Instance>
-                        </InstanceList>
-                    </NEURONS_LOOP>
-                </SummaryOfLoopLatency>
-            </PerformanceEstimates>
-            <AreaEstimates>
-                <Resources>
-                    <BRAM_18K>1</BRAM_18K>
-                    <AVAIL_BRAM>280</AVAIL_BRAM>
-                    <UTIL_BRAM>~0</UTIL_BRAM>
-                    <FF>396</FF>
-                    <AVAIL_FF>106400</AVAIL_FF>
-                    <UTIL_FF>~0</UTIL_FF>
-                    <LUT>692</LUT>
-                    <AVAIL_LUT>53200</AVAIL_LUT>
-                    <UTIL_LUT>1</UTIL_LUT>
-                    <DSP>0</DSP>
-                    <AVAIL_DSP>220</AVAIL_DSP>
-                    <UTIL_DSP>0</UTIL_DSP>
-                    <URAM>0</URAM>
-                    <AVAIL_URAM>0</AVAIL_URAM>
-                    <UTIL_URAM>0</UTIL_URAM>
-                </Resources>
-            </AreaEstimates>
-            <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_i_i209_fu_178_p2" SOURCE="" URAM="0" VARIABLE="add_i_i209"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_i_i178_fu_226_p2" SOURCE="B_RNI_HLS/apc/src/RNI_2.cpp:71" URAM="0" VARIABLE="add_i_i178"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln71_fu_248_p2" SOURCE="B_RNI_HLS/apc/src/RNI_2.cpp:71" URAM="0" VARIABLE="add_ln71"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage rom_np" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_np" PRAGMA="" RTLNAME="NEURONS_INDEX_U" SOURCE="" URAM="0" VARIABLE="NEURONS_INDEX"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage rom_2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_2p" PRAGMA="" RTLNAME="WEIGHTS_INDEX_U" SOURCE="" URAM="0" VARIABLE="WEIGHTS_INDEX"/>
-            </BindNodes>
-        </Module>
-        <Module>
-            <Name>RNI_Pipeline_RESET_LOOP</Name>
-            <Loops>
-                <RESET_LOOP/>
-            </Loops>
-            <PerformanceEstimates>
-                <SummaryOfTimingAnalysis>
-                    <TargetClockPeriod>10.00</TargetClockPeriod>
-                    <ClockUncertainty>2.70</ClockUncertainty>
-                    <EstimatedClockPeriod>4.147</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
                     <Best-caseLatency>6</Best-caseLatency>
@@ -921,25 +704,25 @@
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <RESET_LOOP>
-                        <Name>RESET_LOOP</Name>
+                    <NEURONS_LOOP>
+                        <Name>NEURONS_LOOP</Name>
                         <Slack>7.30</Slack>
                         <TripCount>4</TripCount>
                         <Latency>4</Latency>
                         <AbsoluteTimeLatency>40.000 ns</AbsoluteTimeLatency>
                         <PipelineII>1</PipelineII>
-                        <PipelineDepth>1</PipelineDepth>
+                        <PipelineDepth>2</PipelineDepth>
                         <PipelineType>yes</PipelineType>
                         <InstanceList/>
-                    </RESET_LOOP>
+                    </NEURONS_LOOP>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <FF>8</FF>
+                    <FF>13</FF>
                     <AVAIL_FF>106400</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>55</LUT>
+                    <LUT>79</LUT>
                     <AVAIL_LUT>53200</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -954,7 +737,65 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="RESET_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_fu_67_p2" SOURCE="B_RNI_HLS/apc/src/RNI_2.cpp:116" URAM="0" VARIABLE="add_ln116"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln74_fu_73_p2" SOURCE="B_RNI_HLS/apc/src/RNI_2.cpp:74" URAM="0" VARIABLE="add_ln74"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>RNI_Pipeline_NEURONS_LOOP1</Name>
+            <Loops>
+                <NEURONS_LOOP/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>6.559</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>18</Best-caseLatency>
+                    <Average-caseLatency>18</Average-caseLatency>
+                    <Worst-caseLatency>18</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0.180 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0.180 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0.180 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>18</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <NEURONS_LOOP>
+                        <Name>NEURONS_LOOP</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>16</TripCount>
+                        <Latency>16</Latency>
+                        <AbsoluteTimeLatency>0.160 us</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>2</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </NEURONS_LOOP>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>15</FF>
+                    <AVAIL_FF>106400</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>81</LUT>
+                    <AVAIL_LUT>53200</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>280</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>220</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln74_fu_73_p2" SOURCE="B_RNI_HLS/apc/src/RNI_2.cpp:74" URAM="0" VARIABLE="add_ln74"/>
             </BindNodes>
         </Module>
         <Module>
@@ -984,38 +825,38 @@
                     <VITIS_LOOP_23_1>
                         <Name>VITIS_LOOP_23_1</Name>
                         <Slack>7.30</Slack>
-                        <TripCount>inf</TripCount>
+                        <TripCount>undef</TripCount>
                         <Latency>undef</Latency>
                         <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
                         <IterationLatency>
                             <range>
-                                <min>97</min>
-                                <max>268979</max>
+                                <min>101</min>
+                                <max>4277</max>
                             </range>
                         </IterationLatency>
-                        <PipelineDepth>97 ~ 268979</PipelineDepth>
+                        <PipelineDepth>101 ~ 4277</PipelineDepth>
                         <PipelineType>no</PipelineType>
                         <InstanceList>
-                            <Instance>grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_282</Instance>
-                            <Instance>grp_inner_layer_fu_295</Instance>
-                            <Instance>grp_RNI_Pipeline_RESET_LOOP_fu_328</Instance>
+                            <Instance>grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_258</Instance>
+                            <Instance>grp_RNI_Pipeline_NEURONS_LOOP_fu_271</Instance>
+                            <Instance>grp_RNI_Pipeline_NEURONS_LOOP1_fu_293</Instance>
                         </InstanceList>
                         <NEURONS_LOOP>
                             <Name>NEURONS_LOOP</Name>
                             <Slack>7.30</Slack>
                             <TripCount>16</TripCount>
-                            <Latency>64 ~ 4256</Latency>
-                            <AbsoluteTimeLatency>0.640 us ~ 42.560 us</AbsoluteTimeLatency>
+                            <Latency>64 ~ 4240</Latency>
+                            <AbsoluteTimeLatency>0.640 us ~ 42.400 us</AbsoluteTimeLatency>
                             <IterationLatency>
                                 <range>
                                     <min>4</min>
-                                    <max>266</max>
+                                    <max>265</max>
                                 </range>
                             </IterationLatency>
-                            <PipelineDepth>4 ~ 266</PipelineDepth>
+                            <PipelineDepth>4 ~ 265</PipelineDepth>
                             <PipelineType>no</PipelineType>
                             <InstanceList>
-                                <Instance>grp_RNI_Pipeline_WEIGHTS_LOOP_fu_312</Instance>
+                                <Instance>grp_RNI_Pipeline_WEIGHTS_LOOP_fu_277</Instance>
                             </InstanceList>
                         </NEURONS_LOOP>
                     </VITIS_LOOP_23_1>
@@ -1023,31 +864,29 @@
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <BRAM_18K>2</BRAM_18K>
+                    <BRAM_18K>1</BRAM_18K>
                     <AVAIL_BRAM>280</AVAIL_BRAM>
                     <UTIL_BRAM>~0</UTIL_BRAM>
                     <DSP>1</DSP>
                     <AVAIL_DSP>220</AVAIL_DSP>
                     <UTIL_DSP>~0</UTIL_DSP>
-                    <FF>785</FF>
+                    <FF>390</FF>
                     <AVAIL_FF>106400</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>1538</LUT>
+                    <LUT>866</LUT>
                     <AVAIL_LUT>53200</AVAIL_LUT>
-                    <UTIL_LUT>2</UTIL_LUT>
+                    <UTIL_LUT>1</UTIL_LUT>
                     <URAM>0</URAM>
                     <AVAIL_URAM>0</AVAIL_URAM>
                     <UTIL_URAM>0</UTIL_URAM>
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln54_fu_377_p2" SOURCE="B_RNI_HLS/apc/src/RNI_2.cpp:54" URAM="0" VARIABLE="add_ln54"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_i_i67_i_fu_397_p2" SOURCE="B_RNI_HLS/apc/src/RNI_2.cpp:54" URAM="0" VARIABLE="add_i_i67_i"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage rom_np" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_np" PRAGMA="" RTLNAME="NEURONS_INDEX_U" SOURCE="" URAM="0" VARIABLE="NEURONS_INDEX"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage rom_2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_2p" PRAGMA="" RTLNAME="WEIGHTS_INDEX_U" SOURCE="" URAM="0" VARIABLE="WEIGHTS_INDEX"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="NEURONS_MEMBRANE_U" SOURCE="" URAM="0" VARIABLE="NEURONS_MEMBRANE"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage rom_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_1p" PRAGMA="" RTLNAME="WEIGHTS_U" SOURCE="" URAM="0" VARIABLE="WEIGHTS"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="NEURONS_STATE_U" SOURCE="" URAM="0" VARIABLE="NEURONS_STATE"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln57_fu_346_p2" SOURCE="B_RNI_HLS/apc/src/RNI_2.cpp:57" URAM="0" VARIABLE="add_ln57"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_i_i67_i_fu_366_p2" SOURCE="B_RNI_HLS/apc/src/RNI_2.cpp:57" URAM="0" VARIABLE="add_i_i67_i"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_s2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_s2p" PRAGMA="" RTLNAME="NEURONS_MEMBRANE_U" SOURCE="" URAM="0" VARIABLE="NEURONS_MEMBRANE"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage rom_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_1p" PRAGMA="" RTLNAME="NEURONS_INDEX_U" SOURCE="" URAM="0" VARIABLE="NEURONS_INDEX"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage rom_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_1p" PRAGMA="" RTLNAME="WEIGHTS_INDEX_U" SOURCE="" URAM="0" VARIABLE="WEIGHTS_INDEX"/>
             </BindNodes>
         </Module>
     </ModuleInformation>
@@ -1245,6 +1084,9 @@
         </section>
     </ReportSWInterface>
     <ResolutionUrl key="ZZZ">www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=ZZZ.html</ResolutionUrl>
+    <ReportBurst>
+        <section name="M_AXI Burst Information" level="0" HEADER_NOTE="Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings."/>
+    </ReportBurst>
     <PragmaReport>
         <Pragma type="interface" location="B_RNI_HLS/apc/src/RNI_2.cpp:18" status="valid" parentFunction="rni" variable="input_stream" isDirective="0" options="mode=axis port=input_stream"/>
         <Pragma type="interface" location="B_RNI_HLS/apc/src/RNI_2.cpp:19" status="valid" parentFunction="rni" variable="output_stream" isDirective="0" options="mode=axis port=output_stream"/>

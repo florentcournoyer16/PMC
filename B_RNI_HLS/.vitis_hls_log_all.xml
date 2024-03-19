@@ -6,32 +6,28 @@
       <simLog/>
       <mgLog/>
       <packageLog/>
-      <csimLog>
-        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T20:33:45.415-0400"/>
-        <logs message="ERROR [HLS SIM]: an hls::stream is read while empty, which may result in RTL simulation hanging.&#xA;If this is not expected, execute C simulation in debug mode in the GUI and examine the source code location of the blocked hls::stream::read() call to debug.&#xA;If this is expected, add -DALLOW_EMPTY_HLS_STREAM_READS to -cflags to turn this error into a warning and allow empty hls::stream reads to return the default value for the data type.&#xA;@E Simulation failed." projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T20:33:45.412-0400"/>
-      </csimLog>
+      <csimLog/>
     </logs>
   </errorLogs>
   <warningLogs>
     <logs>
       <synLog>
-        <logs message="WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low." projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T20:33:25.938-0400" type="Warning"/>
-        <logs message="WARNING: [HLS 200-2049] Adding the rewind optimization to the pipelined process 'WEIGHTS_LOOP' with inout ports inside a dataflow region can result in the creation of loop-carried dependencies and errors. Use caution when adding the rewind optimization to such loops." projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T20:33:25.503-0400" type="Warning"/>
-        <logs message="WARNING: [HLS 200-880] The II Violation in module 'inner_layer_Pipeline_WEIGHTS_LOOP' (loop 'WEIGHTS_LOOP'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'store' operation ('NEURONS_MEMBRANE_addr_write_ln79', B_RNI_HLS/apc/src/RNI_2.cpp:79) of variable 'temp', B_RNI_HLS/apc/src/RNI_2.cpp:78 on array 'NEURONS_MEMBRANE' and 'load' operation ('NEURONS_MEMBRANE_load', B_RNI_HLS/apc/src/RNI_2.cpp:78) on array 'NEURONS_MEMBRANE'.&#xA;Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=200-880.html" projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T20:33:23.952-0400" type="Warning"/>
-        <logs message="WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_23_1' (B_RNI_HLS/apc/src/RNI_2.cpp:23:19) in function 'RNI' more than one sub loop.&#xA;Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=200-960.html" projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T20:33:23.565-0400" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-561] 'VITIS_LOOP_23_1' (B_RNI_HLS/apc/src/RNI_2.cpp:23:19) in function 'RNI' is an infinite loop." projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T20:33:23.485-0400" type="Warning"/>
-        <logs message="WARNING: [HLS 200-960] Cannot flatten loop 'NEURONS_LOOP' (B_RNI_HLS/apc/src/RNI_2.cpp:54:16) in function 'RNI' the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop.&#xA;Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=200-960.html" projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T20:33:23.482-0400" type="Warning"/>
-        <logs message="WARNING: [HLS 200-960] Cannot flatten loop 'NEURONS_LOOP' (B_RNI_HLS/apc/src/RNI_2.cpp:71:16) in function 'inner_layer' the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop.&#xA;Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=200-960.html" projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T20:33:23.479-0400" type="Warning"/>
-        <logs message="WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'NEURONS_INDEX' in function 'RNI' (B_RNI_HLS/apc/src/RNI_2.cpp:56:40)." projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T20:33:23.462-0400" type="Warning"/>
-        <logs message="WARNING: [HLS 214-167] The program may have out of bound array access (B_RNI_HLS/apc/src/RNI_2.cpp:56:40)" projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T20:33:23.273-0400" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low." projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T20:43:21.090-0400" type="Warning"/>
+        <logs message="WARNING: [HLS 200-2049] Adding the rewind optimization to the pipelined process 'NEURONS_LOOP' with inout ports inside a dataflow region can result in the creation of loop-carried dependencies and errors. Use caution when adding the rewind optimization to such loops." projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T20:43:20.981-0400" type="Warning"/>
+        <logs message="WARNING: [HLS 200-2049] Adding the rewind optimization to the pipelined process 'NEURONS_LOOP' with inout ports inside a dataflow region can result in the creation of loop-carried dependencies and errors. Use caution when adding the rewind optimization to such loops." projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T20:43:20.898-0400" type="Warning"/>
+        <logs message="WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_23_1' (B_RNI_HLS/apc/src/RNI_2.cpp:23:19) in function 'RNI' more than one sub loop.&#xA;Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=200-960.html" projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T20:43:19.661-0400" type="Warning"/>
+        <logs message="WARNING: [HLS 200-960] Cannot flatten loop 'NEURONS_LOOP' (B_RNI_HLS/apc/src/RNI_2.cpp:57:16) in function 'RNI' the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop.&#xA;Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=200-960.html" projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T20:43:19.584-0400" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'NEURONS_INDEX' in function 'RNI' (B_RNI_HLS/apc/src/RNI_2.cpp:59:40)." projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T20:43:19.560-0400" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-561] Updating loop lower bound from 0 to 16 for loop 'NEURONS_LOOP' (B_RNI_HLS/apc/src/RNI_2.cpp:74:32) in function 'RNI'." projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T20:43:19.483-0400" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-561] Updating loop upper bound from 255 to 16 for loop 'NEURONS_LOOP' (B_RNI_HLS/apc/src/RNI_2.cpp:74:32) in function 'RNI'." projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T20:43:19.470-0400" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-561] Updating loop lower bound from 0 to 4 for loop 'NEURONS_LOOP' (B_RNI_HLS/apc/src/RNI_2.cpp:74:32) in function 'RNI'." projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T20:43:19.468-0400" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-561] Updating loop upper bound from 255 to 4 for loop 'NEURONS_LOOP' (B_RNI_HLS/apc/src/RNI_2.cpp:74:32) in function 'RNI'." projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T20:43:19.466-0400" type="Warning"/>
+        <logs message="WARNING: [HLS 214-167] The program may have out of bound array access (B_RNI_HLS/apc/src/RNI_2.cpp:59:40)" projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T20:43:19.369-0400" type="Warning"/>
       </synLog>
       <simLog/>
       <mgLog/>
       <packageLog/>
-      <csimLog>
-        <logs message="WARNING: Bitsize mismatch for ap_[u]int&amp;=ap_[u]int.&#xA;0" projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T20:35:20.101-0400" type="Warning"/>
-        <logs message="WARNING: Bitsize mismatch for ap_[u]int&amp;=ap_[u]int." projectName="B_RNI_HLS" solutionName="RNI" date="2024-03-18T20:33:45.273-0400" type="Warning"/>
-      </csimLog>
+      <csimLog/>
     </logs>
   </warningLogs>
 </vivadoHLSLog:LogRoot>

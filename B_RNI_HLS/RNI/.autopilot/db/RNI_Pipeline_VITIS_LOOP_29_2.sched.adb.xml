@@ -94,10 +94,10 @@ newFuncRoot:4 %input_list_1_3 = alloca i32 1
 
 <Node id="15" bw="8" op_0_bw="8" op_1_bw="8">
 <![CDATA[
-newFuncRoot:5 %zext_ln25_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %zext_ln25
+newFuncRoot:5 %zext_ln26_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %zext_ln26
 
 ]]></Node>
-<StgValue><ssdm name="zext_ln25_read"/></StgValue>
+<StgValue><ssdm name="zext_ln26_read"/></StgValue>
 </operation>
 
 <operation id="10" st_id="1" stage="1" lat="1">
@@ -351,7 +351,7 @@ for.inc.split:0 %speclooptripcount_ln29 = speclooptripcount void @_ssdm_op_SpecL
 
 <Node id="34" bw="0" op_0_bw="0" op_1_bw="0">
 <![CDATA[
-for.inc.split:1 %specloopname_ln29 = specloopname void @_ssdm_op_SpecLoopName, void @empty_3
+for.inc.split:1 %specloopname_ln29 = specloopname void @_ssdm_op_SpecLoopName, void @empty_10
 
 ]]></Node>
 <StgValue><ssdm name="specloopname_ln29"/></StgValue>
@@ -415,7 +415,7 @@ for.inc.split:4 %shl_lncast = zext i5 %shl_ln
 
 <Node id="38" bw="8" op_0_bw="8" op_1_bw="8">
 <![CDATA[
-for.inc.split:5 %shl_ln31 = shl i8 %zext_ln25_read, i8 %shl_lncast
+for.inc.split:5 %shl_ln31 = shl i8 %zext_ln26_read, i8 %shl_lncast
 
 ]]></Node>
 <StgValue><ssdm name="shl_ln31"/></StgValue>

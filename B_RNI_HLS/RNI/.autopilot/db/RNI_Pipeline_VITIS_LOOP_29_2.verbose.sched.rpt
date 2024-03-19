@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'RNI_Pipeline_VITIS_LOOP_29_2'
 ================================================================
-* Date:           Mon Mar 18 20:33:23 2024
+* Date:           Mon Mar 18 20:43:19 2024
 
 * Version:        2023.1.1 (Build 3869133 on Jun 15 2023)
 * Project:        B_RNI_HLS
@@ -89,7 +89,7 @@ ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%input_list_1 = alloca i32 1"   --->
 ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%input_list_1_1 = alloca i32 1"   --->   Operation 6 'alloca' 'input_list_1_1' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%input_list_1_2 = alloca i32 1"   --->   Operation 7 'alloca' 'input_list_1_2' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%input_list_1_3 = alloca i32 1"   --->   Operation 8 'alloca' 'input_list_1_3' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%zext_ln25_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %zext_ln25"   --->   Operation 9 'read' 'zext_ln25_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%zext_ln26_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %zext_ln26"   --->   Operation 9 'read' 'zext_ln26_read' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%input_list_0_01_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %input_list_0_01"   --->   Operation 10 'read' 'input_list_0_01_read' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%input_list_1_02_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %input_list_1_02"   --->   Operation 11 'read' 'input_list_1_02_read' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%input_list_2_03_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %input_list_2_03"   --->   Operation 12 'read' 'input_list_2_03_read' <Predicate = true> <Delay = 0.00>
@@ -106,11 +106,11 @@ ST_1 : Operation 22 [1/1] (1.65ns)   --->   "%icmp_ln29 = icmp_eq  i3 %i_1, i3 4
 ST_1 : Operation 23 [1/1] (1.65ns)   --->   "%add_ln29 = add i3 %i_1, i3 1" [B_RNI_HLS/apc/src/RNI_2.cpp:29]   --->   Operation 23 'add' 'add_ln29' <Predicate = true> <Delay = 1.65> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.65> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
 ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%br_ln29 = br i1 %icmp_ln29, void %for.inc.split, void %WEIGHTS_LOOP.i.preheader.exitStub" [B_RNI_HLS/apc/src/RNI_2.cpp:29]   --->   Operation 24 'br' 'br_ln29' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%speclooptripcount_ln29 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 4, i64 4, i64 4" [B_RNI_HLS/apc/src/RNI_2.cpp:29]   --->   Operation 25 'speclooptripcount' 'speclooptripcount_ln29' <Predicate = (!icmp_ln29)> <Delay = 0.00>
-ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%specloopname_ln29 = specloopname void @_ssdm_op_SpecLoopName, void @empty_3" [B_RNI_HLS/apc/src/RNI_2.cpp:29]   --->   Operation 26 'specloopname' 'specloopname_ln29' <Predicate = (!icmp_ln29)> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%specloopname_ln29 = specloopname void @_ssdm_op_SpecLoopName, void @empty_10" [B_RNI_HLS/apc/src/RNI_2.cpp:29]   --->   Operation 26 'specloopname' 'specloopname_ln29' <Predicate = (!icmp_ln29)> <Delay = 0.00>
 ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%trunc_ln31 = trunc i3 %i_1" [B_RNI_HLS/apc/src/RNI_2.cpp:31]   --->   Operation 27 'trunc' 'trunc_ln31' <Predicate = (!icmp_ln29)> <Delay = 0.00>
 ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%shl_ln = bitconcatenate i5 @_ssdm_op_BitConcatenate.i5.i2.i3, i2 %trunc_ln31, i3 0" [B_RNI_HLS/apc/src/RNI_2.cpp:31]   --->   Operation 28 'bitconcatenate' 'shl_ln' <Predicate = (!icmp_ln29)> <Delay = 0.00>
 ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%shl_lncast = zext i5 %shl_ln" [B_RNI_HLS/apc/src/RNI_2.cpp:31]   --->   Operation 29 'zext' 'shl_lncast' <Predicate = (!icmp_ln29)> <Delay = 0.00>
-ST_1 : Operation 30 [1/1] (3.14ns)   --->   "%shl_ln31 = shl i8 %zext_ln25_read, i8 %shl_lncast" [B_RNI_HLS/apc/src/RNI_2.cpp:31]   --->   Operation 30 'shl' 'shl_ln31' <Predicate = (!icmp_ln29)> <Delay = 3.14> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 30 [1/1] (3.14ns)   --->   "%shl_ln31 = shl i8 %zext_ln26_read, i8 %shl_lncast" [B_RNI_HLS/apc/src/RNI_2.cpp:31]   --->   Operation 30 'shl' 'shl_ln31' <Predicate = (!icmp_ln29)> <Delay = 3.14> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
 ST_1 : Operation 31 [1/1] (1.86ns)   --->   "%switch_ln31 = switch i2 %trunc_ln31, void %branch3, i2 0, void %for.inc.split.for.inc.split12_crit_edge, i2 1, void %for.inc.split.for.inc.split12_crit_edge7, i2 2, void %branch2" [B_RNI_HLS/apc/src/RNI_2.cpp:31]   --->   Operation 31 'switch' 'switch_ln31' <Predicate = (!icmp_ln29)> <Delay = 1.86>
 ST_1 : Operation 32 [1/1] (1.58ns)   --->   "%store_ln31 = store i8 %shl_ln31, i8 %input_list_1_2" [B_RNI_HLS/apc/src/RNI_2.cpp:31]   --->   Operation 32 'store' 'store_ln31' <Predicate = (!icmp_ln29 & trunc_ln31 == 2)> <Delay = 1.58>
 ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%br_ln31 = br void %for.inc.split12" [B_RNI_HLS/apc/src/RNI_2.cpp:31]   --->   Operation 33 'br' 'br_ln31' <Predicate = (!icmp_ln29 & trunc_ln31 == 2)> <Delay = 0.00>
@@ -143,7 +143,7 @@ The critical path consists of the following:
 	'alloca' operation ('i') [10]  (0.000 ns)
 	'load' operation ('i', B_RNI_HLS/apc/src/RNI_2.cpp:31) on local variable 'i' [27]  (0.000 ns)
 	'shl' operation ('input_list[1]', B_RNI_HLS/apc/src/RNI_2.cpp:31) [38]  (3.150 ns)
-	'store' operation ('store_ln31', B_RNI_HLS/apc/src/RNI_2.cpp:31) of variable 'input_list[1]', B_RNI_HLS/apc/src/RNI_2.cpp:31 on local variable 'input_list[1]' [50]  (1.588 ns)
+	'store' operation ('store_ln31', B_RNI_HLS/apc/src/RNI_2.cpp:31) of variable 'input_list[1]', B_RNI_HLS/apc/src/RNI_2.cpp:31 on local variable 'input_list[1]' [47]  (1.588 ns)
 
 
 ============================================================

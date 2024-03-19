@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'RNI'" level="0">
-<item name = "Date">Mon Mar 18 20:33:24 2024
+<item name = "Date">Mon Mar 18 20:43:20 2024
 </item>
 <item name = "Version">2023.1.1 (Build 3869133 on Jun 15 2023)</item>
 <item name = "Project">B_RNI_HLS</item>
@@ -35,8 +35,8 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- VITIS_LOOP_23_1">?, ?, 97 ~ 268979, -, -, inf, no</column>
-<column name=" + NEURONS_LOOP">64, 4256, 4 ~ 266, -, -, 16, no</column>
+<column name="- VITIS_LOOP_23_1">?, ?, 101 ~ 4277, -, -, ?, no</column>
+<column name=" + NEURONS_LOOP">64, 4240, 4 ~ 265, -, -, 16, no</column>
 </table>
 </item>
 </section>

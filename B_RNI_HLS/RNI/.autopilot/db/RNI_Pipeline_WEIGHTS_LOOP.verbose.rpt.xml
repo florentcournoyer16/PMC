@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'RNI_Pipeline_WEIGHTS_LOOP'" level="0">
-<item name = "Date">Mon Mar 18 20:33:25 2024
+<item name = "Date">Mon Mar 18 20:43:20 2024
 </item>
 <item name = "Version">2023.1.1 (Build 3869133 on Jun 15 2023)</item>
 <item name = "Project">B_RNI_HLS</item>
@@ -51,11 +51,11 @@
 <column name="Expression">-, -, 0, 144, -</column>
 <column name="FIFO">-, -, -, -, -</column>
 <column name="Instance">-, -, 0, 20, -</column>
-<column name="Memory">-, -, -, -, -</column>
+<column name="Memory">1, -, 0, 0, -</column>
 <column name="Multiplexer">-, -, -, 54, -</column>
 <column name="Register">-, -, 156, 32, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
-<specialColumn name="Utilization (%)">0, ~0, ~0, ~0, 0</specialColumn>
+<specialColumn name="Utilization (%)">~0, ~0, ~0, ~0, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
@@ -72,6 +72,7 @@
 </item>
 <item name = "Memory"><table name="" hasTotal="1">
 <keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
+<column name="WEIGHTS_U">RNI_Pipeline_WEIGHTS_LOOP_WEIGHTS_ROM_AUTO_1R, 1, 0, 0, 0, 256, 8, 1, 2048</column>
 </table>
 </item>
 <item name = "FIFO"><table name="" hasTotal="1">
@@ -80,8 +81,8 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln56_fu_153_p2">+, 0, 0, 71, 64, 1</column>
-<column name="icmp_ln56_fu_144_p2">icmp, 0, 0, 71, 64, 64</column>
+<column name="add_ln59_fu_153_p2">+, 0, 0, 71, 64, 1</column>
+<column name="icmp_ln59_fu_144_p2">icmp, 0, 0, 71, 64, 64</column>
 <column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
 </table>
 </item>
@@ -107,12 +108,12 @@
 <column name="ap_loop_exit_ready_pp0_iter2_reg">1, 0, 1, 0</column>
 <column name="ap_loop_exit_ready_pp0_iter3_reg">1, 0, 1, 0</column>
 <column name="ap_loop_exit_ready_pp0_iter4_reg">1, 0, 1, 0</column>
-<column name="icmp_ln56_reg_233">1, 0, 1, 0</column>
+<column name="icmp_ln59_reg_233">1, 0, 1, 0</column>
 <column name="temp_1_fu_52">8, 0, 8, 0</column>
-<column name="trunc_ln58_reg_242">2, 0, 2, 0</column>
+<column name="trunc_ln61_reg_242">2, 0, 2, 0</column>
 <column name="weight_index_fu_56">64, 0, 64, 0</column>
-<column name="zext_ln56_1_cast_reg_228">7, 0, 64, 57</column>
-<column name="icmp_ln56_reg_233">64, 32, 1, 0</column>
+<column name="zext_ln59_1_cast_reg_228">7, 0, 64, 57</column>
+<column name="icmp_ln59_reg_233">64, 32, 1, 0</column>
 </table>
 </item>
 </section>
@@ -128,18 +129,15 @@
 <column name="ap_done">out, 1, ap_ctrl_hs, RNI_Pipeline_WEIGHTS_LOOP, return value</column>
 <column name="ap_idle">out, 1, ap_ctrl_hs, RNI_Pipeline_WEIGHTS_LOOP, return value</column>
 <column name="ap_ready">out, 1, ap_ctrl_hs, RNI_Pipeline_WEIGHTS_LOOP, return value</column>
-<column name="zext_ln56">in, 6, ap_none, zext_ln56, scalar</column>
+<column name="zext_ln59">in, 6, ap_none, zext_ln59, scalar</column>
 <column name="NEURONS_MEMBRANE_load">in, 8, ap_none, NEURONS_MEMBRANE_load, scalar</column>
-<column name="zext_ln56_1">in, 7, ap_none, zext_ln56_1, scalar</column>
+<column name="zext_ln59_1">in, 7, ap_none, zext_ln59_1, scalar</column>
 <column name="input_list_0_1_reload">in, 8, ap_none, input_list_0_1_reload, scalar</column>
 <column name="input_list_1_1_reload">in, 8, ap_none, input_list_1_1_reload, scalar</column>
 <column name="input_list_2_1_reload">in, 8, ap_none, input_list_2_1_reload, scalar</column>
 <column name="input_list_3_1_reload">in, 8, ap_none, input_list_3_1_reload, scalar</column>
 <column name="p_out">out, 8, ap_vld, p_out, pointer</column>
 <column name="p_out_ap_vld">out, 1, ap_vld, p_out, pointer</column>
-<column name="WEIGHTS_address0">out, 8, ap_memory, WEIGHTS, array</column>
-<column name="WEIGHTS_ce0">out, 1, ap_memory, WEIGHTS, array</column>
-<column name="WEIGHTS_q0">in, 8, ap_memory, WEIGHTS, array</column>
 </table>
 </item>
 </section>

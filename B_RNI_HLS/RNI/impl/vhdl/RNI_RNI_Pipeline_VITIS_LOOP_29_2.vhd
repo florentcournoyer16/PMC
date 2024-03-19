@@ -20,7 +20,7 @@ port (
     input_list_2_03 : IN STD_LOGIC_VECTOR (7 downto 0);
     input_list_1_02 : IN STD_LOGIC_VECTOR (7 downto 0);
     input_list_0_01 : IN STD_LOGIC_VECTOR (7 downto 0);
-    zext_ln25 : IN STD_LOGIC_VECTOR (7 downto 0);
+    zext_ln26 : IN STD_LOGIC_VECTOR (7 downto 0);
     input_list_3_1_out : OUT STD_LOGIC_VECTOR (7 downto 0);
     input_list_3_1_out_ap_vld : OUT STD_LOGIC;
     input_list_2_1_out : OUT STD_LOGIC_VECTOR (7 downto 0);
@@ -333,7 +333,7 @@ begin
         end if; 
     end process;
 
-    shl_ln31_fu_188_p2 <= std_logic_vector(shift_left(unsigned(zext_ln25),to_integer(unsigned('0' & shl_lncast_fu_184_p1(8-1 downto 0)))));
+    shl_ln31_fu_188_p2 <= std_logic_vector(shift_left(unsigned(zext_ln26),to_integer(unsigned('0' & shl_lncast_fu_184_p1(8-1 downto 0)))));
     shl_ln_fu_176_p3 <= (trunc_ln31_fu_172_p1 & ap_const_lv3_0);
     shl_lncast_fu_184_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(shl_ln_fu_176_p3),8));
     trunc_ln31_fu_172_p1 <= ap_sig_allocacmp_i_1(2 - 1 downto 0);

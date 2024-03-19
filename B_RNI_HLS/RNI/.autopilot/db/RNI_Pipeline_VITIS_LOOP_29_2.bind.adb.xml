@@ -94,10 +94,10 @@ newFuncRoot:4 %input_list_1_3 = alloca i32 1
 
 <Node id="15" bw="8" op_0_bw="8" op_1_bw="8">
 <![CDATA[
-newFuncRoot:5 %zext_ln25_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %zext_ln25
+newFuncRoot:5 %zext_ln26_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %zext_ln26
 
 ]]></Node>
-<StgValue><ssdm name="zext_ln25_read"/></StgValue>
+<StgValue><ssdm name="zext_ln26_read"/></StgValue>
 </operation>
 
 <operation id="10" st_id="1" stage="1" lat="1">
@@ -351,7 +351,7 @@ for.inc.split:0 %speclooptripcount_ln29 = speclooptripcount void @_ssdm_op_SpecL
 
 <Node id="34" bw="0" op_0_bw="0" op_1_bw="0">
 <![CDATA[
-for.inc.split:1 %specloopname_ln29 = specloopname void @_ssdm_op_SpecLoopName, void @empty_3
+for.inc.split:1 %specloopname_ln29 = specloopname void @_ssdm_op_SpecLoopName, void @empty_10
 
 ]]></Node>
 <StgValue><ssdm name="specloopname_ln29"/></StgValue>
@@ -415,7 +415,7 @@ for.inc.split:4 %shl_lncast = zext i5 %shl_ln
 
 <Node id="38" bw="8" op_0_bw="8" op_1_bw="8">
 <![CDATA[
-for.inc.split:5 %shl_ln31 = shl i8 %zext_ln25_read, i8 %shl_lncast
+for.inc.split:5 %shl_ln31 = shl i8 %zext_ln26_read, i8 %shl_lncast
 
 ]]></Node>
 <StgValue><ssdm name="shl_ln31"/></StgValue>
@@ -765,8 +765,8 @@ WEIGHTS_LOOP.i.preheader.exitStub:8 %ret_ln0 = ret
 <port id="60" name="input_list_0_01" dir="0" iftype="0">
 <core>NULL</core><StgValue><ssdm name="input_list_0_01"/></StgValue>
 </port>
-<port id="61" name="zext_ln25" dir="0" iftype="0">
-<core>NULL</core><StgValue><ssdm name="zext_ln25"/></StgValue>
+<port id="61" name="zext_ln26" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="zext_ln26"/></StgValue>
 </port>
 <port id="62" name="input_list_3_1_out" dir="1" iftype="0">
 <core>NULL</core><StgValue><ssdm name="input_list_3_1_out"/></StgValue>
@@ -794,9 +794,9 @@ WEIGHTS_LOOP.i.preheader.exitStub:8 %ret_ln0 = ret
 </dataflow>
 <dataflow id="71" from="StgValue_66" to="input_list_1_3" fromId="66" toId="8">
 </dataflow>
-<dataflow id="73" from="_ssdm_op_Read.ap_auto.i8" to="zext_ln25_read" fromId="72" toId="9">
+<dataflow id="73" from="_ssdm_op_Read.ap_auto.i8" to="zext_ln26_read" fromId="72" toId="9">
 </dataflow>
-<dataflow id="74" from="zext_ln25" to="zext_ln25_read" fromId="61" toId="9">
+<dataflow id="74" from="zext_ln26" to="zext_ln26_read" fromId="61" toId="9">
 </dataflow>
 <dataflow id="75" from="_ssdm_op_Read.ap_auto.i8" to="input_list_0_01_read" fromId="72" toId="10">
 </dataflow>
@@ -868,7 +868,7 @@ WEIGHTS_LOOP.i.preheader.exitStub:8 %ret_ln0 = ret
 </dataflow>
 <dataflow id="119" from="_ssdm_op_SpecLoopName" to="specloopname_ln29" fromId="118" toId="26">
 </dataflow>
-<dataflow id="121" from="empty_3" to="specloopname_ln29" fromId="120" toId="26">
+<dataflow id="121" from="empty_10" to="specloopname_ln29" fromId="120" toId="26">
 </dataflow>
 <dataflow id="122" from="i_1" to="trunc_ln31" fromId="20" toId="27">
 </dataflow>
@@ -880,7 +880,7 @@ WEIGHTS_LOOP.i.preheader.exitStub:8 %ret_ln0 = ret
 </dataflow>
 <dataflow id="127" from="shl_ln" to="shl_lncast" fromId="28" toId="29">
 </dataflow>
-<dataflow id="128" from="zext_ln25_read" to="shl_ln31" fromId="9" toId="30">
+<dataflow id="128" from="zext_ln26_read" to="shl_ln31" fromId="9" toId="30">
 </dataflow>
 <dataflow id="129" from="shl_lncast" to="shl_ln31" fromId="29" toId="30">
 </dataflow>

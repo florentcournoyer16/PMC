@@ -34483,6 +34483,9 @@ __attribute__((sdx_kernel("RNI", 0))) void RNI (
    output_buffer.data &= output_list[i] << 8 * i;
   }
   output_stream.write(output_buffer);
+
+  if (input_buffer.last)
+   break;
  }
 }
 
@@ -34514,8 +34517,8 @@ void inner_layer(ap_int< 8 > layer_index)
    ap_int< 8 > neuron_state = NEURONS_STATE[NEURONS_INDEX[layer_index - 1] + weight_index - WEIGHTS_INDEX[neuron_index]];
    if (neuron_state == 1)
    {
-    ap_int< 8 > temp = NEURONS_MEMBRANE[neuron_index] + WEIGHTS[weight_index];
-    NEURONS_MEMBRANE[neuron_index] = temp;
+
+
    }
   }
   if (NEURONS_MEMBRANE[neuron_index] > THRESHOLDS[layer_index])
