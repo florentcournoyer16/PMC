@@ -113,9 +113,9 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "sext_ln71", "Type" : "None", "Direction" : "I"},
+			{"Name" : "sext_ln73", "Type" : "None", "Direction" : "I"},
 			{"Name" : "neuron_index_1", "Type" : "None", "Direction" : "I"},
-			{"Name" : "sext_ln71_1", "Type" : "None", "Direction" : "I"},
+			{"Name" : "sext_ln73_1", "Type" : "None", "Direction" : "I"},
 			{"Name" : "neuron_state_index", "Type" : "None", "Direction" : "I"},
 			{"Name" : "trunc_ln", "Type" : "None", "Direction" : "I"},
 			{"Name" : "NEURONS_STATE", "Type" : "Memory", "Direction" : "I"},
@@ -159,9 +159,9 @@ set ArgLastReadFirstWriteLatency {
 		NEURONS_MEMBRANE {Type IO LastRead 5 FirstWrite 4}
 		WEIGHTS {Type I LastRead -1 FirstWrite -1}}
 	inner_layer_Pipeline_WEIGHTS_LOOP {
-		sext_ln71 {Type I LastRead 0 FirstWrite -1}
+		sext_ln73 {Type I LastRead 0 FirstWrite -1}
 		neuron_index_1 {Type I LastRead 0 FirstWrite -1}
-		sext_ln71_1 {Type I LastRead 0 FirstWrite -1}
+		sext_ln73_1 {Type I LastRead 0 FirstWrite -1}
 		neuron_state_index {Type I LastRead 0 FirstWrite -1}
 		trunc_ln {Type I LastRead 0 FirstWrite -1}
 		NEURONS_STATE {Type I LastRead 1 FirstWrite -1}

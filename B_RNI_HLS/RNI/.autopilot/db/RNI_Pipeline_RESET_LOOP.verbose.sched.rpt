@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'RNI_Pipeline_RESET_LOOP'
 ================================================================
-* Date:           Mon Mar 18 19:54:08 2024
+* Date:           Mon Mar 18 20:33:24 2024
 
 * Version:        2023.1.1 (Build 3869133 on Jun 15 2023)
 * Project:        B_RNI_HLS
@@ -87,19 +87,19 @@ State 1 <SV = 0> <Delay = 4.14>
 ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%neuron_state_index = alloca i32 1"   --->   Operation 4 'alloca' 'neuron_state_index' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 5 [1/1] (1.58ns)   --->   "%store_ln0 = store i6 36, i6 %neuron_state_index"   --->   Operation 5 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
 ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc60.i"   --->   Operation 6 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%neuron_state_index_3 = load i6 %neuron_state_index" [B_RNI_HLS/apc/src/RNI_2.cpp:113->B_RNI_HLS/apc/src/RNI_2.cpp:38]   --->   Operation 7 'load' 'neuron_state_index_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%neuron_state_index_3 = load i6 %neuron_state_index" [B_RNI_HLS/apc/src/RNI_2.cpp:116->B_RNI_HLS/apc/src/RNI_2.cpp:39]   --->   Operation 7 'load' 'neuron_state_index_3' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%specpipeline_ln0 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 1, i32 0, void @p_str"   --->   Operation 8 'specpipeline' 'specpipeline_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 9 [1/1] (1.82ns)   --->   "%icmp_ln113 = icmp_eq  i6 %neuron_state_index_3, i6 40" [B_RNI_HLS/apc/src/RNI_2.cpp:113->B_RNI_HLS/apc/src/RNI_2.cpp:38]   --->   Operation 9 'icmp' 'icmp_ln113' <Predicate = true> <Delay = 1.82> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%br_ln113 = br i1 %icmp_ln113, void %for.inc60.i.split, void %for.body20.preheader.exitStub" [B_RNI_HLS/apc/src/RNI_2.cpp:113->B_RNI_HLS/apc/src/RNI_2.cpp:38]   --->   Operation 10 'br' 'br_ln113' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%neuron_state_index_cast = zext i6 %neuron_state_index_3" [B_RNI_HLS/apc/src/RNI_2.cpp:113->B_RNI_HLS/apc/src/RNI_2.cpp:38]   --->   Operation 11 'zext' 'neuron_state_index_cast' <Predicate = (!icmp_ln113)> <Delay = 0.00>
-ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%speclooptripcount_ln113 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 4, i64 4, i64 4" [B_RNI_HLS/apc/src/RNI_2.cpp:113->B_RNI_HLS/apc/src/RNI_2.cpp:38]   --->   Operation 12 'speclooptripcount' 'speclooptripcount_ln113' <Predicate = (!icmp_ln113)> <Delay = 0.00>
-ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%specloopname_ln113 = specloopname void @_ssdm_op_SpecLoopName, void @empty_1" [B_RNI_HLS/apc/src/RNI_2.cpp:113->B_RNI_HLS/apc/src/RNI_2.cpp:38]   --->   Operation 13 'specloopname' 'specloopname_ln113' <Predicate = (!icmp_ln113)> <Delay = 0.00>
-ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%NEURONS_STATE_addr = getelementptr i1 %NEURONS_STATE, i64 0, i64 %neuron_state_index_cast" [B_RNI_HLS/apc/src/RNI_2.cpp:114->B_RNI_HLS/apc/src/RNI_2.cpp:38]   --->   Operation 14 'getelementptr' 'NEURONS_STATE_addr' <Predicate = (!icmp_ln113)> <Delay = 0.00>
-ST_1 : Operation 15 [1/1] (2.32ns)   --->   "%store_ln114 = store i1 0, i6 %NEURONS_STATE_addr" [B_RNI_HLS/apc/src/RNI_2.cpp:114->B_RNI_HLS/apc/src/RNI_2.cpp:38]   --->   Operation 15 'store' 'store_ln114' <Predicate = (!icmp_ln113)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 40> <RAM>
-ST_1 : Operation 16 [1/1] (1.82ns)   --->   "%add_ln113 = add i6 %neuron_state_index_3, i6 1" [B_RNI_HLS/apc/src/RNI_2.cpp:113->B_RNI_HLS/apc/src/RNI_2.cpp:38]   --->   Operation 16 'add' 'add_ln113' <Predicate = (!icmp_ln113)> <Delay = 1.82> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 17 [1/1] (1.58ns)   --->   "%store_ln113 = store i6 %add_ln113, i6 %neuron_state_index" [B_RNI_HLS/apc/src/RNI_2.cpp:113->B_RNI_HLS/apc/src/RNI_2.cpp:38]   --->   Operation 17 'store' 'store_ln113' <Predicate = (!icmp_ln113)> <Delay = 1.58>
-ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%br_ln113 = br void %for.inc60.i" [B_RNI_HLS/apc/src/RNI_2.cpp:113->B_RNI_HLS/apc/src/RNI_2.cpp:38]   --->   Operation 18 'br' 'br_ln113' <Predicate = (!icmp_ln113)> <Delay = 0.00>
-ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 19 'ret' 'ret_ln0' <Predicate = (icmp_ln113)> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (1.82ns)   --->   "%icmp_ln116 = icmp_eq  i6 %neuron_state_index_3, i6 40" [B_RNI_HLS/apc/src/RNI_2.cpp:116->B_RNI_HLS/apc/src/RNI_2.cpp:39]   --->   Operation 9 'icmp' 'icmp_ln116' <Predicate = true> <Delay = 1.82> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%br_ln116 = br i1 %icmp_ln116, void %for.inc60.i.split, void %for.end22.exitStub" [B_RNI_HLS/apc/src/RNI_2.cpp:116->B_RNI_HLS/apc/src/RNI_2.cpp:39]   --->   Operation 10 'br' 'br_ln116' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%neuron_state_index_cast = zext i6 %neuron_state_index_3" [B_RNI_HLS/apc/src/RNI_2.cpp:116->B_RNI_HLS/apc/src/RNI_2.cpp:39]   --->   Operation 11 'zext' 'neuron_state_index_cast' <Predicate = (!icmp_ln116)> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%speclooptripcount_ln116 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 4, i64 4, i64 4" [B_RNI_HLS/apc/src/RNI_2.cpp:116->B_RNI_HLS/apc/src/RNI_2.cpp:39]   --->   Operation 12 'speclooptripcount' 'speclooptripcount_ln116' <Predicate = (!icmp_ln116)> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%specloopname_ln116 = specloopname void @_ssdm_op_SpecLoopName, void @empty_7" [B_RNI_HLS/apc/src/RNI_2.cpp:116->B_RNI_HLS/apc/src/RNI_2.cpp:39]   --->   Operation 13 'specloopname' 'specloopname_ln116' <Predicate = (!icmp_ln116)> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%NEURONS_STATE_addr = getelementptr i1 %NEURONS_STATE, i64 0, i64 %neuron_state_index_cast" [B_RNI_HLS/apc/src/RNI_2.cpp:118->B_RNI_HLS/apc/src/RNI_2.cpp:39]   --->   Operation 14 'getelementptr' 'NEURONS_STATE_addr' <Predicate = (!icmp_ln116)> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (2.32ns)   --->   "%store_ln118 = store i1 0, i6 %NEURONS_STATE_addr" [B_RNI_HLS/apc/src/RNI_2.cpp:118->B_RNI_HLS/apc/src/RNI_2.cpp:39]   --->   Operation 15 'store' 'store_ln118' <Predicate = (!icmp_ln116)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 40> <RAM>
+ST_1 : Operation 16 [1/1] (1.82ns)   --->   "%add_ln116 = add i6 %neuron_state_index_3, i6 1" [B_RNI_HLS/apc/src/RNI_2.cpp:116->B_RNI_HLS/apc/src/RNI_2.cpp:39]   --->   Operation 16 'add' 'add_ln116' <Predicate = (!icmp_ln116)> <Delay = 1.82> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 17 [1/1] (1.58ns)   --->   "%store_ln116 = store i6 %add_ln116, i6 %neuron_state_index" [B_RNI_HLS/apc/src/RNI_2.cpp:116->B_RNI_HLS/apc/src/RNI_2.cpp:39]   --->   Operation 17 'store' 'store_ln116' <Predicate = (!icmp_ln116)> <Delay = 1.58>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%br_ln116 = br void %for.inc60.i" [B_RNI_HLS/apc/src/RNI_2.cpp:116->B_RNI_HLS/apc/src/RNI_2.cpp:39]   --->   Operation 18 'br' 'br_ln116' <Predicate = (!icmp_ln116)> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 19 'ret' 'ret_ln0' <Predicate = (icmp_ln116)> <Delay = 0.00>
 
 
 ============================================================
@@ -110,9 +110,9 @@ Target clock period: 10.000ns, clock uncertainty: 2.700ns.
  <State 1>: 4.147ns
 The critical path consists of the following:
 	'alloca' operation ('neuron_state_index') [2]  (0.000 ns)
-	'load' operation ('neuron_state_index', B_RNI_HLS/apc/src/RNI_2.cpp:113->B_RNI_HLS/apc/src/RNI_2.cpp:38) on local variable 'neuron_state_index' [6]  (0.000 ns)
-	'add' operation ('add_ln113', B_RNI_HLS/apc/src/RNI_2.cpp:113->B_RNI_HLS/apc/src/RNI_2.cpp:38) [16]  (1.825 ns)
-	'store' operation ('store_ln113', B_RNI_HLS/apc/src/RNI_2.cpp:113->B_RNI_HLS/apc/src/RNI_2.cpp:38) of variable 'add_ln113', B_RNI_HLS/apc/src/RNI_2.cpp:113->B_RNI_HLS/apc/src/RNI_2.cpp:38 on local variable 'neuron_state_index' [17]  (1.588 ns)
+	'load' operation ('neuron_state_index', B_RNI_HLS/apc/src/RNI_2.cpp:116->B_RNI_HLS/apc/src/RNI_2.cpp:39) on local variable 'neuron_state_index' [6]  (0.000 ns)
+	'add' operation ('add_ln116', B_RNI_HLS/apc/src/RNI_2.cpp:116->B_RNI_HLS/apc/src/RNI_2.cpp:39) [16]  (1.825 ns)
+	'store' operation ('store_ln116', B_RNI_HLS/apc/src/RNI_2.cpp:116->B_RNI_HLS/apc/src/RNI_2.cpp:39) of variable 'add_ln116', B_RNI_HLS/apc/src/RNI_2.cpp:116->B_RNI_HLS/apc/src/RNI_2.cpp:39 on local variable 'neuron_state_index' [17]  (1.588 ns)
 	blocking operation 0.734 ns on control path)
 
 

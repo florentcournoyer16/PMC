@@ -94,10 +94,10 @@ for.inc60.i:1 %specpipeline_ln0 = specpipeline void @_ssdm_op_SpecPipeline, i32 
 
 <Node id="8" bw="1" op_0_bw="6" op_1_bw="6">
 <![CDATA[
-for.inc60.i:2 %icmp_ln113 = icmp_eq  i6 %neuron_state_index_3, i6 40
+for.inc60.i:2 %icmp_ln116 = icmp_eq  i6 %neuron_state_index_3, i6 40
 
 ]]></Node>
-<StgValue><ssdm name="icmp_ln113"/></StgValue>
+<StgValue><ssdm name="icmp_ln116"/></StgValue>
 </operation>
 
 <operation id="10" st_id="1" stage="1" lat="1">
@@ -109,17 +109,17 @@ for.inc60.i:2 %icmp_ln113 = icmp_eq  i6 %neuron_state_index_3, i6 40
 
 <Node id="9" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
-for.inc60.i:3 %br_ln113 = br i1 %icmp_ln113, void %for.inc60.i.split, void %for.body20.preheader.exitStub
+for.inc60.i:3 %br_ln116 = br i1 %icmp_ln116, void %for.inc60.i.split, void %for.end22.exitStub
 
 ]]></Node>
-<StgValue><ssdm name="br_ln113"/></StgValue>
+<StgValue><ssdm name="br_ln116"/></StgValue>
 </operation>
 
 <operation id="11" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln113" val="0"/>
+<or_exp><and_exp><literal name="icmp_ln116" val="0"/>
 </and_exp></or_exp>
 </condition>
 
@@ -135,39 +135,39 @@ for.inc60.i.split:0 %neuron_state_index_cast = zext i6 %neuron_state_index_3
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln113" val="0"/>
+<or_exp><and_exp><literal name="icmp_ln116" val="0"/>
 </and_exp></or_exp>
 </condition>
 
 <Node id="12" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
-for.inc60.i.split:1 %speclooptripcount_ln113 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 4, i64 4, i64 4
+for.inc60.i.split:1 %speclooptripcount_ln116 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 4, i64 4, i64 4
 
 ]]></Node>
-<StgValue><ssdm name="speclooptripcount_ln113"/></StgValue>
+<StgValue><ssdm name="speclooptripcount_ln116"/></StgValue>
 </operation>
 
 <operation id="13" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln113" val="0"/>
+<or_exp><and_exp><literal name="icmp_ln116" val="0"/>
 </and_exp></or_exp>
 </condition>
 
 <Node id="13" bw="0" op_0_bw="0" op_1_bw="0">
 <![CDATA[
-for.inc60.i.split:2 %specloopname_ln113 = specloopname void @_ssdm_op_SpecLoopName, void @empty_1
+for.inc60.i.split:2 %specloopname_ln116 = specloopname void @_ssdm_op_SpecLoopName, void @empty_7
 
 ]]></Node>
-<StgValue><ssdm name="specloopname_ln113"/></StgValue>
+<StgValue><ssdm name="specloopname_ln116"/></StgValue>
 </operation>
 
 <operation id="14" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln113" val="0"/>
+<or_exp><and_exp><literal name="icmp_ln116" val="0"/>
 </and_exp></or_exp>
 </condition>
 
@@ -183,77 +183,77 @@ for.inc60.i.split:3 %NEURONS_STATE_addr = getelementptr i1 %NEURONS_STATE, i64 0
 <core>RAM</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln113" val="0"/>
+<or_exp><and_exp><literal name="icmp_ln116" val="0"/>
 </and_exp></or_exp>
 </condition>
 
 <Node id="15" bw="0" op_0_bw="1" op_1_bw="6">
 <![CDATA[
-for.inc60.i.split:4 %store_ln114 = store i1 0, i6 %NEURONS_STATE_addr
+for.inc60.i.split:4 %store_ln118 = store i1 0, i6 %NEURONS_STATE_addr
 
 ]]></Node>
-<StgValue><ssdm name="store_ln114"/></StgValue>
+<StgValue><ssdm name="store_ln118"/></StgValue>
 </operation>
 
 <operation id="16" st_id="1" stage="1" lat="1">
 <core>Adder</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln113" val="0"/>
+<or_exp><and_exp><literal name="icmp_ln116" val="0"/>
 </and_exp></or_exp>
 </condition>
 
 <Node id="16" bw="6" op_0_bw="6" op_1_bw="6">
 <![CDATA[
-for.inc60.i.split:5 %add_ln113 = add i6 %neuron_state_index_3, i6 1
+for.inc60.i.split:5 %add_ln116 = add i6 %neuron_state_index_3, i6 1
 
 ]]></Node>
-<StgValue><ssdm name="add_ln113"/></StgValue>
+<StgValue><ssdm name="add_ln116"/></StgValue>
 </operation>
 
 <operation id="17" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln113" val="0"/>
+<or_exp><and_exp><literal name="icmp_ln116" val="0"/>
 </and_exp></or_exp>
 </condition>
 
 <Node id="17" bw="0" op_0_bw="6" op_1_bw="6" op_2_bw="0" op_3_bw="0">
 <![CDATA[
-for.inc60.i.split:6 %store_ln113 = store i6 %add_ln113, i6 %neuron_state_index
+for.inc60.i.split:6 %store_ln116 = store i6 %add_ln116, i6 %neuron_state_index
 
 ]]></Node>
-<StgValue><ssdm name="store_ln113"/></StgValue>
+<StgValue><ssdm name="store_ln116"/></StgValue>
 </operation>
 
 <operation id="18" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln113" val="0"/>
+<or_exp><and_exp><literal name="icmp_ln116" val="0"/>
 </and_exp></or_exp>
 </condition>
 
 <Node id="18" bw="0" op_0_bw="0">
 <![CDATA[
-for.inc60.i.split:7 %br_ln113 = br void %for.inc60.i
+for.inc60.i.split:7 %br_ln116 = br void %for.inc60.i
 
 ]]></Node>
-<StgValue><ssdm name="br_ln113"/></StgValue>
+<StgValue><ssdm name="br_ln116"/></StgValue>
 </operation>
 
 <operation id="19" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln113" val="1"/>
+<or_exp><and_exp><literal name="icmp_ln116" val="1"/>
 </and_exp></or_exp>
 </condition>
 
 <Node id="20" bw="0">
 <![CDATA[
-for.body20.preheader.exitStub:0 %ret_ln0 = ret
+for.end22.exitStub:0 %ret_ln0 = ret
 
 ]]></Node>
 <StgValue><ssdm name="ret_ln0"/></StgValue>

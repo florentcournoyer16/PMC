@@ -15,9 +15,9 @@ set DLRegItemOffset 0
 set C_modelName {inner_layer_Pipeline_WEIGHTS_LOOP}
 set C_modelType { void 0 }
 set C_modelArgList {
-	{ sext_ln71 int 8 regular  }
+	{ sext_ln73 int 8 regular  }
 	{ neuron_index_1 int 6 regular  }
-	{ sext_ln71_1 int 8 regular  }
+	{ sext_ln73_1 int 8 regular  }
 	{ neuron_state_index int 6 regular  }
 	{ trunc_ln int 6 regular  }
 	{ NEURONS_STATE int 1 regular {array 40 { 1 3 } 1 1 } {global 0}  }
@@ -25,9 +25,9 @@ set C_modelArgList {
 }
 set hasAXIMCache 0
 set C_modelArgMapList {[ 
-	{ "Name" : "sext_ln71", "interface" : "wire", "bitwidth" : 8, "direction" : "READONLY"} , 
+	{ "Name" : "sext_ln73", "interface" : "wire", "bitwidth" : 8, "direction" : "READONLY"} , 
  	{ "Name" : "neuron_index_1", "interface" : "wire", "bitwidth" : 6, "direction" : "READONLY"} , 
- 	{ "Name" : "sext_ln71_1", "interface" : "wire", "bitwidth" : 8, "direction" : "READONLY"} , 
+ 	{ "Name" : "sext_ln73_1", "interface" : "wire", "bitwidth" : 8, "direction" : "READONLY"} , 
  	{ "Name" : "neuron_state_index", "interface" : "wire", "bitwidth" : 6, "direction" : "READONLY"} , 
  	{ "Name" : "trunc_ln", "interface" : "wire", "bitwidth" : 6, "direction" : "READONLY"} , 
  	{ "Name" : "NEURONS_STATE", "interface" : "memory", "bitwidth" : 1, "direction" : "READONLY", "extern" : 0} , 
@@ -41,9 +41,9 @@ set portList {
 	{ ap_done sc_out sc_logic 1 predone -1 } 
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
-	{ sext_ln71 sc_in sc_lv 8 signal 0 } 
+	{ sext_ln73 sc_in sc_lv 8 signal 0 } 
 	{ neuron_index_1 sc_in sc_lv 6 signal 1 } 
-	{ sext_ln71_1 sc_in sc_lv 8 signal 2 } 
+	{ sext_ln73_1 sc_in sc_lv 8 signal 2 } 
 	{ neuron_state_index sc_in sc_lv 6 signal 3 } 
 	{ trunc_ln sc_in sc_lv 6 signal 4 } 
 	{ NEURONS_STATE_address0 sc_out sc_lv 6 signal 5 } 
@@ -62,9 +62,9 @@ set NewPortList {[
  	{ "name": "ap_done", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "predone", "bundle":{"name": "ap_done", "role": "default" }} , 
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
- 	{ "name": "sext_ln71", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "sext_ln71", "role": "default" }} , 
+ 	{ "name": "sext_ln73", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "sext_ln73", "role": "default" }} , 
  	{ "name": "neuron_index_1", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "neuron_index_1", "role": "default" }} , 
- 	{ "name": "sext_ln71_1", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "sext_ln71_1", "role": "default" }} , 
+ 	{ "name": "sext_ln73_1", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "sext_ln73_1", "role": "default" }} , 
  	{ "name": "neuron_state_index", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "neuron_state_index", "role": "default" }} , 
  	{ "name": "trunc_ln", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "trunc_ln", "role": "default" }} , 
  	{ "name": "NEURONS_STATE_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "NEURONS_STATE", "role": "address0" }} , 
@@ -92,9 +92,9 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "sext_ln71", "Type" : "None", "Direction" : "I"},
+			{"Name" : "sext_ln73", "Type" : "None", "Direction" : "I"},
 			{"Name" : "neuron_index_1", "Type" : "None", "Direction" : "I"},
-			{"Name" : "sext_ln71_1", "Type" : "None", "Direction" : "I"},
+			{"Name" : "sext_ln73_1", "Type" : "None", "Direction" : "I"},
 			{"Name" : "neuron_state_index", "Type" : "None", "Direction" : "I"},
 			{"Name" : "trunc_ln", "Type" : "None", "Direction" : "I"},
 			{"Name" : "NEURONS_STATE", "Type" : "Memory", "Direction" : "I"},
@@ -109,9 +109,9 @@ set RtlHierarchyInfo {[
 
 set ArgLastReadFirstWriteLatency {
 	inner_layer_Pipeline_WEIGHTS_LOOP {
-		sext_ln71 {Type I LastRead 0 FirstWrite -1}
+		sext_ln73 {Type I LastRead 0 FirstWrite -1}
 		neuron_index_1 {Type I LastRead 0 FirstWrite -1}
-		sext_ln71_1 {Type I LastRead 0 FirstWrite -1}
+		sext_ln73_1 {Type I LastRead 0 FirstWrite -1}
 		neuron_state_index {Type I LastRead 0 FirstWrite -1}
 		trunc_ln {Type I LastRead 0 FirstWrite -1}
 		NEURONS_STATE {Type I LastRead 1 FirstWrite -1}
@@ -130,9 +130,9 @@ set PipelineEnableSignalInfo {[
 ]}
 
 set Spec2ImplPortList { 
-	sext_ln71 { ap_none {  { sext_ln71 in_data 0 8 } } }
+	sext_ln73 { ap_none {  { sext_ln73 in_data 0 8 } } }
 	neuron_index_1 { ap_none {  { neuron_index_1 in_data 0 6 } } }
-	sext_ln71_1 { ap_none {  { sext_ln71_1 in_data 0 8 } } }
+	sext_ln73_1 { ap_none {  { sext_ln73_1 in_data 0 8 } } }
 	neuron_state_index { ap_none {  { neuron_state_index in_data 0 6 } } }
 	trunc_ln { ap_none {  { trunc_ln in_data 0 6 } } }
 	NEURONS_STATE { ap_memory {  { NEURONS_STATE_address0 mem_address 1 6 }  { NEURONS_STATE_ce0 mem_ce 1 1 }  { NEURONS_STATE_q0 in_data 0 1 } } }

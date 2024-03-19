@@ -54,14 +54,14 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 24 \
-    name sext_ln71 \
+    name sext_ln73 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_sext_ln71 \
+    corename dc_sext_ln73 \
     op interface \
-    ports { sext_ln71 { I 8 vector } } \
+    ports { sext_ln73 { I 8 vector } } \
 } "
 }
 
@@ -84,14 +84,14 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 26 \
-    name sext_ln71_1 \
+    name sext_ln73_1 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_sext_ln71_1 \
+    corename dc_sext_ln73_1 \
     op interface \
-    ports { sext_ln71_1 { I 8 vector } } \
+    ports { sext_ln73_1 { I 8 vector } } \
 } "
 }
 

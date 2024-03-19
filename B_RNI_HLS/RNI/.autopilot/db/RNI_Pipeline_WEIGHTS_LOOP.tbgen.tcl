@@ -15,9 +15,9 @@ set DLRegItemOffset 0
 set C_modelName {RNI_Pipeline_WEIGHTS_LOOP}
 set C_modelType { void 0 }
 set C_modelArgList {
-	{ zext_ln54 int 6 regular  }
+	{ zext_ln56 int 6 regular  }
 	{ NEURONS_MEMBRANE_load int 8 regular  }
-	{ zext_ln54_1 int 7 regular  }
+	{ zext_ln56_1 int 7 regular  }
 	{ input_list_0_1_reload int 8 regular  }
 	{ input_list_1_1_reload int 8 regular  }
 	{ input_list_2_1_reload int 8 regular  }
@@ -27,9 +27,9 @@ set C_modelArgList {
 }
 set hasAXIMCache 0
 set C_modelArgMapList {[ 
-	{ "Name" : "zext_ln54", "interface" : "wire", "bitwidth" : 6, "direction" : "READONLY"} , 
+	{ "Name" : "zext_ln56", "interface" : "wire", "bitwidth" : 6, "direction" : "READONLY"} , 
  	{ "Name" : "NEURONS_MEMBRANE_load", "interface" : "wire", "bitwidth" : 8, "direction" : "READONLY"} , 
- 	{ "Name" : "zext_ln54_1", "interface" : "wire", "bitwidth" : 7, "direction" : "READONLY"} , 
+ 	{ "Name" : "zext_ln56_1", "interface" : "wire", "bitwidth" : 7, "direction" : "READONLY"} , 
  	{ "Name" : "input_list_0_1_reload", "interface" : "wire", "bitwidth" : 8, "direction" : "READONLY"} , 
  	{ "Name" : "input_list_1_1_reload", "interface" : "wire", "bitwidth" : 8, "direction" : "READONLY"} , 
  	{ "Name" : "input_list_2_1_reload", "interface" : "wire", "bitwidth" : 8, "direction" : "READONLY"} , 
@@ -45,9 +45,9 @@ set portList {
 	{ ap_done sc_out sc_logic 1 predone -1 } 
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
-	{ zext_ln54 sc_in sc_lv 6 signal 0 } 
+	{ zext_ln56 sc_in sc_lv 6 signal 0 } 
 	{ NEURONS_MEMBRANE_load sc_in sc_lv 8 signal 1 } 
-	{ zext_ln54_1 sc_in sc_lv 7 signal 2 } 
+	{ zext_ln56_1 sc_in sc_lv 7 signal 2 } 
 	{ input_list_0_1_reload sc_in sc_lv 8 signal 3 } 
 	{ input_list_1_1_reload sc_in sc_lv 8 signal 4 } 
 	{ input_list_2_1_reload sc_in sc_lv 8 signal 5 } 
@@ -65,9 +65,9 @@ set NewPortList {[
  	{ "name": "ap_done", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "predone", "bundle":{"name": "ap_done", "role": "default" }} , 
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
- 	{ "name": "zext_ln54", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "zext_ln54", "role": "default" }} , 
+ 	{ "name": "zext_ln56", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "zext_ln56", "role": "default" }} , 
  	{ "name": "NEURONS_MEMBRANE_load", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "NEURONS_MEMBRANE_load", "role": "default" }} , 
- 	{ "name": "zext_ln54_1", "direction": "in", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "zext_ln54_1", "role": "default" }} , 
+ 	{ "name": "zext_ln56_1", "direction": "in", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "zext_ln56_1", "role": "default" }} , 
  	{ "name": "input_list_0_1_reload", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "input_list_0_1_reload", "role": "default" }} , 
  	{ "name": "input_list_1_1_reload", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "input_list_1_1_reload", "role": "default" }} , 
  	{ "name": "input_list_2_1_reload", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "input_list_2_1_reload", "role": "default" }} , 
@@ -94,9 +94,9 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "zext_ln54", "Type" : "None", "Direction" : "I"},
+			{"Name" : "zext_ln56", "Type" : "None", "Direction" : "I"},
 			{"Name" : "NEURONS_MEMBRANE_load", "Type" : "None", "Direction" : "I"},
-			{"Name" : "zext_ln54_1", "Type" : "None", "Direction" : "I"},
+			{"Name" : "zext_ln56_1", "Type" : "None", "Direction" : "I"},
 			{"Name" : "input_list_0_1_reload", "Type" : "None", "Direction" : "I"},
 			{"Name" : "input_list_1_1_reload", "Type" : "None", "Direction" : "I"},
 			{"Name" : "input_list_2_1_reload", "Type" : "None", "Direction" : "I"},
@@ -113,9 +113,9 @@ set RtlHierarchyInfo {[
 
 set ArgLastReadFirstWriteLatency {
 	RNI_Pipeline_WEIGHTS_LOOP {
-		zext_ln54 {Type I LastRead 0 FirstWrite -1}
+		zext_ln56 {Type I LastRead 0 FirstWrite -1}
 		NEURONS_MEMBRANE_load {Type I LastRead 0 FirstWrite -1}
-		zext_ln54_1 {Type I LastRead 0 FirstWrite -1}
+		zext_ln56_1 {Type I LastRead 0 FirstWrite -1}
 		input_list_0_1_reload {Type I LastRead 0 FirstWrite -1}
 		input_list_1_1_reload {Type I LastRead 0 FirstWrite -1}
 		input_list_2_1_reload {Type I LastRead 0 FirstWrite -1}
@@ -135,9 +135,9 @@ set PipelineEnableSignalInfo {[
 ]}
 
 set Spec2ImplPortList { 
-	zext_ln54 { ap_none {  { zext_ln54 in_data 0 6 } } }
+	zext_ln56 { ap_none {  { zext_ln56 in_data 0 6 } } }
 	NEURONS_MEMBRANE_load { ap_none {  { NEURONS_MEMBRANE_load in_data 0 8 } } }
-	zext_ln54_1 { ap_none {  { zext_ln54_1 in_data 0 7 } } }
+	zext_ln56_1 { ap_none {  { zext_ln56_1 in_data 0 7 } } }
 	input_list_0_1_reload { ap_none {  { input_list_0_1_reload in_data 0 8 } } }
 	input_list_1_1_reload { ap_none {  { input_list_1_1_reload in_data 0 8 } } }
 	input_list_2_1_reload { ap_none {  { input_list_2_1_reload in_data 0 8 } } }

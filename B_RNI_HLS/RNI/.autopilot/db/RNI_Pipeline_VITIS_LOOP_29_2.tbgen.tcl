@@ -19,7 +19,7 @@ set C_modelArgList {
 	{ input_list_2_03 int 8 regular  }
 	{ input_list_1_02 int 8 regular  }
 	{ input_list_0_01 int 8 regular  }
-	{ sext_ln29 int 8 regular  }
+	{ zext_ln25 int 8 regular  }
 	{ input_list_3_1_out int 8 regular {pointer 1}  }
 	{ input_list_2_1_out int 8 regular {pointer 1}  }
 	{ input_list_1_1_out int 8 regular {pointer 1}  }
@@ -31,7 +31,7 @@ set C_modelArgMapList {[
  	{ "Name" : "input_list_2_03", "interface" : "wire", "bitwidth" : 8, "direction" : "READONLY"} , 
  	{ "Name" : "input_list_1_02", "interface" : "wire", "bitwidth" : 8, "direction" : "READONLY"} , 
  	{ "Name" : "input_list_0_01", "interface" : "wire", "bitwidth" : 8, "direction" : "READONLY"} , 
- 	{ "Name" : "sext_ln29", "interface" : "wire", "bitwidth" : 8, "direction" : "READONLY"} , 
+ 	{ "Name" : "zext_ln25", "interface" : "wire", "bitwidth" : 8, "direction" : "READONLY"} , 
  	{ "Name" : "input_list_3_1_out", "interface" : "wire", "bitwidth" : 8, "direction" : "WRITEONLY"} , 
  	{ "Name" : "input_list_2_1_out", "interface" : "wire", "bitwidth" : 8, "direction" : "WRITEONLY"} , 
  	{ "Name" : "input_list_1_1_out", "interface" : "wire", "bitwidth" : 8, "direction" : "WRITEONLY"} , 
@@ -49,7 +49,7 @@ set portList {
 	{ input_list_2_03 sc_in sc_lv 8 signal 1 } 
 	{ input_list_1_02 sc_in sc_lv 8 signal 2 } 
 	{ input_list_0_01 sc_in sc_lv 8 signal 3 } 
-	{ sext_ln29 sc_in sc_lv 8 signal 4 } 
+	{ zext_ln25 sc_in sc_lv 8 signal 4 } 
 	{ input_list_3_1_out sc_out sc_lv 8 signal 5 } 
 	{ input_list_3_1_out_ap_vld sc_out sc_logic 1 outvld 5 } 
 	{ input_list_2_1_out sc_out sc_lv 8 signal 6 } 
@@ -70,7 +70,7 @@ set NewPortList {[
  	{ "name": "input_list_2_03", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "input_list_2_03", "role": "default" }} , 
  	{ "name": "input_list_1_02", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "input_list_1_02", "role": "default" }} , 
  	{ "name": "input_list_0_01", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "input_list_0_01", "role": "default" }} , 
- 	{ "name": "sext_ln29", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "sext_ln29", "role": "default" }} , 
+ 	{ "name": "zext_ln25", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "zext_ln25", "role": "default" }} , 
  	{ "name": "input_list_3_1_out", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "input_list_3_1_out", "role": "default" }} , 
  	{ "name": "input_list_3_1_out_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "input_list_3_1_out", "role": "ap_vld" }} , 
  	{ "name": "input_list_2_1_out", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "input_list_2_1_out", "role": "default" }} , 
@@ -100,7 +100,7 @@ set RtlHierarchyInfo {[
 			{"Name" : "input_list_2_03", "Type" : "None", "Direction" : "I"},
 			{"Name" : "input_list_1_02", "Type" : "None", "Direction" : "I"},
 			{"Name" : "input_list_0_01", "Type" : "None", "Direction" : "I"},
-			{"Name" : "sext_ln29", "Type" : "None", "Direction" : "I"},
+			{"Name" : "zext_ln25", "Type" : "None", "Direction" : "I"},
 			{"Name" : "input_list_3_1_out", "Type" : "Vld", "Direction" : "O"},
 			{"Name" : "input_list_2_1_out", "Type" : "Vld", "Direction" : "O"},
 			{"Name" : "input_list_1_1_out", "Type" : "Vld", "Direction" : "O"},
@@ -117,7 +117,7 @@ set ArgLastReadFirstWriteLatency {
 		input_list_2_03 {Type I LastRead 0 FirstWrite -1}
 		input_list_1_02 {Type I LastRead 0 FirstWrite -1}
 		input_list_0_01 {Type I LastRead 0 FirstWrite -1}
-		sext_ln29 {Type I LastRead 0 FirstWrite -1}
+		zext_ln25 {Type I LastRead 0 FirstWrite -1}
 		input_list_3_1_out {Type O LastRead -1 FirstWrite 0}
 		input_list_2_1_out {Type O LastRead -1 FirstWrite 0}
 		input_list_1_1_out {Type O LastRead -1 FirstWrite 0}
@@ -138,7 +138,7 @@ set Spec2ImplPortList {
 	input_list_2_03 { ap_none {  { input_list_2_03 in_data 0 8 } } }
 	input_list_1_02 { ap_none {  { input_list_1_02 in_data 0 8 } } }
 	input_list_0_01 { ap_none {  { input_list_0_01 in_data 0 8 } } }
-	sext_ln29 { ap_none {  { sext_ln29 in_data 0 8 } } }
+	zext_ln25 { ap_none {  { zext_ln25 in_data 0 8 } } }
 	input_list_3_1_out { ap_vld {  { input_list_3_1_out out_data 1 8 }  { input_list_3_1_out_ap_vld out_vld 1 1 } } }
 	input_list_2_1_out { ap_vld {  { input_list_2_1_out out_data 1 8 }  { input_list_2_1_out_ap_vld out_vld 1 1 } } }
 	input_list_1_1_out { ap_vld {  { input_list_1_1_out out_data 1 8 }  { input_list_1_1_out_ap_vld out_vld 1 1 } } }

@@ -174,8 +174,8 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>sext_ln29</name>
-<Object>sext_ln29</Object>
+<name>zext_ln25</name>
+<Object>zext_ln25</Object>
 <Type>scalar</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>

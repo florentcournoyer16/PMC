@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'inner_layer_Pipeline_WEIGHTS_LOOP'" level="0">
-<item name = "Date">Mon Mar 18 19:54:09 2024
+<item name = "Date">Mon Mar 18 20:33:25 2024
 </item>
 <item name = "Version">2023.1.1 (Build 3869133 on Jun 15 2023)</item>
 <item name = "Project">B_RNI_HLS</item>
@@ -80,10 +80,10 @@
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
 <column name="NEURONS_MEMBRANE_d0">+, 0, 0, 15, 8, 8</column>
-<column name="add_ln71_fu_160_p2">+, 0, 0, 71, 64, 1</column>
-<column name="add_ln73_fu_145_p2">+, 0, 0, 7, 6, 6</column>
-<column name="sub_ln73_fu_150_p2">-, 0, 0, 7, 6, 6</column>
-<column name="icmp_ln71_fu_136_p2">icmp, 0, 0, 71, 64, 64</column>
+<column name="add_ln73_fu_160_p2">+, 0, 0, 71, 64, 1</column>
+<column name="add_ln75_fu_145_p2">+, 0, 0, 7, 6, 6</column>
+<column name="sub_ln75_fu_150_p2">-, 0, 0, 7, 6, 6</column>
+<column name="icmp_ln73_fu_136_p2">icmp, 0, 0, 71, 64, 64</column>
 <column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
 </table>
 </item>
@@ -110,10 +110,10 @@
 <column name="ap_enable_reg_pp0_iter1">1, 0, 1, 0</column>
 <column name="ap_enable_reg_pp0_iter2">1, 0, 1, 0</column>
 <column name="ap_loop_exit_ready_pp0_iter1_reg">1, 0, 1, 0</column>
-<column name="icmp_ln71_reg_214">1, 0, 1, 0</column>
+<column name="icmp_ln73_reg_214">1, 0, 1, 0</column>
 <column name="neuron_index_1_cast_reg_198">6, 0, 64, 58</column>
 <column name="neuron_state_reg_223">1, 0, 1, 0</column>
-<column name="sext_ln71_1_cast_reg_193">64, 0, 64, 0</column>
+<column name="sext_ln73_1_cast_reg_193">64, 0, 64, 0</column>
 <column name="weight_index_1_reg_203">64, 0, 64, 0</column>
 <column name="weight_index_fu_44">64, 0, 64, 0</column>
 </table>
@@ -131,9 +131,9 @@
 <column name="ap_done">out, 1, ap_ctrl_hs, inner_layer_Pipeline_WEIGHTS_LOOP, return value</column>
 <column name="ap_idle">out, 1, ap_ctrl_hs, inner_layer_Pipeline_WEIGHTS_LOOP, return value</column>
 <column name="ap_ready">out, 1, ap_ctrl_hs, inner_layer_Pipeline_WEIGHTS_LOOP, return value</column>
-<column name="sext_ln71">in, 8, ap_none, sext_ln71, scalar</column>
+<column name="sext_ln73">in, 8, ap_none, sext_ln73, scalar</column>
 <column name="neuron_index_1">in, 6, ap_none, neuron_index_1, scalar</column>
-<column name="sext_ln71_1">in, 8, ap_none, sext_ln71_1, scalar</column>
+<column name="sext_ln73_1">in, 8, ap_none, sext_ln73_1, scalar</column>
 <column name="neuron_state_index">in, 6, ap_none, neuron_state_index, scalar</column>
 <column name="trunc_ln">in, 6, ap_none, trunc_ln, scalar</column>
 <column name="NEURONS_STATE_address0">out, 6, ap_memory, NEURONS_STATE, array</column>

@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'RNI_Pipeline_WEIGHTS_LOOP'
 ================================================================
-* Date:           Mon Mar 18 19:54:09 2024
+* Date:           Mon Mar 18 20:33:25 2024
 
 * Version:        2023.1.1 (Build 3869133 on Jun 15 2023)
 * Project:        B_RNI_HLS
@@ -95,8 +95,8 @@
     +---------------------+----------+----+---+----+------------+------------+
     |    Variable Name    | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
     +---------------------+----------+----+---+----+------------+------------+
-    |add_ln54_fu_153_p2   |         +|   0|  0|  71|          64|           1|
-    |icmp_ln54_fu_144_p2  |      icmp|   0|  0|  71|          64|          64|
+    |add_ln56_fu_153_p2   |         +|   0|  0|  71|          64|           1|
+    |icmp_ln56_fu_144_p2  |      icmp|   0|  0|  71|          64|          64|
     |ap_enable_pp0        |       xor|   0|  0|   2|           1|           2|
     +---------------------+----------+----+---+----+------------+------------+
     |Total                |          |   0|  0| 144|         129|          67|
@@ -130,12 +130,12 @@
     |ap_loop_exit_ready_pp0_iter2_reg  |   1|   0|    1|          0|
     |ap_loop_exit_ready_pp0_iter3_reg  |   1|   0|    1|          0|
     |ap_loop_exit_ready_pp0_iter4_reg  |   1|   0|    1|          0|
-    |icmp_ln54_reg_233                 |   1|   0|    1|          0|
+    |icmp_ln56_reg_233                 |   1|   0|    1|          0|
     |temp_1_fu_52                      |   8|   0|    8|          0|
-    |trunc_ln56_reg_242                |   2|   0|    2|          0|
+    |trunc_ln58_reg_242                |   2|   0|    2|          0|
     |weight_index_fu_56                |  64|   0|   64|          0|
-    |zext_ln54_1_cast_reg_228          |   7|   0|   64|         57|
-    |icmp_ln54_reg_233                 |  64|  32|    1|          0|
+    |zext_ln56_1_cast_reg_228          |   7|   0|   64|         57|
+    |icmp_ln56_reg_233                 |  64|  32|    1|          0|
     +----------------------------------+----+----+-----+-----------+
     |Total                             | 156|  32|  150|         57|
     +----------------------------------+----+----+-----+-----------+
@@ -155,9 +155,9 @@
 |ap_done                |  out|    1|  ap_ctrl_hs|  RNI_Pipeline_WEIGHTS_LOOP|  return value|
 |ap_idle                |  out|    1|  ap_ctrl_hs|  RNI_Pipeline_WEIGHTS_LOOP|  return value|
 |ap_ready               |  out|    1|  ap_ctrl_hs|  RNI_Pipeline_WEIGHTS_LOOP|  return value|
-|zext_ln54              |   in|    6|     ap_none|                  zext_ln54|        scalar|
+|zext_ln56              |   in|    6|     ap_none|                  zext_ln56|        scalar|
 |NEURONS_MEMBRANE_load  |   in|    8|     ap_none|      NEURONS_MEMBRANE_load|        scalar|
-|zext_ln54_1            |   in|    7|     ap_none|                zext_ln54_1|        scalar|
+|zext_ln56_1            |   in|    7|     ap_none|                zext_ln56_1|        scalar|
 |input_list_0_1_reload  |   in|    8|     ap_none|      input_list_0_1_reload|        scalar|
 |input_list_1_1_reload  |   in|    8|     ap_none|      input_list_1_1_reload|        scalar|
 |input_list_2_1_reload  |   in|    8|     ap_none|      input_list_2_1_reload|        scalar|

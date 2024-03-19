@@ -34441,11 +34441,11 @@ void inner_layer(ap_int< 8 > layer_index);
 void output_layer(ap_int< 8 > output_list[4]);
 
 __attribute__((sdx_kernel("RNI", 0))) void RNI (
- hls::stream< ap_axis<4*8, 2, 5, 6 > > &input_stream,
- hls::stream< ap_axis<4*8, 2, 5, 6 > > &output_stream
+ hls::stream< ap_axis< 4 * 8, 2, 5, 6 > > &input_stream,
+ hls::stream< ap_axis< 4 * 8, 2, 5, 6 > > &output_stream
 )
 {
-#line 21 "/home/mohr0901/Documents/PMC/B_RNI_HLS/RNI/csynth.tcl"
+#line 20 "/home/mohr0901/Documents/PMC/B_RNI_HLS/RNI/csynth.tcl"
 #pragma HLSDIRECTIVE TOP name=RNI
 # 16 "B_RNI_HLS/apc/src/RNI_2.cpp"
 
@@ -34465,11 +34465,12 @@ __attribute__((sdx_kernel("RNI", 0))) void RNI (
   input_stream.read(input_buffer);
 
   ap_int< 8 > input_list[4];
-  VITIS_LOOP_29_2: for (ap_int< 8 > i = 0; i < 4; ++i) {
-   input_list[i] = input_buffer.data.to_schar() << 8 * i;
+  VITIS_LOOP_29_2: for (ap_int< 8 > i = 0; i < 4; ++i)
+  {
+   input_list[i] = input_buffer.data.to_int() << 8 * i;
   }
 
-  ap_int< 8 > output_list[4];
+  ap_int< 8 > output_list[4] = { 0 };
 
   input_layer(input_list);
   inner_layer(1);
@@ -34477,7 +34478,8 @@ __attribute__((sdx_kernel("RNI", 0))) void RNI (
   output_layer(output_list);
 
   ap_axis< 4 * 8, 2, 5, 6 > output_buffer;
-  VITIS_LOOP_41_3: for (ap_int< 8 > i = 0; i < 4; ++i) {
+  VITIS_LOOP_42_3: for (ap_int< 8 > i = 0; i < 4; ++i)
+  {
    output_buffer.data &= output_list[i] << 8 * i;
   }
   output_stream.write(output_buffer);
@@ -34523,7 +34525,8 @@ void inner_layer(ap_int< 8 > layer_index)
   }
  }
 
- NEURONS_STATE_RESET_LOOP: for(ap_int< 8 > neuron_state_index = NEURONS_INDEX[layer_index - 1]; neuron_state_index < NEURONS_INDEX[layer_index]; ++neuron_state_index) {
+ NEURONS_STATE_RESET_LOOP: for(ap_int< 8 > neuron_state_index = NEURONS_INDEX[layer_index - 1]; neuron_state_index < NEURONS_INDEX[layer_index]; ++neuron_state_index)
+ {
   NEURONS_STATE[neuron_state_index] = 0;
  }
 }
@@ -34549,7 +34552,8 @@ void output_layer(ap_int< 8 > output_list[4])
   }
  }
 
- RESET_LOOP: for(ap_int< 8 > neuron_state_index = NEURONS_INDEX[layer_index - 1]; neuron_state_index < NEURONS_INDEX[layer_index]; ++neuron_state_index) {
+ RESET_LOOP: for(ap_int< 8 > neuron_state_index = NEURONS_INDEX[layer_index - 1]; neuron_state_index < NEURONS_INDEX[layer_index]; ++neuron_state_index)
+ {
   NEURONS_STATE[neuron_state_index] = 0;
  }
 }

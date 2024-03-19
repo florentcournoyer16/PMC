@@ -10,8 +10,7 @@ add_files B_RNI_HLS/apc/src/RNI_2.cpp
 add_files B_RNI_HLS/apc/inc/model_4_INPUT.h
 add_files B_RNI_HLS/apc/inc/model_EXAMPLE.h
 add_files B_RNI_HLS/apc/inc/model_FIRST_RNI.h
-add_files -tb B_RNI_HLS/apc/tb/main.c -cflags "-Wno-unknown-pragmas"
-add_files -tb B_RNI_HLS/apc/tb/tb.h -cflags "-Wno-unknown-pragmas"
+add_files -tb B_RNI_HLS/apc/tb/main_2.cpp
 open_solution "RNI" -flow_target vivado
 set_part {xc7z020-clg400-1}
 create_clock -period 10 -name default

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP'" level="0">
-<item name = "Date">Mon Mar 18 19:54:09 2024
+<item name = "Date">Mon Mar 18 20:33:25 2024
 </item>
 <item name = "Version">2023.1.1 (Build 3869133 on Jun 15 2023)</item>
 <item name = "Project">B_RNI_HLS</item>
@@ -78,8 +78,8 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln87_fu_83_p2">+, 0, 0, 14, 6, 1</column>
-<column name="icmp_ln87_fu_72_p2">icmp, 0, 0, 14, 6, 6</column>
+<column name="add_ln89_fu_83_p2">+, 0, 0, 14, 6, 1</column>
+<column name="icmp_ln89_fu_72_p2">icmp, 0, 0, 14, 6, 6</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">

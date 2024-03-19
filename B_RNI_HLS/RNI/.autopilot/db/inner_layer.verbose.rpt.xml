@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'inner_layer'" level="0">
-<item name = "Date">Mon Mar 18 19:54:09 2024
+<item name = "Date">Mon Mar 18 20:33:25 2024
 </item>
 <item name = "Version">2023.1.1 (Build 3869133 on Jun 15 2023)</item>
 <item name = "Project">B_RNI_HLS</item>
@@ -86,9 +86,9 @@
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
 <column name="add_i_i178_fu_226_p2">+, 0, 0, 14, 6, 1</column>
 <column name="add_i_i209_fu_178_p2">+, 0, 0, 10, 2, 1</column>
-<column name="add_ln69_fu_248_p2">+, 0, 0, 71, 64, 1</column>
-<column name="icmp_ln69_fu_221_p2">icmp, 0, 0, 71, 64, 64</column>
-<column name="icmp_ln80_fu_242_p2">icmp, 0, 0, 15, 8, 5</column>
+<column name="add_ln71_fu_248_p2">+, 0, 0, 71, 64, 1</column>
+<column name="icmp_ln71_fu_221_p2">icmp, 0, 0, 71, 64, 64</column>
+<column name="icmp_ln82_fu_242_p2">icmp, 0, 0, 15, 8, 5</column>
 <column name="sub_i_i149_fu_189_p2">xor, 0, 0, 2, 1, 2</column>
 </table>
 </item>
@@ -116,10 +116,10 @@
 <column name="neuron_index_1_fu_44">64, 0, 64, 0</column>
 <column name="neuron_index_reg_280">6, 0, 6, 0</column>
 <column name="neuron_state_index_reg_290">6, 0, 6, 0</column>
-<column name="trunc_ln69_reg_299">6, 0, 6, 0</column>
-<column name="trunc_ln71_reg_327">6, 0, 6, 0</column>
+<column name="trunc_ln71_reg_299">6, 0, 6, 0</column>
+<column name="trunc_ln73_reg_327">6, 0, 6, 0</column>
 <column name="weight_index_reg_317">8, 0, 8, 0</column>
-<column name="zext_ln69_1_reg_285">6, 0, 64, 58</column>
+<column name="zext_ln71_1_reg_285">6, 0, 64, 58</column>
 </table>
 </item>
 </section>

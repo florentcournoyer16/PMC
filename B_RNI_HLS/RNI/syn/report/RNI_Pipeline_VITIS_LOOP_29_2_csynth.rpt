@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'RNI_Pipeline_VITIS_LOOP_29_2'
 ================================================================
-* Date:           Mon Mar 18 19:54:09 2024
+* Date:           Mon Mar 18 20:33:25 2024
 
 * Version:        2023.1.1 (Build 3869133 on Jun 15 2023)
 * Project:        B_RNI_HLS
@@ -87,7 +87,7 @@
     +---------------------+----------+----+---+----+------------+------------+
     |add_ln29_fu_166_p2   |         +|   0|  0|  11|           3|           1|
     |icmp_ln29_fu_160_p2  |      icmp|   0|  0|  13|           3|           4|
-    |shl_ln30_fu_188_p2   |       shl|   0|  0|  17|           8|           8|
+    |shl_ln31_fu_188_p2   |       shl|   0|  0|  17|           8|           8|
     +---------------------+----------+----+---+----+------------+------------+
     |Total                |          |   0|  0|  41|          14|          13|
     +---------------------+----------+----+---+----+------------+------------+
@@ -97,7 +97,7 @@
     |         Name         | LUT| Input Size| Bits| Total Bits|
     +----------------------+----+-----------+-----+-----------+
     |ap_done_int           |   9|          2|    1|          2|
-    |ap_sig_allocacmp_i_2  |   9|          2|    3|          6|
+    |ap_sig_allocacmp_i_1  |   9|          2|    3|          6|
     |i_fu_54               |   9|          2|    3|          6|
     |input_list_1_1_fu_62  |   9|          2|    8|         16|
     |input_list_1_2_fu_66  |   9|          2|    8|         16|
@@ -141,7 +141,7 @@
 |input_list_2_03            |   in|    8|     ap_none|               input_list_2_03|        scalar|
 |input_list_1_02            |   in|    8|     ap_none|               input_list_1_02|        scalar|
 |input_list_0_01            |   in|    8|     ap_none|               input_list_0_01|        scalar|
-|sext_ln29                  |   in|    8|     ap_none|                     sext_ln29|        scalar|
+|zext_ln25                  |   in|    8|     ap_none|                     zext_ln25|        scalar|
 |input_list_3_1_out         |  out|    8|      ap_vld|            input_list_3_1_out|       pointer|
 |input_list_3_1_out_ap_vld  |  out|    1|      ap_vld|            input_list_3_1_out|       pointer|
 |input_list_2_1_out         |  out|    8|      ap_vld|            input_list_2_1_out|       pointer|

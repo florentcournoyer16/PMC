@@ -129,7 +129,7 @@ set NewPortList {[
  	{ "name": "output_stream_TDEST", "direction": "out", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "output_stream_V_dest_V", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6", "8", "16", "19", "23", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6", "8", "16", "20", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36"],
 		"CDFG" : "RNI",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -164,21 +164,21 @@ set RtlHierarchyInfo {[
 			{"Name" : "output_stream_V_dest_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "output_stream"},
 			{"Name" : "NEURONS_INDEX", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "8", "SubInstance" : "grp_inner_layer_fu_300", "Port" : "NEURONS_INDEX", "Inst_start_state" : "12", "Inst_end_state" : "13"}]},
+					{"ID" : "8", "SubInstance" : "grp_inner_layer_fu_295", "Port" : "NEURONS_INDEX", "Inst_start_state" : "12", "Inst_end_state" : "13"}]},
 			{"Name" : "WEIGHTS_INDEX", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "8", "SubInstance" : "grp_inner_layer_fu_300", "Port" : "WEIGHTS_INDEX", "Inst_start_state" : "12", "Inst_end_state" : "13"}]},
+					{"ID" : "8", "SubInstance" : "grp_inner_layer_fu_295", "Port" : "WEIGHTS_INDEX", "Inst_start_state" : "12", "Inst_end_state" : "13"}]},
 			{"Name" : "NEURONS_MEMBRANE", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "8", "SubInstance" : "grp_inner_layer_fu_300", "Port" : "NEURONS_MEMBRANE", "Inst_start_state" : "12", "Inst_end_state" : "13"}]},
+					{"ID" : "8", "SubInstance" : "grp_inner_layer_fu_295", "Port" : "NEURONS_MEMBRANE", "Inst_start_state" : "12", "Inst_end_state" : "13"}]},
 			{"Name" : "WEIGHTS", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "8", "SubInstance" : "grp_inner_layer_fu_300", "Port" : "WEIGHTS", "Inst_start_state" : "12", "Inst_end_state" : "13"},
-					{"ID" : "19", "SubInstance" : "grp_RNI_Pipeline_WEIGHTS_LOOP_fu_322", "Port" : "WEIGHTS", "Inst_start_state" : "6", "Inst_end_state" : "7"}]},
+					{"ID" : "8", "SubInstance" : "grp_inner_layer_fu_295", "Port" : "WEIGHTS", "Inst_start_state" : "12", "Inst_end_state" : "13"},
+					{"ID" : "16", "SubInstance" : "grp_RNI_Pipeline_WEIGHTS_LOOP_fu_312", "Port" : "WEIGHTS", "Inst_start_state" : "6", "Inst_end_state" : "7"}]},
 			{"Name" : "NEURONS_STATE", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "8", "SubInstance" : "grp_inner_layer_fu_300", "Port" : "NEURONS_STATE", "Inst_start_state" : "12", "Inst_end_state" : "13"},
-					{"ID" : "23", "SubInstance" : "grp_RNI_Pipeline_RESET_LOOP_fu_338", "Port" : "NEURONS_STATE", "Inst_start_state" : "14", "Inst_end_state" : "15"}]}],
+					{"ID" : "8", "SubInstance" : "grp_inner_layer_fu_295", "Port" : "NEURONS_STATE", "Inst_start_state" : "12", "Inst_end_state" : "13"},
+					{"ID" : "20", "SubInstance" : "grp_RNI_Pipeline_RESET_LOOP_fu_328", "Port" : "NEURONS_STATE", "Inst_start_state" : "14", "Inst_end_state" : "15"}]}],
 		"Loop" : [
 			{"Name" : "NEURONS_LOOP", "PipelineType" : "no",
 				"LoopDec" : {"FSMBitwidth" : "15", "FirstState" : "ap_ST_fsm_state5", "LastState" : ["ap_ST_fsm_state10"], "QuitState" : ["ap_ST_fsm_state5"], "PreState" : ["ap_ST_fsm_state4"], "PostState" : ["ap_ST_fsm_state11"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
@@ -189,7 +189,7 @@ set RtlHierarchyInfo {[
 	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.NEURONS_MEMBRANE_U", "Parent" : "0"},
 	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.WEIGHTS_U", "Parent" : "0"},
 	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.NEURONS_STATE_U", "Parent" : "0"},
-	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_287", "Parent" : "0", "Child" : ["7"],
+	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_282", "Parent" : "0", "Child" : ["7"],
 		"CDFG" : "RNI_Pipeline_VITIS_LOOP_29_2",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -208,7 +208,7 @@ set RtlHierarchyInfo {[
 			{"Name" : "input_list_2_03", "Type" : "None", "Direction" : "I"},
 			{"Name" : "input_list_1_02", "Type" : "None", "Direction" : "I"},
 			{"Name" : "input_list_0_01", "Type" : "None", "Direction" : "I"},
-			{"Name" : "sext_ln29", "Type" : "None", "Direction" : "I"},
+			{"Name" : "zext_ln25", "Type" : "None", "Direction" : "I"},
 			{"Name" : "input_list_3_1_out", "Type" : "Vld", "Direction" : "O"},
 			{"Name" : "input_list_2_1_out", "Type" : "Vld", "Direction" : "O"},
 			{"Name" : "input_list_1_1_out", "Type" : "Vld", "Direction" : "O"},
@@ -216,8 +216,8 @@ set RtlHierarchyInfo {[
 		"Loop" : [
 			{"Name" : "VITIS_LOOP_29_2", "PipelineType" : "UPC",
 				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_state1", "FirstStateIter" : "", "FirstStateBlock" : "ap_ST_fsm_state1_blk", "LastState" : "ap_ST_fsm_state1", "LastStateIter" : "", "LastStateBlock" : "ap_ST_fsm_state1_blk", "QuitState" : "ap_ST_fsm_state1", "QuitStateIter" : "", "QuitStateBlock" : "ap_ST_fsm_state1_blk", "OneDepthLoop" : "1", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_287.flow_control_loop_pipe_sequential_init_U", "Parent" : "6"},
-	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_inner_layer_fu_300", "Parent" : "0", "Child" : ["9", "10", "11", "14"],
+	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_282.flow_control_loop_pipe_sequential_init_U", "Parent" : "6"},
+	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_inner_layer_fu_295", "Parent" : "0", "Child" : ["9", "10", "11", "14"],
 		"CDFG" : "inner_layer",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -248,9 +248,9 @@ set RtlHierarchyInfo {[
 		"Loop" : [
 			{"Name" : "NEURONS_LOOP", "PipelineType" : "no",
 				"LoopDec" : {"FSMBitwidth" : "9", "FirstState" : "ap_ST_fsm_state3", "LastState" : ["ap_ST_fsm_state7"], "QuitState" : ["ap_ST_fsm_state3"], "PreState" : ["ap_ST_fsm_state2"], "PostState" : ["ap_ST_fsm_state8"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
-	{"ID" : "9", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_inner_layer_fu_300.NEURONS_INDEX_U", "Parent" : "8"},
-	{"ID" : "10", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_inner_layer_fu_300.WEIGHTS_INDEX_U", "Parent" : "8"},
-	{"ID" : "11", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_inner_layer_fu_300.grp_inner_layer_Pipeline_WEIGHTS_LOOP_fu_144", "Parent" : "8", "Child" : ["12", "13"],
+	{"ID" : "9", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_inner_layer_fu_295.NEURONS_INDEX_U", "Parent" : "8"},
+	{"ID" : "10", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_inner_layer_fu_295.WEIGHTS_INDEX_U", "Parent" : "8"},
+	{"ID" : "11", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_inner_layer_fu_295.grp_inner_layer_Pipeline_WEIGHTS_LOOP_fu_144", "Parent" : "8", "Child" : ["12", "13"],
 		"CDFG" : "inner_layer_Pipeline_WEIGHTS_LOOP",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -265,9 +265,9 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "sext_ln71", "Type" : "None", "Direction" : "I"},
+			{"Name" : "sext_ln73", "Type" : "None", "Direction" : "I"},
 			{"Name" : "neuron_index_1", "Type" : "None", "Direction" : "I"},
-			{"Name" : "sext_ln71_1", "Type" : "None", "Direction" : "I"},
+			{"Name" : "sext_ln73_1", "Type" : "None", "Direction" : "I"},
 			{"Name" : "neuron_state_index", "Type" : "None", "Direction" : "I"},
 			{"Name" : "trunc_ln", "Type" : "None", "Direction" : "I"},
 			{"Name" : "NEURONS_STATE", "Type" : "Memory", "Direction" : "I"},
@@ -276,9 +276,9 @@ set RtlHierarchyInfo {[
 		"Loop" : [
 			{"Name" : "WEIGHTS_LOOP", "PipelineType" : "UPC",
 				"LoopDec" : {"FSMBitwidth" : "2", "FirstState" : "ap_ST_fsm_pp0_stage1", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage1_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter2", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter2", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "12", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_inner_layer_fu_300.grp_inner_layer_Pipeline_WEIGHTS_LOOP_fu_144.WEIGHTS_U", "Parent" : "11"},
-	{"ID" : "13", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_inner_layer_fu_300.grp_inner_layer_Pipeline_WEIGHTS_LOOP_fu_144.flow_control_loop_pipe_sequential_init_U", "Parent" : "11"},
-	{"ID" : "14", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_inner_layer_fu_300.grp_inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP_fu_161", "Parent" : "8", "Child" : ["15"],
+	{"ID" : "12", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_inner_layer_fu_295.grp_inner_layer_Pipeline_WEIGHTS_LOOP_fu_144.WEIGHTS_U", "Parent" : "11"},
+	{"ID" : "13", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_inner_layer_fu_295.grp_inner_layer_Pipeline_WEIGHTS_LOOP_fu_144.flow_control_loop_pipe_sequential_init_U", "Parent" : "11"},
+	{"ID" : "14", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_inner_layer_fu_295.grp_inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP_fu_161", "Parent" : "8", "Child" : ["15"],
 		"CDFG" : "inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -299,29 +299,8 @@ set RtlHierarchyInfo {[
 		"Loop" : [
 			{"Name" : "NEURONS_STATE_RESET_LOOP", "PipelineType" : "UPC",
 				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_state1", "FirstStateIter" : "", "FirstStateBlock" : "ap_ST_fsm_state1_blk", "LastState" : "ap_ST_fsm_state1", "LastStateIter" : "", "LastStateBlock" : "ap_ST_fsm_state1_blk", "QuitState" : "ap_ST_fsm_state1", "QuitStateIter" : "", "QuitStateBlock" : "ap_ST_fsm_state1_blk", "OneDepthLoop" : "1", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "15", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_inner_layer_fu_300.grp_inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP_fu_161.flow_control_loop_pipe_sequential_init_U", "Parent" : "14"},
-	{"ID" : "16", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_317", "Parent" : "0", "Child" : ["17", "18"],
-		"CDFG" : "RNI_Pipeline_VITIS_LOOP_41_3",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "6", "EstimateLatencyMax" : "6",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"IsBlackBox" : "0",
-		"Port" : [
-			{"Name" : "output_buffer_data_out", "Type" : "Vld", "Direction" : "O"}],
-		"Loop" : [
-			{"Name" : "VITIS_LOOP_41_3", "PipelineType" : "UPC",
-				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_state1", "FirstStateIter" : "", "FirstStateBlock" : "ap_ST_fsm_state1_blk", "LastState" : "ap_ST_fsm_state1", "LastStateIter" : "", "LastStateBlock" : "ap_ST_fsm_state1_blk", "QuitState" : "ap_ST_fsm_state1", "QuitStateIter" : "", "QuitStateBlock" : "ap_ST_fsm_state1_blk", "OneDepthLoop" : "1", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "17", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_317.mux_4_2_1_1_1_U40", "Parent" : "16"},
-	{"ID" : "18", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_317.flow_control_loop_pipe_sequential_init_U", "Parent" : "16"},
-	{"ID" : "19", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_WEIGHTS_LOOP_fu_322", "Parent" : "0", "Child" : ["20", "21", "22"],
+	{"ID" : "15", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_inner_layer_fu_295.grp_inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP_fu_161.flow_control_loop_pipe_sequential_init_U", "Parent" : "14"},
+	{"ID" : "16", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_WEIGHTS_LOOP_fu_312", "Parent" : "0", "Child" : ["17", "18", "19"],
 		"CDFG" : "RNI_Pipeline_WEIGHTS_LOOP",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -336,9 +315,9 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "zext_ln54", "Type" : "None", "Direction" : "I"},
+			{"Name" : "zext_ln56", "Type" : "None", "Direction" : "I"},
 			{"Name" : "NEURONS_MEMBRANE_load", "Type" : "None", "Direction" : "I"},
-			{"Name" : "zext_ln54_1", "Type" : "None", "Direction" : "I"},
+			{"Name" : "zext_ln56_1", "Type" : "None", "Direction" : "I"},
 			{"Name" : "input_list_0_1_reload", "Type" : "None", "Direction" : "I"},
 			{"Name" : "input_list_1_1_reload", "Type" : "None", "Direction" : "I"},
 			{"Name" : "input_list_2_1_reload", "Type" : "None", "Direction" : "I"},
@@ -348,10 +327,10 @@ set RtlHierarchyInfo {[
 		"Loop" : [
 			{"Name" : "WEIGHTS_LOOP", "PipelineType" : "UPC",
 				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter1", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter5", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter5", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "20", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_WEIGHTS_LOOP_fu_322.mux_4_2_8_1_1_U10", "Parent" : "19"},
-	{"ID" : "21", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_WEIGHTS_LOOP_fu_322.mac_muladd_8s_8s_8ns_8_4_1_U11", "Parent" : "19"},
-	{"ID" : "22", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_WEIGHTS_LOOP_fu_322.flow_control_loop_pipe_sequential_init_U", "Parent" : "19"},
-	{"ID" : "23", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_RESET_LOOP_fu_338", "Parent" : "0", "Child" : ["24"],
+	{"ID" : "17", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_WEIGHTS_LOOP_fu_312.mux_4_2_8_1_1_U10", "Parent" : "16"},
+	{"ID" : "18", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_WEIGHTS_LOOP_fu_312.mac_muladd_8s_8s_8ns_8_4_1_U11", "Parent" : "16"},
+	{"ID" : "19", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_WEIGHTS_LOOP_fu_312.flow_control_loop_pipe_sequential_init_U", "Parent" : "16"},
+	{"ID" : "20", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_RESET_LOOP_fu_328", "Parent" : "0", "Child" : ["21"],
 		"CDFG" : "RNI_Pipeline_RESET_LOOP",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -370,22 +349,22 @@ set RtlHierarchyInfo {[
 		"Loop" : [
 			{"Name" : "RESET_LOOP", "PipelineType" : "UPC",
 				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_state1", "FirstStateIter" : "", "FirstStateBlock" : "ap_ST_fsm_state1_blk", "LastState" : "ap_ST_fsm_state1", "LastStateIter" : "", "LastStateBlock" : "ap_ST_fsm_state1_blk", "QuitState" : "ap_ST_fsm_state1", "QuitStateIter" : "", "QuitStateBlock" : "ap_ST_fsm_state1_blk", "OneDepthLoop" : "1", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "24", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_RESET_LOOP_fu_338.flow_control_loop_pipe_sequential_init_U", "Parent" : "23"},
-	{"ID" : "25", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.control_s_axi_U", "Parent" : "0"},
-	{"ID" : "26", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_input_stream_V_data_V_U", "Parent" : "0"},
-	{"ID" : "27", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_input_stream_V_keep_V_U", "Parent" : "0"},
-	{"ID" : "28", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_input_stream_V_strb_V_U", "Parent" : "0"},
-	{"ID" : "29", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_input_stream_V_user_V_U", "Parent" : "0"},
-	{"ID" : "30", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_input_stream_V_last_V_U", "Parent" : "0"},
-	{"ID" : "31", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_input_stream_V_id_V_U", "Parent" : "0"},
-	{"ID" : "32", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_input_stream_V_dest_V_U", "Parent" : "0"},
-	{"ID" : "33", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_output_stream_V_data_V_U", "Parent" : "0"},
-	{"ID" : "34", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_output_stream_V_keep_V_U", "Parent" : "0"},
-	{"ID" : "35", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_output_stream_V_strb_V_U", "Parent" : "0"},
-	{"ID" : "36", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_output_stream_V_user_V_U", "Parent" : "0"},
-	{"ID" : "37", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_output_stream_V_last_V_U", "Parent" : "0"},
-	{"ID" : "38", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_output_stream_V_id_V_U", "Parent" : "0"},
-	{"ID" : "39", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_output_stream_V_dest_V_U", "Parent" : "0"}]}
+	{"ID" : "21", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_RNI_Pipeline_RESET_LOOP_fu_328.flow_control_loop_pipe_sequential_init_U", "Parent" : "20"},
+	{"ID" : "22", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.control_s_axi_U", "Parent" : "0"},
+	{"ID" : "23", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_input_stream_V_data_V_U", "Parent" : "0"},
+	{"ID" : "24", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_input_stream_V_keep_V_U", "Parent" : "0"},
+	{"ID" : "25", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_input_stream_V_strb_V_U", "Parent" : "0"},
+	{"ID" : "26", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_input_stream_V_user_V_U", "Parent" : "0"},
+	{"ID" : "27", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_input_stream_V_last_V_U", "Parent" : "0"},
+	{"ID" : "28", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_input_stream_V_id_V_U", "Parent" : "0"},
+	{"ID" : "29", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_input_stream_V_dest_V_U", "Parent" : "0"},
+	{"ID" : "30", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_output_stream_V_data_V_U", "Parent" : "0"},
+	{"ID" : "31", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_output_stream_V_keep_V_U", "Parent" : "0"},
+	{"ID" : "32", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_output_stream_V_strb_V_U", "Parent" : "0"},
+	{"ID" : "33", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_output_stream_V_user_V_U", "Parent" : "0"},
+	{"ID" : "34", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_output_stream_V_last_V_U", "Parent" : "0"},
+	{"ID" : "35", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_output_stream_V_id_V_U", "Parent" : "0"},
+	{"ID" : "36", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_output_stream_V_dest_V_U", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
@@ -414,7 +393,7 @@ set ArgLastReadFirstWriteLatency {
 		input_list_2_03 {Type I LastRead 0 FirstWrite -1}
 		input_list_1_02 {Type I LastRead 0 FirstWrite -1}
 		input_list_0_01 {Type I LastRead 0 FirstWrite -1}
-		sext_ln29 {Type I LastRead 0 FirstWrite -1}
+		zext_ln25 {Type I LastRead 0 FirstWrite -1}
 		input_list_3_1_out {Type O LastRead -1 FirstWrite 0}
 		input_list_2_1_out {Type O LastRead -1 FirstWrite 0}
 		input_list_1_1_out {Type O LastRead -1 FirstWrite 0}
@@ -427,9 +406,9 @@ set ArgLastReadFirstWriteLatency {
 		NEURONS_MEMBRANE {Type IO LastRead 5 FirstWrite 4}
 		WEIGHTS {Type I LastRead -1 FirstWrite -1}}
 	inner_layer_Pipeline_WEIGHTS_LOOP {
-		sext_ln71 {Type I LastRead 0 FirstWrite -1}
+		sext_ln73 {Type I LastRead 0 FirstWrite -1}
 		neuron_index_1 {Type I LastRead 0 FirstWrite -1}
-		sext_ln71_1 {Type I LastRead 0 FirstWrite -1}
+		sext_ln73_1 {Type I LastRead 0 FirstWrite -1}
 		neuron_state_index {Type I LastRead 0 FirstWrite -1}
 		trunc_ln {Type I LastRead 0 FirstWrite -1}
 		NEURONS_STATE {Type I LastRead 1 FirstWrite -1}
@@ -439,12 +418,10 @@ set ArgLastReadFirstWriteLatency {
 		neuron_state_index {Type I LastRead 0 FirstWrite -1}
 		neuron_index {Type I LastRead 0 FirstWrite -1}
 		NEURONS_STATE {Type O LastRead -1 FirstWrite 0}}
-	RNI_Pipeline_VITIS_LOOP_41_3 {
-		output_buffer_data_out {Type O LastRead -1 FirstWrite 0}}
 	RNI_Pipeline_WEIGHTS_LOOP {
-		zext_ln54 {Type I LastRead 0 FirstWrite -1}
+		zext_ln56 {Type I LastRead 0 FirstWrite -1}
 		NEURONS_MEMBRANE_load {Type I LastRead 0 FirstWrite -1}
-		zext_ln54_1 {Type I LastRead 0 FirstWrite -1}
+		zext_ln56_1 {Type I LastRead 0 FirstWrite -1}
 		input_list_0_1_reload {Type I LastRead 0 FirstWrite -1}
 		input_list_1_1_reload {Type I LastRead 0 FirstWrite -1}
 		input_list_2_1_reload {Type I LastRead 0 FirstWrite -1}

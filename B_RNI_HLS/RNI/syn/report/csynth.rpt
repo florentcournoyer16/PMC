@@ -4,7 +4,7 @@
 == Synthesis Summary Report of 'RNI'
 ================================================================
 + General Information: 
-    * Date:           Mon Mar 18 19:54:10 2024
+    * Date:           Mon Mar 18 20:33:26 2024
     * Version:        2023.1.1 (Build 3869133 on Jun 15 2023)
     * Project:        B_RNI_HLS
     * Solution:       RNI (Vivado IP Flow Target)
@@ -19,7 +19,7 @@
     |                       Modules                      | Issue|      | Latency |  Latency  | Iteration|         | Trip |          |         |         |           |           |     |
     |                       & Loops                      | Type | Slack| (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined|  BRAM   |   DSP   |     FF    |    LUT    | URAM|
     +----------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+---------+---------+-----------+-----------+-----+
-    |+ RNI                                               |     -|  0.74|        -|          -|         -|        -|     -|        no|  2 (~0%)|  1 (~0%)|  823 (~0%)|  1714 (3%)|    -|
+    |+ RNI                                               |     -|  0.74|        -|          -|         -|        -|     -|        no|  2 (~0%)|  1 (~0%)|  785 (~0%)|  1538 (2%)|    -|
     | o VITIS_LOOP_23_1                                  |     -|  7.30|        -|          -|    268979|        -|     -|        no|        -|        -|          -|          -|    -|
     |  + RNI_Pipeline_VITIS_LOOP_29_2                    |     -|  2.56|        6|     60.000|         -|        6|     -|        no|        -|        -|   37 (~0%)|  104 (~0%)|    -|
     |   o VITIS_LOOP_29_2                                |     -|  7.30|        4|     40.000|         1|        1|     4|       yes|        -|        -|          -|          -|    -|
@@ -29,8 +29,6 @@
     |   o NEURONS_LOOP                                   |     -|  7.30|   132090|  1.321e+06|       518|        -|   255|        no|        -|        -|          -|          -|    -|
     |    + inner_layer_Pipeline_WEIGHTS_LOOP             |     -|  0.74|      513|  5.130e+03|         -|      513|     -|        no|  1 (~0%)|        -|  227 (~0%)|  255 (~0%)|    -|
     |     o WEIGHTS_LOOP                                 |    II|  7.30|      511|  5.110e+03|         4|        2|   255|       yes|        -|        -|          -|          -|    -|
-    |  + RNI_Pipeline_VITIS_LOOP_41_3                    |     -|  3.64|        6|     60.000|         -|        6|     -|        no|        -|        -|   37 (~0%)|  174 (~0%)|    -|
-    |   o VITIS_LOOP_41_3                                |     -|  7.30|        4|     40.000|         1|        1|     4|       yes|        -|        -|          -|          -|    -|
     |  + RNI_Pipeline_RESET_LOOP                         |     -|  3.15|        6|     60.000|         -|        6|     -|        no|        -|        -|    8 (~0%)|   55 (~0%)|    -|
     |   o RESET_LOOP                                     |     -|  7.30|        4|     40.000|         1|        1|     4|       yes|        -|        -|          -|          -|    -|
     |  o NEURONS_LOOP                                    |     -|  7.30|     4256|  4.256e+04|       266|        -|    16|        no|        -|        -|          -|          -|    -|
@@ -105,27 +103,25 @@
 | Name                                              | DSP | Pragma | Variable    | Op  | Impl   | Latency |
 +---------------------------------------------------+-----+--------+-------------+-----+--------+---------+
 | + RNI                                             | 1   |        |             |     |        |         |
-|   add_ln52_fu_387_p2                              | -   |        | add_ln52    | add | fabric | 0       |
-|   add_i_i67_i_fu_407_p2                           | -   |        | add_i_i67_i | add | fabric | 0       |
+|   add_ln54_fu_377_p2                              | -   |        | add_ln54    | add | fabric | 0       |
+|   add_i_i67_i_fu_397_p2                           | -   |        | add_i_i67_i | add | fabric | 0       |
 |  + RNI_Pipeline_VITIS_LOOP_29_2                   | 0   |        |             |     |        |         |
 |    add_ln29_fu_166_p2                             | -   |        | add_ln29    | add | fabric | 0       |
 |  + inner_layer                                    | 0   |        |             |     |        |         |
 |    add_i_i209_fu_178_p2                           | -   |        | add_i_i209  | add | fabric | 0       |
 |    add_i_i178_fu_226_p2                           | -   |        | add_i_i178  | add | fabric | 0       |
-|    add_ln69_fu_248_p2                             | -   |        | add_ln69    | add | fabric | 0       |
+|    add_ln71_fu_248_p2                             | -   |        | add_ln71    | add | fabric | 0       |
 |   + inner_layer_Pipeline_WEIGHTS_LOOP             | 0   |        |             |     |        |         |
 |     NEURONS_MEMBRANE_d0                           | -   |        | temp        | add | fabric | 0       |
-|     add_ln71_fu_160_p2                            | -   |        | add_ln71    | add | fabric | 0       |
+|     add_ln73_fu_160_p2                            | -   |        | add_ln73    | add | fabric | 0       |
 |   + inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP | 0   |        |             |     |        |         |
-|     add_ln87_fu_83_p2                             | -   |        | add_ln87    | add | fabric | 0       |
-|  + RNI_Pipeline_VITIS_LOOP_41_3                   | 0   |        |             |     |        |         |
-|    add_ln41_fu_63_p2                              | -   |        | add_ln41    | add | fabric | 0       |
+|     add_ln89_fu_83_p2                             | -   |        | add_ln89    | add | fabric | 0       |
 |  + RNI_Pipeline_WEIGHTS_LOOP                      | 1   |        |             |     |        |         |
-|    mac_muladd_8s_8s_8ns_8_4_1_U11                 | 1   |        | mul_ln56    | mul | dsp48  | 3       |
+|    mac_muladd_8s_8s_8ns_8_4_1_U11                 | 1   |        | mul_ln58    | mul | dsp48  | 3       |
 |    mac_muladd_8s_8s_8ns_8_4_1_U11                 | 1   |        | temp        | add | dsp48  | 3       |
-|    add_ln54_fu_153_p2                             | -   |        | add_ln54    | add | fabric | 0       |
+|    add_ln56_fu_153_p2                             | -   |        | add_ln56    | add | fabric | 0       |
 |  + RNI_Pipeline_RESET_LOOP                        | 0   |        |             |     |        |         |
-|    add_ln113_fu_67_p2                             | -   |        | add_ln113   | add | fabric | 0       |
+|    add_ln116_fu_67_p2                             | -   |        | add_ln116   | add | fabric | 0       |
 +---------------------------------------------------+-----+--------+-------------+-----+--------+---------+
 
 

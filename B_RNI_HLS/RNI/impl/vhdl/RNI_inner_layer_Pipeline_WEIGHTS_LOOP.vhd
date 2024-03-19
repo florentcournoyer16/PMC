@@ -16,9 +16,9 @@ port (
     ap_done : OUT STD_LOGIC;
     ap_idle : OUT STD_LOGIC;
     ap_ready : OUT STD_LOGIC;
-    sext_ln71 : IN STD_LOGIC_VECTOR (7 downto 0);
+    sext_ln73 : IN STD_LOGIC_VECTOR (7 downto 0);
     neuron_index_1 : IN STD_LOGIC_VECTOR (5 downto 0);
-    sext_ln71_1 : IN STD_LOGIC_VECTOR (7 downto 0);
+    sext_ln73_1 : IN STD_LOGIC_VECTOR (7 downto 0);
     neuron_state_index : IN STD_LOGIC_VECTOR (5 downto 0);
     trunc_ln : IN STD_LOGIC_VECTOR (5 downto 0);
     NEURONS_STATE_address0 : OUT STD_LOGIC_VECTOR (5 downto 0);
@@ -60,7 +60,7 @@ attribute shreg_extract : string;
     signal ap_block_state2_pp0_stage1_iter0 : BOOLEAN;
     signal ap_block_state4_pp0_stage1_iter1 : BOOLEAN;
     signal ap_block_pp0_stage1_subdone : BOOLEAN;
-    signal icmp_ln71_fu_136_p2 : STD_LOGIC_VECTOR (0 downto 0);
+    signal icmp_ln73_fu_136_p2 : STD_LOGIC_VECTOR (0 downto 0);
     signal ap_condition_exit_pp0_iter0_stage1 : STD_LOGIC;
     signal ap_loop_exit_ready : STD_LOGIC;
     signal ap_ready_int : STD_LOGIC;
@@ -71,29 +71,29 @@ attribute shreg_extract : string;
     signal ap_block_state3_pp0_stage0_iter1 : BOOLEAN;
     signal ap_block_state5_pp0_stage0_iter2 : BOOLEAN;
     signal ap_block_pp0_stage0_11001 : BOOLEAN;
-    signal sext_ln71_1_cast_fu_116_p1 : STD_LOGIC_VECTOR (63 downto 0);
-    signal sext_ln71_1_cast_reg_193 : STD_LOGIC_VECTOR (63 downto 0);
+    signal sext_ln73_1_cast_fu_116_p1 : STD_LOGIC_VECTOR (63 downto 0);
+    signal sext_ln73_1_cast_reg_193 : STD_LOGIC_VECTOR (63 downto 0);
     signal neuron_index_1_cast_fu_120_p1 : STD_LOGIC_VECTOR (63 downto 0);
     signal neuron_index_1_cast_reg_198 : STD_LOGIC_VECTOR (63 downto 0);
     signal weight_index_1_reg_203 : STD_LOGIC_VECTOR (63 downto 0);
     signal ap_block_pp0_stage1_11001 : BOOLEAN;
     signal NEURONS_MEMBRANE_addr_reg_209 : STD_LOGIC_VECTOR (5 downto 0);
     signal NEURONS_MEMBRANE_addr_reg_209_pp0_iter1_reg : STD_LOGIC_VECTOR (5 downto 0);
-    signal icmp_ln71_reg_214 : STD_LOGIC_VECTOR (0 downto 0);
+    signal icmp_ln73_reg_214 : STD_LOGIC_VECTOR (0 downto 0);
     signal neuron_state_reg_223 : STD_LOGIC_VECTOR (0 downto 0);
     signal WEIGHTS_load_reg_232 : STD_LOGIC_VECTOR (7 downto 0);
     signal ap_enable_reg_pp0_iter0_reg : STD_LOGIC := '0';
     signal ap_block_pp0_stage0_subdone : BOOLEAN;
     signal ap_block_pp0_stage1 : BOOLEAN;
-    signal zext_ln73_fu_155_p1 : STD_LOGIC_VECTOR (63 downto 0);
+    signal zext_ln75_fu_155_p1 : STD_LOGIC_VECTOR (63 downto 0);
     signal ap_block_pp0_stage0 : BOOLEAN;
     signal weight_index_fu_44 : STD_LOGIC_VECTOR (63 downto 0);
-    signal add_ln71_fu_160_p2 : STD_LOGIC_VECTOR (63 downto 0);
-    signal sext_ln71_cast_fu_124_p1 : STD_LOGIC_VECTOR (63 downto 0);
+    signal add_ln73_fu_160_p2 : STD_LOGIC_VECTOR (63 downto 0);
+    signal sext_ln73_cast_fu_124_p1 : STD_LOGIC_VECTOR (63 downto 0);
     signal ap_loop_init : STD_LOGIC;
-    signal trunc_ln73_fu_141_p1 : STD_LOGIC_VECTOR (5 downto 0);
-    signal add_ln73_fu_145_p2 : STD_LOGIC_VECTOR (5 downto 0);
-    signal sub_ln73_fu_150_p2 : STD_LOGIC_VECTOR (5 downto 0);
+    signal trunc_ln75_fu_141_p1 : STD_LOGIC_VECTOR (5 downto 0);
+    signal add_ln75_fu_145_p2 : STD_LOGIC_VECTOR (5 downto 0);
+    signal sub_ln75_fu_150_p2 : STD_LOGIC_VECTOR (5 downto 0);
     signal ap_done_reg : STD_LOGIC := '0';
     signal ap_continue_int : STD_LOGIC;
     signal ap_done_int : STD_LOGIC;
@@ -261,9 +261,9 @@ begin
         if (ap_clk'event and ap_clk = '1') then
             if (((ap_const_boolean_0 = ap_block_pp0_stage0_11001) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage0))) then
                 if ((ap_loop_init = ap_const_logic_1)) then 
-                    weight_index_fu_44 <= sext_ln71_cast_fu_124_p1;
-                elsif (((ap_enable_reg_pp0_iter1 = ap_const_logic_1) and (icmp_ln71_reg_214 = ap_const_lv1_1))) then 
-                    weight_index_fu_44 <= add_ln71_fu_160_p2;
+                    weight_index_fu_44 <= sext_ln73_cast_fu_124_p1;
+                elsif (((ap_enable_reg_pp0_iter1 = ap_const_logic_1) and (icmp_ln73_reg_214 = ap_const_lv1_1))) then 
+                    weight_index_fu_44 <= add_ln73_fu_160_p2;
                 end if;
             end if; 
         end if;
@@ -274,7 +274,7 @@ begin
             if (((ap_const_boolean_0 = ap_block_pp0_stage1_11001) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage1))) then
                 NEURONS_MEMBRANE_addr_reg_209 <= neuron_index_1_cast_reg_198(6 - 1 downto 0);
                 NEURONS_MEMBRANE_addr_reg_209_pp0_iter1_reg <= NEURONS_MEMBRANE_addr_reg_209;
-                icmp_ln71_reg_214 <= icmp_ln71_fu_136_p2;
+                icmp_ln73_reg_214 <= icmp_ln73_fu_136_p2;
                 weight_index_1_reg_203 <= weight_index_fu_44;
             end if;
         end if;
@@ -292,14 +292,14 @@ begin
         if (ap_clk'event and ap_clk = '1') then
             if (((ap_const_boolean_0 = ap_block_pp0_stage0_11001) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage0))) then
                     neuron_index_1_cast_reg_198(5 downto 0) <= neuron_index_1_cast_fu_120_p1(5 downto 0);
-                sext_ln71_1_cast_reg_193 <= sext_ln71_1_cast_fu_116_p1;
+                sext_ln73_1_cast_reg_193 <= sext_ln73_1_cast_fu_116_p1;
             end if;
         end if;
     end process;
     process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
-            if (((ap_const_boolean_0 = ap_block_pp0_stage0_11001) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage0) and (icmp_ln71_reg_214 = ap_const_lv1_1))) then
+            if (((ap_const_boolean_0 = ap_block_pp0_stage0_11001) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage0) and (icmp_ln73_reg_214 = ap_const_lv1_1))) then
                 neuron_state_reg_223 <= NEURONS_STATE_q0;
             end if;
         end if;
@@ -360,7 +360,7 @@ begin
         end if; 
     end process;
 
-    NEURONS_STATE_address0 <= zext_ln73_fu_155_p1(6 - 1 downto 0);
+    NEURONS_STATE_address0 <= zext_ln75_fu_155_p1(6 - 1 downto 0);
 
     NEURONS_STATE_ce0_assign_proc : process(ap_enable_reg_pp0_iter0, ap_CS_fsm_pp0_stage1, ap_block_pp0_stage1_11001)
     begin
@@ -382,8 +382,8 @@ begin
         end if; 
     end process;
 
-    add_ln71_fu_160_p2 <= std_logic_vector(unsigned(weight_index_1_reg_203) + unsigned(ap_const_lv64_1));
-    add_ln73_fu_145_p2 <= std_logic_vector(unsigned(trunc_ln73_fu_141_p1) + unsigned(neuron_state_index));
+    add_ln73_fu_160_p2 <= std_logic_vector(unsigned(weight_index_1_reg_203) + unsigned(ap_const_lv64_1));
+    add_ln75_fu_145_p2 <= std_logic_vector(unsigned(trunc_ln75_fu_141_p1) + unsigned(neuron_state_index));
     ap_CS_fsm_pp0_stage0 <= ap_CS_fsm(0);
     ap_CS_fsm_pp0_stage1 <= ap_CS_fsm(1);
         ap_block_pp0_stage0 <= not((ap_const_boolean_1 = ap_const_boolean_1));
@@ -398,9 +398,9 @@ begin
         ap_block_state4_pp0_stage1_iter1 <= not((ap_const_boolean_1 = ap_const_boolean_1));
         ap_block_state5_pp0_stage0_iter2 <= not((ap_const_boolean_1 = ap_const_boolean_1));
 
-    ap_condition_exit_pp0_iter0_stage1_assign_proc : process(ap_enable_reg_pp0_iter0, ap_CS_fsm_pp0_stage1, ap_block_pp0_stage1_subdone, icmp_ln71_fu_136_p2)
+    ap_condition_exit_pp0_iter0_stage1_assign_proc : process(ap_enable_reg_pp0_iter0, ap_CS_fsm_pp0_stage1, ap_block_pp0_stage1_subdone, icmp_ln73_fu_136_p2)
     begin
-        if (((icmp_ln71_fu_136_p2 = ap_const_lv1_0) and (ap_const_boolean_0 = ap_block_pp0_stage1_subdone) and (ap_enable_reg_pp0_iter0 = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage1))) then 
+        if (((icmp_ln73_fu_136_p2 = ap_const_lv1_0) and (ap_const_boolean_0 = ap_block_pp0_stage1_subdone) and (ap_enable_reg_pp0_iter0 = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage1))) then 
             ap_condition_exit_pp0_iter0_stage1 <= ap_const_logic_1;
         else 
             ap_condition_exit_pp0_iter0_stage1 <= ap_const_logic_0;
@@ -408,9 +408,9 @@ begin
     end process;
 
 
-    ap_condition_exit_pp0_iter1_stage0_assign_proc : process(ap_CS_fsm_pp0_stage0, ap_enable_reg_pp0_iter1, icmp_ln71_reg_214, ap_block_pp0_stage0_subdone)
+    ap_condition_exit_pp0_iter1_stage0_assign_proc : process(ap_CS_fsm_pp0_stage0, ap_enable_reg_pp0_iter1, icmp_ln73_reg_214, ap_block_pp0_stage0_subdone)
     begin
-        if (((ap_const_boolean_0 = ap_block_pp0_stage0_subdone) and (ap_enable_reg_pp0_iter1 = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage0) and (icmp_ln71_reg_214 = ap_const_lv1_0))) then 
+        if (((ap_const_boolean_0 = ap_block_pp0_stage0_subdone) and (ap_enable_reg_pp0_iter1 = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage0) and (icmp_ln73_reg_214 = ap_const_lv1_0))) then 
             ap_condition_exit_pp0_iter1_stage0 <= ap_const_logic_1;
         else 
             ap_condition_exit_pp0_iter1_stage0 <= ap_const_logic_0;
@@ -499,13 +499,13 @@ begin
         end if; 
     end process;
 
-    icmp_ln71_fu_136_p2 <= "1" when (signed(weight_index_fu_44) < signed(sext_ln71_1_cast_reg_193)) else "0";
+    icmp_ln73_fu_136_p2 <= "1" when (signed(weight_index_fu_44) < signed(sext_ln73_1_cast_reg_193)) else "0";
     neuron_index_1_cast_fu_120_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(neuron_index_1),64));
-        sext_ln71_1_cast_fu_116_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(sext_ln71_1),64));
+        sext_ln73_1_cast_fu_116_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(sext_ln73_1),64));
 
-        sext_ln71_cast_fu_124_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(sext_ln71),64));
+        sext_ln73_cast_fu_124_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(sext_ln73),64));
 
-    sub_ln73_fu_150_p2 <= std_logic_vector(unsigned(add_ln73_fu_145_p2) - unsigned(trunc_ln));
-    trunc_ln73_fu_141_p1 <= weight_index_fu_44(6 - 1 downto 0);
-    zext_ln73_fu_155_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(sub_ln73_fu_150_p2),64));
+    sub_ln75_fu_150_p2 <= std_logic_vector(unsigned(add_ln75_fu_145_p2) - unsigned(trunc_ln));
+    trunc_ln75_fu_141_p1 <= weight_index_fu_44(6 - 1 downto 0);
+    zext_ln75_fu_155_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(sub_ln75_fu_150_p2),64));
 end behav;

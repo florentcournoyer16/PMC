@@ -140,14 +140,14 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 14 \
-    name zext_ln54 \
+    name zext_ln56 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_zext_ln54 \
+    corename dc_zext_ln56 \
     op interface \
-    ports { zext_ln54 { I 6 vector } } \
+    ports { zext_ln56 { I 6 vector } } \
 } "
 }
 
@@ -170,14 +170,14 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 16 \
-    name zext_ln54_1 \
+    name zext_ln56_1 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_zext_ln54_1 \
+    corename dc_zext_ln56_1 \
     op interface \
-    ports { zext_ln54_1 { I 7 vector } } \
+    ports { zext_ln56_1 { I 7 vector } } \
 } "
 }
 

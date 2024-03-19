@@ -1,5 +1,5 @@
 <xilinx:hls_fe_msgs>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/mohr0901/Documents/PMC/B_RNI_HLS/RNI/csynth.tcl:21:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/mohr0901/Documents/PMC/B_RNI_HLS/RNI/csynth.tcl:20:9" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="directive" ARG_PragmaFunction="RNI" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=RNI" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
     <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/mohr0901/Documents/PMC/B_RNI_HLS/RNI/directives.tcl:7:9" msg_body="HLS pragma dump">
@@ -15,11 +15,11 @@
         <args ARG_PragmaFunction="RNI" ARG_PragmaIsValid="1" ARG_PragmaOptions="mode=s_axilite port=return bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
     <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="B_RNI_HLS/apc/src/RNI_2.cpp:16:0" msg_body="Inlining function 'input_layer(ap_int&lt;8&gt;*)' into 'RNI(hls::stream&lt;hls::axis&lt;ap_int&lt;32&gt;, 2ul, 5ul, 6ul&gt;, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_int&lt;32&gt;, 2ul, 5ul, 6ul&gt;, 0&gt;&amp;)'">
-        <args Callee="input_layer(ap_int&lt;8&gt;*)" Callee-DebugLoc="File B_RNI_HLS/apc/src/RNI_2.cpp Line 50 Column 0" Caller="RNI(hls::stream&lt;hls::axis&lt;ap_int&lt;32&gt;, 2ul, 5ul, 6ul&gt;, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_int&lt;32&gt;, 2ul, 5ul, 6ul&gt;, 0&gt;&amp;)" Caller-DebugLoc="File B_RNI_HLS/apc/src/RNI_2.cpp Line 16 Column 0"/>
+        <args Callee="input_layer(ap_int&lt;8&gt;*)" Callee-DebugLoc="File B_RNI_HLS/apc/src/RNI_2.cpp Line 52 Column 0" Caller="RNI(hls::stream&lt;hls::axis&lt;ap_int&lt;32&gt;, 2ul, 5ul, 6ul&gt;, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_int&lt;32&gt;, 2ul, 5ul, 6ul&gt;, 0&gt;&amp;)" Caller-DebugLoc="File B_RNI_HLS/apc/src/RNI_2.cpp Line 16 Column 0"/>
     </msg>
     <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="B_RNI_HLS/apc/src/RNI_2.cpp:16:0" msg_body="Inlining function 'output_layer(ap_int&lt;8&gt;*)' into 'RNI(hls::stream&lt;hls::axis&lt;ap_int&lt;32&gt;, 2ul, 5ul, 6ul&gt;, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_int&lt;32&gt;, 2ul, 5ul, 6ul&gt;, 0&gt;&amp;)'">
-        <args Callee="output_layer(ap_int&lt;8&gt;*)" Callee-DebugLoc="File B_RNI_HLS/apc/src/RNI_2.cpp Line 93 Column 0" Caller="RNI(hls::stream&lt;hls::axis&lt;ap_int&lt;32&gt;, 2ul, 5ul, 6ul&gt;, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_int&lt;32&gt;, 2ul, 5ul, 6ul&gt;, 0&gt;&amp;)" Caller-DebugLoc="File B_RNI_HLS/apc/src/RNI_2.cpp Line 16 Column 0"/>
+        <args Callee="output_layer(ap_int&lt;8&gt;*)" Callee-DebugLoc="File B_RNI_HLS/apc/src/RNI_2.cpp Line 96 Column 0" Caller="RNI(hls::stream&lt;hls::axis&lt;ap_int&lt;32&gt;, 2ul, 5ul, 6ul&gt;, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_int&lt;32&gt;, 2ul, 5ul, 6ul&gt;, 0&gt;&amp;)" Caller-DebugLoc="File B_RNI_HLS/apc/src/RNI_2.cpp Line 16 Column 0"/>
     </msg>
-    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-167" msg_severity="WARNING" msg_loc="B_RNI_HLS/apc/src/RNI_2.cpp:54:40" msg_body="The program may have out of bound array access"/>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-167" msg_severity="WARNING" msg_loc="B_RNI_HLS/apc/src/RNI_2.cpp:56:40" msg_body="The program may have out of bound array access"/>
 </xilinx:hls_fe_msgs>
 

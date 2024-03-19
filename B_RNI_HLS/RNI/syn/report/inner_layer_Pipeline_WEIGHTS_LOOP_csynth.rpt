@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'inner_layer_Pipeline_WEIGHTS_LOOP'
 ================================================================
-* Date:           Mon Mar 18 19:54:09 2024
+* Date:           Mon Mar 18 20:33:25 2024
 
 * Version:        2023.1.1 (Build 3869133 on Jun 15 2023)
 * Project:        B_RNI_HLS
@@ -92,10 +92,10 @@
     |    Variable Name    | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
     +---------------------+----------+----+---+----+------------+------------+
     |NEURONS_MEMBRANE_d0  |         +|   0|  0|  15|           8|           8|
-    |add_ln71_fu_160_p2   |         +|   0|  0|  71|          64|           1|
-    |add_ln73_fu_145_p2   |         +|   0|  0|   7|           6|           6|
-    |sub_ln73_fu_150_p2   |         -|   0|  0|   7|           6|           6|
-    |icmp_ln71_fu_136_p2  |      icmp|   0|  0|  71|          64|          64|
+    |add_ln73_fu_160_p2   |         +|   0|  0|  71|          64|           1|
+    |add_ln75_fu_145_p2   |         +|   0|  0|   7|           6|           6|
+    |sub_ln75_fu_150_p2   |         -|   0|  0|   7|           6|           6|
+    |icmp_ln73_fu_136_p2  |      icmp|   0|  0|  71|          64|          64|
     |ap_enable_pp0        |       xor|   0|  0|   2|           1|           2|
     +---------------------+----------+----+---+----+------------+------------+
     |Total                |          |   0|  0| 173|         149|          87|
@@ -130,10 +130,10 @@
     |ap_enable_reg_pp0_iter1                      |   1|   0|    1|          0|
     |ap_enable_reg_pp0_iter2                      |   1|   0|    1|          0|
     |ap_loop_exit_ready_pp0_iter1_reg             |   1|   0|    1|          0|
-    |icmp_ln71_reg_214                            |   1|   0|    1|          0|
+    |icmp_ln73_reg_214                            |   1|   0|    1|          0|
     |neuron_index_1_cast_reg_198                  |   6|   0|   64|         58|
     |neuron_state_reg_223                         |   1|   0|    1|          0|
-    |sext_ln71_1_cast_reg_193                     |  64|   0|   64|          0|
+    |sext_ln73_1_cast_reg_193                     |  64|   0|   64|          0|
     |weight_index_1_reg_203                       |  64|   0|   64|          0|
     |weight_index_fu_44                           |  64|   0|   64|          0|
     +---------------------------------------------+----+----+-----+-----------+
@@ -155,9 +155,9 @@
 |ap_done                    |  out|    1|  ap_ctrl_hs|  inner_layer_Pipeline_WEIGHTS_LOOP|  return value|
 |ap_idle                    |  out|    1|  ap_ctrl_hs|  inner_layer_Pipeline_WEIGHTS_LOOP|  return value|
 |ap_ready                   |  out|    1|  ap_ctrl_hs|  inner_layer_Pipeline_WEIGHTS_LOOP|  return value|
-|sext_ln71                  |   in|    8|     ap_none|                          sext_ln71|        scalar|
+|sext_ln73                  |   in|    8|     ap_none|                          sext_ln73|        scalar|
 |neuron_index_1             |   in|    6|     ap_none|                     neuron_index_1|        scalar|
-|sext_ln71_1                |   in|    8|     ap_none|                        sext_ln71_1|        scalar|
+|sext_ln73_1                |   in|    8|     ap_none|                        sext_ln73_1|        scalar|
 |neuron_state_index         |   in|    6|     ap_none|                 neuron_state_index|        scalar|
 |trunc_ln                   |   in|    6|     ap_none|                           trunc_ln|        scalar|
 |NEURONS_STATE_address0     |  out|    6|   ap_memory|                      NEURONS_STATE|         array|

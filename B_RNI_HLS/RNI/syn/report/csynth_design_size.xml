@@ -3,10 +3,10 @@
         <hiertable>
             <header size="6" col0="Function" col1="Location" col2="Compile/Link" col3="Unroll/Inline" col4="Performance/Pipeline" col5="Optimizations"/>
             <rows>
-                <row id="0" col0="RNI" col1="RNI_2.cpp:12" col2="5236" col3="560" col4="349" col5="384">
-                    <row id="4" col0="input_layer" col1="RNI_2.cpp:49" col2="682" col3="69" col4="" col5=""/>
-                    <row id="5" col0="inner_layer" col1="RNI_2.cpp:67" col2="2270" col2_disp="2,270 (2 calls)" col3="268" col3_disp="268 (2 calls)" col4="178" col4_disp="178 (2 calls)" col5="182" col5_disp="182 (2 calls)"/>
-                    <row id="6" col0="output_layer" col1="RNI_2.cpp:92" col2="1213" col3="84" col4="" col5=""/>
+                <row id="0" col0="RNI" col1="RNI_2.cpp:12" col2="5251" col3="554" col4="345" col5="381">
+                    <row id="6" col0="input_layer" col1="RNI_2.cpp:51" col2="682" col3="69" col4="" col5=""/>
+                    <row id="5" col0="inner_layer" col1="RNI_2.cpp:69" col2="2270" col2_disp="2,270 (2 calls)" col3="268" col3_disp="268 (2 calls)" col4="178" col4_disp="178 (2 calls)" col5="182" col5_disp="182 (2 calls)"/>
+                    <row id="10" col0="output_layer" col1="RNI_2.cpp:95" col2="1213" col3="84" col4="" col5=""/>
                 </row>
             </rows>
             <notes/>
