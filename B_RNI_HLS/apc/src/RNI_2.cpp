@@ -130,7 +130,7 @@ void output_layer(BASE_TYPE output_list[OUTPUT_LAYER_LENGHT])
 		}
 	}
 
-	RESET_LOOP: for(BASE_TYPE neuron_state_index = NEURONS_INDEX[layer_index - 1]; neuron_state_index < NEURONS_INDEX[layer_index];  ++neuron_state_index)
+	NEURONS_STATE_RESET_LOOP: for(BASE_TYPE neuron_state_index = NEURONS_INDEX[layer_index - 1]; neuron_state_index < NEURONS_INDEX[layer_index];  ++neuron_state_index)
 	{
 		NEURONS_STATE[neuron_state_index] = 0;
 	}
