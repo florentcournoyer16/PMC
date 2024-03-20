@@ -17,7 +17,6 @@ void RNI (
 
 #pragma HLS INTERFACE mode=axis port=input_stream
 #pragma HLS INTERFACE mode=axis port=output_stream
-
 #pragma HLS INTERFACE mode=s_axilite port=return bundle=control
 
 	while(true)
@@ -27,9 +26,7 @@ void RNI (
 
 		BASE_TYPE input_list[INPUT_LAYER_LENGHT];
 		for(BASE_TYPE i = 0; i < INPUT_LAYER_LENGHT; ++i)
-		{
 			input_list[i] = input_buffer.data.to_int() << BASE_TYPE_LENGHT * i;
-		}
 
 		BASE_TYPE output_list[OUTPUT_LAYER_LENGHT] = { 0 };
 
@@ -40,15 +37,12 @@ void RNI (
 
 		ap_axis< OUTPUT_LAYER_LENGHT * BASE_TYPE_LENGHT, 2, 5, 6 > output_buffer;
 		for(BASE_TYPE i = 0; i < OUTPUT_LAYER_LENGHT; ++i)
-		{
 			output_buffer.data &= output_list[i] << BASE_TYPE_LENGHT * i;
-		}
+
 		output_stream.write(output_buffer);
 
 		if(input_buffer.last)
-		{
 			break;
-		}
 	}
 }
 
@@ -58,9 +52,9 @@ void input_layer(BASE_TYPE input_list[INPUT_LAYER_LENGHT])
 	BASE_TYPE layer_index = 0;
 	NEURONS_LOOP: for(BASE_TYPE neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1];  ++neuron_index)
 	{
-		WEIGHTS_LOOP: for(int weight_index = NEURONS_INDEX[neuron_index]; weight_index < WEIGHTS_INDEX[neuron_index + 1]; ++weight_index)
+		WEIGHTS_LOOP: for(int weight_index = WEIGHTS_INDEX[neuron_index]; weight_index < WEIGHTS_INDEX[neuron_index + 1]; ++weight_index)
 		{
-			BASE_TYPE temp = NEURONS_MEMBRANE[neuron_index] + (WEIGHTS[weight_index] * input_list[weight_index]);
+			BASE_TYPE temp = NEURONS_MEMBRANE[neuron_index + (WEIGHTS[weight_index] * input_list[weight_index])];
 			NEURONS_MEMBRANE[neuron_index] = temp;
 		}
 		if(NEURONS_MEMBRANE[neuron_index] > THRESHOLDS[layer_index])
@@ -69,9 +63,7 @@ void input_layer(BASE_TYPE input_list[INPUT_LAYER_LENGHT])
 			NEURONS_MEMBRANE[neuron_index] = RESET_MECHANISM_VALS[layer_index];
 		}
 		else
-		{
 			NEURONS_MEMBRANE[neuron_index] -= BETAS[layer_index];
-		}
 	}
 }
 
@@ -94,15 +86,11 @@ void inner_layer(BASE_TYPE layer_index)
 			NEURONS_MEMBRANE[neuron_index] = RESET_MECHANISM_VALS[layer_index];
 		}
 		else
-		{
 			NEURONS_MEMBRANE[neuron_index] -= BETAS[layer_index];
-		}
 	}
 
 	NEURONS_STATE_RESET_LOOP: for(BASE_TYPE neuron_state_index = NEURONS_INDEX[layer_index - 1]; neuron_state_index < NEURONS_INDEX[layer_index];  ++neuron_state_index)
-	{
 		NEURONS_STATE[neuron_state_index] = 0;
-	}
 }
 
 void output_layer(BASE_TYPE output_list[OUTPUT_LAYER_LENGHT])
@@ -125,13 +113,9 @@ void output_layer(BASE_TYPE output_list[OUTPUT_LAYER_LENGHT])
 			output_list[neuron_index % OUTPUT_LAYER_LENGHT] = 1;
 		}
 		else
-		{
 			NEURONS_MEMBRANE[neuron_index] -= BETAS[layer_index];
-		}
 	}
 
 	NEURONS_STATE_RESET_LOOP: for(BASE_TYPE neuron_state_index = NEURONS_INDEX[layer_index - 1]; neuron_state_index < NEURONS_INDEX[layer_index];  ++neuron_state_index)
-	{
 		NEURONS_STATE[neuron_state_index] = 0;
-	}
 }
