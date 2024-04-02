@@ -15,8 +15,8 @@ void inner_layer(BASE_TYPE layer_index);
 void output_layer(BASE_TYPE output_list[OUTPUT_LAYER_LENGHT]);
 
 void RNI (
-	hls::stream< ap_axis< INPUT_LAYER_LENGHT * BASE_TYPE_LENGHT, 2, 5, 6 > > &input_stream,
-	hls::stream< ap_axis< OUTPUT_LAYER_LENGHT * BASE_TYPE_LENGHT, 2, 5, 6 > > &output_stream
+	hls::stream< ap_axis< INPUT_LAYER_LENGHT, 2, 5, 6 > > &input_stream,
+	hls::stream< ap_axis< OUTPUT_LAYER_LENGHT, 2, 5, 6 > > &output_stream
 )
 {
 
@@ -26,12 +26,12 @@ void RNI (
 
 	while(true)
 	{
-		ap_axis< INPUT_LAYER_LENGHT * BASE_TYPE_LENGHT, 2, 5, 6 > input_buffer;
+		ap_axis< INPUT_LAYER_LENGHT, 2, 5, 6 > input_buffer;
 		input_stream.read(input_buffer);
 
 		BASE_TYPE input_list[INPUT_LAYER_LENGHT];
 		for(BASE_TYPE i = 0; i < INPUT_LAYER_LENGHT; ++i)
-			input_list[i] = input_buffer.data.to_int() << BASE_TYPE_LENGHT * i;
+			input_list[i] = (input_buffer.data.to_int() >> i) & 1;
 
 		BASE_TYPE output_list[OUTPUT_LAYER_LENGHT] = { 0 };
 
@@ -44,9 +44,10 @@ void RNI (
     code.append("""
 		output_layer(output_list);
 
-		ap_axis< OUTPUT_LAYER_LENGHT * BASE_TYPE_LENGHT, 2, 5, 6 > output_buffer;
+		ap_axis< INPUT_LAYER_LENGHT, 2, 5, 6 > output_buffer;
 		for(BASE_TYPE i = 0; i < OUTPUT_LAYER_LENGHT; ++i)
-			output_buffer.data &= output_list[i] << BASE_TYPE_LENGHT * i;
+			if(output_list[i] > 0)
+				output_buffer.data |= 1 << i;
 
 		output_stream.write(output_buffer);
 
