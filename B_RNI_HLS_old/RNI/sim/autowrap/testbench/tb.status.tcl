@@ -1,0 +1,1 @@
+set ::AESL_AUTOSIM::gTopFileName /home/mohr0901/Documents/PMC/B_RNI_HLS/RNI/./sim/autowrap/testbench/RNI.cpp_pre.cpp.tb.cpp

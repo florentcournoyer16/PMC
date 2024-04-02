@@ -1,0 +1,114 @@
+
+
+================================================================
+== Synthesis Summary Report of 'RNI_func'
+================================================================
++ General Information: 
+    * Date:           Thu Mar 28 01:32:07 2024
+    * Version:        2023.1.1 (Build 3869133 on Jun 15 2023)
+    * Project:        RNI
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: zynq
+    * Target device:  xc7z020-clg400-1
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +--------------+------+------+---------+--------+----------+---------+------+----------+------+----+----------+----------+-----+
+    |    Modules   | Issue|      | Latency | Latency| Iteration|         | Trip |          |      |    |          |          |     |
+    |    & Loops   | Type | Slack| (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined| BRAM | DSP|    FF    |    LUT   | URAM|
+    +--------------+------+------+---------+--------+----------+---------+------+----------+------+----+----------+----------+-----+
+    |+ RNI_func    |     -|  7.30|        -|       -|         -|        -|     -|        no|     -|   -|  40 (~0%)|  86 (~0%)|    -|
+    | o main_loop  |     -|  7.30|        -|       -|         2|        1|     -|       yes|     -|   -|         -|         -|    -|
+    +--------------+------+------+---------+--------+----------+---------+------+----------+------+----+----------+----------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* S_AXILITE Interfaces
++---------------+------------+---------------+
+| Interface     | Data Width | Address Width |
++---------------+------------+---------------+
+| s_axi_control | 32         | 4             |
++---------------+------------+---------------+
+
+* S_AXILITE Registers
++---------------+----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| Interface     | Register | Offset | Width | Access | Description                      | Bit Fields                                                           |
++---------------+----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| s_axi_control | CTRL     | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER     | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                             |
+| s_axi_control | IP_IER   | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                        |
+| s_axi_control | IP_ISR   | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                        |
++---------------+----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+
+* AXIS
++---------------+-----------+---------------+-------+-------+-----+-------+-------+--------+-------+-------+--------+
+| Interface     | Direction | Register Mode | TDATA | TDEST | TID | TKEEP | TLAST | TREADY | TSTRB | TUSER | TVALID |
++---------------+-----------+---------------+-------+-------+-----+-------+-------+--------+-------+-------+--------+
+| input_stream  | in        | both          | 32    | 6     | 5   | 4     | 1     | 1      | 4     | 2     | 1      |
+| output_stream | out       | both          | 32    | 6     | 5   | 4     | 1     | 1      | 4     | 2     | 1      |
++---------------+-----------+---------------+-------+-------+-----+-------+-------+--------+-------+-------+--------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++---------------+-----------+--------------------------------------------+
+| Argument      | Direction | Datatype                                   |
++---------------+-----------+--------------------------------------------+
+| input_stream  | in        | stream<hls::axis<ap_int<32>, 2, 5, 6>, 0>& |
+| output_stream | out       | stream<hls::axis<ap_int<32>, 2, 5, 6>, 0>& |
++---------------+-----------+--------------------------------------------+
+
+* SW-to-HW Mapping
++---------------+---------------+-----------+
+| Argument      | HW Interface  | HW Type   |
++---------------+---------------+-----------+
+| input_stream  | input_stream  | interface |
+| output_stream | output_stream | interface |
++---------------+---------------+-----------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+
+================================================================
+== Bind Op Report
+================================================================
+  No bind op info in design
+
+================================================================
+== Bind Storage Report
+================================================================
+  No bind storage info in design
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------+-------------------------+-------------------------------------------+
+| Type      | Options                 | Location                                  |
++-----------+-------------------------+-------------------------------------------+
+| interface | axis port=input_stream  | src/RNI.cpp:19 in rni_func, input_stream  |
+| interface | axis port=output_stream | src/RNI.cpp:20 in rni_func, output_stream |
+| interface | s_axilite port=return   | src/RNI.cpp:21 in rni_func, return        |
++-----------+-------------------------+-------------------------------------------+
+
+

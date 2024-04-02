@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BindInfo>
+	<BindNode BINDTYPE="op" DISPLAY="bind_op mul" ID="" IMPL="auto" LATENCY="1" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32ns_32ns_64_2_1_U1" SOURCE="B_RNI_HLS/apc/src/RNI.cpp:38" VARIABLE="mul_ln38" MODULE="RNI_func" LOOP="main_loop" BUNDLEDNAME="" DSP="4" BRAM="0" URAM="0"/>
+	<BindNode BINDTYPE="adapter" DISPLAY="bind_adapter axilite" ID="" IMPL="" LATENCY="" OPTYPE="" PRAGMA="yes" RTLNAME="control_s_axi_U" SOURCE="" VARIABLE="" MODULE="RNI_func" LOOP="" BUNDLEDNAME="control" DSP="0" BRAM="0" URAM="0"/>
+</BindInfo>
