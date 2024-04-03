@@ -27,7 +27,7 @@ void RNI (
 
 		BASE_TYPE input_list[INPUT_LAYER_LENGHT];
 		for(BASE_TYPE i = 0; i < INPUT_LAYER_LENGHT; ++i)
-			input_list[i] = (input_buffer.data.to_int() >> i) & 1;
+			input_list[i] = ((input_buffer.data.to_int() >> i) & 1);
 
 		BASE_TYPE output_list[OUTPUT_LAYER_LENGHT] = { 0 };
 
@@ -43,7 +43,7 @@ void RNI (
 		ap_axis< INPUT_LAYER_LENGHT, 2, 5, 6 > output_buffer;
 		for(BASE_TYPE i = 0; i < OUTPUT_LAYER_LENGHT; ++i)
 			if(output_list[i] > 0)
-				output_buffer.data |= 1 << i;
+				output_buffer.data |= 0x01 << i;
 
 		output_stream.write(output_buffer);
 
