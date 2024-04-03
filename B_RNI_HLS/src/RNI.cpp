@@ -4,11 +4,12 @@
 
 #include "ap_axi_sdata.h"
 #include "hls_stream.h"
+#include "ap_int.h"
 
 #include "../inc/model_8_INPUT.h"
 
 void input_layer(BASE_TYPE input_list[INPUT_LAYER_LENGHT]);
-void inner_layer(BASE_TYPE layer_index);
+void inner_layer(INDEX_TYPE layer_index);
 void output_layer(BASE_TYPE output_list[OUTPUT_LAYER_LENGHT]);
 
 void RNI (
@@ -56,6 +57,7 @@ void RNI (
 			std::cout << output_list[i] << ", ";
 			if(output_list[i] == 1)
 			{
+				std::cout << "Ca lag en tabarnak vitis HLS";
 				output_buffer.data |= 0x01 << i;
 			}
 		}
@@ -74,12 +76,15 @@ void RNI (
 
 void input_layer(BASE_TYPE input_list[INPUT_LAYER_LENGHT])
 {
-	BASE_TYPE layer_index = 0;
-	NEURONS_LOOP: for(BASE_TYPE neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1];  ++neuron_index)
+	INDEX_TYPE layer_index = 0;
+	std::cout << "jvais me tuer " << std::endl;
+	NEURONS_LOOP: for(INDEX_TYPE neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1];  ++neuron_index)
 	{
-		WEIGHTS_LOOP: for(int weight_index = WEIGHTS_INDEX[neuron_index]; weight_index < WEIGHTS_INDEX[neuron_index + 1]; ++weight_index)
+		std::cout << "jvais me tuer 2" << std::endl;
+		WEIGHTS_LOOP: for(INDEX_TYPE weight_index = WEIGHTS_INDEX[neuron_index]; weight_index < WEIGHTS_INDEX[neuron_index + 1]; ++weight_index)
 		{
 			BASE_TYPE temp = NEURONS_MEMBRANE[neuron_index + (WEIGHTS[weight_index] * input_list[weight_index])];
+			std::cout << "temp: " << temp << std::endl;
 			NEURONS_MEMBRANE[neuron_index] = temp;
 		}
 		if(NEURONS_MEMBRANE[neuron_index] > THRESHOLDS[layer_index])
@@ -87,16 +92,22 @@ void input_layer(BASE_TYPE input_list[INPUT_LAYER_LENGHT])
 			NEURONS_STATE[neuron_index] = 1;
 			NEURONS_MEMBRANE[neuron_index] = RESET_MECHANISM_VALS[layer_index];
 		}
-		else
+		else if (NEURONS_MEMBRANE[neuron_index] < 0)
+		{
+			NEURONS_MEMBRANE[neuron_index] += BETAS[layer_index];
+		}
+		else if (NEURONS_MEMBRANE[neuron_index] > 0)
+		{
 			NEURONS_MEMBRANE[neuron_index] -= BETAS[layer_index];
+		}
 	}
 }
 
-void inner_layer(BASE_TYPE layer_index)
+void inner_layer(INDEX_TYPE layer_index)
 {
-	NEURONS_LOOP: for(BASE_TYPE neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1];  ++neuron_index)
+	NEURONS_LOOP: for(INDEX_TYPE neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1];  ++neuron_index)
 	{
-		WEIGHTS_LOOP: for(BASE_TYPE weight_index = WEIGHTS_INDEX[neuron_index]; weight_index <  WEIGHTS_INDEX[neuron_index + 1]; ++weight_index)
+		WEIGHTS_LOOP: for(INDEX_TYPE weight_index = WEIGHTS_INDEX[neuron_index]; weight_index <  WEIGHTS_INDEX[neuron_index + 1]; ++weight_index)
 		{
 			BASE_TYPE neuron_state = NEURONS_STATE[NEURONS_INDEX[layer_index - 1] + weight_index - WEIGHTS_INDEX[neuron_index]];
 			if(neuron_state == 1)
@@ -110,20 +121,26 @@ void inner_layer(BASE_TYPE layer_index)
 			NEURONS_STATE[neuron_index] = 1;
 			NEURONS_MEMBRANE[neuron_index] = RESET_MECHANISM_VALS[layer_index];
 		}
-		else
+		else if (NEURONS_MEMBRANE[neuron_index] < 0)
+		{
+			NEURONS_MEMBRANE[neuron_index] += BETAS[layer_index];
+		}
+		else if (NEURONS_MEMBRANE[neuron_index] > 0)
+		{
 			NEURONS_MEMBRANE[neuron_index] -= BETAS[layer_index];
+		}
 	}
 
-	NEURONS_STATE_RESET_LOOP: for(BASE_TYPE neuron_state_index = NEURONS_INDEX[layer_index - 1]; neuron_state_index < NEURONS_INDEX[layer_index];  ++neuron_state_index)
+	NEURONS_STATE_RESET_LOOP: for(INDEX_TYPE neuron_state_index = NEURONS_INDEX[layer_index - 1]; neuron_state_index < NEURONS_INDEX[layer_index];  ++neuron_state_index)
 		NEURONS_STATE[neuron_state_index] = 0;
 }
 
 void output_layer(BASE_TYPE output_list[OUTPUT_LAYER_LENGHT])
 {
-	BASE_TYPE layer_index = NEURONS_INDEX_LENGHT - 2;
-	NEURONS_LOOP: for(BASE_TYPE neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1];  ++neuron_index)
+	INDEX_TYPE layer_index = NEURONS_INDEX_LENGHT - 2;
+	NEURONS_LOOP: for(INDEX_TYPE neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1];  ++neuron_index)
 	{
-		WEIGHTS_LOOP: for(BASE_TYPE weight_index = WEIGHTS_INDEX[neuron_index]; weight_index <  WEIGHTS_INDEX[neuron_index + 1]; ++weight_index)
+		WEIGHTS_LOOP: for(INDEX_TYPE weight_index = WEIGHTS_INDEX[neuron_index]; weight_index <  WEIGHTS_INDEX[neuron_index + 1]; ++weight_index)
 		{
 			BASE_TYPE neuron_state = NEURONS_STATE[NEURONS_INDEX[layer_index - 1] + weight_index - WEIGHTS_INDEX[neuron_index]];
 			if(neuron_state == 1)
@@ -138,14 +155,16 @@ void output_layer(BASE_TYPE output_list[OUTPUT_LAYER_LENGHT])
 			NEURONS_MEMBRANE[neuron_index] = RESET_MECHANISM_VALS[layer_index];
 			output_list[neuron_index % OUTPUT_LAYER_LENGHT] = 1;
 		}
-		else
+		else if (NEURONS_MEMBRANE[neuron_index] < 0)
 		{
-			std::cout << "je passse par la" << std::endl;
+			NEURONS_MEMBRANE[neuron_index] += BETAS[layer_index];
+		}
+		else if (NEURONS_MEMBRANE[neuron_index] > 0)
+		{
 			NEURONS_MEMBRANE[neuron_index] -= BETAS[layer_index];
-			output_list[neuron_index % OUTPUT_LAYER_LENGHT] = 0;
 		}
 	}
 
-	NEURONS_STATE_RESET_LOOP: for(BASE_TYPE neuron_state_index = NEURONS_INDEX[layer_index - 1]; neuron_state_index < NEURONS_INDEX[layer_index];  ++neuron_state_index)
+	NEURONS_STATE_RESET_LOOP: for(INDEX_TYPE neuron_state_index = NEURONS_INDEX[layer_index - 1]; neuron_state_index < NEURONS_INDEX[layer_index];  ++neuron_state_index)
 		NEURONS_STATE[neuron_state_index] = 0;
 }
