@@ -1,5 +1,7 @@
 #include <iostream>
 
+#include <stdio.h>
+#include <stdlib.h>
 #include "ap_axi_sdata.h"
 #include "hls_stream.h"
 
@@ -8,6 +10,8 @@
 #define BASE_TYPEE ap_int< BASE_TYPE_LENGHTT >
 #define INPUT_LAYER_LENGHTT 8
 #define OUTPUT_LAYER_LENGHTT 8
+#define WINDOW_LENGHT 128
+#define INPUT_FILENAME "input.csv"
 
 void RNI (
 	hls::stream< ap_axis< INPUT_LAYER_LENGHTT, 2, 5, 6 > > &input_stream,
@@ -20,31 +24,49 @@ int main(void)
 	hls::stream< ap_axis< OUTPUT_LAYER_LENGHTT, 2, 5, 6 > > output_stream;
 
 	// ------------------------------------------------------------
-	// INPUT PHASE
+	// READ FILE INTO INPUT BUFF
 	// ------------------------------------------------------------
 
-	ap_axis< INPUT_LAYER_LENGHTT, 2, 5, 6 > input_buffer;
+	ap_axis< INPUT_LAYER_LENGHTT, 2, 5, 6 > input_buffer[WINDOW_LENGHT];
 
-	input_buffer.data = 0b11111111;
-//	input_buffer.last = true;
+	file = fopen(filename, "r");
+    if (file == NULL) {
+        printf("Error opening file.\n");
+        return -1;
+    }
 
-	std::cout << input_buffer.data.to_int() << std::endl;
-	input_stream.write(input_buffer);
+	while ((c = fgetc(file)) != EOF && row < WINDOW_LENGHT) {
+		col = 0;
+		while ((c = fgetc(file)) != '\n' && col < INPUT_LAYER_LENGHTT) {
+			if (c == '1')
+				input_buffer[row] ^= 1 << col;
+			else if (c == '0') {
+				input_buffer[row] ^= 0 << col;
+			}
+			col++;
+		}
+		row++;
+    }
+
+	for (int row = 0; row < WINDOW_LENGHT; row++) {
+		std::cout << input_buffer[row].data.to_int() << std::endl;
+	}
 
 	// ------------------------------------------------------------
-	// RNI
+	// SEND INPUT DATA TO RNI
 	// ------------------------------------------------------------
 
-	RNI(input_stream, output_stream);
+	ap_axis< OUTPUT_LAYER_LENGHTT, 2, 5, 6 > output_buffer[WINDOW_LENGHT];
 
-	// ------------------------------------------------------------
-	// OUTPUT PHASE
-	// ------------------------------------------------------------
+	for (int row = 0; row < WINDOW_LENGHT; row) {
+		input_stream.write(input_buffer);
+		RNI(input_stream, output_stream);
+		output_stream.read(output_buffer[row]);
+	}
 
-	ap_axis< OUTPUT_LAYER_LENGHTT, 2, 5, 6 > output_buffer;
-
-	output_stream.read(output_buffer);
-	std::cout << output_buffer.data.to_int() << std::endl;
+	for (int row = 0; row < WINDOW_LENGHT; row++) {
+		std::cout << output_biffer[row].data.to_int() << std::endl;
+	}
 
 	return 0;
 }
