@@ -134,12 +134,13 @@ void output_layer(BASE_TYPE output_list[OUTPUT_LAYER_LENGHT])
 		}
 		if(NEURONS_MEMBRANE[neuron_index] > THRESHOLDS[layer_index])
 		{
-			std::cout
+			std::cout << "je passse par ici" << std::endl;
 			NEURONS_MEMBRANE[neuron_index] = RESET_MECHANISM_VALS[layer_index];
 			output_list[neuron_index % OUTPUT_LAYER_LENGHT] = 1;
 		}
 		else
 		{
+			std::cout << "je passse par la" << std::endl;
 			NEURONS_MEMBRANE[neuron_index] -= BETAS[layer_index];
 			output_list[neuron_index % OUTPUT_LAYER_LENGHT] = 0;
 		}
