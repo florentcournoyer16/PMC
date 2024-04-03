@@ -3,7 +3,7 @@
         <hiertable>
             <header size="6" col0="Function" col1="Location" col2="Compile/Link" col3="Unroll/Inline" col4="Performance/Pipeline" col5="Optimizations"/>
             <rows>
-                <row id="0" col0="RNI_func" col1="RNI.cpp:13" col2="542" col3="83" col4="75" col5="83"/>
+                <row id="0" col0="RNI" col1="RNI.cpp:13" col2="332" col3="63" col4="59" col5="64"/>
             </rows>
             <notes/>
         </hiertable>

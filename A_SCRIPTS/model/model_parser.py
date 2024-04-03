@@ -7,7 +7,7 @@ FILE_NAME = 'model_8_INPUT.json'
 INPUT_FILE_PATH = Path(__file__).parent.absolute().joinpath(f'input/{FILE_NAME}')
 NETWORK_NAME = FILE_NAME.strip('.json')
 OUTPUT_HEADER_PATH = Path(__file__).parent.absolute().joinpath(f'output/{NETWORK_NAME}.h')
-OUTPUT_CODE_PATH = Path(__file__).parent.absolute().joinpath(f'output/{NETWORK_NAME}.c')
+OUTPUT_CODE_PATH = Path(__file__).parent.absolute().joinpath(f'output/{NETWORK_NAME}.cpp')
 
 def main():
     print(INPUT_FILE_PATH)
