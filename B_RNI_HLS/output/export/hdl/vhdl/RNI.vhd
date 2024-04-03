@@ -9,12 +9,13 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 entity RNI is
-generic (
-    C_S_AXI_CONTROL_ADDR_WIDTH : INTEGER := 4;
-    C_S_AXI_CONTROL_DATA_WIDTH : INTEGER := 32 );
 port (
     ap_clk : IN STD_LOGIC;
     ap_rst_n : IN STD_LOGIC;
+    ap_start : IN STD_LOGIC;
+    ap_done : OUT STD_LOGIC;
+    ap_idle : OUT STD_LOGIC;
+    ap_ready : OUT STD_LOGIC;
     input_stream_TDATA : IN STD_LOGIC_VECTOR (7 downto 0);
     input_stream_TVALID : IN STD_LOGIC;
     input_stream_TREADY : OUT STD_LOGIC;
@@ -32,56 +33,28 @@ port (
     output_stream_TUSER : OUT STD_LOGIC_VECTOR (1 downto 0);
     output_stream_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
     output_stream_TID : OUT STD_LOGIC_VECTOR (4 downto 0);
-    output_stream_TDEST : OUT STD_LOGIC_VECTOR (5 downto 0);
-    s_axi_control_AWVALID : IN STD_LOGIC;
-    s_axi_control_AWREADY : OUT STD_LOGIC;
-    s_axi_control_AWADDR : IN STD_LOGIC_VECTOR (C_S_AXI_CONTROL_ADDR_WIDTH-1 downto 0);
-    s_axi_control_WVALID : IN STD_LOGIC;
-    s_axi_control_WREADY : OUT STD_LOGIC;
-    s_axi_control_WDATA : IN STD_LOGIC_VECTOR (C_S_AXI_CONTROL_DATA_WIDTH-1 downto 0);
-    s_axi_control_WSTRB : IN STD_LOGIC_VECTOR (C_S_AXI_CONTROL_DATA_WIDTH/8-1 downto 0);
-    s_axi_control_ARVALID : IN STD_LOGIC;
-    s_axi_control_ARREADY : OUT STD_LOGIC;
-    s_axi_control_ARADDR : IN STD_LOGIC_VECTOR (C_S_AXI_CONTROL_ADDR_WIDTH-1 downto 0);
-    s_axi_control_RVALID : OUT STD_LOGIC;
-    s_axi_control_RREADY : IN STD_LOGIC;
-    s_axi_control_RDATA : OUT STD_LOGIC_VECTOR (C_S_AXI_CONTROL_DATA_WIDTH-1 downto 0);
-    s_axi_control_RRESP : OUT STD_LOGIC_VECTOR (1 downto 0);
-    s_axi_control_BVALID : OUT STD_LOGIC;
-    s_axi_control_BREADY : IN STD_LOGIC;
-    s_axi_control_BRESP : OUT STD_LOGIC_VECTOR (1 downto 0);
-    interrupt : OUT STD_LOGIC );
+    output_stream_TDEST : OUT STD_LOGIC_VECTOR (5 downto 0) );
 end;
 
 
 architecture behav of RNI is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "RNI_RNI,hls_ip_2023_1_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=1.915000,HLS_SYN_LAT=1,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=38,HLS_SYN_LUT=91,HLS_VERSION=2023_1_1}";
+    "RNI_RNI,hls_ip_2023_1_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=0.000000,HLS_SYN_LAT=1,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=2,HLS_SYN_LUT=36,HLS_VERSION=2023_1_1}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
     constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (1 downto 0) := "01";
     constant ap_ST_fsm_state2 : STD_LOGIC_VECTOR (1 downto 0) := "10";
     constant ap_const_lv32_0 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
     constant ap_const_lv32_1 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000001";
-    constant C_S_AXI_DATA_WIDTH : INTEGER range 63 downto 0 := 20;
-    constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
-    constant ap_const_lv2_0 : STD_LOGIC_VECTOR (1 downto 0) := "00";
-    constant ap_const_lv5_0 : STD_LOGIC_VECTOR (4 downto 0) := "00000";
-    constant ap_const_lv6_0 : STD_LOGIC_VECTOR (5 downto 0) := "000000";
-    constant ap_const_lv8_FF : STD_LOGIC_VECTOR (7 downto 0) := "11111111";
     constant ap_const_boolean_1 : BOOLEAN := true;
 
     signal ap_rst_n_inv : STD_LOGIC;
-    signal ap_start : STD_LOGIC;
-    signal ap_done : STD_LOGIC;
-    signal ap_idle : STD_LOGIC;
     signal ap_CS_fsm : STD_LOGIC_VECTOR (1 downto 0) := "01";
     attribute fsm_encoding : string;
     attribute fsm_encoding of ap_CS_fsm : signal is "none";
     signal ap_CS_fsm_state1 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state1 : signal is "none";
-    signal ap_ready : STD_LOGIC;
     signal input_stream_TDATA_blk_n : STD_LOGIC;
     signal output_stream_TDATA_blk_n : STD_LOGIC;
     signal ap_CS_fsm_state2 : STD_LOGIC;
@@ -121,7 +94,6 @@ architecture behav of RNI is
     signal input_stream_TDEST_int_regslice : STD_LOGIC_VECTOR (5 downto 0);
     signal regslice_both_input_stream_V_dest_V_U_vld_out : STD_LOGIC;
     signal regslice_both_input_stream_V_dest_V_U_ack_in : STD_LOGIC;
-    signal output_stream_TDATA_int_regslice : STD_LOGIC_VECTOR (7 downto 0);
     signal output_stream_TVALID_int_regslice : STD_LOGIC;
     signal output_stream_TREADY_int_regslice : STD_LOGIC;
     signal regslice_both_output_stream_V_data_V_U_vld_out : STD_LOGIC;
@@ -145,39 +117,6 @@ architecture behav of RNI is
     signal regslice_both_output_stream_V_dest_V_U_vld_out : STD_LOGIC;
     signal ap_ce_reg : STD_LOGIC;
 
-    component RNI_control_s_axi IS
-    generic (
-        C_S_AXI_ADDR_WIDTH : INTEGER;
-        C_S_AXI_DATA_WIDTH : INTEGER );
-    port (
-        AWVALID : IN STD_LOGIC;
-        AWREADY : OUT STD_LOGIC;
-        AWADDR : IN STD_LOGIC_VECTOR (C_S_AXI_ADDR_WIDTH-1 downto 0);
-        WVALID : IN STD_LOGIC;
-        WREADY : OUT STD_LOGIC;
-        WDATA : IN STD_LOGIC_VECTOR (C_S_AXI_DATA_WIDTH-1 downto 0);
-        WSTRB : IN STD_LOGIC_VECTOR (C_S_AXI_DATA_WIDTH/8-1 downto 0);
-        ARVALID : IN STD_LOGIC;
-        ARREADY : OUT STD_LOGIC;
-        ARADDR : IN STD_LOGIC_VECTOR (C_S_AXI_ADDR_WIDTH-1 downto 0);
-        RVALID : OUT STD_LOGIC;
-        RREADY : IN STD_LOGIC;
-        RDATA : OUT STD_LOGIC_VECTOR (C_S_AXI_DATA_WIDTH-1 downto 0);
-        RRESP : OUT STD_LOGIC_VECTOR (1 downto 0);
-        BVALID : OUT STD_LOGIC;
-        BREADY : IN STD_LOGIC;
-        BRESP : OUT STD_LOGIC_VECTOR (1 downto 0);
-        ACLK : IN STD_LOGIC;
-        ARESET : IN STD_LOGIC;
-        ACLK_EN : IN STD_LOGIC;
-        ap_start : OUT STD_LOGIC;
-        interrupt : OUT STD_LOGIC;
-        ap_ready : IN STD_LOGIC;
-        ap_done : IN STD_LOGIC;
-        ap_idle : IN STD_LOGIC );
-    end component;
-
-
     component RNI_regslice_both IS
     generic (
         DataWidth : INTEGER );
@@ -196,37 +135,6 @@ architecture behav of RNI is
 
 
 begin
-    control_s_axi_U : component RNI_control_s_axi
-    generic map (
-        C_S_AXI_ADDR_WIDTH => C_S_AXI_CONTROL_ADDR_WIDTH,
-        C_S_AXI_DATA_WIDTH => C_S_AXI_CONTROL_DATA_WIDTH)
-    port map (
-        AWVALID => s_axi_control_AWVALID,
-        AWREADY => s_axi_control_AWREADY,
-        AWADDR => s_axi_control_AWADDR,
-        WVALID => s_axi_control_WVALID,
-        WREADY => s_axi_control_WREADY,
-        WDATA => s_axi_control_WDATA,
-        WSTRB => s_axi_control_WSTRB,
-        ARVALID => s_axi_control_ARVALID,
-        ARREADY => s_axi_control_ARREADY,
-        ARADDR => s_axi_control_ARADDR,
-        RVALID => s_axi_control_RVALID,
-        RREADY => s_axi_control_RREADY,
-        RDATA => s_axi_control_RDATA,
-        RRESP => s_axi_control_RRESP,
-        BVALID => s_axi_control_BVALID,
-        BREADY => s_axi_control_BREADY,
-        BRESP => s_axi_control_BRESP,
-        ACLK => ap_clk,
-        ARESET => ap_rst_n_inv,
-        ACLK_EN => ap_const_logic_1,
-        ap_start => ap_start,
-        interrupt => interrupt,
-        ap_ready => ap_ready,
-        ap_done => ap_done,
-        ap_idle => ap_idle);
-
     regslice_both_input_stream_V_data_V_U : component RNI_regslice_both
     generic map (
         DataWidth => 8)
@@ -331,7 +239,7 @@ begin
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => output_stream_TDATA_int_regslice,
+        data_in => input_stream_TDATA_int_regslice,
         vld_in => output_stream_TVALID_int_regslice,
         ack_in => output_stream_TREADY_int_regslice,
         data_out => output_stream_TDATA,
@@ -345,7 +253,7 @@ begin
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => ap_const_lv1_0,
+        data_in => input_stream_TKEEP_int_regslice,
         vld_in => output_stream_TVALID_int_regslice,
         ack_in => regslice_both_output_stream_V_keep_V_U_ack_in_dummy,
         data_out => output_stream_TKEEP,
@@ -359,7 +267,7 @@ begin
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => ap_const_lv1_0,
+        data_in => input_stream_TSTRB_int_regslice,
         vld_in => output_stream_TVALID_int_regslice,
         ack_in => regslice_both_output_stream_V_strb_V_U_ack_in_dummy,
         data_out => output_stream_TSTRB,
@@ -373,7 +281,7 @@ begin
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => ap_const_lv2_0,
+        data_in => input_stream_TUSER_int_regslice,
         vld_in => output_stream_TVALID_int_regslice,
         ack_in => regslice_both_output_stream_V_user_V_U_ack_in_dummy,
         data_out => output_stream_TUSER,
@@ -387,7 +295,7 @@ begin
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => ap_const_lv1_0,
+        data_in => input_stream_TLAST_int_regslice,
         vld_in => output_stream_TVALID_int_regslice,
         ack_in => regslice_both_output_stream_V_last_V_U_ack_in_dummy,
         data_out => output_stream_TLAST,
@@ -401,7 +309,7 @@ begin
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => ap_const_lv5_0,
+        data_in => input_stream_TID_int_regslice,
         vld_in => output_stream_TVALID_int_regslice,
         ack_in => regslice_both_output_stream_V_id_V_U_ack_in_dummy,
         data_out => output_stream_TID,
@@ -415,7 +323,7 @@ begin
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => ap_const_lv6_0,
+        data_in => input_stream_TDEST_int_regslice,
         vld_in => output_stream_TVALID_int_regslice,
         ack_in => regslice_both_output_stream_V_dest_V_U_ack_in_dummy,
         data_out => output_stream_TDEST,
@@ -559,7 +467,6 @@ begin
         end if; 
     end process;
 
-    output_stream_TDATA_int_regslice <= std_logic_vector(unsigned(input_stream_TDATA_int_regslice) + unsigned(ap_const_lv8_FF));
     output_stream_TVALID <= regslice_both_output_stream_V_data_V_U_vld_out;
 
     output_stream_TVALID_int_regslice_assign_proc : process(ap_start, ap_CS_fsm_state1, input_stream_TVALID_int_regslice, output_stream_TREADY_int_regslice)

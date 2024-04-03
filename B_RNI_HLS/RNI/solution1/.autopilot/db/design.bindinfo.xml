@@ -1,5 +1,1 @@
 <?xml version="1.0" encoding="utf-8"?>
-<BindInfo>
-	<BindNode BINDTYPE="op" DISPLAY="bind_op add" ID="" IMPL="fabric" LATENCY="0" OPTYPE="add" PRAGMA="" RTLNAME="output_stream_TDATA_int_regslice" SOURCE="src/RNI.cpp:46" VARIABLE="output_buffer_data" MODULE="RNI" LOOP="" BUNDLEDNAME="" DSP="0" BRAM="0" URAM="0"/>
-	<BindNode BINDTYPE="adapter" DISPLAY="bind_adapter axilite" ID="" IMPL="" LATENCY="" OPTYPE="" PRAGMA="yes" RTLNAME="control_s_axi_U" SOURCE="" VARIABLE="" MODULE="RNI" LOOP="" BUNDLEDNAME="control" DSP="0" BRAM="0" URAM="0"/>
-</BindInfo>

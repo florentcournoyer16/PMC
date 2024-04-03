@@ -28326,6 +28326,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
 }
 # 3 "src/RNI.cpp" 2
 
+
 # 1 "/tools/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/ap_axi_sdata.h" 1
 # 41 "/tools/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/ap_axi_sdata.h"
 # 1 "/tools/Xilinx/Vitis_HLS/2023.1/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/climits" 1 3
@@ -34397,7 +34398,7 @@ private:
 };
 
 }
-# 5 "src/RNI.cpp" 2
+# 6 "src/RNI.cpp" 2
 
 
 # 1 "src/../inc/model_8_INPUT.h" 1
@@ -34435,7 +34436,7 @@ ap_int< 8 > NEURONS_MEMBRANE[424] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 
 
 ap_int< 8 > NEURONS_STATE[424] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, };
-# 8 "src/RNI.cpp" 2
+# 9 "src/RNI.cpp" 2
 
 void input_layer(ap_int< 8 > input_list[8]);
 void inner_layer(ap_int< 8 > layer_index);
@@ -34446,35 +34447,33 @@ __attribute__((sdx_kernel("RNI", 0))) void RNI (
  hls::stream< ap_axis< 8, 2, 5, 6 > > &output_stream
 )
 {
-#line 17 "/home/mohr0901/Documents/PMC/B_RNI_HLS/RNI/solution1/csynth.tcl"
+#line 18 "/home/mohr0901/Documents/PMC/B_RNI_HLS/RNI/solution1/csynth.tcl"
 #pragma HLSDIRECTIVE TOP name=RNI
-# 17 "src/RNI.cpp"
+# 18 "src/RNI.cpp"
 
 #line 7 "/home/mohr0901/Documents/PMC/B_RNI_HLS/RNI/solution1/directives.tcl"
 #pragma HLSDIRECTIVE TOP name=RNI
-# 17 "src/RNI.cpp"
+# 18 "src/RNI.cpp"
 
 
 #pragma HLS INTERFACE mode=axis port=input_stream
 #pragma HLS INTERFACE mode=axis port=output_stream
-#pragma HLS INTERFACE mode=s_axilite port=return bundle=control
 
+ std::cout << "RNI inputs: " << std::endl;
+ VITIS_LOOP_24_1: while(true)
+ {
+  ap_axis< 8, 2, 5, 6 > input_buffer;
+  input_stream.read(input_buffer);
+  std::cout << input_buffer.data.to_int() << ", ";
+# 52 "src/RNI.cpp"
+  output_stream.write(input_buffer);
 
- ap_axis< 8, 2, 5, 6 > input_buffer;
- input_stream.read(input_buffer);
-# 42 "src/RNI.cpp"
- ap_axis< 8, 2, 5, 6 > output_buffer;
-
-
-
- output_buffer.data = input_buffer.data.to_int()-1;
- output_stream.write(output_buffer);
-
-
-
-
-
- return;
+  if(input_buffer.last)
+  {
+   break;
+  }
+ }
+ std::cout << std::endl;
 }
 
 

@@ -2,11 +2,11 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.1.1 (lin64) Build 3900603 Fri Jun 16 19:30:25 MDT 2023
-// Date        : Thu Mar 28 02:07:14 2024
+// Date        : Wed Apr  3 16:14:26 2024
 // Host        : GRAMS-NSOC running 64-bit Ubuntu 22.04.4 LTS
 // Command     : write_verilog -force -mode synth_stub -rename_top design_1_auto_us_1 -prefix
-//               design_1_auto_us_1_ design_1_auto_us_0_stub.v
-// Design      : design_1_auto_us_0
+//               design_1_auto_us_1_ design_1_auto_us_1_stub.v
+// Design      : design_1_auto_us_1
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z020clg400-1
 // --------------------------------------------------------------------------------

@@ -1,4 +1,3 @@
-RNI_control_s_axi
 RNI_regslice_both
 RNI_regslice_both
 RNI_regslice_both
@@ -13,4 +12,5 @@ RNI_regslice_both
 RNI_regslice_both
 RNI_regslice_both
 RNI_regslice_both
+RNI_flow_control_loop_pipe
 RNI
