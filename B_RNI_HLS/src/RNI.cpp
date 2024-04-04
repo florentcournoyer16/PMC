@@ -82,7 +82,7 @@ void input_layer(BASE_TYPE input_list[INPUT_LAYER_LENGHT])
 			{
 				if(membrane_total >> BASE_TYPE_LENGHT != membrane_current >> BASE_TYPE_LENGHT)
 				{
-					membrane_total = (membrane_current & (1 << BASE_TYPE_LENGHT)) || BASE_TYPE_MAX - 1;
+					membrane_total = (membrane_current & (1 << BASE_TYPE_LENGHT)) | BASE_TYPE_MAX - 1;
 				}
 			}
 			NEURONS_MEMBRANE[neuron_index] = membrane_total;
@@ -120,7 +120,7 @@ void inner_layer(INDEX_TYPE layer_index)
 				{
 					if(membrane_total >> BASE_TYPE_LENGHT != membrane_current >> BASE_TYPE_LENGHT)
 					{
-						membrane_total = (membrane_current & (1 << BASE_TYPE_LENGHT)) || BASE_TYPE_MAX - 1;
+						membrane_total = (membrane_current & (1 << BASE_TYPE_LENGHT)) | BASE_TYPE_MAX - 1;
 					}
 				}
 				NEURONS_MEMBRANE[neuron_index] = membrane_total;
@@ -163,7 +163,7 @@ void output_layer(BASE_TYPE output_list[OUTPUT_LAYER_LENGHT])
 				{
 					if(membrane_total >> BASE_TYPE_LENGHT != membrane_current >> BASE_TYPE_LENGHT)
 					{
-						membrane_total = (membrane_current & (1 << BASE_TYPE_LENGHT)) || BASE_TYPE_MAX - 1;
+						membrane_total = (membrane_current & (1 << BASE_TYPE_LENGHT)) | BASE_TYPE_MAX - 1;
 					}
 				}
 				NEURONS_MEMBRANE[neuron_index] = membrane_total;

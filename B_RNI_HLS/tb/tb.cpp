@@ -5,7 +5,7 @@
 #include "ap_axi_sdata.h"
 #include "hls_stream.h"
 
-#define BASE_TYPE_LENGHTT 16
+#define BASE_TYPE_LENGHTT 8
 #define BASE_TYPEE ap_int< BASE_TYPE_LENGHTT >
 #define INPUT_LAYER_LENGHTT 8
 #define OUTPUT_LAYER_LENGHTT 8

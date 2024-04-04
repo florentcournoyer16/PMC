@@ -10,7 +10,7 @@ add_files src/RNI.cpp
 add_files inc/model_8_INPUT.h
 add_files -tb tb/input.csv -cflags "-Wno-unknown-pragmas"
 add_files -tb tb/tb.cpp -cflags "-Wno-unknown-pragmas"
-add_files -tb tb/tb_output.csv
+add_files -tb tb/tb_output.csv -cflags "-Wno-unknown-pragmas"
 open_solution "solution1" -flow_target vivado
 set_part {xc7z020-clg400-1}
 create_clock -period 10 -name default
