@@ -1,7 +1,7 @@
 from json import load
 from pathlib import Path
 from code_writer import write_code
-from header_writer import generate_cpp_header
+from header_writer import write_header
 
 FILE_NAME = 'model_8_INPUT.json'
 INPUT_FILE_PATH = Path(__file__).parent.absolute().joinpath(f'input/{FILE_NAME}')
@@ -16,7 +16,7 @@ def main():
         with open(INPUT_FILE_PATH, mode='r', encoding='utf8') as model_file:
             input_model_dict = load(model_file)
 
-        output_model_dict = generate_cpp_header(input_model_dict, OUTPUT_HEADER_PATH)
+        output_model_dict = write_header(input_model_dict, OUTPUT_HEADER_PATH)
         write_code(OUTPUT_CODE_PATH, NETWORK_NAME, output_model_dict)
     else:
         print("file doesn't exist")

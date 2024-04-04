@@ -1,4 +1,4 @@
-def generate_cpp_header(input_model_dict, header_filename, base_type_lenght = 8):
+def write_header(input_model_dict, header_filename, base_type_lenght = 8):
     output_model_dict = {
         "NEURONS_INDEX": [],
         "WEIGHTS_INDEX": [],
@@ -21,12 +21,25 @@ def generate_cpp_header(input_model_dict, header_filename, base_type_lenght = 8)
         header_file.write(f"#define BASE_TYPE_LENGHT {base_type_lenght}\n")
         header_file.write("#define BASE_TYPE ap_int< BASE_TYPE_LENGHT >\n\n")
 
+        index_type_lenght = 2
+        while (2**(index_type_lenght-1) < output_model_dict["WEIGHTS_INDEX"][-1]):
+            index_type_lenght = index_type_lenght * 2
+
+        header_file.write(f"#define INDEX_TYPE_LENGHT {index_type_lenght}\n")
+        header_file.write("#define INDEX_TYPE ap_int< INDEX_TYPE_LENGHT >\n\n")
+
         for key, values in output_model_dict.items():
-            header_file.write(f"BASE_TYPE {key}[{len(values)}] = {{ ")
+            type_str = "BASE_TYPE"
+            if "INDEX" in key:
+                type_str = "INDEX_TYPE"
+            header_file.write(f"{type_str} {key}[{len(values)}] = {{ ")
             for val in values:
                 header_file.write(f"{val}, ")
             header_file.write("};\n")
             header_file.write(f"#define {key}_LENGHT {len(values)}\n\n")
+
+        header_file.write(f"#define BASE_TYPE_MAX {2**(base_type_lenght-1)}\n")
+        header_file.write(f"#define INDEX_TYPE_MAX {2**(index_type_lenght-1)}\n\n")
 
         header_file.write(f"#define INPUT_LAYER_LENGHT {output_model_dict['WEIGHTS_INDEX'][1]}\n")
         output_layer_lenght = output_model_dict['NEURONS_INDEX'][-1] - output_model_dict['NEURONS_INDEX'][-2]
