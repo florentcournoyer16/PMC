@@ -94,11 +94,11 @@ void input_layer(BASE_TYPE input_list[INPUT_LAYER_LENGHT])
 		}
 		else if (NEURONS_MEMBRANE[neuron_index] < RESET_MECHANISM_VALS[layer_index])
 		{
-			NEURONS_MEMBRANE[neuron_index] += BETAS[layer_index];
+			NEURONS_MEMBRANE[neuron_index] += 1; //BETAS[layer_index];
 		}
 		else if (NEURONS_MEMBRANE[neuron_index] > RESET_MECHANISM_VALS[layer_index])
 		{
-			NEURONS_MEMBRANE[neuron_index] -= BETAS[layer_index];
+			NEURONS_MEMBRANE[neuron_index] -= 1; //BETAS[layer_index];
 		}
 	}
 }
@@ -133,11 +133,11 @@ void inner_layer(INDEX_TYPE layer_index)
 		}
 		else if (NEURONS_MEMBRANE[neuron_index] < RESET_MECHANISM_VALS[layer_index])
 		{
-			NEURONS_MEMBRANE[neuron_index] += BETAS[layer_index];
+			NEURONS_MEMBRANE[neuron_index] += 1; //BETAS[layer_index];
 		}
 		else if (NEURONS_MEMBRANE[neuron_index] > RESET_MECHANISM_VALS[layer_index])
 		{
-			NEURONS_MEMBRANE[neuron_index] -= BETAS[layer_index];
+			NEURONS_MEMBRANE[neuron_index] -= 1; //BETAS[layer_index];
 		}
 	}
 
@@ -177,11 +177,11 @@ void output_layer(BASE_TYPE output_list[OUTPUT_LAYER_LENGHT])
 		}
 		else if (NEURONS_MEMBRANE[neuron_index] < RESET_MECHANISM_VALS[layer_index])
 		{
-			NEURONS_MEMBRANE[neuron_index] += BETAS[layer_index];
+			NEURONS_MEMBRANE[neuron_index] += 1; //BETAS[layer_index];
 		}
 		else if (NEURONS_MEMBRANE[neuron_index] > RESET_MECHANISM_VALS[layer_index])
 		{
-			NEURONS_MEMBRANE[neuron_index] -= BETAS[layer_index];
+			NEURONS_MEMBRANE[neuron_index] -= 1; //BETAS[layer_index];
 		}
 	}
 
