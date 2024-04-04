@@ -10,12 +10,13 @@ add_files src/RNI.cpp
 add_files inc/model_8_INPUT.h
 add_files -tb tb/input.csv -cflags "-Wno-unknown-pragmas"
 add_files -tb tb/tb.cpp -cflags "-Wno-unknown-pragmas"
+add_files -tb tb/tb_output.csv
 open_solution "solution1" -flow_target vivado
 set_part {xc7z020-clg400-1}
 create_clock -period 10 -name default
 config_export -format ip_catalog -output /home/mohr0901/Documents/PMC/B_RNI_HLS/output -rtl verilog
 source "./RNI/solution1/directives.tcl"
-csim_design
+csim_design -clean
 csynth_design
 cosim_design
 export_design -rtl verilog -format ip_catalog -output /home/mohr0901/Documents/PMC/B_RNI_HLS/output

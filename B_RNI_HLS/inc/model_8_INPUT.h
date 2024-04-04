@@ -1,7 +1,7 @@
 #ifndef MODEL_H
 #define MODEL_H
 
-#define BASE_TYPE_LENGHT 8
+#define BASE_TYPE_LENGHT 16
 #define BASE_TYPE ap_int< BASE_TYPE_LENGHT >
 
 #define INDEX_TYPE_LENGHT 16

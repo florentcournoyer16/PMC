@@ -1,0 +1,138 @@
+
+
+================================================================
+== Vitis HLS Report for 'inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP'
+================================================================
+* Date:           Wed Apr  3 19:21:03 2024
+
+* Version:        2023.1.1 (Build 3869133 on Jun 15 2023)
+* Project:        RNI
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  4.145 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+----------+-----+-------+---------+
+    |  Latency (cycles) |  Latency (absolute)  |   Interval  | Pipeline|
+    |   min   |   max   |    min    |    max   | min |  max  |   Type  |
+    +---------+---------+-----------+----------+-----+-------+---------+
+    |        2|    65537|  20.000 ns|  0.655 ms|    2|  65537|       no|
+    +---------+---------+-----------+----------+-----+-------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------------------------+---------+---------+----------+-----------+-----------+-----------+----------+
+        |                            |  Latency (cycles) | Iteration|  Initiation Interval  |    Trip   |          |
+        |          Loop Name         |   min   |   max   |  Latency |  achieved |   target  |   Count   | Pipelined|
+        +----------------------------+---------+---------+----------+-----------+-----------+-----------+----------+
+        |- NEURONS_STATE_RESET_LOOP  |        0|    65535|         1|          1|          1|  0 ~ 65535|       yes|
+        +----------------------------+---------+---------+----------+-----------+-----------+-----------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|     28|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |        -|    -|       -|      -|    -|
+|Memory           |        -|    -|       -|      -|    -|
+|Multiplexer      |        -|    -|       -|     27|    -|
+|Register         |        -|    -|      11|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        0|    0|      11|     55|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      280|  220|  106400|  53200|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |        0|    0|      ~0|     ~0|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +---------------------+----------+----+---+----+------------+------------+
+    |    Variable Name    | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------+----------+----+---+----+------------+------------+
+    |add_ln144_fu_83_p2   |         +|   0|  0|  14|           9|           1|
+    |icmp_ln144_fu_72_p2  |      icmp|   0|  0|  14|           9|           9|
+    +---------------------+----------+----+---+----+------------+------------+
+    |Total                |          |   0|  0|  28|          18|          10|
+    +---------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +---------------------------------------+----+-----------+-----+-----------+
+    |                  Name                 | LUT| Input Size| Bits| Total Bits|
+    +---------------------------------------+----+-----------+-----+-----------+
+    |ap_done_int                            |   9|          2|    1|          2|
+    |ap_sig_allocacmp_neuron_state_index_2  |   9|          2|    9|         18|
+    |neuron_state_index_1_fu_34             |   9|          2|    9|         18|
+    +---------------------------------------+----+-----------+-----+-----------+
+    |Total                                  |  27|          6|   19|         38|
+    +---------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------------+---+----+-----+-----------+
+    |            Name            | FF| LUT| Bits| Const Bits|
+    +----------------------------+---+----+-----+-----------+
+    |ap_CS_fsm                   |  1|   0|    1|          0|
+    |ap_done_reg                 |  1|   0|    1|          0|
+    |neuron_state_index_1_fu_34  |  9|   0|    9|          0|
+    +----------------------------+---+----+-----+-----------+
+    |Total                       | 11|   0|   11|          0|
+    +----------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------+-----+-----+------------+-----------------------------------------------+--------------+
+|        RTL Ports       | Dir | Bits|  Protocol  |                 Source Object                 |    C Type    |
++------------------------+-----+-----+------------+-----------------------------------------------+--------------+
+|ap_clk                  |   in|    1|  ap_ctrl_hs|  inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP|  return value|
+|ap_rst                  |   in|    1|  ap_ctrl_hs|  inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP|  return value|
+|ap_start                |   in|    1|  ap_ctrl_hs|  inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP|  return value|
+|ap_done                 |  out|    1|  ap_ctrl_hs|  inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP|  return value|
+|ap_idle                 |  out|    1|  ap_ctrl_hs|  inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP|  return value|
+|ap_ready                |  out|    1|  ap_ctrl_hs|  inner_layer_Pipeline_NEURONS_STATE_RESET_LOOP|  return value|
+|neuron_state_index      |   in|    9|     ap_none|                             neuron_state_index|        scalar|
+|neuron_index            |   in|    9|     ap_none|                                   neuron_index|        scalar|
+|NEURONS_STATE_address0  |  out|    9|   ap_memory|                                  NEURONS_STATE|         array|
+|NEURONS_STATE_ce0       |  out|    1|   ap_memory|                                  NEURONS_STATE|         array|
+|NEURONS_STATE_we0       |  out|    1|   ap_memory|                                  NEURONS_STATE|         array|
+|NEURONS_STATE_d0        |  out|    1|   ap_memory|                                  NEURONS_STATE|         array|
++------------------------+-----+-----+------------+-----------------------------------------------+--------------+
+
