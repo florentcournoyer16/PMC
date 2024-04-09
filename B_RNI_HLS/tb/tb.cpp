@@ -10,13 +10,24 @@
 #define INPUT_LAYER_LENGHTT 8
 #define OUTPUT_LAYER_LENGHTT 8
 #define WINDOW_LENGHT 128
-#define INPUT_FILENAME "input.csv"
+#define INPUT_FILENAME "inputs.csv"
 #define OUTPUT_FILENAME "../../../../tb/tb_output.csv"
 
 void RNI (
 	hls::stream< ap_axis< INPUT_LAYER_LENGHTT, 2, 5, 6 > > &input_stream,
 	hls::stream< ap_axis< OUTPUT_LAYER_LENGHTT, 2, 5, 6 > > &output_stream
 );
+
+void printBinary(unsigned char num) {
+    for(int i = 7; i >= 0; i--) {
+        // Check if the bit is set or not
+        if(num & (1 << i))
+            std::cout << "1";
+        else
+            std::cout << "0";
+    }
+    std::cout << ',';
+}
 
 int main(void)
 {
@@ -41,11 +52,19 @@ int main(void)
 		col = 0;
 		input_buffer[row].data = 0b00000000;
 		input_buffer[row].last = false;
-		while ((c = fgetc(input_file)) != '\n' && col < INPUT_LAYER_LENGHTT) {
-			if (c == '1')
+		while (col < INPUT_LAYER_LENGHTT) {
+			c = fgetc(input_file);
+			if(c == '1')
 				input_buffer[row].data |= BASE_TYPEE(0b1 << col);
-			if (c == ',')
+			else if (c == ',')
 				col++;
+			if (col == INPUT_LAYER_LENGHTT - 1)
+			{
+				c = fgetc(input_file);
+				if(c == '1')
+					input_buffer[row].data |= BASE_TYPEE(0b1 << col);
+				col++;
+			}
 		}
 		row++;
     }
@@ -53,7 +72,7 @@ int main(void)
 
 	std::cout << "csv file inputs: " << std::endl;
 	for (int row = 0; row < WINDOW_LENGHT; row++) {
-		std::cout << input_buffer[row].data.to_int() << ", ";
+		printBinary(input_buffer[row].data.to_char());
 	}
 	input_buffer[WINDOW_LENGHT-1].last = true;
 	std::cout << std::endl;
@@ -74,7 +93,7 @@ int main(void)
 
 	std::cout << "RNI outputs: " << std::endl;
 	for (int row = 0; row < WINDOW_LENGHT; row++)
-		std::cout << output_buffer[row].data.to_int() << ", ";
+		printBinary(output_buffer[row].data.to_char());
 	std::cout << std::endl;
 
 	FILE* output_file = fopen(OUTPUT_FILENAME, "w");

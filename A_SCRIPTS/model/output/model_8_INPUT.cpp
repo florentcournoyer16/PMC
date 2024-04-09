@@ -74,32 +74,15 @@ void input_layer(BASE_TYPE input_list[INPUT_LAYER_LENGHT])
 	{
 		WEIGHTS_LOOP: for(INDEX_TYPE weight_index = WEIGHTS_INDEX[neuron_index]; weight_index < WEIGHTS_INDEX[neuron_index + 1]; weight_index++)
 		{
-			BASE_TYPE membrane_current = NEURONS_MEMBRANE[neuron_index];
-			BASE_TYPE membrane_add = WEIGHTS[weight_index] * input_list[weight_index % INPUT_LAYER_LENGHT];
-			BASE_TYPE membrane_total = membrane_current + membrane_add;
-
-			if((membrane_current >> BASE_TYPE_LENGHT) == (membrane_add >> BASE_TYPE_LENGHT))
-			{
-				if(membrane_total >> BASE_TYPE_LENGHT != membrane_current >> BASE_TYPE_LENGHT)
-				{
-					membrane_total = (membrane_current & (1 << BASE_TYPE_LENGHT)) | BASE_TYPE_MAX - 1;
-				}
-			}
-			NEURONS_MEMBRANE[neuron_index] = membrane_total;
+			if(NEURONS_MEMBRANE[neuron_index] < THRESHOLDS[layer_index])
+				NEURONS_MEMBRANE[neuron_index] = NEURONS_MEMBRANE[neuron_index]*BETAS[layer_index] + WEIGHTS[weight_index] * input_list[weight_index % INPUT_LAYER_LENGHT];
 		}
 		if(NEURONS_MEMBRANE[neuron_index] > THRESHOLDS[layer_index])
 		{
 			NEURONS_STATE[neuron_index] = 1;
 			NEURONS_MEMBRANE[neuron_index] = RESET_MECHANISM_VALS[layer_index];
 		}
-		else if (NEURONS_MEMBRANE[neuron_index] < RESET_MECHANISM_VALS[layer_index])
-		{
-			NEURONS_MEMBRANE[neuron_index] += BETAS[layer_index];
-		}
-		else if (NEURONS_MEMBRANE[neuron_index] > RESET_MECHANISM_VALS[layer_index])
-		{
-			NEURONS_MEMBRANE[neuron_index] -= BETAS[layer_index];
-		}
+
 	}
 }
 
@@ -112,32 +95,14 @@ void inner_layer(INDEX_TYPE layer_index)
 			BASE_TYPE neuron_state = NEURONS_STATE[NEURONS_INDEX[layer_index - 1] + weight_index - WEIGHTS_INDEX[neuron_index]];
 			if(neuron_state == 1)
 			{
-				BASE_TYPE membrane_current = NEURONS_MEMBRANE[neuron_index];
-				BASE_TYPE membrane_add = WEIGHTS[weight_index];
-				BASE_TYPE membrane_total = membrane_current + membrane_total;
-		
-				if((membrane_current >> BASE_TYPE_LENGHT) == (membrane_add >> BASE_TYPE_LENGHT))
-				{
-					if(membrane_total >> BASE_TYPE_LENGHT != membrane_current >> BASE_TYPE_LENGHT)
-					{
-						membrane_total = (membrane_current & (1 << BASE_TYPE_LENGHT)) | BASE_TYPE_MAX - 1;
-					}
-				}
-				NEURONS_MEMBRANE[neuron_index] = membrane_total;
+				if(NEURONS_MEMBRANE[neuron_index] < THRESHOLDS[layer_index])
+					NEURONS_MEMBRANE[neuron_index] = NEURONS_MEMBRANE[neuron_index]*BETAS[layer_index] + WEIGHTS[weight_index];
 			}
 		}
 		if(NEURONS_MEMBRANE[neuron_index] > THRESHOLDS[layer_index])
 		{
 			NEURONS_STATE[neuron_index] = 1;
 			NEURONS_MEMBRANE[neuron_index] = RESET_MECHANISM_VALS[layer_index];
-		}
-		else if (NEURONS_MEMBRANE[neuron_index] < RESET_MECHANISM_VALS[layer_index])
-		{
-			NEURONS_MEMBRANE[neuron_index] += BETAS[layer_index];
-		}
-		else if (NEURONS_MEMBRANE[neuron_index] > RESET_MECHANISM_VALS[layer_index])
-		{
-			NEURONS_MEMBRANE[neuron_index] -= BETAS[layer_index];
 		}
 	}
 
@@ -155,33 +120,14 @@ void output_layer(BASE_TYPE output_list[OUTPUT_LAYER_LENGHT])
 			BASE_TYPE neuron_state = NEURONS_STATE[NEURONS_INDEX[layer_index - 1] + weight_index - WEIGHTS_INDEX[neuron_index]];
 			if(neuron_state == 1)
 			{
-				BASE_TYPE membrane_current = NEURONS_MEMBRANE[neuron_index];
-				BASE_TYPE membrane_add = WEIGHTS[weight_index];
-				BASE_TYPE membrane_total = membrane_current + membrane_total;
-
-				if((membrane_current >> BASE_TYPE_LENGHT) == (membrane_add >> BASE_TYPE_LENGHT))
-				{
-					if(membrane_total >> BASE_TYPE_LENGHT != membrane_current >> BASE_TYPE_LENGHT)
-					{
-						membrane_total = (membrane_current & (1 << BASE_TYPE_LENGHT)) | BASE_TYPE_MAX - 1;
-					}
-				}
-				NEURONS_MEMBRANE[neuron_index] = membrane_total;
+				if(NEURONS_MEMBRANE[neuron_index] < THRESHOLDS[layer_index])
+					NEURONS_MEMBRANE[neuron_index] = NEURONS_MEMBRANE[neuron_index]*BETAS[layer_index] + WEIGHTS[weight_index];
 			}
 		}
 		if(NEURONS_MEMBRANE[neuron_index] > THRESHOLDS[layer_index])
 		{
-			
 			NEURONS_MEMBRANE[neuron_index] = RESET_MECHANISM_VALS[layer_index];
 			output_list[neuron_index % OUTPUT_LAYER_LENGHT] = 1;
-		}
-		else if (NEURONS_MEMBRANE[neuron_index] < RESET_MECHANISM_VALS[layer_index])
-		{
-			NEURONS_MEMBRANE[neuron_index] += BETAS[layer_index];
-		}
-		else if (NEURONS_MEMBRANE[neuron_index] > RESET_MECHANISM_VALS[layer_index])
-		{
-			NEURONS_MEMBRANE[neuron_index] -= BETAS[layer_index];
 		}
 	}
 

@@ -34404,7 +34404,7 @@ private:
 # 8 "src/RNI.cpp" 2
 
 # 1 "src/../inc/model_8_INPUT.h" 1
-# 10 "src/../inc/model_8_INPUT.h"
+# 11 "src/../inc/model_8_INPUT.h"
 ap_int< 16 > NEURONS_INDEX[7] = { 0, 128, 192, 224, 288, 416, 424, };
 
 
@@ -34429,7 +34429,7 @@ ap_int< 8 > RESET_MECHANISM_VALS[6] = { 0, 0, 0, 0, 0, 0, };
 ap_int< 8 > BETAS[6] = { 69, 69, 69, 69, 69, 69, };
 
 
-ap_int< 8 > NEURONS_MEMBRANE[424] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, };
+ap_int< 8 + 1 > NEURONS_MEMBRANE[424] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, };
 
 
 ap_int< 8 > NEURONS_STATE[424] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, };
@@ -34444,7 +34444,7 @@ __attribute__((sdx_kernel("RNI", 0))) void RNI (
  hls::stream< ap_axis< 8, 2, 5, 6 > > &output_stream
 )
 {
-#line 18 "/home/mohr0901/Documents/PMC/B_RNI_HLS/RNI/solution1/csynth.tcl"
+#line 19 "/home/mohr0901/Documents/PMC/B_RNI_HLS/RNI/solution1/csynth.tcl"
 #pragma HLSDIRECTIVE TOP name=RNI
 # 19 "src/RNI.cpp"
 
@@ -34456,38 +34456,25 @@ __attribute__((sdx_kernel("RNI", 0))) void RNI (
 #pragma HLS INTERFACE mode=axis port=input_stream
 #pragma HLS INTERFACE mode=axis port=output_stream
 
-
- VITIS_LOOP_25_1: while(true)
+ VITIS_LOOP_24_1: while(true)
  {
   ap_axis< 8, 2, 5, 6 > input_buffer;
   input_buffer.data = 0;
   input_stream.read(input_buffer);
 
   ap_int< 8 > input_list[8] = { 0 };
-  std::cout << "RNI inputs: " << std::endl;
-  VITIS_LOOP_33_2: for(ap_int< 8 > i = 0; i < 8; i++)
+  VITIS_LOOP_31_2: for(ap_int< 8 > i = 0; i < 8; i++)
   {
    input_list[i] = (input_buffer.data.to_int() >> i) & 0x01;
-   std::cout << input_list[i] << ", ";
   }
-  std::cout << std::endl;
-
 
   ap_int< 8 > output_list[8] = { 0 };
-  VITIS_LOOP_42_3: for (int i = 0; i < 8; i++)
+  VITIS_LOOP_37_3: for (int i = 0; i < 8; i++)
   {
    output_list[i] = 0;
   }
 
-  std::cout << "output_list: " << std::endl;
-  VITIS_LOOP_48_4: for(ap_int< 8 > i = 0; i < 8; i++)
-  {
-   std::cout << output_list[i] << ", ";
-  }
-  std::cout << std::endl;
-
   input_layer(input_list);
-
   inner_layer(1);
   inner_layer(2);
   inner_layer(3);
@@ -34495,19 +34482,15 @@ __attribute__((sdx_kernel("RNI", 0))) void RNI (
 
   output_layer(output_list);
 
-  std::cout << "RNI outputs: " << std::endl;
   ap_axis< 8, 2, 5, 6 > output_buffer;
   output_buffer.data = 0;
-  VITIS_LOOP_66_5: for(ap_int< 8 > i = 0; i < 8; i++)
+  VITIS_LOOP_52_4: for(ap_int< 8 > i = 0; i < 8; i++)
   {
-   std::cout << output_list[i] << ", ";
    if(output_list[i] == 1)
    {
-    std::cout << "Ca lag en tabarnak vitis HLS";
-    output_buffer.data |= 0x01 << i;
+    output_buffer.data |= ap_int< 8 >(0x01 << i);
    }
   }
-  std::cout << std::endl;
 
   output_stream.write(output_buffer);
 
@@ -34516,7 +34499,6 @@ __attribute__((sdx_kernel("RNI", 0))) void RNI (
    break;
   }
  }
- std::cout << std::endl;
 }
 
 
@@ -34525,25 +34507,18 @@ void input_layer(ap_int< 8 > input_list[8])
  ap_int< 16 > layer_index = 0;
  NEURONS_LOOP: for(ap_int< 16 > neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1]; neuron_index++)
  {
+  NEURONS_MEMBRANE[neuron_index] = NEURONS_MEMBRANE[neuron_index]>>1 + NEURONS_MEMBRANE[neuron_index]>>2;
   WEIGHTS_LOOP: for(ap_int< 16 > weight_index = WEIGHTS_INDEX[neuron_index]; weight_index < WEIGHTS_INDEX[neuron_index + 1]; weight_index++)
   {
-   ap_int< 8 > temp = NEURONS_MEMBRANE[neuron_index + (WEIGHTS[weight_index] * input_list[weight_index % 8])];
-   NEURONS_MEMBRANE[neuron_index] = temp;
+   if(NEURONS_MEMBRANE[neuron_index] < THRESHOLDS[layer_index])
+    NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index] * input_list[weight_index % 8];
   }
   if(NEURONS_MEMBRANE[neuron_index] > THRESHOLDS[layer_index])
   {
-   std::cout << "je passse par ici" << std::endl;
    NEURONS_STATE[neuron_index] = 1;
    NEURONS_MEMBRANE[neuron_index] = RESET_MECHANISM_VALS[layer_index];
   }
-  else if (NEURONS_MEMBRANE[neuron_index] < RESET_MECHANISM_VALS[layer_index])
-  {
-   NEURONS_MEMBRANE[neuron_index] += BETAS[layer_index];
-  }
-  else if (NEURONS_MEMBRANE[neuron_index] > RESET_MECHANISM_VALS[layer_index])
-  {
-   NEURONS_MEMBRANE[neuron_index] -= BETAS[layer_index];
-  }
+
  }
 }
 
@@ -34551,28 +34526,20 @@ void inner_layer(ap_int< 16 > layer_index)
 {
  NEURONS_LOOP: for(ap_int< 16 > neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1]; neuron_index++)
  {
+  NEURONS_MEMBRANE[neuron_index] = NEURONS_MEMBRANE[neuron_index]>>1 + NEURONS_MEMBRANE[neuron_index]>>2;
   WEIGHTS_LOOP: for(ap_int< 16 > weight_index = WEIGHTS_INDEX[neuron_index]; weight_index < WEIGHTS_INDEX[neuron_index + 1]; weight_index++)
   {
    ap_int< 8 > neuron_state = NEURONS_STATE[NEURONS_INDEX[layer_index - 1] + weight_index - WEIGHTS_INDEX[neuron_index]];
    if(neuron_state == 1)
    {
-    ap_int< 8 > temp = NEURONS_MEMBRANE[neuron_index] + WEIGHTS[weight_index];
-    NEURONS_MEMBRANE[neuron_index] = temp;
+    if(NEURONS_MEMBRANE[neuron_index] < THRESHOLDS[layer_index])
+     NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
    }
   }
   if(NEURONS_MEMBRANE[neuron_index] > THRESHOLDS[layer_index])
   {
-   std::cout << "je passse par ici" << std::endl;
    NEURONS_STATE[neuron_index] = 1;
    NEURONS_MEMBRANE[neuron_index] = RESET_MECHANISM_VALS[layer_index];
-  }
-  else if (NEURONS_MEMBRANE[neuron_index] < RESET_MECHANISM_VALS[layer_index])
-  {
-   NEURONS_MEMBRANE[neuron_index] += BETAS[layer_index];
-  }
-  else if (NEURONS_MEMBRANE[neuron_index] > RESET_MECHANISM_VALS[layer_index])
-  {
-   NEURONS_MEMBRANE[neuron_index] -= BETAS[layer_index];
   }
  }
 
@@ -34585,28 +34552,20 @@ void output_layer(ap_int< 8 > output_list[8])
  ap_int< 16 > layer_index = 7 - 2;
  NEURONS_LOOP: for(ap_int< 16 > neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1]; neuron_index++)
  {
+  NEURONS_MEMBRANE[neuron_index] = NEURONS_MEMBRANE[neuron_index]>>1 + NEURONS_MEMBRANE[neuron_index]>>2;
   WEIGHTS_LOOP: for(ap_int< 16 > weight_index = WEIGHTS_INDEX[neuron_index]; weight_index < WEIGHTS_INDEX[neuron_index + 1]; weight_index++)
   {
    ap_int< 8 > neuron_state = NEURONS_STATE[NEURONS_INDEX[layer_index - 1] + weight_index - WEIGHTS_INDEX[neuron_index]];
    if(neuron_state == 1)
    {
-    ap_int< 8 > temp = NEURONS_MEMBRANE[neuron_index] + WEIGHTS[weight_index];
-    NEURONS_MEMBRANE[neuron_index] = temp;
+    if(NEURONS_MEMBRANE[neuron_index] < THRESHOLDS[layer_index])
+     NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
    }
   }
   if(NEURONS_MEMBRANE[neuron_index] > THRESHOLDS[layer_index])
   {
-   std::cout << "je passse par ici" << std::endl;
    NEURONS_MEMBRANE[neuron_index] = RESET_MECHANISM_VALS[layer_index];
    output_list[neuron_index % 8] = 1;
-  }
-  else if (NEURONS_MEMBRANE[neuron_index] < RESET_MECHANISM_VALS[layer_index])
-  {
-   NEURONS_MEMBRANE[neuron_index] += BETAS[layer_index];
-  }
-  else if (NEURONS_MEMBRANE[neuron_index] > RESET_MECHANISM_VALS[layer_index])
-  {
-   NEURONS_MEMBRANE[neuron_index] -= BETAS[layer_index];
   }
  }
 
