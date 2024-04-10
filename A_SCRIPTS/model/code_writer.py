@@ -90,7 +90,7 @@ void RNI (
 		if(input_buffer.last)
 			break;
 	}
- """)
+""")
 
 # -----------------------------------------------
 # DEBUGGING PROBE OUTPUT
@@ -98,18 +98,20 @@ void RNI (
 
     if add_probe:
         code.append("""
-FILE* probe_file = fopen(MEMBRANE_PROBE_OUTPUT_FILEPATH, "w");
-if (probe_file == NULL)
-{
-	std::cout << "Error opening probe file" << std::endl;
-	return;
-}
-for(INDEX_TYPE i = 0; i < MEMBRANE_PROBE_CURRENT_INDEX; i++)
-{
-	fprintf(probe_file, "%d\n", MEMBRANE_PROBE[i]); // ask charles
-}
-fclose(probe_file);
+    FILE* probe_file = fopen(MEMBRANE_PROBE_OUTPUT_FILEPATH, "w");
+    if (probe_file == NULL)
+    {
+        std::cout << "Error opening probe file" << std::endl;
+        return;
+    }
+    for(INDEX_TYPE i = 0; i < MEMBRANE_PROBE_CURRENT_INDEX; i++)
+    {
+        fprintf(probe_file, "%d\\n", MEMBRANE_PROBE[i]);
+    }
+    fclose(probe_file);
 """)
+
+    code.append("}\n")
 
 # -----------------------------------------------
 # INPUT LAYER
