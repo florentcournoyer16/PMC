@@ -1,14 +1,18 @@
-def write_code(code_filename, network_name, output_model_dict, add_probe = False):
+def write_code(code_filename, network_name, output_model_dict, add_membrane_probe = False):
     code = []
 
 # -----------------------------------------------
 # INCLUDES
 # -----------------------------------------------
 
-    code.append(f"""
+    if add_membrane_probe:
+        code.append("""
 #include <iostream>
+#include <fstream>
 #include <stdio.h>
+""")
 
+    code.append(f"""
 #include "ap_axi_sdata.h"
 #include "hls_stream.h"
 #include "ap_int.h"
@@ -17,10 +21,15 @@ def write_code(code_filename, network_name, output_model_dict, add_probe = False
 
 """)
 
+    if add_membrane_probe:
+        code.append("ofstream probe_file;\n\n")
+
 # -----------------------------------------------
 # FUNCTION DECLARATIONS
 # -----------------------------------------------
 
+    if add_membrane_probe:
+        code.append("void write_probe_file(void);\n")
     code.append("void input_layer(WEIGHT_TYPE input_list[INPUT_LAYER_LENGHT]);\n")
     for i in range(1, len(output_model_dict['NEURONS_INDEX'])-2):
         code.append(f"void inner_layer_{i}();\n")
@@ -37,6 +46,11 @@ void RNI (
 )
 {
 
+""")
+    if add_membrane_probe:
+        code.append("\tprobe_file.open(MEMBRANE_PROBE_OUTPUT_FILEPATH);\n")
+
+    code.append("""
 #pragma HLS INTERFACE mode=axis port=input_stream
 #pragma HLS INTERFACE mode=axis port=output_stream
 
@@ -90,25 +104,34 @@ void RNI (
 		if(input_buffer.last)
 			break;
 	}
+
+""")
+
+    if add_membrane_probe:
+        code.append("\twrite_probe_file();\n")
+        code.append("\tprobe_file.close();\n")
+
+    code.append("""
+    return;
+}
 """)
 
 # -----------------------------------------------
 # DEBUGGING PROBE OUTPUT
 # -----------------------------------------------
 
-    if add_probe:
+    if add_membrane_probe:
         code.append("""
-    FILE* probe_file = fopen(MEMBRANE_PROBE_OUTPUT_FILEPATH, "w");
+void write_probe_file(void)
+{
     if (probe_file == NULL)
     {
-        std::cout << "Error opening probe file" << std::endl;
+        std::cout << "Error with probe file" << std::endl;
         return;
     }
     for(INDEX_TYPE i = 0; i < MEMBRANE_PROBE_CURRENT_INDEX; i++)
-    {
-        fprintf(probe_file, "%d\\n", MEMBRANE_PROBE[i]);
-    }
-    fclose(probe_file);
+        probe_file << MEMBRANE_PROBE[i] << ",\\n";
+    MEMBRANE_PROBE_CURRENT_INDEX = 0;
 """)
 
     code.append("}\n")
@@ -131,10 +154,12 @@ void input_layer(WEIGHT_TYPE input_list[INPUT_LAYER_LENGHT])
 		}
 """)
 
-    if add_probe:
+    if add_membrane_probe:
         code.append("""
             if(neuron_index == MEMBRANE_PROBE_NEURON_INDEX)
             {
+                if(MEMBRANE_PROBE_NEURON_INDEX == MEMBRANE_PROBE_LENGHT-1)
+                    write_probe_file();
                 MEMBRANE_PROBE[MEMBRANE_PROBE_CURRENT_INDEX] = NEURONS_MEMBRANE[neuron_index];
                 MEMBRANE_PROBE_CURRENT_INDEX++; 
             }
@@ -171,10 +196,12 @@ void input_layer(WEIGHT_TYPE input_list[INPUT_LAYER_LENGHT])
 				NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
 		}
 """)
-        if add_probe:
+        if add_membrane_probe:
             code.append("""
         if(neuron_index == MEMBRANE_PROBE_NEURON_INDEX)
 		{
+            if(MEMBRANE_PROBE_NEURON_INDEX == MEMBRANE_PROBE_LENGHT-1)
+                write_probe_file();
 			MEMBRANE_PROBE[MEMBRANE_PROBE_CURRENT_INDEX] = NEURONS_MEMBRANE[neuron_index];
 			MEMBRANE_PROBE_CURRENT_INDEX++; 
 		}
@@ -213,10 +240,12 @@ void output_layer(WEIGHT_TYPE output_list[OUTPUT_LAYER_LENGHT])
 		}
     """)
 
-    if add_probe:
+    if add_membrane_probe:
         code.append("""
         if(neuron_index == MEMBRANE_PROBE_NEURON_INDEX)
 		{
+            if(MEMBRANE_PROBE_NEURON_INDEX == MEMBRANE_PROBE_LENGHT-1)
+                write_probe_file();
 			MEMBRANE_PROBE[MEMBRANE_PROBE_CURRENT_INDEX] = NEURONS_MEMBRANE[neuron_index];
 			MEMBRANE_PROBE_CURRENT_INDEX++; 
 		}

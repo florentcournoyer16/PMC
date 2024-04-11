@@ -1,4 +1,4 @@
-def write_header(input_model_dict, header_filename, weight_type_lenght = 8, membrane_type_lenght = 16, add_probe = False, probe_lenght = 200):
+def write_header(input_model_dict, header_filename, weight_type_lenght = 8, membrane_type_lenght = 16, add_membrane_probe = False, membrane_probe_lenght = 200):
     output_model_dict = {
         "NEURONS_INDEX": [],
         "WEIGHTS_INDEX": [],
@@ -55,12 +55,12 @@ def write_header(input_model_dict, header_filename, weight_type_lenght = 8, memb
         output_layer_lenght = output_model_dict['NEURONS_INDEX'][-1] - output_model_dict['NEURONS_INDEX'][-2]
         header_file.write(f"#define OUTPUT_LAYER_LENGHT {output_layer_lenght}\n\n")
 
-        if add_probe:
-            header_file.write(f"MEMBRANE_TYPE MEMBRANE_PROBE[{probe_lenght}] = {{ ")
-            for _ in range(probe_lenght):
+        if add_membrane_probe:
+            header_file.write(f"MEMBRANE_TYPE MEMBRANE_PROBE[{membrane_probe_lenght}] = {{ ")
+            for _ in range(membrane_probe_lenght):
                 header_file.write(f"{0}, ")
             header_file.write("};\n")
-            header_file.write(f"#define MEMBRANE_PROBE_LENGHT {probe_lenght}\n")
+            header_file.write(f"#define MEMBRANE_PROBE_LENGHT {membrane_probe_lenght}\n")
             header_file.write(f"#define MEMBRANE_PROBE_NEURON_INDEX {1}\n")
             header_file.write('#define MEMBRANE_PROBE_OUTPUT_FILEPATH "../../../../tb/sonde_output.txt"\n')
             header_file.write(f"INDEX_TYPE MEMBRANE_PROBE_CURRENT_INDEX = {0};\n\n")
