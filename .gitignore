@@ -105,3 +105,4 @@ proj/
 !A_SCRIPTS/**
 !D_RNI_TEST/**
 !README.md
+!*.ccf

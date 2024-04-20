@@ -156,13 +156,13 @@ void input_layer(WEIGHT_TYPE input_list[INPUT_LAYER_LENGHT])
 
     if add_membrane_probe:
         code.append("""
-            if(neuron_index == MEMBRANE_PROBE_NEURON_INDEX)
-            {
-                if(MEMBRANE_PROBE_NEURON_INDEX == MEMBRANE_PROBE_LENGHT-1)
-                    write_probe_file();
-                MEMBRANE_PROBE[MEMBRANE_PROBE_CURRENT_INDEX] = NEURONS_MEMBRANE[neuron_index];
-                MEMBRANE_PROBE_CURRENT_INDEX++; 
-            }
+		if(neuron_index == MEMBRANE_PROBE_NEURON_INDEX)
+		{
+			if(MEMBRANE_PROBE_NEURON_INDEX == MEMBRANE_PROBE_LENGHT-1)
+				write_probe_file();
+			MEMBRANE_PROBE[MEMBRANE_PROBE_CURRENT_INDEX] = NEURONS_MEMBRANE[neuron_index];
+			MEMBRANE_PROBE_CURRENT_INDEX++; 
+		}
 """)
 
     code.append("""
