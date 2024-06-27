@@ -6,7 +6,7 @@ from header_writer import write_header
 FILE_NAME = 'model_8_INPUT.json'
 WEIGHT_TYPE_LENGHT = 8
 MEMBRANE_TYPE_LENGHT = WEIGHT_TYPE_LENGHT * 2
-ADD_MEMBRANE_PROBE = True
+ADD_MEMBRANE_PROBE = False
 MEMBRANE_PROBE_LENGHT = 200
 
 INPUT_FILE_PATH = Path(__file__).parent.absolute().joinpath(f'input/{FILE_NAME}')

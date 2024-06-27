@@ -1,17 +1,10 @@
 
-#include <iostream>
-#include <fstream>
-#include <stdio.h>
-
 #include "ap_axi_sdata.h"
 #include "hls_stream.h"
 #include "ap_int.h"
 
 #include "../inc/model_8_INPUT.h"
 
-ofstream probe_file;
-
-void write_probe_file(void);
 void input_layer(WEIGHT_TYPE input_list[INPUT_LAYER_LENGHT]);
 void inner_layer_1();
 void inner_layer_2();
@@ -26,7 +19,6 @@ void RNI (
 )
 {
 
-	probe_file.open(MEMBRANE_PROBE_OUTPUT_FILEPATH);
 
 #pragma HLS INTERFACE mode=axis port=input_stream
 #pragma HLS INTERFACE mode=axis port=output_stream
@@ -73,22 +65,7 @@ void RNI (
 			break;
 	}
 
-	write_probe_file();
-	probe_file.close();
-
     return;
-}
-
-void write_probe_file(void)
-{
-    if (probe_file == NULL)
-    {
-        std::cout << "Error with probe file" << std::endl;
-        return;
-    }
-    for(INDEX_TYPE i = 0; i < MEMBRANE_PROBE_CURRENT_INDEX; i++)
-        probe_file << MEMBRANE_PROBE[i] << ",\n";
-    MEMBRANE_PROBE_CURRENT_INDEX = 0;
 }
 
 void input_layer(WEIGHT_TYPE input_list[INPUT_LAYER_LENGHT])
@@ -101,14 +78,6 @@ void input_layer(WEIGHT_TYPE input_list[INPUT_LAYER_LENGHT])
 		WEIGHTS_LOOP: for(INDEX_TYPE weight_index = WEIGHTS_INDEX[neuron_index]; weight_index < WEIGHTS_INDEX[neuron_index + 1]; weight_index++)
 		{
 			NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index] * input_list[weight_index % INPUT_LAYER_LENGHT];
-		}
-
-		if(neuron_index == MEMBRANE_PROBE_NEURON_INDEX)
-		{
-			if(MEMBRANE_PROBE_NEURON_INDEX == MEMBRANE_PROBE_LENGHT-1)
-				write_probe_file();
-			MEMBRANE_PROBE[MEMBRANE_PROBE_CURRENT_INDEX] = NEURONS_MEMBRANE[neuron_index];
-			MEMBRANE_PROBE_CURRENT_INDEX++; 
 		}
 
         if(NEURONS_MEMBRANE[neuron_index] > THRESHOLDS[layer_index])
@@ -131,14 +100,6 @@ void inner_layer_1(void)
 			ap_int< 2 > neuron_state = NEURONS_STATE[NEURONS_INDEX[layer_index - 1] + weight_index - WEIGHTS_INDEX[neuron_index]];
 			if(neuron_state == 1)
 				NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
-		}
-
-        if(neuron_index == MEMBRANE_PROBE_NEURON_INDEX)
-		{
-            if(MEMBRANE_PROBE_NEURON_INDEX == MEMBRANE_PROBE_LENGHT-1)
-                write_probe_file();
-			MEMBRANE_PROBE[MEMBRANE_PROBE_CURRENT_INDEX] = NEURONS_MEMBRANE[neuron_index];
-			MEMBRANE_PROBE_CURRENT_INDEX++; 
 		}
 
         if(NEURONS_MEMBRANE[neuron_index] > THRESHOLDS[layer_index])
@@ -165,14 +126,6 @@ void inner_layer_2(void)
 				NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
 		}
 
-        if(neuron_index == MEMBRANE_PROBE_NEURON_INDEX)
-		{
-            if(MEMBRANE_PROBE_NEURON_INDEX == MEMBRANE_PROBE_LENGHT-1)
-                write_probe_file();
-			MEMBRANE_PROBE[MEMBRANE_PROBE_CURRENT_INDEX] = NEURONS_MEMBRANE[neuron_index];
-			MEMBRANE_PROBE_CURRENT_INDEX++; 
-		}
-
         if(NEURONS_MEMBRANE[neuron_index] > THRESHOLDS[layer_index])
 		{
 			NEURONS_STATE[neuron_index] = 1;
@@ -197,14 +150,6 @@ void inner_layer_3(void)
 				NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
 		}
 
-        if(neuron_index == MEMBRANE_PROBE_NEURON_INDEX)
-		{
-            if(MEMBRANE_PROBE_NEURON_INDEX == MEMBRANE_PROBE_LENGHT-1)
-                write_probe_file();
-			MEMBRANE_PROBE[MEMBRANE_PROBE_CURRENT_INDEX] = NEURONS_MEMBRANE[neuron_index];
-			MEMBRANE_PROBE_CURRENT_INDEX++; 
-		}
-
         if(NEURONS_MEMBRANE[neuron_index] > THRESHOLDS[layer_index])
 		{
 			NEURONS_STATE[neuron_index] = 1;
@@ -227,14 +172,6 @@ void inner_layer_4(void)
 			ap_int< 2 > neuron_state = NEURONS_STATE[NEURONS_INDEX[layer_index - 1] + weight_index - WEIGHTS_INDEX[neuron_index]];
 			if(neuron_state == 1)
 				NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
-		}
-
-        if(neuron_index == MEMBRANE_PROBE_NEURON_INDEX)
-		{
-            if(MEMBRANE_PROBE_NEURON_INDEX == MEMBRANE_PROBE_LENGHT-1)
-                write_probe_file();
-			MEMBRANE_PROBE[MEMBRANE_PROBE_CURRENT_INDEX] = NEURONS_MEMBRANE[neuron_index];
-			MEMBRANE_PROBE_CURRENT_INDEX++; 
 		}
 
         if(NEURONS_MEMBRANE[neuron_index] > THRESHOLDS[layer_index])
@@ -262,21 +199,15 @@ void output_layer(WEIGHT_TYPE output_list[OUTPUT_LAYER_LENGHT])
 				NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
 		}
     
-        if(neuron_index == MEMBRANE_PROBE_NEURON_INDEX)
-		{
-            if(MEMBRANE_PROBE_NEURON_INDEX == MEMBRANE_PROBE_LENGHT-1)
-                write_probe_file();
-			MEMBRANE_PROBE[MEMBRANE_PROBE_CURRENT_INDEX] = NEURONS_MEMBRANE[neuron_index];
-			MEMBRANE_PROBE_CURRENT_INDEX++; 
-		}
-
         if(NEURONS_MEMBRANE[neuron_index] > THRESHOLDS[layer_index])
 		{
 			NEURONS_STATE[neuron_index] = 1;
 			NEURONS_MEMBRANE[neuron_index] = RESET_MECHANISM_VALS[layer_index];
+			output_list[neuron_index % OUTPUT_LAYER_LENGHT] = 1;
 		}
 	}
 
 	NEURONS_STATE_RESET_LOOP: for(INDEX_TYPE neuron_state_index = NEURONS_INDEX[layer_index - 1]; neuron_state_index < NEURONS_INDEX[layer_index];  neuron_state_index++)
 		NEURONS_STATE[neuron_state_index] = 0;
 }
+

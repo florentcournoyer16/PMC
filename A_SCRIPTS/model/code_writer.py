@@ -22,7 +22,7 @@ def write_code(code_filename, network_name, output_model_dict, add_membrane_prob
 """)
 
     if add_membrane_probe:
-        code.append("ofstream probe_file;\n\n")
+        code.append("std::ofstream probe_file;\n\n")
 
 # -----------------------------------------------
 # FUNCTION DECLARATIONS
@@ -104,11 +104,10 @@ void RNI (
 		if(input_buffer.last)
 			break;
 	}
-
 """)
 
     if add_membrane_probe:
-        code.append("\twrite_probe_file();\n")
+        code.append("\n\twrite_probe_file();\n")
         code.append("\tprobe_file.close();\n")
 
     code.append("""
@@ -124,7 +123,7 @@ void RNI (
         code.append("""
 void write_probe_file(void)
 {
-    if (probe_file == NULL)
+    if (&probe_file == NULL)
     {
         std::cout << "Error with probe file" << std::endl;
         return;
@@ -132,9 +131,8 @@ void write_probe_file(void)
     for(INDEX_TYPE i = 0; i < MEMBRANE_PROBE_CURRENT_INDEX; i++)
         probe_file << MEMBRANE_PROBE[i] << ",\\n";
     MEMBRANE_PROBE_CURRENT_INDEX = 0;
+}
 """)
-
-    code.append("}\n")
 
 # -----------------------------------------------
 # INPUT LAYER
@@ -256,6 +254,7 @@ void output_layer(WEIGHT_TYPE output_list[OUTPUT_LAYER_LENGHT])
 		{
 			NEURONS_STATE[neuron_index] = 1;
 			NEURONS_MEMBRANE[neuron_index] = RESET_MECHANISM_VALS[layer_index];
+			output_list[neuron_index % OUTPUT_LAYER_LENGHT] = 1;
 		}
 	}
 
