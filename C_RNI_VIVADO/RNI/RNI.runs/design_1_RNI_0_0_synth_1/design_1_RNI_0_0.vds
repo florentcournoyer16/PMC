@@ -3,16 +3,16 @@
 # SW Build 3900603 on Fri Jun 16 19:30:25 MDT 2023
 # IP Build 3900379 on Sat Jun 17 05:28:05 MDT 2023
 # SharedData Build 3899622 on Fri Jun 16 03:34:24 MDT 2023
-# Start of session at: Wed Apr  3 16:31:38 2024
-# Process ID: 15124
+# Start of session at: Wed Jun 26 20:21:32 2024
+# Process ID: 7814
 # Current directory: /home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/design_1_RNI_0_0_synth_1
 # Command line: vivado -log design_1_RNI_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_RNI_0_0.tcl
 # Log file: /home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/design_1_RNI_0_0_synth_1/design_1_RNI_0_0.vds
 # Journal file: /home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/design_1_RNI_0_0_synth_1/vivado.jou
-# Running On: GRAMS-NSOC, OS: Linux, CPU Frequency: 3691.476 MHz, CPU Physical cores: 4, Host memory: 16712 MB
+# Running On: GRAMS-NSOC, OS: Linux, CPU Frequency: 3843.675 MHz, CPU Physical cores: 4, Host memory: 16712 MB
 #-----------------------------------------------------------
 source design_1_RNI_0_0.tcl -notrace
-create_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1334.309 ; gain = 0.023 ; free physical = 4491 ; free virtual = 8424
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1285.348 ; gain = 8.023 ; free physical = 7166 ; free virtual = 12542
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/mohr0901/Documents/PMC/B_RNI_HLS/output/export'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2023.1/data/ip'.
@@ -24,37 +24,86 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020
 INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 15320
+INFO: [Synth 8-7075] Helper process launched with PID 7856
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2043.641 ; gain = 377.770 ; free physical = 564 ; free virtual = 4513
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2043.398 ; gain = 377.801 ; free physical = 6521 ; free virtual = 11903
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'design_1_RNI_0_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ip/design_1_RNI_0_0/synth/design_1_RNI_0_0.v:53]
-INFO: [Synth 8-6157] synthesizing module 'RNI' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/c2f9/hdl/verilog/RNI.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/c2f9/hdl/verilog/RNI_regslice_both.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/c2f9/hdl/verilog/RNI_regslice_both.v:11]
-INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both__parameterized0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/c2f9/hdl/verilog/RNI_regslice_both.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both__parameterized0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/c2f9/hdl/verilog/RNI_regslice_both.v:11]
-INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both__parameterized1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/c2f9/hdl/verilog/RNI_regslice_both.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both__parameterized1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/c2f9/hdl/verilog/RNI_regslice_both.v:11]
-INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both__parameterized2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/c2f9/hdl/verilog/RNI_regslice_both.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both__parameterized2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/c2f9/hdl/verilog/RNI_regslice_both.v:11]
-INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both__parameterized3' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/c2f9/hdl/verilog/RNI_regslice_both.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both__parameterized3' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/c2f9/hdl/verilog/RNI_regslice_both.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'RNI' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/c2f9/hdl/verilog/RNI.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-3876] $readmem data file './RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W.dat' is read successfully [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W.v:31]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6157] synthesizing module 'RNI_WEIGHTS_INDEX_ROM_AUTO_1R' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_WEIGHTS_INDEX_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-3876] $readmem data file './RNI_WEIGHTS_INDEX_ROM_AUTO_1R.dat' is read successfully [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_WEIGHTS_INDEX_ROM_AUTO_1R.v:33]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_WEIGHTS_INDEX_ROM_AUTO_1R' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_WEIGHTS_INDEX_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-6157] synthesizing module 'RNI_WEIGHTS_ROM_AUTO_1R' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_WEIGHTS_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-3876] $readmem data file './RNI_WEIGHTS_ROM_AUTO_1R.dat' is read successfully [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_WEIGHTS_ROM_AUTO_1R.v:28]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_WEIGHTS_ROM_AUTO_1R' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_WEIGHTS_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-6157] synthesizing module 'RNI_NEURONS_STATE_RAM_AUTO_1R1W' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_NEURONS_STATE_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-3876] $readmem data file './RNI_NEURONS_STATE_RAM_AUTO_1R1W.dat' is read successfully [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_NEURONS_STATE_RAM_AUTO_1R1W.v:31]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_NEURONS_STATE_RAM_AUTO_1R1W' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_NEURONS_STATE_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6157] synthesizing module 'RNI_input_list_RAM_AUTO_1R1W' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_input_list_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_input_list_RAM_AUTO_1R1W' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_input_list_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6157] synthesizing module 'RNI_RNI_Pipeline_VITIS_LOOP_33_2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_VITIS_LOOP_33_2.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_flow_control_loop_pipe_sequential_init' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_flow_control_loop_pipe_sequential_init.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_flow_control_loop_pipe_sequential_init' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_flow_control_loop_pipe_sequential_init.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_RNI_Pipeline_VITIS_LOOP_33_2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_VITIS_LOOP_33_2.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_RNI_Pipeline_VITIS_LOOP_39_3' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_VITIS_LOOP_39_3.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_RNI_Pipeline_VITIS_LOOP_39_3' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_VITIS_LOOP_39_3.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_RNI_Pipeline_WEIGHTS_LOOP' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_WEIGHTS_LOOP.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_RNI_Pipeline_WEIGHTS_LOOP' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_WEIGHTS_LOOP.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_RNI_Pipeline_WEIGHTS_LOOP1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_WEIGHTS_LOOP1.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_RNI_Pipeline_WEIGHTS_LOOP1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_WEIGHTS_LOOP1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_RNI_Pipeline_WEIGHTS_LOOP2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_WEIGHTS_LOOP2.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_RNI_Pipeline_WEIGHTS_LOOP2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_WEIGHTS_LOOP2.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_RNI_Pipeline_WEIGHTS_LOOP4' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_WEIGHTS_LOOP4.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_RNI_Pipeline_WEIGHTS_LOOP4' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_WEIGHTS_LOOP4.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_RNI_Pipeline_WEIGHTS_LOOP6' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_WEIGHTS_LOOP6.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_RNI_Pipeline_WEIGHTS_LOOP6' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_WEIGHTS_LOOP6.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_RNI_Pipeline_VITIS_LOOP_55_4' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_VITIS_LOOP_55_4.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_RNI_Pipeline_VITIS_LOOP_55_4' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_VITIS_LOOP_55_4.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_RNI_Pipeline_WEIGHTS_LOOP8' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_WEIGHTS_LOOP8.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_RNI_Pipeline_WEIGHTS_LOOP8' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_RNI_Pipeline_WEIGHTS_LOOP8.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both__parameterized0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both__parameterized0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both__parameterized1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both__parameterized1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both__parameterized2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both__parameterized2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both__parameterized3' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both__parameterized3' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ipshared/dc55/hdl/verilog/RNI.v:9]
 INFO: [Synth 8-6155] done synthesizing module 'design_1_RNI_0_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/ip/design_1_RNI_0_0/synth/design_1_RNI_0_0.v:53]
+WARNING: [Synth 8-7129] Port reset in module RNI_input_list_RAM_AUTO_1R1W is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module RNI_NEURONS_STATE_RAM_AUTO_1R1W is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module RNI_WEIGHTS_ROM_AUTO_1R is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module RNI_WEIGHTS_INDEX_ROM_AUTO_1R is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 2116.578 ; gain = 450.707 ; free physical = 429 ; free virtual = 4378
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2152.305 ; gain = 486.707 ; free physical = 6388 ; free virtual = 11771
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 2134.391 ; gain = 468.520 ; free physical = 416 ; free virtual = 4365
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2170.117 ; gain = 504.520 ; free physical = 6388 ; free virtual = 11771
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 2134.391 ; gain = 468.520 ; free physical = 416 ; free virtual = 4365
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2170.117 ; gain = 504.520 ; free physical = 6388 ; free virtual = 11771
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2134.391 ; gain = 0.000 ; free physical = 413 ; free virtual = 4362
+Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2170.117 ; gain = 0.000 ; free physical = 6388 ; free virtual = 11771
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -65,51 +114,114 @@ Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/design_
 Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/design_1_RNI_0_0_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2279.141 ; gain = 0.000 ; free physical = 149 ; free virtual = 4096
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2303.867 ; gain = 0.000 ; free physical = 6377 ; free virtual = 11760
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2279.141 ; gain = 0.000 ; free physical = 148 ; free virtual = 4095
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2303.867 ; gain = 0.000 ; free physical = 6377 ; free virtual = 11760
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 2279.141 ; gain = 613.270 ; free physical = 156 ; free virtual = 3805
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2303.867 ; gain = 638.270 ; free physical = 6380 ; free virtual = 11765
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 2279.141 ; gain = 613.270 ; free physical = 156 ; free virtual = 3805
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2303.867 ; gain = 638.270 ; free physical = 6380 ; free virtual = 11765
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  /home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/design_1_RNI_0_0_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 2279.141 ; gain = 613.270 ; free physical = 156 ; free virtual = 3805
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2303.867 ; gain = 638.270 ; free physical = 6380 ; free virtual = 11765
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 2279.141 ; gain = 613.270 ; free physical = 146 ; free virtual = 3795
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 2303.867 ; gain = 638.270 ; free physical = 6379 ; free virtual = 11765
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-223] decloning instance 'inst/regslice_both_output_stream_V_keep_V_U' (RNI_regslice_both__parameterized0) to 'inst/regslice_both_output_stream_V_strb_V_U'
+INFO: [Synth 8-223] decloning instance 'inst/regslice_both_output_stream_V_keep_V_U' (RNI_regslice_both__parameterized0) to 'inst/regslice_both_output_stream_V_last_V_U'
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   64 Bit       Adders := 5     
+	   2 Input   17 Bit       Adders := 3     
+	   2 Input   16 Bit       Adders := 5     
+	   3 Input    9 Bit       Adders := 5     
+	   2 Input    9 Bit       Adders := 4     
+	   2 Input    8 Bit       Adders := 6     
+	   2 Input    7 Bit       Adders := 2     
+	   2 Input    4 Bit       Adders := 3     
++---XORs : 
+	   2 Input     16 Bit         XORs := 1     
 +---Registers : 
-	                8 Bit    Registers := 4     
+	               70 Bit    Registers := 1     
+	               64 Bit    Registers := 10    
+	               56 Bit    Registers := 1     
+	               49 Bit    Registers := 6     
+	               17 Bit    Registers := 12    
+	               16 Bit    Registers := 14    
+	               15 Bit    Registers := 8     
+	               13 Bit    Registers := 2     
+	                9 Bit    Registers := 21    
+	                8 Bit    Registers := 23    
+	                7 Bit    Registers := 5     
 	                6 Bit    Registers := 4     
 	                5 Bit    Registers := 4     
-	                2 Bit    Registers := 19    
-	                1 Bit    Registers := 40    
+	                4 Bit    Registers := 3     
+	                3 Bit    Registers := 7     
+	                2 Bit    Registers := 16    
+	                1 Bit    Registers := 145   
++---RAMs : 
+	               6K Bit	(424 X 16 bit)          RAMs := 1     
+	              424 Bit	(424 X 1 bit)          RAMs := 1     
+	                8 Bit	(8 X 1 bit)          RAMs := 2     
++---ROMs : 
+	                    ROMs := 3     
 +---Muxes : 
-	   2 Input    8 Bit        Muxes := 2     
+	   2 Input   70 Bit        Muxes := 1     
+	   3 Input   70 Bit        Muxes := 1     
+	  71 Input   70 Bit        Muxes := 1     
+	   2 Input   69 Bit        Muxes := 1     
+	   2 Input   68 Bit        Muxes := 1     
+	   2 Input   65 Bit        Muxes := 1     
+	   2 Input   64 Bit        Muxes := 5     
+	   2 Input   58 Bit        Muxes := 1     
+	   2 Input   57 Bit        Muxes := 1     
+	   2 Input   54 Bit        Muxes := 1     
+	   2 Input   47 Bit        Muxes := 1     
+	   2 Input   46 Bit        Muxes := 1     
+	   2 Input   43 Bit        Muxes := 1     
+	   2 Input   36 Bit        Muxes := 1     
+	   2 Input   35 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 1     
+	   2 Input   25 Bit        Muxes := 1     
+	   2 Input   24 Bit        Muxes := 1     
+	   2 Input   21 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 2     
+	   2 Input   14 Bit        Muxes := 1     
+	   2 Input   12 Bit        Muxes := 7     
+	   2 Input   11 Bit        Muxes := 1     
+	   2 Input    9 Bit        Muxes := 4     
+	   2 Input    8 Bit        Muxes := 6     
+	   2 Input    7 Bit        Muxes := 2     
 	   2 Input    6 Bit        Muxes := 2     
-	   2 Input    5 Bit        Muxes := 2     
-	   2 Input    2 Bit        Muxes := 16    
-	   4 Input    2 Bit        Muxes := 14    
-	   5 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 20    
+	   2 Input    5 Bit        Muxes := 3     
+	   2 Input    4 Bit        Muxes := 3     
+	   5 Input    3 Bit        Muxes := 5     
+	   2 Input    3 Bit        Muxes := 5     
+	   2 Input    2 Bit        Muxes := 20    
+	   4 Input    2 Bit        Muxes := 12    
+	   2 Input    1 Bit        Muxes := 139   
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -127,25 +239,96 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2279.141 ; gain = 613.270 ; free physical = 236 ; free virtual = 3789
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 2303.867 ; gain = 638.270 ; free physical = 6368 ; free virtual = 11754
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+ROM: Preliminary Mapping Report
++------------+------------------------+---------------+----------------+
+|Module Name | RTL Object             | Depth x Width | Implemented As | 
++------------+------------------------+---------------+----------------+
+|RNI         | WEIGHTS_U/q0_reg       | 32768x8       | Block RAM      | 
+|RNI         | WEIGHTS_INDEX_U/q0_reg | 512x13        | Block RAM      | 
+|RNI         | WEIGHTS_INDEX_U/q1_reg | 512x13        | Block RAM      | 
++------------+------------------------+---------------+----------------+
+
+
+Block RAM: Preliminary Mapping Report (see note below)
++------------+----------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object                 | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+----------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|inst        | NEURONS_MEMBRANE_U/ram_reg | 424 x 16(READ_FIRST)   | W | R |                        |   |   | Port A           | 1      | 0      | 
++------------+----------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++------------+-------------------------+-----------+----------------------+--------------------------------------------------------+
+|Module Name | RTL Object              | Inference | Size (Depth x Width) | Primitives                                             | 
++------------+-------------------------+-----------+----------------------+--------------------------------------------------------+
+|inst        | NEURONS_STATE_U/ram_reg | Implied   | 512 x 1              | RAM16X1S x 1 RAM32X1S x 1 RAM128X1S x 1 RAM256X1S x 1  | 
+|inst        | input_list_U/ram_reg    | Implied   | 8 x 1                | RAM16X1S x 1                                           | 
+|inst        | output_list_U/ram_reg   | Implied   | 8 x 1                | RAM16X1S x 1                                           | 
++------------+-------------------------+-----------+----------------------+--------------------------------------------------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 2279.141 ; gain = 613.270 ; free physical = 230 ; free virtual = 3788
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:32 . Memory (MB): peak = 2303.867 ; gain = 638.270 ; free physical = 6360 ; free virtual = 11747
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 2279.141 ; gain = 613.270 ; free physical = 224 ; free virtual = 3783
+Finished Timing Optimization : Time (s): cpu = 00:00:36 ; elapsed = 00:00:36 . Memory (MB): peak = 2303.867 ; gain = 638.270 ; free physical = 6311 ; free virtual = 11697
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++------------+----------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object                 | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+----------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|inst        | NEURONS_MEMBRANE_U/ram_reg | 424 x 16(READ_FIRST)   | W | R |                        |   |   | Port A           | 1      | 0      | 
++------------+----------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+
+Distributed RAM: Final Mapping Report
++------------+-------------------------+-----------+----------------------+--------------------------------------------------------+
+|Module Name | RTL Object              | Inference | Size (Depth x Width) | Primitives                                             | 
++------------+-------------------------+-----------+----------------------+--------------------------------------------------------+
+|inst        | NEURONS_STATE_U/ram_reg | Implied   | 512 x 1              | RAM16X1S x 1 RAM32X1S x 1 RAM128X1S x 1 RAM256X1S x 1  | 
+|inst        | input_list_U/ram_reg    | Implied   | 8 x 1                | RAM16X1S x 1                                           | 
+|inst        | output_list_U/ram_reg   | Implied   | 8 x 1                | RAM16X1S x 1                                           | 
++------------+-------------------------+-----------+----------------------+--------------------------------------------------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance inst/NEURONS_MEMBRANE_U/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/WEIGHTS_U/q0_reg_0_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/WEIGHTS_U/q0_reg_0_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/WEIGHTS_U/q0_reg_0_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/WEIGHTS_U/q0_reg_0_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/WEIGHTS_U/q0_reg_0_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/WEIGHTS_U/q0_reg_0_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/WEIGHTS_U/q0_reg_0_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/WEIGHTS_U/q0_reg_0_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/WEIGHTS_INDEX_U/q0_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/WEIGHTS_INDEX_U/q0_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 2279.141 ; gain = 613.270 ; free physical = 217 ; free virtual = 3776
+Finished Technology Mapping : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 2303.867 ; gain = 638.270 ; free physical = 6311 ; free virtual = 11697
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -163,37 +346,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2279.141 ; gain = 613.270 ; free physical = 202 ; free virtual = 3761
+Finished IO Insertion : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 2303.867 ; gain = 638.270 ; free physical = 6314 ; free virtual = 11700
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2279.141 ; gain = 613.270 ; free physical = 202 ; free virtual = 3761
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 2303.867 ; gain = 638.270 ; free physical = 6314 ; free virtual = 11700
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2279.141 ; gain = 613.270 ; free physical = 202 ; free virtual = 3761
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 2303.867 ; gain = 638.270 ; free physical = 6314 ; free virtual = 11700
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2279.141 ; gain = 613.270 ; free physical = 202 ; free virtual = 3761
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 2303.867 ; gain = 638.270 ; free physical = 6314 ; free virtual = 11700
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2279.141 ; gain = 613.270 ; free physical = 202 ; free virtual = 3761
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 2303.867 ; gain = 638.270 ; free physical = 6314 ; free virtual = 11700
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2279.141 ; gain = 613.270 ; free physical = 202 ; free virtual = 3761
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 2303.867 ; gain = 638.270 ; free physical = 6314 ; free virtual = 11700
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -206,42 +389,56 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+-----+------+
-|      |Cell |Count |
-+------+-----+------+
-|1     |LUT1 |     1|
-|2     |LUT2 |     5|
-|3     |LUT3 |    69|
-|4     |LUT4 |    14|
-|5     |LUT5 |    26|
-|6     |LUT6 |    26|
-|7     |FDRE |   153|
-|8     |FDSE |     1|
-+------+-----+------+
++------+----------+------+
+|      |Cell      |Count |
++------+----------+------+
+|1     |CARRY4    |   200|
+|2     |LUT1      |    30|
+|3     |LUT2      |   368|
+|4     |LUT3      |   237|
+|5     |LUT4      |   232|
+|6     |LUT5      |   302|
+|7     |LUT6      |   527|
+|8     |MUXF7     |     6|
+|9     |RAM128X1S |     1|
+|10    |RAM16X1S  |     3|
+|11    |RAM256X1S |     1|
+|12    |RAM32X1S  |     1|
+|13    |RAMB18E1  |     2|
+|15    |RAMB36E1  |     8|
+|23    |FDRE      |  1784|
+|24    |FDSE      |    15|
++------+----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2279.141 ; gain = 613.270 ; free physical = 202 ; free virtual = 3761
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 2303.867 ; gain = 638.270 ; free physical = 6314 ; free virtual = 11700
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2279.141 ; gain = 468.520 ; free physical = 202 ; free virtual = 3761
-Synthesis Optimization Complete : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 2279.141 ; gain = 613.270 ; free physical = 202 ; free virtual = 3761
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:39 ; elapsed = 00:00:39 . Memory (MB): peak = 2303.867 ; gain = 504.520 ; free physical = 6314 ; free virtual = 11700
+Synthesis Optimization Complete : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 2303.867 ; gain = 638.270 ; free physical = 6314 ; free virtual = 11700
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2279.141 ; gain = 0.000 ; free physical = 202 ; free virtual = 3761
+Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2303.867 ; gain = 0.000 ; free physical = 6586 ; free virtual = 11973
+INFO: [Netlist 29-17] Analyzing 222 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2279.141 ; gain = 0.000 ; free physical = 479 ; free virtual = 4038
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2303.867 ; gain = 0.000 ; free physical = 6587 ; free virtual = 11974
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 6 instances were transformed.
+  RAM128X1S => RAM128X1S (MUXF7, RAMS64E(x2)): 1 instance 
+  RAM16X1S => RAM32X1S (RAMS32): 3 instances
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 1 instance 
+  RAM32X1S => RAM32X1S (RAMS32): 1 instance 
 
-Synth Design complete | Checksum: 352ecdfb
+Synth Design complete | Checksum: 45a060df
 INFO: [Common 17-83] Releasing license: Synthesis
-32 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+96 Infos, 6 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:39 ; elapsed = 00:00:36 . Memory (MB): peak = 2279.141 ; gain = 944.832 ; free physical = 479 ; free virtual = 4038
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1623.639; main = 1320.780; forked = 314.258
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3228.477; main = 2279.145; forked = 981.348
+synth_design: Time (s): cpu = 00:00:49 ; elapsed = 00:00:47 . Memory (MB): peak = 2303.867 ; gain = 978.832 ; free physical = 6587 ; free virtual = 11974
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1889.381; main = 1575.156; forked = 362.136
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3237.324; main = 2303.871; forked = 965.469
 INFO: [Common 17-1381] The checkpoint '/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/design_1_RNI_0_0_synth_1/design_1_RNI_0_0.dcp' has been generated.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_RNI_0_0, cache-ID = ff929e0a5f3841fa
-INFO: [Coretcl 2-1174] Renamed 15 cell refs.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_RNI_0_0, cache-ID = a5c8ee32c748eedb
+INFO: [Coretcl 2-1174] Renamed 39 cell refs.
 INFO: [Common 17-1381] The checkpoint '/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/design_1_RNI_0_0_synth_1/design_1_RNI_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_RNI_0_0_utilization_synth.rpt -pb design_1_RNI_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Apr  3 16:32:33 2024...
+INFO: [Common 17-206] Exiting Vivado at Wed Jun 26 20:22:33 2024...

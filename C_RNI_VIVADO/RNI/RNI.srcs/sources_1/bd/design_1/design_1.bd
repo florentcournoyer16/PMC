@@ -2493,8 +2493,8 @@
           "axi_interconnect_0/ACLK",
           "axi_interconnect_0/M00_ACLK",
           "axi_interconnect_0/S00_ACLK",
-          "RNI_0/ap_clk",
-          "axi_interconnect_0/M01_ACLK"
+          "axi_interconnect_0/M01_ACLK",
+          "RNI_0/ap_clk"
         ]
       },
       "processing_system7_0_FCLK_RESET0_N": {
@@ -2516,8 +2516,8 @@
           "axi_interconnect_0/ARESETN",
           "axi_interconnect_0/M00_ARESETN",
           "axi_interconnect_0/S00_ARESETN",
-          "RNI_0/ap_rst_n",
-          "axi_interconnect_0/M01_ARESETN"
+          "axi_interconnect_0/M01_ARESETN",
+          "RNI_0/ap_rst_n"
         ]
       }
     },

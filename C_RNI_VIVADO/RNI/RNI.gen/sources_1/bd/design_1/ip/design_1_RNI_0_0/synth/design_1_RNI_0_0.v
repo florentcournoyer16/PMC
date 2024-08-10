@@ -48,11 +48,11 @@
 
 
 // IP VLNV: xilinx.com:hls:RNI:1.0
-// IP Revision: 2113498406
+// IP Revision: 2113619592
 
 (* X_CORE_INFO = "RNI,Vivado 2023.1.1" *)
 (* CHECK_LICENSE_TYPE = "design_1_RNI_0_0,RNI,{}" *)
-(* CORE_GENERATION_INFO = "design_1_RNI_0_0,RNI,{x_ipProduct=Vivado 2023.1.1,x_ipVendor=xilinx.com,x_ipLibrary=hls,x_ipName=RNI,x_ipVersion=1.0,x_ipCoreRevision=2113498406,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED}" *)
+(* CORE_GENERATION_INFO = "design_1_RNI_0_0,RNI,{x_ipProduct=Vivado 2023.1.1,x_ipVendor=xilinx.com,x_ipLibrary=hls,x_ipName=RNI,x_ipVersion=1.0,x_ipCoreRevision=2113619592,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED}" *)
 (* IP_DEFINITION_SOURCE = "HLS" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_RNI_0_0 (

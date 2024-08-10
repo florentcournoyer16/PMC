@@ -1,17 +1,15 @@
 <design_size title="Design Size Report">
-    <item name="C-Synthesis has not completed, compilation phases remaining:">
-        <item name="Unroll/Inline"/>
-        <item name="Performance/Pipeline"/>
-        <item name="Optimizations"/>
-    </item>
     <item name="Instructions per Function for each Compilation Phase">
         <hiertable>
-            <header size="3" col0="Function" col1="Location" col2="Compile/Link"/>
+            <header size="6" col0="Function" col1="Location" col2="Compile/Link" col3="Unroll/Inline" col4="Performance/Pipeline" col5="Optimizations"/>
             <rows>
-                <row id="0" col0="RNI" col1="RNI.cpp:15" col2="9853">
-                    <row id="9" col0="input_layer" col1="RNI.cpp:70" col2="1157"/>
-                    <row id="10" col0="inner_layer" col1="RNI.cpp:90" col2="6164" col2_disp="6,164 (4 calls)"/>
-                    <row id="2" col0="output_layer" col1="RNI.cpp:115" col2="1619"/>
+                <row id="0" col0="RNI" col1="RNI.cpp:16" col2="12898" col3="1056" col4="714" col5="782">
+                    <row id="2" col0="input_layer" col1="RNI.cpp:71" col2="1639" col3="134" col4="" col5=""/>
+                    <row id="3" col0="inner_layer_1" col1="RNI.cpp:91" col2="2046" col3="154" col4="" col5=""/>
+                    <row id="9" col0="inner_layer_2" col1="RNI.cpp:115" col2="2046" col3="154" col4="" col5=""/>
+                    <row id="7" col0="inner_layer_3" col1="RNI.cpp:139" col2="2046" col3="154" col4="" col5=""/>
+                    <row id="13" col0="inner_layer_4" col1="RNI.cpp:163" col2="2046" col3="154" col4="" col5=""/>
+                    <row id="11" col0="output_layer" col1="RNI.cpp:188" col2="2134" col3="160" col4="" col5=""/>
                 </row>
             </rows>
             <notes/>

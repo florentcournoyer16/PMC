@@ -3,16 +3,16 @@
 # SW Build 3900603 on Fri Jun 16 19:30:25 MDT 2023
 # IP Build 3900379 on Sat Jun 17 05:28:05 MDT 2023
 # SharedData Build 3899622 on Fri Jun 16 03:34:24 MDT 2023
-# Start of session at: Wed Apr  3 16:36:51 2024
-# Process ID: 16933
+# Start of session at: Wed Jun 26 20:22:38 2024
+# Process ID: 8086
 # Current directory: /home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1
 # Command line: vivado -log design_1_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_wrapper.tcl
 # Log file: /home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/design_1_wrapper.vds
 # Journal file: /home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/vivado.jou
-# Running On: GRAMS-NSOC, OS: Linux, CPU Frequency: 2331.807 MHz, CPU Physical cores: 4, Host memory: 16712 MB
+# Running On: GRAMS-NSOC, OS: Linux, CPU Frequency: 1744.158 MHz, CPU Physical cores: 4, Host memory: 16712 MB
 #-----------------------------------------------------------
 source design_1_wrapper.tcl -notrace
-create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1285.289 ; gain = 8.023 ; free physical = 6028 ; free virtual = 9733
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1333.371 ; gain = 0.023 ; free physical = 7465 ; free virtual = 12857
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/mohr0901/Documents/PMC/B_RNI_HLS/output/export'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2023.1/data/ip'.
@@ -28,14 +28,14 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 16994
+INFO: [Synth 8-7075] Helper process launched with PID 8124
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2064.027 ; gain = 379.738 ; free physical = 4620 ; free virtual = 8341
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2064.672 ; gain = 378.801 ; free physical = 6495 ; free virtual = 11887
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'design_1_wrapper' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v:13]
 INFO: [Synth 8-6157] synthesizing module 'design_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:13]
-INFO: [Synth 8-6157] synthesizing module 'design_1_RNI_0_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-16933-GRAMS-NSOC/realtime/design_1_RNI_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_RNI_0_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-16933-GRAMS-NSOC/realtime/design_1_RNI_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_RNI_0_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-8086-GRAMS-NSOC/realtime/design_1_RNI_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_RNI_0_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-8086-GRAMS-NSOC/realtime/design_1_RNI_0_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'ap_done' of module 'design_1_RNI_0_0' is unconnected for instance 'RNI_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:209]
 WARNING: [Synth 8-7071] port 'ap_idle' of module 'design_1_RNI_0_0' is unconnected for instance 'RNI_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:209]
 WARNING: [Synth 8-7071] port 'ap_ready' of module 'design_1_RNI_0_0' is unconnected for instance 'RNI_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:209]
@@ -44,40 +44,39 @@ WARNING: [Synth 8-7071] port 'output_stream_TSTRB' of module 'design_1_RNI_0_0' 
 WARNING: [Synth 8-7071] port 'output_stream_TUSER' of module 'design_1_RNI_0_0' is unconnected for instance 'RNI_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:209]
 WARNING: [Synth 8-7071] port 'output_stream_TID' of module 'design_1_RNI_0_0' is unconnected for instance 'RNI_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:209]
 WARNING: [Synth 8-7023] instance 'RNI_0' of module 'design_1_RNI_0_0' has 24 connections declared, but only 17 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:209]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_dma_0_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-16933-GRAMS-NSOC/realtime/design_1_axi_dma_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_dma_0_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-16933-GRAMS-NSOC/realtime/design_1_axi_dma_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_dma_0_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-8086-GRAMS-NSOC/realtime/design_1_axi_dma_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_dma_0_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-8086-GRAMS-NSOC/realtime/design_1_axi_dma_0_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'mm2s_prmry_reset_out_n' of module 'design_1_axi_dma_0_0' is unconnected for instance 'axi_dma_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:227]
 WARNING: [Synth 8-7071] port 's2mm_prmry_reset_out_n' of module 'design_1_axi_dma_0_0' is unconnected for instance 'axi_dma_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:227]
 WARNING: [Synth 8-7071] port 'mm2s_introut' of module 'design_1_axi_dma_0_0' is unconnected for instance 'axi_dma_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:227]
 WARNING: [Synth 8-7071] port 's2mm_introut' of module 'design_1_axi_dma_0_0' is unconnected for instance 'axi_dma_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:227]
 WARNING: [Synth 8-7071] port 'axi_dma_tstvec' of module 'design_1_axi_dma_0_0' is unconnected for instance 'axi_dma_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:227]
 WARNING: [Synth 8-7023] instance 'axi_dma_0' of module 'design_1_axi_dma_0_0' has 64 connections declared, but only 59 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:227]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_interconnect_0_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:576]
-INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_1CA5Z32' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:1732]
-INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-16933-GRAMS-NSOC/realtime/design_1_auto_pc_2_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-16933-GRAMS-NSOC/realtime/design_1_auto_pc_2_stub.v:6]
-WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'design_1_auto_pc_2' is unconnected for instance 'auto_pc' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:1967]
-WARNING: [Synth 8-7071] port 'm_axi_wstrb' of module 'design_1_auto_pc_2' is unconnected for instance 'auto_pc' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:1967]
-WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'design_1_auto_pc_2' is unconnected for instance 'auto_pc' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:1967]
-WARNING: [Synth 8-7023] instance 'auto_pc' of module 'design_1_auto_pc_2' has 60 connections declared, but only 57 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:1967]
-INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_1CA5Z32' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:1732]
-INFO: [Synth 8-6157] synthesizing module 'm01_couplers_imp_I4GRPB' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:2027]
-INFO: [Synth 8-6155] done synthesizing module 'm01_couplers_imp_I4GRPB' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:2027]
-INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_O7FAN0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:2746]
-INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_3' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-16933-GRAMS-NSOC/realtime/design_1_auto_pc_3_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_3' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-16933-GRAMS-NSOC/realtime/design_1_auto_pc_3_stub.v:6]
-WARNING: [Synth 8-7071] port 'm_axi_awregion' of module 'design_1_auto_pc_3' is unconnected for instance 'auto_pc' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:3061]
-WARNING: [Synth 8-7071] port 'm_axi_arregion' of module 'design_1_auto_pc_3' is unconnected for instance 'auto_pc' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:3061]
-WARNING: [Synth 8-7023] instance 'auto_pc' of module 'design_1_auto_pc_3' has 79 connections declared, but only 77 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:3061]
-INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_O7FAN0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:2746]
-INFO: [Synth 8-6157] synthesizing module 'design_1_xbar_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-16933-GRAMS-NSOC/realtime/design_1_xbar_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_xbar_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-16933-GRAMS-NSOC/realtime/design_1_xbar_1_stub.v:6]
-WARNING: [Synth 8-689] width (12) of port connection 'm_axi_arid' does not match port width (24) of module 'design_1_xbar_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:1287]
-WARNING: [Synth 8-689] width (12) of port connection 'm_axi_awid' does not match port width (24) of module 'design_1_xbar_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:1299]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_interconnect_0_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:576]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_interconnect_0_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:578]
+INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_1CA5Z32' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:1762]
+INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-8086-GRAMS-NSOC/realtime/design_1_auto_pc_2_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-8086-GRAMS-NSOC/realtime/design_1_auto_pc_2_stub.v:6]
+WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'design_1_auto_pc_2' is unconnected for instance 'auto_pc' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:1997]
+WARNING: [Synth 8-7071] port 'm_axi_wstrb' of module 'design_1_auto_pc_2' is unconnected for instance 'auto_pc' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:1997]
+WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'design_1_auto_pc_2' is unconnected for instance 'auto_pc' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:1997]
+WARNING: [Synth 8-7023] instance 'auto_pc' of module 'design_1_auto_pc_2' has 60 connections declared, but only 57 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:1997]
+INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_1CA5Z32' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:1762]
+INFO: [Synth 8-6157] synthesizing module 'm01_couplers_imp_I4GRPB' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:2057]
+INFO: [Synth 8-6155] done synthesizing module 'm01_couplers_imp_I4GRPB' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:2057]
+INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_O7FAN0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:2804]
+INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_3' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-8086-GRAMS-NSOC/realtime/design_1_auto_pc_3_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_3' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-8086-GRAMS-NSOC/realtime/design_1_auto_pc_3_stub.v:6]
+WARNING: [Synth 8-7071] port 'm_axi_awregion' of module 'design_1_auto_pc_3' is unconnected for instance 'auto_pc' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:3119]
+WARNING: [Synth 8-7071] port 'm_axi_arregion' of module 'design_1_auto_pc_3' is unconnected for instance 'auto_pc' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:3119]
+WARNING: [Synth 8-7023] instance 'auto_pc' of module 'design_1_auto_pc_3' has 79 connections declared, but only 77 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:3119]
+INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_O7FAN0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:2804]
+INFO: [Synth 8-6157] synthesizing module 'design_1_xbar_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-8086-GRAMS-NSOC/realtime/design_1_xbar_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_xbar_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-8086-GRAMS-NSOC/realtime/design_1_xbar_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_interconnect_0_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:578]
 WARNING: [Synth 8-7071] port 'M01_AXI_araddr' of module 'design_1_axi_interconnect_0_0' is unconnected for instance 'axi_interconnect_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:287]
 WARNING: [Synth 8-7071] port 'M01_AXI_arburst' of module 'design_1_axi_interconnect_0_0' is unconnected for instance 'axi_interconnect_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:287]
 WARNING: [Synth 8-7071] port 'M01_AXI_arcache' of module 'design_1_axi_interconnect_0_0' is unconnected for instance 'axi_interconnect_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:287]
+WARNING: [Synth 8-7071] port 'M01_AXI_arid' of module 'design_1_axi_interconnect_0_0' is unconnected for instance 'axi_interconnect_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:287]
 WARNING: [Synth 8-7071] port 'M01_AXI_arlen' of module 'design_1_axi_interconnect_0_0' is unconnected for instance 'axi_interconnect_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:287]
 WARNING: [Synth 8-7071] port 'M01_AXI_arlock' of module 'design_1_axi_interconnect_0_0' is unconnected for instance 'axi_interconnect_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:287]
 WARNING: [Synth 8-7071] port 'M01_AXI_arprot' of module 'design_1_axi_interconnect_0_0' is unconnected for instance 'axi_interconnect_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:287]
@@ -88,6 +87,7 @@ WARNING: [Synth 8-7071] port 'M01_AXI_arvalid' of module 'design_1_axi_interconn
 WARNING: [Synth 8-7071] port 'M01_AXI_awaddr' of module 'design_1_axi_interconnect_0_0' is unconnected for instance 'axi_interconnect_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:287]
 WARNING: [Synth 8-7071] port 'M01_AXI_awburst' of module 'design_1_axi_interconnect_0_0' is unconnected for instance 'axi_interconnect_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:287]
 WARNING: [Synth 8-7071] port 'M01_AXI_awcache' of module 'design_1_axi_interconnect_0_0' is unconnected for instance 'axi_interconnect_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:287]
+WARNING: [Synth 8-7071] port 'M01_AXI_awid' of module 'design_1_axi_interconnect_0_0' is unconnected for instance 'axi_interconnect_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:287]
 WARNING: [Synth 8-7071] port 'M01_AXI_awlen' of module 'design_1_axi_interconnect_0_0' is unconnected for instance 'axi_interconnect_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:287]
 WARNING: [Synth 8-7071] port 'M01_AXI_awlock' of module 'design_1_axi_interconnect_0_0' is unconnected for instance 'axi_interconnect_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:287]
 WARNING: [Synth 8-7071] port 'M01_AXI_awprot' of module 'design_1_axi_interconnect_0_0' is unconnected for instance 'axi_interconnect_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:287]
@@ -101,54 +101,54 @@ WARNING: [Synth 8-7071] port 'M01_AXI_wdata' of module 'design_1_axi_interconnec
 WARNING: [Synth 8-7071] port 'M01_AXI_wlast' of module 'design_1_axi_interconnect_0_0' is unconnected for instance 'axi_interconnect_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:287]
 WARNING: [Synth 8-7071] port 'M01_AXI_wstrb' of module 'design_1_axi_interconnect_0_0' is unconnected for instance 'axi_interconnect_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:287]
 WARNING: [Synth 8-7071] port 'M01_AXI_wvalid' of module 'design_1_axi_interconnect_0_0' is unconnected for instance 'axi_interconnect_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:287]
-WARNING: [Synth 8-7023] instance 'axi_interconnect_0' of module 'design_1_axi_interconnect_0_0' has 97 connections declared, but only 71 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:287]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_mem_intercon_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:1362]
-INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_7HNO1D' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:2535]
-INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-16933-GRAMS-NSOC/realtime/design_1_auto_pc_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-16933-GRAMS-NSOC/realtime/design_1_auto_pc_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_auto_us_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-16933-GRAMS-NSOC/realtime/design_1_auto_us_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_us_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-16933-GRAMS-NSOC/realtime/design_1_auto_us_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_7HNO1D' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:2535]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_mem_intercon_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:1362]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_mem_intercon_1_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:1532]
-INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_1FI55ZU' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:2285]
-INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-16933-GRAMS-NSOC/realtime/design_1_auto_pc_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-16933-GRAMS-NSOC/realtime/design_1_auto_pc_1_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_auto_us_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-16933-GRAMS-NSOC/realtime/design_1_auto_us_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_us_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-16933-GRAMS-NSOC/realtime/design_1_auto_us_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_1FI55ZU' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:2285]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_mem_intercon_1_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:1532]
-INFO: [Synth 8-6157] synthesizing module 'design_1_processing_system7_0_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-16933-GRAMS-NSOC/realtime/design_1_processing_system7_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_processing_system7_0_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-16933-GRAMS-NSOC/realtime/design_1_processing_system7_0_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_AWREADY' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:435]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_BVALID' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:435]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_WREADY' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:435]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_BRESP' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:435]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_BID' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:435]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RID' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:435]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RCOUNT' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:435]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_WCOUNT' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:435]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RACOUNT' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:435]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_WACOUNT' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:435]
-WARNING: [Synth 8-7071] port 'S_AXI_HP2_ARREADY' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:435]
-WARNING: [Synth 8-7071] port 'S_AXI_HP2_RLAST' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:435]
-WARNING: [Synth 8-7071] port 'S_AXI_HP2_RVALID' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:435]
-WARNING: [Synth 8-7071] port 'S_AXI_HP2_RRESP' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:435]
-WARNING: [Synth 8-7071] port 'S_AXI_HP2_BID' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:435]
-WARNING: [Synth 8-7071] port 'S_AXI_HP2_RID' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:435]
-WARNING: [Synth 8-7071] port 'S_AXI_HP2_RDATA' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:435]
-WARNING: [Synth 8-7071] port 'S_AXI_HP2_RCOUNT' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:435]
-WARNING: [Synth 8-7071] port 'S_AXI_HP2_WCOUNT' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:435]
-WARNING: [Synth 8-7071] port 'S_AXI_HP2_RACOUNT' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:435]
-WARNING: [Synth 8-7071] port 'S_AXI_HP2_WACOUNT' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:435]
-WARNING: [Synth 8-7023] instance 'processing_system7_0' of module 'design_1_processing_system7_0_0' has 152 connections declared, but only 131 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:435]
-INFO: [Synth 8-6157] synthesizing module 'design_1_rst_ps7_0_50M_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-16933-GRAMS-NSOC/realtime/design_1_rst_ps7_0_50M_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_rst_ps7_0_50M_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-16933-GRAMS-NSOC/realtime/design_1_rst_ps7_0_50M_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'mb_reset' of module 'design_1_rst_ps7_0_50M_0' is unconnected for instance 'rst_ps7_0_50M' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:567]
-WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'design_1_rst_ps7_0_50M_0' is unconnected for instance 'rst_ps7_0_50M' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:567]
-WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'design_1_rst_ps7_0_50M_0' is unconnected for instance 'rst_ps7_0_50M' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:567]
-WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'design_1_rst_ps7_0_50M_0' is unconnected for instance 'rst_ps7_0_50M' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:567]
-WARNING: [Synth 8-7023] instance 'rst_ps7_0_50M' of module 'design_1_rst_ps7_0_50M_0' has 10 connections declared, but only 6 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:567]
+WARNING: [Synth 8-7023] instance 'axi_interconnect_0' of module 'design_1_axi_interconnect_0_0' has 101 connections declared, but only 73 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:287]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_mem_intercon_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:1392]
+INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_7HNO1D' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:2593]
+INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-8086-GRAMS-NSOC/realtime/design_1_auto_pc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-8086-GRAMS-NSOC/realtime/design_1_auto_pc_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_auto_us_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-8086-GRAMS-NSOC/realtime/design_1_auto_us_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_us_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-8086-GRAMS-NSOC/realtime/design_1_auto_us_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_7HNO1D' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:2593]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_mem_intercon_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:1392]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_mem_intercon_1_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:1562]
+INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_1FI55ZU' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:2343]
+INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-8086-GRAMS-NSOC/realtime/design_1_auto_pc_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-8086-GRAMS-NSOC/realtime/design_1_auto_pc_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_auto_us_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-8086-GRAMS-NSOC/realtime/design_1_auto_us_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_us_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-8086-GRAMS-NSOC/realtime/design_1_auto_us_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_1FI55ZU' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:2343]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_mem_intercon_1_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:1562]
+INFO: [Synth 8-6157] synthesizing module 'design_1_processing_system7_0_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-8086-GRAMS-NSOC/realtime/design_1_processing_system7_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_processing_system7_0_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-8086-GRAMS-NSOC/realtime/design_1_processing_system7_0_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_AWREADY' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:437]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_BVALID' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:437]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_WREADY' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:437]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_BRESP' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:437]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_BID' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:437]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RID' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:437]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RCOUNT' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:437]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_WCOUNT' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:437]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RACOUNT' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:437]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_WACOUNT' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:437]
+WARNING: [Synth 8-7071] port 'S_AXI_HP2_ARREADY' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:437]
+WARNING: [Synth 8-7071] port 'S_AXI_HP2_RLAST' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:437]
+WARNING: [Synth 8-7071] port 'S_AXI_HP2_RVALID' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:437]
+WARNING: [Synth 8-7071] port 'S_AXI_HP2_RRESP' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:437]
+WARNING: [Synth 8-7071] port 'S_AXI_HP2_BID' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:437]
+WARNING: [Synth 8-7071] port 'S_AXI_HP2_RID' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:437]
+WARNING: [Synth 8-7071] port 'S_AXI_HP2_RDATA' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:437]
+WARNING: [Synth 8-7071] port 'S_AXI_HP2_RCOUNT' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:437]
+WARNING: [Synth 8-7071] port 'S_AXI_HP2_WCOUNT' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:437]
+WARNING: [Synth 8-7071] port 'S_AXI_HP2_RACOUNT' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:437]
+WARNING: [Synth 8-7071] port 'S_AXI_HP2_WACOUNT' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:437]
+WARNING: [Synth 8-7023] instance 'processing_system7_0' of module 'design_1_processing_system7_0_0' has 152 connections declared, but only 131 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:437]
+INFO: [Synth 8-6157] synthesizing module 'design_1_rst_ps7_0_50M_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-8086-GRAMS-NSOC/realtime/design_1_rst_ps7_0_50M_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_rst_ps7_0_50M_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/.Xil/Vivado-8086-GRAMS-NSOC/realtime/design_1_rst_ps7_0_50M_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'mb_reset' of module 'design_1_rst_ps7_0_50M_0' is unconnected for instance 'rst_ps7_0_50M' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:569]
+WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'design_1_rst_ps7_0_50M_0' is unconnected for instance 'rst_ps7_0_50M' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:569]
+WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'design_1_rst_ps7_0_50M_0' is unconnected for instance 'rst_ps7_0_50M' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:569]
+WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'design_1_rst_ps7_0_50M_0' is unconnected for instance 'rst_ps7_0_50M' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:569]
+WARNING: [Synth 8-7023] instance 'rst_ps7_0_50M' of module 'design_1_rst_ps7_0_50M_0' has 10 connections declared, but only 6 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:569]
 INFO: [Synth 8-6155] done synthesizing module 'design_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/synth/design_1.v:13]
 INFO: [Synth 8-6155] done synthesizing module 'design_1_wrapper' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v:13]
 WARNING: [Synth 8-7129] Port M_ACLK in module s00_couplers_imp_1FI55ZU is either unconnected or has no load
@@ -174,18 +174,18 @@ WARNING: [Synth 8-7129] Port M01_ARESETN in module design_1_axi_interconnect_0_0
 WARNING: [Synth 8-7129] Port S00_ACLK in module design_1_axi_interconnect_0_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port S00_ARESETN in module design_1_axi_interconnect_0_0 is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2137.934 ; gain = 453.645 ; free physical = 4173 ; free virtual = 7896
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2138.578 ; gain = 452.707 ; free physical = 6401 ; free virtual = 11794
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2152.777 ; gain = 468.488 ; free physical = 4169 ; free virtual = 7895
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2153.422 ; gain = 467.551 ; free physical = 6400 ; free virtual = 11793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2152.777 ; gain = 468.488 ; free physical = 4169 ; free virtual = 7895
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2153.422 ; gain = 467.551 ; free physical = 6400 ; free virtual = 11793
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2152.777 ; gain = 0.000 ; free physical = 4168 ; free virtual = 7894
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2153.422 ; gain = 0.000 ; free physical = 6400 ; free virtual = 11793
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -216,22 +216,22 @@ Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1
 Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2225.715 ; gain = 0.000 ; free physical = 4868 ; free virtual = 8606
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2226.359 ; gain = 0.000 ; free physical = 6390 ; free virtual = 11783
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2225.715 ; gain = 0.000 ; free physical = 4868 ; free virtual = 8606
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2226.359 ; gain = 0.000 ; free physical = 6390 ; free virtual = 11783
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2225.715 ; gain = 541.426 ; free physical = 4877 ; free virtual = 8628
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 2226.359 ; gain = 540.488 ; free physical = 6386 ; free virtual = 11779
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2225.715 ; gain = 541.426 ; free physical = 4877 ; free virtual = 8628
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 2226.359 ; gain = 540.488 ; free physical = 6386 ; free virtual = 11779
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -512,10 +512,10 @@ Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/axi_interconnect_0/m00
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/axi_interconnect_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/RNI_0. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2225.715 ; gain = 541.426 ; free physical = 4877 ; free virtual = 8627
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 2226.359 ; gain = 540.488 ; free physical = 6386 ; free virtual = 11779
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 2225.715 ; gain = 541.426 ; free physical = 4876 ; free virtual = 8627
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 2226.359 ; gain = 540.488 ; free physical = 6385 ; free virtual = 11779
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -552,25 +552,25 @@ WARNING: [Synth 8-7129] Port M01_ARESETN in module design_1_axi_interconnect_0_0
 WARNING: [Synth 8-7129] Port S00_ACLK in module design_1_axi_interconnect_0_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port S00_ARESETN in module design_1_axi_interconnect_0_0 is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2225.715 ; gain = 541.426 ; free physical = 4874 ; free virtual = 8629
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2226.359 ; gain = 540.488 ; free physical = 6369 ; free virtual = 11777
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 2225.715 ; gain = 541.426 ; free physical = 4872 ; free virtual = 8627
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 2226.359 ; gain = 540.488 ; free physical = 6363 ; free virtual = 11772
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 2225.715 ; gain = 541.426 ; free physical = 4872 ; free virtual = 8627
+Finished Timing Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 2226.359 ; gain = 540.488 ; free physical = 6363 ; free virtual = 11772
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 2225.715 ; gain = 541.426 ; free physical = 4869 ; free virtual = 8624
+Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 2226.359 ; gain = 540.488 ; free physical = 6363 ; free virtual = 11772
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -588,37 +588,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2225.715 ; gain = 541.426 ; free physical = 4868 ; free virtual = 8624
+Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2226.359 ; gain = 540.488 ; free physical = 6366 ; free virtual = 11775
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2225.715 ; gain = 541.426 ; free physical = 4868 ; free virtual = 8624
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2226.359 ; gain = 540.488 ; free physical = 6366 ; free virtual = 11775
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2225.715 ; gain = 541.426 ; free physical = 4868 ; free virtual = 8624
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2226.359 ; gain = 540.488 ; free physical = 6366 ; free virtual = 11775
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2225.715 ; gain = 541.426 ; free physical = 4868 ; free virtual = 8624
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2226.359 ; gain = 540.488 ; free physical = 6366 ; free virtual = 11775
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2225.715 ; gain = 541.426 ; free physical = 4868 ; free virtual = 8624
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2226.359 ; gain = 540.488 ; free physical = 6366 ; free virtual = 11775
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2225.715 ; gain = 541.426 ; free physical = 4868 ; free virtual = 8624
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2226.359 ; gain = 540.488 ; free physical = 6366 ; free virtual = 11775
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -654,26 +654,26 @@ Report Cell Usage:
 |11    |design_1_xbar                 |     1|
 +------+------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2225.715 ; gain = 541.426 ; free physical = 4868 ; free virtual = 8624
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2226.359 ; gain = 540.488 ; free physical = 6366 ; free virtual = 11775
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 15 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2225.715 ; gain = 468.488 ; free physical = 4868 ; free virtual = 8624
-Synthesis Optimization Complete : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2225.715 ; gain = 541.426 ; free physical = 4868 ; free virtual = 8624
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2226.359 ; gain = 467.551 ; free physical = 6366 ; free virtual = 11775
+Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2226.359 ; gain = 540.488 ; free physical = 6366 ; free virtual = 11775
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2225.715 ; gain = 0.000 ; free physical = 5143 ; free virtual = 8898
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2226.359 ; gain = 0.000 ; free physical = 6632 ; free virtual = 12041
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2225.715 ; gain = 0.000 ; free physical = 5144 ; free virtual = 8899
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2226.359 ; gain = 0.000 ; free physical = 6632 ; free virtual = 12041
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: b2fcb54b
+Synth Design complete | Checksum: 5306cdda
 INFO: [Common 17-83] Releasing license: Synthesis
 63 Infos, 114 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:31 . Memory (MB): peak = 2225.715 ; gain = 885.895 ; free physical = 5144 ; free virtual = 8899
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1802.948; main = 1499.597; forked = 355.731
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3159.172; main = 2193.703; forked = 965.469
+synth_design: Time (s): cpu = 00:00:31 ; elapsed = 00:00:29 . Memory (MB): peak = 2226.359 ; gain = 886.051 ; free physical = 6629 ; free virtual = 12038
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1808.755; main = 1497.005; forked = 361.730
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3159.820; main = 2194.348; forked = 965.473
 INFO: [Common 17-1381] The checkpoint '/home/mohr0901/Documents/PMC/C_RNI_VIVADO/RNI/RNI.runs/synth_1/design_1_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Apr  3 16:37:36 2024...
+INFO: [Common 17-206] Exiting Vivado at Wed Jun 26 20:23:20 2024...

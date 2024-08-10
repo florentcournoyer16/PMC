@@ -2,20 +2,18 @@
 == Design Size Report
 ================================================================
 
-* C-Synthesis has not completed, compilation phases remaining:
-    * Unroll/Inline
-    * Performance/Pipeline
-    * Optimizations
-
 * Instructions per Function for each Compilation Phase
-+-----------------+-------------+-----------------+
-| Function        | Location    | Compile/Link    |
-+-----------------+-------------+-----------------+
-| + RNI           | RNI.cpp:15  | 9,853           |
-|    input_layer  | RNI.cpp:70  | 1,157           |
-|    inner_layer  | RNI.cpp:90  | 6,164 (4 calls) |
-|    output_layer | RNI.cpp:115 | 1,619           |
-+-----------------+-------------+-----------------+
++------------------+-------------+--------------+---------------+----------------------+---------------+
+| Function         | Location    | Compile/Link | Unroll/Inline | Performance/Pipeline | Optimizations |
++------------------+-------------+--------------+---------------+----------------------+---------------+
+| + RNI            | RNI.cpp:16  | 12,898       | 1,056         | 714                  | 782           |
+|    input_layer   | RNI.cpp:71  |  1,639       |   134         |                      |               |
+|    inner_layer_1 | RNI.cpp:91  |  2,046       |   154         |                      |               |
+|    inner_layer_2 | RNI.cpp:115 |  2,046       |   154         |                      |               |
+|    inner_layer_3 | RNI.cpp:139 |  2,046       |   154         |                      |               |
+|    inner_layer_4 | RNI.cpp:163 |  2,046       |   154         |                      |               |
+|    output_layer  | RNI.cpp:188 |  2,134       |   160         |                      |               |
++------------------+-------------+--------------+---------------+----------------------+---------------+
 
 * Description of Compilation Phases
 +----------------------+------------------------------------------------------------+
