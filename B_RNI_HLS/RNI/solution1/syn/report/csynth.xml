@@ -1,0 +1,1792 @@
+<profile>
+    <ReportVersion>
+        <Version>2023.1.1</Version>
+    </ReportVersion>
+    <UserAssignments>
+        <unit>ns</unit>
+        <ProductFamily>zynq</ProductFamily>
+        <Part>xc7z020-clg400-1</Part>
+        <TopModelName>RNI</TopModelName>
+        <TargetClockPeriod>10.00</TargetClockPeriod>
+        <ClockUncertainty>2.70</ClockUncertainty>
+        <FlowTarget>vivado</FlowTarget>
+    </UserAssignments>
+    <PerformanceEstimates>
+        <PipelineType>no</PipelineType>
+        <SummaryOfTimingAnalysis>
+            <unit>ns</unit>
+            <EstimatedClockPeriod>6.919</EstimatedClockPeriod>
+        </SummaryOfTimingAnalysis>
+        <SummaryOfOverallLatency>
+            <unit>clock cycles</unit>
+            <Best-caseLatency>undef</Best-caseLatency>
+            <Average-caseLatency>undef</Average-caseLatency>
+            <Worst-caseLatency>undef</Worst-caseLatency>
+            <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+            <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+            <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+            <Interval-min>undef</Interval-min>
+            <Interval-max>undef</Interval-max>
+        </SummaryOfOverallLatency>
+        <SummaryOfLoopLatency>
+            <VITIS_LOOP_26_1>
+                <Slack>7.30</Slack>
+                <TripCount>undef</TripCount>
+                <Latency>undef</Latency>
+                <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                <IterationLatency>
+                    <range>
+                        <min>4900</min>
+                        <max>66588972</max>
+                    </range>
+                </IterationLatency>
+                <InstanceList/>
+                <NEURONS_LOOP>
+                    <Slack>7.30</Slack>
+                    <TripCount>128</TripCount>
+                    <Latency>
+                        <range>
+                            <min>896</min>
+                            <max>8389888</max>
+                        </range>
+                    </Latency>
+                    <AbsoluteTimeLatency>
+                        <range>
+                            <min>8960</min>
+                            <max>83898880</max>
+                        </range>
+                    </AbsoluteTimeLatency>
+                    <IterationLatency>
+                        <range>
+                            <min>7</min>
+                            <max>65546</max>
+                        </range>
+                    </IterationLatency>
+                    <InstanceList/>
+                </NEURONS_LOOP>
+                <NEURONS_LOOP>
+                    <Slack>7.30</Slack>
+                    <TripCount>64</TripCount>
+                    <Latency>
+                        <range>
+                            <min>768</min>
+                            <max>12583488</max>
+                        </range>
+                    </Latency>
+                    <AbsoluteTimeLatency>
+                        <range>
+                            <min>7680</min>
+                            <max>125834880</max>
+                        </range>
+                    </AbsoluteTimeLatency>
+                    <IterationLatency>
+                        <range>
+                            <min>12</min>
+                            <max>196617</max>
+                        </range>
+                    </IterationLatency>
+                    <InstanceList/>
+                </NEURONS_LOOP>
+                <NEURONS_LOOP>
+                    <Slack>7.30</Slack>
+                    <TripCount>32</TripCount>
+                    <Latency>
+                        <range>
+                            <min>384</min>
+                            <max>6291744</max>
+                        </range>
+                    </Latency>
+                    <AbsoluteTimeLatency>
+                        <range>
+                            <min>3840</min>
+                            <max>62917440</max>
+                        </range>
+                    </AbsoluteTimeLatency>
+                    <IterationLatency>
+                        <range>
+                            <min>12</min>
+                            <max>196617</max>
+                        </range>
+                    </IterationLatency>
+                    <InstanceList/>
+                </NEURONS_LOOP>
+                <NEURONS_LOOP>
+                    <Slack>7.30</Slack>
+                    <TripCount>64</TripCount>
+                    <Latency>
+                        <range>
+                            <min>768</min>
+                            <max>12583488</max>
+                        </range>
+                    </Latency>
+                    <AbsoluteTimeLatency>
+                        <range>
+                            <min>7680</min>
+                            <max>125834880</max>
+                        </range>
+                    </AbsoluteTimeLatency>
+                    <IterationLatency>
+                        <range>
+                            <min>12</min>
+                            <max>196617</max>
+                        </range>
+                    </IterationLatency>
+                    <InstanceList/>
+                </NEURONS_LOOP>
+                <NEURONS_LOOP>
+                    <Slack>7.30</Slack>
+                    <TripCount>128</TripCount>
+                    <Latency>
+                        <range>
+                            <min>1536</min>
+                            <max>25166976</max>
+                        </range>
+                    </Latency>
+                    <AbsoluteTimeLatency>
+                        <range>
+                            <min>15360</min>
+                            <max>251669760</max>
+                        </range>
+                    </AbsoluteTimeLatency>
+                    <IterationLatency>
+                        <range>
+                            <min>12</min>
+                            <max>196617</max>
+                        </range>
+                    </IterationLatency>
+                    <InstanceList/>
+                </NEURONS_LOOP>
+                <NEURONS_LOOP>
+                    <Slack>7.30</Slack>
+                    <TripCount>8</TripCount>
+                    <Latency>
+                        <range>
+                            <min>96</min>
+                            <max>1572936</max>
+                        </range>
+                    </Latency>
+                    <AbsoluteTimeLatency>
+                        <range>
+                            <min>960</min>
+                            <max>15729360</max>
+                        </range>
+                    </AbsoluteTimeLatency>
+                    <IterationLatency>
+                        <range>
+                            <min>12</min>
+                            <max>196617</max>
+                        </range>
+                    </IterationLatency>
+                    <InstanceList/>
+                </NEURONS_LOOP>
+            </VITIS_LOOP_26_1>
+        </SummaryOfLoopLatency>
+    </PerformanceEstimates>
+    <AreaEstimates>
+        <Resources>
+            <BRAM_18K>18</BRAM_18K>
+            <FF>1832</FF>
+            <LUT>5795</LUT>
+            <URAM>0</URAM>
+            <DSP>0</DSP>
+        </Resources>
+        <AvailableResources>
+            <BRAM_18K>280</BRAM_18K>
+            <DSP>220</DSP>
+            <FF>106400</FF>
+            <LUT>53200</LUT>
+            <URAM>0</URAM>
+        </AvailableResources>
+    </AreaEstimates>
+    <InterfaceSummary>
+        <RtlPorts>
+            <name>ap_clk</name>
+            <Object>RNI</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_rst_n</name>
+            <Object>RNI</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_start</name>
+            <Object>RNI</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_done</name>
+            <Object>RNI</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_idle</name>
+            <Object>RNI</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_ready</name>
+            <Object>RNI</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>input_stream_TDATA</name>
+            <Object>input_stream_V_data_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>8</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>input_stream_TVALID</name>
+            <Object>input_stream_V_dest_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>input_stream_TREADY</name>
+            <Object>input_stream_V_dest_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>input_stream_TDEST</name>
+            <Object>input_stream_V_dest_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>6</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>input_stream_TKEEP</name>
+            <Object>input_stream_V_keep_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>input_stream_TSTRB</name>
+            <Object>input_stream_V_strb_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>input_stream_TUSER</name>
+            <Object>input_stream_V_user_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>2</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>input_stream_TLAST</name>
+            <Object>input_stream_V_last_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>input_stream_TID</name>
+            <Object>input_stream_V_id_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>5</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>output_stream_TDATA</name>
+            <Object>output_stream_V_data_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>8</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>output_stream_TVALID</name>
+            <Object>output_stream_V_dest_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>output_stream_TREADY</name>
+            <Object>output_stream_V_dest_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>output_stream_TDEST</name>
+            <Object>output_stream_V_dest_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>6</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>output_stream_TKEEP</name>
+            <Object>output_stream_V_keep_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>output_stream_TSTRB</name>
+            <Object>output_stream_V_strb_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>output_stream_TUSER</name>
+            <Object>output_stream_V_user_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>output_stream_TLAST</name>
+            <Object>output_stream_V_last_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>output_stream_TID</name>
+            <Object>output_stream_V_id_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>5</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+    </InterfaceSummary>
+    <RTLDesignHierarchy>
+        <TopModule MAX_DEPTH="3">
+            <ModuleName>RNI</ModuleName>
+            <InstancesList>
+                <Instance>
+                    <InstName>grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574</InstName>
+                    <ModuleName>RNI_Pipeline_VITIS_LOOP_33_2</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>574</ID>
+                    <BindInstances>add_ln33_fu_69_p2</BindInstances>
+                </Instance>
+                <Instance>
+                    <InstName>grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580</InstName>
+                    <ModuleName>RNI_Pipeline_VITIS_LOOP_39_3</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>580</ID>
+                    <BindInstances>add_ln39_fu_62_p2</BindInstances>
+                </Instance>
+                <Instance>
+                    <InstName>grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585</InstName>
+                    <ModuleName>RNI_Pipeline_WEIGHTS_LOOP</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>585</ID>
+                    <BindInstances>add_ln80_fu_177_p2 add_ln78_fu_145_p2</BindInstances>
+                </Instance>
+                <Instance>
+                    <InstName>grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598</InstName>
+                    <ModuleName>RNI_Pipeline_NEURONS_STATE_RESET_LOOP</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>598</ID>
+                    <BindInstances>add_ln111_fu_62_p2</BindInstances>
+                </Instance>
+                <Instance>
+                    <InstName>grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604</InstName>
+                    <ModuleName>RNI_Pipeline_WEIGHTS_LOOP1</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>604</ID>
+                    <BindInstances>sub_ln100_fu_139_p2 add_ln102_fu_163_p2 add_ln98_fu_149_p2</BindInstances>
+                </Instance>
+                <Instance>
+                    <InstName>grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621</InstName>
+                    <ModuleName>RNI_Pipeline_NEURONS_STATE_RESET_LOOP3</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>621</ID>
+                    <BindInstances>add_ln135_fu_67_p2</BindInstances>
+                </Instance>
+                <Instance>
+                    <InstName>grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627</InstName>
+                    <ModuleName>RNI_Pipeline_WEIGHTS_LOOP2</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>627</ID>
+                    <BindInstances>add_ln126_fu_175_p2 add_ln122_fu_161_p2</BindInstances>
+                </Instance>
+                <Instance>
+                    <InstName>grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644</InstName>
+                    <ModuleName>RNI_Pipeline_NEURONS_STATE_RESET_LOOP5</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>644</ID>
+                    <BindInstances>add_ln159_fu_71_p2</BindInstances>
+                </Instance>
+                <Instance>
+                    <InstName>grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650</InstName>
+                    <ModuleName>RNI_Pipeline_WEIGHTS_LOOP4</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>650</ID>
+                    <BindInstances>add_ln150_fu_169_p2 add_ln146_fu_155_p2</BindInstances>
+                </Instance>
+                <Instance>
+                    <InstName>grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667</InstName>
+                    <ModuleName>RNI_Pipeline_NEURONS_STATE_RESET_LOOP7</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>667</ID>
+                    <BindInstances>add_ln183_fu_67_p2</BindInstances>
+                </Instance>
+                <Instance>
+                    <InstName>grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673</InstName>
+                    <ModuleName>RNI_Pipeline_WEIGHTS_LOOP6</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>673</ID>
+                    <BindInstances>add_ln174_fu_169_p2 add_ln170_fu_155_p2</BindInstances>
+                </Instance>
+                <Instance>
+                    <InstName>grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690</InstName>
+                    <ModuleName>RNI_Pipeline_NEURONS_STATE_RESET_LOOP9</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>690</ID>
+                    <BindInstances>add_ln210_fu_67_p2</BindInstances>
+                </Instance>
+                <Instance>
+                    <InstName>grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696</InstName>
+                    <ModuleName>RNI_Pipeline_VITIS_LOOP_55_4</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>696</ID>
+                    <BindInstances>add_ln55_fu_83_p2</BindInstances>
+                </Instance>
+                <Instance>
+                    <InstName>grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702</InstName>
+                    <ModuleName>RNI_Pipeline_WEIGHTS_LOOP8</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>702</ID>
+                    <BindInstances>add_ln199_fu_175_p2 add_ln195_fu_161_p2</BindInstances>
+                </Instance>
+            </InstancesList>
+            <BindInstances>input_list_U output_list_U add_ln74_fu_772_p2 add_ln77_fu_791_p2 add_ln77_1_fu_847_p2 sub_ln77_fu_853_p2 add_i_i67_i_fu_929_p2 add_ln97_fu_975_p2 add_ln97_1_fu_1031_p2 sub_ln97_fu_1037_p2 add_i_i161_i_fu_1114_p2 add_ln121_fu_1149_p2 add_ln121_1_fu_1205_p2 sub_ln121_fu_1211_p2 add_i_i161_i305_fu_1288_p2 add_ln145_fu_1323_p2 add_ln145_1_fu_1379_p2 sub_ln145_fu_1385_p2 add_i_i161_i394_fu_1462_p2 add_ln169_fu_1493_p2 add_ln169_1_fu_1549_p2 sub_ln169_fu_1555_p2 add_i_i161_i486_fu_1632_p2 add_ln194_fu_1667_p2 add_ln194_1_fu_1723_p2 sub_ln194_fu_1729_p2 add_i_i172_i_fu_1806_p2 NEURONS_MEMBRANE_U WEIGHTS_INDEX_U WEIGHTS_U NEURONS_STATE_U</BindInstances>
+        </TopModule>
+    </RTLDesignHierarchy>
+    <ModuleInformation>
+        <Module>
+            <Name>RNI_Pipeline_VITIS_LOOP_33_2</Name>
+            <Loops>
+                <VITIS_LOOP_33_2/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>5.472</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>10</Best-caseLatency>
+                    <Average-caseLatency>10</Average-caseLatency>
+                    <Worst-caseLatency>10</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0.100 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0.100 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0.100 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>10</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <VITIS_LOOP_33_2>
+                        <Name>VITIS_LOOP_33_2</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>8</TripCount>
+                        <Latency>8</Latency>
+                        <AbsoluteTimeLatency>80.000 ns</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>1</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </VITIS_LOOP_33_2>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>6</FF>
+                    <AVAIL_FF>106400</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>70</LUT>
+                    <AVAIL_LUT>53200</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>280</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>220</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_33_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln33_fu_69_p2" SOURCE="src/RNI.cpp:33" URAM="0" VARIABLE="add_ln33"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>RNI_Pipeline_VITIS_LOOP_39_3</Name>
+            <Loops>
+                <VITIS_LOOP_39_3/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>4.057</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>10</Best-caseLatency>
+                    <Average-caseLatency>10</Average-caseLatency>
+                    <Worst-caseLatency>10</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0.100 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0.100 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0.100 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>10</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <VITIS_LOOP_39_3>
+                        <Name>VITIS_LOOP_39_3</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>8</TripCount>
+                        <Latency>8</Latency>
+                        <AbsoluteTimeLatency>80.000 ns</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>1</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </VITIS_LOOP_39_3>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>6</FF>
+                    <AVAIL_FF>106400</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>53</LUT>
+                    <AVAIL_LUT>53200</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>280</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>220</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_39_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln39_fu_62_p2" SOURCE="src/RNI.cpp:39" URAM="0" VARIABLE="add_ln39"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>RNI_Pipeline_WEIGHTS_LOOP</Name>
+            <Loops>
+                <WEIGHTS_LOOP/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>6.919</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>2</Best-caseLatency>
+                    <Average-caseLatency>32769</Average-caseLatency>
+                    <Worst-caseLatency>65537</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>20.000 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0.328 ms</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0.655 ms</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>2 ~ 65537</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <WEIGHTS_LOOP>
+                        <Name>WEIGHTS_LOOP</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>
+                            <range>
+                                <min>0</min>
+                                <max>65535</max>
+                            </range>
+                        </TripCount>
+                        <Latency>0 ~ 65535</Latency>
+                        <AbsoluteTimeLatency>0 ns ~ 0.655 ms</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>2</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </WEIGHTS_LOOP>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>99</FF>
+                    <AVAIL_FF>106400</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>222</LUT>
+                    <AVAIL_LUT>53200</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>280</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>220</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="WEIGHTS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln80_fu_177_p2" SOURCE="src/RNI.cpp:80" URAM="0" VARIABLE="add_ln80"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="WEIGHTS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln78_fu_145_p2" SOURCE="src/RNI.cpp:78" URAM="0" VARIABLE="add_ln78"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>RNI_Pipeline_WEIGHTS_LOOP1</Name>
+            <Loops>
+                <WEIGHTS_LOOP/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>5.331</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>2</Best-caseLatency>
+                    <Average-caseLatency>98303</Average-caseLatency>
+                    <Worst-caseLatency>196607</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>20.000 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0.983 ms</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>1.966 ms</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>2 ~ 196607</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <WEIGHTS_LOOP>
+                        <Name>WEIGHTS_LOOP</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>
+                            <range>
+                                <min>0</min>
+                                <max>65535</max>
+                            </range>
+                        </TripCount>
+                        <Latency>0 ~ 196605</Latency>
+                        <AbsoluteTimeLatency>0 ns ~ 1.966 ms</AbsoluteTimeLatency>
+                        <PipelineII>3</PipelineII>
+                        <PipelineDepth>4</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </WEIGHTS_LOOP>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>183</FF>
+                    <AVAIL_FF>106400</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>246</LUT>
+                    <AVAIL_LUT>53200</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>280</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>220</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="WEIGHTS_LOOP" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln100_fu_139_p2" SOURCE="src/RNI.cpp:100" URAM="0" VARIABLE="sub_ln100"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="WEIGHTS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln102_fu_163_p2" SOURCE="src/RNI.cpp:102" URAM="0" VARIABLE="add_ln102"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="WEIGHTS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln98_fu_149_p2" SOURCE="src/RNI.cpp:98" URAM="0" VARIABLE="add_ln98"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>RNI_Pipeline_NEURONS_STATE_RESET_LOOP</Name>
+            <Loops>
+                <NEURONS_STATE_RESET_LOOP/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>4.237</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>130</Best-caseLatency>
+                    <Average-caseLatency>130</Average-caseLatency>
+                    <Worst-caseLatency>130</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>1.300 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>1.300 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>1.300 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>130</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <NEURONS_STATE_RESET_LOOP>
+                        <Name>NEURONS_STATE_RESET_LOOP</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>128</TripCount>
+                        <Latency>128</Latency>
+                        <AbsoluteTimeLatency>1.280 us</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>1</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </NEURONS_STATE_RESET_LOOP>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>10</FF>
+                    <AVAIL_FF>106400</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>56</LUT>
+                    <AVAIL_LUT>53200</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>280</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>220</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_STATE_RESET_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln111_fu_62_p2" SOURCE="src/RNI.cpp:111" URAM="0" VARIABLE="add_ln111"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>RNI_Pipeline_WEIGHTS_LOOP2</Name>
+            <Loops>
+                <WEIGHTS_LOOP/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>6.020</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>2</Best-caseLatency>
+                    <Average-caseLatency>98303</Average-caseLatency>
+                    <Worst-caseLatency>196607</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>20.000 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0.983 ms</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>1.966 ms</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>2 ~ 196607</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <WEIGHTS_LOOP>
+                        <Name>WEIGHTS_LOOP</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>
+                            <range>
+                                <min>0</min>
+                                <max>65535</max>
+                            </range>
+                        </TripCount>
+                        <Latency>0 ~ 196605</Latency>
+                        <AbsoluteTimeLatency>0 ns ~ 1.966 ms</AbsoluteTimeLatency>
+                        <PipelineII>3</PipelineII>
+                        <PipelineDepth>4</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </WEIGHTS_LOOP>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>183</FF>
+                    <AVAIL_FF>106400</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>250</LUT>
+                    <AVAIL_LUT>53200</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>280</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>220</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="WEIGHTS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln126_fu_175_p2" SOURCE="src/RNI.cpp:126" URAM="0" VARIABLE="add_ln126"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="WEIGHTS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln122_fu_161_p2" SOURCE="src/RNI.cpp:122" URAM="0" VARIABLE="add_ln122"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>RNI_Pipeline_NEURONS_STATE_RESET_LOOP3</Name>
+            <Loops>
+                <NEURONS_STATE_RESET_LOOP/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>4.237</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>66</Best-caseLatency>
+                    <Average-caseLatency>66</Average-caseLatency>
+                    <Worst-caseLatency>66</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0.660 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0.660 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0.660 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>66</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <NEURONS_STATE_RESET_LOOP>
+                        <Name>NEURONS_STATE_RESET_LOOP</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>64</TripCount>
+                        <Latency>64</Latency>
+                        <AbsoluteTimeLatency>0.640 us</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>1</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </NEURONS_STATE_RESET_LOOP>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>10</FF>
+                    <AVAIL_FF>106400</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>57</LUT>
+                    <AVAIL_LUT>53200</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>280</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>220</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_STATE_RESET_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln135_fu_67_p2" SOURCE="src/RNI.cpp:135" URAM="0" VARIABLE="add_ln135"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>RNI_Pipeline_WEIGHTS_LOOP4</Name>
+            <Loops>
+                <WEIGHTS_LOOP/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>6.020</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>2</Best-caseLatency>
+                    <Average-caseLatency>98303</Average-caseLatency>
+                    <Worst-caseLatency>196607</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>20.000 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0.983 ms</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>1.966 ms</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>2 ~ 196607</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <WEIGHTS_LOOP>
+                        <Name>WEIGHTS_LOOP</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>
+                            <range>
+                                <min>0</min>
+                                <max>65535</max>
+                            </range>
+                        </TripCount>
+                        <Latency>0 ~ 196605</Latency>
+                        <AbsoluteTimeLatency>0 ns ~ 1.966 ms</AbsoluteTimeLatency>
+                        <PipelineII>3</PipelineII>
+                        <PipelineDepth>4</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </WEIGHTS_LOOP>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>185</FF>
+                    <AVAIL_FF>106400</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>250</LUT>
+                    <AVAIL_LUT>53200</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>280</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>220</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="WEIGHTS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln150_fu_169_p2" SOURCE="src/RNI.cpp:150" URAM="0" VARIABLE="add_ln150"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="WEIGHTS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln146_fu_155_p2" SOURCE="src/RNI.cpp:146" URAM="0" VARIABLE="add_ln146"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>RNI_Pipeline_NEURONS_STATE_RESET_LOOP5</Name>
+            <Loops>
+                <NEURONS_STATE_RESET_LOOP/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>4.192</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>34</Best-caseLatency>
+                    <Average-caseLatency>34</Average-caseLatency>
+                    <Worst-caseLatency>34</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0.340 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0.340 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0.340 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>34</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <NEURONS_STATE_RESET_LOOP>
+                        <Name>NEURONS_STATE_RESET_LOOP</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>32</TripCount>
+                        <Latency>32</Latency>
+                        <AbsoluteTimeLatency>0.320 us</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>1</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </NEURONS_STATE_RESET_LOOP>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>9</FF>
+                    <AVAIL_FF>106400</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>55</LUT>
+                    <AVAIL_LUT>53200</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>280</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>220</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_STATE_RESET_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln159_fu_71_p2" SOURCE="src/RNI.cpp:159" URAM="0" VARIABLE="add_ln159"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>RNI_Pipeline_WEIGHTS_LOOP6</Name>
+            <Loops>
+                <WEIGHTS_LOOP/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>6.020</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>2</Best-caseLatency>
+                    <Average-caseLatency>98303</Average-caseLatency>
+                    <Worst-caseLatency>196607</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>20.000 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0.983 ms</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>1.966 ms</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>2 ~ 196607</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <WEIGHTS_LOOP>
+                        <Name>WEIGHTS_LOOP</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>
+                            <range>
+                                <min>0</min>
+                                <max>65535</max>
+                            </range>
+                        </TripCount>
+                        <Latency>0 ~ 196605</Latency>
+                        <AbsoluteTimeLatency>0 ns ~ 1.966 ms</AbsoluteTimeLatency>
+                        <PipelineII>3</PipelineII>
+                        <PipelineDepth>4</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </WEIGHTS_LOOP>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>185</FF>
+                    <AVAIL_FF>106400</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>250</LUT>
+                    <AVAIL_LUT>53200</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>280</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>220</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="WEIGHTS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln174_fu_169_p2" SOURCE="src/RNI.cpp:174" URAM="0" VARIABLE="add_ln174"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="WEIGHTS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln170_fu_155_p2" SOURCE="src/RNI.cpp:170" URAM="0" VARIABLE="add_ln170"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>RNI_Pipeline_NEURONS_STATE_RESET_LOOP7</Name>
+            <Loops>
+                <NEURONS_STATE_RESET_LOOP/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>4.145</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>66</Best-caseLatency>
+                    <Average-caseLatency>66</Average-caseLatency>
+                    <Worst-caseLatency>66</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0.660 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0.660 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0.660 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>66</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <NEURONS_STATE_RESET_LOOP>
+                        <Name>NEURONS_STATE_RESET_LOOP</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>64</TripCount>
+                        <Latency>64</Latency>
+                        <AbsoluteTimeLatency>0.640 us</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>1</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </NEURONS_STATE_RESET_LOOP>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>11</FF>
+                    <AVAIL_FF>106400</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>55</LUT>
+                    <AVAIL_LUT>53200</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>280</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>220</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_STATE_RESET_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln183_fu_67_p2" SOURCE="src/RNI.cpp:183" URAM="0" VARIABLE="add_ln183"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>RNI_Pipeline_WEIGHTS_LOOP8</Name>
+            <Loops>
+                <WEIGHTS_LOOP/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>6.020</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>2</Best-caseLatency>
+                    <Average-caseLatency>98303</Average-caseLatency>
+                    <Worst-caseLatency>196607</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>20.000 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0.983 ms</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>1.966 ms</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>2 ~ 196607</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <WEIGHTS_LOOP>
+                        <Name>WEIGHTS_LOOP</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>
+                            <range>
+                                <min>0</min>
+                                <max>65535</max>
+                            </range>
+                        </TripCount>
+                        <Latency>0 ~ 196605</Latency>
+                        <AbsoluteTimeLatency>0 ns ~ 1.966 ms</AbsoluteTimeLatency>
+                        <PipelineII>3</PipelineII>
+                        <PipelineDepth>4</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </WEIGHTS_LOOP>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>185</FF>
+                    <AVAIL_FF>106400</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>250</LUT>
+                    <AVAIL_LUT>53200</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>280</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>220</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="WEIGHTS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln199_fu_175_p2" SOURCE="src/RNI.cpp:199" URAM="0" VARIABLE="add_ln199"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="WEIGHTS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln195_fu_161_p2" SOURCE="src/RNI.cpp:195" URAM="0" VARIABLE="add_ln195"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>RNI_Pipeline_NEURONS_STATE_RESET_LOOP9</Name>
+            <Loops>
+                <NEURONS_STATE_RESET_LOOP/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>4.145</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>130</Best-caseLatency>
+                    <Average-caseLatency>130</Average-caseLatency>
+                    <Worst-caseLatency>130</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>1.300 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>1.300 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>1.300 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>130</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <NEURONS_STATE_RESET_LOOP>
+                        <Name>NEURONS_STATE_RESET_LOOP</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>128</TripCount>
+                        <Latency>128</Latency>
+                        <AbsoluteTimeLatency>1.280 us</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>1</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </NEURONS_STATE_RESET_LOOP>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>11</FF>
+                    <AVAIL_FF>106400</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>55</LUT>
+                    <AVAIL_LUT>53200</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>280</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>220</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_STATE_RESET_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln210_fu_67_p2" SOURCE="src/RNI.cpp:210" URAM="0" VARIABLE="add_ln210"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>RNI_Pipeline_VITIS_LOOP_55_4</Name>
+            <Loops>
+                <VITIS_LOOP_55_4/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>5.158</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>10</Best-caseLatency>
+                    <Average-caseLatency>10</Average-caseLatency>
+                    <Worst-caseLatency>10</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0.100 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0.100 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0.100 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>10</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <VITIS_LOOP_55_4>
+                        <Name>VITIS_LOOP_55_4</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>8</TripCount>
+                        <Latency>8</Latency>
+                        <AbsoluteTimeLatency>80.000 ns</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>2</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </VITIS_LOOP_55_4>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>18</FF>
+                    <AVAIL_FF>106400</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>106</LUT>
+                    <AVAIL_LUT>53200</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>280</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>220</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_55_4" OPTYPE="add" PRAGMA="" RTLNAME="add_ln55_fu_83_p2" SOURCE="src/RNI.cpp:55" URAM="0" VARIABLE="add_ln55"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>RNI</Name>
+            <Loops>
+                <VITIS_LOOP_26_1>
+                    <NEURONS_LOOP/>
+                    <NEURONS_LOOP/>
+                    <NEURONS_LOOP/>
+                    <NEURONS_LOOP/>
+                    <NEURONS_LOOP/>
+                    <NEURONS_LOOP/>
+                </VITIS_LOOP_26_1>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>6.919</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <VITIS_LOOP_26_1>
+                        <Name>VITIS_LOOP_26_1</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>undef</TripCount>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                        <IterationLatency>
+                            <range>
+                                <min>4900</min>
+                                <max>66588972</max>
+                            </range>
+                        </IterationLatency>
+                        <PipelineDepth>4900 ~ 66588972</PipelineDepth>
+                        <PipelineType>no</PipelineType>
+                        <InstanceList>
+                            <Instance>grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574</Instance>
+                            <Instance>grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580</Instance>
+                            <Instance>grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598</Instance>
+                            <Instance>grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621</Instance>
+                            <Instance>grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644</Instance>
+                            <Instance>grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667</Instance>
+                            <Instance>grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690</Instance>
+                            <Instance>grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696</Instance>
+                        </InstanceList>
+                        <NEURONS_LOOP>
+                            <Name>NEURONS_LOOP</Name>
+                            <Slack>7.30</Slack>
+                            <TripCount>128</TripCount>
+                            <Latency>896 ~ 8389888</Latency>
+                            <AbsoluteTimeLatency>8.960 us ~ 83.899 ms</AbsoluteTimeLatency>
+                            <IterationLatency>
+                                <range>
+                                    <min>7</min>
+                                    <max>65546</max>
+                                </range>
+                            </IterationLatency>
+                            <PipelineDepth>7 ~ 65546</PipelineDepth>
+                            <PipelineType>no</PipelineType>
+                            <InstanceList>
+                                <Instance>grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585</Instance>
+                            </InstanceList>
+                        </NEURONS_LOOP>
+                        <NEURONS_LOOP>
+                            <Name>NEURONS_LOOP</Name>
+                            <Slack>7.30</Slack>
+                            <TripCount>64</TripCount>
+                            <Latency>768 ~ 12583488</Latency>
+                            <AbsoluteTimeLatency>7.680 us ~ 0.126 sec</AbsoluteTimeLatency>
+                            <IterationLatency>
+                                <range>
+                                    <min>12</min>
+                                    <max>196617</max>
+                                </range>
+                            </IterationLatency>
+                            <PipelineDepth>12 ~ 196617</PipelineDepth>
+                            <PipelineType>no</PipelineType>
+                            <InstanceList>
+                                <Instance>grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604</Instance>
+                            </InstanceList>
+                        </NEURONS_LOOP>
+                        <NEURONS_LOOP>
+                            <Name>NEURONS_LOOP</Name>
+                            <Slack>7.30</Slack>
+                            <TripCount>32</TripCount>
+                            <Latency>384 ~ 6291744</Latency>
+                            <AbsoluteTimeLatency>3.840 us ~ 62.917 ms</AbsoluteTimeLatency>
+                            <IterationLatency>
+                                <range>
+                                    <min>12</min>
+                                    <max>196617</max>
+                                </range>
+                            </IterationLatency>
+                            <PipelineDepth>12 ~ 196617</PipelineDepth>
+                            <PipelineType>no</PipelineType>
+                            <InstanceList>
+                                <Instance>grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627</Instance>
+                            </InstanceList>
+                        </NEURONS_LOOP>
+                        <NEURONS_LOOP>
+                            <Name>NEURONS_LOOP</Name>
+                            <Slack>7.30</Slack>
+                            <TripCount>64</TripCount>
+                            <Latency>768 ~ 12583488</Latency>
+                            <AbsoluteTimeLatency>7.680 us ~ 0.126 sec</AbsoluteTimeLatency>
+                            <IterationLatency>
+                                <range>
+                                    <min>12</min>
+                                    <max>196617</max>
+                                </range>
+                            </IterationLatency>
+                            <PipelineDepth>12 ~ 196617</PipelineDepth>
+                            <PipelineType>no</PipelineType>
+                            <InstanceList>
+                                <Instance>grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650</Instance>
+                            </InstanceList>
+                        </NEURONS_LOOP>
+                        <NEURONS_LOOP>
+                            <Name>NEURONS_LOOP</Name>
+                            <Slack>7.30</Slack>
+                            <TripCount>128</TripCount>
+                            <Latency>1536 ~ 25166976</Latency>
+                            <AbsoluteTimeLatency>15.360 us ~ 0.252 sec</AbsoluteTimeLatency>
+                            <IterationLatency>
+                                <range>
+                                    <min>12</min>
+                                    <max>196617</max>
+                                </range>
+                            </IterationLatency>
+                            <PipelineDepth>12 ~ 196617</PipelineDepth>
+                            <PipelineType>no</PipelineType>
+                            <InstanceList>
+                                <Instance>grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673</Instance>
+                            </InstanceList>
+                        </NEURONS_LOOP>
+                        <NEURONS_LOOP>
+                            <Name>NEURONS_LOOP</Name>
+                            <Slack>7.30</Slack>
+                            <TripCount>8</TripCount>
+                            <Latency>96 ~ 1572936</Latency>
+                            <AbsoluteTimeLatency>0.960 us ~ 15.729 ms</AbsoluteTimeLatency>
+                            <IterationLatency>
+                                <range>
+                                    <min>12</min>
+                                    <max>196617</max>
+                                </range>
+                            </IterationLatency>
+                            <PipelineDepth>12 ~ 196617</PipelineDepth>
+                            <PipelineType>no</PipelineType>
+                            <InstanceList>
+                                <Instance>grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702</Instance>
+                            </InstanceList>
+                        </NEURONS_LOOP>
+                    </VITIS_LOOP_26_1>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <BRAM_18K>18</BRAM_18K>
+                    <AVAIL_BRAM>280</AVAIL_BRAM>
+                    <UTIL_BRAM>6</UTIL_BRAM>
+                    <FF>1832</FF>
+                    <AVAIL_FF>106400</AVAIL_FF>
+                    <UTIL_FF>1</UTIL_FF>
+                    <LUT>5795</LUT>
+                    <AVAIL_LUT>53200</AVAIL_LUT>
+                    <UTIL_LUT>10</UTIL_LUT>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>220</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="input_list_U" SOURCE="src/RNI.cpp:32" URAM="0" VARIABLE="input_list"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="output_list_U" SOURCE="src/RNI.cpp:38" URAM="0" VARIABLE="output_list"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln74_fu_772_p2" SOURCE="src/RNI.cpp:74" URAM="0" VARIABLE="add_ln74"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln77_fu_791_p2" SOURCE="src/RNI.cpp:77" URAM="0" VARIABLE="add_ln77"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln77_1_fu_847_p2" SOURCE="src/RNI.cpp:77" URAM="0" VARIABLE="add_ln77_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln77_fu_853_p2" SOURCE="src/RNI.cpp:77" URAM="0" VARIABLE="sub_ln77"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_i_i67_i_fu_929_p2" SOURCE="src/RNI.cpp:74" URAM="0" VARIABLE="add_i_i67_i"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln97_fu_975_p2" SOURCE="src/RNI.cpp:97" URAM="0" VARIABLE="add_ln97"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln97_1_fu_1031_p2" SOURCE="src/RNI.cpp:97" URAM="0" VARIABLE="add_ln97_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln97_fu_1037_p2" SOURCE="src/RNI.cpp:97" URAM="0" VARIABLE="sub_ln97"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_i_i161_i_fu_1114_p2" SOURCE="" URAM="0" VARIABLE="add_i_i161_i"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln121_fu_1149_p2" SOURCE="src/RNI.cpp:121" URAM="0" VARIABLE="add_ln121"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln121_1_fu_1205_p2" SOURCE="src/RNI.cpp:121" URAM="0" VARIABLE="add_ln121_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln121_fu_1211_p2" SOURCE="src/RNI.cpp:121" URAM="0" VARIABLE="sub_ln121"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_i_i161_i305_fu_1288_p2" SOURCE="" URAM="0" VARIABLE="add_i_i161_i305"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln145_fu_1323_p2" SOURCE="src/RNI.cpp:145" URAM="0" VARIABLE="add_ln145"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln145_1_fu_1379_p2" SOURCE="src/RNI.cpp:145" URAM="0" VARIABLE="add_ln145_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln145_fu_1385_p2" SOURCE="src/RNI.cpp:145" URAM="0" VARIABLE="sub_ln145"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_i_i161_i394_fu_1462_p2" SOURCE="" URAM="0" VARIABLE="add_i_i161_i394"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln169_fu_1493_p2" SOURCE="src/RNI.cpp:169" URAM="0" VARIABLE="add_ln169"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln169_1_fu_1549_p2" SOURCE="src/RNI.cpp:169" URAM="0" VARIABLE="add_ln169_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln169_fu_1555_p2" SOURCE="src/RNI.cpp:169" URAM="0" VARIABLE="sub_ln169"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_i_i161_i486_fu_1632_p2" SOURCE="" URAM="0" VARIABLE="add_i_i161_i486"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln194_fu_1667_p2" SOURCE="src/RNI.cpp:194" URAM="0" VARIABLE="add_ln194"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln194_1_fu_1723_p2" SOURCE="src/RNI.cpp:194" URAM="0" VARIABLE="add_ln194_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln194_fu_1729_p2" SOURCE="src/RNI.cpp:194" URAM="0" VARIABLE="sub_ln194"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="NEURONS_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_i_i172_i_fu_1806_p2" SOURCE="" URAM="0" VARIABLE="add_i_i172_i"/>
+                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="NEURONS_MEMBRANE_U" SOURCE="" URAM="0" VARIABLE="NEURONS_MEMBRANE"/>
+                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage rom_2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_2p" PRAGMA="" RTLNAME="WEIGHTS_INDEX_U" SOURCE="" URAM="0" VARIABLE="WEIGHTS_INDEX"/>
+                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage rom_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_1p" PRAGMA="" RTLNAME="WEIGHTS_U" SOURCE="" URAM="0" VARIABLE="WEIGHTS"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="NEURONS_STATE_U" SOURCE="" URAM="0" VARIABLE="NEURONS_STATE"/>
+            </BindNodes>
+        </Module>
+    </ModuleInformation>
+    <FIFOInformation/>
+    <UserConfigCommands>
+        <config_export flow="syn" output="/home/mohr0901/Documents/PMC/B_RNI_HLS/output" vivado_clock="10"/>
+    </UserConfigCommands>
+    <Args>
+        <Arg ArgName="input_stream" index="0" direction="in" srcType="stream&lt;hls::axis&lt;ap_int&lt;8&gt;, 2, 5, 6&gt;, 0&gt;&amp;" srcSize="56">
+            <hwRefs>
+                <hwRef type="interface" interface="input_stream" name="" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="output_stream" index="1" direction="out" srcType="stream&lt;hls::axis&lt;ap_int&lt;8&gt;, 2, 5, 6&gt;, 0&gt;&amp;" srcSize="56">
+            <hwRefs>
+                <hwRef type="interface" interface="output_stream" name="" usage="data" direction="out"/>
+            </hwRefs>
+        </Arg>
+    </Args>
+    <Interfaces>
+        <Interface InterfaceName="ap_clk" type="clock" busTypeName="clock" mode="slave">
+            <busParams>
+                <busParam busParamName="ASSOCIATED_BUSIF">input_stream:output_stream</busParam>
+                <busParam busParamName="ASSOCIATED_RESET">ap_rst_n</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_clk">CLK</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_clk</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="ap_rst_n" type="reset" busTypeName="reset" mode="slave">
+            <busParams>
+                <busParam busParamName="POLARITY">ACTIVE_LOW</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_rst_n">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_rst_n</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="ap_ctrl" type="ap_ctrl" busTypeName="acc_handshake" mode="slave">
+            <portMaps>
+                <portMap portMapName="ap_start">start</portMap>
+                <portMap portMapName="ap_done">done</portMap>
+                <portMap portMapName="ap_idle">idle</portMap>
+                <portMap portMapName="ap_ready">ready</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_done</port>
+                <port>ap_idle</port>
+                <port>ap_ready</port>
+                <port>ap_start</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="input_stream" type="axi4stream" busTypeName="axis" mode="slave" dataWidth="8" portPrefix="input_stream_">
+            <ports>
+                <port>input_stream_TDATA</port>
+                <port>input_stream_TDEST</port>
+                <port>input_stream_TID</port>
+                <port>input_stream_TKEEP</port>
+                <port>input_stream_TLAST</port>
+                <port>input_stream_TREADY</port>
+                <port>input_stream_TSTRB</port>
+                <port>input_stream_TUSER</port>
+                <port>input_stream_TVALID</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="axis" register_option="0" register_mode="both" argName="input_stream"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="output_stream" type="axi4stream" busTypeName="axis" mode="master" dataWidth="8" portPrefix="output_stream_">
+            <ports>
+                <port>output_stream_TDATA</port>
+                <port>output_stream_TDEST</port>
+                <port>output_stream_TID</port>
+                <port>output_stream_TKEEP</port>
+                <port>output_stream_TLAST</port>
+                <port>output_stream_TREADY</port>
+                <port>output_stream_TSTRB</port>
+                <port>output_stream_TUSER</port>
+                <port>output_stream_TVALID</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="axis" register_option="0" register_mode="both" argName="output_stream"/>
+            </constraints>
+        </Interface>
+    </Interfaces>
+    <ReportHWInterface>
+        <section name="HW Interfaces" level="0">
+            <item name="AXIS">
+                <table>
+                    <keys size="12">Interface, Direction, Register Mode, TDATA, TDEST, TID, TKEEP, TLAST, TREADY, TSTRB, TUSER, TVALID</keys>
+                    <column name="input_stream">in, both, 8, 6, 5, 1, 1, 1, 1, 2, 1</column>
+                    <column name="output_stream">out, both, 8, 6, 5, 1, 1, 1, 1, 2, 1</column>
+                </table>
+            </item>
+            <item name="TOP LEVEL CONTROL">
+                <table>
+                    <keys size="3">Interface, Type, Ports</keys>
+                    <column name="ap_clk">clock, ap_clk</column>
+                    <column name="ap_rst_n">reset, ap_rst_n</column>
+                    <column name="ap_ctrl">ap_ctrl_hs, ap_done ap_idle ap_ready ap_start</column>
+                </table>
+            </item>
+        </section>
+    </ReportHWInterface>
+    <ReportSWInterface>
+        <section name="SW I/O Information" level="0">
+            <item name="Top Function Arguments">
+                <table>
+                    <keys size="3">Argument, Direction, Datatype</keys>
+                    <column name="input_stream">in, stream&lt;hls::axis&lt;ap_int&lt;8&gt; 2 5 6&gt; 0&gt;&amp;</column>
+                    <column name="output_stream">out, stream&lt;hls::axis&lt;ap_int&lt;8&gt; 2 5 6&gt; 0&gt;&amp;</column>
+                </table>
+            </item>
+            <item name="SW-to-HW Mapping">
+                <table>
+                    <keys size="3">Argument, HW Interface, HW Type</keys>
+                    <column name="input_stream">input_stream, interface</column>
+                    <column name="output_stream">output_stream, interface</column>
+                </table>
+            </item>
+        </section>
+    </ReportSWInterface>
+    <ResolutionUrl key="ZZZ">www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=ZZZ.html</ResolutionUrl>
+    <ReportBurst>
+        <section name="M_AXI Burst Information" level="0" HEADER_NOTE="Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings."/>
+    </ReportBurst>
+    <PragmaReport>
+        <Pragma type="interface" location="src/RNI.cpp:23" status="valid" parentFunction="rni" variable="input_stream" isDirective="0" options="mode=axis port=input_stream"/>
+        <Pragma type="interface" location="src/RNI.cpp:24" status="valid" parentFunction="rni" variable="output_stream" isDirective="0" options="mode=axis port=output_stream"/>
+    </PragmaReport>
+</profile>
+

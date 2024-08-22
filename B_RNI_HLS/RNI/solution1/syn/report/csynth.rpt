@@ -1,0 +1,205 @@
+
+
+================================================================
+== Synthesis Summary Report of 'RNI'
+================================================================
++ General Information: 
+    * Date:           Wed Jun 26 20:09:52 2024
+    * Version:        2023.1.1 (Build 3869133 on Jun 15 2023)
+    * Project:        RNI
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: zynq
+    * Target device:  xc7z020-clg400-1
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +--------------------------------------------+------+------+----------+-----------+----------+---------+-------+----------+---------+----+-----------+------------+-----+
+    |                   Modules                  | Issue|      | Latency  |  Latency  | Iteration|         |  Trip |          |         |    |           |            |     |
+    |                   & Loops                  | Type | Slack| (cycles) |    (ns)   |  Latency | Interval| Count | Pipelined|  BRAM   | DSP|     FF    |     LUT    | URAM|
+    +--------------------------------------------+------+------+----------+-----------+----------+---------+-------+----------+---------+----+-----------+------------+-----+
+    |+ RNI                                       |     -|  0.38|         -|          -|         -|        -|      -|        no|  18 (6%)|   -|  1832 (1%)|  5795 (10%)|    -|
+    | o VITIS_LOOP_26_1                          |     -|  7.30|         -|          -|  66588972|        -|      -|        no|        -|   -|          -|           -|    -|
+    |  + RNI_Pipeline_VITIS_LOOP_33_2            |     -|  1.83|        10|    100.000|         -|       10|      -|        no|        -|   -|    6 (~0%)|    70 (~0%)|    -|
+    |   o VITIS_LOOP_33_2                        |     -|  7.30|         8|     80.000|         1|        1|      8|       yes|        -|   -|          -|           -|    -|
+    |  + RNI_Pipeline_VITIS_LOOP_39_3            |     -|  3.24|        10|    100.000|         -|       10|      -|        no|        -|   -|    6 (~0%)|    53 (~0%)|    -|
+    |   o VITIS_LOOP_39_3                        |     -|  7.30|         8|     80.000|         1|        1|      8|       yes|        -|   -|          -|           -|    -|
+    |  + RNI_Pipeline_NEURONS_STATE_RESET_LOOP   |     -|  3.06|       130|  1.300e+03|         -|      130|      -|        no|        -|   -|   10 (~0%)|    56 (~0%)|    -|
+    |   o NEURONS_STATE_RESET_LOOP               |     -|  7.30|       128|  1.280e+03|         1|        1|    128|       yes|        -|   -|          -|           -|    -|
+    |  + RNI_Pipeline_NEURONS_STATE_RESET_LOOP3  |     -|  3.06|        66|    660.000|         -|       66|      -|        no|        -|   -|   10 (~0%)|    57 (~0%)|    -|
+    |   o NEURONS_STATE_RESET_LOOP               |     -|  7.30|        64|    640.000|         1|        1|     64|       yes|        -|   -|          -|           -|    -|
+    |  + RNI_Pipeline_NEURONS_STATE_RESET_LOOP5  |     -|  3.11|        34|    340.000|         -|       34|      -|        no|        -|   -|    9 (~0%)|    55 (~0%)|    -|
+    |   o NEURONS_STATE_RESET_LOOP               |     -|  7.30|        32|    320.000|         1|        1|     32|       yes|        -|   -|          -|           -|    -|
+    |  + RNI_Pipeline_NEURONS_STATE_RESET_LOOP7  |     -|  3.16|        66|    660.000|         -|       66|      -|        no|        -|   -|   11 (~0%)|    55 (~0%)|    -|
+    |   o NEURONS_STATE_RESET_LOOP               |     -|  7.30|        64|    640.000|         1|        1|     64|       yes|        -|   -|          -|           -|    -|
+    |  + RNI_Pipeline_NEURONS_STATE_RESET_LOOP9  |     -|  3.16|       130|  1.300e+03|         -|      130|      -|        no|        -|   -|   11 (~0%)|    55 (~0%)|    -|
+    |   o NEURONS_STATE_RESET_LOOP               |     -|  7.30|       128|  1.280e+03|         1|        1|    128|       yes|        -|   -|          -|           -|    -|
+    |  + RNI_Pipeline_VITIS_LOOP_55_4            |     -|  2.14|        10|    100.000|         -|       10|      -|        no|        -|   -|   18 (~0%)|   106 (~0%)|    -|
+    |   o VITIS_LOOP_55_4                        |     -|  7.30|         8|     80.000|         2|        1|      8|       yes|        -|   -|          -|           -|    -|
+    |  o NEURONS_LOOP                            |     -|  7.30|   8389888|  8.390e+07|     65546|        -|    128|        no|        -|   -|          -|           -|    -|
+    |   + RNI_Pipeline_WEIGHTS_LOOP              |     -|  0.38|     65537|  6.554e+05|         -|    65537|      -|        no|        -|   -|   99 (~0%)|   222 (~0%)|    -|
+    |    o WEIGHTS_LOOP                          |     -|  7.30|     65535|  6.554e+05|         2|        1|  65535|       yes|        -|   -|          -|           -|    -|
+    |  o NEURONS_LOOP                            |     -|  7.30|  12583488|  1.258e+08|    196617|        -|     64|        no|        -|   -|          -|           -|    -|
+    |   + RNI_Pipeline_WEIGHTS_LOOP1             |     -|  1.97|    196607|  1.966e+06|         -|   196607|      -|        no|        -|   -|  183 (~0%)|   246 (~0%)|    -|
+    |    o WEIGHTS_LOOP                          |    II|  7.30|    196605|  1.966e+06|         4|        3|  65535|       yes|        -|   -|          -|           -|    -|
+    |  o NEURONS_LOOP                            |     -|  7.30|   6291744|  6.292e+07|    196617|        -|     32|        no|        -|   -|          -|           -|    -|
+    |   + RNI_Pipeline_WEIGHTS_LOOP2             |     -|  1.28|    196607|  1.966e+06|         -|   196607|      -|        no|        -|   -|  183 (~0%)|   250 (~0%)|    -|
+    |    o WEIGHTS_LOOP                          |    II|  7.30|    196605|  1.966e+06|         4|        3|  65535|       yes|        -|   -|          -|           -|    -|
+    |  o NEURONS_LOOP                            |     -|  7.30|  12583488|  1.258e+08|    196617|        -|     64|        no|        -|   -|          -|           -|    -|
+    |   + RNI_Pipeline_WEIGHTS_LOOP4             |     -|  1.28|    196607|  1.966e+06|         -|   196607|      -|        no|        -|   -|  185 (~0%)|   250 (~0%)|    -|
+    |    o WEIGHTS_LOOP                          |    II|  7.30|    196605|  1.966e+06|         4|        3|  65535|       yes|        -|   -|          -|           -|    -|
+    |  o NEURONS_LOOP                            |     -|  7.30|  25166976|  2.517e+08|    196617|        -|    128|        no|        -|   -|          -|           -|    -|
+    |   + RNI_Pipeline_WEIGHTS_LOOP6             |     -|  1.28|    196607|  1.966e+06|         -|   196607|      -|        no|        -|   -|  185 (~0%)|   250 (~0%)|    -|
+    |    o WEIGHTS_LOOP                          |    II|  7.30|    196605|  1.966e+06|         4|        3|  65535|       yes|        -|   -|          -|           -|    -|
+    |  o NEURONS_LOOP                            |     -|  7.30|   1572936|  1.573e+07|    196617|        -|      8|        no|        -|   -|          -|           -|    -|
+    |   + RNI_Pipeline_WEIGHTS_LOOP8             |     -|  1.28|    196607|  1.966e+06|         -|   196607|      -|        no|        -|   -|  185 (~0%)|   250 (~0%)|    -|
+    |    o WEIGHTS_LOOP                          |    II|  7.30|    196605|  1.966e+06|         4|        3|  65535|       yes|        -|   -|          -|           -|    -|
+    +--------------------------------------------+------+------+----------+-----------+----------+---------+-------+----------+---------+----+-----------+------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* AXIS
++---------------+-----------+---------------+-------+-------+-----+-------+-------+--------+-------+-------+--------+
+| Interface     | Direction | Register Mode | TDATA | TDEST | TID | TKEEP | TLAST | TREADY | TSTRB | TUSER | TVALID |
++---------------+-----------+---------------+-------+-------+-----+-------+-------+--------+-------+-------+--------+
+| input_stream  | in        | both          | 8     | 6     | 5   | 1     | 1     | 1      | 1     | 2     | 1      |
+| output_stream | out       | both          | 8     | 6     | 5   | 1     | 1     | 1      | 1     | 2     | 1      |
++---------------+-----------+---------------+-------+-------+-----+-------+-------+--------+-------+-------+--------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------------------------------+
+| Interface | Type       | Ports                             |
++-----------+------------+-----------------------------------+
+| ap_clk    | clock      | ap_clk                            |
+| ap_rst_n  | reset      | ap_rst_n                          |
+| ap_ctrl   | ap_ctrl_hs | ap_done ap_idle ap_ready ap_start |
++-----------+------------+-----------------------------------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++---------------+-----------+-------------------------------------------+
+| Argument      | Direction | Datatype                                  |
++---------------+-----------+-------------------------------------------+
+| input_stream  | in        | stream<hls::axis<ap_int<8>, 2, 5, 6>, 0>& |
+| output_stream | out       | stream<hls::axis<ap_int<8>, 2, 5, 6>, 0>& |
++---------------+-----------+-------------------------------------------+
+
+* SW-to-HW Mapping
++---------------+---------------+-----------+
+| Argument      | HW Interface  | HW Type   |
++---------------+---------------+-----------+
+| input_stream  | input_stream  | interface |
+| output_stream | output_stream | interface |
++---------------+---------------+-----------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+
+================================================================
+== Bind Op Report
+================================================================
++-------------------------------------------+-----+--------+-----------------+-----+--------+---------+
+| Name                                      | DSP | Pragma | Variable        | Op  | Impl   | Latency |
++-------------------------------------------+-----+--------+-----------------+-----+--------+---------+
+| + RNI                                     | 0   |        |                 |     |        |         |
+|   add_ln74_fu_772_p2                      | -   |        | add_ln74        | add | fabric | 0       |
+|   add_ln77_fu_791_p2                      | -   |        | add_ln77        | add | fabric | 0       |
+|   add_ln77_1_fu_847_p2                    | -   |        | add_ln77_1      | add | fabric | 0       |
+|   sub_ln77_fu_853_p2                      | -   |        | sub_ln77        | sub | fabric | 0       |
+|   add_i_i67_i_fu_929_p2                   | -   |        | add_i_i67_i     | add | fabric | 0       |
+|   add_ln97_fu_975_p2                      | -   |        | add_ln97        | add | fabric | 0       |
+|   add_ln97_1_fu_1031_p2                   | -   |        | add_ln97_1      | add | fabric | 0       |
+|   sub_ln97_fu_1037_p2                     | -   |        | sub_ln97        | sub | fabric | 0       |
+|   add_i_i161_i_fu_1114_p2                 | -   |        | add_i_i161_i    | add | fabric | 0       |
+|   add_ln121_fu_1149_p2                    | -   |        | add_ln121       | add | fabric | 0       |
+|   add_ln121_1_fu_1205_p2                  | -   |        | add_ln121_1     | add | fabric | 0       |
+|   sub_ln121_fu_1211_p2                    | -   |        | sub_ln121       | sub | fabric | 0       |
+|   add_i_i161_i305_fu_1288_p2              | -   |        | add_i_i161_i305 | add | fabric | 0       |
+|   add_ln145_fu_1323_p2                    | -   |        | add_ln145       | add | fabric | 0       |
+|   add_ln145_1_fu_1379_p2                  | -   |        | add_ln145_1     | add | fabric | 0       |
+|   sub_ln145_fu_1385_p2                    | -   |        | sub_ln145       | sub | fabric | 0       |
+|   add_i_i161_i394_fu_1462_p2              | -   |        | add_i_i161_i394 | add | fabric | 0       |
+|   add_ln169_fu_1493_p2                    | -   |        | add_ln169       | add | fabric | 0       |
+|   add_ln169_1_fu_1549_p2                  | -   |        | add_ln169_1     | add | fabric | 0       |
+|   sub_ln169_fu_1555_p2                    | -   |        | sub_ln169       | sub | fabric | 0       |
+|   add_i_i161_i486_fu_1632_p2              | -   |        | add_i_i161_i486 | add | fabric | 0       |
+|   add_ln194_fu_1667_p2                    | -   |        | add_ln194       | add | fabric | 0       |
+|   add_ln194_1_fu_1723_p2                  | -   |        | add_ln194_1     | add | fabric | 0       |
+|   sub_ln194_fu_1729_p2                    | -   |        | sub_ln194       | sub | fabric | 0       |
+|   add_i_i172_i_fu_1806_p2                 | -   |        | add_i_i172_i    | add | fabric | 0       |
+|  + RNI_Pipeline_VITIS_LOOP_33_2           | 0   |        |                 |     |        |         |
+|    add_ln33_fu_69_p2                      | -   |        | add_ln33        | add | fabric | 0       |
+|  + RNI_Pipeline_VITIS_LOOP_39_3           | 0   |        |                 |     |        |         |
+|    add_ln39_fu_62_p2                      | -   |        | add_ln39        | add | fabric | 0       |
+|  + RNI_Pipeline_WEIGHTS_LOOP              | 0   |        |                 |     |        |         |
+|    add_ln80_fu_177_p2                     | -   |        | add_ln80        | add | fabric | 0       |
+|    add_ln78_fu_145_p2                     | -   |        | add_ln78        | add | fabric | 0       |
+|  + RNI_Pipeline_NEURONS_STATE_RESET_LOOP  | 0   |        |                 |     |        |         |
+|    add_ln111_fu_62_p2                     | -   |        | add_ln111       | add | fabric | 0       |
+|  + RNI_Pipeline_WEIGHTS_LOOP1             | 0   |        |                 |     |        |         |
+|    sub_ln100_fu_139_p2                    | -   |        | sub_ln100       | sub | fabric | 0       |
+|    add_ln102_fu_163_p2                    | -   |        | add_ln102       | add | fabric | 0       |
+|    add_ln98_fu_149_p2                     | -   |        | add_ln98        | add | fabric | 0       |
+|  + RNI_Pipeline_NEURONS_STATE_RESET_LOOP3 | 0   |        |                 |     |        |         |
+|    add_ln135_fu_67_p2                     | -   |        | add_ln135       | add | fabric | 0       |
+|  + RNI_Pipeline_WEIGHTS_LOOP2             | 0   |        |                 |     |        |         |
+|    add_ln126_fu_175_p2                    | -   |        | add_ln126       | add | fabric | 0       |
+|    add_ln122_fu_161_p2                    | -   |        | add_ln122       | add | fabric | 0       |
+|  + RNI_Pipeline_NEURONS_STATE_RESET_LOOP5 | 0   |        |                 |     |        |         |
+|    add_ln159_fu_71_p2                     | -   |        | add_ln159       | add | fabric | 0       |
+|  + RNI_Pipeline_WEIGHTS_LOOP4             | 0   |        |                 |     |        |         |
+|    add_ln150_fu_169_p2                    | -   |        | add_ln150       | add | fabric | 0       |
+|    add_ln146_fu_155_p2                    | -   |        | add_ln146       | add | fabric | 0       |
+|  + RNI_Pipeline_NEURONS_STATE_RESET_LOOP7 | 0   |        |                 |     |        |         |
+|    add_ln183_fu_67_p2                     | -   |        | add_ln183       | add | fabric | 0       |
+|  + RNI_Pipeline_WEIGHTS_LOOP6             | 0   |        |                 |     |        |         |
+|    add_ln174_fu_169_p2                    | -   |        | add_ln174       | add | fabric | 0       |
+|    add_ln170_fu_155_p2                    | -   |        | add_ln170       | add | fabric | 0       |
+|  + RNI_Pipeline_NEURONS_STATE_RESET_LOOP9 | 0   |        |                 |     |        |         |
+|    add_ln210_fu_67_p2                     | -   |        | add_ln210       | add | fabric | 0       |
+|  + RNI_Pipeline_VITIS_LOOP_55_4           | 0   |        |                 |     |        |         |
+|    add_ln55_fu_83_p2                      | -   |        | add_ln55        | add | fabric | 0       |
+|  + RNI_Pipeline_WEIGHTS_LOOP8             | 0   |        |                 |     |        |         |
+|    add_ln199_fu_175_p2                    | -   |        | add_ln199       | add | fabric | 0       |
+|    add_ln195_fu_161_p2                    | -   |        | add_ln195       | add | fabric | 0       |
++-------------------------------------------+-----+--------+-----------------+-----+--------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
++----------------------+------+------+--------+------------------+---------+------+---------+
+| Name                 | BRAM | URAM | Pragma | Variable         | Storage | Impl | Latency |
++----------------------+------+------+--------+------------------+---------+------+---------+
+| + RNI                | 18   | 0    |        |                  |         |      |         |
+|   input_list_U       | -    | -    |        | input_list       | ram_1p  | auto | 1       |
+|   output_list_U      | -    | -    |        | output_list      | ram_1p  | auto | 1       |
+|   NEURONS_MEMBRANE_U | 1    | -    |        | NEURONS_MEMBRANE | ram_1p  | auto | 1       |
+|   WEIGHTS_INDEX_U    | 1    | -    |        | WEIGHTS_INDEX    | rom_2p  | auto | 1       |
+|   WEIGHTS_U          | 16   | -    |        | WEIGHTS          | rom_1p  | auto | 1       |
+|   NEURONS_STATE_U    | -    | -    |        | NEURONS_STATE    | ram_1p  | auto | 1       |
++----------------------+------+------+--------+------------------+---------+------+---------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------+------------------------------+--------------------------------------+
+| Type      | Options                      | Location                             |
++-----------+------------------------------+--------------------------------------+
+| interface | mode=axis port=input_stream  | src/RNI.cpp:23 in rni, input_stream  |
+| interface | mode=axis port=output_stream | src/RNI.cpp:24 in rni, output_stream |
++-----------+------------------------------+--------------------------------------+
+
+
