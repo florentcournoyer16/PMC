@@ -98,10 +98,7 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="dma_axis_ip_example.bd" FileRelPathName="ip/dma_axis_ip_example_example_0_0_11/dma_axis_ip_example_example_0_0.xci">
-          <Proxy FileSetName="dma_axis_ip_example_example_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="dma_axis_ip_example.bd" FileRelPathName="ip/dma_axis_ip_example_processing_system7_0_0_11/dma_axis_ip_example_processing_system7_0_0.xci">
+        <CompFileExtendedInfo CompFileName="dma_axis_ip_example.bd" FileRelPathName="ip/dma_axis_ip_example_processing_system7_0_0_19/dma_axis_ip_example_processing_system7_0_0.xci">
           <Proxy FileSetName="dma_axis_ip_example_processing_system7_0_0"/>
         </CompFileExtendedInfo>
       </File>
@@ -125,6 +122,7 @@
       </Config>
     </FileSet>
     <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1" RelGenDir="$PGENDIR/sim_1">
+      <Filter Type="Srcs"/>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="dma_axis_ip_example_wrapper"/>
@@ -152,12 +150,6 @@
       </File>
       <Config>
         <Option Name="TopAutoSet" Val="TRUE"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="dma_axis_ip_example_example_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/dma_axis_ip_example_example_0_0" RelGenDir="$PGENDIR/dma_axis_ip_example_example_0_0">
-      <Config>
-        <Option Name="TopModule" Val="dma_axis_ip_example_example_0_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
     <FileSet Name="dma_axis_ip_example_processing_system7_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/dma_axis_ip_example_processing_system7_0_0" RelGenDir="$PGENDIR/dma_axis_ip_example_processing_system7_0_0">
@@ -201,18 +193,6 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="dma_axis_ip_example_example_0_0_synth_1" Type="Ft3:Synth" SrcSet="dma_axis_ip_example_example_0_0" Part="xc7z020clg400-1" ConstrsSet="dma_axis_ip_example_example_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/dma_axis_ip_example_example_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/dma_axis_ip_example_example_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/dma_axis_ip_example_example_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2023"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
     <Run Id="dma_axis_ip_example_processing_system7_0_0_synth_1" Type="Ft3:Synth" SrcSet="dma_axis_ip_example_processing_system7_0_0" Part="xc7z020clg400-1" ConstrsSet="dma_axis_ip_example_processing_system7_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/dma_axis_ip_example_processing_system7_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/dma_axis_ip_example_processing_system7_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/dma_axis_ip_example_processing_system7_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023">
@@ -241,25 +221,6 @@
         <Step Id="write_bitstream"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2023"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="dma_axis_ip_example_example_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-1" ConstrsSet="dma_axis_ip_example_example_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="dma_axis_ip_example_example_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/dma_axis_ip_example_example_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/dma_axis_ip_example_example_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2023">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2023"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>

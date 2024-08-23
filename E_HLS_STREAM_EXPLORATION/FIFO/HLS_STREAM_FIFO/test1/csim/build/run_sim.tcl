@@ -10,13 +10,14 @@ set ::env(LD_LIBRARY_PATH) $::env(LD_LIBRARY_PATH):/tools/Xilinx/Vitis_HLS/2023.
 set ::env(LD_LIBRARY_PATH) $::env(LD_LIBRARY_PATH):/tools/Xilinx/Vitis_HLS/2023.1/lnx64/tools/fir_v7_0
 set ::env(LD_LIBRARY_PATH) $::env(LD_LIBRARY_PATH):/tools/Xilinx/Vitis_HLS/2023.1/lnx64/tools/dds_v6_0
 set ::env(LD_LIBRARY_PATH) $::env(LD_LIBRARY_PATH):/usr/lib/x86_64-linux-gnu
+set ap_argv "C_SIM=1"
 set ::env(LD_LIBRARY_PATH) $::env(LD_LIBRARY_PATH):/tools/Xilinx/Vitis_HLS/2023.1/lnx64/csim
 ### C sim ###
 if {![file exists csim.exe]} {
   puts "@E C-simulation is not set up properly. Please re-run csim."
   return -code error
 }
-set ret [catch {eval exec ./csim.exe | tee temp0.log >&@ stdout} err]
+set ret [catch {eval exec ./csim.exe $ap_argv | tee temp0.log >&@ stdout} err]
 set logfile "temp0.log"
 if {$ret || $err != ""} {
     if { [lindex $::errorCode 0] eq "CHILDSTATUS"} {

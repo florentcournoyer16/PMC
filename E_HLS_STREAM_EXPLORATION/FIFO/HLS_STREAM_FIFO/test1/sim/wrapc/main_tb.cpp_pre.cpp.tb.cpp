@@ -84192,7 +84192,7 @@ extern "C"
 void apatb_LIGHT_MODULE_sw(hls::stream<hls::axis<ap_int<32>, 2, 5, 6>, 0> &, hls::stream<hls::axis<ap_int<32>, 2, 5, 6>, 0> &);
 #endif
 # 20 "/home/mohr0901/Documents/PMC/E_HLS_STREAM_EXPLORATION/FIFO/tb/../inc/example.h"
-void LIGHT_MODULE(input_stream& INPUT_A, output_stream& OUTPUT_B);
+void LIGHT_MODULE(input_stream& IS, output_stream& OS);
 # 2 "/home/mohr0901/Documents/PMC/E_HLS_STREAM_EXPLORATION/FIFO/tb/main_tb.cpp" 2
 
 using namespace std;
@@ -84206,7 +84206,7 @@ int main() {
  output_stream os;
 
     input_packet ips[4];
- output_packet ops[20];
+ output_packet ops[4096];
 
  for (int i = 0; i < 4; i++) {
   ips[i].data = i+1;
@@ -84228,12 +84228,12 @@ LIGHT_MODULE(is, os);
 # 23 "/home/mohr0901/Documents/PMC/E_HLS_STREAM_EXPLORATION/FIFO/tb/main_tb.cpp"
 
 
- for (int i = 0; i < 1; i++) {
+ for (int i = 0; i < 4096; i++) {
      ops[i] = os.read();
  }
 
     int i = 0;
-    for(i = 0; i < 1; i++) {
+    for(i = 0; i < 4096; i++) {
      cout << ops[i].data.to_string() << " , ";
     }
     cout << endl << i << endl;

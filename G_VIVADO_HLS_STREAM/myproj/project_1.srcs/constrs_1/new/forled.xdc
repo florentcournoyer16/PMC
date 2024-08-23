@@ -1,0 +1,1 @@
+set_property -dict {PACKAGE_PIN D19 IOSTANDARD LVCMOS33} [get_ports {led1_o_0}]

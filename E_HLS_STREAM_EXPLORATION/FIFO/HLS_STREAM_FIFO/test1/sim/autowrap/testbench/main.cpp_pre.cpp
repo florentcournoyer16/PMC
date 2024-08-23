@@ -84178,33 +84178,30 @@ typedef ap_axis<32, 2, 5, 6> output_packet;
 typedef hls::stream<input_packet> input_stream;
 typedef hls::stream<output_packet> output_stream;
 
-void LIGHT_MODULE(input_stream& INPUT_A, output_stream& OUTPUT_B);
+void LIGHT_MODULE(input_stream& IS, output_stream& OS);
 # 3 "/home/mohr0901/Documents/PMC/E_HLS_STREAM_EXPLORATION/FIFO/src/main.cpp" 2
 
-void LIGHT_MODULE(input_stream& INPUT_A, output_stream& OUTPUT_B) {
-#pragma HLS INTERFACE axis port = INPUT_A
-#pragma HLS INTERFACE axis port = OUTPUT_B
-#pragma HLS INTERFACE s_axilite port=return
+void LIGHT_MODULE(input_stream& IS, output_stream& OS) {
+#pragma HLS INTERFACE axis port = IS
+#pragma HLS INTERFACE axis port = OS
+#pragma HLS INTERFACE s_axilite port=return bundle=myaxiA
 
- input_packet ips1;
- input_packet ips2;
- input_packet ips3;
- input_packet ips4;
- output_packet ops;
+ input_packet ips[4];
+ output_packet ops[4096];
 
  while (1) {
-  ops.data = 0;
+  for(int i = 0; i < 4; i++){
+   IS.read(ips[i]);
+  }
 
-  INPUT_A.read(ips1);
-  INPUT_A.read(ips2);
-  INPUT_A.read(ips3);
-  INPUT_A.read(ips4);
-  ops.data = ips1.data.to_int() + ips2.data.to_int() + ips3.data.to_int() + ips4.data.to_int();
+  for(int i = 0; i < 4096;){
+   for(int j = 0; j < 4; j++){
+    ops[i] = ips[j];
+    ops[i].data += i;
+    ops[i].last = (i == 4096);
 
-  OUTPUT_B.write(ops);
-
-  if (ips4.last == 1) {
-   break;
+    OS.write(ops[i++]);
+   }
   }
  }
  return;

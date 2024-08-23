@@ -7,5 +7,5 @@
 // ==============================================================
 
 extern "C" void AESL_WRAP_LIGHT_MODULE (
-hls::stream<struct ap_axis<32, 0, 0, 0 > > (&INPUT_A),
-hls::stream<struct ap_axis<32, 0, 0, 0 > > (&OUTPUT_B));
+hls::stream<struct ap_axis<32, 0, 0, 0 > > (&IS_r),
+hls::stream<struct ap_axis<32, 0, 0, 0 > > (&OS));

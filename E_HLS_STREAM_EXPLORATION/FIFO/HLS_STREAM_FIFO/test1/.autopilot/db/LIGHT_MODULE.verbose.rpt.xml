@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'LIGHT_MODULE'" level="0">
-<item name = "Date">Thu Aug 22 22:23:07 2024
+<item name = "Date">Fri Aug 23 15:19:00 2024
 </item>
 <item name = "Version">2023.1.1 (Build 3869133 on Jun 15 2023)</item>
 <item name = "Project">HLS_STREAM_FIFO</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 2.552 ns, 2.70 ns</column>
+<column name="ap_clk">10.00 ns, 5.967 ns, 2.70 ns</column>
 </table>
 </item>
 </section>
@@ -31,11 +31,14 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160">LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2, 6, 6, 60.000 ns, 60.000 ns, 6, 6, no</column>
+<column name="grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196">LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1, 6, 6, 60.000 ns, 60.000 ns, 6, 6, no</column>
+<column name="grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205">LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3, 4098, 4098, 40.980 us, 40.980 us, 4098, 4098, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- VITIS_LOOP_15_1">?, ?, 2, 1, 1, ?, yes</column>
+<column name="- VITIS_LOOP_15_1">?, ?, 4116, -, -, inf, no</column>
 </table>
 </item>
 </section>
@@ -48,21 +51,24 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 47, -</column>
+<column name="Expression">-, -, 0, 110, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">0, -, 36, 40, -</column>
+<column name="Instance">0, -, 276, 462, -</column>
 <column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, -, 36, -</column>
-<column name="Register">-, -, 4, -, -</column>
+<column name="Multiplexer">-, -, -, 51, -</column>
+<column name="Register">-, -, 190, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
-<specialColumn name="Utilization (%)">0, 0, ~0, ~0, 0</specialColumn>
+<specialColumn name="Utilization (%)">0, 0, ~0, 1, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="control_s_axi_U">control_s_axi, 0, 0, 36, 40, 0</column>
+<column name="grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160">LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2, 0, 0, 154, 221, 0</column>
+<column name="grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205">LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3, 0, 0, 48, 80, 0</column>
+<column name="grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196">LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1, 0, 0, 38, 121, 0</column>
+<column name="ctrl_s_axi_U">ctrl_s_axi, 0, 0, 36, 40, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
@@ -79,27 +85,34 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="OUTPUT_A_TDATA_int_regslice">+, 0, 0, 39, 32, 5</column>
-<column name="ap_block_pp0_stage0_01001">or, 0, 0, 2, 1, 1</column>
-<column name="ap_block_state1_pp0_stage0_iter0">or, 0, 0, 2, 1, 1</column>
-<column name="ap_block_state2_pp0_stage0_iter1">or, 0, 0, 2, 1, 1</column>
-<column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
+<column name="sub_ln45_1_fu_352_p2">-, 0, 0, 38, 1, 31</column>
+<column name="sub_ln45_fu_332_p2">-, 0, 0, 39, 1, 32</column>
+<column name="grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TREADY">and, 0, 0, 2, 1, 1</column>
+<column name="avg_fu_372_p3">select, 0, 0, 31, 1, 31</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="INPUT_B_TDATA_blk_n">9, 2, 1, 2</column>
-<column name="OUTPUT_A_TDATA_blk_n">9, 2, 1, 2</column>
-<column name="ap_done_int">9, 2, 1, 2</column>
-<column name="ap_loop_exit_ready_pp0_iter1_reg">9, 2, 1, 2</column>
+<column name="ap_NS_fsm">42, 8, 1, 8</column>
+<column name="in_stream_TREADY_int_regslice">9, 2, 1, 2</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="ap_CS_fsm">1, 0, 1, 0</column>
-<column name="ap_done_reg">1, 0, 1, 0</column>
-<column name="ap_enable_reg_pp0_iter1">1, 0, 1, 0</column>
-<column name="ap_loop_exit_ready_pp0_iter1_reg">1, 0, 1, 0</column>
+<column name="ap_CS_fsm">7, 0, 7, 0</column>
+<column name="avg_reg_574">31, 0, 31, 0</column>
+<column name="grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_ap_start_reg">1, 0, 1, 0</column>
+<column name="in_pkts_data_0_01_fu_104">32, 0, 32, 0</column>
+<column name="in_pkts_data_1_02_fu_108">32, 0, 32, 0</column>
+<column name="in_pkts_data_2_03_fu_112">32, 0, 32, 0</column>
+<column name="in_pkts_data_3_04_fu_116">32, 0, 32, 0</column>
+<column name="in_pkts_dest_0_072_fu_100">6, 0, 6, 0</column>
+<column name="in_pkts_id_0_071_fu_96">5, 0, 5, 0</column>
+<column name="in_pkts_keep_0_068_fu_84">4, 0, 4, 0</column>
+<column name="in_pkts_strb_0_069_fu_88">4, 0, 4, 0</column>
+<column name="in_pkts_user_0_070_fu_92">2, 0, 2, 0</column>
 </table>
 </item>
 </section>
@@ -109,44 +122,44 @@
 <section name = "Interface" level="0">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
-<column name="s_axi_control_AWVALID">in, 1, s_axi, control, return void</column>
-<column name="s_axi_control_AWREADY">out, 1, s_axi, control, return void</column>
-<column name="s_axi_control_AWADDR">in, 4, s_axi, control, return void</column>
-<column name="s_axi_control_WVALID">in, 1, s_axi, control, return void</column>
-<column name="s_axi_control_WREADY">out, 1, s_axi, control, return void</column>
-<column name="s_axi_control_WDATA">in, 32, s_axi, control, return void</column>
-<column name="s_axi_control_WSTRB">in, 4, s_axi, control, return void</column>
-<column name="s_axi_control_ARVALID">in, 1, s_axi, control, return void</column>
-<column name="s_axi_control_ARREADY">out, 1, s_axi, control, return void</column>
-<column name="s_axi_control_ARADDR">in, 4, s_axi, control, return void</column>
-<column name="s_axi_control_RVALID">out, 1, s_axi, control, return void</column>
-<column name="s_axi_control_RREADY">in, 1, s_axi, control, return void</column>
-<column name="s_axi_control_RDATA">out, 32, s_axi, control, return void</column>
-<column name="s_axi_control_RRESP">out, 2, s_axi, control, return void</column>
-<column name="s_axi_control_BVALID">out, 1, s_axi, control, return void</column>
-<column name="s_axi_control_BREADY">in, 1, s_axi, control, return void</column>
-<column name="s_axi_control_BRESP">out, 2, s_axi, control, return void</column>
+<column name="s_axi_ctrl_AWVALID">in, 1, s_axi, ctrl, return void</column>
+<column name="s_axi_ctrl_AWREADY">out, 1, s_axi, ctrl, return void</column>
+<column name="s_axi_ctrl_AWADDR">in, 4, s_axi, ctrl, return void</column>
+<column name="s_axi_ctrl_WVALID">in, 1, s_axi, ctrl, return void</column>
+<column name="s_axi_ctrl_WREADY">out, 1, s_axi, ctrl, return void</column>
+<column name="s_axi_ctrl_WDATA">in, 32, s_axi, ctrl, return void</column>
+<column name="s_axi_ctrl_WSTRB">in, 4, s_axi, ctrl, return void</column>
+<column name="s_axi_ctrl_ARVALID">in, 1, s_axi, ctrl, return void</column>
+<column name="s_axi_ctrl_ARREADY">out, 1, s_axi, ctrl, return void</column>
+<column name="s_axi_ctrl_ARADDR">in, 4, s_axi, ctrl, return void</column>
+<column name="s_axi_ctrl_RVALID">out, 1, s_axi, ctrl, return void</column>
+<column name="s_axi_ctrl_RREADY">in, 1, s_axi, ctrl, return void</column>
+<column name="s_axi_ctrl_RDATA">out, 32, s_axi, ctrl, return void</column>
+<column name="s_axi_ctrl_RRESP">out, 2, s_axi, ctrl, return void</column>
+<column name="s_axi_ctrl_BVALID">out, 1, s_axi, ctrl, return void</column>
+<column name="s_axi_ctrl_BREADY">in, 1, s_axi, ctrl, return void</column>
+<column name="s_axi_ctrl_BRESP">out, 2, s_axi, ctrl, return void</column>
 <column name="ap_clk">in, 1, ap_ctrl_hs, LIGHT_MODULE, return value</column>
 <column name="ap_rst_n">in, 1, ap_ctrl_hs, LIGHT_MODULE, return value</column>
 <column name="interrupt">out, 1, ap_ctrl_hs, LIGHT_MODULE, return value</column>
-<column name="INPUT_B_TVALID">in, 1, axis, INPUT_B_V_dest_V, pointer</column>
-<column name="INPUT_B_TREADY">out, 1, axis, INPUT_B_V_dest_V, pointer</column>
-<column name="INPUT_B_TDEST">in, 6, axis, INPUT_B_V_dest_V, pointer</column>
-<column name="OUTPUT_A_TREADY">in, 1, axis, OUTPUT_A_V_dest_V, pointer</column>
-<column name="OUTPUT_A_TVALID">out, 1, axis, OUTPUT_A_V_dest_V, pointer</column>
-<column name="OUTPUT_A_TDEST">out, 6, axis, OUTPUT_A_V_dest_V, pointer</column>
-<column name="INPUT_B_TDATA">in, 32, axis, INPUT_B_V_data_V, pointer</column>
-<column name="INPUT_B_TKEEP">in, 4, axis, INPUT_B_V_keep_V, pointer</column>
-<column name="INPUT_B_TSTRB">in, 4, axis, INPUT_B_V_strb_V, pointer</column>
-<column name="INPUT_B_TUSER">in, 2, axis, INPUT_B_V_user_V, pointer</column>
-<column name="INPUT_B_TLAST">in, 1, axis, INPUT_B_V_last_V, pointer</column>
-<column name="INPUT_B_TID">in, 5, axis, INPUT_B_V_id_V, pointer</column>
-<column name="OUTPUT_A_TDATA">out, 32, axis, OUTPUT_A_V_data_V, pointer</column>
-<column name="OUTPUT_A_TKEEP">out, 4, axis, OUTPUT_A_V_keep_V, pointer</column>
-<column name="OUTPUT_A_TSTRB">out, 4, axis, OUTPUT_A_V_strb_V, pointer</column>
-<column name="OUTPUT_A_TUSER">out, 2, axis, OUTPUT_A_V_user_V, pointer</column>
-<column name="OUTPUT_A_TLAST">out, 1, axis, OUTPUT_A_V_last_V, pointer</column>
-<column name="OUTPUT_A_TID">out, 5, axis, OUTPUT_A_V_id_V, pointer</column>
+<column name="in_stream_TDATA">in, 32, axis, in_stream_V_data_V, pointer</column>
+<column name="in_stream_TVALID">in, 1, axis, in_stream_V_dest_V, pointer</column>
+<column name="in_stream_TREADY">out, 1, axis, in_stream_V_dest_V, pointer</column>
+<column name="in_stream_TDEST">in, 6, axis, in_stream_V_dest_V, pointer</column>
+<column name="in_stream_TKEEP">in, 4, axis, in_stream_V_keep_V, pointer</column>
+<column name="in_stream_TSTRB">in, 4, axis, in_stream_V_strb_V, pointer</column>
+<column name="in_stream_TUSER">in, 2, axis, in_stream_V_user_V, pointer</column>
+<column name="in_stream_TLAST">in, 1, axis, in_stream_V_last_V, pointer</column>
+<column name="in_stream_TID">in, 5, axis, in_stream_V_id_V, pointer</column>
+<column name="out_stream_TDATA">out, 32, axis, out_stream_V_data_V, pointer</column>
+<column name="out_stream_TVALID">out, 1, axis, out_stream_V_dest_V, pointer</column>
+<column name="out_stream_TREADY">in, 1, axis, out_stream_V_dest_V, pointer</column>
+<column name="out_stream_TDEST">out, 6, axis, out_stream_V_dest_V, pointer</column>
+<column name="out_stream_TKEEP">out, 4, axis, out_stream_V_keep_V, pointer</column>
+<column name="out_stream_TSTRB">out, 4, axis, out_stream_V_strb_V, pointer</column>
+<column name="out_stream_TUSER">out, 2, axis, out_stream_V_user_V, pointer</column>
+<column name="out_stream_TLAST">out, 1, axis, out_stream_V_last_V, pointer</column>
+<column name="out_stream_TID">out, 5, axis, out_stream_V_id_V, pointer</column>
 </table>
 </item>
 </section>

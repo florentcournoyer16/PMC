@@ -41,12 +41,12 @@ typedef uint64_t u64;
 #else
 typedef struct {
     u16 DeviceId;
-    u64 Control_BaseAddress;
+    u64 Ctrl_BaseAddress;
 } XLight_module_Config;
 #endif
 
 typedef struct {
-    u64 Control_BaseAddress;
+    u64 Ctrl_BaseAddress;
     u32 IsReady;
 } XLight_module;
 

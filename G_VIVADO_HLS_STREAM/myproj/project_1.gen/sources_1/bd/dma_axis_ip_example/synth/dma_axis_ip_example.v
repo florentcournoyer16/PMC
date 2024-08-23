@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1.1 (lin64) Build 3900603 Fri Jun 16 19:30:25 MDT 2023
-//Date        : Thu Aug 22 22:25:44 2024
+//Date        : Fri Aug 23 15:23:18 2024
 //Host        : GRAMS-NSOC running 64-bit Ubuntu 22.04.4 LTS
 //Command     : generate_target dma_axis_ip_example.bd
 //Design      : dma_axis_ip_example
@@ -122,11 +122,11 @@ module dma_axis_ip_example
   wire axi_mem_intercon_M00_AXI_WREADY;
   wire [7:0]axi_mem_intercon_M00_AXI_WSTRB;
   wire axi_mem_intercon_M00_AXI_WVALID;
-  wire [31:0]example_0_OUTPUT_A_TDATA;
-  wire [3:0]example_0_OUTPUT_A_TKEEP;
-  wire [0:0]example_0_OUTPUT_A_TLAST;
-  wire example_0_OUTPUT_A_TREADY;
-  wire example_0_OUTPUT_A_TVALID;
+  wire [31:0]example_0_out_stream_TDATA;
+  wire [3:0]example_0_out_stream_TKEEP;
+  wire [0:0]example_0_out_stream_TLAST;
+  wire example_0_out_stream_TREADY;
+  wire example_0_out_stream_TVALID;
   wire [14:0]processing_system7_0_DDR_ADDR;
   wire [2:0]processing_system7_0_DDR_BA;
   wire processing_system7_0_DDR_CAS_N;
@@ -278,11 +278,11 @@ module dma_axis_ip_example
         .s_axi_lite_wdata(ps7_0_axi_periph_M00_AXI_WDATA),
         .s_axi_lite_wready(ps7_0_axi_periph_M00_AXI_WREADY),
         .s_axi_lite_wvalid(ps7_0_axi_periph_M00_AXI_WVALID),
-        .s_axis_s2mm_tdata(example_0_OUTPUT_A_TDATA),
-        .s_axis_s2mm_tkeep(example_0_OUTPUT_A_TKEEP),
-        .s_axis_s2mm_tlast(example_0_OUTPUT_A_TLAST),
-        .s_axis_s2mm_tready(example_0_OUTPUT_A_TREADY),
-        .s_axis_s2mm_tvalid(example_0_OUTPUT_A_TVALID));
+        .s_axis_s2mm_tdata(example_0_out_stream_TDATA),
+        .s_axis_s2mm_tkeep(example_0_out_stream_TKEEP),
+        .s_axis_s2mm_tlast(example_0_out_stream_TLAST),
+        .s_axis_s2mm_tready(example_0_out_stream_TREADY),
+        .s_axis_s2mm_tvalid(example_0_out_stream_TVALID));
   dma_axis_ip_example_axi_mem_intercon_0 axi_mem_intercon
        (.ACLK(processing_system7_0_FCLK_CLK0),
         .ARESETN(rst_ps7_0_100M_peripheral_aresetn),
@@ -360,39 +360,39 @@ module dma_axis_ip_example
         .S00_AXI_rresp(axi_dma_M_AXI_MM2S_RRESP),
         .S00_AXI_rvalid(axi_dma_M_AXI_MM2S_RVALID));
   dma_axis_ip_example_example_0_0 example_0
-       (.INPUT_B_TDATA(axi_dma_M_AXIS_MM2S_TDATA),
-        .INPUT_B_TDEST({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .INPUT_B_TID({1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .INPUT_B_TKEEP(axi_dma_M_AXIS_MM2S_TKEEP),
-        .INPUT_B_TLAST(axi_dma_M_AXIS_MM2S_TLAST),
-        .INPUT_B_TREADY(axi_dma_M_AXIS_MM2S_TREADY),
-        .INPUT_B_TSTRB({1'b1,1'b1,1'b1,1'b1}),
-        .INPUT_B_TUSER({1'b0,1'b0}),
-        .INPUT_B_TVALID(axi_dma_M_AXIS_MM2S_TVALID),
-        .OUTPUT_A_TDATA(example_0_OUTPUT_A_TDATA),
-        .OUTPUT_A_TKEEP(example_0_OUTPUT_A_TKEEP),
-        .OUTPUT_A_TLAST(example_0_OUTPUT_A_TLAST),
-        .OUTPUT_A_TREADY(example_0_OUTPUT_A_TREADY),
-        .OUTPUT_A_TVALID(example_0_OUTPUT_A_TVALID),
-        .ap_clk(processing_system7_0_FCLK_CLK0),
+       (.ap_clk(processing_system7_0_FCLK_CLK0),
         .ap_rst_n(rst_ps7_0_100M_peripheral_aresetn),
-        .s_axi_control_ARADDR(ps7_0_axi_periph_M01_AXI_ARADDR[3:0]),
-        .s_axi_control_ARREADY(ps7_0_axi_periph_M01_AXI_ARREADY),
-        .s_axi_control_ARVALID(ps7_0_axi_periph_M01_AXI_ARVALID),
-        .s_axi_control_AWADDR(ps7_0_axi_periph_M01_AXI_AWADDR[3:0]),
-        .s_axi_control_AWREADY(ps7_0_axi_periph_M01_AXI_AWREADY),
-        .s_axi_control_AWVALID(ps7_0_axi_periph_M01_AXI_AWVALID),
-        .s_axi_control_BREADY(ps7_0_axi_periph_M01_AXI_BREADY),
-        .s_axi_control_BRESP(ps7_0_axi_periph_M01_AXI_BRESP),
-        .s_axi_control_BVALID(ps7_0_axi_periph_M01_AXI_BVALID),
-        .s_axi_control_RDATA(ps7_0_axi_periph_M01_AXI_RDATA),
-        .s_axi_control_RREADY(ps7_0_axi_periph_M01_AXI_RREADY),
-        .s_axi_control_RRESP(ps7_0_axi_periph_M01_AXI_RRESP),
-        .s_axi_control_RVALID(ps7_0_axi_periph_M01_AXI_RVALID),
-        .s_axi_control_WDATA(ps7_0_axi_periph_M01_AXI_WDATA),
-        .s_axi_control_WREADY(ps7_0_axi_periph_M01_AXI_WREADY),
-        .s_axi_control_WSTRB(ps7_0_axi_periph_M01_AXI_WSTRB),
-        .s_axi_control_WVALID(ps7_0_axi_periph_M01_AXI_WVALID));
+        .in_stream_TDATA(axi_dma_M_AXIS_MM2S_TDATA),
+        .in_stream_TDEST({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .in_stream_TID({1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .in_stream_TKEEP(axi_dma_M_AXIS_MM2S_TKEEP),
+        .in_stream_TLAST(axi_dma_M_AXIS_MM2S_TLAST),
+        .in_stream_TREADY(axi_dma_M_AXIS_MM2S_TREADY),
+        .in_stream_TSTRB({1'b1,1'b1,1'b1,1'b1}),
+        .in_stream_TUSER({1'b0,1'b0}),
+        .in_stream_TVALID(axi_dma_M_AXIS_MM2S_TVALID),
+        .out_stream_TDATA(example_0_out_stream_TDATA),
+        .out_stream_TKEEP(example_0_out_stream_TKEEP),
+        .out_stream_TLAST(example_0_out_stream_TLAST),
+        .out_stream_TREADY(example_0_out_stream_TREADY),
+        .out_stream_TVALID(example_0_out_stream_TVALID),
+        .s_axi_ctrl_ARADDR(ps7_0_axi_periph_M01_AXI_ARADDR[3:0]),
+        .s_axi_ctrl_ARREADY(ps7_0_axi_periph_M01_AXI_ARREADY),
+        .s_axi_ctrl_ARVALID(ps7_0_axi_periph_M01_AXI_ARVALID),
+        .s_axi_ctrl_AWADDR(ps7_0_axi_periph_M01_AXI_AWADDR[3:0]),
+        .s_axi_ctrl_AWREADY(ps7_0_axi_periph_M01_AXI_AWREADY),
+        .s_axi_ctrl_AWVALID(ps7_0_axi_periph_M01_AXI_AWVALID),
+        .s_axi_ctrl_BREADY(ps7_0_axi_periph_M01_AXI_BREADY),
+        .s_axi_ctrl_BRESP(ps7_0_axi_periph_M01_AXI_BRESP),
+        .s_axi_ctrl_BVALID(ps7_0_axi_periph_M01_AXI_BVALID),
+        .s_axi_ctrl_RDATA(ps7_0_axi_periph_M01_AXI_RDATA),
+        .s_axi_ctrl_RREADY(ps7_0_axi_periph_M01_AXI_RREADY),
+        .s_axi_ctrl_RRESP(ps7_0_axi_periph_M01_AXI_RRESP),
+        .s_axi_ctrl_RVALID(ps7_0_axi_periph_M01_AXI_RVALID),
+        .s_axi_ctrl_WDATA(ps7_0_axi_periph_M01_AXI_WDATA),
+        .s_axi_ctrl_WREADY(ps7_0_axi_periph_M01_AXI_WREADY),
+        .s_axi_ctrl_WSTRB(ps7_0_axi_periph_M01_AXI_WSTRB),
+        .s_axi_ctrl_WVALID(ps7_0_axi_periph_M01_AXI_WVALID));
   dma_axis_ip_example_processing_system7_0_0 processing_system7_0
        (.DDR_Addr(DDR_addr[14:0]),
         .DDR_BankAddr(DDR_ba[2:0]),

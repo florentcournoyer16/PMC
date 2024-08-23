@@ -18,7 +18,7 @@
 <PipelineType>no</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>2.552</EstimatedClockPeriod>
+<EstimatedClockPeriod>5.967</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
@@ -34,11 +34,10 @@
 <SummaryOfLoopLatency>
 <VITIS_LOOP_15_1>
 <Slack>7.30</Slack>
-<TripCount>undef</TripCount>
+<TripCount>inf</TripCount>
 <Latency>undef</Latency>
 <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
-<PipelineII>1</PipelineII>
-<PipelineDepth>2</PipelineDepth>
+<IterationLatency>4116</IterationLatency>
 <InstanceList>
 </InstanceList>
 </VITIS_LOOP_15_1>
@@ -48,8 +47,8 @@
 <AreaEstimates>
 <Resources>
 <BRAM_18K>0</BRAM_18K>
-<FF>40</FF>
-<LUT>123</LUT>
+<FF>466</FF>
+<LUT>623</LUT>
 <DSP>0</DSP>
 <URAM>0</URAM>
 </Resources>
@@ -64,8 +63,8 @@
 
 <InterfaceSummary>
 <RtlPorts>
-<name>s_axi_control_AWVALID</name>
-<Object>control</Object>
+<name>s_axi_ctrl_AWVALID</name>
+<Object>ctrl</Object>
 <Type>return void</Type>
 <IOProtocol>s_axi</IOProtocol>
 <Dir>in</Dir>
@@ -75,8 +74,8 @@
 <HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
-<name>s_axi_control_AWREADY</name>
-<Object>control</Object>
+<name>s_axi_ctrl_AWREADY</name>
+<Object>ctrl</Object>
 <Type>return void</Type>
 <IOProtocol>s_axi</IOProtocol>
 <Dir>out</Dir>
@@ -86,8 +85,8 @@
 <HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
-<name>s_axi_control_AWADDR</name>
-<Object>control</Object>
+<name>s_axi_ctrl_AWADDR</name>
+<Object>ctrl</Object>
 <Type>return void</Type>
 <IOProtocol>s_axi</IOProtocol>
 <Dir>in</Dir>
@@ -97,8 +96,8 @@
 <HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
-<name>s_axi_control_WVALID</name>
-<Object>control</Object>
+<name>s_axi_ctrl_WVALID</name>
+<Object>ctrl</Object>
 <Type>return void</Type>
 <IOProtocol>s_axi</IOProtocol>
 <Dir>in</Dir>
@@ -108,8 +107,8 @@
 <HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
-<name>s_axi_control_WREADY</name>
-<Object>control</Object>
+<name>s_axi_ctrl_WREADY</name>
+<Object>ctrl</Object>
 <Type>return void</Type>
 <IOProtocol>s_axi</IOProtocol>
 <Dir>out</Dir>
@@ -119,8 +118,8 @@
 <HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
-<name>s_axi_control_WDATA</name>
-<Object>control</Object>
+<name>s_axi_ctrl_WDATA</name>
+<Object>ctrl</Object>
 <Type>return void</Type>
 <IOProtocol>s_axi</IOProtocol>
 <Dir>in</Dir>
@@ -130,8 +129,8 @@
 <HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
-<name>s_axi_control_WSTRB</name>
-<Object>control</Object>
+<name>s_axi_ctrl_WSTRB</name>
+<Object>ctrl</Object>
 <Type>return void</Type>
 <IOProtocol>s_axi</IOProtocol>
 <Dir>in</Dir>
@@ -141,8 +140,8 @@
 <HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
-<name>s_axi_control_ARVALID</name>
-<Object>control</Object>
+<name>s_axi_ctrl_ARVALID</name>
+<Object>ctrl</Object>
 <Type>return void</Type>
 <IOProtocol>s_axi</IOProtocol>
 <Dir>in</Dir>
@@ -152,8 +151,8 @@
 <HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
-<name>s_axi_control_ARREADY</name>
-<Object>control</Object>
+<name>s_axi_ctrl_ARREADY</name>
+<Object>ctrl</Object>
 <Type>return void</Type>
 <IOProtocol>s_axi</IOProtocol>
 <Dir>out</Dir>
@@ -163,8 +162,8 @@
 <HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
-<name>s_axi_control_ARADDR</name>
-<Object>control</Object>
+<name>s_axi_ctrl_ARADDR</name>
+<Object>ctrl</Object>
 <Type>return void</Type>
 <IOProtocol>s_axi</IOProtocol>
 <Dir>in</Dir>
@@ -174,8 +173,8 @@
 <HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
-<name>s_axi_control_RVALID</name>
-<Object>control</Object>
+<name>s_axi_ctrl_RVALID</name>
+<Object>ctrl</Object>
 <Type>return void</Type>
 <IOProtocol>s_axi</IOProtocol>
 <Dir>out</Dir>
@@ -185,8 +184,8 @@
 <HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
-<name>s_axi_control_RREADY</name>
-<Object>control</Object>
+<name>s_axi_ctrl_RREADY</name>
+<Object>ctrl</Object>
 <Type>return void</Type>
 <IOProtocol>s_axi</IOProtocol>
 <Dir>in</Dir>
@@ -196,8 +195,8 @@
 <HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
-<name>s_axi_control_RDATA</name>
-<Object>control</Object>
+<name>s_axi_ctrl_RDATA</name>
+<Object>ctrl</Object>
 <Type>return void</Type>
 <IOProtocol>s_axi</IOProtocol>
 <Dir>out</Dir>
@@ -207,8 +206,8 @@
 <HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
-<name>s_axi_control_RRESP</name>
-<Object>control</Object>
+<name>s_axi_ctrl_RRESP</name>
+<Object>ctrl</Object>
 <Type>return void</Type>
 <IOProtocol>s_axi</IOProtocol>
 <Dir>out</Dir>
@@ -218,8 +217,8 @@
 <HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
-<name>s_axi_control_BVALID</name>
-<Object>control</Object>
+<name>s_axi_ctrl_BVALID</name>
+<Object>ctrl</Object>
 <Type>return void</Type>
 <IOProtocol>s_axi</IOProtocol>
 <Dir>out</Dir>
@@ -229,8 +228,8 @@
 <HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
-<name>s_axi_control_BREADY</name>
-<Object>control</Object>
+<name>s_axi_ctrl_BREADY</name>
+<Object>ctrl</Object>
 <Type>return void</Type>
 <IOProtocol>s_axi</IOProtocol>
 <Dir>in</Dir>
@@ -240,8 +239,8 @@
 <HasCtrl>1</HasCtrl>
 </RtlPorts>
 <RtlPorts>
-<name>s_axi_control_BRESP</name>
-<Object>control</Object>
+<name>s_axi_ctrl_BRESP</name>
+<Object>ctrl</Object>
 <Type>return void</Type>
 <IOProtocol>s_axi</IOProtocol>
 <Dir>out</Dir>
@@ -284,80 +283,8 @@
 <Attribute>unknown</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>INPUT_B_TVALID</name>
-<Object>INPUT_B_V_dest_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>INPUT_B_TREADY</name>
-<Object>INPUT_B_V_dest_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>INPUT_B_TDEST</name>
-<Object>INPUT_B_V_dest_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>in</Dir>
-<Bits>6</Bits>
-<Attribute>data</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>OUTPUT_A_TREADY</name>
-<Object>OUTPUT_A_V_dest_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>OUTPUT_A_TVALID</name>
-<Object>OUTPUT_A_V_dest_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>OUTPUT_A_TDEST</name>
-<Object>OUTPUT_A_V_dest_V</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>out</Dir>
-<Bits>6</Bits>
-<Attribute>data</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>INPUT_B_TDATA</name>
-<Object>INPUT_B_V_data_V</Object>
+<name>in_stream_TDATA</name>
+<Object>in_stream_V_data_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -368,8 +295,44 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>INPUT_B_TKEEP</name>
-<Object>INPUT_B_V_keep_V</Object>
+<name>in_stream_TVALID</name>
+<Object>in_stream_V_dest_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>in_stream_TREADY</name>
+<Object>in_stream_V_dest_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>in_stream_TDEST</name>
+<Object>in_stream_V_dest_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>in</Dir>
+<Bits>6</Bits>
+<Attribute>data</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>in_stream_TKEEP</name>
+<Object>in_stream_V_keep_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -380,8 +343,8 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>INPUT_B_TSTRB</name>
-<Object>INPUT_B_V_strb_V</Object>
+<name>in_stream_TSTRB</name>
+<Object>in_stream_V_strb_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -392,8 +355,8 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>INPUT_B_TUSER</name>
-<Object>INPUT_B_V_user_V</Object>
+<name>in_stream_TUSER</name>
+<Object>in_stream_V_user_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -404,8 +367,8 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>INPUT_B_TLAST</name>
-<Object>INPUT_B_V_last_V</Object>
+<name>in_stream_TLAST</name>
+<Object>in_stream_V_last_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -416,8 +379,8 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>INPUT_B_TID</name>
-<Object>INPUT_B_V_id_V</Object>
+<name>in_stream_TID</name>
+<Object>in_stream_V_id_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -428,8 +391,8 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>OUTPUT_A_TDATA</name>
-<Object>OUTPUT_A_V_data_V</Object>
+<name>out_stream_TDATA</name>
+<Object>out_stream_V_data_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -440,8 +403,44 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>OUTPUT_A_TKEEP</name>
-<Object>OUTPUT_A_V_keep_V</Object>
+<name>out_stream_TVALID</name>
+<Object>out_stream_V_dest_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>out_stream_TREADY</name>
+<Object>out_stream_V_dest_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>out_stream_TDEST</name>
+<Object>out_stream_V_dest_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>out</Dir>
+<Bits>6</Bits>
+<Attribute>data</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>out_stream_TKEEP</name>
+<Object>out_stream_V_keep_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -452,8 +451,8 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>OUTPUT_A_TSTRB</name>
-<Object>OUTPUT_A_V_strb_V</Object>
+<name>out_stream_TSTRB</name>
+<Object>out_stream_V_strb_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -464,8 +463,8 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>OUTPUT_A_TUSER</name>
-<Object>OUTPUT_A_V_user_V</Object>
+<name>out_stream_TUSER</name>
+<Object>out_stream_V_user_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -476,8 +475,8 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>OUTPUT_A_TLAST</name>
-<Object>OUTPUT_A_V_last_V</Object>
+<name>out_stream_TLAST</name>
+<Object>out_stream_V_last_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -488,8 +487,8 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>OUTPUT_A_TID</name>
-<Object>OUTPUT_A_V_id_V</Object>
+<name>out_stream_TID</name>
+<Object>out_stream_V_id_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>

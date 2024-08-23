@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1.1 (lin64) Build 3900603 Fri Jun 16 19:30:25 MDT 2023
-//Date        : Thu Aug 22 22:25:44 2024
+//Date        : Fri Aug 23 15:23:18 2024
 //Host        : GRAMS-NSOC running 64-bit Ubuntu 22.04.4 LTS
 //Command     : generate_target dma_axis_ip_example_wrapper.bd
 //Design      : dma_axis_ip_example_wrapper

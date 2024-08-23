@@ -14,7 +14,7 @@ int XLight_module_CfgInitialize(XLight_module *InstancePtr, XLight_module_Config
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(ConfigPtr != NULL);
 
-    InstancePtr->Control_BaseAddress = ConfigPtr->Control_BaseAddress;
+    InstancePtr->Ctrl_BaseAddress = ConfigPtr->Ctrl_BaseAddress;
     InstancePtr->IsReady = XIL_COMPONENT_IS_READY;
 
     return XST_SUCCESS;
@@ -27,8 +27,8 @@ void XLight_module_Start(XLight_module *InstancePtr) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XLight_module_ReadReg(InstancePtr->Control_BaseAddress, XLIGHT_MODULE_CONTROL_ADDR_AP_CTRL) & 0x80;
-    XLight_module_WriteReg(InstancePtr->Control_BaseAddress, XLIGHT_MODULE_CONTROL_ADDR_AP_CTRL, Data | 0x01);
+    Data = XLight_module_ReadReg(InstancePtr->Ctrl_BaseAddress, XLIGHT_MODULE_CTRL_ADDR_AP_CTRL) & 0x80;
+    XLight_module_WriteReg(InstancePtr->Ctrl_BaseAddress, XLIGHT_MODULE_CTRL_ADDR_AP_CTRL, Data | 0x01);
 }
 
 u32 XLight_module_IsDone(XLight_module *InstancePtr) {
@@ -37,7 +37,7 @@ u32 XLight_module_IsDone(XLight_module *InstancePtr) {
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XLight_module_ReadReg(InstancePtr->Control_BaseAddress, XLIGHT_MODULE_CONTROL_ADDR_AP_CTRL);
+    Data = XLight_module_ReadReg(InstancePtr->Ctrl_BaseAddress, XLIGHT_MODULE_CTRL_ADDR_AP_CTRL);
     return (Data >> 1) & 0x1;
 }
 
@@ -47,7 +47,7 @@ u32 XLight_module_IsIdle(XLight_module *InstancePtr) {
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XLight_module_ReadReg(InstancePtr->Control_BaseAddress, XLIGHT_MODULE_CONTROL_ADDR_AP_CTRL);
+    Data = XLight_module_ReadReg(InstancePtr->Ctrl_BaseAddress, XLIGHT_MODULE_CTRL_ADDR_AP_CTRL);
     return (Data >> 2) & 0x1;
 }
 
@@ -57,7 +57,7 @@ u32 XLight_module_IsReady(XLight_module *InstancePtr) {
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XLight_module_ReadReg(InstancePtr->Control_BaseAddress, XLIGHT_MODULE_CONTROL_ADDR_AP_CTRL);
+    Data = XLight_module_ReadReg(InstancePtr->Ctrl_BaseAddress, XLIGHT_MODULE_CTRL_ADDR_AP_CTRL);
     // check ap_start to see if the pcore is ready for next input
     return !(Data & 0x1);
 }
@@ -66,28 +66,28 @@ void XLight_module_EnableAutoRestart(XLight_module *InstancePtr) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XLight_module_WriteReg(InstancePtr->Control_BaseAddress, XLIGHT_MODULE_CONTROL_ADDR_AP_CTRL, 0x80);
+    XLight_module_WriteReg(InstancePtr->Ctrl_BaseAddress, XLIGHT_MODULE_CTRL_ADDR_AP_CTRL, 0x80);
 }
 
 void XLight_module_DisableAutoRestart(XLight_module *InstancePtr) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XLight_module_WriteReg(InstancePtr->Control_BaseAddress, XLIGHT_MODULE_CONTROL_ADDR_AP_CTRL, 0);
+    XLight_module_WriteReg(InstancePtr->Ctrl_BaseAddress, XLIGHT_MODULE_CTRL_ADDR_AP_CTRL, 0);
 }
 
 void XLight_module_InterruptGlobalEnable(XLight_module *InstancePtr) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XLight_module_WriteReg(InstancePtr->Control_BaseAddress, XLIGHT_MODULE_CONTROL_ADDR_GIE, 1);
+    XLight_module_WriteReg(InstancePtr->Ctrl_BaseAddress, XLIGHT_MODULE_CTRL_ADDR_GIE, 1);
 }
 
 void XLight_module_InterruptGlobalDisable(XLight_module *InstancePtr) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XLight_module_WriteReg(InstancePtr->Control_BaseAddress, XLIGHT_MODULE_CONTROL_ADDR_GIE, 0);
+    XLight_module_WriteReg(InstancePtr->Ctrl_BaseAddress, XLIGHT_MODULE_CTRL_ADDR_GIE, 0);
 }
 
 void XLight_module_InterruptEnable(XLight_module *InstancePtr, u32 Mask) {
@@ -96,8 +96,8 @@ void XLight_module_InterruptEnable(XLight_module *InstancePtr, u32 Mask) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Register =  XLight_module_ReadReg(InstancePtr->Control_BaseAddress, XLIGHT_MODULE_CONTROL_ADDR_IER);
-    XLight_module_WriteReg(InstancePtr->Control_BaseAddress, XLIGHT_MODULE_CONTROL_ADDR_IER, Register | Mask);
+    Register =  XLight_module_ReadReg(InstancePtr->Ctrl_BaseAddress, XLIGHT_MODULE_CTRL_ADDR_IER);
+    XLight_module_WriteReg(InstancePtr->Ctrl_BaseAddress, XLIGHT_MODULE_CTRL_ADDR_IER, Register | Mask);
 }
 
 void XLight_module_InterruptDisable(XLight_module *InstancePtr, u32 Mask) {
@@ -106,28 +106,28 @@ void XLight_module_InterruptDisable(XLight_module *InstancePtr, u32 Mask) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Register =  XLight_module_ReadReg(InstancePtr->Control_BaseAddress, XLIGHT_MODULE_CONTROL_ADDR_IER);
-    XLight_module_WriteReg(InstancePtr->Control_BaseAddress, XLIGHT_MODULE_CONTROL_ADDR_IER, Register & (~Mask));
+    Register =  XLight_module_ReadReg(InstancePtr->Ctrl_BaseAddress, XLIGHT_MODULE_CTRL_ADDR_IER);
+    XLight_module_WriteReg(InstancePtr->Ctrl_BaseAddress, XLIGHT_MODULE_CTRL_ADDR_IER, Register & (~Mask));
 }
 
 void XLight_module_InterruptClear(XLight_module *InstancePtr, u32 Mask) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XLight_module_WriteReg(InstancePtr->Control_BaseAddress, XLIGHT_MODULE_CONTROL_ADDR_ISR, Mask);
+    XLight_module_WriteReg(InstancePtr->Ctrl_BaseAddress, XLIGHT_MODULE_CTRL_ADDR_ISR, Mask);
 }
 
 u32 XLight_module_InterruptGetEnabled(XLight_module *InstancePtr) {
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    return XLight_module_ReadReg(InstancePtr->Control_BaseAddress, XLIGHT_MODULE_CONTROL_ADDR_IER);
+    return XLight_module_ReadReg(InstancePtr->Ctrl_BaseAddress, XLIGHT_MODULE_CTRL_ADDR_IER);
 }
 
 u32 XLight_module_InterruptGetStatus(XLight_module *InstancePtr) {
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    return XLight_module_ReadReg(InstancePtr->Control_BaseAddress, XLIGHT_MODULE_CONTROL_ADDR_ISR);
+    return XLight_module_ReadReg(InstancePtr->Ctrl_BaseAddress, XLIGHT_MODULE_CTRL_ADDR_ISR);
 }
 

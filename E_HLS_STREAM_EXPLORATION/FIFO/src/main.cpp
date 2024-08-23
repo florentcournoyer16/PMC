@@ -1,31 +1,46 @@
 
 #include "../inc/example.h"
 
-void LIGHT_MODULE(input_stream& INPUT_B, output_stream& OUTPUT_A) {
-#pragma HLS INTERFACE axis port = INPUT_B
-#pragma HLS INTERFACE axis port = OUTPUT_A
-#pragma HLS INTERFACE s_axilite port=return
+int _get_avg(pkt* pkts, int pkts_len);
 
-	input_packet ips1;
-	input_packet ips2;
-	input_packet ips3;
-	input_packet ips4;
-	output_packet ops;
+void LIGHT_MODULE(pkt_stream& in_stream, pkt_stream& out_stream) {
 
-	while (1) {
-		ops.data  = 0;
+#pragma HLS INTERFACE axis port = in_stream
+#pragma HLS INTERFACE axis port = out_stream
+#pragma HLS INTERFACE s_axilite port=return bundle=ctrl
 
-		INPUT_B.read(ips1);
-//		INPUT_A.read(ips2);
-//		INPUT_A.read(ips3);
-//		INPUT_A.read(ips4);
-		ops.data = ips1.data.to_int() + 20;
+	pkt in_pkts[INPUT_LENGHT];
+	pkt out_pkts[OUTPUT_LENGHT];
 
-		OUTPUT_A.write(ops);
+	while (true) {
+		for(int i = 0; i < INPUT_LENGHT; i++){
+			in_stream.read(in_pkts[i]);
+		}
 
-		if (ips1.last == 1) {
+		int avg = _get_avg(in_pkts, INPUT_LENGHT);
+
+		for(int i = 0; i < OUTPUT_LENGHT;) {
+			out_pkts[i] = in_pkts[0];
+			out_pkts[i].data = avg;
+			out_pkts[i].last = (i == OUTPUT_LENGHT);
+			out_stream.write(out_pkts[i++]);
+		}
+
+#if C_SIM == 1
+		if (in_pkts[INPUT_LENGHT-1].last == true) {
 			break;
 		}
+#endif
+
 	}
+
 	return;
+}
+
+int _get_avg(pkt* pkts, int pkts_len) {
+	int avg = 0;
+	for (int i = 0; i < pkts_len; i++) {
+		avg += pkts[i].data.to_int();
+	}
+	return avg / pkts_len;
 }

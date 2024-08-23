@@ -1,0 +1,151 @@
+
+
+================================================================
+== Vitis HLS Report for 'LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1'
+================================================================
+* Date:           Fri Aug 23 15:18:59 2024
+
+* Version:        2023.1.1 (Build 3869133 on Jun 15 2023)
+* Project:        HLS_STREAM_FIFO
+* Solution:       test1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  5.967 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max    | min | max |   Type  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |        6|        6|  60.000 ns|  60.000 ns|    6|    6|       no|
+    +---------+---------+-----------+-----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                   |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |     Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_42_1  |        4|        4|         1|          1|          1|     4|       yes|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 2
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 2, States = { 1 2 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.58>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%avg = alloca i32 1"   --->   Operation 4 'alloca' 'avg' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%i = alloca i32 1"   --->   Operation 5 'alloca' 'i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%in_pkts_data_3_1_reload_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %in_pkts_data_3_1_reload"   --->   Operation 6 'read' 'in_pkts_data_3_1_reload_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%in_pkts_data_2_1_reload_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %in_pkts_data_2_1_reload"   --->   Operation 7 'read' 'in_pkts_data_2_1_reload_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%in_pkts_data_1_1_reload_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %in_pkts_data_1_1_reload"   --->   Operation 8 'read' 'in_pkts_data_1_1_reload_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%in_pkts_data_0_1_reload_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %in_pkts_data_0_1_reload"   --->   Operation 9 'read' 'in_pkts_data_0_1_reload_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (1.58ns)   --->   "%store_ln0 = store i3 0, i3 %i"   --->   Operation 10 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 11 [1/1] (1.58ns)   --->   "%store_ln0 = store i32 0, i32 %avg"   --->   Operation 11 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc.i"   --->   Operation 12 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 5.96>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "%i_1 = load i3 %i" [src/main.cpp:43->src/main.cpp:20]   --->   Operation 13 'load' 'i_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 14 [1/1] (0.00ns)   --->   "%specpipeline_ln0 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 1, i32 0, void @p_str"   --->   Operation 14 'specpipeline' 'specpipeline_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 15 [1/1] (1.65ns)   --->   "%icmp_ln42 = icmp_eq  i3 %i_1, i3 4" [src/main.cpp:42->src/main.cpp:20]   --->   Operation 15 'icmp' 'icmp_ln42' <Predicate = true> <Delay = 1.65> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.65> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 16 [1/1] (1.65ns)   --->   "%add_ln42 = add i3 %i_1, i3 1" [src/main.cpp:42->src/main.cpp:20]   --->   Operation 16 'add' 'add_ln42' <Predicate = true> <Delay = 1.65> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.65> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 17 [1/1] (0.00ns)   --->   "%br_ln42 = br i1 %icmp_ln42, void %for.inc.i.split, void %_Z8_get_avgPN3hls4axisI6ap_intILi32EELm2ELm5ELm6EEEi.exit.exitStub" [src/main.cpp:42->src/main.cpp:20]   --->   Operation 17 'br' 'br_ln42' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%avg_load_1 = load i32 %avg" [src/main.cpp:43->src/main.cpp:20]   --->   Operation 18 'load' 'avg_load_1' <Predicate = (!icmp_ln42)> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "%speclooptripcount_ln41 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 4, i64 4, i64 4" [src/main.cpp:41->src/main.cpp:20]   --->   Operation 19 'speclooptripcount' 'speclooptripcount_ln41' <Predicate = (!icmp_ln42)> <Delay = 0.00>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%specloopname_ln42 = specloopname void @_ssdm_op_SpecLoopName, void @empty_8" [src/main.cpp:42->src/main.cpp:20]   --->   Operation 20 'specloopname' 'specloopname_ln42' <Predicate = (!icmp_ln42)> <Delay = 0.00>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%trunc_ln43 = trunc i3 %i_1" [src/main.cpp:43->src/main.cpp:20]   --->   Operation 21 'trunc' 'trunc_ln43' <Predicate = (!icmp_ln42)> <Delay = 0.00>
+ST_2 : Operation 22 [1/1] (1.82ns)   --->   "%tmp = mux i32 @_ssdm_op_Mux.ap_auto.4i32.i2, i32 %in_pkts_data_0_1_reload_read, i32 %in_pkts_data_1_1_reload_read, i32 %in_pkts_data_2_1_reload_read, i32 %in_pkts_data_3_1_reload_read, i2 %trunc_ln43" [src/main.cpp:43->src/main.cpp:20]   --->   Operation 22 'mux' 'tmp' <Predicate = (!icmp_ln42)> <Delay = 1.82> <CoreInst = "Multiplexer">   --->   Core 76 'Multiplexer' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 23 [1/1] (2.55ns)   --->   "%avg_1 = add i32 %tmp, i32 %avg_load_1" [src/main.cpp:43->src/main.cpp:20]   --->   Operation 23 'add' 'avg_1' <Predicate = (!icmp_ln42)> <Delay = 2.55> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 24 [1/1] (1.58ns)   --->   "%store_ln42 = store i3 %add_ln42, i3 %i" [src/main.cpp:42->src/main.cpp:20]   --->   Operation 24 'store' 'store_ln42' <Predicate = (!icmp_ln42)> <Delay = 1.58>
+ST_2 : Operation 25 [1/1] (1.58ns)   --->   "%store_ln42 = store i32 %avg_1, i32 %avg" [src/main.cpp:42->src/main.cpp:20]   --->   Operation 25 'store' 'store_ln42' <Predicate = (!icmp_ln42)> <Delay = 1.58>
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%br_ln42 = br void %for.inc.i" [src/main.cpp:42->src/main.cpp:20]   --->   Operation 26 'br' 'br_ln42' <Predicate = (!icmp_ln42)> <Delay = 0.00>
+ST_2 : Operation 27 [1/1] (0.00ns)   --->   "%avg_load = load i32 %avg"   --->   Operation 27 'load' 'avg_load' <Predicate = (icmp_ln42)> <Delay = 0.00>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %avg_1_out, i32 %avg_load"   --->   Operation 28 'write' 'write_ln0' <Predicate = (icmp_ln42)> <Delay = 0.00>
+ST_2 : Operation 29 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 29 'ret' 'ret_ln0' <Predicate = (icmp_ln42)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10.000ns, clock uncertainty: 2.700ns.
+
+ <State 1>: 1.588ns
+The critical path consists of the following:
+	'alloca' operation ('i') [7]  (0.000 ns)
+	'store' operation ('store_ln0') of constant 0 on local variable 'i' [12]  (1.588 ns)
+
+ <State 2>: 5.967ns
+The critical path consists of the following:
+	'load' operation ('i', src/main.cpp:43->src/main.cpp:20) on local variable 'i' [16]  (0.000 ns)
+	'mux' operation ('tmp', src/main.cpp:43->src/main.cpp:20) [26]  (1.827 ns)
+	'add' operation ('avg', src/main.cpp:43->src/main.cpp:20) [27]  (2.552 ns)
+	'store' operation ('store_ln42', src/main.cpp:42->src/main.cpp:20) of variable 'avg', src/main.cpp:43->src/main.cpp:20 on local variable 'avg' [29]  (1.588 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

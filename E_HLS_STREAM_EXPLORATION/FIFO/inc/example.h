@@ -1,22 +1,21 @@
 #ifndef EXAMPLE_H_
 #define EXAMPLE_H_
 
+#define C_SIM 0
+
 #include "ap_axi_sdata.h"
 #include "hls_stream.h"
 #include <iostream>
 
 #define INPUT_LENGHT 4
-#define OUTPUT_LENGHT 20
+#define OUTPUT_LENGHT 4096
 
-#define INPUT_SIZE 32
-#define OUTPUT_SIZE 32
+#define PKT_SIZE 32
 
-typedef ap_axis<INPUT_SIZE, 2, 5, 6> input_packet;
-typedef ap_axis<OUTPUT_SIZE, 2, 5, 6> output_packet;
+typedef ap_axis<PKT_SIZE, 2, 5, 6> pkt;
 
-typedef hls::stream<input_packet> input_stream;
-typedef hls::stream<output_packet> output_stream;
+typedef hls::stream<pkt> pkt_stream;
 
-void LIGHT_MODULE(input_stream& INPUT_B, output_stream& OUTPUT_A);
+void LIGHT_MODULE(pkt_stream& in_stream, pkt_stream& out_stream);
 
 #endif // EXAMPLE_H_

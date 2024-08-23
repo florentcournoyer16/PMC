@@ -161,6 +161,8 @@ extern "C" {
 
 
 
+
+
 # 1 "/tools/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/ap_axi_sdata.h" 1
 # 41 "/tools/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/ap_axi_sdata.h"
 # 1 "/tools/Xilinx/Vitis_HLS/2023.1/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/climits" 1 3
@@ -6297,7 +6299,7 @@ private:
 };
 
 }
-# 5 "src/../inc/example.h" 2
+# 7 "src/../inc/example.h" 2
 
 # 1 "/tools/Xilinx/Vitis_HLS/2023.1/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/iostream" 1 3
 # 37 "/tools/Xilinx/Vitis_HLS/2023.1/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/iostream" 3
@@ -34403,52 +34405,68 @@ namespace std __attribute__ ((__visibility__ ("default")))
 
 
 }
-# 7 "src/../inc/example.h" 2
+# 9 "src/../inc/example.h" 2
 
 
 
 
 
 
+typedef ap_axis<32, 2, 5, 6> pkt;
 
-typedef ap_axis<32, 2, 5, 6> input_packet;
-typedef ap_axis<32, 2, 5, 6> output_packet;
+typedef hls::stream<pkt> pkt_stream;
 
-typedef hls::stream<input_packet> input_stream;
-typedef hls::stream<output_packet> output_stream;
-
-__attribute__((sdx_kernel("LIGHT_MODULE", 0))) void LIGHT_MODULE(input_stream& INPUT_B, output_stream& OUTPUT_A);
+__attribute__((sdx_kernel("LIGHT_MODULE", 0))) void LIGHT_MODULE(pkt_stream& in_stream, pkt_stream& out_stream);
 # 3 "src/main.cpp" 2
 
-__attribute__((sdx_kernel("LIGHT_MODULE", 0))) void LIGHT_MODULE(input_stream& INPUT_B, output_stream& OUTPUT_A) {
+int _get_avg(pkt* pkts, int pkts_len);
+
+__attribute__((sdx_kernel("LIGHT_MODULE", 0))) void LIGHT_MODULE(pkt_stream& in_stream, pkt_stream& out_stream) {
 #line 18 "/home/mohr0901/Documents/PMC/E_HLS_STREAM_EXPLORATION/FIFO/HLS_STREAM_FIFO/test1/csynth.tcl"
 #pragma HLSDIRECTIVE TOP name=LIGHT_MODULE
-# 4 "src/main.cpp"
+# 6 "src/main.cpp"
 
-#pragma HLS INTERFACE axis port = INPUT_B
-#pragma HLS INTERFACE axis port = OUTPUT_A
-#pragma HLS INTERFACE s_axilite port=return
-
- input_packet ips1;
- input_packet ips2;
- input_packet ips3;
- input_packet ips4;
- output_packet ops;
-
- VITIS_LOOP_15_1: while (1) {
-  ops.data = 0;
-
-  INPUT_B.read(ips1);
+#line 7 "/home/mohr0901/Documents/PMC/E_HLS_STREAM_EXPLORATION/FIFO/HLS_STREAM_FIFO/test1/directives.tcl"
+#pragma HLSDIRECTIVE TOP name=LIGHT_MODULE
+# 6 "src/main.cpp"
 
 
+#pragma HLS INTERFACE axis port = in_stream
+#pragma HLS INTERFACE axis port = out_stream
+#pragma HLS INTERFACE s_axilite port=return bundle=ctrl
 
-  ops.data = ips1.data.to_int() + 20;
+ pkt in_pkts[4];
+ pkt out_pkts[4096];
 
-  OUTPUT_A.write(ops);
-
-  if (ips1.last == 1) {
-   break;
+ VITIS_LOOP_15_1: while (true) {
+  VITIS_LOOP_16_2: for(int i = 0; i < 4; i++){
+   in_stream.read(in_pkts[i]);
   }
+
+  int avg = _get_avg(in_pkts, 4);
+
+  VITIS_LOOP_22_3: for(int i = 0; i < 4096;) {
+   out_pkts[i] = in_pkts[0];
+   out_pkts[i].data = avg;
+   out_pkts[i].last = (i == 4096);
+   out_stream.write(out_pkts[i++]);
+  }
+
+
+
+
+
+
+
  }
+
  return;
+}
+
+int _get_avg(pkt* pkts, int pkts_len) {
+ int avg = 0;
+ VITIS_LOOP_42_1: for (int i = 0; i < pkts_len; i++) {
+  avg += pkts[i].data.to_int();
+ }
+ return avg / pkts_len;
 }
