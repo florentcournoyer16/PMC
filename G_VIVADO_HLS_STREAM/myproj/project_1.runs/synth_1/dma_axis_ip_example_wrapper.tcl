@@ -70,6 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 2
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg400-1
 
@@ -95,21 +96,18 @@ add_files /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.srcs
 set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_axi_dma_1/dma_axis_ip_example_axi_dma_1.xdc]
 set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_axi_dma_1/dma_axis_ip_example_axi_dma_1_clocks.xdc]
 set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_axi_dma_1/dma_axis_ip_example_axi_dma_1_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_auto_pc_0_9/dma_axis_ip_example_auto_pc_0_ooc.xdc]
+set_property used_in_synthesis false [get_files -all /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_auto_us_0_9/dma_axis_ip_example_auto_us_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_auto_us_0_9/dma_axis_ip_example_auto_us_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_auto_us_0_9/dma_axis_ip_example_auto_us_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_auto_pc_1_9/dma_axis_ip_example_auto_pc_1_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_example_0_1/constraints/LIGHT_MODULE_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_processing_system7_0_1/dma_axis_ip_example_processing_system7_0_1.xdc]
 set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_xbar_1/dma_axis_ip_example_xbar_1_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_auto_pc_2_9/dma_axis_ip_example_auto_pc_2_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_rst_ps7_0_100M_1/dma_axis_ip_example_rst_ps7_0_100M_1_board.xdc]
 set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_rst_ps7_0_100M_1/dma_axis_ip_example_rst_ps7_0_100M_1.xdc]
 set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_rst_ps7_0_100M_1/dma_axis_ip_example_rst_ps7_0_100M_1_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_auto_pc_0/dma_axis_ip_example_auto_pc_0_ooc.xdc]
-set_property used_in_synthesis false [get_files -all /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_auto_us_0/dma_axis_ip_example_auto_us_0_clocks.xdc]
-set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_auto_us_0/dma_axis_ip_example_auto_us_0_clocks.xdc]
-set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_auto_us_0/dma_axis_ip_example_auto_us_0_ooc.xdc]
-set_property used_in_synthesis false [get_files -all /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_auto_ds_0/dma_axis_ip_example_auto_ds_0_clocks.xdc]
-set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_auto_ds_0/dma_axis_ip_example_auto_ds_0_clocks.xdc]
-set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_auto_ds_0/dma_axis_ip_example_auto_ds_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_auto_pc_1/dma_axis_ip_example_auto_pc_1_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_auto_pc_2/dma_axis_ip_example_auto_pc_2_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/dma_axis_ip_example_ooc.xdc]
 
 OPTRACE "Adding files" END { }
@@ -124,6 +122,8 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.srcs/utils_1/imports/synth_1/dma_axis_ip_example_wrapper.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

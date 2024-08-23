@@ -13,6 +13,7 @@ open_solution "test1" -flow_target vivado
 set_part {xc7z020-clg400-1}
 create_clock -period 10 -name default
 config_export -format ip_catalog -output /home/mohr0901/Documents/PMC/E_HLS_STREAM_EXPLORATION/FIFO/output -rtl verilog
+config_cosim -tool xsim
 #source "./HLS_STREAM_FIFO/test1/directives.tcl"
 csim_design -clean
 csynth_design

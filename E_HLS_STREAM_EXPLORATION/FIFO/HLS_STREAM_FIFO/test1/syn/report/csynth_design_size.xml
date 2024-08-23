@@ -3,10 +3,7 @@
         <hiertable>
             <header size="6" col0="Function" col1="Location" col2="Compile/Link" col3="Unroll/Inline" col4="Performance/Pipeline" col5="Optimizations"/>
             <rows>
-                <row id="0" col0="LIGHT_MODULE" col1="main.cpp:8" col2="1407" col3="214" col4="138" col5="172">
-                    <row id="1" col0="_decode_input_packet" col1="main.cpp:45" col2="350" col3="22" col4="" col5=""/>
-                    <row id="2" col0="_encode_output_packet" col1="main.cpp:54" col2="335" col3="22" col4="" col5=""/>
-                </row>
+                <row id="0" col0="LIGHT_MODULE" col1="main.cpp:4" col2="598" col3="68" col4="64" col5="84"/>
             </rows>
             <notes/>
         </hiertable>

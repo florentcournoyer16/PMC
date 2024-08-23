@@ -2,92 +2,92 @@
 <AdditionalInfo>
   <CTypeInfo>
       <RtlPort>
-        <name>is_r_TDATA</name>
+        <name>INPUT_B_TDATA</name>
         <type>Signed</type>
         <fractionWidth>0</fractionWidth>
       </RtlPort>
       <RtlPort>
-        <name>is_r_TDEST</name>
+        <name>INPUT_B_TDEST</name>
         <type>Signed</type>
         <fractionWidth>0</fractionWidth>
       </RtlPort>
       <RtlPort>
-        <name>is_r_TID</name>
+        <name>INPUT_B_TID</name>
         <type>Signed</type>
         <fractionWidth>0</fractionWidth>
       </RtlPort>
       <RtlPort>
-        <name>is_r_TKEEP</name>
+        <name>INPUT_B_TKEEP</name>
         <type>Signed</type>
         <fractionWidth>0</fractionWidth>
       </RtlPort>
       <RtlPort>
-        <name>is_r_TLAST</name>
+        <name>INPUT_B_TLAST</name>
         <type>Signed</type>
         <fractionWidth>0</fractionWidth>
       </RtlPort>
       <RtlPort>
-        <name>is_r_TREADY</name>
+        <name>INPUT_B_TREADY</name>
         <type>Signed</type>
         <fractionWidth>0</fractionWidth>
       </RtlPort>
       <RtlPort>
-        <name>is_r_TSTRB</name>
+        <name>INPUT_B_TSTRB</name>
         <type>Signed</type>
         <fractionWidth>0</fractionWidth>
       </RtlPort>
       <RtlPort>
-        <name>is_r_TUSER</name>
+        <name>INPUT_B_TUSER</name>
         <type>Signed</type>
         <fractionWidth>0</fractionWidth>
       </RtlPort>
       <RtlPort>
-        <name>is_r_TVALID</name>
+        <name>INPUT_B_TVALID</name>
         <type>Signed</type>
         <fractionWidth>0</fractionWidth>
       </RtlPort>
       <RtlPort>
-        <name>os_TDATA</name>
+        <name>OUTPUT_A_TDATA</name>
         <type>Signed</type>
         <fractionWidth>0</fractionWidth>
       </RtlPort>
       <RtlPort>
-        <name>os_TDEST</name>
+        <name>OUTPUT_A_TDEST</name>
         <type>Signed</type>
         <fractionWidth>0</fractionWidth>
       </RtlPort>
       <RtlPort>
-        <name>os_TID</name>
+        <name>OUTPUT_A_TID</name>
         <type>Signed</type>
         <fractionWidth>0</fractionWidth>
       </RtlPort>
       <RtlPort>
-        <name>os_TKEEP</name>
+        <name>OUTPUT_A_TKEEP</name>
         <type>Signed</type>
         <fractionWidth>0</fractionWidth>
       </RtlPort>
       <RtlPort>
-        <name>os_TLAST</name>
+        <name>OUTPUT_A_TLAST</name>
         <type>Signed</type>
         <fractionWidth>0</fractionWidth>
       </RtlPort>
       <RtlPort>
-        <name>os_TREADY</name>
+        <name>OUTPUT_A_TREADY</name>
         <type>Signed</type>
         <fractionWidth>0</fractionWidth>
       </RtlPort>
       <RtlPort>
-        <name>os_TSTRB</name>
+        <name>OUTPUT_A_TSTRB</name>
         <type>Signed</type>
         <fractionWidth>0</fractionWidth>
       </RtlPort>
       <RtlPort>
-        <name>os_TUSER</name>
+        <name>OUTPUT_A_TUSER</name>
         <type>Signed</type>
         <fractionWidth>0</fractionWidth>
       </RtlPort>
       <RtlPort>
-        <name>os_TVALID</name>
+        <name>OUTPUT_A_TVALID</name>
         <type>Signed</type>
         <fractionWidth>0</fractionWidth>
       </RtlPort>

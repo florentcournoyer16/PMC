@@ -15,7 +15,7 @@
         <PipelineType>no</PipelineType>
         <SummaryOfTimingAnalysis>
             <unit>ns</unit>
-            <EstimatedClockPeriod>4.537</EstimatedClockPeriod>
+            <EstimatedClockPeriod>2.552</EstimatedClockPeriod>
         </SummaryOfTimingAnalysis>
         <SummaryOfOverallLatency>
             <unit>clock cycles</unit>
@@ -29,7 +29,7 @@
             <Interval-max>undef</Interval-max>
         </SummaryOfOverallLatency>
         <SummaryOfLoopLatency>
-            <VITIS_LOOP_18_1>
+            <VITIS_LOOP_15_1>
                 <Slack>7.30</Slack>
                 <TripCount>undef</TripCount>
                 <Latency>undef</Latency>
@@ -37,14 +37,14 @@
                 <PipelineII>1</PipelineII>
                 <PipelineDepth>2</PipelineDepth>
                 <InstanceList/>
-            </VITIS_LOOP_18_1>
+            </VITIS_LOOP_15_1>
         </SummaryOfLoopLatency>
     </PerformanceEstimates>
     <AreaEstimates>
         <Resources>
             <BRAM_18K>0</BRAM_18K>
-            <FF>72</FF>
-            <LUT>284</LUT>
+            <FF>40</FF>
+            <LUT>123</LUT>
             <DSP>0</DSP>
             <URAM>0</URAM>
         </Resources>
@@ -278,8 +278,8 @@
             <Attribute>unknown</Attribute>
         </RtlPorts>
         <RtlPorts>
-            <name>is_r_TVALID</name>
-            <Object>is_r_V_dest_V</Object>
+            <name>INPUT_B_TVALID</name>
+            <Object>INPUT_B_V_dest_V</Object>
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>axis</IOProtocol>
@@ -290,8 +290,8 @@
             <CType>int</CType>
         </RtlPorts>
         <RtlPorts>
-            <name>is_r_TREADY</name>
-            <Object>is_r_V_dest_V</Object>
+            <name>INPUT_B_TREADY</name>
+            <Object>INPUT_B_V_dest_V</Object>
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>axis</IOProtocol>
@@ -302,20 +302,20 @@
             <CType>int</CType>
         </RtlPorts>
         <RtlPorts>
-            <name>is_r_TDEST</name>
-            <Object>is_r_V_dest_V</Object>
+            <name>INPUT_B_TDEST</name>
+            <Object>INPUT_B_V_dest_V</Object>
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>axis</IOProtocol>
             <IOConfig>register, both mode</IOConfig>
             <Dir>in</Dir>
-            <Bits>1</Bits>
+            <Bits>6</Bits>
             <Attribute>data</Attribute>
             <CType>int</CType>
         </RtlPorts>
         <RtlPorts>
-            <name>os_TREADY</name>
-            <Object>os_V_dest_V</Object>
+            <name>OUTPUT_A_TREADY</name>
+            <Object>OUTPUT_A_V_dest_V</Object>
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>axis</IOProtocol>
@@ -326,8 +326,8 @@
             <CType>int</CType>
         </RtlPorts>
         <RtlPorts>
-            <name>os_TVALID</name>
-            <Object>os_V_dest_V</Object>
+            <name>OUTPUT_A_TVALID</name>
+            <Object>OUTPUT_A_V_dest_V</Object>
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>axis</IOProtocol>
@@ -338,80 +338,68 @@
             <CType>int</CType>
         </RtlPorts>
         <RtlPorts>
-            <name>os_TDEST</name>
-            <Object>os_V_dest_V</Object>
+            <name>OUTPUT_A_TDEST</name>
+            <Object>OUTPUT_A_V_dest_V</Object>
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>axis</IOProtocol>
             <IOConfig>register, both mode</IOConfig>
             <Dir>out</Dir>
-            <Bits>1</Bits>
+            <Bits>6</Bits>
             <Attribute>data</Attribute>
             <CType>int</CType>
         </RtlPorts>
         <RtlPorts>
-            <name>is_r_TDATA</name>
-            <Object>is_r_V_data_V</Object>
+            <name>INPUT_B_TDATA</name>
+            <Object>INPUT_B_V_data_V</Object>
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>axis</IOProtocol>
             <IOConfig>register, both mode</IOConfig>
             <Dir>in</Dir>
-            <Bits>128</Bits>
+            <Bits>32</Bits>
             <Attribute>data</Attribute>
             <CType>int</CType>
         </RtlPorts>
         <RtlPorts>
-            <name>is_r_TKEEP</name>
-            <Object>is_r_V_keep_V</Object>
+            <name>INPUT_B_TKEEP</name>
+            <Object>INPUT_B_V_keep_V</Object>
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>axis</IOProtocol>
             <IOConfig>register, both mode</IOConfig>
             <Dir>in</Dir>
-            <Bits>16</Bits>
+            <Bits>4</Bits>
             <Attribute>data</Attribute>
             <CType>int</CType>
         </RtlPorts>
         <RtlPorts>
-            <name>is_r_TSTRB</name>
-            <Object>is_r_V_strb_V</Object>
+            <name>INPUT_B_TSTRB</name>
+            <Object>INPUT_B_V_strb_V</Object>
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>axis</IOProtocol>
             <IOConfig>register, both mode</IOConfig>
             <Dir>in</Dir>
-            <Bits>16</Bits>
+            <Bits>4</Bits>
             <Attribute>data</Attribute>
             <CType>int</CType>
         </RtlPorts>
         <RtlPorts>
-            <name>is_r_TUSER</name>
-            <Object>is_r_V_user_V</Object>
+            <name>INPUT_B_TUSER</name>
+            <Object>INPUT_B_V_user_V</Object>
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>axis</IOProtocol>
             <IOConfig>register, both mode</IOConfig>
             <Dir>in</Dir>
-            <Bits>1</Bits>
+            <Bits>2</Bits>
             <Attribute>data</Attribute>
             <CType>int</CType>
         </RtlPorts>
         <RtlPorts>
-            <name>is_r_TLAST</name>
-            <Object>is_r_V_last_V</Object>
-            <Type>pointer</Type>
-            <Scope/>
-            <IOProtocol>axis</IOProtocol>
-            <IOConfig>register, both mode</IOConfig>
-            <Dir>in</Dir>
-            <Bits>1</Bits>
-            <Attribute>data</Attribute>
-            <CType>int</CType>
-        </RtlPorts>
-        <RtlPorts>
-            <name>is_r_TID</name>
-            <Object>is_r_V_id_V</Object>
+            <name>INPUT_B_TLAST</name>
+            <Object>INPUT_B_V_last_V</Object>
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>axis</IOProtocol>
@@ -422,8 +410,20 @@
             <CType>int</CType>
         </RtlPorts>
         <RtlPorts>
-            <name>os_TDATA</name>
-            <Object>os_V_data_V</Object>
+            <name>INPUT_B_TID</name>
+            <Object>INPUT_B_V_id_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>5</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>OUTPUT_A_TDATA</name>
+            <Object>OUTPUT_A_V_data_V</Object>
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>axis</IOProtocol>
@@ -434,8 +434,8 @@
             <CType>int</CType>
         </RtlPorts>
         <RtlPorts>
-            <name>os_TKEEP</name>
-            <Object>os_V_keep_V</Object>
+            <name>OUTPUT_A_TKEEP</name>
+            <Object>OUTPUT_A_V_keep_V</Object>
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>axis</IOProtocol>
@@ -446,8 +446,8 @@
             <CType>int</CType>
         </RtlPorts>
         <RtlPorts>
-            <name>os_TSTRB</name>
-            <Object>os_V_strb_V</Object>
+            <name>OUTPUT_A_TSTRB</name>
+            <Object>OUTPUT_A_V_strb_V</Object>
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>axis</IOProtocol>
@@ -458,8 +458,20 @@
             <CType>int</CType>
         </RtlPorts>
         <RtlPorts>
-            <name>os_TUSER</name>
-            <Object>os_V_user_V</Object>
+            <name>OUTPUT_A_TUSER</name>
+            <Object>OUTPUT_A_V_user_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>OUTPUT_A_TLAST</name>
+            <Object>OUTPUT_A_V_last_V</Object>
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>axis</IOProtocol>
@@ -470,26 +482,14 @@
             <CType>int</CType>
         </RtlPorts>
         <RtlPorts>
-            <name>os_TLAST</name>
-            <Object>os_V_last_V</Object>
+            <name>OUTPUT_A_TID</name>
+            <Object>OUTPUT_A_V_id_V</Object>
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>axis</IOProtocol>
             <IOConfig>register, both mode</IOConfig>
             <Dir>out</Dir>
-            <Bits>1</Bits>
-            <Attribute>data</Attribute>
-            <CType>int</CType>
-        </RtlPorts>
-        <RtlPorts>
-            <name>os_TID</name>
-            <Object>os_V_id_V</Object>
-            <Type>pointer</Type>
-            <Scope/>
-            <IOProtocol>axis</IOProtocol>
-            <IOConfig>register, both mode</IOConfig>
-            <Dir>out</Dir>
-            <Bits>1</Bits>
+            <Bits>5</Bits>
             <Attribute>data</Attribute>
             <CType>int</CType>
         </RtlPorts>
@@ -497,20 +497,20 @@
     <RTLDesignHierarchy>
         <TopModule MAX_DEPTH="2">
             <ModuleName>LIGHT_MODULE</ModuleName>
-            <BindInstances>add_ln31_fu_175_p2 add_ln31_1_fu_191_p2 add_ln31_2_fu_207_p2 add_ln31_3_fu_223_p2</BindInstances>
+            <BindInstances>OUTPUT_A_TDATA_int_regslice</BindInstances>
         </TopModule>
     </RTLDesignHierarchy>
     <ModuleInformation>
         <Module>
             <Name>LIGHT_MODULE</Name>
             <Loops>
-                <VITIS_LOOP_18_1/>
+                <VITIS_LOOP_15_1/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>10.00</TargetClockPeriod>
                     <ClockUncertainty>2.70</ClockUncertainty>
-                    <EstimatedClockPeriod>4.537</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>2.552</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
                     <Best-caseLatency>undef</Best-caseLatency>
@@ -523,8 +523,8 @@
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_18_1>
-                        <Name>VITIS_LOOP_18_1</Name>
+                    <VITIS_LOOP_15_1>
+                        <Name>VITIS_LOOP_15_1</Name>
                         <Slack>7.30</Slack>
                         <TripCount>undef</TripCount>
                         <Latency>undef</Latency>
@@ -533,7 +533,7 @@
                         <PipelineDepth>2</PipelineDepth>
                         <PipelineType>yes</PipelineType>
                         <InstanceList/>
-                    </VITIS_LOOP_18_1>
+                    </VITIS_LOOP_15_1>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
@@ -541,10 +541,10 @@
                     <BRAM_18K>0</BRAM_18K>
                     <AVAIL_BRAM>280</AVAIL_BRAM>
                     <UTIL_BRAM>0</UTIL_BRAM>
-                    <FF>72</FF>
+                    <FF>40</FF>
                     <AVAIL_FF>106400</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>286</LUT>
+                    <LUT>125</LUT>
                     <AVAIL_LUT>53200</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <DSP>0</DSP>
@@ -556,10 +556,7 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_18_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln31_fu_175_p2" SOURCE="src/main.cpp:31" URAM="0" VARIABLE="add_ln31"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_18_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln31_1_fu_191_p2" SOURCE="src/main.cpp:31" URAM="0" VARIABLE="add_ln31_1"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_18_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln31_2_fu_207_p2" SOURCE="src/main.cpp:31" URAM="0" VARIABLE="add_ln31_2"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_18_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln31_3_fu_223_p2" SOURCE="src/main.cpp:31" URAM="0" VARIABLE="add_ln31_3"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_15_1" OPTYPE="add" PRAGMA="" RTLNAME="OUTPUT_A_TDATA_int_regslice" SOURCE="src/main.cpp:22" URAM="0" VARIABLE="ops_data"/>
             </BindNodes>
         </Module>
     </ModuleInformation>
@@ -568,14 +565,14 @@
         <config_export output="/home/mohr0901/Documents/PMC/E_HLS_STREAM_EXPLORATION/FIFO/output"/>
     </UserConfigCommands>
     <Args>
-        <Arg ArgName="is" index="0" direction="in" srcType="stream&lt;hls::axis&lt;ap_int&lt;128&gt;, 1, 1, 1&gt;, 0&gt;&amp;" srcSize="256">
+        <Arg ArgName="INPUT_B" index="0" direction="in" srcType="stream&lt;hls::axis&lt;ap_int&lt;32&gt;, 2, 5, 6&gt;, 0&gt;&amp;" srcSize="96">
             <hwRefs>
-                <hwRef type="interface" interface="is_r" name="" usage="data" direction="in"/>
+                <hwRef type="interface" interface="INPUT_B" name="" usage="data" direction="in"/>
             </hwRefs>
         </Arg>
-        <Arg ArgName="os" index="1" direction="out" srcType="stream&lt;hls::axis&lt;ap_int&lt;32&gt;, 1, 1, 1&gt;, 0&gt;&amp;" srcSize="96">
+        <Arg ArgName="OUTPUT_A" index="1" direction="out" srcType="stream&lt;hls::axis&lt;ap_int&lt;32&gt;, 2, 5, 6&gt;, 0&gt;&amp;" srcSize="96">
             <hwRefs>
-                <hwRef type="interface" interface="os" name="" usage="data" direction="out"/>
+                <hwRef type="interface" interface="OUTPUT_A" name="" usage="data" direction="out"/>
             </hwRefs>
         </Arg>
     </Args>
@@ -638,7 +635,7 @@
         </Interface>
         <Interface InterfaceName="ap_clk" type="clock" busTypeName="clock" mode="slave">
             <busParams>
-                <busParam busParamName="ASSOCIATED_BUSIF">s_axi_control:is_r:os</busParam>
+                <busParam busParamName="ASSOCIATED_BUSIF">s_axi_control:INPUT_B:OUTPUT_A</busParam>
                 <busParam busParamName="ASSOCIATED_RESET">ap_rst_n</busParam>
             </busParams>
             <portMaps>
@@ -670,36 +667,36 @@
                 <port>interrupt</port>
             </ports>
         </Interface>
-        <Interface InterfaceName="is_r" type="axi4stream" busTypeName="axis" mode="slave" dataWidth="128" portPrefix="is_r_">
+        <Interface InterfaceName="INPUT_B" type="axi4stream" busTypeName="axis" mode="slave" dataWidth="32" portPrefix="INPUT_B_">
             <ports>
-                <port>is_r_TDATA</port>
-                <port>is_r_TDEST</port>
-                <port>is_r_TID</port>
-                <port>is_r_TKEEP</port>
-                <port>is_r_TLAST</port>
-                <port>is_r_TREADY</port>
-                <port>is_r_TSTRB</port>
-                <port>is_r_TUSER</port>
-                <port>is_r_TVALID</port>
+                <port>INPUT_B_TDATA</port>
+                <port>INPUT_B_TDEST</port>
+                <port>INPUT_B_TID</port>
+                <port>INPUT_B_TKEEP</port>
+                <port>INPUT_B_TLAST</port>
+                <port>INPUT_B_TREADY</port>
+                <port>INPUT_B_TSTRB</port>
+                <port>INPUT_B_TUSER</port>
+                <port>INPUT_B_TVALID</port>
             </ports>
             <constraints>
-                <constraint constraint_type="pragma interface" mode="axis" register_option="0" register_mode="both" argName="is"/>
+                <constraint constraint_type="pragma interface" mode="axis" register_option="0" register_mode="both" argName="INPUT_B"/>
             </constraints>
         </Interface>
-        <Interface InterfaceName="os" type="axi4stream" busTypeName="axis" mode="master" dataWidth="32" portPrefix="os_">
+        <Interface InterfaceName="OUTPUT_A" type="axi4stream" busTypeName="axis" mode="master" dataWidth="32" portPrefix="OUTPUT_A_">
             <ports>
-                <port>os_TDATA</port>
-                <port>os_TDEST</port>
-                <port>os_TID</port>
-                <port>os_TKEEP</port>
-                <port>os_TLAST</port>
-                <port>os_TREADY</port>
-                <port>os_TSTRB</port>
-                <port>os_TUSER</port>
-                <port>os_TVALID</port>
+                <port>OUTPUT_A_TDATA</port>
+                <port>OUTPUT_A_TDEST</port>
+                <port>OUTPUT_A_TID</port>
+                <port>OUTPUT_A_TKEEP</port>
+                <port>OUTPUT_A_TLAST</port>
+                <port>OUTPUT_A_TREADY</port>
+                <port>OUTPUT_A_TSTRB</port>
+                <port>OUTPUT_A_TUSER</port>
+                <port>OUTPUT_A_TVALID</port>
             </ports>
             <constraints>
-                <constraint constraint_type="pragma interface" mode="axis" register_option="0" register_mode="both" argName="os"/>
+                <constraint constraint_type="pragma interface" mode="axis" register_option="0" register_mode="both" argName="OUTPUT_A"/>
             </constraints>
         </Interface>
     </Interfaces>
@@ -723,8 +720,8 @@
             <item name="AXIS">
                 <table>
                     <keys size="12">Interface, Direction, Register Mode, TDATA, TDEST, TID, TKEEP, TLAST, TREADY, TSTRB, TUSER, TVALID</keys>
-                    <column name="is_r">in, both, 128, 1, 1, 16, 1, 1, 16, 1, 1</column>
-                    <column name="os">out, both, 32, 1, 1, 4, 1, 1, 4, 1, 1</column>
+                    <column name="INPUT_B">in, both, 32, 6, 5, 4, 1, 1, 4, 2, 1</column>
+                    <column name="OUTPUT_A">out, both, 32, 6, 5, 4, 1, 1, 4, 2, 1</column>
                 </table>
             </item>
             <item name="TOP LEVEL CONTROL">
@@ -743,15 +740,15 @@
             <item name="Top Function Arguments">
                 <table>
                     <keys size="3">Argument, Direction, Datatype</keys>
-                    <column name="is">in, stream&lt;hls::axis&lt;ap_int&lt;128&gt; 1 1 1&gt; 0&gt;&amp;</column>
-                    <column name="os">out, stream&lt;hls::axis&lt;ap_int&lt;32&gt; 1 1 1&gt; 0&gt;&amp;</column>
+                    <column name="INPUT_B">in, stream&lt;hls::axis&lt;ap_int&lt;32&gt; 2 5 6&gt; 0&gt;&amp;</column>
+                    <column name="OUTPUT_A">out, stream&lt;hls::axis&lt;ap_int&lt;32&gt; 2 5 6&gt; 0&gt;&amp;</column>
                 </table>
             </item>
             <item name="SW-to-HW Mapping">
                 <table>
                     <keys size="3">Argument, HW Interface, HW Type</keys>
-                    <column name="is">is_r, interface</column>
-                    <column name="os">os, interface</column>
+                    <column name="INPUT_B">INPUT_B, interface</column>
+                    <column name="OUTPUT_A">OUTPUT_A, interface</column>
                 </table>
             </item>
         </section>
@@ -761,9 +758,9 @@
         <section name="M_AXI Burst Information" level="0" HEADER_NOTE="Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings."/>
     </ReportBurst>
     <PragmaReport>
-        <Pragma type="interface" location="src/main.cpp:9" status="valid" parentFunction="light_module" variable="" isDirective="0" options="axis port = is"/>
-        <Pragma type="interface" location="src/main.cpp:10" status="valid" parentFunction="light_module" variable="" isDirective="0" options="axis port = os"/>
-        <Pragma type="interface" location="src/main.cpp:11" status="valid" parentFunction="light_module" variable="return" isDirective="0" options="s_axilite port=return"/>
+        <Pragma type="interface" location="src/main.cpp:5" status="valid" parentFunction="light_module" variable="" isDirective="0" options="axis port = INPUT_B"/>
+        <Pragma type="interface" location="src/main.cpp:6" status="valid" parentFunction="light_module" variable="" isDirective="0" options="axis port = OUTPUT_A"/>
+        <Pragma type="interface" location="src/main.cpp:7" status="valid" parentFunction="light_module" variable="return" isDirective="0" options="s_axilite port=return"/>
     </PragmaReport>
 </profile>
 

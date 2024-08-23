@@ -1,27 +1,15 @@
 <xilinx:hls_fe_msgs>
-    <msg msg_groups="" msg_id="207-5286" msg_severity="WARNING" msg_loc="src/main.cpp:29:25" msg_body="expression result unused">
-        <args ClangWarningOption="unused-value"/>
-    </msg>
-    <msg msg_groups="" msg_id="207-5286" msg_severity="WARNING" msg_loc="src/main.cpp:29:42" msg_body="expression result unused">
-        <args ClangWarningOption="unused-value"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/mohr0901/Documents/PMC/E_HLS_STREAM_EXPLORATION/FIFO/HLS_STREAM_FIFO/test1/csynth.tcl:17:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/mohr0901/Documents/PMC/E_HLS_STREAM_EXPLORATION/FIFO/HLS_STREAM_FIFO/test1/csynth.tcl:18:9" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="directive" ARG_PragmaFunction="LIGHT_MODULE" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=LIGHT_MODULE" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/main.cpp:9:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="LIGHT_MODULE" ARG_PragmaIsValid="1" ARG_PragmaOptions="axis port = is" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/main.cpp:5:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="LIGHT_MODULE" ARG_PragmaIsValid="1" ARG_PragmaOptions="axis port = INPUT_B" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/main.cpp:10:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="LIGHT_MODULE" ARG_PragmaIsValid="1" ARG_PragmaOptions="axis port = os" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/main.cpp:6:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="LIGHT_MODULE" ARG_PragmaIsValid="1" ARG_PragmaOptions="axis port = OUTPUT_A" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/main.cpp:11:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/main.cpp:7:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="LIGHT_MODULE" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=return" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="src/main.cpp:8:0" msg_body="Inlining function '_decode_input_packet(hls::axis&lt;ap_int&lt;128&gt;, 1ul, 1ul, 1ul&gt;*, ap_int&lt;32&gt;*)' into 'LIGHT_MODULE(hls::stream&lt;hls::axis&lt;ap_int&lt;128&gt;, 1ul, 1ul, 1ul&gt;, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_int&lt;32&gt;, 1ul, 1ul, 1ul&gt;, 0&gt;&amp;)'">
-        <args Callee="_decode_input_packet(hls::axis&lt;ap_int&lt;128&gt;, 1ul, 1ul, 1ul&gt;*, ap_int&lt;32&gt;*)" Callee-DebugLoc="File src/main.cpp Line 45 Column 0" Caller="LIGHT_MODULE(hls::stream&lt;hls::axis&lt;ap_int&lt;128&gt;, 1ul, 1ul, 1ul&gt;, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_int&lt;32&gt;, 1ul, 1ul, 1ul&gt;, 0&gt;&amp;)" Caller-DebugLoc="File src/main.cpp Line 8 Column 0"/>
-    </msg>
-    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="src/main.cpp:8:0" msg_body="Inlining function '_encode_output_packet(ap_int&lt;8&gt;*, hls::axis&lt;ap_int&lt;32&gt;, 1ul, 1ul, 1ul&gt;*)' into 'LIGHT_MODULE(hls::stream&lt;hls::axis&lt;ap_int&lt;128&gt;, 1ul, 1ul, 1ul&gt;, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_int&lt;32&gt;, 1ul, 1ul, 1ul&gt;, 0&gt;&amp;)'">
-        <args Callee="_encode_output_packet(ap_int&lt;8&gt;*, hls::axis&lt;ap_int&lt;32&gt;, 1ul, 1ul, 1ul&gt;*)" Callee-DebugLoc="File src/main.cpp Line 54 Column 0" Caller="LIGHT_MODULE(hls::stream&lt;hls::axis&lt;ap_int&lt;128&gt;, 1ul, 1ul, 1ul&gt;, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_int&lt;32&gt;, 1ul, 1ul, 1ul&gt;, 0&gt;&amp;)" Caller-DebugLoc="File src/main.cpp Line 8 Column 0"/>
     </msg>
 </xilinx:hls_fe_msgs>
 

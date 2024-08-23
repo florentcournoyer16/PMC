@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1.1 (lin64) Build 3900603 Fri Jun 16 19:30:25 MDT 2023
-| Date         : Thu Aug 22 16:22:03 2024
+| Date         : Thu Aug 22 20:34:21 2024
 | Host         : GRAMS-NSOC running 64-bit Ubuntu 22.04.4 LTS
 | Command      : report_utilization -file dma_axis_ip_example_wrapper_utilization_synth.rpt -pb dma_axis_ip_example_wrapper_utilization_synth.pb
 | Design       : dma_axis_ip_example_wrapper
@@ -186,7 +186,6 @@ Table of Contents
 | dma_axis_ip_example_auto_pc_2              |    1 |
 | dma_axis_ip_example_auto_pc_1              |    1 |
 | dma_axis_ip_example_auto_pc_0              |    1 |
-| dma_axis_ip_example_auto_ds_0              |    1 |
 +--------------------------------------------+------+
 
 

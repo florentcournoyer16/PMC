@@ -2,7 +2,7 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.1.1 (lin64) Build 3900603 Fri Jun 16 19:30:25 MDT 2023
-// Date        : Thu Aug 22 16:19:17 2024
+// Date        : Thu Aug 22 20:33:34 2024
 // Host        : GRAMS-NSOC running 64-bit Ubuntu 22.04.4 LTS
 // Command     : write_verilog -force -mode synth_stub
 //               /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_example_0_1/dma_axis_ip_example_example_0_1_stub.v
@@ -20,10 +20,10 @@ module dma_axis_ip_example_example_0_1(s_axi_control_AWADDR,
   s_axi_control_WVALID, s_axi_control_WREADY, s_axi_control_BRESP, s_axi_control_BVALID, 
   s_axi_control_BREADY, s_axi_control_ARADDR, s_axi_control_ARVALID, 
   s_axi_control_ARREADY, s_axi_control_RDATA, s_axi_control_RRESP, s_axi_control_RVALID, 
-  s_axi_control_RREADY, ap_clk, ap_rst_n, interrupt, is_r_TVALID, is_r_TREADY, is_r_TDEST, 
-  is_r_TDATA, is_r_TKEEP, is_r_TSTRB, is_r_TUSER, is_r_TLAST, is_r_TID, os_TVALID, os_TREADY, 
-  os_TDEST, os_TDATA, os_TKEEP, os_TSTRB, os_TUSER, os_TLAST, os_TID)
-/* synthesis syn_black_box black_box_pad_pin="s_axi_control_AWADDR[3:0],s_axi_control_AWVALID,s_axi_control_AWREADY,s_axi_control_WDATA[31:0],s_axi_control_WSTRB[3:0],s_axi_control_WVALID,s_axi_control_WREADY,s_axi_control_BRESP[1:0],s_axi_control_BVALID,s_axi_control_BREADY,s_axi_control_ARADDR[3:0],s_axi_control_ARVALID,s_axi_control_ARREADY,s_axi_control_RDATA[31:0],s_axi_control_RRESP[1:0],s_axi_control_RVALID,s_axi_control_RREADY,ap_rst_n,interrupt,is_r_TVALID,is_r_TREADY,is_r_TDEST[0:0],is_r_TDATA[127:0],is_r_TKEEP[15:0],is_r_TSTRB[15:0],is_r_TUSER[0:0],is_r_TLAST[0:0],is_r_TID[0:0],os_TVALID,os_TREADY,os_TDEST[0:0],os_TDATA[31:0],os_TKEEP[3:0],os_TSTRB[3:0],os_TUSER[0:0],os_TLAST[0:0],os_TID[0:0]" */
+  s_axi_control_RREADY, ap_clk, ap_rst_n, interrupt, A_TVALID, A_TREADY, A_TDEST, A_TDATA, A_TKEEP, 
+  A_TSTRB, A_TUSER, A_TLAST, A_TID, B_TVALID, B_TREADY, B_TDEST, B_TDATA, B_TKEEP, B_TSTRB, B_TUSER, 
+  B_TLAST, B_TID)
+/* synthesis syn_black_box black_box_pad_pin="s_axi_control_AWADDR[3:0],s_axi_control_AWVALID,s_axi_control_AWREADY,s_axi_control_WDATA[31:0],s_axi_control_WSTRB[3:0],s_axi_control_WVALID,s_axi_control_WREADY,s_axi_control_BRESP[1:0],s_axi_control_BVALID,s_axi_control_BREADY,s_axi_control_ARADDR[3:0],s_axi_control_ARVALID,s_axi_control_ARREADY,s_axi_control_RDATA[31:0],s_axi_control_RRESP[1:0],s_axi_control_RVALID,s_axi_control_RREADY,ap_rst_n,interrupt,A_TVALID,A_TREADY,A_TDEST[5:0],A_TDATA[31:0],A_TKEEP[3:0],A_TSTRB[3:0],A_TUSER[1:0],A_TLAST[0:0],A_TID[4:0],B_TVALID,B_TREADY,B_TDEST[5:0],B_TDATA[31:0],B_TKEEP[3:0],B_TSTRB[3:0],B_TUSER[1:0],B_TLAST[0:0],B_TID[4:0]" */
 /* synthesis syn_force_seq_prim="ap_clk" */;
   input [3:0]s_axi_control_AWADDR;
   input s_axi_control_AWVALID;
@@ -45,22 +45,22 @@ module dma_axis_ip_example_example_0_1(s_axi_control_AWADDR,
   input ap_clk /* synthesis syn_isclock = 1 */;
   input ap_rst_n;
   output interrupt;
-  input is_r_TVALID;
-  output is_r_TREADY;
-  input [0:0]is_r_TDEST;
-  input [127:0]is_r_TDATA;
-  input [15:0]is_r_TKEEP;
-  input [15:0]is_r_TSTRB;
-  input [0:0]is_r_TUSER;
-  input [0:0]is_r_TLAST;
-  input [0:0]is_r_TID;
-  output os_TVALID;
-  input os_TREADY;
-  output [0:0]os_TDEST;
-  output [31:0]os_TDATA;
-  output [3:0]os_TKEEP;
-  output [3:0]os_TSTRB;
-  output [0:0]os_TUSER;
-  output [0:0]os_TLAST;
-  output [0:0]os_TID;
+  input A_TVALID;
+  output A_TREADY;
+  input [5:0]A_TDEST;
+  input [31:0]A_TDATA;
+  input [3:0]A_TKEEP;
+  input [3:0]A_TSTRB;
+  input [1:0]A_TUSER;
+  input [0:0]A_TLAST;
+  input [4:0]A_TID;
+  output B_TVALID;
+  input B_TREADY;
+  output [5:0]B_TDEST;
+  output [31:0]B_TDATA;
+  output [3:0]B_TKEEP;
+  output [3:0]B_TSTRB;
+  output [1:0]B_TUSER;
+  output [0:0]B_TLAST;
+  output [4:0]B_TID;
 endmodule

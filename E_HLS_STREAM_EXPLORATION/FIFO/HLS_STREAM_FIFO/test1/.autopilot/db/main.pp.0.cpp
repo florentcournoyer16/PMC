@@ -34404,75 +34404,51 @@ namespace std __attribute__ ((__visibility__ ("default")))
 
 }
 # 7 "src/../inc/example.h" 2
-# 17 "src/../inc/example.h"
-typedef ap_axis<4 * 32, 1, 1, 1> input_packet;
-typedef ap_axis<4 * 8, 1, 1, 1> output_packet;
+
+
+
+
+
+
+
+typedef ap_axis<32, 2, 5, 6> input_packet;
+typedef ap_axis<32, 2, 5, 6> output_packet;
 
 typedef hls::stream<input_packet> input_stream;
 typedef hls::stream<output_packet> output_stream;
 
-__attribute__((sdx_kernel("LIGHT_MODULE", 0))) void LIGHT_MODULE(input_stream& is, output_stream& os);
+__attribute__((sdx_kernel("LIGHT_MODULE", 0))) void LIGHT_MODULE(input_stream& INPUT_B, output_stream& OUTPUT_A);
 # 3 "src/main.cpp" 2
 
-
-void _decode_input_packet(input_packet* ip_enc, ap_int<32> ip_dec[4]);
-void _encode_output_packet(ap_int<8> op_dec[4], output_packet* op_enc);
-
-__attribute__((sdx_kernel("LIGHT_MODULE", 0))) void LIGHT_MODULE(input_stream& is, output_stream& os) {
-#line 17 "/home/mohr0901/Documents/PMC/E_HLS_STREAM_EXPLORATION/FIFO/HLS_STREAM_FIFO/test1/csynth.tcl"
+__attribute__((sdx_kernel("LIGHT_MODULE", 0))) void LIGHT_MODULE(input_stream& INPUT_B, output_stream& OUTPUT_A) {
+#line 18 "/home/mohr0901/Documents/PMC/E_HLS_STREAM_EXPLORATION/FIFO/HLS_STREAM_FIFO/test1/csynth.tcl"
 #pragma HLSDIRECTIVE TOP name=LIGHT_MODULE
-# 8 "src/main.cpp"
+# 4 "src/main.cpp"
 
-#pragma HLS INTERFACE axis port = is
-#pragma HLS INTERFACE axis port = os
+#pragma HLS INTERFACE axis port = INPUT_B
+#pragma HLS INTERFACE axis port = OUTPUT_A
 #pragma HLS INTERFACE s_axilite port=return
 
- input_packet ip = {.data=0};
- output_packet op = {.data=0};
- ap_int<32> ip_dec[4] = {0};
- ap_int<8> op_dec[4] = {0};
+ input_packet ips1;
+ input_packet ips2;
+ input_packet ips3;
+ input_packet ips4;
+ output_packet ops;
 
- VITIS_LOOP_18_1: for (;;) {
-  VITIS_LOOP_19_2: for (int i = 0; i < 4; i++) {
-   ip_dec[i] = {0};
-  }
-  VITIS_LOOP_22_3: for (int i = 0; i < 4; i++) {
-   op_dec[i] = {0};
-  }
+ VITIS_LOOP_15_1: while (1) {
+  ops.data = 0;
 
-  ip = is.read();
-  _decode_input_packet(&ip, ip_dec);
+  INPUT_B.read(ips1);
 
-  VITIS_LOOP_29_4: for(int i = 0; i < 4; i) {
-   VITIS_LOOP_30_5: for(int j = 0; j < 4; j++) {
-    op_dec[i++] = ip_dec[j].range(7, 0) + 4;
-   }
-  }
 
-  _encode_output_packet(op_dec, &op);
-  os.write(op);
 
-  if (ip.last == 1) {
+  ops.data = ips1.data.to_int() + 20;
+
+  OUTPUT_A.write(ops);
+
+  if (ips1.last == 1) {
    break;
   }
  }
  return;
-}
-
-void _decode_input_packet(input_packet* ip_enc, ap_int<32> ip_dec[4]) {
- ap_int<4 * 32> offset = 0;
-
- VITIS_LOOP_48_1: for(int i = 0; i < 4; i++){
-  ip_dec[i] = ip_enc->data.range(offset + 32 - 1, offset);
-  offset += 32;
- }
-}
-
-void _encode_output_packet(ap_int<8> op_dec[4], output_packet* op_enc) {
- ap_int<4 * 8> offset = 0;
-
- VITIS_LOOP_57_1: for(int i = 0; i < 4; i++){
-  op_enc->data |= (ap_int<4 * 8>) op_dec[i] << offset;
-  offset += 8;
- }
 }

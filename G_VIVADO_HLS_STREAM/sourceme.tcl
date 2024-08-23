@@ -17,6 +17,9 @@ proc get_script_folder {} {
 variable script_folder
 set script_folder [_tcl::get_script_folder]
 
+
+
+
 ################################################################
 # Check if script is running in correct Vivado version.
 ################################################################
@@ -112,6 +115,15 @@ if { $nRet != 0 } {
 }
 
 set bCheckIPsPassed 1
+
+##################################################################
+# ADD IPs
+##################################################################
+
+update_compile_order -fileset sources_1
+set_property  ip_repo_paths  script_folder/../../E_HLS_STREAM_EXPLORATION/FIFO/output/export [current_project]
+update_ip_catalog
+
 ##################################################################
 # CHECK IPs
 ##################################################################
@@ -1032,12 +1044,12 @@ proc create_root_design { parentCell } {
   set rst_ps7_0_100M [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_ps7_0_100M ]
 
   # Create interface connections
-  connect_bd_intf_net -intf_net axi_dma_M_AXIS_MM2S [get_bd_intf_pins axi_dma/M_AXIS_MM2S] [get_bd_intf_pins example_0/is_r]
+  connect_bd_intf_net -intf_net axi_dma_M_AXIS_MM2S [get_bd_intf_pins axi_dma/M_AXIS_MM2S] [get_bd_intf_pins example_0/INPUT_B]
   connect_bd_intf_net -intf_net axi_dma_M_AXI_MM2S [get_bd_intf_pins axi_dma/M_AXI_MM2S] [get_bd_intf_pins axi_mem_intercon_1/S00_AXI]
   connect_bd_intf_net -intf_net axi_dma_M_AXI_S2MM [get_bd_intf_pins axi_dma/M_AXI_S2MM] [get_bd_intf_pins axi_mem_intercon/S00_AXI]
   connect_bd_intf_net -intf_net axi_mem_intercon_1_M00_AXI [get_bd_intf_pins axi_mem_intercon_1/M00_AXI] [get_bd_intf_pins processing_system7_0/S_AXI_HP2]
   connect_bd_intf_net -intf_net axi_mem_intercon_M00_AXI [get_bd_intf_pins axi_mem_intercon/M00_AXI] [get_bd_intf_pins processing_system7_0/S_AXI_HP0]
-  connect_bd_intf_net -intf_net example_0_os [get_bd_intf_pins axi_dma/S_AXIS_S2MM] [get_bd_intf_pins example_0/os]
+  connect_bd_intf_net -intf_net example_0_OUTPUT_A [get_bd_intf_pins axi_dma/S_AXIS_S2MM] [get_bd_intf_pins example_0/OUTPUT_A]
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins processing_system7_0/DDR]
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
   connect_bd_intf_net -intf_net processing_system7_0_M_AXI_GP0 [get_bd_intf_pins processing_system7_0/M_AXI_GP0] [get_bd_intf_pins ps7_0_axi_periph/S00_AXI]
@@ -1061,6 +1073,7 @@ proc create_root_design { parentCell } {
 
   validate_bd_design
   save_bd_design
+
 }
 # End of create_root_design()
 
@@ -1070,6 +1083,14 @@ proc create_root_design { parentCell } {
 ##################################################################
 
 create_root_design ""
+
+##################################################################
+# CREATE HLD WRAPPER
+##################################################################
+  
+make_wrapper -files [get_files [_tcl::get_script_folder]/myproj/project_1.srcs/sources_1/bd/dma_axis_ip_example/dma_axis_ip_example.bd] -top
+add_files -norecurse [_tcl::get_script_folder]/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/hdl/dma_axis_ip_example_wrapper.v
+
 
 
 

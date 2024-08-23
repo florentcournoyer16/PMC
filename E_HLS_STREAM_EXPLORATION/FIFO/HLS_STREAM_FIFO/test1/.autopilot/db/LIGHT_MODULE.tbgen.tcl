@@ -15,60 +15,60 @@ set DLRegItemOffset 0
 set C_modelName {LIGHT_MODULE}
 set C_modelType { void 0 }
 set C_modelArgList {
-	{ is_r_V_data_V int 128 regular {axi_s 0 volatile  { is_r Data } }  }
-	{ is_r_V_keep_V int 16 regular {axi_s 0 volatile  { is_r Keep } }  }
-	{ is_r_V_strb_V int 16 regular {axi_s 0 volatile  { is_r Strb } }  }
-	{ is_r_V_user_V int 1 regular {axi_s 0 volatile  { is_r User } }  }
-	{ is_r_V_last_V int 1 regular {axi_s 0 volatile  { is_r Last } }  }
-	{ is_r_V_id_V int 1 regular {axi_s 0 volatile  { is_r ID } }  }
-	{ is_r_V_dest_V int 1 regular {axi_s 0 volatile  { is_r Dest } }  }
-	{ os_V_data_V int 32 regular {axi_s 1 volatile  { os Data } }  }
-	{ os_V_keep_V int 4 regular {axi_s 1 volatile  { os Keep } }  }
-	{ os_V_strb_V int 4 regular {axi_s 1 volatile  { os Strb } }  }
-	{ os_V_user_V int 1 regular {axi_s 1 volatile  { os User } }  }
-	{ os_V_last_V int 1 regular {axi_s 1 volatile  { os Last } }  }
-	{ os_V_id_V int 1 regular {axi_s 1 volatile  { os ID } }  }
-	{ os_V_dest_V int 1 regular {axi_s 1 volatile  { os Dest } }  }
+	{ INPUT_B_V_data_V int 32 regular {axi_s 0 volatile  { INPUT_B Data } }  }
+	{ INPUT_B_V_keep_V int 4 regular {axi_s 0 volatile  { INPUT_B Keep } }  }
+	{ INPUT_B_V_strb_V int 4 regular {axi_s 0 volatile  { INPUT_B Strb } }  }
+	{ INPUT_B_V_user_V int 2 regular {axi_s 0 volatile  { INPUT_B User } }  }
+	{ INPUT_B_V_last_V int 1 regular {axi_s 0 volatile  { INPUT_B Last } }  }
+	{ INPUT_B_V_id_V int 5 regular {axi_s 0 volatile  { INPUT_B ID } }  }
+	{ INPUT_B_V_dest_V int 6 regular {axi_s 0 volatile  { INPUT_B Dest } }  }
+	{ OUTPUT_A_V_data_V int 32 regular {axi_s 1 volatile  { OUTPUT_A Data } }  }
+	{ OUTPUT_A_V_keep_V int 4 regular {axi_s 1 volatile  { OUTPUT_A Keep } }  }
+	{ OUTPUT_A_V_strb_V int 4 regular {axi_s 1 volatile  { OUTPUT_A Strb } }  }
+	{ OUTPUT_A_V_user_V int 2 regular {axi_s 1 volatile  { OUTPUT_A User } }  }
+	{ OUTPUT_A_V_last_V int 1 regular {axi_s 1 volatile  { OUTPUT_A Last } }  }
+	{ OUTPUT_A_V_id_V int 5 regular {axi_s 1 volatile  { OUTPUT_A ID } }  }
+	{ OUTPUT_A_V_dest_V int 6 regular {axi_s 1 volatile  { OUTPUT_A Dest } }  }
 }
 set hasAXIMCache 0
 set C_modelArgMapList {[ 
-	{ "Name" : "is_r_V_data_V", "interface" : "axis", "bitwidth" : 128, "direction" : "READONLY"} , 
- 	{ "Name" : "is_r_V_keep_V", "interface" : "axis", "bitwidth" : 16, "direction" : "READONLY"} , 
- 	{ "Name" : "is_r_V_strb_V", "interface" : "axis", "bitwidth" : 16, "direction" : "READONLY"} , 
- 	{ "Name" : "is_r_V_user_V", "interface" : "axis", "bitwidth" : 1, "direction" : "READONLY"} , 
- 	{ "Name" : "is_r_V_last_V", "interface" : "axis", "bitwidth" : 1, "direction" : "READONLY"} , 
- 	{ "Name" : "is_r_V_id_V", "interface" : "axis", "bitwidth" : 1, "direction" : "READONLY"} , 
- 	{ "Name" : "is_r_V_dest_V", "interface" : "axis", "bitwidth" : 1, "direction" : "READONLY"} , 
- 	{ "Name" : "os_V_data_V", "interface" : "axis", "bitwidth" : 32, "direction" : "WRITEONLY"} , 
- 	{ "Name" : "os_V_keep_V", "interface" : "axis", "bitwidth" : 4, "direction" : "WRITEONLY"} , 
- 	{ "Name" : "os_V_strb_V", "interface" : "axis", "bitwidth" : 4, "direction" : "WRITEONLY"} , 
- 	{ "Name" : "os_V_user_V", "interface" : "axis", "bitwidth" : 1, "direction" : "WRITEONLY"} , 
- 	{ "Name" : "os_V_last_V", "interface" : "axis", "bitwidth" : 1, "direction" : "WRITEONLY"} , 
- 	{ "Name" : "os_V_id_V", "interface" : "axis", "bitwidth" : 1, "direction" : "WRITEONLY"} , 
- 	{ "Name" : "os_V_dest_V", "interface" : "axis", "bitwidth" : 1, "direction" : "WRITEONLY"} ]}
+	{ "Name" : "INPUT_B_V_data_V", "interface" : "axis", "bitwidth" : 32, "direction" : "READONLY"} , 
+ 	{ "Name" : "INPUT_B_V_keep_V", "interface" : "axis", "bitwidth" : 4, "direction" : "READONLY"} , 
+ 	{ "Name" : "INPUT_B_V_strb_V", "interface" : "axis", "bitwidth" : 4, "direction" : "READONLY"} , 
+ 	{ "Name" : "INPUT_B_V_user_V", "interface" : "axis", "bitwidth" : 2, "direction" : "READONLY"} , 
+ 	{ "Name" : "INPUT_B_V_last_V", "interface" : "axis", "bitwidth" : 1, "direction" : "READONLY"} , 
+ 	{ "Name" : "INPUT_B_V_id_V", "interface" : "axis", "bitwidth" : 5, "direction" : "READONLY"} , 
+ 	{ "Name" : "INPUT_B_V_dest_V", "interface" : "axis", "bitwidth" : 6, "direction" : "READONLY"} , 
+ 	{ "Name" : "OUTPUT_A_V_data_V", "interface" : "axis", "bitwidth" : 32, "direction" : "WRITEONLY"} , 
+ 	{ "Name" : "OUTPUT_A_V_keep_V", "interface" : "axis", "bitwidth" : 4, "direction" : "WRITEONLY"} , 
+ 	{ "Name" : "OUTPUT_A_V_strb_V", "interface" : "axis", "bitwidth" : 4, "direction" : "WRITEONLY"} , 
+ 	{ "Name" : "OUTPUT_A_V_user_V", "interface" : "axis", "bitwidth" : 2, "direction" : "WRITEONLY"} , 
+ 	{ "Name" : "OUTPUT_A_V_last_V", "interface" : "axis", "bitwidth" : 1, "direction" : "WRITEONLY"} , 
+ 	{ "Name" : "OUTPUT_A_V_id_V", "interface" : "axis", "bitwidth" : 5, "direction" : "WRITEONLY"} , 
+ 	{ "Name" : "OUTPUT_A_V_dest_V", "interface" : "axis", "bitwidth" : 6, "direction" : "WRITEONLY"} ]}
 # RTL Port declarations: 
 set portNum 38
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst_n sc_in sc_logic 1 reset -1 active_low_sync } 
-	{ is_r_TVALID sc_in sc_logic 1 invld 6 } 
-	{ os_TREADY sc_in sc_logic 1 outacc 13 } 
-	{ is_r_TDATA sc_in sc_lv 128 signal 0 } 
-	{ is_r_TREADY sc_out sc_logic 1 inacc 6 } 
-	{ is_r_TKEEP sc_in sc_lv 16 signal 1 } 
-	{ is_r_TSTRB sc_in sc_lv 16 signal 2 } 
-	{ is_r_TUSER sc_in sc_lv 1 signal 3 } 
-	{ is_r_TLAST sc_in sc_lv 1 signal 4 } 
-	{ is_r_TID sc_in sc_lv 1 signal 5 } 
-	{ is_r_TDEST sc_in sc_lv 1 signal 6 } 
-	{ os_TDATA sc_out sc_lv 32 signal 7 } 
-	{ os_TVALID sc_out sc_logic 1 outvld 13 } 
-	{ os_TKEEP sc_out sc_lv 4 signal 8 } 
-	{ os_TSTRB sc_out sc_lv 4 signal 9 } 
-	{ os_TUSER sc_out sc_lv 1 signal 10 } 
-	{ os_TLAST sc_out sc_lv 1 signal 11 } 
-	{ os_TID sc_out sc_lv 1 signal 12 } 
-	{ os_TDEST sc_out sc_lv 1 signal 13 } 
+	{ INPUT_B_TVALID sc_in sc_logic 1 invld 6 } 
+	{ OUTPUT_A_TREADY sc_in sc_logic 1 outacc 13 } 
+	{ INPUT_B_TDATA sc_in sc_lv 32 signal 0 } 
+	{ INPUT_B_TREADY sc_out sc_logic 1 inacc 6 } 
+	{ INPUT_B_TKEEP sc_in sc_lv 4 signal 1 } 
+	{ INPUT_B_TSTRB sc_in sc_lv 4 signal 2 } 
+	{ INPUT_B_TUSER sc_in sc_lv 2 signal 3 } 
+	{ INPUT_B_TLAST sc_in sc_lv 1 signal 4 } 
+	{ INPUT_B_TID sc_in sc_lv 5 signal 5 } 
+	{ INPUT_B_TDEST sc_in sc_lv 6 signal 6 } 
+	{ OUTPUT_A_TDATA sc_out sc_lv 32 signal 7 } 
+	{ OUTPUT_A_TVALID sc_out sc_logic 1 outvld 13 } 
+	{ OUTPUT_A_TKEEP sc_out sc_lv 4 signal 8 } 
+	{ OUTPUT_A_TSTRB sc_out sc_lv 4 signal 9 } 
+	{ OUTPUT_A_TUSER sc_out sc_lv 2 signal 10 } 
+	{ OUTPUT_A_TLAST sc_out sc_lv 1 signal 11 } 
+	{ OUTPUT_A_TID sc_out sc_lv 5 signal 12 } 
+	{ OUTPUT_A_TDEST sc_out sc_lv 6 signal 13 } 
 	{ s_axi_control_AWVALID sc_in sc_logic 1 signal -1 } 
 	{ s_axi_control_AWREADY sc_out sc_logic 1 signal -1 } 
 	{ s_axi_control_AWADDR sc_in sc_lv 4 signal -1 } 
@@ -109,24 +109,24 @@ set NewPortList {[
 	{ "name": "interrupt", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "control", "role": "interrupt" } }, 
  	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
  	{ "name": "ap_rst_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "reset", "bundle":{"name": "ap_rst_n", "role": "default" }} , 
- 	{ "name": "is_r_TVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "is_r_V_dest_V", "role": "default" }} , 
- 	{ "name": "os_TREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "outacc", "bundle":{"name": "os_V_dest_V", "role": "default" }} , 
- 	{ "name": "is_r_TDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":128, "type": "signal", "bundle":{"name": "is_r_V_data_V", "role": "default" }} , 
- 	{ "name": "is_r_TREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "inacc", "bundle":{"name": "is_r_V_dest_V", "role": "default" }} , 
- 	{ "name": "is_r_TKEEP", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "is_r_V_keep_V", "role": "default" }} , 
- 	{ "name": "is_r_TSTRB", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "is_r_V_strb_V", "role": "default" }} , 
- 	{ "name": "is_r_TUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "is_r_V_user_V", "role": "default" }} , 
- 	{ "name": "is_r_TLAST", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "is_r_V_last_V", "role": "default" }} , 
- 	{ "name": "is_r_TID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "is_r_V_id_V", "role": "default" }} , 
- 	{ "name": "is_r_TDEST", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "is_r_V_dest_V", "role": "default" }} , 
- 	{ "name": "os_TDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "os_V_data_V", "role": "default" }} , 
- 	{ "name": "os_TVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "os_V_dest_V", "role": "default" }} , 
- 	{ "name": "os_TKEEP", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "os_V_keep_V", "role": "default" }} , 
- 	{ "name": "os_TSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "os_V_strb_V", "role": "default" }} , 
- 	{ "name": "os_TUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "os_V_user_V", "role": "default" }} , 
- 	{ "name": "os_TLAST", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "os_V_last_V", "role": "default" }} , 
- 	{ "name": "os_TID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "os_V_id_V", "role": "default" }} , 
- 	{ "name": "os_TDEST", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "os_V_dest_V", "role": "default" }}  ]}
+ 	{ "name": "INPUT_B_TVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "INPUT_B_V_dest_V", "role": "default" }} , 
+ 	{ "name": "OUTPUT_A_TREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "outacc", "bundle":{"name": "OUTPUT_A_V_dest_V", "role": "default" }} , 
+ 	{ "name": "INPUT_B_TDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "INPUT_B_V_data_V", "role": "default" }} , 
+ 	{ "name": "INPUT_B_TREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "inacc", "bundle":{"name": "INPUT_B_V_dest_V", "role": "default" }} , 
+ 	{ "name": "INPUT_B_TKEEP", "direction": "in", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "INPUT_B_V_keep_V", "role": "default" }} , 
+ 	{ "name": "INPUT_B_TSTRB", "direction": "in", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "INPUT_B_V_strb_V", "role": "default" }} , 
+ 	{ "name": "INPUT_B_TUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "INPUT_B_V_user_V", "role": "default" }} , 
+ 	{ "name": "INPUT_B_TLAST", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "INPUT_B_V_last_V", "role": "default" }} , 
+ 	{ "name": "INPUT_B_TID", "direction": "in", "datatype": "sc_lv", "bitwidth":5, "type": "signal", "bundle":{"name": "INPUT_B_V_id_V", "role": "default" }} , 
+ 	{ "name": "INPUT_B_TDEST", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "INPUT_B_V_dest_V", "role": "default" }} , 
+ 	{ "name": "OUTPUT_A_TDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "OUTPUT_A_V_data_V", "role": "default" }} , 
+ 	{ "name": "OUTPUT_A_TVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "OUTPUT_A_V_dest_V", "role": "default" }} , 
+ 	{ "name": "OUTPUT_A_TKEEP", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "OUTPUT_A_V_keep_V", "role": "default" }} , 
+ 	{ "name": "OUTPUT_A_TSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "OUTPUT_A_V_strb_V", "role": "default" }} , 
+ 	{ "name": "OUTPUT_A_TUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "OUTPUT_A_V_user_V", "role": "default" }} , 
+ 	{ "name": "OUTPUT_A_TLAST", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "OUTPUT_A_V_last_V", "role": "default" }} , 
+ 	{ "name": "OUTPUT_A_TID", "direction": "out", "datatype": "sc_lv", "bitwidth":5, "type": "signal", "bundle":{"name": "OUTPUT_A_V_id_V", "role": "default" }} , 
+ 	{ "name": "OUTPUT_A_TDEST", "direction": "out", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "OUTPUT_A_V_dest_V", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
 	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"],
@@ -144,61 +144,61 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "is_r_V_data_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "is_r",
+			{"Name" : "INPUT_B_V_data_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "INPUT_B",
 				"BlockSignal" : [
-					{"Name" : "is_r_TDATA_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "is_r_V_keep_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "is_r"},
-			{"Name" : "is_r_V_strb_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "is_r"},
-			{"Name" : "is_r_V_user_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "is_r"},
-			{"Name" : "is_r_V_last_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "is_r"},
-			{"Name" : "is_r_V_id_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "is_r"},
-			{"Name" : "is_r_V_dest_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "is_r"},
-			{"Name" : "os_V_data_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "os",
+					{"Name" : "INPUT_B_TDATA_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "INPUT_B_V_keep_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "INPUT_B"},
+			{"Name" : "INPUT_B_V_strb_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "INPUT_B"},
+			{"Name" : "INPUT_B_V_user_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "INPUT_B"},
+			{"Name" : "INPUT_B_V_last_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "INPUT_B"},
+			{"Name" : "INPUT_B_V_id_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "INPUT_B"},
+			{"Name" : "INPUT_B_V_dest_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "INPUT_B"},
+			{"Name" : "OUTPUT_A_V_data_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "OUTPUT_A",
 				"BlockSignal" : [
-					{"Name" : "os_TDATA_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "os_V_keep_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "os"},
-			{"Name" : "os_V_strb_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "os"},
-			{"Name" : "os_V_user_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "os"},
-			{"Name" : "os_V_last_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "os"},
-			{"Name" : "os_V_id_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "os"},
-			{"Name" : "os_V_dest_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "os"}],
+					{"Name" : "OUTPUT_A_TDATA_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "OUTPUT_A_V_keep_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "OUTPUT_A"},
+			{"Name" : "OUTPUT_A_V_strb_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "OUTPUT_A"},
+			{"Name" : "OUTPUT_A_V_user_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "OUTPUT_A"},
+			{"Name" : "OUTPUT_A_V_last_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "OUTPUT_A"},
+			{"Name" : "OUTPUT_A_V_id_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "OUTPUT_A"},
+			{"Name" : "OUTPUT_A_V_dest_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "OUTPUT_A"}],
 		"Loop" : [
-			{"Name" : "VITIS_LOOP_18_1", "PipelineType" : "UPC",
+			{"Name" : "VITIS_LOOP_15_1", "PipelineType" : "UPC",
 				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter1", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter1", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.control_s_axi_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.flow_control_loop_pipe_U", "Parent" : "0"},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_is_r_V_data_V_U", "Parent" : "0"},
-	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_is_r_V_keep_V_U", "Parent" : "0"},
-	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_is_r_V_strb_V_U", "Parent" : "0"},
-	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_is_r_V_user_V_U", "Parent" : "0"},
-	{"ID" : "7", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_is_r_V_last_V_U", "Parent" : "0"},
-	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_is_r_V_id_V_U", "Parent" : "0"},
-	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_is_r_V_dest_V_U", "Parent" : "0"},
-	{"ID" : "10", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_os_V_data_V_U", "Parent" : "0"},
-	{"ID" : "11", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_os_V_keep_V_U", "Parent" : "0"},
-	{"ID" : "12", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_os_V_strb_V_U", "Parent" : "0"},
-	{"ID" : "13", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_os_V_user_V_U", "Parent" : "0"},
-	{"ID" : "14", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_os_V_last_V_U", "Parent" : "0"},
-	{"ID" : "15", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_os_V_id_V_U", "Parent" : "0"},
-	{"ID" : "16", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_os_V_dest_V_U", "Parent" : "0"}]}
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_INPUT_B_V_data_V_U", "Parent" : "0"},
+	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_INPUT_B_V_keep_V_U", "Parent" : "0"},
+	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_INPUT_B_V_strb_V_U", "Parent" : "0"},
+	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_INPUT_B_V_user_V_U", "Parent" : "0"},
+	{"ID" : "7", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_INPUT_B_V_last_V_U", "Parent" : "0"},
+	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_INPUT_B_V_id_V_U", "Parent" : "0"},
+	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_INPUT_B_V_dest_V_U", "Parent" : "0"},
+	{"ID" : "10", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_OUTPUT_A_V_data_V_U", "Parent" : "0"},
+	{"ID" : "11", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_OUTPUT_A_V_keep_V_U", "Parent" : "0"},
+	{"ID" : "12", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_OUTPUT_A_V_strb_V_U", "Parent" : "0"},
+	{"ID" : "13", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_OUTPUT_A_V_user_V_U", "Parent" : "0"},
+	{"ID" : "14", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_OUTPUT_A_V_last_V_U", "Parent" : "0"},
+	{"ID" : "15", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_OUTPUT_A_V_id_V_U", "Parent" : "0"},
+	{"ID" : "16", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_OUTPUT_A_V_dest_V_U", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	LIGHT_MODULE {
-		is_r_V_data_V {Type I LastRead 0 FirstWrite -1}
-		is_r_V_keep_V {Type I LastRead 0 FirstWrite -1}
-		is_r_V_strb_V {Type I LastRead 0 FirstWrite -1}
-		is_r_V_user_V {Type I LastRead 0 FirstWrite -1}
-		is_r_V_last_V {Type I LastRead 0 FirstWrite -1}
-		is_r_V_id_V {Type I LastRead 0 FirstWrite -1}
-		is_r_V_dest_V {Type I LastRead 0 FirstWrite -1}
-		os_V_data_V {Type O LastRead -1 FirstWrite 0}
-		os_V_keep_V {Type O LastRead -1 FirstWrite 0}
-		os_V_strb_V {Type O LastRead -1 FirstWrite 0}
-		os_V_user_V {Type O LastRead -1 FirstWrite 0}
-		os_V_last_V {Type O LastRead -1 FirstWrite 0}
-		os_V_id_V {Type O LastRead -1 FirstWrite 0}
-		os_V_dest_V {Type O LastRead -1 FirstWrite 0}}}
+		INPUT_B_V_data_V {Type I LastRead 0 FirstWrite -1}
+		INPUT_B_V_keep_V {Type I LastRead 0 FirstWrite -1}
+		INPUT_B_V_strb_V {Type I LastRead 0 FirstWrite -1}
+		INPUT_B_V_user_V {Type I LastRead 0 FirstWrite -1}
+		INPUT_B_V_last_V {Type I LastRead 0 FirstWrite -1}
+		INPUT_B_V_id_V {Type I LastRead 0 FirstWrite -1}
+		INPUT_B_V_dest_V {Type I LastRead 0 FirstWrite -1}
+		OUTPUT_A_V_data_V {Type O LastRead -1 FirstWrite 0}
+		OUTPUT_A_V_keep_V {Type O LastRead -1 FirstWrite 0}
+		OUTPUT_A_V_strb_V {Type O LastRead -1 FirstWrite 0}
+		OUTPUT_A_V_user_V {Type O LastRead -1 FirstWrite 0}
+		OUTPUT_A_V_last_V {Type O LastRead -1 FirstWrite 0}
+		OUTPUT_A_V_id_V {Type O LastRead -1 FirstWrite 0}
+		OUTPUT_A_V_dest_V {Type O LastRead -1 FirstWrite 0}}}
 
 set hasDtUnsupportedChannel 0
 
@@ -212,20 +212,20 @@ set PipelineEnableSignalInfo {[
 ]}
 
 set Spec2ImplPortList { 
-	is_r_V_data_V { axis {  { is_r_TDATA in_data 0 128 } } }
-	is_r_V_keep_V { axis {  { is_r_TKEEP in_data 0 16 } } }
-	is_r_V_strb_V { axis {  { is_r_TSTRB in_data 0 16 } } }
-	is_r_V_user_V { axis {  { is_r_TUSER in_data 0 1 } } }
-	is_r_V_last_V { axis {  { is_r_TLAST in_data 0 1 } } }
-	is_r_V_id_V { axis {  { is_r_TID in_data 0 1 } } }
-	is_r_V_dest_V { axis {  { is_r_TVALID in_vld 0 1 }  { is_r_TREADY in_acc 1 1 }  { is_r_TDEST in_data 0 1 } } }
-	os_V_data_V { axis {  { os_TREADY out_acc 0 1 }  { os_TDATA out_data 1 32 } } }
-	os_V_keep_V { axis {  { os_TKEEP out_data 1 4 } } }
-	os_V_strb_V { axis {  { os_TSTRB out_data 1 4 } } }
-	os_V_user_V { axis {  { os_TUSER out_data 1 1 } } }
-	os_V_last_V { axis {  { os_TLAST out_data 1 1 } } }
-	os_V_id_V { axis {  { os_TID out_data 1 1 } } }
-	os_V_dest_V { axis {  { os_TVALID out_vld 1 1 }  { os_TDEST out_data 1 1 } } }
+	INPUT_B_V_data_V { axis {  { INPUT_B_TDATA in_data 0 32 } } }
+	INPUT_B_V_keep_V { axis {  { INPUT_B_TKEEP in_data 0 4 } } }
+	INPUT_B_V_strb_V { axis {  { INPUT_B_TSTRB in_data 0 4 } } }
+	INPUT_B_V_user_V { axis {  { INPUT_B_TUSER in_data 0 2 } } }
+	INPUT_B_V_last_V { axis {  { INPUT_B_TLAST in_data 0 1 } } }
+	INPUT_B_V_id_V { axis {  { INPUT_B_TID in_data 0 5 } } }
+	INPUT_B_V_dest_V { axis {  { INPUT_B_TVALID in_vld 0 1 }  { INPUT_B_TREADY in_acc 1 1 }  { INPUT_B_TDEST in_data 0 6 } } }
+	OUTPUT_A_V_data_V { axis {  { OUTPUT_A_TREADY out_acc 0 1 }  { OUTPUT_A_TDATA out_data 1 32 } } }
+	OUTPUT_A_V_keep_V { axis {  { OUTPUT_A_TKEEP out_data 1 4 } } }
+	OUTPUT_A_V_strb_V { axis {  { OUTPUT_A_TSTRB out_data 1 4 } } }
+	OUTPUT_A_V_user_V { axis {  { OUTPUT_A_TUSER out_data 1 2 } } }
+	OUTPUT_A_V_last_V { axis {  { OUTPUT_A_TLAST out_data 1 1 } } }
+	OUTPUT_A_V_id_V { axis {  { OUTPUT_A_TID out_data 1 5 } } }
+	OUTPUT_A_V_dest_V { axis {  { OUTPUT_A_TVALID out_vld 1 1 }  { OUTPUT_A_TDEST out_data 1 6 } } }
 }
 
 set maxi_interface_dict [dict create]

@@ -48,11 +48,11 @@
 
 
 // IP VLNV: xilinx.com:hls:LIGHT_MODULE:1.0
-// IP Revision: 2113701298
+// IP Revision: 2113701688
 
 (* X_CORE_INFO = "LIGHT_MODULE,Vivado 2023.1.1" *)
 (* CHECK_LICENSE_TYPE = "dma_axis_ip_example_example_0_1,LIGHT_MODULE,{}" *)
-(* CORE_GENERATION_INFO = "dma_axis_ip_example_example_0_1,LIGHT_MODULE,{x_ipProduct=Vivado 2023.1.1,x_ipVendor=xilinx.com,x_ipLibrary=hls,x_ipName=LIGHT_MODULE,x_ipVersion=1.0,x_ipCoreRevision=2113701298,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S_AXI_CONTROL_ADDR_WIDTH=4,C_S_AXI_CONTROL_DATA_WIDTH=32}" *)
+(* CORE_GENERATION_INFO = "dma_axis_ip_example_example_0_1,LIGHT_MODULE,{x_ipProduct=Vivado 2023.1.1,x_ipVendor=xilinx.com,x_ipLibrary=hls,x_ipName=LIGHT_MODULE,x_ipVersion=1.0,x_ipCoreRevision=2113701688,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S_AXI_CONTROL_ADDR_WIDTH=4,C_S_AXI_CONTROL_DATA_WIDTH=32}" *)
 (* IP_DEFINITION_SOURCE = "HLS" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module dma_axis_ip_example_example_0_1 (
@@ -76,24 +76,24 @@ module dma_axis_ip_example_example_0_1 (
   ap_clk,
   ap_rst_n,
   interrupt,
-  is_r_TVALID,
-  is_r_TREADY,
-  is_r_TDEST,
-  is_r_TDATA,
-  is_r_TKEEP,
-  is_r_TSTRB,
-  is_r_TUSER,
-  is_r_TLAST,
-  is_r_TID,
-  os_TVALID,
-  os_TREADY,
-  os_TDEST,
-  os_TDATA,
-  os_TKEEP,
-  os_TSTRB,
-  os_TUSER,
-  os_TLAST,
-  os_TID
+  A_TVALID,
+  A_TREADY,
+  A_TDEST,
+  A_TDATA,
+  A_TKEEP,
+  A_TSTRB,
+  A_TUSER,
+  A_TLAST,
+  A_TID,
+  B_TVALID,
+  B_TREADY,
+  B_TDEST,
+  B_TDATA,
+  B_TKEEP,
+  B_TSTRB,
+  B_TUSER,
+  B_TLAST,
+  B_TID
 );
 
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 s_axi_control AWADDR" *)
@@ -132,7 +132,7 @@ output wire s_axi_control_RVALID;
  NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 s_axi_control RREADY" *)
 input wire s_axi_control_RREADY;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME ap_clk, ASSOCIATED_BUSIF s_axi_control:is_r:os, ASSOCIATED_RESET ap_rst_n, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN dma_axis_ip_example_processing_system7_0_1_FCLK_CLK0, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME ap_clk, ASSOCIATED_BUSIF s_axi_control:A:B, ASSOCIATED_RESET ap_rst_n, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN dma_axis_ip_example_processing_system7_0_1_FCLK_CLK0, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 ap_clk CLK" *)
 input wire ap_clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME ap_rst_n, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
@@ -141,44 +141,44 @@ input wire ap_rst_n;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME interrupt, SENSITIVITY LEVEL_HIGH, PortWidth 1" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:interrupt:1.0 interrupt INTERRUPT" *)
 output wire interrupt;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 is_r TVALID" *)
-input wire is_r_TVALID;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 is_r TREADY" *)
-output wire is_r_TREADY;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 is_r TDEST" *)
-input wire [0 : 0] is_r_TDEST;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 is_r TDATA" *)
-input wire [127 : 0] is_r_TDATA;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 is_r TKEEP" *)
-input wire [15 : 0] is_r_TKEEP;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 is_r TSTRB" *)
-input wire [15 : 0] is_r_TSTRB;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 is_r TUSER" *)
-input wire [0 : 0] is_r_TUSER;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 is_r TLAST" *)
-input wire [0 : 0] is_r_TLAST;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME is_r, TDATA_NUM_BYTES 16, TDEST_WIDTH 1, TID_WIDTH 1, TUSER_WIDTH 1, HAS_TREADY 1, HAS_TSTRB 1, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN dma_axis_ip_example_processing_system7_0_1_FCLK_CLK0, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 is_r TID" *)
-input wire [0 : 0] is_r_TID;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 os TVALID" *)
-output wire os_TVALID;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 os TREADY" *)
-input wire os_TREADY;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 os TDEST" *)
-output wire [0 : 0] os_TDEST;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 os TDATA" *)
-output wire [31 : 0] os_TDATA;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 os TKEEP" *)
-output wire [3 : 0] os_TKEEP;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 os TSTRB" *)
-output wire [3 : 0] os_TSTRB;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 os TUSER" *)
-output wire [0 : 0] os_TUSER;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 os TLAST" *)
-output wire [0 : 0] os_TLAST;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME os, TDATA_NUM_BYTES 4, TDEST_WIDTH 1, TID_WIDTH 1, TUSER_WIDTH 1, HAS_TREADY 1, HAS_TSTRB 1, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN dma_axis_ip_example_processing_system7_0_1_FCLK_CLK0, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 os TID" *)
-output wire [0 : 0] os_TID;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 A TVALID" *)
+input wire A_TVALID;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 A TREADY" *)
+output wire A_TREADY;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 A TDEST" *)
+input wire [5 : 0] A_TDEST;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 A TDATA" *)
+input wire [31 : 0] A_TDATA;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 A TKEEP" *)
+input wire [3 : 0] A_TKEEP;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 A TSTRB" *)
+input wire [3 : 0] A_TSTRB;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 A TUSER" *)
+input wire [1 : 0] A_TUSER;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 A TLAST" *)
+input wire [0 : 0] A_TLAST;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME A, TDATA_NUM_BYTES 4, TDEST_WIDTH 6, TID_WIDTH 5, TUSER_WIDTH 2, HAS_TREADY 1, HAS_TSTRB 1, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN dma_axis_ip_example_processing_system7_0_1_FCLK_CLK0, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 A TID" *)
+input wire [4 : 0] A_TID;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 B TVALID" *)
+output wire B_TVALID;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 B TREADY" *)
+input wire B_TREADY;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 B TDEST" *)
+output wire [5 : 0] B_TDEST;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 B TDATA" *)
+output wire [31 : 0] B_TDATA;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 B TKEEP" *)
+output wire [3 : 0] B_TKEEP;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 B TSTRB" *)
+output wire [3 : 0] B_TSTRB;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 B TUSER" *)
+output wire [1 : 0] B_TUSER;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 B TLAST" *)
+output wire [0 : 0] B_TLAST;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME B, TDATA_NUM_BYTES 4, TDEST_WIDTH 6, TID_WIDTH 5, TUSER_WIDTH 2, HAS_TREADY 1, HAS_TSTRB 1, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN dma_axis_ip_example_processing_system7_0_1_FCLK_CLK0, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 B TID" *)
+output wire [4 : 0] B_TID;
 
 (* SDX_KERNEL = "true" *)
 (* SDX_KERNEL_TYPE = "hls" *)
@@ -207,23 +207,23 @@ output wire [0 : 0] os_TID;
     .ap_clk(ap_clk),
     .ap_rst_n(ap_rst_n),
     .interrupt(interrupt),
-    .is_r_TVALID(is_r_TVALID),
-    .is_r_TREADY(is_r_TREADY),
-    .is_r_TDEST(is_r_TDEST),
-    .is_r_TDATA(is_r_TDATA),
-    .is_r_TKEEP(is_r_TKEEP),
-    .is_r_TSTRB(is_r_TSTRB),
-    .is_r_TUSER(is_r_TUSER),
-    .is_r_TLAST(is_r_TLAST),
-    .is_r_TID(is_r_TID),
-    .os_TVALID(os_TVALID),
-    .os_TREADY(os_TREADY),
-    .os_TDEST(os_TDEST),
-    .os_TDATA(os_TDATA),
-    .os_TKEEP(os_TKEEP),
-    .os_TSTRB(os_TSTRB),
-    .os_TUSER(os_TUSER),
-    .os_TLAST(os_TLAST),
-    .os_TID(os_TID)
+    .A_TVALID(A_TVALID),
+    .A_TREADY(A_TREADY),
+    .A_TDEST(A_TDEST),
+    .A_TDATA(A_TDATA),
+    .A_TKEEP(A_TKEEP),
+    .A_TSTRB(A_TSTRB),
+    .A_TUSER(A_TUSER),
+    .A_TLAST(A_TLAST),
+    .A_TID(A_TID),
+    .B_TVALID(B_TVALID),
+    .B_TREADY(B_TREADY),
+    .B_TDEST(B_TDEST),
+    .B_TDATA(B_TDATA),
+    .B_TKEEP(B_TKEEP),
+    .B_TSTRB(B_TSTRB),
+    .B_TUSER(B_TUSER),
+    .B_TLAST(B_TLAST),
+    .B_TID(B_TID)
   );
 endmodule
