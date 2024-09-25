@@ -26,11 +26,11 @@ void LIGHT_MODULE(pkt_stream& in_stream, pkt_stream& out_stream) {
 			out_stream.write(out_pkts[i++]);
 		}
 
-#if C_SIM == 1
-		if (in_pkts[INPUT_LENGHT-1].last == true) {
-			break;
-		}
-#endif
+//#if C_SIM == 1
+//		if (in_pkts[INPUT_LENGHT-1].last == true) {
+//			break;
+//		}
+//#endif
 
 	}
 

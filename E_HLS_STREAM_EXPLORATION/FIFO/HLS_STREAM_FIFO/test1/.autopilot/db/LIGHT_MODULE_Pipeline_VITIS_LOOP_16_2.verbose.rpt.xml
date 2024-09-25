@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2'" level="0">
-<item name = "Date">Fri Aug 23 15:18:59 2024
+<item name = "Date">Wed Sep 18 18:08:31 2024
 </item>
 <item name = "Version">2023.1.1 (Build 3869133 on Jun 15 2023)</item>
 <item name = "Project">HLS_STREAM_FIFO</item>
@@ -48,12 +48,12 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 59, -</column>
+<column name="Expression">-, -, 0, 93, -</column>
 <column name="FIFO">-, -, -, -, -</column>
 <column name="Instance">-, -, -, -, -</column>
 <column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, -, 162, -</column>
-<column name="Register">-, -, 154, -, -</column>
+<column name="Multiplexer">-, -, -, 90, -</column>
+<column name="Register">-, -, 59, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
 <specialColumn name="Utilization (%)">0, 0, ~0, ~0, 0</specialColumn>
 </table>
@@ -78,54 +78,46 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln16_fu_348_p2">+, 0, 0, 11, 3, 1</column>
-<column name="ap_condition_283">and, 0, 0, 2, 1, 1</column>
-<column name="icmp_ln16_fu_342_p2">icmp, 0, 0, 13, 3, 4</column>
-<column name="icmp_ln17_fu_417_p2">icmp, 0, 0, 10, 2, 1</column>
-<column name="ap_block_state1_pp0_stage0_iter0">or, 0, 0, 2, 1, 1</column>
-<column name="select_ln17_1_fu_431_p3">select, 0, 0, 4, 1, 4</column>
-<column name="select_ln17_2_fu_439_p3">select, 0, 0, 2, 1, 2</column>
-<column name="select_ln17_3_fu_447_p3">select, 0, 0, 5, 1, 5</column>
-<column name="select_ln17_4_fu_455_p3">select, 0, 0, 6, 1, 6</column>
-<column name="select_ln17_fu_423_p3">select, 0, 0, 4, 1, 4</column>
+<column name="add_ln16_fu_266_p2">+, 0, 0, 11, 3, 1</column>
+<column name="ap_block_pp0_stage0_01001">and, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state2_pp0_stage0_iter1">and, 0, 0, 2, 1, 1</column>
+<column name="icmp_ln16_fu_260_p2">icmp, 0, 0, 13, 3, 4</column>
+<column name="icmp_ln17_fu_318_p2">icmp, 0, 0, 10, 2, 1</column>
+<column name="select_ln17_1_fu_332_p3">select, 0, 0, 4, 1, 4</column>
+<column name="select_ln17_2_fu_340_p3">select, 0, 0, 4, 1, 4</column>
+<column name="select_ln17_3_fu_348_p3">select, 0, 0, 2, 1, 2</column>
+<column name="select_ln17_4_fu_356_p3">select, 0, 0, 5, 1, 5</column>
+<column name="select_ln17_5_fu_364_p3">select, 0, 0, 6, 1, 6</column>
+<column name="select_ln17_fu_324_p3">select, 0, 0, 32, 1, 32</column>
+<column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
 <column name="ap_done_int">9, 2, 1, 2</column>
-<column name="ap_sig_allocacmp_i_4">9, 2, 3, 6</column>
-<column name="ap_sig_allocacmp_out_pkts_dest_load_1">9, 2, 6, 12</column>
-<column name="ap_sig_allocacmp_out_pkts_id_load_1">9, 2, 5, 10</column>
-<column name="ap_sig_allocacmp_out_pkts_keep_load_1">9, 2, 4, 8</column>
-<column name="ap_sig_allocacmp_out_pkts_strb_load_1">9, 2, 4, 8</column>
-<column name="ap_sig_allocacmp_out_pkts_user_load_1">9, 2, 2, 4</column>
-<column name="i_fu_114">9, 2, 3, 6</column>
-<column name="in_pkts_data_1_1_fu_142">9, 2, 32, 64</column>
-<column name="in_pkts_data_1_2_fu_146">9, 2, 32, 64</column>
-<column name="in_pkts_data_1_3_fu_150">9, 2, 32, 64</column>
-<column name="in_pkts_data_1_fu_138">9, 2, 32, 64</column>
+<column name="ap_enable_reg_pp0_iter1">9, 2, 1, 2</column>
+<column name="i_fu_98">9, 2, 3, 6</column>
 <column name="in_stream_TDATA_blk_n">9, 2, 1, 2</column>
-<column name="out_pkts_dest_fu_134">9, 2, 6, 12</column>
-<column name="out_pkts_id_fu_130">9, 2, 5, 10</column>
-<column name="out_pkts_keep_fu_118">9, 2, 4, 8</column>
-<column name="out_pkts_strb_fu_122">9, 2, 4, 8</column>
-<column name="out_pkts_user_fu_126">9, 2, 2, 4</column>
+<column name="out_pkts_data_fu_102">9, 2, 32, 64</column>
+<column name="out_pkts_dest_fu_122">9, 2, 6, 12</column>
+<column name="out_pkts_id_fu_118">9, 2, 5, 10</column>
+<column name="out_pkts_keep_fu_106">9, 2, 4, 8</column>
+<column name="out_pkts_strb_fu_110">9, 2, 4, 8</column>
+<column name="out_pkts_user_fu_114">9, 2, 2, 4</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
 <column name="ap_CS_fsm">1, 0, 1, 0</column>
 <column name="ap_done_reg">1, 0, 1, 0</column>
-<column name="i_fu_114">3, 0, 3, 0</column>
-<column name="in_pkts_data_1_1_fu_142">32, 0, 32, 0</column>
-<column name="in_pkts_data_1_2_fu_146">32, 0, 32, 0</column>
-<column name="in_pkts_data_1_3_fu_150">32, 0, 32, 0</column>
-<column name="in_pkts_data_1_fu_138">32, 0, 32, 0</column>
-<column name="out_pkts_dest_fu_134">6, 0, 6, 0</column>
-<column name="out_pkts_id_fu_130">5, 0, 5, 0</column>
-<column name="out_pkts_keep_fu_118">4, 0, 4, 0</column>
-<column name="out_pkts_strb_fu_122">4, 0, 4, 0</column>
-<column name="out_pkts_user_fu_126">2, 0, 2, 0</column>
+<column name="ap_enable_reg_pp0_iter1">1, 0, 1, 0</column>
+<column name="i_fu_98">3, 0, 3, 0</column>
+<column name="out_pkts_data_fu_102">32, 0, 32, 0</column>
+<column name="out_pkts_dest_fu_122">6, 0, 6, 0</column>
+<column name="out_pkts_id_fu_118">5, 0, 5, 0</column>
+<column name="out_pkts_keep_fu_106">4, 0, 4, 0</column>
+<column name="out_pkts_strb_fu_110">4, 0, 4, 0</column>
+<column name="out_pkts_user_fu_114">2, 0, 2, 0</column>
 </table>
 </item>
 </section>
@@ -143,15 +135,12 @@
 <column name="ap_ready">out, 1, ap_ctrl_hs, LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2, return value</column>
 <column name="in_stream_TVALID">in, 1, axis, in_stream_V_data_V, pointer</column>
 <column name="in_stream_TDATA">in, 32, axis, in_stream_V_data_V, pointer</column>
-<column name="in_pkts_data_3_04">in, 32, ap_none, in_pkts_data_3_04, scalar</column>
-<column name="in_pkts_data_2_03">in, 32, ap_none, in_pkts_data_2_03, scalar</column>
-<column name="in_pkts_data_1_02">in, 32, ap_none, in_pkts_data_1_02, scalar</column>
-<column name="in_pkts_data_0_01">in, 32, ap_none, in_pkts_data_0_01, scalar</column>
-<column name="in_pkts_dest_0_072">in, 6, ap_none, in_pkts_dest_0_072, scalar</column>
-<column name="in_pkts_id_0_071">in, 5, ap_none, in_pkts_id_0_071, scalar</column>
-<column name="in_pkts_user_0_070">in, 2, ap_none, in_pkts_user_0_070, scalar</column>
-<column name="in_pkts_strb_0_069">in, 4, ap_none, in_pkts_strb_0_069, scalar</column>
-<column name="in_pkts_keep_0_068">in, 4, ap_none, in_pkts_keep_0_068, scalar</column>
+<column name="in_pkts_dest_0_075">in, 6, ap_none, in_pkts_dest_0_075, scalar</column>
+<column name="in_pkts_id_0_074">in, 5, ap_none, in_pkts_id_0_074, scalar</column>
+<column name="in_pkts_user_0_073">in, 2, ap_none, in_pkts_user_0_073, scalar</column>
+<column name="in_pkts_strb_0_072">in, 4, ap_none, in_pkts_strb_0_072, scalar</column>
+<column name="in_pkts_keep_0_071">in, 4, ap_none, in_pkts_keep_0_071, scalar</column>
+<column name="in_pkts_data_0_070">in, 32, ap_none, in_pkts_data_0_070, scalar</column>
 <column name="in_stream_TREADY">out, 1, axis, in_stream_V_dest_V, pointer</column>
 <column name="in_stream_TDEST">in, 6, axis, in_stream_V_dest_V, pointer</column>
 <column name="in_stream_TKEEP">in, 4, axis, in_stream_V_keep_V, pointer</column>
@@ -159,14 +148,6 @@
 <column name="in_stream_TUSER">in, 2, axis, in_stream_V_user_V, pointer</column>
 <column name="in_stream_TLAST">in, 1, axis, in_stream_V_last_V, pointer</column>
 <column name="in_stream_TID">in, 5, axis, in_stream_V_id_V, pointer</column>
-<column name="in_pkts_data_3_1_out">out, 32, ap_vld, in_pkts_data_3_1_out, pointer</column>
-<column name="in_pkts_data_3_1_out_ap_vld">out, 1, ap_vld, in_pkts_data_3_1_out, pointer</column>
-<column name="in_pkts_data_2_1_out">out, 32, ap_vld, in_pkts_data_2_1_out, pointer</column>
-<column name="in_pkts_data_2_1_out_ap_vld">out, 1, ap_vld, in_pkts_data_2_1_out, pointer</column>
-<column name="in_pkts_data_1_1_out">out, 32, ap_vld, in_pkts_data_1_1_out, pointer</column>
-<column name="in_pkts_data_1_1_out_ap_vld">out, 1, ap_vld, in_pkts_data_1_1_out, pointer</column>
-<column name="in_pkts_data_0_1_out">out, 32, ap_vld, in_pkts_data_0_1_out, pointer</column>
-<column name="in_pkts_data_0_1_out_ap_vld">out, 1, ap_vld, in_pkts_data_0_1_out, pointer</column>
 <column name="out_pkts_dest_out">out, 6, ap_vld, out_pkts_dest_out, pointer</column>
 <column name="out_pkts_dest_out_ap_vld">out, 1, ap_vld, out_pkts_dest_out, pointer</column>
 <column name="out_pkts_id_out">out, 5, ap_vld, out_pkts_id_out, pointer</column>
@@ -177,6 +158,8 @@
 <column name="out_pkts_strb_out_ap_vld">out, 1, ap_vld, out_pkts_strb_out, pointer</column>
 <column name="out_pkts_keep_out">out, 4, ap_vld, out_pkts_keep_out, pointer</column>
 <column name="out_pkts_keep_out_ap_vld">out, 1, ap_vld, out_pkts_keep_out, pointer</column>
+<column name="out_pkts_data_out">out, 32, ap_vld, out_pkts_data_out, pointer</column>
+<column name="out_pkts_data_out_ap_vld">out, 1, ap_vld, out_pkts_data_out, pointer</column>
 </table>
 </item>
 </section>

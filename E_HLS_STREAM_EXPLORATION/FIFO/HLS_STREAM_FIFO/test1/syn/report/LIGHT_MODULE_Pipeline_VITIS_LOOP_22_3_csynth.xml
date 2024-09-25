@@ -47,7 +47,7 @@
 
 <AreaEstimates>
 <Resources>
-<FF>48</FF>
+<FF>16</FF>
 <LUT>80</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP>0</DSP>
@@ -152,14 +152,14 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>sext_ln20</name>
-<Object>sext_ln20</Object>
+<name>out_pkts_data_reload</name>
+<Object>out_pkts_data_reload</Object>
 <Type>scalar</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>31</Bits>
+<Bits>32</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>

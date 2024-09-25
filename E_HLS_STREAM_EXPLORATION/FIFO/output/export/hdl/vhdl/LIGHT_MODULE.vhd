@@ -57,121 +57,86 @@ end;
 architecture behav of LIGHT_MODULE is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "LIGHT_MODULE_LIGHT_MODULE,hls_ip_2023_1_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=5.966600,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=466,HLS_SYN_LUT=623,HLS_VERSION=2023_1_1}";
+    "LIGHT_MODULE_LIGHT_MODULE,hls_ip_2023_1_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=4.368000,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=172,HLS_SYN_LUT=351,HLS_VERSION=2023_1_1}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
-    constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (6 downto 0) := "0000001";
-    constant ap_ST_fsm_state2 : STD_LOGIC_VECTOR (6 downto 0) := "0000010";
-    constant ap_ST_fsm_state3 : STD_LOGIC_VECTOR (6 downto 0) := "0000100";
-    constant ap_ST_fsm_state4 : STD_LOGIC_VECTOR (6 downto 0) := "0001000";
-    constant ap_ST_fsm_state5 : STD_LOGIC_VECTOR (6 downto 0) := "0010000";
-    constant ap_ST_fsm_state6 : STD_LOGIC_VECTOR (6 downto 0) := "0100000";
-    constant ap_ST_fsm_state7 : STD_LOGIC_VECTOR (6 downto 0) := "1000000";
+    constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (5 downto 0) := "000001";
+    constant ap_ST_fsm_state2 : STD_LOGIC_VECTOR (5 downto 0) := "000010";
+    constant ap_ST_fsm_state3 : STD_LOGIC_VECTOR (5 downto 0) := "000100";
+    constant ap_ST_fsm_state4 : STD_LOGIC_VECTOR (5 downto 0) := "001000";
+    constant ap_ST_fsm_state5 : STD_LOGIC_VECTOR (5 downto 0) := "010000";
+    constant ap_ST_fsm_state6 : STD_LOGIC_VECTOR (5 downto 0) := "100000";
     constant ap_const_lv32_0 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
     constant ap_const_boolean_1 : BOOLEAN := true;
-    constant ap_const_lv32_5 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000101";
     constant C_S_AXI_DATA_WIDTH : INTEGER range 63 downto 0 := 20;
     constant ap_const_lv32_1 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000001";
     constant ap_const_lv32_2 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000010";
-    constant ap_const_lv32_3 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000011";
     constant ap_const_lv32_4 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000100";
-    constant ap_const_lv32_6 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000110";
-    constant ap_const_lv32_1F : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000011111";
-    constant ap_const_lv31_0 : STD_LOGIC_VECTOR (30 downto 0) := "0000000000000000000000000000000";
+    constant ap_const_lv32_5 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000101";
 
     signal ap_rst_n_inv : STD_LOGIC;
     signal ap_start : STD_LOGIC;
     signal ap_done : STD_LOGIC;
     signal ap_idle : STD_LOGIC;
-    signal ap_CS_fsm : STD_LOGIC_VECTOR (6 downto 0) := "0000001";
+    signal ap_CS_fsm : STD_LOGIC_VECTOR (5 downto 0) := "000001";
     attribute fsm_encoding : string;
     attribute fsm_encoding of ap_CS_fsm : signal is "none";
     signal ap_CS_fsm_state1 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state1 : signal is "none";
     signal ap_ready : STD_LOGIC;
-    signal avg_fu_372_p3 : STD_LOGIC_VECTOR (30 downto 0);
-    signal avg_reg_574 : STD_LOGIC_VECTOR (30 downto 0);
-    signal ap_CS_fsm_state6 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state6 : signal is "none";
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_ap_start : STD_LOGIC;
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_ap_done : STD_LOGIC;
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_ap_idle : STD_LOGIC;
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_ap_ready : STD_LOGIC;
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_stream_TREADY : STD_LOGIC;
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_pkts_data_3_1_out : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_pkts_data_3_1_out_ap_vld : STD_LOGIC;
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_pkts_data_2_1_out : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_pkts_data_2_1_out_ap_vld : STD_LOGIC;
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_pkts_data_1_1_out : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_pkts_data_1_1_out_ap_vld : STD_LOGIC;
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_pkts_data_0_1_out : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_pkts_data_0_1_out_ap_vld : STD_LOGIC;
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_dest_out : STD_LOGIC_VECTOR (5 downto 0);
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_dest_out_ap_vld : STD_LOGIC;
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_id_out : STD_LOGIC_VECTOR (4 downto 0);
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_id_out_ap_vld : STD_LOGIC;
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_user_out : STD_LOGIC_VECTOR (1 downto 0);
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_user_out_ap_vld : STD_LOGIC;
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_strb_out : STD_LOGIC_VECTOR (3 downto 0);
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_strb_out_ap_vld : STD_LOGIC;
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_keep_out : STD_LOGIC_VECTOR (3 downto 0);
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_keep_out_ap_vld : STD_LOGIC;
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_ap_start : STD_LOGIC;
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_ap_done : STD_LOGIC;
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_ap_idle : STD_LOGIC;
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_ap_ready : STD_LOGIC;
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_avg_1_out : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_avg_1_out_ap_vld : STD_LOGIC;
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_ap_start : STD_LOGIC;
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_ap_done : STD_LOGIC;
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_ap_idle : STD_LOGIC;
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_ap_ready : STD_LOGIC;
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TREADY : STD_LOGIC;
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TDATA : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TVALID : STD_LOGIC;
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TKEEP : STD_LOGIC_VECTOR (3 downto 0);
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TSTRB : STD_LOGIC_VECTOR (3 downto 0);
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TUSER : STD_LOGIC_VECTOR (1 downto 0);
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TLAST : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TID : STD_LOGIC_VECTOR (4 downto 0);
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TDEST : STD_LOGIC_VECTOR (5 downto 0);
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_ap_start_reg : STD_LOGIC := '0';
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_ap_start : STD_LOGIC;
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_ap_done : STD_LOGIC;
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_ap_idle : STD_LOGIC;
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_ap_ready : STD_LOGIC;
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_in_stream_TREADY : STD_LOGIC;
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_dest_out : STD_LOGIC_VECTOR (5 downto 0);
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_dest_out_ap_vld : STD_LOGIC;
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_id_out : STD_LOGIC_VECTOR (4 downto 0);
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_id_out_ap_vld : STD_LOGIC;
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_user_out : STD_LOGIC_VECTOR (1 downto 0);
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_user_out_ap_vld : STD_LOGIC;
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_strb_out : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_strb_out_ap_vld : STD_LOGIC;
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_keep_out : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_keep_out_ap_vld : STD_LOGIC;
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_data_out : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_data_out_ap_vld : STD_LOGIC;
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_ap_start : STD_LOGIC;
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_ap_done : STD_LOGIC;
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_ap_idle : STD_LOGIC;
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_ap_ready : STD_LOGIC;
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TREADY : STD_LOGIC;
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TDATA : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TVALID : STD_LOGIC;
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TKEEP : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TSTRB : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TUSER : STD_LOGIC_VECTOR (1 downto 0);
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TLAST : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TID : STD_LOGIC_VECTOR (4 downto 0);
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TDEST : STD_LOGIC_VECTOR (5 downto 0);
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_ap_start_reg : STD_LOGIC := '0';
     signal ap_CS_fsm_state2 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
     signal ap_CS_fsm_state3 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state3 : signal is "none";
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_ap_start_reg : STD_LOGIC := '0';
-    signal ap_CS_fsm_state4 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state4 : signal is "none";
+    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_ap_start_reg : STD_LOGIC := '0';
     signal ap_CS_fsm_state5 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state5 : signal is "none";
-    signal grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_ap_start_reg : STD_LOGIC := '0';
-    signal ap_CS_fsm_state7 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state7 : signal is "none";
-    signal in_pkts_keep_0_068_fu_84 : STD_LOGIC_VECTOR (3 downto 0);
-    signal in_pkts_strb_0_069_fu_88 : STD_LOGIC_VECTOR (3 downto 0);
-    signal in_pkts_user_0_070_fu_92 : STD_LOGIC_VECTOR (1 downto 0);
-    signal in_pkts_id_0_071_fu_96 : STD_LOGIC_VECTOR (4 downto 0);
-    signal in_pkts_dest_0_072_fu_100 : STD_LOGIC_VECTOR (5 downto 0);
-    signal in_pkts_data_0_01_fu_104 : STD_LOGIC_VECTOR (31 downto 0);
-    signal in_pkts_data_1_02_fu_108 : STD_LOGIC_VECTOR (31 downto 0);
-    signal in_pkts_data_2_03_fu_112 : STD_LOGIC_VECTOR (31 downto 0);
-    signal in_pkts_data_3_04_fu_116 : STD_LOGIC_VECTOR (31 downto 0);
-    signal sub_ln45_fu_332_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal trunc_ln45_1_fu_338_p4 : STD_LOGIC_VECTOR (29 downto 0);
-    signal zext_ln45_fu_348_p1 : STD_LOGIC_VECTOR (30 downto 0);
-    signal trunc_ln45_2_fu_358_p4 : STD_LOGIC_VECTOR (29 downto 0);
-    signal tmp_fu_324_p3 : STD_LOGIC_VECTOR (0 downto 0);
-    signal sub_ln45_1_fu_352_p2 : STD_LOGIC_VECTOR (30 downto 0);
-    signal zext_ln45_1_fu_368_p1 : STD_LOGIC_VECTOR (30 downto 0);
-    signal ap_NS_fsm : STD_LOGIC_VECTOR (6 downto 0);
+    signal ap_CS_fsm_state6 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state6 : signal is "none";
+    signal in_pkts_data_0_070_fu_72 : STD_LOGIC_VECTOR (31 downto 0);
+    signal in_pkts_keep_0_071_fu_76 : STD_LOGIC_VECTOR (3 downto 0);
+    signal in_pkts_strb_0_072_fu_80 : STD_LOGIC_VECTOR (3 downto 0);
+    signal in_pkts_user_0_073_fu_84 : STD_LOGIC_VECTOR (1 downto 0);
+    signal in_pkts_id_0_074_fu_88 : STD_LOGIC_VECTOR (4 downto 0);
+    signal in_pkts_dest_0_075_fu_92 : STD_LOGIC_VECTOR (5 downto 0);
+    signal ap_NS_fsm : STD_LOGIC_VECTOR (5 downto 0);
     signal ap_ST_fsm_state1_blk : STD_LOGIC;
     signal ap_ST_fsm_state2_blk : STD_LOGIC;
     signal ap_ST_fsm_state3_blk : STD_LOGIC;
     signal ap_ST_fsm_state4_blk : STD_LOGIC;
     signal ap_ST_fsm_state5_blk : STD_LOGIC;
     signal ap_ST_fsm_state6_blk : STD_LOGIC;
-    signal ap_ST_fsm_state7_blk : STD_LOGIC;
     signal regslice_both_in_stream_V_data_V_U_apdone_blk : STD_LOGIC;
     signal in_stream_TDATA_int_regslice : STD_LOGIC_VECTOR (31 downto 0);
     signal in_stream_TVALID_int_regslice : STD_LOGIC;
@@ -234,15 +199,12 @@ architecture behav of LIGHT_MODULE is
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
         in_stream_TVALID : IN STD_LOGIC;
-        in_pkts_data_3_04 : IN STD_LOGIC_VECTOR (31 downto 0);
-        in_pkts_data_2_03 : IN STD_LOGIC_VECTOR (31 downto 0);
-        in_pkts_data_1_02 : IN STD_LOGIC_VECTOR (31 downto 0);
-        in_pkts_data_0_01 : IN STD_LOGIC_VECTOR (31 downto 0);
-        in_pkts_dest_0_072 : IN STD_LOGIC_VECTOR (5 downto 0);
-        in_pkts_id_0_071 : IN STD_LOGIC_VECTOR (4 downto 0);
-        in_pkts_user_0_070 : IN STD_LOGIC_VECTOR (1 downto 0);
-        in_pkts_strb_0_069 : IN STD_LOGIC_VECTOR (3 downto 0);
-        in_pkts_keep_0_068 : IN STD_LOGIC_VECTOR (3 downto 0);
+        in_pkts_dest_0_075 : IN STD_LOGIC_VECTOR (5 downto 0);
+        in_pkts_id_0_074 : IN STD_LOGIC_VECTOR (4 downto 0);
+        in_pkts_user_0_073 : IN STD_LOGIC_VECTOR (1 downto 0);
+        in_pkts_strb_0_072 : IN STD_LOGIC_VECTOR (3 downto 0);
+        in_pkts_keep_0_071 : IN STD_LOGIC_VECTOR (3 downto 0);
+        in_pkts_data_0_070 : IN STD_LOGIC_VECTOR (31 downto 0);
         in_stream_TDATA : IN STD_LOGIC_VECTOR (31 downto 0);
         in_stream_TREADY : OUT STD_LOGIC;
         in_stream_TKEEP : IN STD_LOGIC_VECTOR (3 downto 0);
@@ -251,14 +213,6 @@ architecture behav of LIGHT_MODULE is
         in_stream_TLAST : IN STD_LOGIC_VECTOR (0 downto 0);
         in_stream_TID : IN STD_LOGIC_VECTOR (4 downto 0);
         in_stream_TDEST : IN STD_LOGIC_VECTOR (5 downto 0);
-        in_pkts_data_3_1_out : OUT STD_LOGIC_VECTOR (31 downto 0);
-        in_pkts_data_3_1_out_ap_vld : OUT STD_LOGIC;
-        in_pkts_data_2_1_out : OUT STD_LOGIC_VECTOR (31 downto 0);
-        in_pkts_data_2_1_out_ap_vld : OUT STD_LOGIC;
-        in_pkts_data_1_1_out : OUT STD_LOGIC_VECTOR (31 downto 0);
-        in_pkts_data_1_1_out_ap_vld : OUT STD_LOGIC;
-        in_pkts_data_0_1_out : OUT STD_LOGIC_VECTOR (31 downto 0);
-        in_pkts_data_0_1_out_ap_vld : OUT STD_LOGIC;
         out_pkts_dest_out : OUT STD_LOGIC_VECTOR (5 downto 0);
         out_pkts_dest_out_ap_vld : OUT STD_LOGIC;
         out_pkts_id_out : OUT STD_LOGIC_VECTOR (4 downto 0);
@@ -268,24 +222,9 @@ architecture behav of LIGHT_MODULE is
         out_pkts_strb_out : OUT STD_LOGIC_VECTOR (3 downto 0);
         out_pkts_strb_out_ap_vld : OUT STD_LOGIC;
         out_pkts_keep_out : OUT STD_LOGIC_VECTOR (3 downto 0);
-        out_pkts_keep_out_ap_vld : OUT STD_LOGIC );
-    end component;
-
-
-    component LIGHT_MODULE_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1 IS
-    port (
-        ap_clk : IN STD_LOGIC;
-        ap_rst : IN STD_LOGIC;
-        ap_start : IN STD_LOGIC;
-        ap_done : OUT STD_LOGIC;
-        ap_idle : OUT STD_LOGIC;
-        ap_ready : OUT STD_LOGIC;
-        in_pkts_data_0_1_reload : IN STD_LOGIC_VECTOR (31 downto 0);
-        in_pkts_data_1_1_reload : IN STD_LOGIC_VECTOR (31 downto 0);
-        in_pkts_data_2_1_reload : IN STD_LOGIC_VECTOR (31 downto 0);
-        in_pkts_data_3_1_reload : IN STD_LOGIC_VECTOR (31 downto 0);
-        avg_1_out : OUT STD_LOGIC_VECTOR (31 downto 0);
-        avg_1_out_ap_vld : OUT STD_LOGIC );
+        out_pkts_keep_out_ap_vld : OUT STD_LOGIC;
+        out_pkts_data_out : OUT STD_LOGIC_VECTOR (31 downto 0);
+        out_pkts_data_out_ap_vld : OUT STD_LOGIC );
     end component;
 
 
@@ -298,7 +237,7 @@ architecture behav of LIGHT_MODULE is
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
         out_stream_TREADY : IN STD_LOGIC;
-        sext_ln20 : IN STD_LOGIC_VECTOR (30 downto 0);
+        out_pkts_data_reload : IN STD_LOGIC_VECTOR (31 downto 0);
         out_pkts_keep_reload : IN STD_LOGIC_VECTOR (3 downto 0);
         out_pkts_strb_reload : IN STD_LOGIC_VECTOR (3 downto 0);
         out_pkts_user_reload : IN STD_LOGIC_VECTOR (1 downto 0);
@@ -366,89 +305,65 @@ architecture behav of LIGHT_MODULE is
 
 
 begin
-    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160 : component LIGHT_MODULE_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2
+    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120 : component LIGHT_MODULE_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        ap_start => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_ap_start,
-        ap_done => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_ap_done,
-        ap_idle => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_ap_idle,
-        ap_ready => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_ap_ready,
+        ap_start => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_ap_start,
+        ap_done => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_ap_done,
+        ap_idle => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_ap_idle,
+        ap_ready => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_ap_ready,
         in_stream_TVALID => in_stream_TVALID_int_regslice,
-        in_pkts_data_3_04 => in_pkts_data_3_04_fu_116,
-        in_pkts_data_2_03 => in_pkts_data_2_03_fu_112,
-        in_pkts_data_1_02 => in_pkts_data_1_02_fu_108,
-        in_pkts_data_0_01 => in_pkts_data_0_01_fu_104,
-        in_pkts_dest_0_072 => in_pkts_dest_0_072_fu_100,
-        in_pkts_id_0_071 => in_pkts_id_0_071_fu_96,
-        in_pkts_user_0_070 => in_pkts_user_0_070_fu_92,
-        in_pkts_strb_0_069 => in_pkts_strb_0_069_fu_88,
-        in_pkts_keep_0_068 => in_pkts_keep_0_068_fu_84,
+        in_pkts_dest_0_075 => in_pkts_dest_0_075_fu_92,
+        in_pkts_id_0_074 => in_pkts_id_0_074_fu_88,
+        in_pkts_user_0_073 => in_pkts_user_0_073_fu_84,
+        in_pkts_strb_0_072 => in_pkts_strb_0_072_fu_80,
+        in_pkts_keep_0_071 => in_pkts_keep_0_071_fu_76,
+        in_pkts_data_0_070 => in_pkts_data_0_070_fu_72,
         in_stream_TDATA => in_stream_TDATA_int_regslice,
-        in_stream_TREADY => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_stream_TREADY,
+        in_stream_TREADY => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_in_stream_TREADY,
         in_stream_TKEEP => in_stream_TKEEP_int_regslice,
         in_stream_TSTRB => in_stream_TSTRB_int_regslice,
         in_stream_TUSER => in_stream_TUSER_int_regslice,
         in_stream_TLAST => in_stream_TLAST_int_regslice,
         in_stream_TID => in_stream_TID_int_regslice,
         in_stream_TDEST => in_stream_TDEST_int_regslice,
-        in_pkts_data_3_1_out => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_pkts_data_3_1_out,
-        in_pkts_data_3_1_out_ap_vld => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_pkts_data_3_1_out_ap_vld,
-        in_pkts_data_2_1_out => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_pkts_data_2_1_out,
-        in_pkts_data_2_1_out_ap_vld => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_pkts_data_2_1_out_ap_vld,
-        in_pkts_data_1_1_out => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_pkts_data_1_1_out,
-        in_pkts_data_1_1_out_ap_vld => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_pkts_data_1_1_out_ap_vld,
-        in_pkts_data_0_1_out => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_pkts_data_0_1_out,
-        in_pkts_data_0_1_out_ap_vld => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_pkts_data_0_1_out_ap_vld,
-        out_pkts_dest_out => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_dest_out,
-        out_pkts_dest_out_ap_vld => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_dest_out_ap_vld,
-        out_pkts_id_out => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_id_out,
-        out_pkts_id_out_ap_vld => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_id_out_ap_vld,
-        out_pkts_user_out => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_user_out,
-        out_pkts_user_out_ap_vld => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_user_out_ap_vld,
-        out_pkts_strb_out => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_strb_out,
-        out_pkts_strb_out_ap_vld => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_strb_out_ap_vld,
-        out_pkts_keep_out => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_keep_out,
-        out_pkts_keep_out_ap_vld => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_keep_out_ap_vld);
+        out_pkts_dest_out => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_dest_out,
+        out_pkts_dest_out_ap_vld => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_dest_out_ap_vld,
+        out_pkts_id_out => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_id_out,
+        out_pkts_id_out_ap_vld => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_id_out_ap_vld,
+        out_pkts_user_out => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_user_out,
+        out_pkts_user_out_ap_vld => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_user_out_ap_vld,
+        out_pkts_strb_out => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_strb_out,
+        out_pkts_strb_out_ap_vld => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_strb_out_ap_vld,
+        out_pkts_keep_out => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_keep_out,
+        out_pkts_keep_out_ap_vld => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_keep_out_ap_vld,
+        out_pkts_data_out => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_data_out,
+        out_pkts_data_out_ap_vld => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_data_out_ap_vld);
 
-    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196 : component LIGHT_MODULE_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1
+    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150 : component LIGHT_MODULE_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        ap_start => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_ap_start,
-        ap_done => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_ap_done,
-        ap_idle => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_ap_idle,
-        ap_ready => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_ap_ready,
-        in_pkts_data_0_1_reload => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_pkts_data_0_1_out,
-        in_pkts_data_1_1_reload => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_pkts_data_1_1_out,
-        in_pkts_data_2_1_reload => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_pkts_data_2_1_out,
-        in_pkts_data_3_1_reload => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_pkts_data_3_1_out,
-        avg_1_out => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_avg_1_out,
-        avg_1_out_ap_vld => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_avg_1_out_ap_vld);
-
-    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205 : component LIGHT_MODULE_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        ap_start => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_ap_start,
-        ap_done => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_ap_done,
-        ap_idle => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_ap_idle,
-        ap_ready => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_ap_ready,
-        out_stream_TREADY => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TREADY,
-        sext_ln20 => avg_reg_574,
-        out_pkts_keep_reload => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_keep_out,
-        out_pkts_strb_reload => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_strb_out,
-        out_pkts_user_reload => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_user_out,
-        out_pkts_id_reload => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_id_out,
-        out_pkts_dest_reload => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_dest_out,
-        out_stream_TDATA => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TDATA,
-        out_stream_TVALID => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TVALID,
-        out_stream_TKEEP => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TKEEP,
-        out_stream_TSTRB => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TSTRB,
-        out_stream_TUSER => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TUSER,
-        out_stream_TLAST => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TLAST,
-        out_stream_TID => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TID,
-        out_stream_TDEST => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TDEST);
+        ap_start => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_ap_start,
+        ap_done => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_ap_done,
+        ap_idle => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_ap_idle,
+        ap_ready => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_ap_ready,
+        out_stream_TREADY => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TREADY,
+        out_pkts_data_reload => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_data_out,
+        out_pkts_keep_reload => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_keep_out,
+        out_pkts_strb_reload => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_strb_out,
+        out_pkts_user_reload => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_user_out,
+        out_pkts_id_reload => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_id_out,
+        out_pkts_dest_reload => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_dest_out,
+        out_stream_TDATA => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TDATA,
+        out_stream_TVALID => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TVALID,
+        out_stream_TKEEP => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TKEEP,
+        out_stream_TSTRB => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TSTRB,
+        out_stream_TUSER => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TUSER,
+        out_stream_TLAST => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TLAST,
+        out_stream_TID => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TID,
+        out_stream_TDEST => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TDEST);
 
     ctrl_s_axi_U : component LIGHT_MODULE_ctrl_s_axi
     generic map (
@@ -585,8 +500,8 @@ begin
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TDATA,
-        vld_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TVALID,
+        data_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TDATA,
+        vld_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TVALID,
         ack_in => out_stream_TREADY_int_regslice,
         data_out => out_stream_TDATA,
         vld_out => regslice_both_out_stream_V_data_V_U_vld_out,
@@ -599,8 +514,8 @@ begin
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TKEEP,
-        vld_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TVALID,
+        data_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TKEEP,
+        vld_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TVALID,
         ack_in => regslice_both_out_stream_V_keep_V_U_ack_in_dummy,
         data_out => out_stream_TKEEP,
         vld_out => regslice_both_out_stream_V_keep_V_U_vld_out,
@@ -613,8 +528,8 @@ begin
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TSTRB,
-        vld_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TVALID,
+        data_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TSTRB,
+        vld_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TVALID,
         ack_in => regslice_both_out_stream_V_strb_V_U_ack_in_dummy,
         data_out => out_stream_TSTRB,
         vld_out => regslice_both_out_stream_V_strb_V_U_vld_out,
@@ -627,8 +542,8 @@ begin
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TUSER,
-        vld_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TVALID,
+        data_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TUSER,
+        vld_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TVALID,
         ack_in => regslice_both_out_stream_V_user_V_U_ack_in_dummy,
         data_out => out_stream_TUSER,
         vld_out => regslice_both_out_stream_V_user_V_U_vld_out,
@@ -641,8 +556,8 @@ begin
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TLAST,
-        vld_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TVALID,
+        data_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TLAST,
+        vld_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TVALID,
         ack_in => regslice_both_out_stream_V_last_V_U_ack_in_dummy,
         data_out => out_stream_TLAST,
         vld_out => regslice_both_out_stream_V_last_V_U_vld_out,
@@ -655,8 +570,8 @@ begin
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TID,
-        vld_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TVALID,
+        data_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TID,
+        vld_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TVALID,
         ack_in => regslice_both_out_stream_V_id_V_U_ack_in_dummy,
         data_out => out_stream_TID,
         vld_out => regslice_both_out_stream_V_id_V_U_vld_out,
@@ -669,8 +584,8 @@ begin
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TDEST,
-        vld_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TVALID,
+        data_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TDEST,
+        vld_in => grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TVALID,
         ack_in => regslice_both_out_stream_V_dest_V_U_ack_in_dummy,
         data_out => out_stream_TDEST,
         vld_out => regslice_both_out_stream_V_dest_V_U_vld_out,
@@ -693,48 +608,32 @@ begin
     end process;
 
 
-    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_ap_start_reg_assign_proc : process(ap_clk)
+    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_ap_start_reg_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst_n_inv = '1') then
-                grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_ap_start_reg <= ap_const_logic_0;
+                grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_ap_start_reg <= ap_const_logic_0;
             else
                 if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-                    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_ap_ready = ap_const_logic_1)) then 
-                    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_ap_start_reg <= ap_const_logic_0;
+                    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_ap_start_reg <= ap_const_logic_1;
+                elsif ((grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_ap_ready = ap_const_logic_1)) then 
+                    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_ap_start_reg <= ap_const_logic_0;
                 end if; 
             end if;
         end if;
     end process;
 
 
-    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_ap_start_reg_assign_proc : process(ap_clk)
+    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_ap_start_reg_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst_n_inv = '1') then
-                grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_ap_start_reg <= ap_const_logic_0;
+                grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_ap_start_reg <= ap_const_logic_0;
             else
-                if ((ap_const_logic_1 = ap_CS_fsm_state6)) then 
-                    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_ap_ready = ap_const_logic_1)) then 
-                    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_ap_start_reg <= ap_const_logic_0;
-                end if; 
-            end if;
-        end if;
-    end process;
-
-
-    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_ap_start_reg_assign_proc : process(ap_clk)
-    begin
-        if (ap_clk'event and ap_clk =  '1') then
-            if (ap_rst_n_inv = '1') then
-                grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_ap_start_reg <= ap_const_logic_0;
-            else
-                if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-                    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_ap_ready = ap_const_logic_1)) then 
-                    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_ap_start_reg <= ap_const_logic_0;
+                if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
+                    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_ap_start_reg <= ap_const_logic_1;
+                elsif ((grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_ap_ready = ap_const_logic_1)) then 
+                    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_ap_start_reg <= ap_const_logic_0;
                 end if; 
             end if;
         end if;
@@ -743,29 +642,18 @@ begin
     process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state6)) then
-                avg_reg_574 <= avg_fu_372_p3;
-                in_pkts_dest_0_072_fu_100 <= grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_dest_out;
-                in_pkts_id_0_071_fu_96 <= grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_id_out;
-                in_pkts_keep_0_068_fu_84 <= grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_keep_out;
-                in_pkts_strb_0_069_fu_88 <= grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_strb_out;
-                in_pkts_user_0_070_fu_92 <= grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_out_pkts_user_out;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state4)) then
-                in_pkts_data_0_01_fu_104 <= grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_pkts_data_0_1_out;
-                in_pkts_data_1_02_fu_108 <= grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_pkts_data_1_1_out;
-                in_pkts_data_2_03_fu_112 <= grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_pkts_data_2_1_out;
-                in_pkts_data_3_04_fu_116 <= grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_pkts_data_3_1_out;
+            if ((ap_const_logic_1 = ap_CS_fsm_state5)) then
+                in_pkts_data_0_070_fu_72 <= grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_data_out;
+                in_pkts_dest_0_075_fu_92 <= grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_dest_out;
+                in_pkts_id_0_074_fu_88 <= grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_id_out;
+                in_pkts_keep_0_071_fu_76 <= grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_keep_out;
+                in_pkts_strb_0_072_fu_80 <= grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_strb_out;
+                in_pkts_user_0_073_fu_84 <= grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_out_pkts_user_out;
             end if;
         end if;
     end process;
 
-    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_ap_done, grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_ap_done, grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_ap_done, ap_CS_fsm_state3, ap_CS_fsm_state5, ap_CS_fsm_state7)
+    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_ap_done, grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_ap_done, ap_CS_fsm_state3, ap_CS_fsm_state6)
     begin
         case ap_CS_fsm is
             when ap_ST_fsm_state1 => 
@@ -777,7 +665,7 @@ begin
             when ap_ST_fsm_state2 => 
                 ap_NS_fsm <= ap_ST_fsm_state3;
             when ap_ST_fsm_state3 => 
-                if (((grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state3))) then
+                if (((grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state3))) then
                     ap_NS_fsm <= ap_ST_fsm_state4;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state3;
@@ -785,30 +673,22 @@ begin
             when ap_ST_fsm_state4 => 
                 ap_NS_fsm <= ap_ST_fsm_state5;
             when ap_ST_fsm_state5 => 
-                if (((grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state5))) then
-                    ap_NS_fsm <= ap_ST_fsm_state6;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state5;
-                end if;
+                ap_NS_fsm <= ap_ST_fsm_state6;
             when ap_ST_fsm_state6 => 
-                ap_NS_fsm <= ap_ST_fsm_state7;
-            when ap_ST_fsm_state7 => 
-                if (((ap_const_logic_1 = ap_CS_fsm_state7) and (grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_ap_done = ap_const_logic_1))) then
+                if (((grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state6))) then
                     ap_NS_fsm <= ap_ST_fsm_state2;
                 else
-                    ap_NS_fsm <= ap_ST_fsm_state7;
+                    ap_NS_fsm <= ap_ST_fsm_state6;
                 end if;
             when others =>  
-                ap_NS_fsm <= "XXXXXXX";
+                ap_NS_fsm <= "XXXXXX";
         end case;
     end process;
     ap_CS_fsm_state1 <= ap_CS_fsm(0);
     ap_CS_fsm_state2 <= ap_CS_fsm(1);
     ap_CS_fsm_state3 <= ap_CS_fsm(2);
-    ap_CS_fsm_state4 <= ap_CS_fsm(3);
     ap_CS_fsm_state5 <= ap_CS_fsm(4);
     ap_CS_fsm_state6 <= ap_CS_fsm(5);
-    ap_CS_fsm_state7 <= ap_CS_fsm(6);
 
     ap_ST_fsm_state1_blk_assign_proc : process(ap_start)
     begin
@@ -821,9 +701,9 @@ begin
 
     ap_ST_fsm_state2_blk <= ap_const_logic_0;
 
-    ap_ST_fsm_state3_blk_assign_proc : process(grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_ap_done)
+    ap_ST_fsm_state3_blk_assign_proc : process(grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_ap_done)
     begin
-        if ((grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_ap_done = ap_const_logic_0)) then 
+        if ((grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_ap_done = ap_const_logic_0)) then 
             ap_ST_fsm_state3_blk <= ap_const_logic_1;
         else 
             ap_ST_fsm_state3_blk <= ap_const_logic_0;
@@ -831,24 +711,14 @@ begin
     end process;
 
     ap_ST_fsm_state4_blk <= ap_const_logic_0;
+    ap_ST_fsm_state5_blk <= ap_const_logic_0;
 
-    ap_ST_fsm_state5_blk_assign_proc : process(grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_ap_done)
+    ap_ST_fsm_state6_blk_assign_proc : process(grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_ap_done)
     begin
-        if ((grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_ap_done = ap_const_logic_0)) then 
-            ap_ST_fsm_state5_blk <= ap_const_logic_1;
+        if ((grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_ap_done = ap_const_logic_0)) then 
+            ap_ST_fsm_state6_blk <= ap_const_logic_1;
         else 
-            ap_ST_fsm_state5_blk <= ap_const_logic_0;
-        end if; 
-    end process;
-
-    ap_ST_fsm_state6_blk <= ap_const_logic_0;
-
-    ap_ST_fsm_state7_blk_assign_proc : process(grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_ap_done)
-    begin
-        if ((grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_ap_done = ap_const_logic_0)) then 
-            ap_ST_fsm_state7_blk <= ap_const_logic_1;
-        else 
-            ap_ST_fsm_state7_blk <= ap_const_logic_0;
+            ap_ST_fsm_state6_blk <= ap_const_logic_0;
         end if; 
     end process;
 
@@ -870,31 +740,20 @@ begin
                 ap_rst_n_inv <= not(ap_rst_n);
     end process;
 
-    avg_fu_372_p3 <= 
-        sub_ln45_1_fu_352_p2 when (tmp_fu_324_p3(0) = '1') else 
-        zext_ln45_1_fu_368_p1;
-    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_ap_start <= grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_ap_start_reg;
-    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_ap_start <= grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_ap_start_reg;
-    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TREADY <= (out_stream_TREADY_int_regslice and ap_CS_fsm_state7);
-    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_ap_start <= grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_ap_start_reg;
+    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_ap_start <= grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_ap_start_reg;
+    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_ap_start <= grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_ap_start_reg;
+    grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TREADY <= (out_stream_TREADY_int_regslice and ap_CS_fsm_state6);
     in_stream_TREADY <= regslice_both_in_stream_V_data_V_U_ack_in;
 
-    in_stream_TREADY_int_regslice_assign_proc : process(grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_stream_TREADY, ap_CS_fsm_state3)
+    in_stream_TREADY_int_regslice_assign_proc : process(grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_in_stream_TREADY, ap_CS_fsm_state3)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            in_stream_TREADY_int_regslice <= grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_160_in_stream_TREADY;
+            in_stream_TREADY_int_regslice <= grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2_fu_120_in_stream_TREADY;
         else 
             in_stream_TREADY_int_regslice <= ap_const_logic_0;
         end if; 
     end process;
 
     out_stream_TVALID <= regslice_both_out_stream_V_data_V_U_vld_out;
-    out_stream_TVALID_int_regslice <= grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_205_out_stream_TVALID;
-    sub_ln45_1_fu_352_p2 <= std_logic_vector(unsigned(ap_const_lv31_0) - unsigned(zext_ln45_fu_348_p1));
-    sub_ln45_fu_332_p2 <= std_logic_vector(unsigned(ap_const_lv32_0) - unsigned(grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_avg_1_out));
-    tmp_fu_324_p3 <= grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_avg_1_out(31 downto 31);
-    trunc_ln45_1_fu_338_p4 <= sub_ln45_fu_332_p2(31 downto 2);
-    trunc_ln45_2_fu_358_p4 <= grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1_fu_196_avg_1_out(31 downto 2);
-    zext_ln45_1_fu_368_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(trunc_ln45_2_fu_358_p4),31));
-    zext_ln45_fu_348_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(trunc_ln45_1_fu_338_p4),31));
+    out_stream_TVALID_int_regslice <= grp_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3_fu_150_out_stream_TVALID;
 end behav;
