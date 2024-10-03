@@ -34,7 +34,7 @@ def __append_inclusions__(code_segments, network_name, add_membrane_probe):
 def __append_declarations__(code_segments, output_model_dict, add_membrane_probe):
     if add_membrane_probe:
         code_segments.append("void write_probe_file(void);\n")
-    code_segments.append("void input_layer(pkt input_pkts[INPUT_LAYER_LENGHT]);\n")
+    code_segments.append("void input_layer(pkt input_pkts[INPUT_LENGHT]);\n")
     for i in range(1, len(output_model_dict['NEURONS_INDEX'])-2):
         code_segments.append(f"void inner_layer_{i}();\n")
     code_segments.append("void output_layer();\n\n")
@@ -128,7 +128,7 @@ void write_probe_file(void)
 def __append_input_layer_definition__(code_segments, add_membrane_probe):
 
     code_segments.append("""
-void input_layer(pkt input_pkts[INPUT_LAYER_LENGHT])
+void input_layer(pkt input_pkts[INPUT_LENGHT])
 {
 	INDEX_TYPE layer_index = 0;
 	NEURONS_LOOP: for(INDEX_TYPE neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1];  neuron_index++)
@@ -137,7 +137,7 @@ void input_layer(pkt input_pkts[INPUT_LAYER_LENGHT])
 		NEURONS_MEMBRANE[neuron_index] = (NEURONS_MEMBRANE[neuron_index] >> 1 + NEURONS_MEMBRANE[neuron_index] >> 2 + NEURONS_MEMBRANE[neuron_index] >> 4) || membrane_sign;
 		WEIGHTS_LOOP: for(INDEX_TYPE weight_index = WEIGHTS_INDEX[neuron_index]; weight_index < WEIGHTS_INDEX[neuron_index + 1]; weight_index++)
 		{
-			NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index] * input_pkts[weight_index % INPUT_LAYER_LENGHT].data;
+			NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index] * input_pkts[weight_index % INPUT_LENGHT].data;
 		}
 """)
 

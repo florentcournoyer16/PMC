@@ -56,9 +56,8 @@ def write_header(input_model_dict, header_filename, weight_type_lenght = 8, memb
         header_file.write(f"#define MEMBRANE_TYPE_MAX {2**(membrane_type_lenght-1)}\n")
         header_file.write(f"#define INDEX_TYPE_MAX {2**(index_type_lenght-1)}\n\n")
 
-        header_file.write(f"#define INPUT_LAYER_LENGHT {output_model_dict['WEIGHTS_INDEX'][1]}\n")
-        output_layer_lenght = output_model_dict['NEURONS_INDEX'][-1]
-        header_file.write(f"#define OUTPUT_LAYER_LENGHT {output_layer_lenght}\n\n")
+        header_file.write(f"#define INPUT_LENGHT {output_model_dict['WEIGHTS_INDEX'][1]}\n")
+        header_file.write(f"#define OUTPUT_LENGHT {output_model_dict['NEURONS_INDEX'][-1]}\n\n")
 
         header_file.write("#define PKT_SIZE 32\n")
         header_file.write("typedef ap_axis<PKT_SIZE, 2, 5, 6> pkt;\n")
