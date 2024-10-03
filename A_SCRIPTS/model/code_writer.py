@@ -124,19 +124,21 @@ def __append_inner_layer_function_calls__(code_segments, output_model_dict):
 
 def __append_output_stream_dispatch__(code_segments, add_membrane_probe):
 
-    code_segments.append("""
+    code_segments.append(
+        """
 		output_layer();
 
 		for(INDEX_TYPE i = 0; i < NEURONS_MEMBRANE_LENGHT; i++)
 			out_pkts[i] = in_pkts[0];
-			out_pkts[i].data = NEURONS_MEMBRANE[i]
-			output_stream.write([i]);
+			out_pkts[i].data = NEURONS_MEMBRANE[i];
+			output_stream.write(out_pkts[i]);
 
 
 		if(input_buffer.last)
 			break;
 	}
-""")
+"""
+    )
 
     if add_membrane_probe:
         code_segments.append("\n\twrite_probe_file();\n")
