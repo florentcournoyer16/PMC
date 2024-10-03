@@ -53,8 +53,8 @@ ap_int< 2 > NEURONS_STATE[964] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 #define MEMBRANE_TYPE_MAX 32768
 #define INDEX_TYPE_MAX 2147483648
 
-#define INPUT_LAYER_LENGHT 4
-#define OUTPUT_LAYER_LENGHT 964
+#define INPUT_LENGHT 4
+#define OUTPUT_LENGHT 964
 
 #define PKT_SIZE 32
 typedef ap_axis<PKT_SIZE, 2, 5, 6> pkt;

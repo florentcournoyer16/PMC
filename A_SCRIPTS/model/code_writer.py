@@ -2,31 +2,56 @@ def write_code(code_filename, network_name, output_model_dict, add_membrane_prob
     code_segments = []
     __append_inclusions__(code_segments, network_name, add_membrane_probe)
     __append_declarations__(code_segments, output_model_dict, add_membrane_probe)
-    __append_input_stream_reception__(code_segments, add_membrane_probe)
-    __append_inner_layer_function_calls__(code_segments, output_model_dict)
-    __append_output_stream_dispatch__(code_segments, add_membrane_probe)
-    __append_debugging_probe_output__(code_segments, add_membrane_probe)
+    __append_main_function__(code_segments, output_model_dict, add_membrane_probe)
     __append_input_layer_definition__(code_segments, add_membrane_probe)
+    __append_inner_layer_definition__(
+        code_segments, output_model_dict, add_membrane_probe
+    )
     __append_output_layer_definition__(code_segments, add_membrane_probe)
     __write_code_segments__(code_segments, code_filename)
 
 # -----------------------------------------------
 # -----------------------------------------------
 
+
+def __append_main_function__(code_segments, output_model_dict, add_membrane_probe):
+    __append_main_function_signature__(code_segments)
+    if add_membrane_probe:
+        __append_debugging_probe_input__(code_segments)
+
+    __append_input_stream_reception__(code_segments)
+    __append_inner_layer_function_calls__(code_segments, output_model_dict)
+    __append_output_stream_dispatch__(code_segments, add_membrane_probe)
+    __append_debugging_probe_output__(code_segments, add_membrane_probe)
+
+
+# -----------------------------------------------
+# -----------------------------------------------
+
 def __append_inclusions__(code_segments, network_name, add_membrane_probe):
-	if add_membrane_probe:
-		code_segments.append("""
+    code_segments.append(
+        f"""
+#include "../inc/{network_name}.h"\n
+"""
+    )
+    if add_membrane_probe:
+        __append_debugging_probe_inclusions__(code_segments)
+
+# -----------------------------------------------
+# -----------------------------------------------
+
+
+def __append_debugging_probe_inclusions__(code_segments):
+    code_segments.append(
+        """
 #include <iostream>
 #include <fstream>
 #include <stdio.h>
-""")
+"""
+    )
 
-	code_segments.append(f"""
-#include "../inc/{network_name}.h"\n
-""")
+    code_segments.append("std::ofstream probe_file;\n\n")
 
-	if add_membrane_probe:
-		code_segments.append("std::ofstream probe_file;\n\n")
 
 # -----------------------------------------------
 # -----------------------------------------------
@@ -39,23 +64,41 @@ def __append_declarations__(code_segments, output_model_dict, add_membrane_probe
         code_segments.append(f"void inner_layer_{i}();\n")
     code_segments.append("void output_layer();\n\n")
 
-def __append_input_stream_reception__(code_segments, add_membrane_probe):
+# -----------------------------------------------
+# -----------------------------------------------
 
-    code_segments.append("""
+
+def __append_main_function_signature__(code_segments):
+    code_segments.append(
+        """
 void RNI(pkt_stream& in_stream, pkt_stream& out_stream)
 {
 
-""")
-    if add_membrane_probe:
-        code_segments.append("\tprobe_file.open(MEMBRANE_PROBE_OUTPUT_FILEPATH);\n")
-
-    code_segments.append("""
 #pragma HLS INTERFACE axis port = in_stream
 #pragma HLS INTERFACE axis port = out_stream
 #pragma HLS INTERFACE s_axilite port=return bundle=ctrl
 
 	pkt in_pkts[INPUT_LENGHT];
 	pkt out_pkts[OUTPUT_LENGHT];
+"""
+    )
+
+
+# -----------------------------------------------
+# -----------------------------------------------
+
+
+def __append_debugging_probe_input__(code_segments):
+    code_segments.append("\tprobe_file.open(MEMBRANE_PROBE_OUTPUT_FILEPATH);\n")
+
+
+# -----------------------------------------------
+# -----------------------------------------------
+
+
+def __append_input_stream_reception__(code_segments):
+    code_segments.append(
+        """
 
 	while(true)
 	{
@@ -64,7 +107,9 @@ void RNI(pkt_stream& in_stream, pkt_stream& out_stream)
 
 		input_layer(in_pkts);
 
-""")
+"""
+    )
+
 
 # -----------------------------------------------
 # -----------------------------------------------
@@ -263,6 +308,6 @@ def __write_code_segments__(code_segments, code_filename):
     with open(code_filename, mode='w', encoding="utf8") as code_file:
         for c in code_segments:
             code_file.write(c)
-            
+
 # -----------------------------------------------
 # -----------------------------------------------
