@@ -48,7 +48,7 @@ void RNI(pkt_stream& in_stream, pkt_stream& out_stream)
         {
 			out_pkts[i] = in_pkts[0];
 			out_pkts[i].data = NEURONS_MEMBRANE[i];
-			output_stream.write(out_pkts[i]);
+			out_stream.write(out_pkts[i]);
         }
 
 
@@ -213,4 +213,3 @@ void write_probe_file(void)
         probe_file << MEMBRANE_PROBE[i] << ",";
     MEMBRANE_PROBE_CURRENT_INDEX = 0;
 }
-

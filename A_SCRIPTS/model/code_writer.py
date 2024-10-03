@@ -123,7 +123,7 @@ def __append_output_stream_dispatch__(code_segments):
         {
 			out_pkts[i] = in_pkts[0];
 			out_pkts[i].data = NEURONS_MEMBRANE[i];
-			output_stream.write(out_pkts[i]);
+			out_stream.write(out_pkts[i]);
         }
 
 
