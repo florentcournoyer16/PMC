@@ -11,12 +11,13 @@ void inner_layer_3(void);
 void output_layer(void);
 
 void leak_neuron(INDEX_TYPE layer_index, INDEX_TYPE neuron_index);
-void reset_neuron_membrane(INDEX_TYPE layer_index, INDEX_TYPE neuron_index);
-void update_neuron_state_reset_membrane(INDEX_TYPE layer_index);
+void update_neuron_state_reset_membrane(INDEX_TYPE layer_index, INDEX_TYPE neuron_index);
+void reset_neuron_states(INDEX_TYPE layer_index);
 void update_membrane_probe(INDEX_TYPE neuron_index);
 
 void write_probe_file(void);
 std::ofstream probe_file;
+
 
 void RNI(pkt_stream& in_stream, pkt_stream& out_stream)
 {
@@ -71,8 +72,9 @@ void input_layer(pkt input_pkts[INPUT_LENGHT])
 		{
 			NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index] * input_pkts[weight_index % INPUT_LENGHT].data;
 		}
-		update_membrane_probe(layer_index);
-        reset_neuron_membrane(layer_index, neuron_index);
+		update_membrane_probe(neuron_index);
+
+        update_neuron_state_reset_membrane(layer_index, neuron_index);
     }
 }
 
@@ -80,26 +82,27 @@ void input_layer(pkt input_pkts[INPUT_LENGHT])
 void inner_layer_1(void)
 {
 	INDEX_TYPE layer_index = 1;
-    NEURONS_LOOP_1: for(INDEX_TYPE neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1];  neuron_index++)
+	NEURONS_LOOP_1: for(INDEX_TYPE neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1];  neuron_index++)
 	{
-		leak_neuron(neuron_index, layer_index);
+		leak_neuron(layer_index, neuron_index);
 		WEIGHTS_LOOP_1: for(INDEX_TYPE weight_index = WEIGHTS_INDEX[neuron_index]; weight_index <  WEIGHTS_INDEX[neuron_index + 1]; weight_index++)
 		{
 			STATE_TYPE neuron_state = NEURONS_STATE[NEURONS_INDEX[layer_index - 1] + weight_index - WEIGHTS_INDEX[neuron_index]];
 			if(neuron_state == 1)
 				NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
 		}
-        update_membrane_probe(neuron_index);
-        reset_neuron_membrane(layer_index, neuron_index);
+		update_membrane_probe(neuron_index);
+
+        update_neuron_state_reset_membrane(layer_index, neuron_index);
 	}
-	update_neuron_state_reset_membrane(layer_index-1);
+	reset_neuron_states(layer_index-1);
 }
 
 
 void inner_layer_2(void)
 {
 	INDEX_TYPE layer_index = 2;
-    NEURONS_LOOP_2: for(INDEX_TYPE neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1];  neuron_index++)
+	NEURONS_LOOP_2: for(INDEX_TYPE neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1];  neuron_index++)
 	{
 		leak_neuron(layer_index, neuron_index);
 		WEIGHTS_LOOP_2: for(INDEX_TYPE weight_index = WEIGHTS_INDEX[neuron_index]; weight_index <  WEIGHTS_INDEX[neuron_index + 1]; weight_index++)
@@ -108,20 +111,20 @@ void inner_layer_2(void)
 			if(neuron_state == 1)
 				NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
 		}
-        update_membrane_probe(neuron_index);
-        reset_neuron_membrane(layer_index, neuron_index);
+		update_membrane_probe(neuron_index);
+
+        update_neuron_state_reset_membrane(layer_index, neuron_index);
 	}
-	update_neuron_state_reset_membrane(layer_index-1);
+	reset_neuron_states(layer_index-1);
 }
 
 
 void inner_layer_3(void)
 {
 	INDEX_TYPE layer_index = 3;
-    NEURONS_LOOP_3: for(INDEX_TYPE neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1];  neuron_index++)
+	NEURONS_LOOP_3: for(INDEX_TYPE neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1];  neuron_index++)
 	{
 		leak_neuron(layer_index, neuron_index);
-
 		WEIGHTS_LOOP_3: for(INDEX_TYPE weight_index = WEIGHTS_INDEX[neuron_index]; weight_index <  WEIGHTS_INDEX[neuron_index + 1]; weight_index++)
 		{
 			STATE_TYPE neuron_state = NEURONS_STATE[NEURONS_INDEX[layer_index - 1] + weight_index - WEIGHTS_INDEX[neuron_index]];
@@ -129,9 +132,10 @@ void inner_layer_3(void)
 				NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
 		}
 		update_membrane_probe(neuron_index);
-        reset_neuron_membrane(layer_index, neuron_index);
+
+        update_neuron_state_reset_membrane(layer_index, neuron_index);
 	}
-	update_neuron_state_reset_membrane(layer_index-1);
+	reset_neuron_states(layer_index-1);
 }
 
 
@@ -139,20 +143,20 @@ void output_layer(void)
 {
 	INDEX_TYPE layer_index = NEURONS_INDEX_LENGHT - 2;
 	NEURONS_LOOP_4: for(INDEX_TYPE neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1];  neuron_index++)
-	{
+    {
 		leak_neuron(layer_index, neuron_index);
-
 		WEIGHTS_LOOP_4: for(INDEX_TYPE weight_index = WEIGHTS_INDEX[neuron_index]; weight_index <  WEIGHTS_INDEX[neuron_index + 1]; weight_index++)
-		{
+        {
 			STATE_TYPE neuron_state = NEURONS_STATE[NEURONS_INDEX[layer_index - 1] + weight_index - WEIGHTS_INDEX[neuron_index]];
 			if(neuron_state == 1)
 				NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
 		}
-        update_membrane_probe(neuron_index);
-        reset_neuron_membrane(layer_index, neuron_index);
+		update_membrane_probe(neuron_index);
+
+        update_neuron_state_reset_membrane(layer_index, neuron_index);
 	}
 
-	update_neuron_state_reset_membrane(layer_index-1);
+	reset_neuron_states(layer_index-1);
 }
 
 
@@ -167,7 +171,7 @@ void leak_neuron(INDEX_TYPE layer_index, INDEX_TYPE neuron_index)
 }
 
 
-void reset_neuron_membrane(INDEX_TYPE layer_index, INDEX_TYPE neuron_index)
+void update_neuron_state_reset_membrane(INDEX_TYPE layer_index, INDEX_TYPE neuron_index)
 {
 	if(NEURONS_MEMBRANE[neuron_index] > THRESHOLDS[layer_index])
 	{
@@ -177,7 +181,7 @@ void reset_neuron_membrane(INDEX_TYPE layer_index, INDEX_TYPE neuron_index)
 }
 
 
-void update_neuron_state_reset_membrane(INDEX_TYPE layer_index)
+void reset_neuron_states(INDEX_TYPE layer_index)
 {
 	NEURONS_STATE_RESET_LOOP: for(INDEX_TYPE neuron_state_index = NEURONS_INDEX[layer_index]; neuron_state_index < NEURONS_INDEX[layer_index];  neuron_state_index++)
 		NEURONS_STATE[neuron_state_index] = 0;
@@ -204,6 +208,7 @@ void write_probe_file(void)
         return;
     }
     for(INDEX_TYPE i = 0; i < MEMBRANE_PROBE_CURRENT_INDEX; i++)
-        probe_file << MEMBRANE_PROBE[i] << ",\n";
+        probe_file << MEMBRANE_PROBE[i] << ",
+";
     MEMBRANE_PROBE_CURRENT_INDEX = 0;
 }

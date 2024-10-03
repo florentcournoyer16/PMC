@@ -37,6 +37,9 @@ def write_header(input_model_dict, header_filename, weight_type_lenght = 8, memb
 
         header_file.write(f"#define INDEX_TYPE_LENGHT {index_type_lenght}\n")
         header_file.write("#define INDEX_TYPE ap_int< INDEX_TYPE_LENGHT >\n\n")
+        
+        header_file.write("#define STATE_TYPE_LENGHT 1")
+        header_file.write("#define STATE_TYPE ap_int< STATE_TYPE_LENGHT >")
 
         for key, values in output_model_dict.items():
             type_str = "WEIGHT_TYPE"
@@ -45,7 +48,7 @@ def write_header(input_model_dict, header_filename, weight_type_lenght = 8, memb
             if "MEMBRANE" in key:
                 type_str = "MEMBRANE_TYPE"
             if "STATE" in key:
-                type_str = "ap_int< 2 >"
+                type_str = "STATE_TYPE"
             header_file.write(f"{type_str} {key}[{len(values)}] = {{ ")
             for val in values:
                 header_file.write(f"{val}, ")
@@ -126,5 +129,15 @@ def __compress__(output_model_dict, weight_type_lenght):
     for i in range(len(output_model_dict["LEAK"])):
         output_model_dict["LEAK"][i] = int(output_model_dict["LEAK"][i] / max_val * (2**(weight_type_lenght-1)-1))
     for i in range(len(output_model_dict["BETAS"])):
-        output_model_dict["BETAS"][i] = int(output_model_dict["BETAS"][i] / max_val * (2**(weight_type_lenght-1)-1))
+        reference_beta = float(output_model_dict["BETAS"][i])
+        over_approx_beta = 0
+        counter = 0
+        while over_approx_beta < reference_beta:
+            counter += 1
+            over_approx_beta += 1 / 2**(counter)
+        under_approx_beta = over_approx_beta - 1 / 2**(counter)
+        if abs(reference_beta - under_approx_beta) < abs(reference_beta - over_approx_beta):
+            output_model_dict["BETAS"][i] = counter-1
+        else:
+            output_model_dict["BETAS"][i] = counter
     return output_model_dict
