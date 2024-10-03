@@ -1,0 +1,371 @@
+#-----------------------------------------------------------
+# Vivado v2023.1.1 (64-bit)
+# SW Build 3900603 on Fri Jun 16 19:30:25 MDT 2023
+# IP Build 3900379 on Sat Jun 17 05:28:05 MDT 2023
+# SharedData Build 3899622 on Fri Jun 16 03:34:24 MDT 2023
+# Start of session at: Wed Sep 25 16:05:42 2024
+# Process ID: 28296
+# Current directory: /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.runs/dma_axis_ip_example_example_0_0_synth_1
+# Command line: vivado -log dma_axis_ip_example_example_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source dma_axis_ip_example_example_0_0.tcl
+# Log file: /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.runs/dma_axis_ip_example_example_0_0_synth_1/dma_axis_ip_example_example_0_0.vds
+# Journal file: /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.runs/dma_axis_ip_example_example_0_0_synth_1/vivado.jou
+# Running On: GRAMS-NSOC, OS: Linux, CPU Frequency: 3691.365 MHz, CPU Physical cores: 4, Host memory: 16721 MB
+#-----------------------------------------------------------
+source dma_axis_ip_example_example_0_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1331.332 ; gain = 0.023 ; free physical = 3093 ; free virtual = 6109
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/mohr0901/Documents/PMC/E_HLS_STREAM_EXPLORATION/FIFO/output/export'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2023.1/data/ip'.
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: dma_axis_ip_example_example_0_0
+Command: synth_design -top dma_axis_ip_example_example_0_0 -part xc7z020clg400-1 -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 28544
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2043.625 ; gain = 377.730 ; free physical = 1005 ; free virtual = 4046
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'dma_axis_ip_example_example_0_0' [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_example_0_0/synth/dma_axis_ip_example_example_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'LIGHT_MODULE' [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE.v:9]
+INFO: [Synth 8-6157] synthesizing module 'LIGHT_MODULE_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2' [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2.v:9]
+INFO: [Synth 8-6157] synthesizing module 'LIGHT_MODULE_flow_control_loop_pipe_sequential_init' [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE_flow_control_loop_pipe_sequential_init.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'LIGHT_MODULE_flow_control_loop_pipe_sequential_init' (0#1) [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE_flow_control_loop_pipe_sequential_init.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'LIGHT_MODULE_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2' (0#1) [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2.v:9]
+INFO: [Synth 8-6157] synthesizing module 'LIGHT_MODULE_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1' [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'LIGHT_MODULE_mux_4_2_32_1_1' [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE_mux_4_2_32_1_1.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'LIGHT_MODULE_mux_4_2_32_1_1' (0#1) [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE_mux_4_2_32_1_1.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'LIGHT_MODULE_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1' (0#1) [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'LIGHT_MODULE_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3' [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'LIGHT_MODULE_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3' (0#1) [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3.v:9]
+INFO: [Synth 8-6157] synthesizing module 'LIGHT_MODULE_ctrl_s_axi' [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE_ctrl_s_axi.v:9]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE_ctrl_s_axi.v:195]
+INFO: [Synth 8-6155] done synthesizing module 'LIGHT_MODULE_ctrl_s_axi' (0#1) [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE_ctrl_s_axi.v:9]
+INFO: [Synth 8-6157] synthesizing module 'LIGHT_MODULE_regslice_both' [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'LIGHT_MODULE_regslice_both' (0#1) [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE_regslice_both.v:11]
+INFO: [Synth 8-6157] synthesizing module 'LIGHT_MODULE_regslice_both__parameterized0' [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'LIGHT_MODULE_regslice_both__parameterized0' (0#1) [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE_regslice_both.v:11]
+INFO: [Synth 8-6157] synthesizing module 'LIGHT_MODULE_regslice_both__parameterized1' [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'LIGHT_MODULE_regslice_both__parameterized1' (0#1) [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE_regslice_both.v:11]
+INFO: [Synth 8-6157] synthesizing module 'LIGHT_MODULE_regslice_both__parameterized2' [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'LIGHT_MODULE_regslice_both__parameterized2' (0#1) [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE_regslice_both.v:11]
+INFO: [Synth 8-6157] synthesizing module 'LIGHT_MODULE_regslice_both__parameterized3' [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'LIGHT_MODULE_regslice_both__parameterized3' (0#1) [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE_regslice_both.v:11]
+INFO: [Synth 8-6157] synthesizing module 'LIGHT_MODULE_regslice_both__parameterized4' [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'LIGHT_MODULE_regslice_both__parameterized4' (0#1) [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'LIGHT_MODULE' (0#1) [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'dma_axis_ip_example_example_0_0' (0#1) [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_example_0_0/synth/dma_axis_ip_example_example_0_0.v:53]
+WARNING: [Synth 8-6014] Unused sequential element int_ap_done_reg was removed.  [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ipshared/94cf/hdl/verilog/LIGHT_MODULE_ctrl_s_axi.v:252]
+WARNING: [Synth 8-7129] Port WDATA[31] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[30] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[29] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[28] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[27] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[26] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[25] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[24] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[23] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[22] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[21] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[20] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[19] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[18] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[17] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[16] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[15] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[14] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[13] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[12] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[11] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[10] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[9] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[8] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[6] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[5] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[4] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[3] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[2] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WSTRB[3] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WSTRB[2] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WSTRB[1] in module LIGHT_MODULE_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_stream_TLAST[0] in module LIGHT_MODULE_LIGHT_MODULE_Pipeline_VITIS_LOOP_16_2 is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2122.531 ; gain = 456.637 ; free physical = 563 ; free virtual = 3607
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2140.344 ; gain = 474.449 ; free physical = 547 ; free virtual = 3590
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2140.344 ; gain = 474.449 ; free physical = 547 ; free virtual = 3590
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2140.344 ; gain = 0.000 ; free physical = 530 ; free virtual = 3574
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_example_0_0/constraints/LIGHT_MODULE_ooc.xdc] for cell 'inst'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/ip/dma_axis_ip_example_example_0_0/constraints/LIGHT_MODULE_ooc.xdc] for cell 'inst'
+Parsing XDC File [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.runs/dma_axis_ip_example_example_0_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.runs/dma_axis_ip_example_example_0_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2286.094 ; gain = 0.000 ; free physical = 272 ; free virtual = 3317
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2286.094 ; gain = 0.000 ; free physical = 272 ; free virtual = 3317
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 2286.094 ; gain = 620.199 ; free physical = 176 ; free virtual = 2982
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 2286.094 ; gain = 620.199 ; free physical = 176 ; free virtual = 2982
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.runs/dma_axis_ip_example_example_0_0_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 2286.094 ; gain = 620.199 ; free physical = 176 ; free virtual = 2982
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'wstate_reg' in module 'LIGHT_MODULE_ctrl_s_axi'
+INFO: [Synth 8-802] inferred FSM for state register 'rstate_reg' in module 'LIGHT_MODULE_ctrl_s_axi'
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                             0001 |                               11
+*
+                  WRIDLE |                             0010 |                               00
+                  WRDATA |                             0100 |                               01
+                  WRRESP |                             1000 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'wstate_reg' using encoding 'one-hot' in module 'LIGHT_MODULE_ctrl_s_axi'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                              001 |                               10
+*
+                  RDIDLE |                              010 |                               00
+                  RDDATA |                              100 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'rstate_reg' using encoding 'one-hot' in module 'LIGHT_MODULE_ctrl_s_axi'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2286.094 ; gain = 620.199 ; free physical = 277 ; free virtual = 2945
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   31 Bit       Adders := 1     
+	   2 Input   13 Bit       Adders := 1     
+	   2 Input    3 Bit       Adders := 2     
++---XORs : 
+	   2 Input      1 Bit         XORs := 2     
++---Registers : 
+	               32 Bit    Registers := 14    
+	               31 Bit    Registers := 1     
+	               13 Bit    Registers := 1     
+	                7 Bit    Registers := 1     
+	                6 Bit    Registers := 6     
+	                5 Bit    Registers := 6     
+	                4 Bit    Registers := 13    
+	                3 Bit    Registers := 2     
+	                2 Bit    Registers := 21    
+	                1 Bit    Registers := 59    
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 9     
+	   5 Input   32 Bit        Muxes := 1     
+	   2 Input   31 Bit        Muxes := 1     
+	   2 Input    7 Bit        Muxes := 1     
+	   2 Input    6 Bit        Muxes := 5     
+	   2 Input    5 Bit        Muxes := 4     
+	   2 Input    4 Bit        Muxes := 12    
+	   4 Input    4 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 3     
+	   3 Input    3 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 19    
+	   4 Input    2 Bit        Muxes := 14    
+	   2 Input    1 Bit        Muxes := 59    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[31] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[30] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[29] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[28] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[27] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[26] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[25] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[24] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[23] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[22] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[21] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[20] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[19] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[18] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[17] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[16] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[15] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[14] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[13] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[12] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[11] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[10] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[9] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[8] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[6] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[5] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[4] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[3] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WDATA[2] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WSTRB[3] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WSTRB[2] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_ctrl_WSTRB[1] in module LIGHT_MODULE is either unconnected or has no load
+WARNING: [Synth 8-3332] Sequential element (ctrl_s_axi_U/FSM_onehot_wstate_reg[0]) is unused and will be removed from module LIGHT_MODULE.
+WARNING: [Synth 8-3332] Sequential element (ctrl_s_axi_U/FSM_onehot_rstate_reg[0]) is unused and will be removed from module LIGHT_MODULE.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 2286.094 ; gain = 620.199 ; free physical = 276 ; free virtual = 2845
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2286.094 ; gain = 620.199 ; free physical = 208 ; free virtual = 2781
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 2286.094 ; gain = 620.199 ; free physical = 208 ; free virtual = 2781
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2286.094 ; gain = 620.199 ; free physical = 198 ; free virtual = 2782
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 2286.094 ; gain = 620.199 ; free physical = 282 ; free virtual = 2868
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 2286.094 ; gain = 620.199 ; free physical = 282 ; free virtual = 2868
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 2286.094 ; gain = 620.199 ; free physical = 282 ; free virtual = 2868
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 2286.094 ; gain = 620.199 ; free physical = 282 ; free virtual = 2868
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 2286.094 ; gain = 620.199 ; free physical = 282 ; free virtual = 2868
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 2286.094 ; gain = 620.199 ; free physical = 282 ; free virtual = 2868
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |CARRY4 |    27|
+|2     |LUT1   |    63|
+|3     |LUT2   |    44|
+|4     |LUT3   |   137|
+|5     |LUT4   |    25|
+|6     |LUT5   |   193|
+|7     |LUT6   |    59|
+|8     |FDRE   |   711|
+|9     |FDSE   |     1|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 2286.094 ; gain = 620.199 ; free physical = 282 ; free virtual = 2868
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 35 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:30 ; elapsed = 00:00:30 . Memory (MB): peak = 2286.094 ; gain = 474.449 ; free physical = 282 ; free virtual = 2868
+Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 2286.094 ; gain = 620.199 ; free physical = 282 ; free virtual = 2868
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2286.094 ; gain = 0.000 ; free physical = 550 ; free virtual = 3135
+INFO: [Netlist 29-17] Analyzing 27 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2286.094 ; gain = 0.000 ; free physical = 577 ; free virtual = 3162
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: e0381b03
+INFO: [Common 17-83] Releasing license: Synthesis
+53 Infos, 69 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:41 ; elapsed = 00:00:39 . Memory (MB): peak = 2286.094 ; gain = 954.762 ; free physical = 577 ; free virtual = 3162
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1615.694; main = 1328.615; forked = 292.342
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3219.555; main = 2286.098; forked = 965.473
+INFO: [Common 17-1381] The checkpoint '/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.runs/dma_axis_ip_example_example_0_0_synth_1/dma_axis_ip_example_example_0_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP dma_axis_ip_example_example_0_0, cache-ID = 327ee1708a25b5c6
+INFO: [Coretcl 2-1174] Renamed 20 cell refs.
+INFO: [Common 17-1381] The checkpoint '/home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.runs/dma_axis_ip_example_example_0_0_synth_1/dma_axis_ip_example_example_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file dma_axis_ip_example_example_0_0_utilization_synth.rpt -pb dma_axis_ip_example_example_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Sep 25 16:06:40 2024...
