@@ -13,7 +13,6 @@ def write_code(code_filename, network_name, output_model_dict, add_membrane_prob
 # -----------------------------------------------
 # -----------------------------------------------
 
-
 def __append_main_function__(code_segments, output_model_dict, add_membrane_probe):
     __append_main_function_signature__(code_segments)
     if add_membrane_probe:
@@ -23,7 +22,6 @@ def __append_main_function__(code_segments, output_model_dict, add_membrane_prob
     __append_inner_layer_function_calls__(code_segments, output_model_dict)
     __append_output_stream_dispatch__(code_segments, add_membrane_probe)
     __append_debugging_probe_output__(code_segments, add_membrane_probe)
-
 
 # -----------------------------------------------
 # -----------------------------------------------
@@ -40,7 +38,6 @@ def __append_inclusions__(code_segments, network_name, add_membrane_probe):
 # -----------------------------------------------
 # -----------------------------------------------
 
-
 def __append_debugging_probe_inclusions__(code_segments):
     code_segments.append(
         """
@@ -51,7 +48,6 @@ def __append_debugging_probe_inclusions__(code_segments):
     )
 
     code_segments.append("std::ofstream probe_file;\n\n")
-
 
 # -----------------------------------------------
 # -----------------------------------------------
@@ -66,7 +62,6 @@ def __append_declarations__(code_segments, output_model_dict, add_membrane_probe
 
 # -----------------------------------------------
 # -----------------------------------------------
-
 
 def __append_main_function_signature__(code_segments):
     code_segments.append(
@@ -83,18 +78,14 @@ void RNI(pkt_stream& in_stream, pkt_stream& out_stream)
 """
     )
 
-
 # -----------------------------------------------
 # -----------------------------------------------
-
 
 def __append_debugging_probe_input__(code_segments):
     code_segments.append("\tprobe_file.open(MEMBRANE_PROBE_OUTPUT_FILEPATH);\n")
 
-
 # -----------------------------------------------
 # -----------------------------------------------
-
 
 def __append_input_stream_reception__(code_segments):
     code_segments.append(
@@ -109,7 +100,6 @@ def __append_input_stream_reception__(code_segments):
 
 """
     )
-
 
 # -----------------------------------------------
 # -----------------------------------------------
@@ -256,7 +246,6 @@ def __append_inner_layer_definition__(code_segments, output_model_dict, add_memb
 """)
 
 # -----------------------------------------------
-# OUTPUT LAYER
 # -----------------------------------------------
 
 def __append_output_layer_definition__(code_segments, add_membrane_probe):
