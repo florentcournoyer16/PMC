@@ -34443,11 +34443,11 @@ __attribute__((sdx_kernel("LIGHT_MODULE", 0))) void LIGHT_MODULE(pkt_stream& in_
    in_stream.read(in_pkts[i]);
   }
 
-
+  int avg = _get_avg(in_pkts, 4);
 
   VITIS_LOOP_22_3: for(int i = 0; i < 4096;) {
    out_pkts[i] = in_pkts[0];
-
+   out_pkts[i].data = avg;
    out_pkts[i].last = (i == 4096);
    out_stream.write(out_pkts[i++]);
   }

@@ -4,40 +4,40 @@
 # Block Designs: bd/dma_axis_ip_example/dma_axis_ip_example.bd
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==dma_axis_ip_example || ORIG_REF_NAME==dma_axis_ip_example} -quiet] -quiet
 
-# IP: bd/dma_axis_ip_example/ip/dma_axis_ip_example_axi_dma_0_19/dma_axis_ip_example_axi_dma_0.xci
+# IP: bd/dma_axis_ip_example/ip/dma_axis_ip_example_axi_dma_0/dma_axis_ip_example_axi_dma_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==dma_axis_ip_example_axi_dma_0 || ORIG_REF_NAME==dma_axis_ip_example_axi_dma_0} -quiet] -quiet
 
-# IP: bd/dma_axis_ip_example/ip/dma_axis_ip_example_auto_pc_0_20/dma_axis_ip_example_auto_pc_0.xci
+# IP: bd/dma_axis_ip_example/ip/dma_axis_ip_example_auto_pc_0/dma_axis_ip_example_auto_pc_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==dma_axis_ip_example_auto_pc_0 || ORIG_REF_NAME==dma_axis_ip_example_auto_pc_0} -quiet] -quiet
 
-# IP: bd/dma_axis_ip_example/ip/dma_axis_ip_example_auto_us_0_20/dma_axis_ip_example_auto_us_0.xci
+# IP: bd/dma_axis_ip_example/ip/dma_axis_ip_example_auto_us_0/dma_axis_ip_example_auto_us_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==dma_axis_ip_example_auto_us_0 || ORIG_REF_NAME==dma_axis_ip_example_auto_us_0} -quiet] -quiet
 
-# IP: bd/dma_axis_ip_example/ip/dma_axis_ip_example_axi_mem_intercon_0_19/dma_axis_ip_example_axi_mem_intercon_0.xci
+# IP: bd/dma_axis_ip_example/ip/dma_axis_ip_example_axi_mem_intercon_0/dma_axis_ip_example_axi_mem_intercon_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==dma_axis_ip_example_axi_mem_intercon_0 || ORIG_REF_NAME==dma_axis_ip_example_axi_mem_intercon_0} -quiet] -quiet
 
-# IP: bd/dma_axis_ip_example/ip/dma_axis_ip_example_auto_pc_1_20/dma_axis_ip_example_auto_pc_1.xci
+# IP: bd/dma_axis_ip_example/ip/dma_axis_ip_example_auto_pc_1/dma_axis_ip_example_auto_pc_1.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==dma_axis_ip_example_auto_pc_1 || ORIG_REF_NAME==dma_axis_ip_example_auto_pc_1} -quiet] -quiet
 
-# IP: bd/dma_axis_ip_example/ip/dma_axis_ip_example_axi_mem_intercon_1_0_19/dma_axis_ip_example_axi_mem_intercon_1_0.xci
+# IP: bd/dma_axis_ip_example/ip/dma_axis_ip_example_axi_mem_intercon_1_0/dma_axis_ip_example_axi_mem_intercon_1_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==dma_axis_ip_example_axi_mem_intercon_1_0 || ORIG_REF_NAME==dma_axis_ip_example_axi_mem_intercon_1_0} -quiet] -quiet
 
-# IP: bd/dma_axis_ip_example/ip/dma_axis_ip_example_example_0_0_19/dma_axis_ip_example_example_0_0.xci
+# IP: bd/dma_axis_ip_example/ip/dma_axis_ip_example_example_0_0/dma_axis_ip_example_example_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==dma_axis_ip_example_example_0_0 || ORIG_REF_NAME==dma_axis_ip_example_example_0_0} -quiet] -quiet
 
-# IP: bd/dma_axis_ip_example/ip/dma_axis_ip_example_processing_system7_0_0_19/dma_axis_ip_example_processing_system7_0_0.xci
+# IP: bd/dma_axis_ip_example/ip/dma_axis_ip_example_processing_system7_0_0/dma_axis_ip_example_processing_system7_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==dma_axis_ip_example_processing_system7_0_0 || ORIG_REF_NAME==dma_axis_ip_example_processing_system7_0_0} -quiet] -quiet
 
-# IP: bd/dma_axis_ip_example/ip/dma_axis_ip_example_xbar_0_19/dma_axis_ip_example_xbar_0.xci
+# IP: bd/dma_axis_ip_example/ip/dma_axis_ip_example_xbar_0/dma_axis_ip_example_xbar_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==dma_axis_ip_example_xbar_0 || ORIG_REF_NAME==dma_axis_ip_example_xbar_0} -quiet] -quiet
 
-# IP: bd/dma_axis_ip_example/ip/dma_axis_ip_example_auto_pc_2_20/dma_axis_ip_example_auto_pc_2.xci
+# IP: bd/dma_axis_ip_example/ip/dma_axis_ip_example_auto_pc_2/dma_axis_ip_example_auto_pc_2.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==dma_axis_ip_example_auto_pc_2 || ORIG_REF_NAME==dma_axis_ip_example_auto_pc_2} -quiet] -quiet
 
-# IP: bd/dma_axis_ip_example/ip/dma_axis_ip_example_ps7_0_axi_periph_0_19/dma_axis_ip_example_ps7_0_axi_periph_0.xci
+# IP: bd/dma_axis_ip_example/ip/dma_axis_ip_example_ps7_0_axi_periph_0/dma_axis_ip_example_ps7_0_axi_periph_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==dma_axis_ip_example_ps7_0_axi_periph_0 || ORIG_REF_NAME==dma_axis_ip_example_ps7_0_axi_periph_0} -quiet] -quiet
 
-# IP: bd/dma_axis_ip_example/ip/dma_axis_ip_example_rst_ps7_0_100M_0_19/dma_axis_ip_example_rst_ps7_0_100M_0.xci
+# IP: bd/dma_axis_ip_example/ip/dma_axis_ip_example_rst_ps7_0_100M_0/dma_axis_ip_example_rst_ps7_0_100M_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==dma_axis_ip_example_rst_ps7_0_100M_0 || ORIG_REF_NAME==dma_axis_ip_example_rst_ps7_0_100M_0} -quiet] -quiet
 
 # XDC: /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.gen/sources_1/bd/dma_axis_ip_example/dma_axis_ip_example_ooc.xdc

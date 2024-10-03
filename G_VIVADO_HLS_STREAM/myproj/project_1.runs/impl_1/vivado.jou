@@ -3,12 +3,12 @@
 # SW Build 3900603 on Fri Jun 16 19:30:25 MDT 2023
 # IP Build 3900379 on Sat Jun 17 05:28:05 MDT 2023
 # SharedData Build 3899622 on Fri Jun 16 03:34:24 MDT 2023
-# Start of session at: Fri Aug 23 15:25:36 2024
-# Process ID: 90306
+# Start of session at: Wed Sep 25 16:08:29 2024
+# Process ID: 29634
 # Current directory: /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.runs/impl_1
 # Command line: vivado -log dma_axis_ip_example_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source dma_axis_ip_example_wrapper.tcl -notrace
 # Log file: /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.runs/impl_1/dma_axis_ip_example_wrapper.vdi
 # Journal file: /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.runs/impl_1/vivado.jou
-# Running On: GRAMS-NSOC, OS: Linux, CPU Frequency: 3900.000 MHz, CPU Physical cores: 4, Host memory: 16721 MB
+# Running On: GRAMS-NSOC, OS: Linux, CPU Frequency: 3481.752 MHz, CPU Physical cores: 4, Host memory: 16721 MB
 #-----------------------------------------------------------
 source dma_axis_ip_example_wrapper.tcl -notrace

@@ -748,7 +748,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>cd388527</spirit:value>
+            <spirit:value>8ffd15c3</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -764,7 +764,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>feb24171</spirit:value>
+            <spirit:value>899ba239</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -780,7 +780,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>d20272b4</spirit:value>
+            <spirit:value>d090d27a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -796,7 +796,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>44cfb671</spirit:value>
+            <spirit:value>65e8af06</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1507,6 +1507,14 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>hdl/verilog/LIGHT_MODULE_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/verilog/LIGHT_MODULE_mux_4_2_32_1_1.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>hdl/verilog/LIGHT_MODULE_regslice_both.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -1548,6 +1556,16 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>hdl/verilog/LIGHT_MODULE_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/verilog/LIGHT_MODULE_mux_4_2_32_1_1.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>hdl/verilog/LIGHT_MODULE_regslice_both.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
@@ -1582,13 +1600,21 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>hdl/vhdl/LIGHT_MODULE_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/vhdl/LIGHT_MODULE_mux_4_2_32_1_1.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>hdl/vhdl/LIGHT_MODULE_regslice_both.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/vhdl/LIGHT_MODULE.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_aa397e0b</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_06b67238</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -1610,6 +1636,16 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/vhdl/LIGHT_MODULE_LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/vhdl/LIGHT_MODULE_LIGHT_MODULE_Pipeline_VITIS_LOOP_42_1.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/vhdl/LIGHT_MODULE_mux_4_2_32_1_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -1728,8 +1764,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>Light_module</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>2113740428</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2024-09-18T22:08:58Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>2113750382</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2024-09-25T20:02:43Z</xilinx:coreCreationDateTime>
       <xilinx:sdxKernelAttributes>
         <xilinx:sdx_kernel>true</xilinx:sdx_kernel>
         <xilinx:sdx_kernel_type>hls</xilinx:sdx_kernel_type>
@@ -1739,7 +1775,7 @@
       <xilinx:xilinxVersion>2023.1.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="aca35e6c"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="e278e9b0"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="b7225023"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="73bb4c95"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="83b0f721"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="79893713"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="eb6039c8"/>
