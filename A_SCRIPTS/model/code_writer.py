@@ -22,12 +22,7 @@ def __append_inclusions__(code_segments, network_name, add_membrane_probe):
 """)
 
 	code_segments.append(f"""
-#include "ap_axi_sdata.h"
-#include "hls_stream.h"
-#include "ap_int.h"
-
-#include "../inc/{network_name}.h"
-
+#include "../inc/{network_name}.h"\n
 """)
 
 	if add_membrane_probe:
@@ -39,18 +34,15 @@ def __append_inclusions__(code_segments, network_name, add_membrane_probe):
 def __append_declarations__(code_segments, output_model_dict, add_membrane_probe):
     if add_membrane_probe:
         code_segments.append("void write_probe_file(void);\n")
-    code_segments.append("void input_layer(WEIGHT_TYPE input_list[INPUT_LAYER_LENGHT]);\n")
+    code_segments.append("void input_layer(pkt input_pkts[INPUT_LAYER_LENGHT]);\n")
     for i in range(1, len(output_model_dict['NEURONS_INDEX'])-2):
         code_segments.append(f"void inner_layer_{i}();\n")
-    code_segments.append("void output_layer(WEIGHT_TYPE output_list[OUTPUT_LAYER_LENGHT]);\n\n")
+    code_segments.append("void output_layer();\n\n")
 
 def __append_input_stream_reception__(code_segments, add_membrane_probe):
 
     code_segments.append("""
-void RNI (
-	hls::stream< ap_axis< INPUT_LAYER_LENGHT, 2, 5, 6 > > &input_stream,
-	hls::stream< ap_axis< OUTPUT_LAYER_LENGHT, 2, 5, 6 > > &output_stream
-)
+void RNI(pkt_stream& in_stream, pkt_stream& out_stream)
 {
 
 """)
@@ -58,28 +50,19 @@ void RNI (
         code_segments.append("\tprobe_file.open(MEMBRANE_PROBE_OUTPUT_FILEPATH);\n")
 
     code_segments.append("""
-#pragma HLS INTERFACE mode=axis port=input_stream
-#pragma HLS INTERFACE mode=axis port=output_stream
+#pragma HLS INTERFACE axis port = in_stream
+#pragma HLS INTERFACE axis port = out_stream
+#pragma HLS INTERFACE s_axilite port=return bundle=ctrl
+
+	pkt in_pkts[INPUT_LENGHT];
+	pkt out_pkts[OUTPUT_LENGHT];
 
 	while(true)
 	{
-		ap_axis< INPUT_LAYER_LENGHT, 2, 5, 6 > input_buffer;
-		input_buffer.data = 0;
-		input_stream.read(input_buffer);
+		for(int i = 0; i < INPUT_LENGHT; i++)
+			in_stream.read(in_pkts[i]);
 
-		WEIGHT_TYPE input_list[INPUT_LAYER_LENGHT] = { 0 };
-		for(INDEX_TYPE i = 0; i < INPUT_LAYER_LENGHT; i++)
-		{
-			input_list[i] = (input_buffer.data.to_int() >> (i)) & 0x01;
-		}
-
-		WEIGHT_TYPE output_list[OUTPUT_LAYER_LENGHT] = { 0 };
-		for(INDEX_TYPE i = 0; i < OUTPUT_LAYER_LENGHT; i++)
-		{
-			output_list[i] = 0;
-		}
-
-		input_layer(input_list);
+		input_layer(in_pkts);
 
 """)
 
@@ -97,18 +80,13 @@ def __append_inner_layer_function_calls__(code_segments, output_model_dict):
 def __append_output_stream_dispatch__(code_segments, add_membrane_probe):
 
     code_segments.append("""
-		output_layer(output_list);
+		output_layer();
 
-		ap_axis< OUTPUT_LAYER_LENGHT, 2, 5, 6 > output_buffer;
-		output_buffer.data = 0;
-		for(WEIGHT_TYPE i = 0; i < OUTPUT_LAYER_LENGHT; i++)
-		{
-			if(output_list[i] == 1)
-			{
-				output_buffer.data |= WEIGHT_TYPE(0x01 << i);
-			}
-		}
-		output_stream.write(output_buffer);
+		for(INDEX_TYPE i = 0; i < NEURONS_MEMBRANE_LENGHT; i++)
+			out_pkts[i] = in_pkts[0];
+			out_pkts[i].data = NEURONS_MEMBRANE[i]
+			output_stream.write([i]);
+
 
 		if(input_buffer.last)
 			break;
@@ -150,7 +128,7 @@ void write_probe_file(void)
 def __append_input_layer_definition__(code_segments, add_membrane_probe):
 
     code_segments.append("""
-void input_layer(WEIGHT_TYPE input_list[INPUT_LAYER_LENGHT])
+void input_layer(pkt input_pkts[INPUT_LAYER_LENGHT])
 {
 	INDEX_TYPE layer_index = 0;
 	NEURONS_LOOP: for(INDEX_TYPE neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1];  neuron_index++)
@@ -159,7 +137,7 @@ void input_layer(WEIGHT_TYPE input_list[INPUT_LAYER_LENGHT])
 		NEURONS_MEMBRANE[neuron_index] = (NEURONS_MEMBRANE[neuron_index] >> 1 + NEURONS_MEMBRANE[neuron_index] >> 2 + NEURONS_MEMBRANE[neuron_index] >> 4) || membrane_sign;
 		WEIGHTS_LOOP: for(INDEX_TYPE weight_index = WEIGHTS_INDEX[neuron_index]; weight_index < WEIGHTS_INDEX[neuron_index + 1]; weight_index++)
 		{
-			NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index] * input_list[weight_index % INPUT_LAYER_LENGHT];
+			NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index] * input_pkts[weight_index % INPUT_LAYER_LENGHT].data;
 		}
 """)
 
@@ -237,7 +215,7 @@ def __append_inner_layer_definition__(code_segments, output_model_dict, add_memb
 def __append_output_layer_definition__(code_segments, add_membrane_probe):
 
     code_segments.append("""
-void output_layer(WEIGHT_TYPE output_list[OUTPUT_LAYER_LENGHT])
+void output_layer()
 {
 	INDEX_TYPE layer_index = NEURONS_INDEX_LENGHT - 2;
 	NEURONS_LOOP: for(INDEX_TYPE neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1];  neuron_index++)
@@ -268,7 +246,6 @@ void output_layer(WEIGHT_TYPE output_list[OUTPUT_LAYER_LENGHT])
 		{
 			NEURONS_STATE[neuron_index] = 1;
 			NEURONS_MEMBRANE[neuron_index] = RESET[layer_index];
-			output_list[neuron_index % OUTPUT_LAYER_LENGHT] = 1;
 		}
 	}
 

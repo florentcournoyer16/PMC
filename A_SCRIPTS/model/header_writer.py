@@ -19,7 +19,11 @@ def write_header(input_model_dict, header_filename, weight_type_lenght = 8, memb
         header_file.write('#ifndef MODEL_H\n')
         header_file.write('#define MODEL_H\n\n')
 
-        header_file.write('#include "ap_int.h"\n\n')
+        header_file.write('#include "ap_int.h"\n')
+        header_file.write('#include "ap_axi_sdata.h"\n')
+        header_file.write('#include "hls_stream.h"\n\n')
+
+        header_file.write("#define CSIM 0\n\n")
 
         header_file.write(f"#define WEIGHT_TYPE_LENGHT {weight_type_lenght}\n")
         header_file.write("#define WEIGHT_TYPE ap_int< WEIGHT_TYPE_LENGHT >\n\n")
@@ -53,8 +57,14 @@ def write_header(input_model_dict, header_filename, weight_type_lenght = 8, memb
         header_file.write(f"#define INDEX_TYPE_MAX {2**(index_type_lenght-1)}\n\n")
 
         header_file.write(f"#define INPUT_LAYER_LENGHT {output_model_dict['WEIGHTS_INDEX'][1]}\n")
-        output_layer_lenght = output_model_dict['NEURONS_INDEX'][-1] - output_model_dict['NEURONS_INDEX'][-2]
+        output_layer_lenght = output_model_dict['NEURONS_INDEX'][-1]
         header_file.write(f"#define OUTPUT_LAYER_LENGHT {output_layer_lenght}\n\n")
+
+        header_file.write("#define PKT_SIZE 32\n")
+        header_file.write("typedef ap_axis<PKT_SIZE, 2, 5, 6> pkt;\n")
+        header_file.write("typedef hls::stream<pkt> pkt_stream;\n")
+        header_file.write("void RNI(pkt_stream& in_stream, pkt_stream& out_stream);\n\n")
+
 
         if add_membrane_probe:
             header_file.write(f"MEMBRANE_TYPE MEMBRANE_PROBE[{membrane_probe_lenght}] = {{ ")
