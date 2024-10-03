@@ -15,6 +15,7 @@ def write_code(code_filename, network_name, output_model_dict, add_membrane_prob
 
 def __append_main_function__(code_segments, output_model_dict, add_membrane_probe):
     __append_main_function_signature__(code_segments)
+
     if add_membrane_probe:
         __append_debugging_probe_input__(code_segments)
 
