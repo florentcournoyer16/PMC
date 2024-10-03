@@ -45,12 +45,14 @@ void RNI(pkt_stream& in_stream, pkt_stream& out_stream)
 		output_layer();
 
 		for(INDEX_TYPE i = 0; i < NEURONS_MEMBRANE_LENGHT; i++)
+        {
 			out_pkts[i] = in_pkts[0];
 			out_pkts[i].data = NEURONS_MEMBRANE[i];
 			output_stream.write(out_pkts[i]);
+        }
 
 
-		if(input_buffer.last)
+		if(in_pkts[INPUT_LENGHT-1].last)
 			break;
 	}
 
@@ -63,7 +65,7 @@ void RNI(pkt_stream& in_stream, pkt_stream& out_stream)
 
 void input_layer(pkt input_pkts[INPUT_LENGHT])
 {
-	INDEX_TYPE layer_index = 0;
+    INDEX_TYPE layer_index = 0;
 	NEURONS_LOOP_0: for(INDEX_TYPE neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1];  neuron_index++)
 	{
 		leak_neuron(layer_index, neuron_index);
@@ -208,7 +210,7 @@ void write_probe_file(void)
         return;
     }
     for(INDEX_TYPE i = 0; i < MEMBRANE_PROBE_CURRENT_INDEX; i++)
-        probe_file << MEMBRANE_PROBE[i] << ",
-";
+        probe_file << MEMBRANE_PROBE[i] << ",";
     MEMBRANE_PROBE_CURRENT_INDEX = 0;
 }
+

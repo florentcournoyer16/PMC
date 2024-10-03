@@ -38,8 +38,8 @@ def write_header(input_model_dict, header_filename, weight_type_lenght = 8, memb
         header_file.write(f"#define INDEX_TYPE_LENGHT {index_type_lenght}\n")
         header_file.write("#define INDEX_TYPE ap_int< INDEX_TYPE_LENGHT >\n\n")
         
-        header_file.write("#define STATE_TYPE_LENGHT 1")
-        header_file.write("#define STATE_TYPE ap_int< STATE_TYPE_LENGHT >")
+        header_file.write("#define STATE_TYPE_LENGHT 1\n")
+        header_file.write("#define STATE_TYPE ap_int< STATE_TYPE_LENGHT >\n\n")
 
         for key, values in output_model_dict.items():
             type_str = "WEIGHT_TYPE"
