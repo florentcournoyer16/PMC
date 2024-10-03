@@ -6,7 +6,8 @@ def write_header(input_model_dict, header_filename, weight_type_lenght = 8, memb
         "BIASES": [],
         "THRESHOLDS": [],
         "GRADED_SPIKES_FACTORS": [],
-        "RESET_MECHANISM_VALS": [],
+        "RESET": [],
+        "LEAK": [],
         "BETAS": [],
         "NEURONS_MEMBRANE": [],
         "NEURONS_STATE": [],
@@ -92,15 +93,17 @@ def __fill_output_model_dict__(layers, output_model_dict, weight_type_lenght):
             output_model_dict["THRESHOLDS"].append(layer_content)
         elif "graded_spikes_factor" in layer_name:
             output_model_dict["GRADED_SPIKES_FACTORS"].append(layer_content)
-        elif "reset_mechanism_val" in layer_name:
-            output_model_dict["RESET_MECHANISM_VALS"].append(layer_content)
+        elif "reset" in layer_name:
+            output_model_dict["RESET"].append(layer_content)
+        elif "leak" in layer_name:
+            output_model_dict["LEAK"].append(layer_content)
         elif "beta" in layer_name:
             output_model_dict["BETAS"].append(layer_content)
     output_model_dict = __compress__(output_model_dict, weight_type_lenght)
     return output_model_dict
 
 def __compress__(output_model_dict, weight_type_lenght):
-    max_val = max(output_model_dict["WEIGHTS"] + output_model_dict["BIASES"] + output_model_dict["THRESHOLDS"] + output_model_dict["GRADED_SPIKES_FACTORS"] + output_model_dict["RESET_MECHANISM_VALS"] + output_model_dict["BETAS"])
+    max_val = max(output_model_dict["WEIGHTS"] + output_model_dict["BIASES"] + output_model_dict["THRESHOLDS"] + output_model_dict["GRADED_SPIKES_FACTORS"] + output_model_dict["RESET"] + output_model_dict["BETAS"])
     for i in range(len(output_model_dict["WEIGHTS"])):
         output_model_dict["WEIGHTS"][i] = int(output_model_dict["WEIGHTS"][i] / max_val * (2**(weight_type_lenght-1)-1))
     for i in range(len(output_model_dict["BIASES"])):
@@ -109,8 +112,10 @@ def __compress__(output_model_dict, weight_type_lenght):
         output_model_dict["THRESHOLDS"][i] = int(output_model_dict["THRESHOLDS"][i] / max_val * (2**(weight_type_lenght-1)-1))
     for i in range(len(output_model_dict["GRADED_SPIKES_FACTORS"])):
         output_model_dict["GRADED_SPIKES_FACTORS"][i] = int(output_model_dict["GRADED_SPIKES_FACTORS"][i] / max_val * (2**(weight_type_lenght-1)-1))
-    for i in range(len(output_model_dict["RESET_MECHANISM_VALS"])):
-        output_model_dict["RESET_MECHANISM_VALS"][i] = int(output_model_dict["RESET_MECHANISM_VALS"][i] / max_val * (2**(weight_type_lenght-1)-1))
+    for i in range(len(output_model_dict["RESET"])):
+        output_model_dict["RESET"][i] = int(output_model_dict["RESET"][i] / max_val * (2**(weight_type_lenght-1)-1))
+    for i in range(len(output_model_dict["LEAK"])):
+        output_model_dict["LEAK"][i] = int(output_model_dict["LEAK"][i] / max_val * (2**(weight_type_lenght-1)-1))
     for i in range(len(output_model_dict["BETAS"])):
         output_model_dict["BETAS"][i] = int(output_model_dict["BETAS"][i] / max_val * (2**(weight_type_lenght-1)-1))
     return output_model_dict

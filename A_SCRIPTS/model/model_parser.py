@@ -3,7 +3,7 @@ from pathlib import Path
 from code_writer import write_code
 from header_writer import write_header
 
-FILE_NAME = 'model_8_INPUT.json'
+FILE_NAME = 'model_LIGHT_SENSOR_3.json'
 WEIGHT_TYPE_LENGHT = 8
 MEMBRANE_TYPE_LENGHT = WEIGHT_TYPE_LENGHT * 2
 ADD_MEMBRANE_PROBE = False
