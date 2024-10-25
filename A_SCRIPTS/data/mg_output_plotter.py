@@ -1,0 +1,33 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Load data from a CSV file
+file_path = "A_SCRIPTS/data/output/MG_FIRST_OUTPUTS.txt"  # Replace with your file path
+data = np.genfromtxt(file_path, delimiter=",")
+
+# Time vector (10 steps, 0.05 ms apart)
+time = np.arange(data.shape[0]) * 0.05  # in ms
+
+def plot_neurons(neuron_indices):
+    """
+    Plot the membrane values of specified neurons.
+    
+    Parameters:
+        neuron_indices (list): List of neuron indices to plot (1-based index).
+    """
+    plt.figure(figsize=(10, 6))
+    for neuron in neuron_indices:
+        if 1 <= neuron <= data.shape[1]:  # Check if neuron index is within range
+            plt.plot(time, data[:, neuron - 1], label=f"Neuron {neuron}")
+        else:
+            print(f"Neuron {neuron} is out of range.")
+    
+    plt.xlabel("Time (ms)")
+    plt.ylabel("Membrane Value")
+    plt.title("Neuron Membrane Values Over Time")
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+
+# Example usage: plot neurons 1, 2, and 3
+plot_neurons(np.arange(953, 963, 1))
