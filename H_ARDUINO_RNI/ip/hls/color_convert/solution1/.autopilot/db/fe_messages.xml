@@ -1,0 +1,57 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/mohr0901/Documents/PYNQ-master/boards/ip/hls/color_convert/script.tcl:12:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="color_convert" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=color_convert" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="color_convert/color_convert.cpp:9:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="color_convert" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_ctrl_none port=return" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="color_convert/color_convert.cpp:10:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="color_convert" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=c1" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="color_convert/color_convert.cpp:11:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="color_convert" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=c2" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="color_convert/color_convert.cpp:12:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="color_convert" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=c3" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="color_convert/color_convert.cpp:13:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="color_convert" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=bias" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="color_convert/color_convert.cpp:14:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="color_convert" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=c1" ARG_PragmaType="disaggregate" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="color_convert/color_convert.cpp:15:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="color_convert" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=c2" ARG_PragmaType="disaggregate" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="color_convert/color_convert.cpp:16:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="color_convert" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=c3" ARG_PragmaType="disaggregate" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="color_convert/color_convert.cpp:17:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="color_convert" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=bias" ARG_PragmaType="disaggregate" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="color_convert/color_convert.cpp:18:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="color_convert" ARG_PragmaIsValid="1" ARG_PragmaOptions="axis port=stream_in_24 register" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="color_convert/color_convert.cpp:19:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="color_convert" ARG_PragmaIsValid="1" ARG_PragmaOptions="axis port=stream_out_24 register" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="color_convert/color_convert.cpp:21:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="color_convert" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-210" msg_severity="INFO" msg_loc="color_convert/color_convert.cpp:8:0" msg_body="Disaggregating variable 'c1'">
+        <args Name="c1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-210" msg_severity="INFO" msg_loc="color_convert/color_convert.cpp:8:0" msg_body="Disaggregating variable 'c2'">
+        <args Name="c2"/>
+    </msg>
+    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-210" msg_severity="INFO" msg_loc="color_convert/color_convert.cpp:8:0" msg_body="Disaggregating variable 'c3'">
+        <args Name="c3"/>
+    </msg>
+    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-210" msg_severity="INFO" msg_loc="color_convert/color_convert.cpp:8:0" msg_body="Disaggregating variable 'bias'">
+        <args Name="bias"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="color_convert/color_convert.cpp:8:0" msg_body="Inlining function 'channels::channels(ap_uint&lt;24&gt;)' into 'color_convert(hls::stream&lt;hls::axis&lt;ap_uint&lt;24&gt;, 1ul, 0ul, 0ul&gt;, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_uint&lt;24&gt;, 1ul, 0ul, 0ul&gt;, 0&gt;&amp;, coeffs&amp;, coeffs&amp;, coeffs&amp;, coeffs&amp;)'">
+        <args Callee="channels::channels(ap_uint&lt;24&gt;)" Callee-DebugLoc="File color_convert/color_convert.hpp Line 21 Column 0" Caller="color_convert(hls::stream&lt;hls::axis&lt;ap_uint&lt;24&gt;, 1ul, 0ul, 0ul&gt;, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_uint&lt;24&gt;, 1ul, 0ul, 0ul&gt;, 0&gt;&amp;, coeffs&amp;, coeffs&amp;, coeffs&amp;, coeffs&amp;)" Caller-DebugLoc="File color_convert/color_convert.cpp Line 8 Column 0"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+

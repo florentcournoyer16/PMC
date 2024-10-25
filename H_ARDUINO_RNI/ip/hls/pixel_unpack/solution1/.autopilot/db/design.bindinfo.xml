@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BindInfo>
+	<BindNode BINDTYPE="op" DISPLAY="bind_op or" ID="" IMPL="auto" LATENCY="0" OPTYPE="or" PRAGMA="" RTLNAME="or_ln27_fu_163_p2" SOURCE="pixel_unpack/pixel_unpack.cpp:27" VARIABLE="or_ln27" MODULE="pixel_unpack_Pipeline_VITIS_LOOP_19_1" LOOP="VITIS_LOOP_19_1" BUNDLEDNAME="" DSP="0" BRAM="0" URAM="0"/>
+	<BindNode BINDTYPE="op" DISPLAY="bind_op or" ID="" IMPL="auto" LATENCY="0" OPTYPE="or" PRAGMA="" RTLNAME="has_user_fu_169_p2" SOURCE="pixel_unpack/pixel_unpack.cpp:27" VARIABLE="has_user" MODULE="pixel_unpack_Pipeline_VITIS_LOOP_19_1" LOOP="VITIS_LOOP_19_1" BUNDLEDNAME="" DSP="0" BRAM="0" URAM="0"/>
+	<BindNode BINDTYPE="op" DISPLAY="bind_op or" ID="" IMPL="auto" LATENCY="0" OPTYPE="or" PRAGMA="" RTLNAME="or_ln28_fu_176_p2" SOURCE="pixel_unpack/pixel_unpack.cpp:28" VARIABLE="or_ln28" MODULE="pixel_unpack_Pipeline_VITIS_LOOP_19_1" LOOP="VITIS_LOOP_19_1" BUNDLEDNAME="" DSP="0" BRAM="0" URAM="0"/>
+	<BindNode BINDTYPE="op" DISPLAY="bind_op or" ID="" IMPL="auto" LATENCY="0" OPTYPE="or" PRAGMA="" RTLNAME="last_fu_182_p2" SOURCE="pixel_unpack/pixel_unpack.cpp:28" VARIABLE="last" MODULE="pixel_unpack_Pipeline_VITIS_LOOP_19_1" LOOP="VITIS_LOOP_19_1" BUNDLEDNAME="" DSP="0" BRAM="0" URAM="0"/>
+	<BindNode BINDTYPE="adapter" DISPLAY="bind_adapter axilite" ID="" IMPL="" LATENCY="" OPTYPE="" PRAGMA="yes" RTLNAME="control_s_axi_U" SOURCE="" VARIABLE="" MODULE="pixel_unpack" LOOP="" BUNDLEDNAME="control" DSP="0" BRAM="0" URAM="0"/>
+</BindInfo>

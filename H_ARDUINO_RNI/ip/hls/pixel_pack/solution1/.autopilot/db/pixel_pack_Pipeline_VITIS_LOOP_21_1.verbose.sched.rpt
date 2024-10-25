@@ -1,0 +1,229 @@
+
+
+================================================================
+== Vitis HLS Report for 'pixel_pack_Pipeline_VITIS_LOOP_21_1'
+================================================================
+* Date:           Fri Sep  6 14:45:49 2024
+
+* Version:        2023.1.1 (Build 3869133 on Jun 15 2023)
+* Project:        pixel_pack
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  7.00 ns|  3.415 ns|     1.89 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                   |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |     Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_21_1  |        ?|        ?|         6|          4|          4|     ?|       yes|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 4, depth = 6
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 6
+* Pipeline : 1
+  Pipeline-0 : II = 4, D = 6, States = { 1 2 3 4 5 6 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 3.17>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i32 %stream_out_32_V_data_V, i4 %stream_out_32_V_keep_V, i4 %stream_out_32_V_strb_V, i1 %stream_out_32_V_user_V, i1 %stream_out_32_V_last_V, i1 0, i1 0, void @empty_11"   --->   Operation 9 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i24 %stream_in_24_V_data_V, i3 %stream_in_24_V_keep_V, i3 %stream_in_24_V_strb_V, i1 %stream_in_24_V_user_V, i1 %stream_in_24_V_last_V, i1 0, i1 0, void @empty_12"   --->   Operation 10 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %stream_out_32_V_last_V, void @empty_2, i32 0, i32 0, void @empty_3, i32 0, i32 0, void @empty_4, void @empty_4, void @empty_4, i32 0, i32 0, i32 0, i32 0, void @empty_4, void @empty_4, i32 4294967295, i32 0"   --->   Operation 11 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %stream_out_32_V_user_V, void @empty_2, i32 0, i32 0, void @empty_3, i32 0, i32 0, void @empty_4, void @empty_4, void @empty_4, i32 0, i32 0, i32 0, i32 0, void @empty_4, void @empty_4, i32 4294967295, i32 0"   --->   Operation 12 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i4 %stream_out_32_V_strb_V, void @empty_2, i32 0, i32 0, void @empty_3, i32 0, i32 0, void @empty_4, void @empty_4, void @empty_4, i32 0, i32 0, i32 0, i32 0, void @empty_4, void @empty_4, i32 4294967295, i32 0"   --->   Operation 13 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i4 %stream_out_32_V_keep_V, void @empty_2, i32 0, i32 0, void @empty_3, i32 0, i32 0, void @empty_4, void @empty_4, void @empty_4, i32 0, i32 0, i32 0, i32 0, void @empty_4, void @empty_4, i32 4294967295, i32 0"   --->   Operation 14 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %stream_out_32_V_data_V, void @empty_2, i32 0, i32 0, void @empty_3, i32 0, i32 0, void @empty_4, void @empty_4, void @empty_4, i32 0, i32 0, i32 0, i32 0, void @empty_4, void @empty_4, i32 4294967295, i32 0"   --->   Operation 15 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %stream_in_24_V_last_V, void @empty_2, i32 0, i32 0, void @empty_3, i32 0, i32 0, void @empty_4, void @empty_4, void @empty_4, i32 0, i32 0, i32 0, i32 0, void @empty_4, void @empty_4, i32 4294967295, i32 0"   --->   Operation 16 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %stream_in_24_V_user_V, void @empty_2, i32 0, i32 0, void @empty_3, i32 0, i32 0, void @empty_4, void @empty_4, void @empty_4, i32 0, i32 0, i32 0, i32 0, void @empty_4, void @empty_4, i32 4294967295, i32 0"   --->   Operation 17 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i3 %stream_in_24_V_strb_V, void @empty_2, i32 0, i32 0, void @empty_3, i32 0, i32 0, void @empty_4, void @empty_4, void @empty_4, i32 0, i32 0, i32 0, i32 0, void @empty_4, void @empty_4, i32 4294967295, i32 0"   --->   Operation 18 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i3 %stream_in_24_V_keep_V, void @empty_2, i32 0, i32 0, void @empty_3, i32 0, i32 0, void @empty_4, void @empty_4, void @empty_4, i32 0, i32 0, i32 0, i32 0, void @empty_4, void @empty_4, i32 4294967295, i32 0"   --->   Operation 19 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i24 %stream_in_24_V_data_V, void @empty_2, i32 0, i32 0, void @empty_3, i32 0, i32 0, void @empty_4, void @empty_4, void @empty_4, i32 0, i32 0, i32 0, i32 0, void @empty_4, void @empty_4, i32 4294967295, i32 0"   --->   Operation 20 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (1.58ns)   --->   "%br_ln0 = br void %while.cond"   --->   Operation 21 'br' 'br_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%delayed_last = phi i1 %last_8, void %if.end30, i1 0, void %newFuncRoot"   --->   Operation 22 'phi' 'delayed_last' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%last_8 = phi i1 %last_2_3853, void %if.end30, i1 0, void %newFuncRoot" [pixel_pack/pixel_pack.cpp:29]   --->   Operation 23 'phi' 'last_8' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%br_ln21 = br i1 %delayed_last, void %for.body, void %sw.epilog.loopexit8.exitStub" [pixel_pack/pixel_pack.cpp:21]   --->   Operation 24 'br' 'br_ln21' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%specpipeline_ln22 = specpipeline void @_ssdm_op_SpecPipeline, i32 4, i32 0, i32 0, i32 0, void @empty_4" [pixel_pack/pixel_pack.cpp:22]   --->   Operation 25 'specpipeline' 'specpipeline_ln22' <Predicate = (!delayed_last)> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%specloopname_ln21 = specloopname void @_ssdm_op_SpecLoopName, void @empty_15" [pixel_pack/pixel_pack.cpp:21]   --->   Operation 26 'specloopname' 'specloopname_ln21' <Predicate = (!delayed_last)> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (1.58ns)   --->   "%br_ln28 = br i1 %last_8, void %if.then, void %if.end30" [pixel_pack/pixel_pack.cpp:28]   --->   Operation 27 'br' 'br_ln28' <Predicate = (!delayed_last)> <Delay = 1.58>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%empty = read i32 @_ssdm_op_Read.axis.volatile.i24P0A.i3P0A.i3P0A.i1P0A.i1P0A, i24 %stream_in_24_V_data_V, i3 %stream_in_24_V_keep_V, i3 %stream_in_24_V_strb_V, i1 %stream_in_24_V_user_V, i1 %stream_in_24_V_last_V" [pixel_pack/pixel_pack.cpp:29]   --->   Operation 28 'read' 'empty' <Predicate = (!delayed_last & !last_8)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 115 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%in_pixel_data = extractvalue i32 %empty" [pixel_pack/pixel_pack.cpp:29]   --->   Operation 29 'extractvalue' 'in_pixel_data' <Predicate = (!delayed_last & !last_8)> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%in_pixel_user = extractvalue i32 %empty" [pixel_pack/pixel_pack.cpp:29]   --->   Operation 30 'extractvalue' 'in_pixel_user' <Predicate = (!delayed_last & !last_8)> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%in_pixel_last = extractvalue i32 %empty" [pixel_pack/pixel_pack.cpp:29]   --->   Operation 31 'extractvalue' 'in_pixel_last' <Predicate = (!delayed_last & !last_8)> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 0.00>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%empty_34 = read i32 @_ssdm_op_Read.axis.volatile.i24P0A.i3P0A.i3P0A.i1P0A.i1P0A, i24 %stream_in_24_V_data_V, i3 %stream_in_24_V_keep_V, i3 %stream_in_24_V_strb_V, i1 %stream_in_24_V_user_V, i1 %stream_in_24_V_last_V" [pixel_pack/pixel_pack.cpp:29]   --->   Operation 32 'read' 'empty_34' <Predicate = (!delayed_last & !last_8 & !in_pixel_last)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 115 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_2 : Operation 33 [1/1] (0.00ns)   --->   "%in_pixel_data_5 = extractvalue i32 %empty_34" [pixel_pack/pixel_pack.cpp:29]   --->   Operation 33 'extractvalue' 'in_pixel_data_5' <Predicate = (!delayed_last & !last_8 & !in_pixel_last)> <Delay = 0.00>
+ST_2 : Operation 34 [1/1] (0.00ns)   --->   "%in_pixel_user_5 = extractvalue i32 %empty_34" [pixel_pack/pixel_pack.cpp:29]   --->   Operation 34 'extractvalue' 'in_pixel_user_5' <Predicate = (!delayed_last & !last_8 & !in_pixel_last)> <Delay = 0.00>
+ST_2 : Operation 35 [1/1] (0.00ns)   --->   "%in_pixel_last_4 = extractvalue i32 %empty_34" [pixel_pack/pixel_pack.cpp:29]   --->   Operation 35 'extractvalue' 'in_pixel_last_4' <Predicate = (!delayed_last & !last_8 & !in_pixel_last)> <Delay = 0.00>
+ST_2 : Operation 81 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 81 'ret' 'ret_ln0' <Predicate = (delayed_last)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 1.82>
+ST_3 : Operation 36 [1/1] (0.00ns)   --->   "%buffer = partset i96 @_ssdm_op_PartSet.i96.i96.i24.i32.i32, i96 0, i24 %in_pixel_data, i32 0, i32 23" [pixel_pack/pixel_pack.cpp:30]   --->   Operation 36 'partset' 'buffer' <Predicate = (!delayed_last & !last_8)> <Delay = 0.00>
+ST_3 : Operation 37 [1/1] (0.00ns)   --->   "%has_user = bitset i4 @_ssdm_op_BitSet.i4.i4.i32.i1, i4 0, i32 0, i1 %in_pixel_user" [pixel_pack/pixel_pack.cpp:31]   --->   Operation 37 'bitset' 'has_user' <Predicate = (!delayed_last & !last_8)> <Delay = 0.00>
+ST_3 : Operation 38 [1/1] (0.00ns)   --->   "%trunc_ln26 = trunc i4 %has_user" [pixel_pack/pixel_pack.cpp:26]   --->   Operation 38 'trunc' 'trunc_ln26' <Predicate = (!delayed_last & !last_8)> <Delay = 0.00>
+ST_3 : Operation 39 [1/1] (0.00ns)   --->   "%has_last = bitset i4 @_ssdm_op_BitSet.i4.i4.i32.i1, i4 0, i32 0, i1 %in_pixel_last" [pixel_pack/pixel_pack.cpp:32]   --->   Operation 39 'bitset' 'has_last' <Predicate = (!delayed_last & !last_8)> <Delay = 0.00>
+ST_3 : Operation 40 [1/1] (1.82ns)   --->   "%br_ln28 = br i1 %in_pixel_last, void %if.then.1, void %for.inc27" [pixel_pack/pixel_pack.cpp:28]   --->   Operation 40 'br' 'br_ln28' <Predicate = (!delayed_last & !last_8)> <Delay = 1.82>
+ST_3 : Operation 41 [1/1] (0.00ns)   --->   "%buffer_1 = partset i96 @_ssdm_op_PartSet.i96.i96.i24.i32.i32, i96 %buffer, i24 %in_pixel_data_5, i32 24, i32 47" [pixel_pack/pixel_pack.cpp:30]   --->   Operation 41 'partset' 'buffer_1' <Predicate = (!delayed_last & !last_8 & !in_pixel_last)> <Delay = 0.00>
+ST_3 : Operation 42 [1/1] (0.00ns)   --->   "%has_user_1 = bitset i4 @_ssdm_op_BitSet.i4.i4.i32.i1, i4 %has_user, i32 1, i1 %in_pixel_user_5" [pixel_pack/pixel_pack.cpp:31]   --->   Operation 42 'bitset' 'has_user_1' <Predicate = (!delayed_last & !last_8 & !in_pixel_last)> <Delay = 0.00>
+ST_3 : Operation 43 [1/1] (0.00ns)   --->   "%trunc_ln26_1 = trunc i4 %has_user_1" [pixel_pack/pixel_pack.cpp:26]   --->   Operation 43 'trunc' 'trunc_ln26_1' <Predicate = (!delayed_last & !last_8 & !in_pixel_last)> <Delay = 0.00>
+ST_3 : Operation 44 [1/1] (0.00ns)   --->   "%has_last_1 = bitset i4 @_ssdm_op_BitSet.i4.i4.i32.i1, i4 %has_last, i32 1, i1 %in_pixel_last_4" [pixel_pack/pixel_pack.cpp:32]   --->   Operation 44 'bitset' 'has_last_1' <Predicate = (!delayed_last & !last_8 & !in_pixel_last)> <Delay = 0.00>
+ST_3 : Operation 45 [1/1] (1.82ns)   --->   "%br_ln28 = br i1 %in_pixel_last_4, void %if.then.2, void %for.inc27" [pixel_pack/pixel_pack.cpp:28]   --->   Operation 45 'br' 'br_ln28' <Predicate = (!delayed_last & !last_8 & !in_pixel_last)> <Delay = 1.82>
+ST_3 : Operation 46 [1/1] (0.00ns)   --->   "%empty_35 = read i32 @_ssdm_op_Read.axis.volatile.i24P0A.i3P0A.i3P0A.i1P0A.i1P0A, i24 %stream_in_24_V_data_V, i3 %stream_in_24_V_keep_V, i3 %stream_in_24_V_strb_V, i1 %stream_in_24_V_user_V, i1 %stream_in_24_V_last_V" [pixel_pack/pixel_pack.cpp:29]   --->   Operation 46 'read' 'empty_35' <Predicate = (!delayed_last & !last_8 & !in_pixel_last & !in_pixel_last_4)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 115 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_3 : Operation 47 [1/1] (0.00ns)   --->   "%in_pixel_data_6 = extractvalue i32 %empty_35" [pixel_pack/pixel_pack.cpp:29]   --->   Operation 47 'extractvalue' 'in_pixel_data_6' <Predicate = (!delayed_last & !last_8 & !in_pixel_last & !in_pixel_last_4)> <Delay = 0.00>
+ST_3 : Operation 48 [1/1] (0.00ns)   --->   "%in_pixel_user_6 = extractvalue i32 %empty_35" [pixel_pack/pixel_pack.cpp:29]   --->   Operation 48 'extractvalue' 'in_pixel_user_6' <Predicate = (!delayed_last & !last_8 & !in_pixel_last & !in_pixel_last_4)> <Delay = 0.00>
+ST_3 : Operation 49 [1/1] (0.00ns)   --->   "%in_pixel_last_5 = extractvalue i32 %empty_35" [pixel_pack/pixel_pack.cpp:29]   --->   Operation 49 'extractvalue' 'in_pixel_last_5' <Predicate = (!delayed_last & !last_8 & !in_pixel_last & !in_pixel_last_4)> <Delay = 0.00>
+ST_3 : Operation 50 [1/1] (0.00ns)   --->   "%buffer_2 = partset i96 @_ssdm_op_PartSet.i96.i96.i24.i32.i32, i96 %buffer_1, i24 %in_pixel_data_6, i32 48, i32 71" [pixel_pack/pixel_pack.cpp:30]   --->   Operation 50 'partset' 'buffer_2' <Predicate = (!delayed_last & !last_8 & !in_pixel_last & !in_pixel_last_4)> <Delay = 0.00>
+ST_3 : Operation 51 [1/1] (0.00ns)   --->   "%has_user_2 = bitset i4 @_ssdm_op_BitSet.i4.i4.i32.i1, i4 %has_user_1, i32 2, i1 %in_pixel_user_6" [pixel_pack/pixel_pack.cpp:31]   --->   Operation 51 'bitset' 'has_user_2' <Predicate = (!delayed_last & !last_8 & !in_pixel_last & !in_pixel_last_4)> <Delay = 0.00>
+ST_3 : Operation 52 [1/1] (0.00ns)   --->   "%trunc_ln26_2 = trunc i4 %has_user_2" [pixel_pack/pixel_pack.cpp:26]   --->   Operation 52 'trunc' 'trunc_ln26_2' <Predicate = (!delayed_last & !last_8 & !in_pixel_last & !in_pixel_last_4)> <Delay = 0.00>
+ST_3 : Operation 53 [1/1] (0.00ns)   --->   "%has_last_2 = bitset i4 @_ssdm_op_BitSet.i4.i4.i32.i1, i4 %has_last_1, i32 2, i1 %in_pixel_last_5" [pixel_pack/pixel_pack.cpp:32]   --->   Operation 53 'bitset' 'has_last_2' <Predicate = (!delayed_last & !last_8 & !in_pixel_last & !in_pixel_last_4)> <Delay = 0.00>
+ST_3 : Operation 54 [1/1] (1.82ns)   --->   "%br_ln28 = br i1 %in_pixel_last_5, void %if.then.3, void %for.inc27" [pixel_pack/pixel_pack.cpp:28]   --->   Operation 54 'br' 'br_ln28' <Predicate = (!delayed_last & !last_8 & !in_pixel_last & !in_pixel_last_4)> <Delay = 1.82>
+
+State 4 <SV = 3> <Delay = 3.41>
+ST_4 : Operation 55 [1/1] (0.00ns)   --->   "%empty_36 = read i32 @_ssdm_op_Read.axis.volatile.i24P0A.i3P0A.i3P0A.i1P0A.i1P0A, i24 %stream_in_24_V_data_V, i3 %stream_in_24_V_keep_V, i3 %stream_in_24_V_strb_V, i1 %stream_in_24_V_user_V, i1 %stream_in_24_V_last_V" [pixel_pack/pixel_pack.cpp:29]   --->   Operation 55 'read' 'empty_36' <Predicate = (!delayed_last & !last_8 & !in_pixel_last & !in_pixel_last_4 & !in_pixel_last_5)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 115 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_4 : Operation 56 [1/1] (0.00ns)   --->   "%in_pixel_data_7 = extractvalue i32 %empty_36" [pixel_pack/pixel_pack.cpp:29]   --->   Operation 56 'extractvalue' 'in_pixel_data_7' <Predicate = (!delayed_last & !last_8 & !in_pixel_last & !in_pixel_last_4 & !in_pixel_last_5)> <Delay = 0.00>
+ST_4 : Operation 57 [1/1] (0.00ns)   --->   "%in_pixel_last_6 = extractvalue i32 %empty_36" [pixel_pack/pixel_pack.cpp:29]   --->   Operation 57 'extractvalue' 'in_pixel_last_6' <Predicate = (!delayed_last & !last_8 & !in_pixel_last & !in_pixel_last_4 & !in_pixel_last_5)> <Delay = 0.00>
+ST_4 : Operation 58 [1/1] (0.00ns)   --->   "%buffer_3 = bitconcatenate i96 @_ssdm_op_BitConcatenate.i96.i24.i24.i24.i24, i24 %in_pixel_data_7, i24 %in_pixel_data_6, i24 %in_pixel_data_5, i24 %in_pixel_data" [pixel_pack/pixel_pack.cpp:30]   --->   Operation 58 'bitconcatenate' 'buffer_3' <Predicate = (!delayed_last & !last_8 & !in_pixel_last & !in_pixel_last_4 & !in_pixel_last_5)> <Delay = 0.00>
+ST_4 : Operation 59 [1/1] (0.00ns)   --->   "%has_user_3 = bitconcatenate i3 @_ssdm_op_BitConcatenate.i3.i1.i1.i1, i1 %in_pixel_user_6, i1 %in_pixel_user_5, i1 %in_pixel_user" [pixel_pack/pixel_pack.cpp:31]   --->   Operation 59 'bitconcatenate' 'has_user_3' <Predicate = (!delayed_last & !last_8 & !in_pixel_last & !in_pixel_last_4 & !in_pixel_last_5)> <Delay = 0.00>
+ST_4 : Operation 60 [1/1] (0.00ns)   --->   "%has_last_3 = bitconcatenate i4 @_ssdm_op_BitConcatenate.i4.i1.i3, i1 %in_pixel_last_6, i3 0" [pixel_pack/pixel_pack.cpp:32]   --->   Operation 60 'bitconcatenate' 'has_last_3' <Predicate = (!delayed_last & !last_8 & !in_pixel_last & !in_pixel_last_4 & !in_pixel_last_5)> <Delay = 0.00>
+ST_4 : Operation 61 [1/1] (1.82ns)   --->   "%br_ln34 = br void %for.inc27" [pixel_pack/pixel_pack.cpp:34]   --->   Operation 61 'br' 'br_ln34' <Predicate = (!delayed_last & !last_8 & !in_pixel_last & !in_pixel_last_4 & !in_pixel_last_5)> <Delay = 1.82>
+ST_4 : Operation 62 [1/1] (0.00ns)   --->   "%buffer_1_3_ph = phi i96 %buffer_3, void %if.then.3, i96 %buffer, void %if.then, i96 %buffer_1, void %if.then.1, i96 %buffer_2, void %if.then.2"   --->   Operation 62 'phi' 'buffer_1_3_ph' <Predicate = (!delayed_last & !last_8)> <Delay = 0.00>
+ST_4 : Operation 63 [1/1] (0.00ns)   --->   "%has_last_1_3_ph = phi i4 %has_last_3, void %if.then.3, i4 %has_last, void %if.then, i4 %has_last_1, void %if.then.1, i4 %has_last_2, void %if.then.2"   --->   Operation 63 'phi' 'has_last_1_3_ph' <Predicate = (!delayed_last & !last_8)> <Delay = 0.00>
+ST_4 : Operation 64 [1/1] (0.00ns)   --->   "%has_user_1_3_ph = phi i3 %has_user_3, void %if.then.3, i3 %trunc_ln26, void %if.then, i3 %trunc_ln26_1, void %if.then.1, i3 %trunc_ln26_2, void %if.then.2"   --->   Operation 64 'phi' 'has_user_1_3_ph' <Predicate = (!delayed_last & !last_8)> <Delay = 0.00>
+ST_4 : Operation 65 [1/1] (0.00ns)   --->   "%last_2_3_ph = phi i1 %in_pixel_last_6, void %if.then.3, i1 1, void %if.then, i1 1, void %if.then.1, i1 1, void %if.then.2"   --->   Operation 65 'phi' 'last_2_3_ph' <Predicate = (!delayed_last & !last_8)> <Delay = 0.00>
+ST_4 : Operation 66 [1/1] (0.00ns)   --->   "%out_pixel_user = trunc i3 %has_user_1_3_ph" [pixel_pack/pixel_pack.cpp:38]   --->   Operation 66 'trunc' 'out_pixel_user' <Predicate = (!delayed_last & !last_8)> <Delay = 0.00>
+ST_4 : Operation 67 [1/1] (0.00ns)   --->   "%out_pixel_data = trunc i96 %buffer_1_3_ph" [pixel_pack/pixel_pack.cpp:38]   --->   Operation 67 'trunc' 'out_pixel_data' <Predicate = (!delayed_last & !last_8)> <Delay = 0.00>
+ST_4 : Operation 68 [1/1] (0.00ns)   --->   "%out_pixel_last = bitselect i1 @_ssdm_op_BitSelect.i1.i4.i32, i4 %has_last_1_3_ph, i32 1" [pixel_pack/pixel_pack.cpp:40]   --->   Operation 68 'bitselect' 'out_pixel_last' <Predicate = (!delayed_last & !last_8)> <Delay = 0.00>
+ST_4 : Operation 69 [1/1] (0.00ns)   --->   "%write_ln41 = write void @_ssdm_op_Write.axis.volatile.i32P0A.i4P0A.i4P0A.i1P0A.i1P0A, i32 %stream_out_32_V_data_V, i4 %stream_out_32_V_keep_V, i4 %stream_out_32_V_strb_V, i1 %stream_out_32_V_user_V, i1 %stream_out_32_V_last_V, i32 %out_pixel_data, i4 0, i4 0, i1 %out_pixel_user, i1 %out_pixel_last" [pixel_pack/pixel_pack.cpp:41]   --->   Operation 69 'write' 'write_ln41' <Predicate = (!delayed_last & !last_8)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 115 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_4 : Operation 70 [1/1] (0.00ns)   --->   "%out_pixel_data_1 = partselect i32 @_ssdm_op_PartSelect.i32.i96.i32.i32, i96 %buffer_1_3_ph, i32 32, i32 63" [pixel_pack/pixel_pack.cpp:38]   --->   Operation 70 'partselect' 'out_pixel_data_1' <Predicate = (!delayed_last & !last_8)> <Delay = 0.00>
+ST_4 : Operation 71 [1/1] (0.00ns)   --->   "%out_pixel_user_1 = bitselect i1 @_ssdm_op_BitSelect.i1.i3.i32, i3 %has_user_1_3_ph, i32 1" [pixel_pack/pixel_pack.cpp:39]   --->   Operation 71 'bitselect' 'out_pixel_user_1' <Predicate = (!delayed_last & !last_8)> <Delay = 0.00>
+ST_4 : Operation 72 [1/1] (0.00ns)   --->   "%out_pixel_last_1 = bitselect i1 @_ssdm_op_BitSelect.i1.i4.i32, i4 %has_last_1_3_ph, i32 2" [pixel_pack/pixel_pack.cpp:40]   --->   Operation 72 'bitselect' 'out_pixel_last_1' <Predicate = (!delayed_last & !last_8)> <Delay = 0.00>
+ST_4 : Operation 73 [1/1] (0.00ns)   --->   "%out_pixel_data_2 = partselect i32 @_ssdm_op_PartSelect.i32.i96.i32.i32, i96 %buffer_1_3_ph, i32 64, i32 95" [pixel_pack/pixel_pack.cpp:38]   --->   Operation 73 'partselect' 'out_pixel_data_2' <Predicate = (!delayed_last & !last_8)> <Delay = 0.00>
+ST_4 : Operation 74 [1/1] (0.00ns)   --->   "%out_pixel_user_2 = bitselect i1 @_ssdm_op_BitSelect.i1.i3.i32, i3 %has_user_1_3_ph, i32 2" [pixel_pack/pixel_pack.cpp:39]   --->   Operation 74 'bitselect' 'out_pixel_user_2' <Predicate = (!delayed_last & !last_8)> <Delay = 0.00>
+ST_4 : Operation 75 [1/1] (0.00ns)   --->   "%out_pixel_last_2 = bitselect i1 @_ssdm_op_BitSelect.i1.i4.i32, i4 %has_last_1_3_ph, i32 3" [pixel_pack/pixel_pack.cpp:40]   --->   Operation 75 'bitselect' 'out_pixel_last_2' <Predicate = (!delayed_last & !last_8)> <Delay = 0.00>
+ST_4 : Operation 76 [1/1] (1.58ns)   --->   "%br_ln43 = br void %if.end30" [pixel_pack/pixel_pack.cpp:43]   --->   Operation 76 'br' 'br_ln43' <Predicate = (!delayed_last & !last_8)> <Delay = 1.58>
+ST_4 : Operation 77 [1/1] (0.00ns)   --->   "%last_2_3853 = phi i1 %last_2_3_ph, void %for.inc27, i1 1, void %for.body" [pixel_pack/pixel_pack.cpp:29]   --->   Operation 77 'phi' 'last_2_3853' <Predicate = (!delayed_last)> <Delay = 0.00>
+ST_4 : Operation 78 [1/1] (0.00ns)   --->   "%br_ln21 = br void %while.cond" [pixel_pack/pixel_pack.cpp:21]   --->   Operation 78 'br' 'br_ln21' <Predicate = (!delayed_last)> <Delay = 0.00>
+
+State 5 <SV = 4> <Delay = 0.00>
+ST_5 : Operation 79 [1/1] (0.00ns)   --->   "%write_ln41 = write void @_ssdm_op_Write.axis.volatile.i32P0A.i4P0A.i4P0A.i1P0A.i1P0A, i32 %stream_out_32_V_data_V, i4 %stream_out_32_V_keep_V, i4 %stream_out_32_V_strb_V, i1 %stream_out_32_V_user_V, i1 %stream_out_32_V_last_V, i32 %out_pixel_data_1, i4 0, i4 0, i1 %out_pixel_user_1, i1 %out_pixel_last_1" [pixel_pack/pixel_pack.cpp:41]   --->   Operation 79 'write' 'write_ln41' <Predicate = (!delayed_last & !last_8)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 115 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+
+State 6 <SV = 5> <Delay = 0.00>
+ST_6 : Operation 80 [1/1] (0.00ns)   --->   "%write_ln41 = write void @_ssdm_op_Write.axis.volatile.i32P0A.i4P0A.i4P0A.i1P0A.i1P0A, i32 %stream_out_32_V_data_V, i4 %stream_out_32_V_keep_V, i4 %stream_out_32_V_strb_V, i1 %stream_out_32_V_user_V, i1 %stream_out_32_V_last_V, i32 %out_pixel_data_2, i4 0, i4 0, i1 %out_pixel_user_2, i1 %out_pixel_last_2" [pixel_pack/pixel_pack.cpp:41]   --->   Operation 80 'write' 'write_ln41' <Predicate = (!delayed_last & !last_8)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 115 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 7.000ns, clock uncertainty: 1.890ns.
+
+ <State 1>: 3.176ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('last', pixel_pack/pixel_pack.cpp:29) with incoming values : ('in_pixel.last', pixel_pack/pixel_pack.cpp:29) [26]  (1.588 ns)
+	'phi' operation ('last', pixel_pack/pixel_pack.cpp:29) with incoming values : ('in_pixel.last', pixel_pack/pixel_pack.cpp:29) [26]  (0.000 ns)
+	multiplexor before 'phi' operation ('last_2_3853', pixel_pack/pixel_pack.cpp:29) with incoming values : ('in_pixel.last', pixel_pack/pixel_pack.cpp:29) [89]  (1.588 ns)
+
+ <State 2>: 0.000ns
+The critical path consists of the following:
+
+ <State 3>: 1.827ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('buffer') with incoming values : ('buffer', pixel_pack/pixel_pack.cpp:30) [71]  (1.827 ns)
+
+ <State 4>: 3.415ns
+The critical path consists of the following:
+	axis read operation ('empty_36', pixel_pack/pixel_pack.cpp:29) on port 'stream_in_24_V_data_V' (pixel_pack/pixel_pack.cpp:29) [63]  (0.000 ns)
+	multiplexor before 'phi' operation ('in_pixel.last') with incoming values : ('in_pixel.last', pixel_pack/pixel_pack.cpp:29) [74]  (1.827 ns)
+	'phi' operation ('in_pixel.last') with incoming values : ('in_pixel.last', pixel_pack/pixel_pack.cpp:29) [74]  (0.000 ns)
+	multiplexor before 'phi' operation ('last_2_3853', pixel_pack/pixel_pack.cpp:29) with incoming values : ('in_pixel.last', pixel_pack/pixel_pack.cpp:29) [89]  (1.588 ns)
+	'phi' operation ('last_2_3853', pixel_pack/pixel_pack.cpp:29) with incoming values : ('in_pixel.last', pixel_pack/pixel_pack.cpp:29) [89]  (0.000 ns)
+
+ <State 5>: 0.000ns
+The critical path consists of the following:
+
+ <State 6>: 0.000ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
