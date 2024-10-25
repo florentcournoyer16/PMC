@@ -120,12 +120,14 @@ def __append_output_stream_dispatch__(code_segments):
 		output_layer();
 
 		for(INDEX_TYPE i = 0; i < NEURONS_MEMBRANE_LENGHT; i++)
+        {
 			out_pkts[i] = in_pkts[0];
 			out_pkts[i].data = NEURONS_MEMBRANE[i];
-			output_stream.write(out_pkts[i]);
+			out_stream.write(out_pkts[i]);
+        }
 
 
-		if(input_buffer.last)
+		if(in_pkts[INPUT_LENGHT-1].last)
 			break;
 	}
 """)
@@ -332,7 +334,7 @@ void write_probe_file(void)
         return;
     }
     for(INDEX_TYPE i = 0; i < MEMBRANE_PROBE_CURRENT_INDEX; i++)
-        probe_file << MEMBRANE_PROBE[i] << ",\n";
+        probe_file << MEMBRANE_PROBE[i] << ",";
     MEMBRANE_PROBE_CURRENT_INDEX = 0;
 }
 

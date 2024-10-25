@@ -1,22 +1,15 @@
-#include "../inc/model_LIGHT_SENSOR_3.h"
-
-#include <iostream>
-#include <fstream>
-#include <stdio.h>
-
+#include "../inc/model_FINAL_CLIENT.h"
 void input_layer(pkt input_pkts[INPUT_LENGHT]);
 void inner_layer_1(void);
 void inner_layer_2(void);
 void inner_layer_3(void);
+void inner_layer_4(void);
 void output_layer(void);
 
 void leak_neuron(INDEX_TYPE layer_index, INDEX_TYPE neuron_index);
 void update_neuron_state_reset_membrane(INDEX_TYPE layer_index, INDEX_TYPE neuron_index);
 void reset_neuron_states(INDEX_TYPE layer_index);
 void update_membrane_probe(INDEX_TYPE neuron_index);
-
-void write_probe_file(void);
-std::ofstream probe_file;
 
 
 void RNI(pkt_stream& in_stream, pkt_stream& out_stream)
@@ -29,7 +22,6 @@ void RNI(pkt_stream& in_stream, pkt_stream& out_stream)
 	pkt in_pkts[INPUT_LENGHT];
 	pkt out_pkts[OUTPUT_LENGHT];
 
-	probe_file.open(MEMBRANE_PROBE_OUTPUT_FILEPATH);
 
 	while(true)
 	{
@@ -41,6 +33,7 @@ void RNI(pkt_stream& in_stream, pkt_stream& out_stream)
 		inner_layer_1();
 		inner_layer_2();
 		inner_layer_3();
+		inner_layer_4();
 
 		output_layer();
 
@@ -55,9 +48,6 @@ void RNI(pkt_stream& in_stream, pkt_stream& out_stream)
 		if(in_pkts[INPUT_LENGHT-1].last)
 			break;
 	}
-
-	write_probe_file();
-	probe_file.close();
 
     return;
 }
@@ -74,7 +64,6 @@ void input_layer(pkt input_pkts[INPUT_LENGHT])
 		{
 			NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index] * input_pkts[weight_index % INPUT_LENGHT].data;
 		}
-		update_membrane_probe(neuron_index);
 
         update_neuron_state_reset_membrane(layer_index, neuron_index);
     }
@@ -93,7 +82,6 @@ void inner_layer_1(void)
 			if(neuron_state == 1)
 				NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
 		}
-		update_membrane_probe(neuron_index);
 
         update_neuron_state_reset_membrane(layer_index, neuron_index);
 	}
@@ -113,7 +101,6 @@ void inner_layer_2(void)
 			if(neuron_state == 1)
 				NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
 		}
-		update_membrane_probe(neuron_index);
 
         update_neuron_state_reset_membrane(layer_index, neuron_index);
 	}
@@ -133,7 +120,25 @@ void inner_layer_3(void)
 			if(neuron_state == 1)
 				NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
 		}
-		update_membrane_probe(neuron_index);
+
+        update_neuron_state_reset_membrane(layer_index, neuron_index);
+	}
+	reset_neuron_states(layer_index-1);
+}
+
+
+void inner_layer_4(void)
+{
+	INDEX_TYPE layer_index = 4;
+	NEURONS_LOOP_4: for(INDEX_TYPE neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1];  neuron_index++)
+	{
+		leak_neuron(layer_index, neuron_index);
+		WEIGHTS_LOOP_4: for(INDEX_TYPE weight_index = WEIGHTS_INDEX[neuron_index]; weight_index <  WEIGHTS_INDEX[neuron_index + 1]; weight_index++)
+		{
+			STATE_TYPE neuron_state = NEURONS_STATE[NEURONS_INDEX[layer_index - 1] + weight_index - WEIGHTS_INDEX[neuron_index]];
+			if(neuron_state == 1)
+				NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
+		}
 
         update_neuron_state_reset_membrane(layer_index, neuron_index);
 	}
@@ -144,16 +149,15 @@ void inner_layer_3(void)
 void output_layer(void)
 {
 	INDEX_TYPE layer_index = NEURONS_INDEX_LENGHT - 2;
-	NEURONS_LOOP_4: for(INDEX_TYPE neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1];  neuron_index++)
+	NEURONS_LOOP_5: for(INDEX_TYPE neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1];  neuron_index++)
     {
 		leak_neuron(layer_index, neuron_index);
-		WEIGHTS_LOOP_4: for(INDEX_TYPE weight_index = WEIGHTS_INDEX[neuron_index]; weight_index <  WEIGHTS_INDEX[neuron_index + 1]; weight_index++)
+		WEIGHTS_LOOP_5: for(INDEX_TYPE weight_index = WEIGHTS_INDEX[neuron_index]; weight_index <  WEIGHTS_INDEX[neuron_index + 1]; weight_index++)
         {
 			STATE_TYPE neuron_state = NEURONS_STATE[NEURONS_INDEX[layer_index - 1] + weight_index - WEIGHTS_INDEX[neuron_index]];
 			if(neuron_state == 1)
 				NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
 		}
-		update_membrane_probe(neuron_index);
 
         update_neuron_state_reset_membrane(layer_index, neuron_index);
 	}
@@ -187,29 +191,4 @@ void reset_neuron_states(INDEX_TYPE layer_index)
 {
 	NEURONS_STATE_RESET_LOOP: for(INDEX_TYPE neuron_state_index = NEURONS_INDEX[layer_index]; neuron_state_index < NEURONS_INDEX[layer_index];  neuron_state_index++)
 		NEURONS_STATE[neuron_state_index] = 0;
-}
-
-
-void update_membrane_probe(INDEX_TYPE neuron_index)
-{
-	if(neuron_index == MEMBRANE_PROBE_NEURON_INDEX)
-	{
-		if(MEMBRANE_PROBE_NEURON_INDEX == MEMBRANE_PROBE_LENGHT-1)
-			write_probe_file();
-		MEMBRANE_PROBE[MEMBRANE_PROBE_CURRENT_INDEX] = NEURONS_MEMBRANE[neuron_index];
-		MEMBRANE_PROBE_CURRENT_INDEX++; 
-	}
-}
-
-
-void write_probe_file(void)
-{
-    if (&probe_file == NULL)
-    {
-        std::cout << "Error with probe file" << std::endl;
-        return;
-    }
-    for(INDEX_TYPE i = 0; i < MEMBRANE_PROBE_CURRENT_INDEX; i++)
-        probe_file << MEMBRANE_PROBE[i] << ",";
-    MEMBRANE_PROBE_CURRENT_INDEX = 0;
 }
