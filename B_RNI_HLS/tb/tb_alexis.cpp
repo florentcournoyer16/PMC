@@ -10,13 +10,14 @@ typedef hls::stream<pkt> pkt_stream;
 
 #define BASE_TYPE_LENGHTT 8
 #define BASE_TYPEE ap_int< BASE_TYPE_LENGHTT >
-#define INPUT_LAYER_LENGHTT 4
-#define OUTPUT_LAYER_LENGHTT 964
+#define INPUT_LAYER_LENGHTT 8
+#define OUTPUT_LAYER_LENGHTT 424
 #define WINDOW_LENGHT 128
-#define INPUT_FILENAME "left_side_seizure_encode_test_set.csv"
+//#define INPUT_FILENAME "left_side_seizure_encode_test_set.csv"
+#define INPUT_FILENAME "inputs.csv"
 #define OUTPUT_FILENAME "../../../../tb/tb_output.txt"
 
-void RNI_DMA(pkt_stream& in_stream, pkt_stream& out_stream);
+void RNI(pkt_stream& in_stream, pkt_stream& out_stream);
 
 void printBinary(unsigned char num) {
     for(int i = 7; i >= 0; i--) {
@@ -100,7 +101,7 @@ int main(void)
 			input_stream.write(input_buffer[row*INPUT_LAYER_LENGHTT+col]);
 		}
 
-		RNI_DMA(input_stream, output_stream);
+		RNI(input_stream, output_stream);
 
 		for(int col = 0; col < OUTPUT_LAYER_LENGHTT; col++){
 			output_stream.read(output_buffer[row*OUTPUT_LAYER_LENGHTT+col]);

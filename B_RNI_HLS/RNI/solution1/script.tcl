@@ -6,8 +6,8 @@
 ############################################################
 open_project RNI
 set_top RNI
-add_files src/RNI_test_comm_dma.cpp
-add_files inc/model_test_comm_dma.h
+add_files src/model_FINAL_CLIENT.cpp
+add_files inc/model_FINAL_CLIENT.h
 add_files -tb tb/inputs.csv -cflags "-Wno-unknown-pragmas"
 add_files -tb tb/left_side_no_seizure_encode_test_set.csv -cflags "-Wno-unknown-pragmas"
 add_files -tb tb/left_side_seizure_encode_test_set.csv -cflags "-Wno-unknown-pragmas"

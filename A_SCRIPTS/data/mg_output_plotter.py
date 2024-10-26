@@ -2,7 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Load data from a CSV file
-file_path = "A_SCRIPTS/data/output/MG_FIRST_OUTPUTS.txt"  # Replace with your file path
+file_path = "A_SCRIPTS/data/input/output_FINAL_CLIENT.csv"
+#file_path = "A_SCRIPTS/data/input/tb_output3.txt"  # Replace with your file path
 data = np.genfromtxt(file_path, delimiter=",")
 
 # Time vector (10 steps, 0.05 ms apart)
@@ -30,4 +31,9 @@ def plot_neurons(neuron_indices):
     plt.show()
 
 # Example usage: plot neurons 1, 2, and 3
-plot_neurons(np.arange(953, 963, 1))
+plot_neurons(np.arange(1, 129, 1))
+plot_neurons(np.arange(129, 193, 1))
+plot_neurons(np.arange(193, 225, 1))
+plot_neurons(np.arange(225, 289, 1))
+plot_neurons(np.arange(289, 417, 1))
+plot_neurons(np.arange(417, 425, 1))
