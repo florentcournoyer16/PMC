@@ -34,7 +34,7 @@ def __append_main_function__(code_segments, output_model_dict, add_membrane_prob
 
 def __append_inclusions__(code_segments, network_name, add_membrane_probe):
     code_segments.append(f'#include "../inc/{network_name}.h"\n\n')
-    code_segments.append('#include "hls_math"\n\n')
+    code_segments.append('#include "hls_math.h"\n\n')
     if add_membrane_probe:
         __append_debugging_probe_inclusions__(code_segments)
 
