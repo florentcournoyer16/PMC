@@ -11,7 +11,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 7 \
+    id 10 \
     name in_stream_V_data_V \
     reset_level 1 \
     sync_rst true \
@@ -30,7 +30,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 8 \
+    id 11 \
     name in_stream_V_keep_V \
     reset_level 1 \
     sync_rst true \
@@ -49,7 +49,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 9 \
+    id 12 \
     name in_stream_V_strb_V \
     reset_level 1 \
     sync_rst true \
@@ -68,7 +68,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 10 \
+    id 13 \
     name in_stream_V_user_V \
     reset_level 1 \
     sync_rst true \
@@ -87,7 +87,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 11 \
+    id 14 \
     name in_stream_V_last_V \
     reset_level 1 \
     sync_rst true \
@@ -106,7 +106,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 12 \
+    id 15 \
     name in_stream_V_id_V \
     reset_level 1 \
     sync_rst true \
@@ -125,7 +125,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 13 \
+    id 16 \
     name in_stream_V_dest_V \
     reset_level 1 \
     sync_rst true \
@@ -144,14 +144,14 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 1 \
-    name in_pkts_dest_0_075 \
+    name in_pkts_data_3_04 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_in_pkts_dest_0_075 \
+    corename dc_in_pkts_data_3_04 \
     op interface \
-    ports { in_pkts_dest_0_075 { I 6 vector } } \
+    ports { in_pkts_data_3_04 { I 32 vector } } \
 } "
 }
 
@@ -159,14 +159,14 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 2 \
-    name in_pkts_id_0_074 \
+    name in_pkts_data_2_03 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_in_pkts_id_0_074 \
+    corename dc_in_pkts_data_2_03 \
     op interface \
-    ports { in_pkts_id_0_074 { I 5 vector } } \
+    ports { in_pkts_data_2_03 { I 32 vector } } \
 } "
 }
 
@@ -174,14 +174,14 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 3 \
-    name in_pkts_user_0_073 \
+    name in_pkts_data_1_02 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_in_pkts_user_0_073 \
+    corename dc_in_pkts_data_1_02 \
     op interface \
-    ports { in_pkts_user_0_073 { I 2 vector } } \
+    ports { in_pkts_data_1_02 { I 32 vector } } \
 } "
 }
 
@@ -189,14 +189,14 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 4 \
-    name in_pkts_strb_0_072 \
+    name in_pkts_data_0_01 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_in_pkts_strb_0_072 \
+    corename dc_in_pkts_data_0_01 \
     op interface \
-    ports { in_pkts_strb_0_072 { I 4 vector } } \
+    ports { in_pkts_data_0_01 { I 32 vector } } \
 } "
 }
 
@@ -204,14 +204,14 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 5 \
-    name in_pkts_keep_0_071 \
+    name in_pkts_dest_0_072 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_in_pkts_keep_0_071 \
+    corename dc_in_pkts_dest_0_072 \
     op interface \
-    ports { in_pkts_keep_0_071 { I 4 vector } } \
+    ports { in_pkts_dest_0_072 { I 6 vector } } \
 } "
 }
 
@@ -219,21 +219,126 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 6 \
-    name in_pkts_data_0_070 \
+    name in_pkts_id_0_071 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_in_pkts_data_0_070 \
+    corename dc_in_pkts_id_0_071 \
     op interface \
-    ports { in_pkts_data_0_070 { I 32 vector } } \
+    ports { in_pkts_id_0_071 { I 5 vector } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 14 \
+    id 7 \
+    name in_pkts_user_0_070 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_in_pkts_user_0_070 \
+    op interface \
+    ports { in_pkts_user_0_070 { I 2 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 8 \
+    name in_pkts_strb_0_069 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_in_pkts_strb_0_069 \
+    op interface \
+    ports { in_pkts_strb_0_069 { I 4 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 9 \
+    name in_pkts_keep_0_068 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_in_pkts_keep_0_068 \
+    op interface \
+    ports { in_pkts_keep_0_068 { I 4 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 17 \
+    name in_pkts_data_3_1_out \
+    type other \
+    dir O \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_in_pkts_data_3_1_out \
+    op interface \
+    ports { in_pkts_data_3_1_out { O 32 vector } in_pkts_data_3_1_out_ap_vld { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 18 \
+    name in_pkts_data_2_1_out \
+    type other \
+    dir O \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_in_pkts_data_2_1_out \
+    op interface \
+    ports { in_pkts_data_2_1_out { O 32 vector } in_pkts_data_2_1_out_ap_vld { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 19 \
+    name in_pkts_data_1_1_out \
+    type other \
+    dir O \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_in_pkts_data_1_1_out \
+    op interface \
+    ports { in_pkts_data_1_1_out { O 32 vector } in_pkts_data_1_1_out_ap_vld { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 20 \
+    name in_pkts_data_0_1_out \
+    type other \
+    dir O \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_in_pkts_data_0_1_out \
+    op interface \
+    ports { in_pkts_data_0_1_out { O 32 vector } in_pkts_data_0_1_out_ap_vld { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 21 \
     name out_pkts_dest_out \
     type other \
     dir O \
@@ -248,7 +353,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 15 \
+    id 22 \
     name out_pkts_id_out \
     type other \
     dir O \
@@ -263,7 +368,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 16 \
+    id 23 \
     name out_pkts_user_out \
     type other \
     dir O \
@@ -278,7 +383,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 17 \
+    id 24 \
     name out_pkts_strb_out \
     type other \
     dir O \
@@ -293,7 +398,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 18 \
+    id 25 \
     name out_pkts_keep_out \
     type other \
     dir O \
@@ -302,21 +407,6 @@ eval "cg_default_interface_gen_dc { \
     corename dc_out_pkts_keep_out \
     op interface \
     ports { out_pkts_keep_out { O 4 vector } out_pkts_keep_out_ap_vld { O 1 bit } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 19 \
-    name out_pkts_data_out \
-    type other \
-    dir O \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_out_pkts_data_out \
-    op interface \
-    ports { out_pkts_data_out { O 32 vector } out_pkts_data_out_ap_vld { O 1 bit } } \
 } "
 }
 

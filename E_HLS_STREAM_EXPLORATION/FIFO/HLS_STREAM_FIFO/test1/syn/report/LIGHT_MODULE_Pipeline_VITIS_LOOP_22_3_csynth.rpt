@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3'
 ================================================================
-* Date:           Wed Sep 18 18:08:31 2024
+* Date:           Wed Sep 25 16:02:04 2024
 
 * Version:        2023.1.1 (Build 3869133 on Jun 15 2023)
 * Project:        HLS_STREAM_FIFO
@@ -59,9 +59,9 @@
 |Instance         |        -|    -|       -|      -|    -|
 |Memory           |        -|    -|       -|      -|    -|
 |Multiplexer      |        -|    -|       -|     45|    -|
-|Register         |        -|    -|      16|      -|    -|
+|Register         |        -|    -|      48|      -|    -|
 +-----------------+---------+-----+--------+-------+-----+
-|Total            |        0|    0|      16|     80|    0|
+|Total            |        0|    0|      48|     80|    0|
 +-----------------+---------+-----+--------+-------+-----+
 |Available        |      280|  220|  106400|  53200|    0|
 +-----------------+---------+-----+--------+-------+-----+
@@ -85,9 +85,9 @@
     +---------------------------+----------+----+---+----+------------+------------+
     |       Variable Name       | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
     +---------------------------+----------+----+---+----+------------+------------+
-    |i_2_fu_156_p2              |         +|   0|  0|  14|          13|           1|
+    |i_3_fu_160_p2              |         +|   0|  0|  14|          13|           1|
     |ap_block_pp0_stage0_01001  |       and|   0|  0|   2|           1|           1|
-    |icmp_ln22_fu_150_p2        |      icmp|   0|  0|  17|          13|          14|
+    |icmp_ln22_fu_154_p2        |      icmp|   0|  0|  17|          13|          14|
     |ap_enable_pp0              |       xor|   0|  0|   2|           1|           2|
     +---------------------------+----------+----+---+----+------------+------------+
     |Total                      |          |   0|  0|  35|          28|          18|
@@ -99,7 +99,7 @@
     +-------------------------+----+-----------+-----+-----------+
     |ap_done_int              |   9|          2|    1|          2|
     |ap_enable_reg_pp0_iter1  |   9|          2|    1|          2|
-    |ap_sig_allocacmp_i_1     |   9|          2|   13|         26|
+    |ap_sig_allocacmp_i_2     |   9|          2|   13|         26|
     |i_fu_76                  |   9|          2|   13|         26|
     |out_stream_TDATA_blk_n   |   9|          2|    1|          2|
     +-------------------------+----+-----------+-----+-----------+
@@ -114,8 +114,9 @@
     |ap_done_reg              |   1|   0|    1|          0|
     |ap_enable_reg_pp0_iter1  |   1|   0|    1|          0|
     |i_fu_76                  |  13|   0|   13|          0|
+    |p_0_reg_203              |  32|   0|   32|          0|
     +-------------------------+----+----+-----+-----------+
-    |Total                    |  16|   0|   16|          0|
+    |Total                    |  48|   0|   48|          0|
     +-------------------------+----+----+-----+-----------+
 
 
@@ -135,7 +136,7 @@
 |ap_ready              |  out|    1|  ap_ctrl_hs|  LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3|  return value|
 |out_stream_TREADY     |   in|    1|        axis|                    out_stream_V_data_V|       pointer|
 |out_stream_TDATA      |  out|   32|        axis|                    out_stream_V_data_V|       pointer|
-|out_pkts_data_reload  |   in|   32|     ap_none|                   out_pkts_data_reload|        scalar|
+|sext_ln20             |   in|   31|     ap_none|                              sext_ln20|        scalar|
 |out_pkts_keep_reload  |   in|    4|     ap_none|                   out_pkts_keep_reload|        scalar|
 |out_pkts_strb_reload  |   in|    4|     ap_none|                   out_pkts_strb_reload|        scalar|
 |out_pkts_user_reload  |   in|    2|     ap_none|                   out_pkts_user_reload|        scalar|

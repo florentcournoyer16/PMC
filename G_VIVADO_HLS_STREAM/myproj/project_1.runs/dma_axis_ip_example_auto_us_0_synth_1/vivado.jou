@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.1.1 (64-bit)
+# SW Build 3900603 on Fri Jun 16 19:30:25 MDT 2023
+# IP Build 3900379 on Sat Jun 17 05:28:05 MDT 2023
+# SharedData Build 3899622 on Fri Jun 16 03:34:24 MDT 2023
+# Start of session at: Wed Sep 25 16:04:39 2024
+# Process ID: 27642
+# Current directory: /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.runs/dma_axis_ip_example_auto_us_0_synth_1
+# Command line: vivado -log dma_axis_ip_example_auto_us_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source dma_axis_ip_example_auto_us_0.tcl
+# Log file: /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.runs/dma_axis_ip_example_auto_us_0_synth_1/dma_axis_ip_example_auto_us_0.vds
+# Journal file: /home/mohr0901/Documents/PMC/G_VIVADO_HLS_STREAM/myproj/project_1.runs/dma_axis_ip_example_auto_us_0_synth_1/vivado.jou
+# Running On: GRAMS-NSOC, OS: Linux, CPU Frequency: 3788.440 MHz, CPU Physical cores: 4, Host memory: 16721 MB
+#-----------------------------------------------------------
+source dma_axis_ip_example_auto_us_0.tcl -notrace

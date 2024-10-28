@@ -7,7 +7,8 @@
       "name": "dma_axis_ip_example",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2023.1.1"
+      "tool_version": "2023.1.1",
+      "validated": "true"
     },
     "design_tree": {
       "axi_dma": "",
@@ -208,7 +209,7 @@
       "axi_dma": {
         "vlnv": "xilinx.com:ip:axi_dma:7.1",
         "xci_name": "dma_axis_ip_example_axi_dma_0",
-        "xci_path": "ip/dma_axis_ip_example_axi_dma_0_19/dma_axis_ip_example_axi_dma_0.xci",
+        "xci_path": "ip/dma_axis_ip_example_axi_dma_0/dma_axis_ip_example_axi_dma_0.xci",
         "inst_hier_path": "axi_dma",
         "parameters": {
           "c_include_sg": {
@@ -264,7 +265,7 @@
       },
       "axi_mem_intercon": {
         "vlnv": "xilinx.com:ip:axi_interconnect:2.1",
-        "xci_path": "ip/dma_axis_ip_example_axi_mem_intercon_0_19/dma_axis_ip_example_axi_mem_intercon_0.xci",
+        "xci_path": "ip/dma_axis_ip_example_axi_mem_intercon_0/dma_axis_ip_example_axi_mem_intercon_0.xci",
         "inst_hier_path": "axi_mem_intercon",
         "xci_name": "dma_axis_ip_example_axi_mem_intercon_0",
         "parameters": {
@@ -389,7 +390,7 @@
               "auto_pc": {
                 "vlnv": "xilinx.com:ip:axi_protocol_converter:2.1",
                 "xci_name": "dma_axis_ip_example_auto_pc_0",
-                "xci_path": "ip/dma_axis_ip_example_auto_pc_0_20/dma_axis_ip_example_auto_pc_0.xci",
+                "xci_path": "ip/dma_axis_ip_example_auto_pc_0/dma_axis_ip_example_auto_pc_0.xci",
                 "inst_hier_path": "axi_mem_intercon/s00_couplers/auto_pc",
                 "parameters": {
                   "MI_PROTOCOL": {
@@ -412,7 +413,7 @@
               "auto_us": {
                 "vlnv": "xilinx.com:ip:axi_dwidth_converter:2.1",
                 "xci_name": "dma_axis_ip_example_auto_us_0",
-                "xci_path": "ip/dma_axis_ip_example_auto_us_0_20/dma_axis_ip_example_auto_us_0.xci",
+                "xci_path": "ip/dma_axis_ip_example_auto_us_0/dma_axis_ip_example_auto_us_0.xci",
                 "inst_hier_path": "axi_mem_intercon/s00_couplers/auto_us",
                 "parameters": {
                   "MI_DATA_WIDTH": {
@@ -514,7 +515,7 @@
       },
       "axi_mem_intercon_1": {
         "vlnv": "xilinx.com:ip:axi_interconnect:2.1",
-        "xci_path": "ip/dma_axis_ip_example_axi_mem_intercon_1_0_19/dma_axis_ip_example_axi_mem_intercon_1_0.xci",
+        "xci_path": "ip/dma_axis_ip_example_axi_mem_intercon_1_0/dma_axis_ip_example_axi_mem_intercon_1_0.xci",
         "inst_hier_path": "axi_mem_intercon_1",
         "xci_name": "dma_axis_ip_example_axi_mem_intercon_1_0",
         "parameters": {
@@ -639,7 +640,7 @@
               "auto_pc": {
                 "vlnv": "xilinx.com:ip:axi_protocol_converter:2.1",
                 "xci_name": "dma_axis_ip_example_auto_pc_1",
-                "xci_path": "ip/dma_axis_ip_example_auto_pc_1_20/dma_axis_ip_example_auto_pc_1.xci",
+                "xci_path": "ip/dma_axis_ip_example_auto_pc_1/dma_axis_ip_example_auto_pc_1.xci",
                 "inst_hier_path": "axi_mem_intercon_1/s00_couplers/auto_pc",
                 "parameters": {
                   "MI_PROTOCOL": {
@@ -734,13 +735,13 @@
       "example_0": {
         "vlnv": "xilinx.com:hls:LIGHT_MODULE:1.0",
         "xci_name": "dma_axis_ip_example_example_0_0",
-        "xci_path": "ip/dma_axis_ip_example_example_0_0_19/dma_axis_ip_example_example_0_0.xci",
+        "xci_path": "ip/dma_axis_ip_example_example_0_0/dma_axis_ip_example_example_0_0.xci",
         "inst_hier_path": "example_0"
       },
       "processing_system7_0": {
         "vlnv": "xilinx.com:ip:processing_system7:5.5",
         "xci_name": "dma_axis_ip_example_processing_system7_0_0",
-        "xci_path": "ip/dma_axis_ip_example_processing_system7_0_0_19/dma_axis_ip_example_processing_system7_0_0.xci",
+        "xci_path": "ip/dma_axis_ip_example_processing_system7_0_0/dma_axis_ip_example_processing_system7_0_0.xci",
         "inst_hier_path": "processing_system7_0",
         "parameters": {
           "PCW_ACT_APU_PERIPHERAL_FREQMHZ": {
@@ -2504,7 +2505,7 @@
       },
       "ps7_0_axi_periph": {
         "vlnv": "xilinx.com:ip:axi_interconnect:2.1",
-        "xci_path": "ip/dma_axis_ip_example_ps7_0_axi_periph_0_19/dma_axis_ip_example_ps7_0_axi_periph_0.xci",
+        "xci_path": "ip/dma_axis_ip_example_ps7_0_axi_periph_0/dma_axis_ip_example_ps7_0_axi_periph_0.xci",
         "inst_hier_path": "ps7_0_axi_periph",
         "xci_name": "dma_axis_ip_example_ps7_0_axi_periph_0",
         "parameters": {
@@ -2596,7 +2597,7 @@
           "xbar": {
             "vlnv": "xilinx.com:ip:axi_crossbar:2.1",
             "xci_name": "dma_axis_ip_example_xbar_0",
-            "xci_path": "ip/dma_axis_ip_example_xbar_0_19/dma_axis_ip_example_xbar_0.xci",
+            "xci_path": "ip/dma_axis_ip_example_xbar_0/dma_axis_ip_example_xbar_0.xci",
             "inst_hier_path": "ps7_0_axi_periph/xbar",
             "parameters": {
               "NUM_MI": {
@@ -2671,7 +2672,7 @@
               "auto_pc": {
                 "vlnv": "xilinx.com:ip:axi_protocol_converter:2.1",
                 "xci_name": "dma_axis_ip_example_auto_pc_2",
-                "xci_path": "ip/dma_axis_ip_example_auto_pc_2_20/dma_axis_ip_example_auto_pc_2.xci",
+                "xci_path": "ip/dma_axis_ip_example_auto_pc_2/dma_axis_ip_example_auto_pc_2.xci",
                 "inst_hier_path": "ps7_0_axi_periph/s00_couplers/auto_pc",
                 "parameters": {
                   "MI_PROTOCOL": {
@@ -2902,7 +2903,7 @@
       "rst_ps7_0_100M": {
         "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
         "xci_name": "dma_axis_ip_example_rst_ps7_0_100M_0",
-        "xci_path": "ip/dma_axis_ip_example_rst_ps7_0_100M_0_19/dma_axis_ip_example_rst_ps7_0_100M_0.xci",
+        "xci_path": "ip/dma_axis_ip_example_rst_ps7_0_100M_0/dma_axis_ip_example_rst_ps7_0_100M_0.xci",
         "inst_hier_path": "rst_ps7_0_100M"
       }
     },

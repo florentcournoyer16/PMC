@@ -15,7 +15,7 @@ set DLRegItemOffset 0
 set C_modelName {LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3}
 set C_modelType { void 0 }
 set C_modelArgList {
-	{ out_pkts_data_reload int 32 regular  }
+	{ sext_ln20 int 31 regular  }
 	{ out_pkts_keep_reload int 4 regular  }
 	{ out_pkts_strb_reload int 4 regular  }
 	{ out_pkts_user_reload int 2 regular  }
@@ -31,7 +31,7 @@ set C_modelArgList {
 }
 set hasAXIMCache 0
 set C_modelArgMapList {[ 
-	{ "Name" : "out_pkts_data_reload", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
+	{ "Name" : "sext_ln20", "interface" : "wire", "bitwidth" : 31, "direction" : "READONLY"} , 
  	{ "Name" : "out_pkts_keep_reload", "interface" : "wire", "bitwidth" : 4, "direction" : "READONLY"} , 
  	{ "Name" : "out_pkts_strb_reload", "interface" : "wire", "bitwidth" : 4, "direction" : "READONLY"} , 
  	{ "Name" : "out_pkts_user_reload", "interface" : "wire", "bitwidth" : 2, "direction" : "READONLY"} , 
@@ -54,7 +54,7 @@ set portList {
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
 	{ out_stream_TREADY sc_in sc_logic 1 outacc 6 } 
-	{ out_pkts_data_reload sc_in sc_lv 32 signal 0 } 
+	{ sext_ln20 sc_in sc_lv 31 signal 0 } 
 	{ out_pkts_keep_reload sc_in sc_lv 4 signal 1 } 
 	{ out_pkts_strb_reload sc_in sc_lv 4 signal 2 } 
 	{ out_pkts_user_reload sc_in sc_lv 2 signal 3 } 
@@ -77,7 +77,7 @@ set NewPortList {[
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
  	{ "name": "out_stream_TREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "outacc", "bundle":{"name": "out_stream_V_data_V", "role": "default" }} , 
- 	{ "name": "out_pkts_data_reload", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "out_pkts_data_reload", "role": "default" }} , 
+ 	{ "name": "sext_ln20", "direction": "in", "datatype": "sc_lv", "bitwidth":31, "type": "signal", "bundle":{"name": "sext_ln20", "role": "default" }} , 
  	{ "name": "out_pkts_keep_reload", "direction": "in", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "out_pkts_keep_reload", "role": "default" }} , 
  	{ "name": "out_pkts_strb_reload", "direction": "in", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "out_pkts_strb_reload", "role": "default" }} , 
  	{ "name": "out_pkts_user_reload", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "out_pkts_user_reload", "role": "default" }} , 
@@ -108,7 +108,7 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "out_pkts_data_reload", "Type" : "None", "Direction" : "I"},
+			{"Name" : "sext_ln20", "Type" : "None", "Direction" : "I"},
 			{"Name" : "out_pkts_keep_reload", "Type" : "None", "Direction" : "I"},
 			{"Name" : "out_pkts_strb_reload", "Type" : "None", "Direction" : "I"},
 			{"Name" : "out_pkts_user_reload", "Type" : "None", "Direction" : "I"},
@@ -131,7 +131,7 @@ set RtlHierarchyInfo {[
 
 set ArgLastReadFirstWriteLatency {
 	LIGHT_MODULE_Pipeline_VITIS_LOOP_22_3 {
-		out_pkts_data_reload {Type I LastRead 0 FirstWrite -1}
+		sext_ln20 {Type I LastRead 0 FirstWrite -1}
 		out_pkts_keep_reload {Type I LastRead 0 FirstWrite -1}
 		out_pkts_strb_reload {Type I LastRead 0 FirstWrite -1}
 		out_pkts_user_reload {Type I LastRead 0 FirstWrite -1}
@@ -157,7 +157,7 @@ set PipelineEnableSignalInfo {[
 ]}
 
 set Spec2ImplPortList { 
-	out_pkts_data_reload { ap_none {  { out_pkts_data_reload in_data 0 32 } } }
+	sext_ln20 { ap_none {  { sext_ln20 in_data 0 31 } } }
 	out_pkts_keep_reload { ap_none {  { out_pkts_keep_reload in_data 0 4 } } }
 	out_pkts_strb_reload { ap_none {  { out_pkts_strb_reload in_data 0 4 } } }
 	out_pkts_user_reload { ap_none {  { out_pkts_user_reload in_data 0 2 } } }
