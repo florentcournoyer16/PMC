@@ -9,6 +9,7 @@ def write_code(code_filepath, network_name, output_model_dict, add_membrane_prob
     __append_output_layer_definition__(code_segments, output_model_dict, add_membrane_probe)
     __append_leak_neuron_definition__(code_segments)
     __append_update_neuron_state_reset_membrane_definition__(code_segments)
+    __append_reset_neuron_states_definition__(code_segments)
     __append_output_stream_dispatch_definition__(code_segments)
     if add_membrane_probe:
         __append_update_membrane_probe_definition__(code_segments)
@@ -62,7 +63,7 @@ def __append_declarations__(code_segments, output_model_dict, add_membrane_probe
     code_segments.append("void update_neuron_state_reset_membrane(INDEX_TYPE layer_index, INDEX_TYPE neuron_index);\n")
     code_segments.append("void reset_neuron_states(INDEX_TYPE layer_index);\n")
     code_segments.append("void update_membrane_probe(INDEX_TYPE neuron_index);\n")
-    code_segments.append("void output_stream_dispatch(pkt_stream& out_stream, pkt out_pkts[OUTPUT_LENGHT]);\n\n")
+    code_segments.append("void output_stream_dispatch(pkt_stream& out_stream, pkt out_pkts[OUTPUT_LENGHT], pkt in_pkts[INPUT_LENGHT]);\n\n")
     
     if add_membrane_probe:
         code_segments.append("void write_probe_file(void);\n")
@@ -110,7 +111,7 @@ def __append_RNI_function_calls__(code_segments, output_model_dict):
     code_segments.append("""
 		output_layer();
 
-        output_stream_dispatch(pkt_stream& out_stream, pkt out_pkts[OUTPUT_LENGHT]);
+        output_stream_dispatch(out_stream, out_pkts, in_pkts);
 
 		if(in_pkts[INPUT_LENGHT-1].last)
 			break;
@@ -296,7 +297,9 @@ def __append_reset_neuron_states_definition__(code_segments):
 void reset_neuron_states(INDEX_TYPE layer_index)
 {
 	NEURONS_STATE_RESET_LOOP: for(INDEX_TYPE neuron_state_index = NEURONS_INDEX[layer_index]; neuron_state_index < NEURONS_INDEX[layer_index + 1];  neuron_state_index++)
+    {
 		NEURONS_STATE[neuron_state_index] = 0;
+    }
 }
 
 """)
@@ -306,7 +309,7 @@ void reset_neuron_states(INDEX_TYPE layer_index)
 
 def __append_output_stream_dispatch_definition__(code_segments):
     code_segments.append("""
-void output_stream_dispatch(pkt_stream& out_stream, pkt out_pkts[OUTPUT_LENGHT])
+void output_stream_dispatch(pkt_stream& out_stream, pkt out_pkts[OUTPUT_LENGHT], pkt in_pkts[INPUT_LENGHT])
 {
     for(INDEX_TYPE i = 0; i < NEURONS_MEMBRANE_LENGHT; i++)
     {
@@ -317,7 +320,7 @@ void output_stream_dispatch(pkt_stream& out_stream, pkt out_pkts[OUTPUT_LENGHT])
     
     for (INDEX_TYPE i = NEURONS_MEMBRANE_LENGHT; i < OUTPUT_LENGHT; i++)
     {
-        out_pkts[i] = in_pkts[0]
+        out_pkts[i] = in_pkts[0];
         if(i == OUTPUT_LENGHT - 1)
         {
             out_pkts[i] = in_pkts[INPUT_LENGHT-1];
@@ -343,7 +346,9 @@ void update_membrane_probe(INDEX_TYPE neuron_index)
 	if(neuron_index == MEMBRANE_PROBE_NEURON_INDEX)
 	{
 		if(MEMBRANE_PROBE_NEURON_INDEX == MEMBRANE_PROBE_LENGHT-1)
+        {
 			write_probe_file();
+        }
 		MEMBRANE_PROBE[MEMBRANE_PROBE_CURRENT_INDEX] = NEURONS_MEMBRANE[neuron_index];
 		MEMBRANE_PROBE_CURRENT_INDEX++; 
 	}
