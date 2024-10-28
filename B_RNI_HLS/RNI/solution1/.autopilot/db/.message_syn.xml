@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Messages>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished File checks and directory preparation: CPU user time: 0.09 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.09 seconds; current allocated memory: 214.570 MB." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished File checks and directory preparation: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 215.188 MB." resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1312" tag="" content="Analyzing design file &apos;src/model_FINAL_CLIENT.cpp&apos; ..." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Source Code Analysis and Preprocessing: CPU user time: 88.21 seconds. CPU system time: 3.09 seconds. Elapsed time: 91.5 seconds; current allocated memory: 219.766 MB." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Source Code Analysis and Preprocessing: CPU user time: 87.23 seconds. CPU system time: 3.06 seconds. Elapsed time: 90.63 seconds; current allocated memory: 220.141 MB." resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-777]" key="HLS 200-777" tag="" content="Using interface defaults for &apos;Vivado&apos; flow target." resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-1995]" key="HLS 200-1995" tag="" content="There were 484,190 instructions in the design after the &apos;Compile/Link&apos; phase of compilation. See the Design Size Report for more details: /home/mohr0901/Documents/PMC/B_RNI_HLS/RNI/solution1/syn/report/csynth_design_size.rpt" resolution=""/>
 	<Message severity="ERROR" prefix="[HLS 200-1715]" key="HLS 200-1715" tag="" content="Encountered problem during source synthesis" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Command csynth_design CPU user time: 128.75 seconds. CPU system time: 10.69 seconds. Elapsed time: 149.4 seconds; current allocated memory: 6.062 MB." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Command csynth_design CPU user time: 128.65 seconds. CPU system time: 11.23 seconds. Elapsed time: 153.09 seconds; current allocated memory: 5.852 MB." resolution=""/>
 </Messages>

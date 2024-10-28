@@ -9,71 +9,71 @@
             <header size="3" col0="Function" col1="Location" col2="Compile/Link"/>
             <rows>
                 <row id="0" col0="RNI" col1="model_FINAL_CLIENT.cpp:16" col2="484190">
-                    <row id="43" col0="input_layer" col1="model_FINAL_CLIENT.cpp:60" col2="80576">
-                        <row id="1" col0="leak_neuron" col1="model_FINAL_CLIENT.cpp:179" col2="79614">
-                            <row id="33" col0="pow" col1="powint32.cpp:7" col2="79394">
-                                <row id="36" col0="pow&lt;32&gt;" col1="hls_pow_apfixed.h:492" col2="79335">
-                                    <row id="26" col0="pow&lt;32, 32&gt;" col1="hls_pow_apfixed.h:53" col2="78987">
-                                        <row id="19" col0="fabs_fixed&lt;33, 33&gt;" col1="hls_round_copysign_apfixed.h:176" col2="177"/>
-                                        <row id="20" col0="log&lt;99, 33&gt;" col1="hls_log_apfixed.h:499" col2="11050">
-                                            <row id="18" col0="range_reduction&lt;81&gt;" col1="hls_log_apfixed.h:381" col2="7581">
-                                                <row id="12" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 4, 4, 81, 75&gt;" col1="hls_log_apfixed.h:170" col2="1302"/>
-                                                <row id="21" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 7, 6, 75, 70&gt;" col1="hls_log_apfixed.h:170" col2="1278"/>
-                                                <row id="44" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 12, 6, 70, 65&gt;" col1="hls_log_apfixed.h:170" col2="1278"/>
-                                                <row id="42" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 17, 6, 65, 60&gt;" col1="hls_log_apfixed.h:170" col2="1283"/>
-                                                <row id="41" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 22, 6, 60, 55&gt;" col1="hls_log_apfixed.h:170" col2="1286"/>
+                    <row id="29" col0="input_layer" col1="model_FINAL_CLIENT.cpp:60" col2="80576">
+                        <row id="28" col0="leak_neuron" col1="model_FINAL_CLIENT.cpp:179" col2="79614">
+                            <row id="11" col0="pow" col1="powint32.cpp:7" col2="79394">
+                                <row id="7" col0="pow&lt;32&gt;" col1="hls_pow_apfixed.h:492" col2="79335">
+                                    <row id="57" col0="pow&lt;32, 32&gt;" col1="hls_pow_apfixed.h:53" col2="78987">
+                                        <row id="23" col0="fabs_fixed&lt;33, 33&gt;" col1="hls_round_copysign_apfixed.h:176" col2="177"/>
+                                        <row id="1" col0="log&lt;99, 33&gt;" col1="hls_log_apfixed.h:499" col2="11050">
+                                            <row id="12" col0="range_reduction&lt;81&gt;" col1="hls_log_apfixed.h:381" col2="7581">
+                                                <row id="39" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 4, 4, 81, 75&gt;" col1="hls_log_apfixed.h:170" col2="1302"/>
+                                                <row id="42" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 7, 6, 75, 70&gt;" col1="hls_log_apfixed.h:170" col2="1278"/>
+                                                <row id="17" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 12, 6, 70, 65&gt;" col1="hls_log_apfixed.h:170" col2="1278"/>
+                                                <row id="16" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 17, 6, 65, 60&gt;" col1="hls_log_apfixed.h:170" col2="1283"/>
+                                                <row id="15" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 22, 6, 60, 55&gt;" col1="hls_log_apfixed.h:170" col2="1286"/>
                                             </row>
                                         </row>
-                                        <row id="46" col0="exp_core&lt;32, 32, 66&gt;" col1="hls_exp_apfixed.h:957" col2="66394"/>
+                                        <row id="24" col0="exp_core&lt;32, 32, 66&gt;" col1="hls_exp_apfixed.h:957" col2="66394"/>
                                     </row>
                                 </row>
                             </row>
                         </row>
-                        <row id="17" col0="update_neuron_state_reset_membrane" col1="model_FINAL_CLIENT.cpp:193" col2="352"/>
+                        <row id="52" col0="update_neuron_state_reset_membrane" col1="model_FINAL_CLIENT.cpp:193" col2="352"/>
                     </row>
-                    <row id="54" col0="inner_layer" col1="model_FINAL_CLIENT.cpp:80" col2="322172" col2_disp="322,172 (4 calls)">
-                        <row id="1" col0="leak_neuron" col1="model_FINAL_CLIENT.cpp:179" col2="318456" col2_disp="318,456 (4 calls)">
-                            <row id="33" col0="pow" col1="powint32.cpp:7" col2="317576" col2_disp="317,576 (4 calls)">
-                                <row id="36" col0="pow&lt;32&gt;" col1="hls_pow_apfixed.h:492" col2="317340" col2_disp="317,340 (4 calls)">
-                                    <row id="26" col0="pow&lt;32, 32&gt;" col1="hls_pow_apfixed.h:53" col2="315948" col2_disp="315,948 (4 calls)">
-                                        <row id="19" col0="fabs_fixed&lt;33, 33&gt;" col1="hls_round_copysign_apfixed.h:176" col2="708" col2_disp="    708 (4 calls)"/>
-                                        <row id="20" col0="log&lt;99, 33&gt;" col1="hls_log_apfixed.h:499" col2="44200" col2_disp=" 44,200 (4 calls)">
-                                            <row id="18" col0="range_reduction&lt;81&gt;" col1="hls_log_apfixed.h:381" col2="30324" col2_disp=" 30,324 (4 calls)">
-                                                <row id="12" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 4, 4, 81, 75&gt;" col1="hls_log_apfixed.h:170" col2="5208" col2_disp="  5,208 (4 calls)"/>
-                                                <row id="21" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 7, 6, 75, 70&gt;" col1="hls_log_apfixed.h:170" col2="5112" col2_disp="  5,112 (4 calls)"/>
-                                                <row id="44" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 12, 6, 70, 65&gt;" col1="hls_log_apfixed.h:170" col2="5112" col2_disp="  5,112 (4 calls)"/>
-                                                <row id="42" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 17, 6, 65, 60&gt;" col1="hls_log_apfixed.h:170" col2="5132" col2_disp="  5,132 (4 calls)"/>
-                                                <row id="41" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 22, 6, 60, 55&gt;" col1="hls_log_apfixed.h:170" col2="5144" col2_disp="  5,144 (4 calls)"/>
+                    <row id="30" col0="inner_layer" col1="model_FINAL_CLIENT.cpp:80" col2="322172" col2_disp="322,172 (4 calls)">
+                        <row id="28" col0="leak_neuron" col1="model_FINAL_CLIENT.cpp:179" col2="318456" col2_disp="318,456 (4 calls)">
+                            <row id="11" col0="pow" col1="powint32.cpp:7" col2="317576" col2_disp="317,576 (4 calls)">
+                                <row id="7" col0="pow&lt;32&gt;" col1="hls_pow_apfixed.h:492" col2="317340" col2_disp="317,340 (4 calls)">
+                                    <row id="57" col0="pow&lt;32, 32&gt;" col1="hls_pow_apfixed.h:53" col2="315948" col2_disp="315,948 (4 calls)">
+                                        <row id="23" col0="fabs_fixed&lt;33, 33&gt;" col1="hls_round_copysign_apfixed.h:176" col2="708" col2_disp="    708 (4 calls)"/>
+                                        <row id="1" col0="log&lt;99, 33&gt;" col1="hls_log_apfixed.h:499" col2="44200" col2_disp=" 44,200 (4 calls)">
+                                            <row id="12" col0="range_reduction&lt;81&gt;" col1="hls_log_apfixed.h:381" col2="30324" col2_disp=" 30,324 (4 calls)">
+                                                <row id="39" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 4, 4, 81, 75&gt;" col1="hls_log_apfixed.h:170" col2="5208" col2_disp="  5,208 (4 calls)"/>
+                                                <row id="42" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 7, 6, 75, 70&gt;" col1="hls_log_apfixed.h:170" col2="5112" col2_disp="  5,112 (4 calls)"/>
+                                                <row id="17" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 12, 6, 70, 65&gt;" col1="hls_log_apfixed.h:170" col2="5112" col2_disp="  5,112 (4 calls)"/>
+                                                <row id="16" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 17, 6, 65, 60&gt;" col1="hls_log_apfixed.h:170" col2="5132" col2_disp="  5,132 (4 calls)"/>
+                                                <row id="15" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 22, 6, 60, 55&gt;" col1="hls_log_apfixed.h:170" col2="5144" col2_disp="  5,144 (4 calls)"/>
                                             </row>
                                         </row>
-                                        <row id="46" col0="exp_core&lt;32, 32, 66&gt;" col1="hls_exp_apfixed.h:957" col2="265576" col2_disp="265,576 (4 calls)"/>
+                                        <row id="24" col0="exp_core&lt;32, 32, 66&gt;" col1="hls_exp_apfixed.h:957" col2="265576" col2_disp="265,576 (4 calls)"/>
                                     </row>
                                 </row>
                             </row>
                         </row>
-                        <row id="17" col0="update_neuron_state_reset_membrane" col1="model_FINAL_CLIENT.cpp:193" col2="1408" col2_disp="  1,408 (4 calls)"/>
+                        <row id="52" col0="update_neuron_state_reset_membrane" col1="model_FINAL_CLIENT.cpp:193" col2="1408" col2_disp="  1,408 (4 calls)"/>
                     </row>
-                    <row id="32" col0="output_layer" col1="model_FINAL_CLIENT.cpp:157" col2="80770">
-                        <row id="1" col0="leak_neuron" col1="model_FINAL_CLIENT.cpp:179" col2="79614">
-                            <row id="33" col0="pow" col1="powint32.cpp:7" col2="79394">
-                                <row id="36" col0="pow&lt;32&gt;" col1="hls_pow_apfixed.h:492" col2="79335">
-                                    <row id="26" col0="pow&lt;32, 32&gt;" col1="hls_pow_apfixed.h:53" col2="78987">
-                                        <row id="19" col0="fabs_fixed&lt;33, 33&gt;" col1="hls_round_copysign_apfixed.h:176" col2="177"/>
-                                        <row id="20" col0="log&lt;99, 33&gt;" col1="hls_log_apfixed.h:499" col2="11050">
-                                            <row id="18" col0="range_reduction&lt;81&gt;" col1="hls_log_apfixed.h:381" col2="7581">
-                                                <row id="12" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 4, 4, 81, 75&gt;" col1="hls_log_apfixed.h:170" col2="1302"/>
-                                                <row id="21" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 7, 6, 75, 70&gt;" col1="hls_log_apfixed.h:170" col2="1278"/>
-                                                <row id="44" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 12, 6, 70, 65&gt;" col1="hls_log_apfixed.h:170" col2="1278"/>
-                                                <row id="42" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 17, 6, 65, 60&gt;" col1="hls_log_apfixed.h:170" col2="1283"/>
-                                                <row id="41" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 22, 6, 60, 55&gt;" col1="hls_log_apfixed.h:170" col2="1286"/>
+                    <row id="31" col0="output_layer" col1="model_FINAL_CLIENT.cpp:157" col2="80770">
+                        <row id="28" col0="leak_neuron" col1="model_FINAL_CLIENT.cpp:179" col2="79614">
+                            <row id="11" col0="pow" col1="powint32.cpp:7" col2="79394">
+                                <row id="7" col0="pow&lt;32&gt;" col1="hls_pow_apfixed.h:492" col2="79335">
+                                    <row id="57" col0="pow&lt;32, 32&gt;" col1="hls_pow_apfixed.h:53" col2="78987">
+                                        <row id="23" col0="fabs_fixed&lt;33, 33&gt;" col1="hls_round_copysign_apfixed.h:176" col2="177"/>
+                                        <row id="1" col0="log&lt;99, 33&gt;" col1="hls_log_apfixed.h:499" col2="11050">
+                                            <row id="12" col0="range_reduction&lt;81&gt;" col1="hls_log_apfixed.h:381" col2="7581">
+                                                <row id="39" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 4, 4, 81, 75&gt;" col1="hls_log_apfixed.h:170" col2="1302"/>
+                                                <row id="42" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 7, 6, 75, 70&gt;" col1="hls_log_apfixed.h:170" col2="1278"/>
+                                                <row id="17" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 12, 6, 70, 65&gt;" col1="hls_log_apfixed.h:170" col2="1278"/>
+                                                <row id="16" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 17, 6, 65, 60&gt;" col1="hls_log_apfixed.h:170" col2="1283"/>
+                                                <row id="15" col0="range_reduce&lt;ap_fixed&lt;89, 7, AP_TRN, AP_WRAP, 0&gt;, 22, 6, 60, 55&gt;" col1="hls_log_apfixed.h:170" col2="1286"/>
                                             </row>
                                         </row>
-                                        <row id="46" col0="exp_core&lt;32, 32, 66&gt;" col1="hls_exp_apfixed.h:957" col2="66394"/>
+                                        <row id="24" col0="exp_core&lt;32, 32, 66&gt;" col1="hls_exp_apfixed.h:957" col2="66394"/>
                                     </row>
                                 </row>
                             </row>
                         </row>
-                        <row id="17" col0="update_neuron_state_reset_membrane" col1="model_FINAL_CLIENT.cpp:193" col2="352"/>
+                        <row id="52" col0="update_neuron_state_reset_membrane" col1="model_FINAL_CLIENT.cpp:193" col2="352"/>
                     </row>
                 </row>
             </rows>
