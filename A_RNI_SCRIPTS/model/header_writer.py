@@ -1,4 +1,4 @@
-def write_header(input_model_dict, header_filename, weight_type_lenght = 8, membrane_type_lenght = 16, add_membrane_probe = False, membrane_probe_lenght = 200):
+def write_header(input_model_dict, header_filepath, weight_type_lenght = 8, membrane_type_lenght = 16, add_membrane_probe = False, membrane_probe_lenght = 200):
     output_model_dict = {
         "NEURONS_INDEX": [],
         "WEIGHTS_INDEX": [],
@@ -15,7 +15,7 @@ def write_header(input_model_dict, header_filename, weight_type_lenght = 8, memb
     layers = input_model_dict['model']['state_dict']
     output_model_dict = __fill_output_model_dict__(layers, output_model_dict, weight_type_lenght)
 
-    with open(header_filename, mode='w', encoding="utf8") as header_file:
+    with open(header_filepath, mode='w', encoding="utf8") as header_file:
         header_file.write('#ifndef MODEL_H\n')
         header_file.write('#define MODEL_H\n\n')
 

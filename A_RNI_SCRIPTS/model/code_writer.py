@@ -1,4 +1,4 @@
-def write_code(code_filename, network_name, output_model_dict, add_membrane_probe = False):
+def write_code(code_filepath, network_name, output_model_dict, add_membrane_probe = False):
     code_segments = []
     __append_inclusions__(code_segments, network_name, add_membrane_probe)
     __append_declarations__(code_segments, output_model_dict, add_membrane_probe)
@@ -12,7 +12,7 @@ def write_code(code_filename, network_name, output_model_dict, add_membrane_prob
     if add_membrane_probe:
         __append_update_membrane_probe_definition__(code_segments)
         __append_write_probe_file_definition__(code_segments)
-    __write_code_segments__(code_segments, code_filename)
+    __write_code_segments__(code_segments, code_filepath)
 
 # -----------------------------------------------
 # -----------------------------------------------
@@ -344,9 +344,9 @@ void write_probe_file(void)
 # -----------------------------------------------
 # -----------------------------------------------
 
-def __write_code_segments__(code_segments, code_filename):
+def __write_code_segments__(code_segments, code_filepath):
 
-    with open(code_filename, mode='w', encoding="utf8") as code_file:
+    with open(code_filepath, mode='w', encoding="utf8") as code_file:
         for c in code_segments:
             code_file.write(c)
 
