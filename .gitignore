@@ -102,8 +102,8 @@ proj/
 #########
 # OTHERS
 #########
-!A_SCRIPTS/**
-!D_RNI_TEST/**
+!A_RNI_SCRIPTS/**
+!C_RNI_VIVADO/ip/**
 !README.md
 !*.cff
 !*.mp4
