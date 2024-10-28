@@ -9,801 +9,385 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 entity RNI is
+generic (
+    C_S_AXI_CTRL_ADDR_WIDTH : INTEGER := 4;
+    C_S_AXI_CTRL_DATA_WIDTH : INTEGER := 32 );
 port (
     ap_clk : IN STD_LOGIC;
     ap_rst_n : IN STD_LOGIC;
-    ap_start : IN STD_LOGIC;
-    ap_done : OUT STD_LOGIC;
-    ap_idle : OUT STD_LOGIC;
-    ap_ready : OUT STD_LOGIC;
-    input_stream_TDATA : IN STD_LOGIC_VECTOR (7 downto 0);
-    input_stream_TVALID : IN STD_LOGIC;
-    input_stream_TREADY : OUT STD_LOGIC;
-    input_stream_TKEEP : IN STD_LOGIC_VECTOR (0 downto 0);
-    input_stream_TSTRB : IN STD_LOGIC_VECTOR (0 downto 0);
-    input_stream_TUSER : IN STD_LOGIC_VECTOR (1 downto 0);
-    input_stream_TLAST : IN STD_LOGIC_VECTOR (0 downto 0);
-    input_stream_TID : IN STD_LOGIC_VECTOR (4 downto 0);
-    input_stream_TDEST : IN STD_LOGIC_VECTOR (5 downto 0);
-    output_stream_TDATA : OUT STD_LOGIC_VECTOR (7 downto 0);
-    output_stream_TVALID : OUT STD_LOGIC;
-    output_stream_TREADY : IN STD_LOGIC;
-    output_stream_TKEEP : OUT STD_LOGIC_VECTOR (0 downto 0);
-    output_stream_TSTRB : OUT STD_LOGIC_VECTOR (0 downto 0);
-    output_stream_TUSER : OUT STD_LOGIC_VECTOR (1 downto 0);
-    output_stream_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
-    output_stream_TID : OUT STD_LOGIC_VECTOR (4 downto 0);
-    output_stream_TDEST : OUT STD_LOGIC_VECTOR (5 downto 0) );
+    in_stream_TDATA : IN STD_LOGIC_VECTOR (31 downto 0);
+    in_stream_TVALID : IN STD_LOGIC;
+    in_stream_TREADY : OUT STD_LOGIC;
+    in_stream_TKEEP : IN STD_LOGIC_VECTOR (3 downto 0);
+    in_stream_TSTRB : IN STD_LOGIC_VECTOR (3 downto 0);
+    in_stream_TUSER : IN STD_LOGIC_VECTOR (1 downto 0);
+    in_stream_TLAST : IN STD_LOGIC_VECTOR (0 downto 0);
+    in_stream_TID : IN STD_LOGIC_VECTOR (4 downto 0);
+    in_stream_TDEST : IN STD_LOGIC_VECTOR (5 downto 0);
+    out_stream_TDATA : OUT STD_LOGIC_VECTOR (31 downto 0);
+    out_stream_TVALID : OUT STD_LOGIC;
+    out_stream_TREADY : IN STD_LOGIC;
+    out_stream_TKEEP : OUT STD_LOGIC_VECTOR (3 downto 0);
+    out_stream_TSTRB : OUT STD_LOGIC_VECTOR (3 downto 0);
+    out_stream_TUSER : OUT STD_LOGIC_VECTOR (1 downto 0);
+    out_stream_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+    out_stream_TID : OUT STD_LOGIC_VECTOR (4 downto 0);
+    out_stream_TDEST : OUT STD_LOGIC_VECTOR (5 downto 0);
+    s_axi_ctrl_AWVALID : IN STD_LOGIC;
+    s_axi_ctrl_AWREADY : OUT STD_LOGIC;
+    s_axi_ctrl_AWADDR : IN STD_LOGIC_VECTOR (C_S_AXI_CTRL_ADDR_WIDTH-1 downto 0);
+    s_axi_ctrl_WVALID : IN STD_LOGIC;
+    s_axi_ctrl_WREADY : OUT STD_LOGIC;
+    s_axi_ctrl_WDATA : IN STD_LOGIC_VECTOR (C_S_AXI_CTRL_DATA_WIDTH-1 downto 0);
+    s_axi_ctrl_WSTRB : IN STD_LOGIC_VECTOR (C_S_AXI_CTRL_DATA_WIDTH/8-1 downto 0);
+    s_axi_ctrl_ARVALID : IN STD_LOGIC;
+    s_axi_ctrl_ARREADY : OUT STD_LOGIC;
+    s_axi_ctrl_ARADDR : IN STD_LOGIC_VECTOR (C_S_AXI_CTRL_ADDR_WIDTH-1 downto 0);
+    s_axi_ctrl_RVALID : OUT STD_LOGIC;
+    s_axi_ctrl_RREADY : IN STD_LOGIC;
+    s_axi_ctrl_RDATA : OUT STD_LOGIC_VECTOR (C_S_AXI_CTRL_DATA_WIDTH-1 downto 0);
+    s_axi_ctrl_RRESP : OUT STD_LOGIC_VECTOR (1 downto 0);
+    s_axi_ctrl_BVALID : OUT STD_LOGIC;
+    s_axi_ctrl_BREADY : IN STD_LOGIC;
+    s_axi_ctrl_BRESP : OUT STD_LOGIC_VECTOR (1 downto 0);
+    interrupt : OUT STD_LOGIC );
 end;
 
 
 architecture behav of RNI is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "RNI_RNI,hls_ip_2023_1_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=6.919000,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=18,HLS_SYN_DSP=0,HLS_SYN_FF=1832,HLS_SYN_LUT=5795,HLS_VERSION=2023_1_1}";
+    "RNI_RNI,hls_ip_2023_1_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=7.214850,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=106,HLS_SYN_DSP=0,HLS_SYN_FF=22572,HLS_SYN_LUT=19228,HLS_VERSION=2023_1_1}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
-    constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000000000000000000000000000001";
-    constant ap_ST_fsm_state2 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000000000000000000000000000010";
-    constant ap_ST_fsm_state3 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000000000000000000000000000100";
-    constant ap_ST_fsm_state4 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000000000000000000000000001000";
-    constant ap_ST_fsm_state5 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000000000000000000000000010000";
-    constant ap_ST_fsm_state6 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000000000000000000000000100000";
-    constant ap_ST_fsm_state7 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000000000000000000000001000000";
-    constant ap_ST_fsm_state8 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000000000000000000000010000000";
-    constant ap_ST_fsm_state9 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000000000000000000000100000000";
-    constant ap_ST_fsm_state10 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000000000000000000001000000000";
-    constant ap_ST_fsm_state11 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000000000000000000010000000000";
-    constant ap_ST_fsm_state12 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000000000000000000100000000000";
-    constant ap_ST_fsm_state13 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000000000000000001000000000000";
-    constant ap_ST_fsm_state14 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000000000000000010000000000000";
-    constant ap_ST_fsm_state15 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000000000000000100000000000000";
-    constant ap_ST_fsm_state16 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000000000000001000000000000000";
-    constant ap_ST_fsm_state17 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000000000000010000000000000000";
-    constant ap_ST_fsm_state18 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000000000000100000000000000000";
-    constant ap_ST_fsm_state19 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000000000001000000000000000000";
-    constant ap_ST_fsm_state20 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000000000010000000000000000000";
-    constant ap_ST_fsm_state21 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000000000100000000000000000000";
-    constant ap_ST_fsm_state22 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000000001000000000000000000000";
-    constant ap_ST_fsm_state23 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000000010000000000000000000000";
-    constant ap_ST_fsm_state24 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000000100000000000000000000000";
-    constant ap_ST_fsm_state25 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000001000000000000000000000000";
-    constant ap_ST_fsm_state26 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000010000000000000000000000000";
-    constant ap_ST_fsm_state27 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000100000000000000000000000000";
-    constant ap_ST_fsm_state28 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000001000000000000000000000000000";
-    constant ap_ST_fsm_state29 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000010000000000000000000000000000";
-    constant ap_ST_fsm_state30 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000100000000000000000000000000000";
-    constant ap_ST_fsm_state31 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000001000000000000000000000000000000";
-    constant ap_ST_fsm_state32 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000010000000000000000000000000000000";
-    constant ap_ST_fsm_state33 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000100000000000000000000000000000000";
-    constant ap_ST_fsm_state34 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000001000000000000000000000000000000000";
-    constant ap_ST_fsm_state35 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000010000000000000000000000000000000000";
-    constant ap_ST_fsm_state36 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000100000000000000000000000000000000000";
-    constant ap_ST_fsm_state37 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000001000000000000000000000000000000000000";
-    constant ap_ST_fsm_state38 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000010000000000000000000000000000000000000";
-    constant ap_ST_fsm_state39 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000100000000000000000000000000000000000000";
-    constant ap_ST_fsm_state40 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000001000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state41 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000010000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state42 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000100000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state43 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000001000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state44 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000010000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state45 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000100000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state46 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000001000000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state47 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000010000000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state48 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000100000000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state49 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000001000000000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state50 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000010000000000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state51 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000100000000000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state52 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000001000000000000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state53 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000010000000000000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state54 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000100000000000000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state55 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000001000000000000000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state56 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000010000000000000000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state57 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000100000000000000000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state58 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000001000000000000000000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state59 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000010000000000000000000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state60 : STD_LOGIC_VECTOR (69 downto 0) := "0000000000100000000000000000000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state61 : STD_LOGIC_VECTOR (69 downto 0) := "0000000001000000000000000000000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state62 : STD_LOGIC_VECTOR (69 downto 0) := "0000000010000000000000000000000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state63 : STD_LOGIC_VECTOR (69 downto 0) := "0000000100000000000000000000000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state64 : STD_LOGIC_VECTOR (69 downto 0) := "0000001000000000000000000000000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state65 : STD_LOGIC_VECTOR (69 downto 0) := "0000010000000000000000000000000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state66 : STD_LOGIC_VECTOR (69 downto 0) := "0000100000000000000000000000000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state67 : STD_LOGIC_VECTOR (69 downto 0) := "0001000000000000000000000000000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state68 : STD_LOGIC_VECTOR (69 downto 0) := "0010000000000000000000000000000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state69 : STD_LOGIC_VECTOR (69 downto 0) := "0100000000000000000000000000000000000000000000000000000000000000000000";
-    constant ap_ST_fsm_state70 : STD_LOGIC_VECTOR (69 downto 0) := "1000000000000000000000000000000000000000000000000000000000000000000000";
+    constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (17 downto 0) := "000000000000000001";
+    constant ap_ST_fsm_state2 : STD_LOGIC_VECTOR (17 downto 0) := "000000000000000010";
+    constant ap_ST_fsm_state3 : STD_LOGIC_VECTOR (17 downto 0) := "000000000000000100";
+    constant ap_ST_fsm_state4 : STD_LOGIC_VECTOR (17 downto 0) := "000000000000001000";
+    constant ap_ST_fsm_state5 : STD_LOGIC_VECTOR (17 downto 0) := "000000000000010000";
+    constant ap_ST_fsm_state6 : STD_LOGIC_VECTOR (17 downto 0) := "000000000000100000";
+    constant ap_ST_fsm_state7 : STD_LOGIC_VECTOR (17 downto 0) := "000000000001000000";
+    constant ap_ST_fsm_state8 : STD_LOGIC_VECTOR (17 downto 0) := "000000000010000000";
+    constant ap_ST_fsm_state9 : STD_LOGIC_VECTOR (17 downto 0) := "000000000100000000";
+    constant ap_ST_fsm_state10 : STD_LOGIC_VECTOR (17 downto 0) := "000000001000000000";
+    constant ap_ST_fsm_state11 : STD_LOGIC_VECTOR (17 downto 0) := "000000010000000000";
+    constant ap_ST_fsm_state12 : STD_LOGIC_VECTOR (17 downto 0) := "000000100000000000";
+    constant ap_ST_fsm_state13 : STD_LOGIC_VECTOR (17 downto 0) := "000001000000000000";
+    constant ap_ST_fsm_state14 : STD_LOGIC_VECTOR (17 downto 0) := "000010000000000000";
+    constant ap_ST_fsm_state15 : STD_LOGIC_VECTOR (17 downto 0) := "000100000000000000";
+    constant ap_ST_fsm_state16 : STD_LOGIC_VECTOR (17 downto 0) := "001000000000000000";
+    constant ap_ST_fsm_state17 : STD_LOGIC_VECTOR (17 downto 0) := "010000000000000000";
+    constant ap_ST_fsm_state18 : STD_LOGIC_VECTOR (17 downto 0) := "100000000000000000";
     constant ap_const_lv32_0 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
     constant ap_const_boolean_1 : BOOLEAN := true;
-    constant ap_const_lv32_2 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000010";
-    constant ap_const_lv32_44 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000001000100";
-    constant ap_const_lv32_45 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000001000101";
-    constant ap_const_lv32_5 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000101";
-    constant ap_const_lv32_E : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001110";
-    constant ap_const_lv32_19 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000011001";
-    constant ap_const_lv32_24 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000100100";
-    constant ap_const_lv32_2F : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000101111";
-    constant ap_const_lv32_3A : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000111010";
-    constant ap_const_lv32_8 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001000";
-    constant ap_const_lv32_12 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000010010";
-    constant ap_const_lv32_1D : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000011101";
-    constant ap_const_lv32_28 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000101000";
-    constant ap_const_lv32_33 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000110011";
-    constant ap_const_lv32_3E : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000111110";
     constant ap_const_lv32_4 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000100";
-    constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
+    constant ap_const_lv32_F : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001111";
+    constant C_S_AXI_DATA_WIDTH : INTEGER range 63 downto 0 := 20;
+    constant ap_const_lv32_1 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000001";
+    constant ap_const_lv32_2 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000010";
+    constant ap_const_lv32_3 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000011";
+    constant ap_const_lv32_5 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000101";
     constant ap_const_lv32_6 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000110";
     constant ap_const_lv32_7 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000111";
-    constant ap_const_lv32_B : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001011";
-    constant ap_const_lv32_D : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001101";
-    constant ap_const_lv32_F : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001111";
-    constant ap_const_lv32_10 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000010000";
-    constant ap_const_lv32_11 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000010001";
-    constant ap_const_lv32_15 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000010101";
-    constant ap_const_lv32_18 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000011000";
-    constant ap_const_lv32_1A : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000011010";
-    constant ap_const_lv32_1B : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000011011";
-    constant ap_const_lv32_1C : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000011100";
-    constant ap_const_lv32_20 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000100000";
-    constant ap_const_lv32_23 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000100011";
-    constant ap_const_lv32_25 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000100101";
-    constant ap_const_lv32_26 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000100110";
-    constant ap_const_lv32_27 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000100111";
-    constant ap_const_lv32_2B : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000101011";
-    constant ap_const_lv32_2E : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000101110";
-    constant ap_const_lv32_30 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000110000";
-    constant ap_const_lv32_31 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000110001";
-    constant ap_const_lv32_32 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000110010";
-    constant ap_const_lv32_36 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000110110";
-    constant ap_const_lv32_39 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000111001";
-    constant ap_const_lv32_3B : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000111011";
-    constant ap_const_lv32_3C : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000111100";
-    constant ap_const_lv32_3D : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000111101";
-    constant ap_const_lv32_41 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000001000001";
-    constant ap_const_lv1_1 : STD_LOGIC_VECTOR (0 downto 0) := "1";
-    constant ap_const_lv32_C : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001100";
-    constant ap_const_lv8_0 : STD_LOGIC_VECTOR (7 downto 0) := "00000000";
-    constant ap_const_lv32_3 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000011";
-    constant ap_const_boolean_0 : BOOLEAN := false;
-    constant ap_const_lv32_A : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001010";
-    constant ap_const_lv32_16 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000010110";
-    constant ap_const_lv8_80 : STD_LOGIC_VECTOR (7 downto 0) := "10000000";
-    constant ap_const_lv32_21 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000100001";
-    constant ap_const_lv7_40 : STD_LOGIC_VECTOR (6 downto 0) := "1000000";
-    constant ap_const_lv32_17 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000010111";
-    constant ap_const_lv32_2C : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000101100";
-    constant ap_const_lv9_E0 : STD_LOGIC_VECTOR (8 downto 0) := "011100000";
-    constant ap_const_lv32_22 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000100010";
-    constant ap_const_lv32_37 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000110111";
-    constant ap_const_lv9_120 : STD_LOGIC_VECTOR (8 downto 0) := "100100000";
-    constant ap_const_lv32_2D : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000101101";
-    constant ap_const_lv32_42 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000001000010";
-    constant ap_const_lv8_A0 : STD_LOGIC_VECTOR (7 downto 0) := "10100000";
-    constant ap_const_lv32_38 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000111000";
+    constant ap_const_lv32_8 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001000";
     constant ap_const_lv32_9 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001001";
-    constant ap_const_lv32_13 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000010011";
-    constant ap_const_lv32_1E : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000011110";
-    constant ap_const_lv32_29 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000101001";
-    constant ap_const_lv32_34 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000110100";
-    constant ap_const_lv32_43 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000001000011";
-    constant ap_const_lv32_3F : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000111111";
+    constant ap_const_lv32_A : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001010";
+    constant ap_const_lv32_B : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001011";
+    constant ap_const_lv32_C : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001100";
+    constant ap_const_lv32_D : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001101";
+    constant ap_const_lv32_E : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001110";
+    constant ap_const_lv32_10 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000010000";
     constant ap_const_lv64_0 : STD_LOGIC_VECTOR (63 downto 0) := "0000000000000000000000000000000000000000000000000000000000000000";
-    constant ap_const_lv2_0 : STD_LOGIC_VECTOR (1 downto 0) := "00";
-    constant ap_const_lv5_0 : STD_LOGIC_VECTOR (4 downto 0) := "00000";
-    constant ap_const_lv6_0 : STD_LOGIC_VECTOR (5 downto 0) := "000000";
-    constant ap_const_lv32_1 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000001";
-    constant ap_const_lv16_0 : STD_LOGIC_VECTOR (15 downto 0) := "0000000000000000";
-    constant ap_const_lv32_14 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000010100";
-    constant ap_const_lv32_1F : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000011111";
-    constant ap_const_lv32_2A : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000101010";
-    constant ap_const_lv32_35 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000110101";
-    constant ap_const_lv32_40 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000001000000";
-    constant ap_const_lv16_56 : STD_LOGIC_VECTOR (15 downto 0) := "0000000001010110";
-    constant ap_const_lv8_1 : STD_LOGIC_VECTOR (7 downto 0) := "00000001";
-    constant ap_const_lv17_1 : STD_LOGIC_VECTOR (16 downto 0) := "00000000000000001";
-    constant ap_const_lv16_FFFF : STD_LOGIC_VECTOR (15 downto 0) := "1111111111111111";
-    constant ap_const_lv17_2 : STD_LOGIC_VECTOR (16 downto 0) := "00000000000000010";
-    constant ap_const_lv17_1FFFE : STD_LOGIC_VECTOR (16 downto 0) := "11111111111111110";
-    constant ap_const_lv12_0 : STD_LOGIC_VECTOR (11 downto 0) := "000000000000";
-    constant ap_const_lv8_C0 : STD_LOGIC_VECTOR (7 downto 0) := "11000000";
-    constant ap_const_lv7_60 : STD_LOGIC_VECTOR (6 downto 0) := "1100000";
-    constant ap_const_lv7_1 : STD_LOGIC_VECTOR (6 downto 0) := "0000001";
-    constant ap_const_lv9_1 : STD_LOGIC_VECTOR (8 downto 0) := "000000001";
-    constant ap_const_lv9_1A0 : STD_LOGIC_VECTOR (8 downto 0) := "110100000";
-    constant ap_const_lv8_A8 : STD_LOGIC_VECTOR (7 downto 0) := "10101000";
+    constant ap_const_lv64_7 : STD_LOGIC_VECTOR (63 downto 0) := "0000000000000000000000000000000000000000000000000000000000000111";
+    constant ap_const_lv32_11 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000010001";
+    constant ap_const_lv1_1 : STD_LOGIC_VECTOR (0 downto 0) := "1";
+    constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
 
     signal ap_rst_n_inv : STD_LOGIC;
-    signal ap_CS_fsm : STD_LOGIC_VECTOR (69 downto 0) := "0000000000000000000000000000000000000000000000000000000000000000000001";
+    signal ap_start : STD_LOGIC;
+    signal ap_done : STD_LOGIC;
+    signal ap_idle : STD_LOGIC;
+    signal ap_CS_fsm : STD_LOGIC_VECTOR (17 downto 0) := "000000000000000001";
     attribute fsm_encoding : string;
     attribute fsm_encoding of ap_CS_fsm : signal is "none";
     signal ap_CS_fsm_state1 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state1 : signal is "none";
+    signal ap_ready : STD_LOGIC;
     signal NEURONS_MEMBRANE_address0 : STD_LOGIC_VECTOR (8 downto 0);
     signal NEURONS_MEMBRANE_ce0 : STD_LOGIC;
     signal NEURONS_MEMBRANE_we0 : STD_LOGIC;
     signal NEURONS_MEMBRANE_d0 : STD_LOGIC_VECTOR (15 downto 0);
     signal NEURONS_MEMBRANE_q0 : STD_LOGIC_VECTOR (15 downto 0);
+    signal NEURONS_MEMBRANE_address1 : STD_LOGIC_VECTOR (8 downto 0);
+    signal NEURONS_MEMBRANE_ce1 : STD_LOGIC;
+    signal NEURONS_MEMBRANE_q1 : STD_LOGIC_VECTOR (15 downto 0);
     signal WEIGHTS_INDEX_address0 : STD_LOGIC_VECTOR (8 downto 0);
     signal WEIGHTS_INDEX_ce0 : STD_LOGIC;
     signal WEIGHTS_INDEX_q0 : STD_LOGIC_VECTOR (14 downto 0);
     signal WEIGHTS_INDEX_address1 : STD_LOGIC_VECTOR (8 downto 0);
     signal WEIGHTS_INDEX_ce1 : STD_LOGIC;
     signal WEIGHTS_INDEX_q1 : STD_LOGIC_VECTOR (14 downto 0);
-    signal WEIGHTS_address0 : STD_LOGIC_VECTOR (14 downto 0);
-    signal WEIGHTS_ce0 : STD_LOGIC;
-    signal WEIGHTS_q0 : STD_LOGIC_VECTOR (7 downto 0);
     signal NEURONS_STATE_address0 : STD_LOGIC_VECTOR (8 downto 0);
     signal NEURONS_STATE_ce0 : STD_LOGIC;
     signal NEURONS_STATE_we0 : STD_LOGIC;
     signal NEURONS_STATE_d0 : STD_LOGIC_VECTOR (0 downto 0);
     signal NEURONS_STATE_q0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal input_stream_TDATA_blk_n : STD_LOGIC;
-    signal ap_CS_fsm_state3 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state3 : signal is "none";
-    signal output_stream_TDATA_blk_n : STD_LOGIC;
-    signal ap_CS_fsm_state69 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state69 : signal is "none";
-    signal ap_CS_fsm_state70 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state70 : signal is "none";
-    signal reg_733 : STD_LOGIC_VECTOR (15 downto 0);
-    signal ap_CS_fsm_state6 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state6 : signal is "none";
-    signal ap_CS_fsm_state15 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state15 : signal is "none";
-    signal ap_CS_fsm_state26 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state26 : signal is "none";
-    signal ap_CS_fsm_state37 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state37 : signal is "none";
-    signal ap_CS_fsm_state48 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state48 : signal is "none";
-    signal ap_CS_fsm_state59 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state59 : signal is "none";
-    signal reg_737 : STD_LOGIC_VECTOR (14 downto 0);
-    signal ap_CS_fsm_state9 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state9 : signal is "none";
-    signal ap_CS_fsm_state19 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state19 : signal is "none";
-    signal ap_CS_fsm_state30 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state30 : signal is "none";
-    signal ap_CS_fsm_state41 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state41 : signal is "none";
-    signal ap_CS_fsm_state52 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state52 : signal is "none";
-    signal ap_CS_fsm_state63 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state63 : signal is "none";
-    signal reg_747 : STD_LOGIC_VECTOR (14 downto 0);
-    signal input_buffer_data_reg_1860 : STD_LOGIC_VECTOR (7 downto 0);
-    signal input_buffer_last_reg_1865 : STD_LOGIC_VECTOR (0 downto 0);
-    signal add_ln74_fu_772_p2 : STD_LOGIC_VECTOR (7 downto 0);
-    signal add_ln74_reg_1872 : STD_LOGIC_VECTOR (7 downto 0);
+    signal in_pkts_user_q0 : STD_LOGIC_VECTOR (1 downto 0);
+    signal in_pkts_user_load_reg_445 : STD_LOGIC_VECTOR (1 downto 0);
     signal ap_CS_fsm_state5 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state5 : signal is "none";
-    signal zext_ln74_fu_778_p1 : STD_LOGIC_VECTOR (63 downto 0);
-    signal zext_ln74_reg_1877 : STD_LOGIC_VECTOR (63 downto 0);
-    signal icmp_ln74_fu_766_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal NEURONS_MEMBRANE_addr_reg_1883 : STD_LOGIC_VECTOR (8 downto 0);
-    signal empty_36_fu_783_p1 : STD_LOGIC_VECTOR (6 downto 0);
-    signal empty_36_reg_1888 : STD_LOGIC_VECTOR (6 downto 0);
-    signal tmp_4_reg_1893 : STD_LOGIC_VECTOR (0 downto 0);
-    signal select_ln77_fu_839_p3 : STD_LOGIC_VECTOR (15 downto 0);
-    signal select_ln77_reg_1898 : STD_LOGIC_VECTOR (15 downto 0);
-    signal ap_CS_fsm_state7 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state7 : signal is "none";
-    signal add_ln77_1_fu_847_p2 : STD_LOGIC_VECTOR (16 downto 0);
-    signal add_ln77_1_reg_1903 : STD_LOGIC_VECTOR (16 downto 0);
-    signal sub_ln77_fu_853_p2 : STD_LOGIC_VECTOR (16 downto 0);
-    signal sub_ln77_reg_1909 : STD_LOGIC_VECTOR (16 downto 0);
-    signal or_ln77_fu_921_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal or_ln77_reg_1914 : STD_LOGIC_VECTOR (0 downto 0);
-    signal ap_CS_fsm_state8 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state8 : signal is "none";
-    signal zext_ln77_fu_940_p1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal icmp_ln83_fu_954_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal icmp_ln83_reg_1941 : STD_LOGIC_VECTOR (0 downto 0);
-    signal ap_CS_fsm_state12 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state12 : signal is "none";
-    signal zext_ln94_fu_966_p1 : STD_LOGIC_VECTOR (63 downto 0);
-    signal zext_ln94_reg_1948 : STD_LOGIC_VECTOR (63 downto 0);
-    signal ap_CS_fsm_state14 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state14 : signal is "none";
-    signal icmp_ln94_fu_960_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal NEURONS_MEMBRANE_addr_1_reg_1954 : STD_LOGIC_VECTOR (8 downto 0);
-    signal tmp_9_reg_1959 : STD_LOGIC_VECTOR (0 downto 0);
-    signal select_ln97_fu_1023_p3 : STD_LOGIC_VECTOR (15 downto 0);
-    signal select_ln97_reg_1964 : STD_LOGIC_VECTOR (15 downto 0);
+    signal in_pkts_last_q1 : STD_LOGIC_VECTOR (0 downto 0);
+    signal in_pkts_last_load_reg_450 : STD_LOGIC_VECTOR (0 downto 0);
+    signal in_pkts_last_q0 : STD_LOGIC_VECTOR (0 downto 0);
+    signal in_pkts_last_load_1_reg_455 : STD_LOGIC_VECTOR (0 downto 0);
+    signal in_pkts_keep_q0 : STD_LOGIC_VECTOR (3 downto 0);
+    signal in_pkts_keep_load_reg_459 : STD_LOGIC_VECTOR (3 downto 0);
     signal ap_CS_fsm_state16 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state16 : signal is "none";
-    signal add_ln97_1_fu_1031_p2 : STD_LOGIC_VECTOR (16 downto 0);
-    signal add_ln97_1_reg_1969 : STD_LOGIC_VECTOR (16 downto 0);
-    signal sub_ln97_fu_1037_p2 : STD_LOGIC_VECTOR (16 downto 0);
-    signal sub_ln97_reg_1975 : STD_LOGIC_VECTOR (16 downto 0);
-    signal or_ln97_fu_1105_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal or_ln97_reg_1980 : STD_LOGIC_VECTOR (0 downto 0);
+    signal in_pkts_strb_q0 : STD_LOGIC_VECTOR (3 downto 0);
+    signal in_pkts_strb_load_reg_464 : STD_LOGIC_VECTOR (3 downto 0);
+    signal in_pkts_id_q0 : STD_LOGIC_VECTOR (4 downto 0);
+    signal in_pkts_id_load_reg_469 : STD_LOGIC_VECTOR (4 downto 0);
+    signal in_pkts_dest_q0 : STD_LOGIC_VECTOR (5 downto 0);
+    signal in_pkts_dest_load_reg_474 : STD_LOGIC_VECTOR (5 downto 0);
+    signal in_pkts_data_address0 : STD_LOGIC_VECTOR (2 downto 0);
+    signal in_pkts_data_ce0 : STD_LOGIC;
+    signal in_pkts_data_we0 : STD_LOGIC;
+    signal in_pkts_data_q0 : STD_LOGIC_VECTOR (15 downto 0);
+    signal in_pkts_keep_address0 : STD_LOGIC_VECTOR (2 downto 0);
+    signal in_pkts_keep_ce0 : STD_LOGIC;
+    signal in_pkts_keep_we0 : STD_LOGIC;
+    signal in_pkts_strb_address0 : STD_LOGIC_VECTOR (2 downto 0);
+    signal in_pkts_strb_ce0 : STD_LOGIC;
+    signal in_pkts_strb_we0 : STD_LOGIC;
+    signal in_pkts_user_address0 : STD_LOGIC_VECTOR (2 downto 0);
+    signal in_pkts_user_ce0 : STD_LOGIC;
+    signal in_pkts_user_we0 : STD_LOGIC;
+    signal in_pkts_last_address0 : STD_LOGIC_VECTOR (2 downto 0);
+    signal in_pkts_last_ce0 : STD_LOGIC;
+    signal in_pkts_last_we0 : STD_LOGIC;
+    signal in_pkts_last_address1 : STD_LOGIC_VECTOR (2 downto 0);
+    signal in_pkts_last_ce1 : STD_LOGIC;
+    signal in_pkts_id_address0 : STD_LOGIC_VECTOR (2 downto 0);
+    signal in_pkts_id_ce0 : STD_LOGIC;
+    signal in_pkts_id_we0 : STD_LOGIC;
+    signal in_pkts_dest_address0 : STD_LOGIC_VECTOR (2 downto 0);
+    signal in_pkts_dest_ce0 : STD_LOGIC;
+    signal in_pkts_dest_we0 : STD_LOGIC;
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_ap_start : STD_LOGIC;
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_ap_done : STD_LOGIC;
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_ap_idle : STD_LOGIC;
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_ap_ready : STD_LOGIC;
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_data_address0 : STD_LOGIC_VECTOR (2 downto 0);
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_data_ce0 : STD_LOGIC;
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_data_we0 : STD_LOGIC;
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_data_d0 : STD_LOGIC_VECTOR (15 downto 0);
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_keep_address0 : STD_LOGIC_VECTOR (2 downto 0);
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_keep_ce0 : STD_LOGIC;
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_keep_we0 : STD_LOGIC;
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_keep_d0 : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_strb_address0 : STD_LOGIC_VECTOR (2 downto 0);
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_strb_ce0 : STD_LOGIC;
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_strb_we0 : STD_LOGIC;
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_strb_d0 : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_user_address0 : STD_LOGIC_VECTOR (2 downto 0);
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_user_ce0 : STD_LOGIC;
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_user_we0 : STD_LOGIC;
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_user_d0 : STD_LOGIC_VECTOR (1 downto 0);
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_last_address0 : STD_LOGIC_VECTOR (2 downto 0);
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_last_ce0 : STD_LOGIC;
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_last_we0 : STD_LOGIC;
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_last_d0 : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_id_address0 : STD_LOGIC_VECTOR (2 downto 0);
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_id_ce0 : STD_LOGIC;
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_id_we0 : STD_LOGIC;
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_id_d0 : STD_LOGIC_VECTOR (4 downto 0);
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_dest_address0 : STD_LOGIC_VECTOR (2 downto 0);
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_dest_ce0 : STD_LOGIC;
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_dest_we0 : STD_LOGIC;
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_dest_d0 : STD_LOGIC_VECTOR (5 downto 0);
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_stream_TREADY : STD_LOGIC;
+    signal grp_input_layer_fu_247_ap_start : STD_LOGIC;
+    signal grp_input_layer_fu_247_ap_done : STD_LOGIC;
+    signal grp_input_layer_fu_247_ap_idle : STD_LOGIC;
+    signal grp_input_layer_fu_247_ap_ready : STD_LOGIC;
+    signal grp_input_layer_fu_247_input_pkts_data_address0 : STD_LOGIC_VECTOR (2 downto 0);
+    signal grp_input_layer_fu_247_input_pkts_data_ce0 : STD_LOGIC;
+    signal grp_input_layer_fu_247_NEURONS_MEMBRANE_address0 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_input_layer_fu_247_NEURONS_MEMBRANE_ce0 : STD_LOGIC;
+    signal grp_input_layer_fu_247_NEURONS_MEMBRANE_we0 : STD_LOGIC;
+    signal grp_input_layer_fu_247_NEURONS_MEMBRANE_d0 : STD_LOGIC_VECTOR (15 downto 0);
+    signal grp_input_layer_fu_247_WEIGHTS_INDEX_address0 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_input_layer_fu_247_WEIGHTS_INDEX_ce0 : STD_LOGIC;
+    signal grp_input_layer_fu_247_WEIGHTS_INDEX_address1 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_input_layer_fu_247_WEIGHTS_INDEX_ce1 : STD_LOGIC;
+    signal grp_input_layer_fu_247_NEURONS_STATE_address0 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_input_layer_fu_247_NEURONS_STATE_ce0 : STD_LOGIC;
+    signal grp_input_layer_fu_247_NEURONS_STATE_we0 : STD_LOGIC;
+    signal grp_input_layer_fu_247_NEURONS_STATE_d0 : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_input_layer_fu_247_grp_exp_core_32_32_66_s_fu_479_p_din1 : STD_LOGIC_VECTOR (35 downto 0);
+    signal grp_input_layer_fu_247_grp_exp_core_32_32_66_s_fu_479_p_start : STD_LOGIC;
+    signal grp_inner_layer_1_fu_270_ap_start : STD_LOGIC;
+    signal grp_inner_layer_1_fu_270_ap_done : STD_LOGIC;
+    signal grp_inner_layer_1_fu_270_ap_idle : STD_LOGIC;
+    signal grp_inner_layer_1_fu_270_ap_ready : STD_LOGIC;
+    signal grp_inner_layer_1_fu_270_NEURONS_STATE_address0 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_inner_layer_1_fu_270_NEURONS_STATE_ce0 : STD_LOGIC;
+    signal grp_inner_layer_1_fu_270_NEURONS_STATE_we0 : STD_LOGIC;
+    signal grp_inner_layer_1_fu_270_NEURONS_STATE_d0 : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_inner_layer_1_fu_270_NEURONS_MEMBRANE_address0 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_inner_layer_1_fu_270_NEURONS_MEMBRANE_ce0 : STD_LOGIC;
+    signal grp_inner_layer_1_fu_270_NEURONS_MEMBRANE_we0 : STD_LOGIC;
+    signal grp_inner_layer_1_fu_270_NEURONS_MEMBRANE_d0 : STD_LOGIC_VECTOR (15 downto 0);
+    signal grp_inner_layer_1_fu_270_NEURONS_MEMBRANE_address1 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_inner_layer_1_fu_270_NEURONS_MEMBRANE_ce1 : STD_LOGIC;
+    signal grp_inner_layer_1_fu_270_WEIGHTS_INDEX_address0 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_inner_layer_1_fu_270_WEIGHTS_INDEX_ce0 : STD_LOGIC;
+    signal grp_inner_layer_1_fu_270_WEIGHTS_INDEX_address1 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_inner_layer_1_fu_270_WEIGHTS_INDEX_ce1 : STD_LOGIC;
+    signal grp_inner_layer_1_fu_270_grp_exp_core_32_32_66_s_fu_479_p_din1 : STD_LOGIC_VECTOR (35 downto 0);
+    signal grp_inner_layer_1_fu_270_grp_exp_core_32_32_66_s_fu_479_p_start : STD_LOGIC;
+    signal grp_inner_layer_2_fu_292_ap_start : STD_LOGIC;
+    signal grp_inner_layer_2_fu_292_ap_done : STD_LOGIC;
+    signal grp_inner_layer_2_fu_292_ap_idle : STD_LOGIC;
+    signal grp_inner_layer_2_fu_292_ap_ready : STD_LOGIC;
+    signal grp_inner_layer_2_fu_292_NEURONS_STATE_address0 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_inner_layer_2_fu_292_NEURONS_STATE_ce0 : STD_LOGIC;
+    signal grp_inner_layer_2_fu_292_NEURONS_STATE_we0 : STD_LOGIC;
+    signal grp_inner_layer_2_fu_292_NEURONS_STATE_d0 : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_inner_layer_2_fu_292_NEURONS_MEMBRANE_address0 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_inner_layer_2_fu_292_NEURONS_MEMBRANE_ce0 : STD_LOGIC;
+    signal grp_inner_layer_2_fu_292_NEURONS_MEMBRANE_we0 : STD_LOGIC;
+    signal grp_inner_layer_2_fu_292_NEURONS_MEMBRANE_d0 : STD_LOGIC_VECTOR (15 downto 0);
+    signal grp_inner_layer_2_fu_292_NEURONS_MEMBRANE_address1 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_inner_layer_2_fu_292_NEURONS_MEMBRANE_ce1 : STD_LOGIC;
+    signal grp_inner_layer_2_fu_292_WEIGHTS_INDEX_address0 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_inner_layer_2_fu_292_WEIGHTS_INDEX_ce0 : STD_LOGIC;
+    signal grp_inner_layer_2_fu_292_WEIGHTS_INDEX_address1 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_inner_layer_2_fu_292_WEIGHTS_INDEX_ce1 : STD_LOGIC;
+    signal grp_inner_layer_2_fu_292_grp_exp_core_32_32_66_s_fu_479_p_din1 : STD_LOGIC_VECTOR (35 downto 0);
+    signal grp_inner_layer_2_fu_292_grp_exp_core_32_32_66_s_fu_479_p_start : STD_LOGIC;
+    signal grp_inner_layer_3_fu_314_ap_start : STD_LOGIC;
+    signal grp_inner_layer_3_fu_314_ap_done : STD_LOGIC;
+    signal grp_inner_layer_3_fu_314_ap_idle : STD_LOGIC;
+    signal grp_inner_layer_3_fu_314_ap_ready : STD_LOGIC;
+    signal grp_inner_layer_3_fu_314_NEURONS_STATE_address0 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_inner_layer_3_fu_314_NEURONS_STATE_ce0 : STD_LOGIC;
+    signal grp_inner_layer_3_fu_314_NEURONS_STATE_we0 : STD_LOGIC;
+    signal grp_inner_layer_3_fu_314_NEURONS_STATE_d0 : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_inner_layer_3_fu_314_NEURONS_MEMBRANE_address0 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_inner_layer_3_fu_314_NEURONS_MEMBRANE_ce0 : STD_LOGIC;
+    signal grp_inner_layer_3_fu_314_NEURONS_MEMBRANE_we0 : STD_LOGIC;
+    signal grp_inner_layer_3_fu_314_NEURONS_MEMBRANE_d0 : STD_LOGIC_VECTOR (15 downto 0);
+    signal grp_inner_layer_3_fu_314_NEURONS_MEMBRANE_address1 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_inner_layer_3_fu_314_NEURONS_MEMBRANE_ce1 : STD_LOGIC;
+    signal grp_inner_layer_3_fu_314_WEIGHTS_INDEX_address0 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_inner_layer_3_fu_314_WEIGHTS_INDEX_ce0 : STD_LOGIC;
+    signal grp_inner_layer_3_fu_314_WEIGHTS_INDEX_address1 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_inner_layer_3_fu_314_WEIGHTS_INDEX_ce1 : STD_LOGIC;
+    signal grp_inner_layer_3_fu_314_grp_exp_core_32_32_66_s_fu_479_p_din1 : STD_LOGIC_VECTOR (35 downto 0);
+    signal grp_inner_layer_3_fu_314_grp_exp_core_32_32_66_s_fu_479_p_start : STD_LOGIC;
+    signal grp_inner_layer_4_fu_336_ap_start : STD_LOGIC;
+    signal grp_inner_layer_4_fu_336_ap_done : STD_LOGIC;
+    signal grp_inner_layer_4_fu_336_ap_idle : STD_LOGIC;
+    signal grp_inner_layer_4_fu_336_ap_ready : STD_LOGIC;
+    signal grp_inner_layer_4_fu_336_NEURONS_STATE_address0 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_inner_layer_4_fu_336_NEURONS_STATE_ce0 : STD_LOGIC;
+    signal grp_inner_layer_4_fu_336_NEURONS_STATE_we0 : STD_LOGIC;
+    signal grp_inner_layer_4_fu_336_NEURONS_STATE_d0 : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_inner_layer_4_fu_336_NEURONS_MEMBRANE_address0 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_inner_layer_4_fu_336_NEURONS_MEMBRANE_ce0 : STD_LOGIC;
+    signal grp_inner_layer_4_fu_336_NEURONS_MEMBRANE_we0 : STD_LOGIC;
+    signal grp_inner_layer_4_fu_336_NEURONS_MEMBRANE_d0 : STD_LOGIC_VECTOR (15 downto 0);
+    signal grp_inner_layer_4_fu_336_NEURONS_MEMBRANE_address1 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_inner_layer_4_fu_336_NEURONS_MEMBRANE_ce1 : STD_LOGIC;
+    signal grp_inner_layer_4_fu_336_WEIGHTS_INDEX_address0 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_inner_layer_4_fu_336_WEIGHTS_INDEX_ce0 : STD_LOGIC;
+    signal grp_inner_layer_4_fu_336_WEIGHTS_INDEX_address1 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_inner_layer_4_fu_336_WEIGHTS_INDEX_ce1 : STD_LOGIC;
+    signal grp_inner_layer_4_fu_336_grp_exp_core_32_32_66_s_fu_479_p_din1 : STD_LOGIC_VECTOR (35 downto 0);
+    signal grp_inner_layer_4_fu_336_grp_exp_core_32_32_66_s_fu_479_p_start : STD_LOGIC;
+    signal grp_output_layer_fu_358_ap_start : STD_LOGIC;
+    signal grp_output_layer_fu_358_ap_done : STD_LOGIC;
+    signal grp_output_layer_fu_358_ap_idle : STD_LOGIC;
+    signal grp_output_layer_fu_358_ap_ready : STD_LOGIC;
+    signal grp_output_layer_fu_358_NEURONS_STATE_address0 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_output_layer_fu_358_NEURONS_STATE_ce0 : STD_LOGIC;
+    signal grp_output_layer_fu_358_NEURONS_STATE_we0 : STD_LOGIC;
+    signal grp_output_layer_fu_358_NEURONS_STATE_d0 : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_output_layer_fu_358_NEURONS_MEMBRANE_address0 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_output_layer_fu_358_NEURONS_MEMBRANE_ce0 : STD_LOGIC;
+    signal grp_output_layer_fu_358_NEURONS_MEMBRANE_we0 : STD_LOGIC;
+    signal grp_output_layer_fu_358_NEURONS_MEMBRANE_d0 : STD_LOGIC_VECTOR (15 downto 0);
+    signal grp_output_layer_fu_358_NEURONS_MEMBRANE_address1 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_output_layer_fu_358_NEURONS_MEMBRANE_ce1 : STD_LOGIC;
+    signal grp_output_layer_fu_358_WEIGHTS_INDEX_address0 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_output_layer_fu_358_WEIGHTS_INDEX_ce0 : STD_LOGIC;
+    signal grp_output_layer_fu_358_WEIGHTS_INDEX_address1 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_output_layer_fu_358_WEIGHTS_INDEX_ce1 : STD_LOGIC;
+    signal grp_output_layer_fu_358_grp_exp_core_32_32_66_s_fu_479_p_din1 : STD_LOGIC_VECTOR (35 downto 0);
+    signal grp_output_layer_fu_358_grp_exp_core_32_32_66_s_fu_479_p_start : STD_LOGIC;
+    signal grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_ap_start : STD_LOGIC;
+    signal grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_ap_done : STD_LOGIC;
+    signal grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_ap_idle : STD_LOGIC;
+    signal grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_ap_ready : STD_LOGIC;
+    signal grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TREADY : STD_LOGIC;
+    signal grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TDATA : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TVALID : STD_LOGIC;
+    signal grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TKEEP : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TSTRB : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TUSER : STD_LOGIC_VECTOR (1 downto 0);
+    signal grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TLAST : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TID : STD_LOGIC_VECTOR (4 downto 0);
+    signal grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TDEST : STD_LOGIC_VECTOR (5 downto 0);
+    signal grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_NEURONS_MEMBRANE_address0 : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_NEURONS_MEMBRANE_ce0 : STD_LOGIC;
+    signal grp_exp_core_32_32_66_s_fu_479_ap_start : STD_LOGIC;
+    signal grp_exp_core_32_32_66_s_fu_479_ap_done : STD_LOGIC;
+    signal grp_exp_core_32_32_66_s_fu_479_ap_idle : STD_LOGIC;
+    signal grp_exp_core_32_32_66_s_fu_479_ap_ready : STD_LOGIC;
+    signal grp_exp_core_32_32_66_s_fu_479_x_val : STD_LOGIC_VECTOR (35 downto 0);
+    signal grp_exp_core_32_32_66_s_fu_479_ap_return : STD_LOGIC_VECTOR (30 downto 0);
+    signal grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_ap_start_reg : STD_LOGIC := '0';
+    signal ap_CS_fsm_state2 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
+    signal ap_CS_fsm_state3 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state3 : signal is "none";
+    signal grp_input_layer_fu_247_ap_start_reg : STD_LOGIC := '0';
+    signal ap_CS_fsm_state4 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state4 : signal is "none";
+    signal grp_inner_layer_1_fu_270_ap_start_reg : STD_LOGIC := '0';
+    signal ap_CS_fsm_state6 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state6 : signal is "none";
+    signal ap_CS_fsm_state7 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state7 : signal is "none";
+    signal grp_inner_layer_2_fu_292_ap_start_reg : STD_LOGIC := '0';
+    signal ap_CS_fsm_state8 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state8 : signal is "none";
+    signal ap_CS_fsm_state9 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state9 : signal is "none";
+    signal grp_inner_layer_3_fu_314_ap_start_reg : STD_LOGIC := '0';
+    signal ap_CS_fsm_state10 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state10 : signal is "none";
+    signal ap_CS_fsm_state11 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state11 : signal is "none";
+    signal grp_inner_layer_4_fu_336_ap_start_reg : STD_LOGIC := '0';
+    signal ap_CS_fsm_state12 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state12 : signal is "none";
+    signal ap_CS_fsm_state13 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state13 : signal is "none";
+    signal grp_output_layer_fu_358_ap_start_reg : STD_LOGIC := '0';
+    signal ap_CS_fsm_state14 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state14 : signal is "none";
+    signal ap_CS_fsm_state15 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state15 : signal is "none";
+    signal grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_ap_start_reg : STD_LOGIC := '0';
     signal ap_CS_fsm_state17 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state17 : signal is "none";
     signal ap_CS_fsm_state18 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state18 : signal is "none";
-    signal add_i_i161_i_fu_1114_p2 : STD_LOGIC_VECTOR (7 downto 0);
-    signal add_i_i161_i_reg_1990 : STD_LOGIC_VECTOR (7 downto 0);
-    signal trunc_ln98_fu_1125_p1 : STD_LOGIC_VECTOR (8 downto 0);
-    signal trunc_ln98_reg_2000 : STD_LOGIC_VECTOR (8 downto 0);
-    signal grp_fu_727_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal icmp_ln105_reg_2005 : STD_LOGIC_VECTOR (0 downto 0);
-    signal ap_CS_fsm_state22 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state22 : signal is "none";
-    signal zext_ln118_fu_1140_p1 : STD_LOGIC_VECTOR (63 downto 0);
-    signal zext_ln118_reg_2012 : STD_LOGIC_VECTOR (63 downto 0);
-    signal ap_CS_fsm_state25 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state25 : signal is "none";
-    signal icmp_ln118_fu_1130_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal NEURONS_MEMBRANE_addr_2_reg_2018 : STD_LOGIC_VECTOR (8 downto 0);
-    signal tmp_14_reg_2023 : STD_LOGIC_VECTOR (0 downto 0);
-    signal select_ln121_fu_1197_p3 : STD_LOGIC_VECTOR (15 downto 0);
-    signal select_ln121_reg_2028 : STD_LOGIC_VECTOR (15 downto 0);
-    signal ap_CS_fsm_state27 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state27 : signal is "none";
-    signal add_ln121_1_fu_1205_p2 : STD_LOGIC_VECTOR (16 downto 0);
-    signal add_ln121_1_reg_2033 : STD_LOGIC_VECTOR (16 downto 0);
-    signal sub_ln121_fu_1211_p2 : STD_LOGIC_VECTOR (16 downto 0);
-    signal sub_ln121_reg_2039 : STD_LOGIC_VECTOR (16 downto 0);
-    signal or_ln121_fu_1279_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal or_ln121_reg_2044 : STD_LOGIC_VECTOR (0 downto 0);
-    signal ap_CS_fsm_state28 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state28 : signal is "none";
-    signal ap_CS_fsm_state29 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state29 : signal is "none";
-    signal add_i_i161_i305_fu_1288_p2 : STD_LOGIC_VECTOR (6 downto 0);
-    signal add_i_i161_i305_reg_2054 : STD_LOGIC_VECTOR (6 downto 0);
-    signal trunc_ln122_fu_1303_p1 : STD_LOGIC_VECTOR (8 downto 0);
-    signal trunc_ln122_reg_2064 : STD_LOGIC_VECTOR (8 downto 0);
-    signal icmp_ln129_reg_2069 : STD_LOGIC_VECTOR (0 downto 0);
-    signal ap_CS_fsm_state33 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state33 : signal is "none";
-    signal zext_ln142_fu_1314_p1 : STD_LOGIC_VECTOR (63 downto 0);
-    signal zext_ln142_reg_2076 : STD_LOGIC_VECTOR (63 downto 0);
-    signal ap_CS_fsm_state36 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state36 : signal is "none";
-    signal icmp_ln142_fu_1308_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal NEURONS_MEMBRANE_addr_3_reg_2082 : STD_LOGIC_VECTOR (8 downto 0);
-    signal tmp_19_reg_2087 : STD_LOGIC_VECTOR (0 downto 0);
-    signal select_ln145_fu_1371_p3 : STD_LOGIC_VECTOR (15 downto 0);
-    signal select_ln145_reg_2092 : STD_LOGIC_VECTOR (15 downto 0);
-    signal ap_CS_fsm_state38 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state38 : signal is "none";
-    signal add_ln145_1_fu_1379_p2 : STD_LOGIC_VECTOR (16 downto 0);
-    signal add_ln145_1_reg_2097 : STD_LOGIC_VECTOR (16 downto 0);
-    signal sub_ln145_fu_1385_p2 : STD_LOGIC_VECTOR (16 downto 0);
-    signal sub_ln145_reg_2103 : STD_LOGIC_VECTOR (16 downto 0);
-    signal or_ln145_fu_1453_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal or_ln145_reg_2108 : STD_LOGIC_VECTOR (0 downto 0);
-    signal ap_CS_fsm_state39 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state39 : signal is "none";
-    signal ap_CS_fsm_state40 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state40 : signal is "none";
-    signal add_i_i161_i394_fu_1462_p2 : STD_LOGIC_VECTOR (8 downto 0);
-    signal add_i_i161_i394_reg_2118 : STD_LOGIC_VECTOR (8 downto 0);
-    signal trunc_ln146_fu_1473_p1 : STD_LOGIC_VECTOR (8 downto 0);
-    signal trunc_ln146_reg_2128 : STD_LOGIC_VECTOR (8 downto 0);
-    signal icmp_ln153_reg_2133 : STD_LOGIC_VECTOR (0 downto 0);
-    signal ap_CS_fsm_state44 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state44 : signal is "none";
-    signal zext_ln166_fu_1484_p1 : STD_LOGIC_VECTOR (63 downto 0);
-    signal zext_ln166_reg_2140 : STD_LOGIC_VECTOR (63 downto 0);
-    signal ap_CS_fsm_state47 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state47 : signal is "none";
-    signal icmp_ln166_fu_1478_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal NEURONS_MEMBRANE_addr_4_reg_2146 : STD_LOGIC_VECTOR (8 downto 0);
-    signal tmp_24_reg_2151 : STD_LOGIC_VECTOR (0 downto 0);
-    signal select_ln169_fu_1541_p3 : STD_LOGIC_VECTOR (15 downto 0);
-    signal select_ln169_reg_2156 : STD_LOGIC_VECTOR (15 downto 0);
-    signal ap_CS_fsm_state49 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state49 : signal is "none";
-    signal add_ln169_1_fu_1549_p2 : STD_LOGIC_VECTOR (16 downto 0);
-    signal add_ln169_1_reg_2161 : STD_LOGIC_VECTOR (16 downto 0);
-    signal sub_ln169_fu_1555_p2 : STD_LOGIC_VECTOR (16 downto 0);
-    signal sub_ln169_reg_2167 : STD_LOGIC_VECTOR (16 downto 0);
-    signal or_ln169_fu_1623_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal or_ln169_reg_2172 : STD_LOGIC_VECTOR (0 downto 0);
-    signal ap_CS_fsm_state50 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state50 : signal is "none";
-    signal ap_CS_fsm_state51 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state51 : signal is "none";
-    signal add_i_i161_i486_fu_1632_p2 : STD_LOGIC_VECTOR (8 downto 0);
-    signal add_i_i161_i486_reg_2182 : STD_LOGIC_VECTOR (8 downto 0);
-    signal trunc_ln170_fu_1643_p1 : STD_LOGIC_VECTOR (8 downto 0);
-    signal trunc_ln170_reg_2192 : STD_LOGIC_VECTOR (8 downto 0);
-    signal icmp_ln177_reg_2197 : STD_LOGIC_VECTOR (0 downto 0);
-    signal ap_CS_fsm_state55 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state55 : signal is "none";
-    signal zext_ln191_fu_1658_p1 : STD_LOGIC_VECTOR (63 downto 0);
-    signal zext_ln191_reg_2204 : STD_LOGIC_VECTOR (63 downto 0);
-    signal ap_CS_fsm_state58 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state58 : signal is "none";
-    signal icmp_ln191_fu_1648_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal NEURONS_MEMBRANE_addr_5_reg_2210 : STD_LOGIC_VECTOR (8 downto 0);
-    signal tmp_29_reg_2215 : STD_LOGIC_VECTOR (0 downto 0);
-    signal select_ln194_fu_1715_p3 : STD_LOGIC_VECTOR (15 downto 0);
-    signal select_ln194_reg_2220 : STD_LOGIC_VECTOR (15 downto 0);
-    signal ap_CS_fsm_state60 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state60 : signal is "none";
-    signal add_ln194_1_fu_1723_p2 : STD_LOGIC_VECTOR (16 downto 0);
-    signal add_ln194_1_reg_2225 : STD_LOGIC_VECTOR (16 downto 0);
-    signal sub_ln194_fu_1729_p2 : STD_LOGIC_VECTOR (16 downto 0);
-    signal sub_ln194_reg_2231 : STD_LOGIC_VECTOR (16 downto 0);
-    signal or_ln194_fu_1797_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal or_ln194_reg_2236 : STD_LOGIC_VECTOR (0 downto 0);
-    signal ap_CS_fsm_state61 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state61 : signal is "none";
-    signal ap_CS_fsm_state62 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state62 : signal is "none";
-    signal add_i_i172_i_fu_1806_p2 : STD_LOGIC_VECTOR (7 downto 0);
-    signal add_i_i172_i_reg_2246 : STD_LOGIC_VECTOR (7 downto 0);
-    signal trunc_ln195_fu_1821_p1 : STD_LOGIC_VECTOR (8 downto 0);
-    signal trunc_ln195_reg_2256 : STD_LOGIC_VECTOR (8 downto 0);
-    signal icmp_ln202_reg_2261 : STD_LOGIC_VECTOR (0 downto 0);
-    signal ap_CS_fsm_state66 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state66 : signal is "none";
-    signal trunc_ln206_fu_1826_p1 : STD_LOGIC_VECTOR (2 downto 0);
-    signal trunc_ln206_reg_2265 : STD_LOGIC_VECTOR (2 downto 0);
-    signal input_list_address0 : STD_LOGIC_VECTOR (2 downto 0);
-    signal input_list_ce0 : STD_LOGIC;
-    signal input_list_we0 : STD_LOGIC;
-    signal input_list_d0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal input_list_q0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal output_list_address0 : STD_LOGIC_VECTOR (2 downto 0);
-    signal output_list_ce0 : STD_LOGIC;
-    signal output_list_we0 : STD_LOGIC;
-    signal output_list_d0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal output_list_q0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_ap_start : STD_LOGIC;
-    signal grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_ap_done : STD_LOGIC;
-    signal grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_ap_idle : STD_LOGIC;
-    signal grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_ap_ready : STD_LOGIC;
-    signal grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_input_list_address0 : STD_LOGIC_VECTOR (2 downto 0);
-    signal grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_input_list_ce0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_input_list_we0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_input_list_d0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_ap_start : STD_LOGIC;
-    signal grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_ap_done : STD_LOGIC;
-    signal grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_ap_idle : STD_LOGIC;
-    signal grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_ap_ready : STD_LOGIC;
-    signal grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_output_list_address0 : STD_LOGIC_VECTOR (2 downto 0);
-    signal grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_output_list_ce0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_output_list_we0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_output_list_d0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_ap_start : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_ap_done : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_ap_idle : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_ap_ready : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_input_list_address0 : STD_LOGIC_VECTOR (2 downto 0);
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_input_list_ce0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_conv4_i11_i_out : STD_LOGIC_VECTOR (15 downto 0);
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_conv4_i11_i_out_ap_vld : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_WEIGHTS_address0 : STD_LOGIC_VECTOR (14 downto 0);
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_WEIGHTS_ce0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_ap_start : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_ap_done : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_ap_idle : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_ap_ready : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_NEURONS_STATE_address0 : STD_LOGIC_VECTOR (8 downto 0);
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_NEURONS_STATE_ce0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_NEURONS_STATE_we0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_NEURONS_STATE_d0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_ap_start : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_ap_done : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_ap_idle : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_ap_ready : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_NEURONS_STATE_address0 : STD_LOGIC_VECTOR (8 downto 0);
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_NEURONS_STATE_ce0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_WEIGHTS_address0 : STD_LOGIC_VECTOR (14 downto 0);
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_WEIGHTS_ce0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_NEURONS_MEMBRANE_address0 : STD_LOGIC_VECTOR (8 downto 0);
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_NEURONS_MEMBRANE_ce0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_NEURONS_MEMBRANE_we0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_NEURONS_MEMBRANE_d0 : STD_LOGIC_VECTOR (15 downto 0);
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_ap_start : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_ap_done : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_ap_idle : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_ap_ready : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_NEURONS_STATE_address0 : STD_LOGIC_VECTOR (8 downto 0);
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_NEURONS_STATE_ce0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_NEURONS_STATE_we0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_NEURONS_STATE_d0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_ap_start : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_ap_done : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_ap_idle : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_ap_ready : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_NEURONS_STATE_address0 : STD_LOGIC_VECTOR (8 downto 0);
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_NEURONS_STATE_ce0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_WEIGHTS_address0 : STD_LOGIC_VECTOR (14 downto 0);
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_WEIGHTS_ce0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_NEURONS_MEMBRANE_address0 : STD_LOGIC_VECTOR (8 downto 0);
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_NEURONS_MEMBRANE_ce0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_NEURONS_MEMBRANE_we0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_NEURONS_MEMBRANE_d0 : STD_LOGIC_VECTOR (15 downto 0);
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_ap_start : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_ap_done : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_ap_idle : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_ap_ready : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_NEURONS_STATE_address0 : STD_LOGIC_VECTOR (8 downto 0);
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_NEURONS_STATE_ce0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_NEURONS_STATE_we0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_NEURONS_STATE_d0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_ap_start : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_ap_done : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_ap_idle : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_ap_ready : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_NEURONS_STATE_address0 : STD_LOGIC_VECTOR (8 downto 0);
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_NEURONS_STATE_ce0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_WEIGHTS_address0 : STD_LOGIC_VECTOR (14 downto 0);
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_WEIGHTS_ce0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_NEURONS_MEMBRANE_address0 : STD_LOGIC_VECTOR (8 downto 0);
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_NEURONS_MEMBRANE_ce0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_NEURONS_MEMBRANE_we0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_NEURONS_MEMBRANE_d0 : STD_LOGIC_VECTOR (15 downto 0);
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_ap_start : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_ap_done : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_ap_idle : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_ap_ready : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_NEURONS_STATE_address0 : STD_LOGIC_VECTOR (8 downto 0);
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_NEURONS_STATE_ce0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_NEURONS_STATE_we0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_NEURONS_STATE_d0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_ap_start : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_ap_done : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_ap_idle : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_ap_ready : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_NEURONS_STATE_address0 : STD_LOGIC_VECTOR (8 downto 0);
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_NEURONS_STATE_ce0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_WEIGHTS_address0 : STD_LOGIC_VECTOR (14 downto 0);
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_WEIGHTS_ce0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_NEURONS_MEMBRANE_address0 : STD_LOGIC_VECTOR (8 downto 0);
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_NEURONS_MEMBRANE_ce0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_NEURONS_MEMBRANE_we0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_NEURONS_MEMBRANE_d0 : STD_LOGIC_VECTOR (15 downto 0);
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_ap_start : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_ap_done : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_ap_idle : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_ap_ready : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_NEURONS_STATE_address0 : STD_LOGIC_VECTOR (8 downto 0);
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_NEURONS_STATE_ce0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_NEURONS_STATE_we0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_NEURONS_STATE_d0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_ap_start : STD_LOGIC;
-    signal grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_ap_done : STD_LOGIC;
-    signal grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_ap_idle : STD_LOGIC;
-    signal grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_ap_ready : STD_LOGIC;
-    signal grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_output_list_address0 : STD_LOGIC_VECTOR (2 downto 0);
-    signal grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_output_list_ce0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_output_buffer_data_out : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_output_buffer_data_out_ap_vld : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_ap_start : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_ap_done : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_ap_idle : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_ap_ready : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_NEURONS_STATE_address0 : STD_LOGIC_VECTOR (8 downto 0);
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_NEURONS_STATE_ce0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_WEIGHTS_address0 : STD_LOGIC_VECTOR (14 downto 0);
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_WEIGHTS_ce0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_NEURONS_MEMBRANE_address0 : STD_LOGIC_VECTOR (8 downto 0);
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_NEURONS_MEMBRANE_ce0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_NEURONS_MEMBRANE_we0 : STD_LOGIC;
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_NEURONS_MEMBRANE_d0 : STD_LOGIC_VECTOR (15 downto 0);
-    signal neuron_index_reg_494 : STD_LOGIC_VECTOR (7 downto 0);
-    signal ap_CS_fsm_state13 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state13 : signal is "none";
-    signal ap_CS_fsm_state4 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state4 : signal is "none";
-    signal ap_block_state4_on_subcall_done : BOOLEAN;
-    signal empty_37_reg_505 : STD_LOGIC_VECTOR (15 downto 0);
-    signal ap_CS_fsm_state11 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state11 : signal is "none";
-    signal icmp_ln78_fu_944_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal neuron_index_1_reg_514 : STD_LOGIC_VECTOR (7 downto 0);
-    signal ap_CS_fsm_state23 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state23 : signal is "none";
-    signal neuron_index_2_reg_526 : STD_LOGIC_VECTOR (6 downto 0);
-    signal ap_CS_fsm_state34 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state34 : signal is "none";
-    signal ap_CS_fsm_state24 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state24 : signal is "none";
-    signal neuron_index_3_reg_538 : STD_LOGIC_VECTOR (8 downto 0);
-    signal ap_CS_fsm_state45 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state45 : signal is "none";
-    signal ap_CS_fsm_state35 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state35 : signal is "none";
-    signal neuron_index_4_reg_550 : STD_LOGIC_VECTOR (8 downto 0);
-    signal ap_CS_fsm_state56 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state56 : signal is "none";
-    signal ap_CS_fsm_state46 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state46 : signal is "none";
-    signal neuron_index_5_reg_562 : STD_LOGIC_VECTOR (7 downto 0);
-    signal ap_CS_fsm_state67 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state67 : signal is "none";
-    signal ap_CS_fsm_state57 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state57 : signal is "none";
-    signal grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_ap_start_reg : STD_LOGIC := '0';
-    signal grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_ap_start_reg : STD_LOGIC := '0';
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_ap_start_reg : STD_LOGIC := '0';
-    signal ap_CS_fsm_state10 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state10 : signal is "none";
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_ap_start_reg : STD_LOGIC := '0';
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_ap_start_reg : STD_LOGIC := '0';
-    signal ap_CS_fsm_state20 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state20 : signal is "none";
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_ap_start_reg : STD_LOGIC := '0';
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_ap_start_reg : STD_LOGIC := '0';
-    signal ap_CS_fsm_state31 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state31 : signal is "none";
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_ap_start_reg : STD_LOGIC := '0';
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_ap_start_reg : STD_LOGIC := '0';
-    signal ap_CS_fsm_state42 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state42 : signal is "none";
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_ap_start_reg : STD_LOGIC := '0';
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_ap_start_reg : STD_LOGIC := '0';
-    signal ap_CS_fsm_state53 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state53 : signal is "none";
-    signal grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_ap_start_reg : STD_LOGIC := '0';
-    signal ap_CS_fsm_state68 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state68 : signal is "none";
-    signal grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_ap_start_reg : STD_LOGIC := '0';
-    signal grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_ap_start_reg : STD_LOGIC := '0';
-    signal ap_CS_fsm_state64 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state64 : signal is "none";
-    signal conv_i60_i_fu_935_p1 : STD_LOGIC_VECTOR (63 downto 0);
-    signal conv_i138_i_fu_1120_p1 : STD_LOGIC_VECTOR (63 downto 0);
-    signal conv_i138_i306_cast_cast_cast_fu_1298_p1 : STD_LOGIC_VECTOR (63 downto 0);
-    signal conv_i138_i395_fu_1468_p1 : STD_LOGIC_VECTOR (63 downto 0);
-    signal conv_i138_i487_fu_1638_p1 : STD_LOGIC_VECTOR (63 downto 0);
-    signal conv_i149_i_cast_cast_cast_fu_1816_p1 : STD_LOGIC_VECTOR (63 downto 0);
-    signal zext_ln206_fu_1830_p1 : STD_LOGIC_VECTOR (63 downto 0);
-    signal ap_CS_fsm_state2 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
-    signal zext_ln97_fu_1110_p1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal ap_CS_fsm_state21 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state21 : signal is "none";
-    signal zext_ln121_fu_1284_p1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal ap_CS_fsm_state32 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state32 : signal is "none";
-    signal zext_ln145_fu_1458_p1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal ap_CS_fsm_state43 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state43 : signal is "none";
-    signal zext_ln169_fu_1628_p1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal ap_CS_fsm_state54 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state54 : signal is "none";
-    signal zext_ln194_fu_1802_p1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal ap_CS_fsm_state65 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state65 : signal is "none";
-    signal grp_fu_719_p1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal sext_ln77_fu_787_p1 : STD_LOGIC_VECTOR (16 downto 0);
-    signal add_ln77_fu_791_p2 : STD_LOGIC_VECTOR (16 downto 0);
-    signal xor_ln77_fu_805_p2 : STD_LOGIC_VECTOR (15 downto 0);
-    signal sext_ln77_3_fu_811_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal sext_ln77_3cast_fu_815_p1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal sext_ln77_4_fu_825_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal sext_ln77_4cast_fu_829_p1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal tmp_fu_797_p3 : STD_LOGIC_VECTOR (0 downto 0);
-    signal shl_ln77_fu_819_p2 : STD_LOGIC_VECTOR (15 downto 0);
-    signal ashr_ln77_fu_833_p2 : STD_LOGIC_VECTOR (15 downto 0);
-    signal sext_ln77_2_fu_866_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal sext_ln77_5_fu_869_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal sext_ln77_6_fu_878_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal shl_ln77_1_fu_872_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal ashr_ln77_1_fu_881_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal tmp_1_fu_859_p3 : STD_LOGIC_VECTOR (0 downto 0);
-    signal tmp_2_fu_887_p4 : STD_LOGIC_VECTOR (11 downto 0);
-    signal tmp_3_fu_897_p4 : STD_LOGIC_VECTOR (11 downto 0);
-    signal select_ln77_1_fu_907_p3 : STD_LOGIC_VECTOR (11 downto 0);
-    signal icmp_ln77_fu_915_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal neuron_index_cast_cast_fu_926_p1 : STD_LOGIC_VECTOR (7 downto 0);
-    signal add_i_i67_i_fu_929_p2 : STD_LOGIC_VECTOR (7 downto 0);
-    signal sext_ln97_fu_971_p1 : STD_LOGIC_VECTOR (16 downto 0);
-    signal add_ln97_fu_975_p2 : STD_LOGIC_VECTOR (16 downto 0);
-    signal xor_ln97_fu_989_p2 : STD_LOGIC_VECTOR (15 downto 0);
-    signal sext_ln97_3_fu_995_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal sext_ln97_3cast_fu_999_p1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal sext_ln97_4_fu_1009_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal sext_ln97_4cast_fu_1013_p1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal tmp_5_fu_981_p3 : STD_LOGIC_VECTOR (0 downto 0);
-    signal shl_ln97_fu_1003_p2 : STD_LOGIC_VECTOR (15 downto 0);
-    signal ashr_ln97_fu_1017_p2 : STD_LOGIC_VECTOR (15 downto 0);
-    signal sext_ln97_2_fu_1050_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal sext_ln97_5_fu_1053_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal sext_ln97_6_fu_1062_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal shl_ln97_1_fu_1056_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal ashr_ln97_1_fu_1065_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal tmp_6_fu_1043_p3 : STD_LOGIC_VECTOR (0 downto 0);
-    signal tmp_7_fu_1071_p4 : STD_LOGIC_VECTOR (11 downto 0);
-    signal tmp_8_fu_1081_p4 : STD_LOGIC_VECTOR (11 downto 0);
-    signal select_ln97_1_fu_1091_p3 : STD_LOGIC_VECTOR (11 downto 0);
-    signal icmp_ln97_fu_1099_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal sext_ln118_fu_1136_p1 : STD_LOGIC_VECTOR (7 downto 0);
-    signal sext_ln121_fu_1145_p1 : STD_LOGIC_VECTOR (16 downto 0);
-    signal add_ln121_fu_1149_p2 : STD_LOGIC_VECTOR (16 downto 0);
-    signal xor_ln121_fu_1163_p2 : STD_LOGIC_VECTOR (15 downto 0);
-    signal sext_ln121_3_fu_1169_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal sext_ln121_3cast_fu_1173_p1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal sext_ln121_4_fu_1183_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal sext_ln121_4cast_fu_1187_p1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal tmp_10_fu_1155_p3 : STD_LOGIC_VECTOR (0 downto 0);
-    signal shl_ln121_fu_1177_p2 : STD_LOGIC_VECTOR (15 downto 0);
-    signal ashr_ln121_fu_1191_p2 : STD_LOGIC_VECTOR (15 downto 0);
-    signal sext_ln121_2_fu_1224_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal sext_ln121_5_fu_1227_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal sext_ln121_6_fu_1236_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal shl_ln121_1_fu_1230_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal ashr_ln121_1_fu_1239_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal tmp_11_fu_1217_p3 : STD_LOGIC_VECTOR (0 downto 0);
-    signal tmp_12_fu_1245_p4 : STD_LOGIC_VECTOR (11 downto 0);
-    signal tmp_13_fu_1255_p4 : STD_LOGIC_VECTOR (11 downto 0);
-    signal select_ln121_1_fu_1265_p3 : STD_LOGIC_VECTOR (11 downto 0);
-    signal icmp_ln121_fu_1273_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal conv_i138_i306_cast_cast_fu_1294_p1 : STD_LOGIC_VECTOR (7 downto 0);
-    signal sext_ln145_fu_1319_p1 : STD_LOGIC_VECTOR (16 downto 0);
-    signal add_ln145_fu_1323_p2 : STD_LOGIC_VECTOR (16 downto 0);
-    signal xor_ln145_fu_1337_p2 : STD_LOGIC_VECTOR (15 downto 0);
-    signal sext_ln145_3_fu_1343_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal sext_ln145_3cast_fu_1347_p1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal sext_ln145_4_fu_1357_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal sext_ln145_4cast_fu_1361_p1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal tmp_15_fu_1329_p3 : STD_LOGIC_VECTOR (0 downto 0);
-    signal shl_ln145_fu_1351_p2 : STD_LOGIC_VECTOR (15 downto 0);
-    signal ashr_ln145_fu_1365_p2 : STD_LOGIC_VECTOR (15 downto 0);
-    signal sext_ln145_2_fu_1398_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal sext_ln145_5_fu_1401_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal sext_ln145_6_fu_1410_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal shl_ln145_1_fu_1404_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal ashr_ln145_1_fu_1413_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal tmp_16_fu_1391_p3 : STD_LOGIC_VECTOR (0 downto 0);
-    signal tmp_17_fu_1419_p4 : STD_LOGIC_VECTOR (11 downto 0);
-    signal tmp_18_fu_1429_p4 : STD_LOGIC_VECTOR (11 downto 0);
-    signal select_ln145_1_fu_1439_p3 : STD_LOGIC_VECTOR (11 downto 0);
-    signal icmp_ln145_fu_1447_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal sext_ln169_fu_1489_p1 : STD_LOGIC_VECTOR (16 downto 0);
-    signal add_ln169_fu_1493_p2 : STD_LOGIC_VECTOR (16 downto 0);
-    signal xor_ln169_fu_1507_p2 : STD_LOGIC_VECTOR (15 downto 0);
-    signal sext_ln169_3_fu_1513_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal sext_ln169_3cast_fu_1517_p1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal sext_ln169_4_fu_1527_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal sext_ln169_4cast_fu_1531_p1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal tmp_20_fu_1499_p3 : STD_LOGIC_VECTOR (0 downto 0);
-    signal shl_ln169_fu_1521_p2 : STD_LOGIC_VECTOR (15 downto 0);
-    signal ashr_ln169_fu_1535_p2 : STD_LOGIC_VECTOR (15 downto 0);
-    signal sext_ln169_2_fu_1568_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal sext_ln169_5_fu_1571_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal sext_ln169_6_fu_1580_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal shl_ln169_1_fu_1574_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal ashr_ln169_1_fu_1583_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal tmp_21_fu_1561_p3 : STD_LOGIC_VECTOR (0 downto 0);
-    signal tmp_22_fu_1589_p4 : STD_LOGIC_VECTOR (11 downto 0);
-    signal tmp_23_fu_1599_p4 : STD_LOGIC_VECTOR (11 downto 0);
-    signal select_ln169_1_fu_1609_p3 : STD_LOGIC_VECTOR (11 downto 0);
-    signal icmp_ln169_fu_1617_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal sext_ln191_fu_1654_p1 : STD_LOGIC_VECTOR (8 downto 0);
-    signal sext_ln194_fu_1663_p1 : STD_LOGIC_VECTOR (16 downto 0);
-    signal add_ln194_fu_1667_p2 : STD_LOGIC_VECTOR (16 downto 0);
-    signal xor_ln194_fu_1681_p2 : STD_LOGIC_VECTOR (15 downto 0);
-    signal sext_ln194_3_fu_1687_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal sext_ln194_3cast_fu_1691_p1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal sext_ln194_4_fu_1701_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal sext_ln194_4cast_fu_1705_p1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal tmp_25_fu_1673_p3 : STD_LOGIC_VECTOR (0 downto 0);
-    signal shl_ln194_fu_1695_p2 : STD_LOGIC_VECTOR (15 downto 0);
-    signal ashr_ln194_fu_1709_p2 : STD_LOGIC_VECTOR (15 downto 0);
-    signal sext_ln194_2_fu_1742_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal sext_ln194_5_fu_1745_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal sext_ln194_6_fu_1754_p1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal shl_ln194_1_fu_1748_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal ashr_ln194_1_fu_1757_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal tmp_26_fu_1735_p3 : STD_LOGIC_VECTOR (0 downto 0);
-    signal tmp_27_fu_1763_p4 : STD_LOGIC_VECTOR (11 downto 0);
-    signal tmp_28_fu_1773_p4 : STD_LOGIC_VECTOR (11 downto 0);
-    signal select_ln194_1_fu_1783_p3 : STD_LOGIC_VECTOR (11 downto 0);
-    signal icmp_ln194_fu_1791_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal conv_i149_i_cast_cast_fu_1812_p1 : STD_LOGIC_VECTOR (8 downto 0);
-    signal regslice_both_output_stream_V_data_V_U_apdone_blk : STD_LOGIC;
-    signal ap_block_state70 : BOOLEAN;
-    signal ap_NS_fsm : STD_LOGIC_VECTOR (69 downto 0);
+    signal regslice_both_out_stream_V_data_V_U_apdone_blk : STD_LOGIC;
+    signal ap_NS_fsm : STD_LOGIC_VECTOR (17 downto 0);
     signal ap_ST_fsm_state1_blk : STD_LOGIC;
     signal ap_ST_fsm_state2_blk : STD_LOGIC;
     signal ap_ST_fsm_state3_blk : STD_LOGIC;
@@ -822,112 +406,59 @@ architecture behav of RNI is
     signal ap_ST_fsm_state16_blk : STD_LOGIC;
     signal ap_ST_fsm_state17_blk : STD_LOGIC;
     signal ap_ST_fsm_state18_blk : STD_LOGIC;
-    signal ap_ST_fsm_state19_blk : STD_LOGIC;
-    signal ap_ST_fsm_state20_blk : STD_LOGIC;
-    signal ap_ST_fsm_state21_blk : STD_LOGIC;
-    signal ap_ST_fsm_state22_blk : STD_LOGIC;
-    signal ap_ST_fsm_state23_blk : STD_LOGIC;
-    signal ap_ST_fsm_state24_blk : STD_LOGIC;
-    signal ap_ST_fsm_state25_blk : STD_LOGIC;
-    signal ap_ST_fsm_state26_blk : STD_LOGIC;
-    signal ap_ST_fsm_state27_blk : STD_LOGIC;
-    signal ap_ST_fsm_state28_blk : STD_LOGIC;
-    signal ap_ST_fsm_state29_blk : STD_LOGIC;
-    signal ap_ST_fsm_state30_blk : STD_LOGIC;
-    signal ap_ST_fsm_state31_blk : STD_LOGIC;
-    signal ap_ST_fsm_state32_blk : STD_LOGIC;
-    signal ap_ST_fsm_state33_blk : STD_LOGIC;
-    signal ap_ST_fsm_state34_blk : STD_LOGIC;
-    signal ap_ST_fsm_state35_blk : STD_LOGIC;
-    signal ap_ST_fsm_state36_blk : STD_LOGIC;
-    signal ap_ST_fsm_state37_blk : STD_LOGIC;
-    signal ap_ST_fsm_state38_blk : STD_LOGIC;
-    signal ap_ST_fsm_state39_blk : STD_LOGIC;
-    signal ap_ST_fsm_state40_blk : STD_LOGIC;
-    signal ap_ST_fsm_state41_blk : STD_LOGIC;
-    signal ap_ST_fsm_state42_blk : STD_LOGIC;
-    signal ap_ST_fsm_state43_blk : STD_LOGIC;
-    signal ap_ST_fsm_state44_blk : STD_LOGIC;
-    signal ap_ST_fsm_state45_blk : STD_LOGIC;
-    signal ap_ST_fsm_state46_blk : STD_LOGIC;
-    signal ap_ST_fsm_state47_blk : STD_LOGIC;
-    signal ap_ST_fsm_state48_blk : STD_LOGIC;
-    signal ap_ST_fsm_state49_blk : STD_LOGIC;
-    signal ap_ST_fsm_state50_blk : STD_LOGIC;
-    signal ap_ST_fsm_state51_blk : STD_LOGIC;
-    signal ap_ST_fsm_state52_blk : STD_LOGIC;
-    signal ap_ST_fsm_state53_blk : STD_LOGIC;
-    signal ap_ST_fsm_state54_blk : STD_LOGIC;
-    signal ap_ST_fsm_state55_blk : STD_LOGIC;
-    signal ap_ST_fsm_state56_blk : STD_LOGIC;
-    signal ap_ST_fsm_state57_blk : STD_LOGIC;
-    signal ap_ST_fsm_state58_blk : STD_LOGIC;
-    signal ap_ST_fsm_state59_blk : STD_LOGIC;
-    signal ap_ST_fsm_state60_blk : STD_LOGIC;
-    signal ap_ST_fsm_state61_blk : STD_LOGIC;
-    signal ap_ST_fsm_state62_blk : STD_LOGIC;
-    signal ap_ST_fsm_state63_blk : STD_LOGIC;
-    signal ap_ST_fsm_state64_blk : STD_LOGIC;
-    signal ap_ST_fsm_state65_blk : STD_LOGIC;
-    signal ap_ST_fsm_state66_blk : STD_LOGIC;
-    signal ap_ST_fsm_state67_blk : STD_LOGIC;
-    signal ap_block_state68_on_subcall_done : BOOLEAN;
-    signal ap_ST_fsm_state68_blk : STD_LOGIC;
-    signal ap_ST_fsm_state69_blk : STD_LOGIC;
-    signal ap_ST_fsm_state70_blk : STD_LOGIC;
-    signal regslice_both_input_stream_V_data_V_U_apdone_blk : STD_LOGIC;
-    signal input_stream_TDATA_int_regslice : STD_LOGIC_VECTOR (7 downto 0);
-    signal input_stream_TVALID_int_regslice : STD_LOGIC;
-    signal input_stream_TREADY_int_regslice : STD_LOGIC;
-    signal regslice_both_input_stream_V_data_V_U_ack_in : STD_LOGIC;
-    signal regslice_both_input_stream_V_keep_V_U_apdone_blk : STD_LOGIC;
-    signal input_stream_TKEEP_int_regslice : STD_LOGIC_VECTOR (0 downto 0);
-    signal regslice_both_input_stream_V_keep_V_U_vld_out : STD_LOGIC;
-    signal regslice_both_input_stream_V_keep_V_U_ack_in : STD_LOGIC;
-    signal regslice_both_input_stream_V_strb_V_U_apdone_blk : STD_LOGIC;
-    signal input_stream_TSTRB_int_regslice : STD_LOGIC_VECTOR (0 downto 0);
-    signal regslice_both_input_stream_V_strb_V_U_vld_out : STD_LOGIC;
-    signal regslice_both_input_stream_V_strb_V_U_ack_in : STD_LOGIC;
-    signal regslice_both_input_stream_V_user_V_U_apdone_blk : STD_LOGIC;
-    signal input_stream_TUSER_int_regslice : STD_LOGIC_VECTOR (1 downto 0);
-    signal regslice_both_input_stream_V_user_V_U_vld_out : STD_LOGIC;
-    signal regslice_both_input_stream_V_user_V_U_ack_in : STD_LOGIC;
-    signal regslice_both_input_stream_V_last_V_U_apdone_blk : STD_LOGIC;
-    signal input_stream_TLAST_int_regslice : STD_LOGIC_VECTOR (0 downto 0);
-    signal regslice_both_input_stream_V_last_V_U_vld_out : STD_LOGIC;
-    signal regslice_both_input_stream_V_last_V_U_ack_in : STD_LOGIC;
-    signal regslice_both_input_stream_V_id_V_U_apdone_blk : STD_LOGIC;
-    signal input_stream_TID_int_regslice : STD_LOGIC_VECTOR (4 downto 0);
-    signal regslice_both_input_stream_V_id_V_U_vld_out : STD_LOGIC;
-    signal regslice_both_input_stream_V_id_V_U_ack_in : STD_LOGIC;
-    signal regslice_both_input_stream_V_dest_V_U_apdone_blk : STD_LOGIC;
-    signal input_stream_TDEST_int_regslice : STD_LOGIC_VECTOR (5 downto 0);
-    signal regslice_both_input_stream_V_dest_V_U_vld_out : STD_LOGIC;
-    signal regslice_both_input_stream_V_dest_V_U_ack_in : STD_LOGIC;
-    signal output_stream_TVALID_int_regslice : STD_LOGIC;
-    signal output_stream_TREADY_int_regslice : STD_LOGIC;
-    signal regslice_both_output_stream_V_data_V_U_vld_out : STD_LOGIC;
-    signal regslice_both_output_stream_V_keep_V_U_apdone_blk : STD_LOGIC;
-    signal regslice_both_output_stream_V_keep_V_U_ack_in_dummy : STD_LOGIC;
-    signal regslice_both_output_stream_V_keep_V_U_vld_out : STD_LOGIC;
-    signal regslice_both_output_stream_V_strb_V_U_apdone_blk : STD_LOGIC;
-    signal regslice_both_output_stream_V_strb_V_U_ack_in_dummy : STD_LOGIC;
-    signal regslice_both_output_stream_V_strb_V_U_vld_out : STD_LOGIC;
-    signal regslice_both_output_stream_V_user_V_U_apdone_blk : STD_LOGIC;
-    signal regslice_both_output_stream_V_user_V_U_ack_in_dummy : STD_LOGIC;
-    signal regslice_both_output_stream_V_user_V_U_vld_out : STD_LOGIC;
-    signal regslice_both_output_stream_V_last_V_U_apdone_blk : STD_LOGIC;
-    signal regslice_both_output_stream_V_last_V_U_ack_in_dummy : STD_LOGIC;
-    signal regslice_both_output_stream_V_last_V_U_vld_out : STD_LOGIC;
-    signal regslice_both_output_stream_V_id_V_U_apdone_blk : STD_LOGIC;
-    signal regslice_both_output_stream_V_id_V_U_ack_in_dummy : STD_LOGIC;
-    signal regslice_both_output_stream_V_id_V_U_vld_out : STD_LOGIC;
-    signal regslice_both_output_stream_V_dest_V_U_apdone_blk : STD_LOGIC;
-    signal regslice_both_output_stream_V_dest_V_U_ack_in_dummy : STD_LOGIC;
-    signal regslice_both_output_stream_V_dest_V_U_vld_out : STD_LOGIC;
+    signal regslice_both_in_stream_V_data_V_U_apdone_blk : STD_LOGIC;
+    signal in_stream_TDATA_int_regslice : STD_LOGIC_VECTOR (31 downto 0);
+    signal in_stream_TVALID_int_regslice : STD_LOGIC;
+    signal in_stream_TREADY_int_regslice : STD_LOGIC;
+    signal regslice_both_in_stream_V_data_V_U_ack_in : STD_LOGIC;
+    signal regslice_both_in_stream_V_keep_V_U_apdone_blk : STD_LOGIC;
+    signal in_stream_TKEEP_int_regslice : STD_LOGIC_VECTOR (3 downto 0);
+    signal regslice_both_in_stream_V_keep_V_U_vld_out : STD_LOGIC;
+    signal regslice_both_in_stream_V_keep_V_U_ack_in : STD_LOGIC;
+    signal regslice_both_in_stream_V_strb_V_U_apdone_blk : STD_LOGIC;
+    signal in_stream_TSTRB_int_regslice : STD_LOGIC_VECTOR (3 downto 0);
+    signal regslice_both_in_stream_V_strb_V_U_vld_out : STD_LOGIC;
+    signal regslice_both_in_stream_V_strb_V_U_ack_in : STD_LOGIC;
+    signal regslice_both_in_stream_V_user_V_U_apdone_blk : STD_LOGIC;
+    signal in_stream_TUSER_int_regslice : STD_LOGIC_VECTOR (1 downto 0);
+    signal regslice_both_in_stream_V_user_V_U_vld_out : STD_LOGIC;
+    signal regslice_both_in_stream_V_user_V_U_ack_in : STD_LOGIC;
+    signal regslice_both_in_stream_V_last_V_U_apdone_blk : STD_LOGIC;
+    signal in_stream_TLAST_int_regslice : STD_LOGIC_VECTOR (0 downto 0);
+    signal regslice_both_in_stream_V_last_V_U_vld_out : STD_LOGIC;
+    signal regslice_both_in_stream_V_last_V_U_ack_in : STD_LOGIC;
+    signal regslice_both_in_stream_V_id_V_U_apdone_blk : STD_LOGIC;
+    signal in_stream_TID_int_regslice : STD_LOGIC_VECTOR (4 downto 0);
+    signal regslice_both_in_stream_V_id_V_U_vld_out : STD_LOGIC;
+    signal regslice_both_in_stream_V_id_V_U_ack_in : STD_LOGIC;
+    signal regslice_both_in_stream_V_dest_V_U_apdone_blk : STD_LOGIC;
+    signal in_stream_TDEST_int_regslice : STD_LOGIC_VECTOR (5 downto 0);
+    signal regslice_both_in_stream_V_dest_V_U_vld_out : STD_LOGIC;
+    signal regslice_both_in_stream_V_dest_V_U_ack_in : STD_LOGIC;
+    signal out_stream_TVALID_int_regslice : STD_LOGIC;
+    signal out_stream_TREADY_int_regslice : STD_LOGIC;
+    signal regslice_both_out_stream_V_data_V_U_vld_out : STD_LOGIC;
+    signal regslice_both_out_stream_V_keep_V_U_apdone_blk : STD_LOGIC;
+    signal regslice_both_out_stream_V_keep_V_U_ack_in_dummy : STD_LOGIC;
+    signal regslice_both_out_stream_V_keep_V_U_vld_out : STD_LOGIC;
+    signal regslice_both_out_stream_V_strb_V_U_apdone_blk : STD_LOGIC;
+    signal regslice_both_out_stream_V_strb_V_U_ack_in_dummy : STD_LOGIC;
+    signal regslice_both_out_stream_V_strb_V_U_vld_out : STD_LOGIC;
+    signal regslice_both_out_stream_V_user_V_U_apdone_blk : STD_LOGIC;
+    signal regslice_both_out_stream_V_user_V_U_ack_in_dummy : STD_LOGIC;
+    signal regslice_both_out_stream_V_user_V_U_vld_out : STD_LOGIC;
+    signal regslice_both_out_stream_V_last_V_U_apdone_blk : STD_LOGIC;
+    signal regslice_both_out_stream_V_last_V_U_ack_in_dummy : STD_LOGIC;
+    signal regslice_both_out_stream_V_last_V_U_vld_out : STD_LOGIC;
+    signal regslice_both_out_stream_V_id_V_U_apdone_blk : STD_LOGIC;
+    signal regslice_both_out_stream_V_id_V_U_ack_in_dummy : STD_LOGIC;
+    signal regslice_both_out_stream_V_id_V_U_vld_out : STD_LOGIC;
+    signal regslice_both_out_stream_V_dest_V_U_apdone_blk : STD_LOGIC;
+    signal regslice_both_out_stream_V_dest_V_U_ack_in_dummy : STD_LOGIC;
+    signal regslice_both_out_stream_V_dest_V_U_vld_out : STD_LOGIC;
     signal ap_ce_reg : STD_LOGIC;
 
-    component RNI_RNI_Pipeline_VITIS_LOOP_33_2 IS
+    component RNI_RNI_Pipeline_VITIS_LOOP_29_2 IS
     port (
         ap_clk : IN STD_LOGIC;
         ap_rst : IN STD_LOGIC;
@@ -935,15 +466,47 @@ architecture behav of RNI is
         ap_done : OUT STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
-        input_buffer_data : IN STD_LOGIC_VECTOR (7 downto 0);
-        input_list_address0 : OUT STD_LOGIC_VECTOR (2 downto 0);
-        input_list_ce0 : OUT STD_LOGIC;
-        input_list_we0 : OUT STD_LOGIC;
-        input_list_d0 : OUT STD_LOGIC_VECTOR (0 downto 0) );
+        in_stream_TVALID : IN STD_LOGIC;
+        in_pkts_data_address0 : OUT STD_LOGIC_VECTOR (2 downto 0);
+        in_pkts_data_ce0 : OUT STD_LOGIC;
+        in_pkts_data_we0 : OUT STD_LOGIC;
+        in_pkts_data_d0 : OUT STD_LOGIC_VECTOR (15 downto 0);
+        in_pkts_keep_address0 : OUT STD_LOGIC_VECTOR (2 downto 0);
+        in_pkts_keep_ce0 : OUT STD_LOGIC;
+        in_pkts_keep_we0 : OUT STD_LOGIC;
+        in_pkts_keep_d0 : OUT STD_LOGIC_VECTOR (3 downto 0);
+        in_pkts_strb_address0 : OUT STD_LOGIC_VECTOR (2 downto 0);
+        in_pkts_strb_ce0 : OUT STD_LOGIC;
+        in_pkts_strb_we0 : OUT STD_LOGIC;
+        in_pkts_strb_d0 : OUT STD_LOGIC_VECTOR (3 downto 0);
+        in_pkts_user_address0 : OUT STD_LOGIC_VECTOR (2 downto 0);
+        in_pkts_user_ce0 : OUT STD_LOGIC;
+        in_pkts_user_we0 : OUT STD_LOGIC;
+        in_pkts_user_d0 : OUT STD_LOGIC_VECTOR (1 downto 0);
+        in_pkts_last_address0 : OUT STD_LOGIC_VECTOR (2 downto 0);
+        in_pkts_last_ce0 : OUT STD_LOGIC;
+        in_pkts_last_we0 : OUT STD_LOGIC;
+        in_pkts_last_d0 : OUT STD_LOGIC_VECTOR (0 downto 0);
+        in_pkts_id_address0 : OUT STD_LOGIC_VECTOR (2 downto 0);
+        in_pkts_id_ce0 : OUT STD_LOGIC;
+        in_pkts_id_we0 : OUT STD_LOGIC;
+        in_pkts_id_d0 : OUT STD_LOGIC_VECTOR (4 downto 0);
+        in_pkts_dest_address0 : OUT STD_LOGIC_VECTOR (2 downto 0);
+        in_pkts_dest_ce0 : OUT STD_LOGIC;
+        in_pkts_dest_we0 : OUT STD_LOGIC;
+        in_pkts_dest_d0 : OUT STD_LOGIC_VECTOR (5 downto 0);
+        in_stream_TDATA : IN STD_LOGIC_VECTOR (31 downto 0);
+        in_stream_TREADY : OUT STD_LOGIC;
+        in_stream_TKEEP : IN STD_LOGIC_VECTOR (3 downto 0);
+        in_stream_TSTRB : IN STD_LOGIC_VECTOR (3 downto 0);
+        in_stream_TUSER : IN STD_LOGIC_VECTOR (1 downto 0);
+        in_stream_TLAST : IN STD_LOGIC_VECTOR (0 downto 0);
+        in_stream_TID : IN STD_LOGIC_VECTOR (4 downto 0);
+        in_stream_TDEST : IN STD_LOGIC_VECTOR (5 downto 0) );
     end component;
 
 
-    component RNI_RNI_Pipeline_VITIS_LOOP_39_3 IS
+    component RNI_input_layer IS
     port (
         ap_clk : IN STD_LOGIC;
         ap_rst : IN STD_LOGIC;
@@ -951,36 +514,34 @@ architecture behav of RNI is
         ap_done : OUT STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
-        output_list_address0 : OUT STD_LOGIC_VECTOR (2 downto 0);
-        output_list_ce0 : OUT STD_LOGIC;
-        output_list_we0 : OUT STD_LOGIC;
-        output_list_d0 : OUT STD_LOGIC_VECTOR (0 downto 0) );
+        input_pkts_data_address0 : OUT STD_LOGIC_VECTOR (2 downto 0);
+        input_pkts_data_ce0 : OUT STD_LOGIC;
+        input_pkts_data_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
+        NEURONS_MEMBRANE_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
+        NEURONS_MEMBRANE_ce0 : OUT STD_LOGIC;
+        NEURONS_MEMBRANE_we0 : OUT STD_LOGIC;
+        NEURONS_MEMBRANE_d0 : OUT STD_LOGIC_VECTOR (15 downto 0);
+        NEURONS_MEMBRANE_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
+        WEIGHTS_INDEX_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
+        WEIGHTS_INDEX_ce0 : OUT STD_LOGIC;
+        WEIGHTS_INDEX_q0 : IN STD_LOGIC_VECTOR (14 downto 0);
+        WEIGHTS_INDEX_address1 : OUT STD_LOGIC_VECTOR (8 downto 0);
+        WEIGHTS_INDEX_ce1 : OUT STD_LOGIC;
+        WEIGHTS_INDEX_q1 : IN STD_LOGIC_VECTOR (14 downto 0);
+        NEURONS_STATE_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
+        NEURONS_STATE_ce0 : OUT STD_LOGIC;
+        NEURONS_STATE_we0 : OUT STD_LOGIC;
+        NEURONS_STATE_d0 : OUT STD_LOGIC_VECTOR (0 downto 0);
+        grp_exp_core_32_32_66_s_fu_479_p_din1 : OUT STD_LOGIC_VECTOR (35 downto 0);
+        grp_exp_core_32_32_66_s_fu_479_p_dout0 : IN STD_LOGIC_VECTOR (30 downto 0);
+        grp_exp_core_32_32_66_s_fu_479_p_start : OUT STD_LOGIC;
+        grp_exp_core_32_32_66_s_fu_479_p_ready : IN STD_LOGIC;
+        grp_exp_core_32_32_66_s_fu_479_p_done : IN STD_LOGIC;
+        grp_exp_core_32_32_66_s_fu_479_p_idle : IN STD_LOGIC );
     end component;
 
 
-    component RNI_RNI_Pipeline_WEIGHTS_LOOP IS
-    port (
-        ap_clk : IN STD_LOGIC;
-        ap_rst : IN STD_LOGIC;
-        ap_start : IN STD_LOGIC;
-        ap_done : OUT STD_LOGIC;
-        ap_idle : OUT STD_LOGIC;
-        ap_ready : OUT STD_LOGIC;
-        zext_ln78 : IN STD_LOGIC_VECTOR (14 downto 0);
-        zext_ln77 : IN STD_LOGIC_VECTOR (0 downto 0);
-        zext_ln78_1 : IN STD_LOGIC_VECTOR (14 downto 0);
-        input_list_address0 : OUT STD_LOGIC_VECTOR (2 downto 0);
-        input_list_ce0 : OUT STD_LOGIC;
-        input_list_q0 : IN STD_LOGIC_VECTOR (0 downto 0);
-        conv4_i11_i_out : OUT STD_LOGIC_VECTOR (15 downto 0);
-        conv4_i11_i_out_ap_vld : OUT STD_LOGIC;
-        WEIGHTS_address0 : OUT STD_LOGIC_VECTOR (14 downto 0);
-        WEIGHTS_ce0 : OUT STD_LOGIC;
-        WEIGHTS_q0 : IN STD_LOGIC_VECTOR (7 downto 0) );
-    end component;
-
-
-    component RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP IS
+    component RNI_inner_layer_1 IS
     port (
         ap_clk : IN STD_LOGIC;
         ap_rst : IN STD_LOGIC;
@@ -991,37 +552,32 @@ architecture behav of RNI is
         NEURONS_STATE_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
         NEURONS_STATE_ce0 : OUT STD_LOGIC;
         NEURONS_STATE_we0 : OUT STD_LOGIC;
-        NEURONS_STATE_d0 : OUT STD_LOGIC_VECTOR (0 downto 0) );
-    end component;
-
-
-    component RNI_RNI_Pipeline_WEIGHTS_LOOP1 IS
-    port (
-        ap_clk : IN STD_LOGIC;
-        ap_rst : IN STD_LOGIC;
-        ap_start : IN STD_LOGIC;
-        ap_done : OUT STD_LOGIC;
-        ap_idle : OUT STD_LOGIC;
-        ap_ready : OUT STD_LOGIC;
-        zext_ln98 : IN STD_LOGIC_VECTOR (14 downto 0);
-        zext_ln94 : IN STD_LOGIC_VECTOR (7 downto 0);
-        zext_ln98_1 : IN STD_LOGIC_VECTOR (14 downto 0);
-        trunc_ln3 : IN STD_LOGIC_VECTOR (8 downto 0);
-        NEURONS_STATE_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
-        NEURONS_STATE_ce0 : OUT STD_LOGIC;
+        NEURONS_STATE_d0 : OUT STD_LOGIC_VECTOR (0 downto 0);
         NEURONS_STATE_q0 : IN STD_LOGIC_VECTOR (0 downto 0);
-        WEIGHTS_address0 : OUT STD_LOGIC_VECTOR (14 downto 0);
-        WEIGHTS_ce0 : OUT STD_LOGIC;
-        WEIGHTS_q0 : IN STD_LOGIC_VECTOR (7 downto 0);
         NEURONS_MEMBRANE_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
         NEURONS_MEMBRANE_ce0 : OUT STD_LOGIC;
         NEURONS_MEMBRANE_we0 : OUT STD_LOGIC;
         NEURONS_MEMBRANE_d0 : OUT STD_LOGIC_VECTOR (15 downto 0);
-        NEURONS_MEMBRANE_q0 : IN STD_LOGIC_VECTOR (15 downto 0) );
+        NEURONS_MEMBRANE_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
+        NEURONS_MEMBRANE_address1 : OUT STD_LOGIC_VECTOR (8 downto 0);
+        NEURONS_MEMBRANE_ce1 : OUT STD_LOGIC;
+        NEURONS_MEMBRANE_q1 : IN STD_LOGIC_VECTOR (15 downto 0);
+        WEIGHTS_INDEX_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
+        WEIGHTS_INDEX_ce0 : OUT STD_LOGIC;
+        WEIGHTS_INDEX_q0 : IN STD_LOGIC_VECTOR (14 downto 0);
+        WEIGHTS_INDEX_address1 : OUT STD_LOGIC_VECTOR (8 downto 0);
+        WEIGHTS_INDEX_ce1 : OUT STD_LOGIC;
+        WEIGHTS_INDEX_q1 : IN STD_LOGIC_VECTOR (14 downto 0);
+        grp_exp_core_32_32_66_s_fu_479_p_din1 : OUT STD_LOGIC_VECTOR (35 downto 0);
+        grp_exp_core_32_32_66_s_fu_479_p_dout0 : IN STD_LOGIC_VECTOR (30 downto 0);
+        grp_exp_core_32_32_66_s_fu_479_p_start : OUT STD_LOGIC;
+        grp_exp_core_32_32_66_s_fu_479_p_ready : IN STD_LOGIC;
+        grp_exp_core_32_32_66_s_fu_479_p_done : IN STD_LOGIC;
+        grp_exp_core_32_32_66_s_fu_479_p_idle : IN STD_LOGIC );
     end component;
 
 
-    component RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3 IS
+    component RNI_inner_layer_2 IS
     port (
         ap_clk : IN STD_LOGIC;
         ap_rst : IN STD_LOGIC;
@@ -1032,37 +588,32 @@ architecture behav of RNI is
         NEURONS_STATE_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
         NEURONS_STATE_ce0 : OUT STD_LOGIC;
         NEURONS_STATE_we0 : OUT STD_LOGIC;
-        NEURONS_STATE_d0 : OUT STD_LOGIC_VECTOR (0 downto 0) );
-    end component;
-
-
-    component RNI_RNI_Pipeline_WEIGHTS_LOOP2 IS
-    port (
-        ap_clk : IN STD_LOGIC;
-        ap_rst : IN STD_LOGIC;
-        ap_start : IN STD_LOGIC;
-        ap_done : OUT STD_LOGIC;
-        ap_idle : OUT STD_LOGIC;
-        ap_ready : OUT STD_LOGIC;
-        zext_ln122 : IN STD_LOGIC_VECTOR (14 downto 0);
-        zext_ln118 : IN STD_LOGIC_VECTOR (6 downto 0);
-        zext_ln122_1 : IN STD_LOGIC_VECTOR (14 downto 0);
-        trunc_ln7 : IN STD_LOGIC_VECTOR (8 downto 0);
-        NEURONS_STATE_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
-        NEURONS_STATE_ce0 : OUT STD_LOGIC;
+        NEURONS_STATE_d0 : OUT STD_LOGIC_VECTOR (0 downto 0);
         NEURONS_STATE_q0 : IN STD_LOGIC_VECTOR (0 downto 0);
-        WEIGHTS_address0 : OUT STD_LOGIC_VECTOR (14 downto 0);
-        WEIGHTS_ce0 : OUT STD_LOGIC;
-        WEIGHTS_q0 : IN STD_LOGIC_VECTOR (7 downto 0);
         NEURONS_MEMBRANE_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
         NEURONS_MEMBRANE_ce0 : OUT STD_LOGIC;
         NEURONS_MEMBRANE_we0 : OUT STD_LOGIC;
         NEURONS_MEMBRANE_d0 : OUT STD_LOGIC_VECTOR (15 downto 0);
-        NEURONS_MEMBRANE_q0 : IN STD_LOGIC_VECTOR (15 downto 0) );
+        NEURONS_MEMBRANE_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
+        NEURONS_MEMBRANE_address1 : OUT STD_LOGIC_VECTOR (8 downto 0);
+        NEURONS_MEMBRANE_ce1 : OUT STD_LOGIC;
+        NEURONS_MEMBRANE_q1 : IN STD_LOGIC_VECTOR (15 downto 0);
+        WEIGHTS_INDEX_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
+        WEIGHTS_INDEX_ce0 : OUT STD_LOGIC;
+        WEIGHTS_INDEX_q0 : IN STD_LOGIC_VECTOR (14 downto 0);
+        WEIGHTS_INDEX_address1 : OUT STD_LOGIC_VECTOR (8 downto 0);
+        WEIGHTS_INDEX_ce1 : OUT STD_LOGIC;
+        WEIGHTS_INDEX_q1 : IN STD_LOGIC_VECTOR (14 downto 0);
+        grp_exp_core_32_32_66_s_fu_479_p_din1 : OUT STD_LOGIC_VECTOR (35 downto 0);
+        grp_exp_core_32_32_66_s_fu_479_p_dout0 : IN STD_LOGIC_VECTOR (30 downto 0);
+        grp_exp_core_32_32_66_s_fu_479_p_start : OUT STD_LOGIC;
+        grp_exp_core_32_32_66_s_fu_479_p_ready : IN STD_LOGIC;
+        grp_exp_core_32_32_66_s_fu_479_p_done : IN STD_LOGIC;
+        grp_exp_core_32_32_66_s_fu_479_p_idle : IN STD_LOGIC );
     end component;
 
 
-    component RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5 IS
+    component RNI_inner_layer_3 IS
     port (
         ap_clk : IN STD_LOGIC;
         ap_rst : IN STD_LOGIC;
@@ -1073,37 +624,32 @@ architecture behav of RNI is
         NEURONS_STATE_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
         NEURONS_STATE_ce0 : OUT STD_LOGIC;
         NEURONS_STATE_we0 : OUT STD_LOGIC;
-        NEURONS_STATE_d0 : OUT STD_LOGIC_VECTOR (0 downto 0) );
-    end component;
-
-
-    component RNI_RNI_Pipeline_WEIGHTS_LOOP4 IS
-    port (
-        ap_clk : IN STD_LOGIC;
-        ap_rst : IN STD_LOGIC;
-        ap_start : IN STD_LOGIC;
-        ap_done : OUT STD_LOGIC;
-        ap_idle : OUT STD_LOGIC;
-        ap_ready : OUT STD_LOGIC;
-        zext_ln146 : IN STD_LOGIC_VECTOR (14 downto 0);
-        zext_ln142 : IN STD_LOGIC_VECTOR (8 downto 0);
-        zext_ln146_1 : IN STD_LOGIC_VECTOR (14 downto 0);
-        trunc_ln10 : IN STD_LOGIC_VECTOR (8 downto 0);
-        NEURONS_STATE_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
-        NEURONS_STATE_ce0 : OUT STD_LOGIC;
+        NEURONS_STATE_d0 : OUT STD_LOGIC_VECTOR (0 downto 0);
         NEURONS_STATE_q0 : IN STD_LOGIC_VECTOR (0 downto 0);
-        WEIGHTS_address0 : OUT STD_LOGIC_VECTOR (14 downto 0);
-        WEIGHTS_ce0 : OUT STD_LOGIC;
-        WEIGHTS_q0 : IN STD_LOGIC_VECTOR (7 downto 0);
         NEURONS_MEMBRANE_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
         NEURONS_MEMBRANE_ce0 : OUT STD_LOGIC;
         NEURONS_MEMBRANE_we0 : OUT STD_LOGIC;
         NEURONS_MEMBRANE_d0 : OUT STD_LOGIC_VECTOR (15 downto 0);
-        NEURONS_MEMBRANE_q0 : IN STD_LOGIC_VECTOR (15 downto 0) );
+        NEURONS_MEMBRANE_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
+        NEURONS_MEMBRANE_address1 : OUT STD_LOGIC_VECTOR (8 downto 0);
+        NEURONS_MEMBRANE_ce1 : OUT STD_LOGIC;
+        NEURONS_MEMBRANE_q1 : IN STD_LOGIC_VECTOR (15 downto 0);
+        WEIGHTS_INDEX_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
+        WEIGHTS_INDEX_ce0 : OUT STD_LOGIC;
+        WEIGHTS_INDEX_q0 : IN STD_LOGIC_VECTOR (14 downto 0);
+        WEIGHTS_INDEX_address1 : OUT STD_LOGIC_VECTOR (8 downto 0);
+        WEIGHTS_INDEX_ce1 : OUT STD_LOGIC;
+        WEIGHTS_INDEX_q1 : IN STD_LOGIC_VECTOR (14 downto 0);
+        grp_exp_core_32_32_66_s_fu_479_p_din1 : OUT STD_LOGIC_VECTOR (35 downto 0);
+        grp_exp_core_32_32_66_s_fu_479_p_dout0 : IN STD_LOGIC_VECTOR (30 downto 0);
+        grp_exp_core_32_32_66_s_fu_479_p_start : OUT STD_LOGIC;
+        grp_exp_core_32_32_66_s_fu_479_p_ready : IN STD_LOGIC;
+        grp_exp_core_32_32_66_s_fu_479_p_done : IN STD_LOGIC;
+        grp_exp_core_32_32_66_s_fu_479_p_idle : IN STD_LOGIC );
     end component;
 
 
-    component RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7 IS
+    component RNI_inner_layer_4 IS
     port (
         ap_clk : IN STD_LOGIC;
         ap_rst : IN STD_LOGIC;
@@ -1114,37 +660,32 @@ architecture behav of RNI is
         NEURONS_STATE_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
         NEURONS_STATE_ce0 : OUT STD_LOGIC;
         NEURONS_STATE_we0 : OUT STD_LOGIC;
-        NEURONS_STATE_d0 : OUT STD_LOGIC_VECTOR (0 downto 0) );
-    end component;
-
-
-    component RNI_RNI_Pipeline_WEIGHTS_LOOP6 IS
-    port (
-        ap_clk : IN STD_LOGIC;
-        ap_rst : IN STD_LOGIC;
-        ap_start : IN STD_LOGIC;
-        ap_done : OUT STD_LOGIC;
-        ap_idle : OUT STD_LOGIC;
-        ap_ready : OUT STD_LOGIC;
-        zext_ln170 : IN STD_LOGIC_VECTOR (14 downto 0);
-        zext_ln166 : IN STD_LOGIC_VECTOR (8 downto 0);
-        zext_ln170_1 : IN STD_LOGIC_VECTOR (14 downto 0);
-        trunc_ln13 : IN STD_LOGIC_VECTOR (8 downto 0);
-        NEURONS_STATE_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
-        NEURONS_STATE_ce0 : OUT STD_LOGIC;
+        NEURONS_STATE_d0 : OUT STD_LOGIC_VECTOR (0 downto 0);
         NEURONS_STATE_q0 : IN STD_LOGIC_VECTOR (0 downto 0);
-        WEIGHTS_address0 : OUT STD_LOGIC_VECTOR (14 downto 0);
-        WEIGHTS_ce0 : OUT STD_LOGIC;
-        WEIGHTS_q0 : IN STD_LOGIC_VECTOR (7 downto 0);
         NEURONS_MEMBRANE_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
         NEURONS_MEMBRANE_ce0 : OUT STD_LOGIC;
         NEURONS_MEMBRANE_we0 : OUT STD_LOGIC;
         NEURONS_MEMBRANE_d0 : OUT STD_LOGIC_VECTOR (15 downto 0);
-        NEURONS_MEMBRANE_q0 : IN STD_LOGIC_VECTOR (15 downto 0) );
+        NEURONS_MEMBRANE_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
+        NEURONS_MEMBRANE_address1 : OUT STD_LOGIC_VECTOR (8 downto 0);
+        NEURONS_MEMBRANE_ce1 : OUT STD_LOGIC;
+        NEURONS_MEMBRANE_q1 : IN STD_LOGIC_VECTOR (15 downto 0);
+        WEIGHTS_INDEX_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
+        WEIGHTS_INDEX_ce0 : OUT STD_LOGIC;
+        WEIGHTS_INDEX_q0 : IN STD_LOGIC_VECTOR (14 downto 0);
+        WEIGHTS_INDEX_address1 : OUT STD_LOGIC_VECTOR (8 downto 0);
+        WEIGHTS_INDEX_ce1 : OUT STD_LOGIC;
+        WEIGHTS_INDEX_q1 : IN STD_LOGIC_VECTOR (14 downto 0);
+        grp_exp_core_32_32_66_s_fu_479_p_din1 : OUT STD_LOGIC_VECTOR (35 downto 0);
+        grp_exp_core_32_32_66_s_fu_479_p_dout0 : IN STD_LOGIC_VECTOR (30 downto 0);
+        grp_exp_core_32_32_66_s_fu_479_p_start : OUT STD_LOGIC;
+        grp_exp_core_32_32_66_s_fu_479_p_ready : IN STD_LOGIC;
+        grp_exp_core_32_32_66_s_fu_479_p_done : IN STD_LOGIC;
+        grp_exp_core_32_32_66_s_fu_479_p_idle : IN STD_LOGIC );
     end component;
 
 
-    component RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9 IS
+    component RNI_output_layer IS
     port (
         ap_clk : IN STD_LOGIC;
         ap_rst : IN STD_LOGIC;
@@ -1155,49 +696,70 @@ architecture behav of RNI is
         NEURONS_STATE_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
         NEURONS_STATE_ce0 : OUT STD_LOGIC;
         NEURONS_STATE_we0 : OUT STD_LOGIC;
-        NEURONS_STATE_d0 : OUT STD_LOGIC_VECTOR (0 downto 0) );
-    end component;
-
-
-    component RNI_RNI_Pipeline_VITIS_LOOP_55_4 IS
-    port (
-        ap_clk : IN STD_LOGIC;
-        ap_rst : IN STD_LOGIC;
-        ap_start : IN STD_LOGIC;
-        ap_done : OUT STD_LOGIC;
-        ap_idle : OUT STD_LOGIC;
-        ap_ready : OUT STD_LOGIC;
-        output_list_address0 : OUT STD_LOGIC_VECTOR (2 downto 0);
-        output_list_ce0 : OUT STD_LOGIC;
-        output_list_q0 : IN STD_LOGIC_VECTOR (0 downto 0);
-        output_buffer_data_out : OUT STD_LOGIC_VECTOR (7 downto 0);
-        output_buffer_data_out_ap_vld : OUT STD_LOGIC );
-    end component;
-
-
-    component RNI_RNI_Pipeline_WEIGHTS_LOOP8 IS
-    port (
-        ap_clk : IN STD_LOGIC;
-        ap_rst : IN STD_LOGIC;
-        ap_start : IN STD_LOGIC;
-        ap_done : OUT STD_LOGIC;
-        ap_idle : OUT STD_LOGIC;
-        ap_ready : OUT STD_LOGIC;
-        zext_ln195 : IN STD_LOGIC_VECTOR (14 downto 0);
-        zext_ln191 : IN STD_LOGIC_VECTOR (7 downto 0);
-        zext_ln195_1 : IN STD_LOGIC_VECTOR (14 downto 0);
-        trunc_ln16 : IN STD_LOGIC_VECTOR (8 downto 0);
-        NEURONS_STATE_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
-        NEURONS_STATE_ce0 : OUT STD_LOGIC;
+        NEURONS_STATE_d0 : OUT STD_LOGIC_VECTOR (0 downto 0);
         NEURONS_STATE_q0 : IN STD_LOGIC_VECTOR (0 downto 0);
-        WEIGHTS_address0 : OUT STD_LOGIC_VECTOR (14 downto 0);
-        WEIGHTS_ce0 : OUT STD_LOGIC;
-        WEIGHTS_q0 : IN STD_LOGIC_VECTOR (7 downto 0);
         NEURONS_MEMBRANE_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
         NEURONS_MEMBRANE_ce0 : OUT STD_LOGIC;
         NEURONS_MEMBRANE_we0 : OUT STD_LOGIC;
         NEURONS_MEMBRANE_d0 : OUT STD_LOGIC_VECTOR (15 downto 0);
+        NEURONS_MEMBRANE_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
+        NEURONS_MEMBRANE_address1 : OUT STD_LOGIC_VECTOR (8 downto 0);
+        NEURONS_MEMBRANE_ce1 : OUT STD_LOGIC;
+        NEURONS_MEMBRANE_q1 : IN STD_LOGIC_VECTOR (15 downto 0);
+        WEIGHTS_INDEX_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
+        WEIGHTS_INDEX_ce0 : OUT STD_LOGIC;
+        WEIGHTS_INDEX_q0 : IN STD_LOGIC_VECTOR (14 downto 0);
+        WEIGHTS_INDEX_address1 : OUT STD_LOGIC_VECTOR (8 downto 0);
+        WEIGHTS_INDEX_ce1 : OUT STD_LOGIC;
+        WEIGHTS_INDEX_q1 : IN STD_LOGIC_VECTOR (14 downto 0);
+        grp_exp_core_32_32_66_s_fu_479_p_din1 : OUT STD_LOGIC_VECTOR (35 downto 0);
+        grp_exp_core_32_32_66_s_fu_479_p_dout0 : IN STD_LOGIC_VECTOR (30 downto 0);
+        grp_exp_core_32_32_66_s_fu_479_p_start : OUT STD_LOGIC;
+        grp_exp_core_32_32_66_s_fu_479_p_ready : IN STD_LOGIC;
+        grp_exp_core_32_32_66_s_fu_479_p_done : IN STD_LOGIC;
+        grp_exp_core_32_32_66_s_fu_479_p_idle : IN STD_LOGIC );
+    end component;
+
+
+    component RNI_RNI_Pipeline_VITIS_LOOP_41_3 IS
+    port (
+        ap_clk : IN STD_LOGIC;
+        ap_rst : IN STD_LOGIC;
+        ap_start : IN STD_LOGIC;
+        ap_done : OUT STD_LOGIC;
+        ap_idle : OUT STD_LOGIC;
+        ap_ready : OUT STD_LOGIC;
+        out_stream_TREADY : IN STD_LOGIC;
+        out_pkts_keep : IN STD_LOGIC_VECTOR (3 downto 0);
+        out_pkts_strb : IN STD_LOGIC_VECTOR (3 downto 0);
+        out_pkts_user : IN STD_LOGIC_VECTOR (1 downto 0);
+        out_pkts_last : IN STD_LOGIC_VECTOR (0 downto 0);
+        out_pkts_id : IN STD_LOGIC_VECTOR (4 downto 0);
+        out_pkts_dest : IN STD_LOGIC_VECTOR (5 downto 0);
+        out_stream_TDATA : OUT STD_LOGIC_VECTOR (31 downto 0);
+        out_stream_TVALID : OUT STD_LOGIC;
+        out_stream_TKEEP : OUT STD_LOGIC_VECTOR (3 downto 0);
+        out_stream_TSTRB : OUT STD_LOGIC_VECTOR (3 downto 0);
+        out_stream_TUSER : OUT STD_LOGIC_VECTOR (1 downto 0);
+        out_stream_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+        out_stream_TID : OUT STD_LOGIC_VECTOR (4 downto 0);
+        out_stream_TDEST : OUT STD_LOGIC_VECTOR (5 downto 0);
+        NEURONS_MEMBRANE_address0 : OUT STD_LOGIC_VECTOR (8 downto 0);
+        NEURONS_MEMBRANE_ce0 : OUT STD_LOGIC;
         NEURONS_MEMBRANE_q0 : IN STD_LOGIC_VECTOR (15 downto 0) );
+    end component;
+
+
+    component RNI_exp_core_32_32_66_s IS
+    port (
+        ap_clk : IN STD_LOGIC;
+        ap_rst : IN STD_LOGIC;
+        ap_start : IN STD_LOGIC;
+        ap_done : OUT STD_LOGIC;
+        ap_idle : OUT STD_LOGIC;
+        ap_ready : OUT STD_LOGIC;
+        x_val : IN STD_LOGIC_VECTOR (35 downto 0);
+        ap_return : OUT STD_LOGIC_VECTOR (30 downto 0) );
     end component;
 
 
@@ -1213,7 +775,10 @@ architecture behav of RNI is
         ce0 : IN STD_LOGIC;
         we0 : IN STD_LOGIC;
         d0 : IN STD_LOGIC_VECTOR (15 downto 0);
-        q0 : OUT STD_LOGIC_VECTOR (15 downto 0) );
+        q0 : OUT STD_LOGIC_VECTOR (15 downto 0);
+        address1 : IN STD_LOGIC_VECTOR (8 downto 0);
+        ce1 : IN STD_LOGIC;
+        q1 : OUT STD_LOGIC_VECTOR (15 downto 0) );
     end component;
 
 
@@ -1234,20 +799,6 @@ architecture behav of RNI is
     end component;
 
 
-    component RNI_WEIGHTS_ROM_AUTO_1R IS
-    generic (
-        DataWidth : INTEGER;
-        AddressRange : INTEGER;
-        AddressWidth : INTEGER );
-    port (
-        clk : IN STD_LOGIC;
-        reset : IN STD_LOGIC;
-        address0 : IN STD_LOGIC_VECTOR (14 downto 0);
-        ce0 : IN STD_LOGIC;
-        q0 : OUT STD_LOGIC_VECTOR (7 downto 0) );
-    end component;
-
-
     component RNI_NEURONS_STATE_RAM_AUTO_1R1W IS
     generic (
         DataWidth : INTEGER;
@@ -1264,7 +815,55 @@ architecture behav of RNI is
     end component;
 
 
-    component RNI_input_list_RAM_AUTO_1R1W IS
+    component RNI_in_pkts_data_RAM_AUTO_1R1W IS
+    generic (
+        DataWidth : INTEGER;
+        AddressRange : INTEGER;
+        AddressWidth : INTEGER );
+    port (
+        clk : IN STD_LOGIC;
+        reset : IN STD_LOGIC;
+        address0 : IN STD_LOGIC_VECTOR (2 downto 0);
+        ce0 : IN STD_LOGIC;
+        we0 : IN STD_LOGIC;
+        d0 : IN STD_LOGIC_VECTOR (15 downto 0);
+        q0 : OUT STD_LOGIC_VECTOR (15 downto 0) );
+    end component;
+
+
+    component RNI_in_pkts_keep_RAM_AUTO_1R1W IS
+    generic (
+        DataWidth : INTEGER;
+        AddressRange : INTEGER;
+        AddressWidth : INTEGER );
+    port (
+        clk : IN STD_LOGIC;
+        reset : IN STD_LOGIC;
+        address0 : IN STD_LOGIC_VECTOR (2 downto 0);
+        ce0 : IN STD_LOGIC;
+        we0 : IN STD_LOGIC;
+        d0 : IN STD_LOGIC_VECTOR (3 downto 0);
+        q0 : OUT STD_LOGIC_VECTOR (3 downto 0) );
+    end component;
+
+
+    component RNI_in_pkts_user_RAM_AUTO_1R1W IS
+    generic (
+        DataWidth : INTEGER;
+        AddressRange : INTEGER;
+        AddressWidth : INTEGER );
+    port (
+        clk : IN STD_LOGIC;
+        reset : IN STD_LOGIC;
+        address0 : IN STD_LOGIC_VECTOR (2 downto 0);
+        ce0 : IN STD_LOGIC;
+        we0 : IN STD_LOGIC;
+        d0 : IN STD_LOGIC_VECTOR (1 downto 0);
+        q0 : OUT STD_LOGIC_VECTOR (1 downto 0) );
+    end component;
+
+
+    component RNI_in_pkts_last_RAM_AUTO_1R1W IS
     generic (
         DataWidth : INTEGER;
         AddressRange : INTEGER;
@@ -1276,7 +875,75 @@ architecture behav of RNI is
         ce0 : IN STD_LOGIC;
         we0 : IN STD_LOGIC;
         d0 : IN STD_LOGIC_VECTOR (0 downto 0);
-        q0 : OUT STD_LOGIC_VECTOR (0 downto 0) );
+        q0 : OUT STD_LOGIC_VECTOR (0 downto 0);
+        address1 : IN STD_LOGIC_VECTOR (2 downto 0);
+        ce1 : IN STD_LOGIC;
+        q1 : OUT STD_LOGIC_VECTOR (0 downto 0) );
+    end component;
+
+
+    component RNI_in_pkts_id_RAM_AUTO_1R1W IS
+    generic (
+        DataWidth : INTEGER;
+        AddressRange : INTEGER;
+        AddressWidth : INTEGER );
+    port (
+        clk : IN STD_LOGIC;
+        reset : IN STD_LOGIC;
+        address0 : IN STD_LOGIC_VECTOR (2 downto 0);
+        ce0 : IN STD_LOGIC;
+        we0 : IN STD_LOGIC;
+        d0 : IN STD_LOGIC_VECTOR (4 downto 0);
+        q0 : OUT STD_LOGIC_VECTOR (4 downto 0) );
+    end component;
+
+
+    component RNI_in_pkts_dest_RAM_AUTO_1R1W IS
+    generic (
+        DataWidth : INTEGER;
+        AddressRange : INTEGER;
+        AddressWidth : INTEGER );
+    port (
+        clk : IN STD_LOGIC;
+        reset : IN STD_LOGIC;
+        address0 : IN STD_LOGIC_VECTOR (2 downto 0);
+        ce0 : IN STD_LOGIC;
+        we0 : IN STD_LOGIC;
+        d0 : IN STD_LOGIC_VECTOR (5 downto 0);
+        q0 : OUT STD_LOGIC_VECTOR (5 downto 0) );
+    end component;
+
+
+    component RNI_ctrl_s_axi IS
+    generic (
+        C_S_AXI_ADDR_WIDTH : INTEGER;
+        C_S_AXI_DATA_WIDTH : INTEGER );
+    port (
+        AWVALID : IN STD_LOGIC;
+        AWREADY : OUT STD_LOGIC;
+        AWADDR : IN STD_LOGIC_VECTOR (C_S_AXI_ADDR_WIDTH-1 downto 0);
+        WVALID : IN STD_LOGIC;
+        WREADY : OUT STD_LOGIC;
+        WDATA : IN STD_LOGIC_VECTOR (C_S_AXI_DATA_WIDTH-1 downto 0);
+        WSTRB : IN STD_LOGIC_VECTOR (C_S_AXI_DATA_WIDTH/8-1 downto 0);
+        ARVALID : IN STD_LOGIC;
+        ARREADY : OUT STD_LOGIC;
+        ARADDR : IN STD_LOGIC_VECTOR (C_S_AXI_ADDR_WIDTH-1 downto 0);
+        RVALID : OUT STD_LOGIC;
+        RREADY : IN STD_LOGIC;
+        RDATA : OUT STD_LOGIC_VECTOR (C_S_AXI_DATA_WIDTH-1 downto 0);
+        RRESP : OUT STD_LOGIC_VECTOR (1 downto 0);
+        BVALID : OUT STD_LOGIC;
+        BREADY : IN STD_LOGIC;
+        BRESP : OUT STD_LOGIC_VECTOR (1 downto 0);
+        ACLK : IN STD_LOGIC;
+        ARESET : IN STD_LOGIC;
+        ACLK_EN : IN STD_LOGIC;
+        ap_start : OUT STD_LOGIC;
+        interrupt : OUT STD_LOGIC;
+        ap_ready : IN STD_LOGIC;
+        ap_done : IN STD_LOGIC;
+        ap_idle : IN STD_LOGIC );
     end component;
 
 
@@ -1310,7 +977,10 @@ begin
         ce0 => NEURONS_MEMBRANE_ce0,
         we0 => NEURONS_MEMBRANE_we0,
         d0 => NEURONS_MEMBRANE_d0,
-        q0 => NEURONS_MEMBRANE_q0);
+        q0 => NEURONS_MEMBRANE_q0,
+        address1 => NEURONS_MEMBRANE_address1,
+        ce1 => NEURONS_MEMBRANE_ce1,
+        q1 => NEURONS_MEMBRANE_q1);
 
     WEIGHTS_INDEX_U : component RNI_WEIGHTS_INDEX_ROM_AUTO_1R
     generic map (
@@ -1327,18 +997,6 @@ begin
         ce1 => WEIGHTS_INDEX_ce1,
         q1 => WEIGHTS_INDEX_q1);
 
-    WEIGHTS_U : component RNI_WEIGHTS_ROM_AUTO_1R
-    generic map (
-        DataWidth => 8,
-        AddressRange => 22528,
-        AddressWidth => 15)
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        address0 => WEIGHTS_address0,
-        ce0 => WEIGHTS_ce0,
-        q0 => WEIGHTS_q0);
-
     NEURONS_STATE_U : component RNI_NEURONS_STATE_RAM_AUTO_1R1W
     generic map (
         DataWidth => 1,
@@ -1353,7 +1011,63 @@ begin
         d0 => NEURONS_STATE_d0,
         q0 => NEURONS_STATE_q0);
 
-    input_list_U : component RNI_input_list_RAM_AUTO_1R1W
+    in_pkts_data_U : component RNI_in_pkts_data_RAM_AUTO_1R1W
+    generic map (
+        DataWidth => 16,
+        AddressRange => 8,
+        AddressWidth => 3)
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        address0 => in_pkts_data_address0,
+        ce0 => in_pkts_data_ce0,
+        we0 => in_pkts_data_we0,
+        d0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_data_d0,
+        q0 => in_pkts_data_q0);
+
+    in_pkts_keep_U : component RNI_in_pkts_keep_RAM_AUTO_1R1W
+    generic map (
+        DataWidth => 4,
+        AddressRange => 8,
+        AddressWidth => 3)
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        address0 => in_pkts_keep_address0,
+        ce0 => in_pkts_keep_ce0,
+        we0 => in_pkts_keep_we0,
+        d0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_keep_d0,
+        q0 => in_pkts_keep_q0);
+
+    in_pkts_strb_U : component RNI_in_pkts_keep_RAM_AUTO_1R1W
+    generic map (
+        DataWidth => 4,
+        AddressRange => 8,
+        AddressWidth => 3)
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        address0 => in_pkts_strb_address0,
+        ce0 => in_pkts_strb_ce0,
+        we0 => in_pkts_strb_we0,
+        d0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_strb_d0,
+        q0 => in_pkts_strb_q0);
+
+    in_pkts_user_U : component RNI_in_pkts_user_RAM_AUTO_1R1W
+    generic map (
+        DataWidth => 2,
+        AddressRange => 8,
+        AddressWidth => 3)
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        address0 => in_pkts_user_address0,
+        ce0 => in_pkts_user_ce0,
+        we0 => in_pkts_user_we0,
+        d0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_user_d0,
+        q0 => in_pkts_user_q0);
+
+    in_pkts_last_U : component RNI_in_pkts_last_RAM_AUTO_1R1W
     generic map (
         DataWidth => 1,
         AddressRange => 8,
@@ -1361,467 +1075,556 @@ begin
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
-        address0 => input_list_address0,
-        ce0 => input_list_ce0,
-        we0 => input_list_we0,
-        d0 => input_list_d0,
-        q0 => input_list_q0);
+        address0 => in_pkts_last_address0,
+        ce0 => in_pkts_last_ce0,
+        we0 => in_pkts_last_we0,
+        d0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_last_d0,
+        q0 => in_pkts_last_q0,
+        address1 => in_pkts_last_address1,
+        ce1 => in_pkts_last_ce1,
+        q1 => in_pkts_last_q1);
 
-    output_list_U : component RNI_input_list_RAM_AUTO_1R1W
+    in_pkts_id_U : component RNI_in_pkts_id_RAM_AUTO_1R1W
     generic map (
-        DataWidth => 1,
+        DataWidth => 5,
         AddressRange => 8,
         AddressWidth => 3)
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
-        address0 => output_list_address0,
-        ce0 => output_list_ce0,
-        we0 => output_list_we0,
-        d0 => output_list_d0,
-        q0 => output_list_q0);
+        address0 => in_pkts_id_address0,
+        ce0 => in_pkts_id_ce0,
+        we0 => in_pkts_id_we0,
+        d0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_id_d0,
+        q0 => in_pkts_id_q0);
 
-    grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574 : component RNI_RNI_Pipeline_VITIS_LOOP_33_2
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        ap_start => grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_ap_start,
-        ap_done => grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_ap_done,
-        ap_idle => grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_ap_idle,
-        ap_ready => grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_ap_ready,
-        input_buffer_data => input_buffer_data_reg_1860,
-        input_list_address0 => grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_input_list_address0,
-        input_list_ce0 => grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_input_list_ce0,
-        input_list_we0 => grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_input_list_we0,
-        input_list_d0 => grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_input_list_d0);
-
-    grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580 : component RNI_RNI_Pipeline_VITIS_LOOP_39_3
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        ap_start => grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_ap_start,
-        ap_done => grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_ap_done,
-        ap_idle => grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_ap_idle,
-        ap_ready => grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_ap_ready,
-        output_list_address0 => grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_output_list_address0,
-        output_list_ce0 => grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_output_list_ce0,
-        output_list_we0 => grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_output_list_we0,
-        output_list_d0 => grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_output_list_d0);
-
-    grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585 : component RNI_RNI_Pipeline_WEIGHTS_LOOP
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        ap_start => grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_ap_start,
-        ap_done => grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_ap_done,
-        ap_idle => grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_ap_idle,
-        ap_ready => grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_ap_ready,
-        zext_ln78 => reg_737,
-        zext_ln77 => or_ln77_reg_1914,
-        zext_ln78_1 => reg_747,
-        input_list_address0 => grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_input_list_address0,
-        input_list_ce0 => grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_input_list_ce0,
-        input_list_q0 => input_list_q0,
-        conv4_i11_i_out => grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_conv4_i11_i_out,
-        conv4_i11_i_out_ap_vld => grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_conv4_i11_i_out_ap_vld,
-        WEIGHTS_address0 => grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_WEIGHTS_address0,
-        WEIGHTS_ce0 => grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_WEIGHTS_ce0,
-        WEIGHTS_q0 => WEIGHTS_q0);
-
-    grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598 : component RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        ap_start => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_ap_start,
-        ap_done => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_ap_done,
-        ap_idle => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_ap_idle,
-        ap_ready => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_ap_ready,
-        NEURONS_STATE_address0 => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_NEURONS_STATE_address0,
-        NEURONS_STATE_ce0 => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_NEURONS_STATE_ce0,
-        NEURONS_STATE_we0 => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_NEURONS_STATE_we0,
-        NEURONS_STATE_d0 => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_NEURONS_STATE_d0);
-
-    grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604 : component RNI_RNI_Pipeline_WEIGHTS_LOOP1
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        ap_start => grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_ap_start,
-        ap_done => grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_ap_done,
-        ap_idle => grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_ap_idle,
-        ap_ready => grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_ap_ready,
-        zext_ln98 => reg_737,
-        zext_ln94 => neuron_index_1_reg_514,
-        zext_ln98_1 => reg_747,
-        trunc_ln3 => trunc_ln98_reg_2000,
-        NEURONS_STATE_address0 => grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_NEURONS_STATE_address0,
-        NEURONS_STATE_ce0 => grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_NEURONS_STATE_ce0,
-        NEURONS_STATE_q0 => NEURONS_STATE_q0,
-        WEIGHTS_address0 => grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_WEIGHTS_address0,
-        WEIGHTS_ce0 => grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_WEIGHTS_ce0,
-        WEIGHTS_q0 => WEIGHTS_q0,
-        NEURONS_MEMBRANE_address0 => grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_NEURONS_MEMBRANE_address0,
-        NEURONS_MEMBRANE_ce0 => grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_NEURONS_MEMBRANE_ce0,
-        NEURONS_MEMBRANE_we0 => grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_NEURONS_MEMBRANE_we0,
-        NEURONS_MEMBRANE_d0 => grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_NEURONS_MEMBRANE_d0,
-        NEURONS_MEMBRANE_q0 => NEURONS_MEMBRANE_q0);
-
-    grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621 : component RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        ap_start => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_ap_start,
-        ap_done => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_ap_done,
-        ap_idle => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_ap_idle,
-        ap_ready => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_ap_ready,
-        NEURONS_STATE_address0 => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_NEURONS_STATE_address0,
-        NEURONS_STATE_ce0 => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_NEURONS_STATE_ce0,
-        NEURONS_STATE_we0 => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_NEURONS_STATE_we0,
-        NEURONS_STATE_d0 => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_NEURONS_STATE_d0);
-
-    grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627 : component RNI_RNI_Pipeline_WEIGHTS_LOOP2
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        ap_start => grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_ap_start,
-        ap_done => grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_ap_done,
-        ap_idle => grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_ap_idle,
-        ap_ready => grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_ap_ready,
-        zext_ln122 => reg_737,
-        zext_ln118 => neuron_index_2_reg_526,
-        zext_ln122_1 => reg_747,
-        trunc_ln7 => trunc_ln122_reg_2064,
-        NEURONS_STATE_address0 => grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_NEURONS_STATE_address0,
-        NEURONS_STATE_ce0 => grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_NEURONS_STATE_ce0,
-        NEURONS_STATE_q0 => NEURONS_STATE_q0,
-        WEIGHTS_address0 => grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_WEIGHTS_address0,
-        WEIGHTS_ce0 => grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_WEIGHTS_ce0,
-        WEIGHTS_q0 => WEIGHTS_q0,
-        NEURONS_MEMBRANE_address0 => grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_NEURONS_MEMBRANE_address0,
-        NEURONS_MEMBRANE_ce0 => grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_NEURONS_MEMBRANE_ce0,
-        NEURONS_MEMBRANE_we0 => grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_NEURONS_MEMBRANE_we0,
-        NEURONS_MEMBRANE_d0 => grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_NEURONS_MEMBRANE_d0,
-        NEURONS_MEMBRANE_q0 => NEURONS_MEMBRANE_q0);
-
-    grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644 : component RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        ap_start => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_ap_start,
-        ap_done => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_ap_done,
-        ap_idle => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_ap_idle,
-        ap_ready => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_ap_ready,
-        NEURONS_STATE_address0 => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_NEURONS_STATE_address0,
-        NEURONS_STATE_ce0 => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_NEURONS_STATE_ce0,
-        NEURONS_STATE_we0 => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_NEURONS_STATE_we0,
-        NEURONS_STATE_d0 => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_NEURONS_STATE_d0);
-
-    grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650 : component RNI_RNI_Pipeline_WEIGHTS_LOOP4
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        ap_start => grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_ap_start,
-        ap_done => grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_ap_done,
-        ap_idle => grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_ap_idle,
-        ap_ready => grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_ap_ready,
-        zext_ln146 => reg_737,
-        zext_ln142 => neuron_index_3_reg_538,
-        zext_ln146_1 => reg_747,
-        trunc_ln10 => trunc_ln146_reg_2128,
-        NEURONS_STATE_address0 => grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_NEURONS_STATE_address0,
-        NEURONS_STATE_ce0 => grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_NEURONS_STATE_ce0,
-        NEURONS_STATE_q0 => NEURONS_STATE_q0,
-        WEIGHTS_address0 => grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_WEIGHTS_address0,
-        WEIGHTS_ce0 => grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_WEIGHTS_ce0,
-        WEIGHTS_q0 => WEIGHTS_q0,
-        NEURONS_MEMBRANE_address0 => grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_NEURONS_MEMBRANE_address0,
-        NEURONS_MEMBRANE_ce0 => grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_NEURONS_MEMBRANE_ce0,
-        NEURONS_MEMBRANE_we0 => grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_NEURONS_MEMBRANE_we0,
-        NEURONS_MEMBRANE_d0 => grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_NEURONS_MEMBRANE_d0,
-        NEURONS_MEMBRANE_q0 => NEURONS_MEMBRANE_q0);
-
-    grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667 : component RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        ap_start => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_ap_start,
-        ap_done => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_ap_done,
-        ap_idle => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_ap_idle,
-        ap_ready => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_ap_ready,
-        NEURONS_STATE_address0 => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_NEURONS_STATE_address0,
-        NEURONS_STATE_ce0 => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_NEURONS_STATE_ce0,
-        NEURONS_STATE_we0 => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_NEURONS_STATE_we0,
-        NEURONS_STATE_d0 => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_NEURONS_STATE_d0);
-
-    grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673 : component RNI_RNI_Pipeline_WEIGHTS_LOOP6
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        ap_start => grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_ap_start,
-        ap_done => grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_ap_done,
-        ap_idle => grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_ap_idle,
-        ap_ready => grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_ap_ready,
-        zext_ln170 => reg_737,
-        zext_ln166 => neuron_index_4_reg_550,
-        zext_ln170_1 => reg_747,
-        trunc_ln13 => trunc_ln170_reg_2192,
-        NEURONS_STATE_address0 => grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_NEURONS_STATE_address0,
-        NEURONS_STATE_ce0 => grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_NEURONS_STATE_ce0,
-        NEURONS_STATE_q0 => NEURONS_STATE_q0,
-        WEIGHTS_address0 => grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_WEIGHTS_address0,
-        WEIGHTS_ce0 => grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_WEIGHTS_ce0,
-        WEIGHTS_q0 => WEIGHTS_q0,
-        NEURONS_MEMBRANE_address0 => grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_NEURONS_MEMBRANE_address0,
-        NEURONS_MEMBRANE_ce0 => grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_NEURONS_MEMBRANE_ce0,
-        NEURONS_MEMBRANE_we0 => grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_NEURONS_MEMBRANE_we0,
-        NEURONS_MEMBRANE_d0 => grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_NEURONS_MEMBRANE_d0,
-        NEURONS_MEMBRANE_q0 => NEURONS_MEMBRANE_q0);
-
-    grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690 : component RNI_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        ap_start => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_ap_start,
-        ap_done => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_ap_done,
-        ap_idle => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_ap_idle,
-        ap_ready => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_ap_ready,
-        NEURONS_STATE_address0 => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_NEURONS_STATE_address0,
-        NEURONS_STATE_ce0 => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_NEURONS_STATE_ce0,
-        NEURONS_STATE_we0 => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_NEURONS_STATE_we0,
-        NEURONS_STATE_d0 => grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_NEURONS_STATE_d0);
-
-    grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696 : component RNI_RNI_Pipeline_VITIS_LOOP_55_4
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        ap_start => grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_ap_start,
-        ap_done => grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_ap_done,
-        ap_idle => grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_ap_idle,
-        ap_ready => grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_ap_ready,
-        output_list_address0 => grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_output_list_address0,
-        output_list_ce0 => grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_output_list_ce0,
-        output_list_q0 => output_list_q0,
-        output_buffer_data_out => grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_output_buffer_data_out,
-        output_buffer_data_out_ap_vld => grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_output_buffer_data_out_ap_vld);
-
-    grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702 : component RNI_RNI_Pipeline_WEIGHTS_LOOP8
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        ap_start => grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_ap_start,
-        ap_done => grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_ap_done,
-        ap_idle => grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_ap_idle,
-        ap_ready => grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_ap_ready,
-        zext_ln195 => reg_737,
-        zext_ln191 => neuron_index_5_reg_562,
-        zext_ln195_1 => reg_747,
-        trunc_ln16 => trunc_ln195_reg_2256,
-        NEURONS_STATE_address0 => grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_NEURONS_STATE_address0,
-        NEURONS_STATE_ce0 => grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_NEURONS_STATE_ce0,
-        NEURONS_STATE_q0 => NEURONS_STATE_q0,
-        WEIGHTS_address0 => grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_WEIGHTS_address0,
-        WEIGHTS_ce0 => grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_WEIGHTS_ce0,
-        WEIGHTS_q0 => WEIGHTS_q0,
-        NEURONS_MEMBRANE_address0 => grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_NEURONS_MEMBRANE_address0,
-        NEURONS_MEMBRANE_ce0 => grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_NEURONS_MEMBRANE_ce0,
-        NEURONS_MEMBRANE_we0 => grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_NEURONS_MEMBRANE_we0,
-        NEURONS_MEMBRANE_d0 => grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_NEURONS_MEMBRANE_d0,
-        NEURONS_MEMBRANE_q0 => NEURONS_MEMBRANE_q0);
-
-    regslice_both_input_stream_V_data_V_U : component RNI_regslice_both
+    in_pkts_dest_U : component RNI_in_pkts_dest_RAM_AUTO_1R1W
     generic map (
-        DataWidth => 8)
+        DataWidth => 6,
+        AddressRange => 8,
+        AddressWidth => 3)
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        address0 => in_pkts_dest_address0,
+        ce0 => in_pkts_dest_ce0,
+        we0 => in_pkts_dest_we0,
+        d0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_dest_d0,
+        q0 => in_pkts_dest_q0);
+
+    grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222 : component RNI_RNI_Pipeline_VITIS_LOOP_29_2
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => input_stream_TDATA,
-        vld_in => input_stream_TVALID,
-        ack_in => regslice_both_input_stream_V_data_V_U_ack_in,
-        data_out => input_stream_TDATA_int_regslice,
-        vld_out => input_stream_TVALID_int_regslice,
-        ack_out => input_stream_TREADY_int_regslice,
-        apdone_blk => regslice_both_input_stream_V_data_V_U_apdone_blk);
+        ap_start => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_ap_start,
+        ap_done => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_ap_done,
+        ap_idle => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_ap_idle,
+        ap_ready => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_ap_ready,
+        in_stream_TVALID => in_stream_TVALID_int_regslice,
+        in_pkts_data_address0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_data_address0,
+        in_pkts_data_ce0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_data_ce0,
+        in_pkts_data_we0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_data_we0,
+        in_pkts_data_d0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_data_d0,
+        in_pkts_keep_address0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_keep_address0,
+        in_pkts_keep_ce0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_keep_ce0,
+        in_pkts_keep_we0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_keep_we0,
+        in_pkts_keep_d0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_keep_d0,
+        in_pkts_strb_address0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_strb_address0,
+        in_pkts_strb_ce0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_strb_ce0,
+        in_pkts_strb_we0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_strb_we0,
+        in_pkts_strb_d0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_strb_d0,
+        in_pkts_user_address0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_user_address0,
+        in_pkts_user_ce0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_user_ce0,
+        in_pkts_user_we0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_user_we0,
+        in_pkts_user_d0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_user_d0,
+        in_pkts_last_address0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_last_address0,
+        in_pkts_last_ce0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_last_ce0,
+        in_pkts_last_we0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_last_we0,
+        in_pkts_last_d0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_last_d0,
+        in_pkts_id_address0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_id_address0,
+        in_pkts_id_ce0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_id_ce0,
+        in_pkts_id_we0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_id_we0,
+        in_pkts_id_d0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_id_d0,
+        in_pkts_dest_address0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_dest_address0,
+        in_pkts_dest_ce0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_dest_ce0,
+        in_pkts_dest_we0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_dest_we0,
+        in_pkts_dest_d0 => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_dest_d0,
+        in_stream_TDATA => in_stream_TDATA_int_regslice,
+        in_stream_TREADY => grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_stream_TREADY,
+        in_stream_TKEEP => in_stream_TKEEP_int_regslice,
+        in_stream_TSTRB => in_stream_TSTRB_int_regslice,
+        in_stream_TUSER => in_stream_TUSER_int_regslice,
+        in_stream_TLAST => in_stream_TLAST_int_regslice,
+        in_stream_TID => in_stream_TID_int_regslice,
+        in_stream_TDEST => in_stream_TDEST_int_regslice);
 
-    regslice_both_input_stream_V_keep_V_U : component RNI_regslice_both
+    grp_input_layer_fu_247 : component RNI_input_layer
+    port map (
+        ap_clk => ap_clk,
+        ap_rst => ap_rst_n_inv,
+        ap_start => grp_input_layer_fu_247_ap_start,
+        ap_done => grp_input_layer_fu_247_ap_done,
+        ap_idle => grp_input_layer_fu_247_ap_idle,
+        ap_ready => grp_input_layer_fu_247_ap_ready,
+        input_pkts_data_address0 => grp_input_layer_fu_247_input_pkts_data_address0,
+        input_pkts_data_ce0 => grp_input_layer_fu_247_input_pkts_data_ce0,
+        input_pkts_data_q0 => in_pkts_data_q0,
+        NEURONS_MEMBRANE_address0 => grp_input_layer_fu_247_NEURONS_MEMBRANE_address0,
+        NEURONS_MEMBRANE_ce0 => grp_input_layer_fu_247_NEURONS_MEMBRANE_ce0,
+        NEURONS_MEMBRANE_we0 => grp_input_layer_fu_247_NEURONS_MEMBRANE_we0,
+        NEURONS_MEMBRANE_d0 => grp_input_layer_fu_247_NEURONS_MEMBRANE_d0,
+        NEURONS_MEMBRANE_q0 => NEURONS_MEMBRANE_q0,
+        WEIGHTS_INDEX_address0 => grp_input_layer_fu_247_WEIGHTS_INDEX_address0,
+        WEIGHTS_INDEX_ce0 => grp_input_layer_fu_247_WEIGHTS_INDEX_ce0,
+        WEIGHTS_INDEX_q0 => WEIGHTS_INDEX_q0,
+        WEIGHTS_INDEX_address1 => grp_input_layer_fu_247_WEIGHTS_INDEX_address1,
+        WEIGHTS_INDEX_ce1 => grp_input_layer_fu_247_WEIGHTS_INDEX_ce1,
+        WEIGHTS_INDEX_q1 => WEIGHTS_INDEX_q1,
+        NEURONS_STATE_address0 => grp_input_layer_fu_247_NEURONS_STATE_address0,
+        NEURONS_STATE_ce0 => grp_input_layer_fu_247_NEURONS_STATE_ce0,
+        NEURONS_STATE_we0 => grp_input_layer_fu_247_NEURONS_STATE_we0,
+        NEURONS_STATE_d0 => grp_input_layer_fu_247_NEURONS_STATE_d0,
+        grp_exp_core_32_32_66_s_fu_479_p_din1 => grp_input_layer_fu_247_grp_exp_core_32_32_66_s_fu_479_p_din1,
+        grp_exp_core_32_32_66_s_fu_479_p_dout0 => grp_exp_core_32_32_66_s_fu_479_ap_return,
+        grp_exp_core_32_32_66_s_fu_479_p_start => grp_input_layer_fu_247_grp_exp_core_32_32_66_s_fu_479_p_start,
+        grp_exp_core_32_32_66_s_fu_479_p_ready => grp_exp_core_32_32_66_s_fu_479_ap_ready,
+        grp_exp_core_32_32_66_s_fu_479_p_done => grp_exp_core_32_32_66_s_fu_479_ap_done,
+        grp_exp_core_32_32_66_s_fu_479_p_idle => grp_exp_core_32_32_66_s_fu_479_ap_idle);
+
+    grp_inner_layer_1_fu_270 : component RNI_inner_layer_1
+    port map (
+        ap_clk => ap_clk,
+        ap_rst => ap_rst_n_inv,
+        ap_start => grp_inner_layer_1_fu_270_ap_start,
+        ap_done => grp_inner_layer_1_fu_270_ap_done,
+        ap_idle => grp_inner_layer_1_fu_270_ap_idle,
+        ap_ready => grp_inner_layer_1_fu_270_ap_ready,
+        NEURONS_STATE_address0 => grp_inner_layer_1_fu_270_NEURONS_STATE_address0,
+        NEURONS_STATE_ce0 => grp_inner_layer_1_fu_270_NEURONS_STATE_ce0,
+        NEURONS_STATE_we0 => grp_inner_layer_1_fu_270_NEURONS_STATE_we0,
+        NEURONS_STATE_d0 => grp_inner_layer_1_fu_270_NEURONS_STATE_d0,
+        NEURONS_STATE_q0 => NEURONS_STATE_q0,
+        NEURONS_MEMBRANE_address0 => grp_inner_layer_1_fu_270_NEURONS_MEMBRANE_address0,
+        NEURONS_MEMBRANE_ce0 => grp_inner_layer_1_fu_270_NEURONS_MEMBRANE_ce0,
+        NEURONS_MEMBRANE_we0 => grp_inner_layer_1_fu_270_NEURONS_MEMBRANE_we0,
+        NEURONS_MEMBRANE_d0 => grp_inner_layer_1_fu_270_NEURONS_MEMBRANE_d0,
+        NEURONS_MEMBRANE_q0 => NEURONS_MEMBRANE_q0,
+        NEURONS_MEMBRANE_address1 => grp_inner_layer_1_fu_270_NEURONS_MEMBRANE_address1,
+        NEURONS_MEMBRANE_ce1 => grp_inner_layer_1_fu_270_NEURONS_MEMBRANE_ce1,
+        NEURONS_MEMBRANE_q1 => NEURONS_MEMBRANE_q1,
+        WEIGHTS_INDEX_address0 => grp_inner_layer_1_fu_270_WEIGHTS_INDEX_address0,
+        WEIGHTS_INDEX_ce0 => grp_inner_layer_1_fu_270_WEIGHTS_INDEX_ce0,
+        WEIGHTS_INDEX_q0 => WEIGHTS_INDEX_q0,
+        WEIGHTS_INDEX_address1 => grp_inner_layer_1_fu_270_WEIGHTS_INDEX_address1,
+        WEIGHTS_INDEX_ce1 => grp_inner_layer_1_fu_270_WEIGHTS_INDEX_ce1,
+        WEIGHTS_INDEX_q1 => WEIGHTS_INDEX_q1,
+        grp_exp_core_32_32_66_s_fu_479_p_din1 => grp_inner_layer_1_fu_270_grp_exp_core_32_32_66_s_fu_479_p_din1,
+        grp_exp_core_32_32_66_s_fu_479_p_dout0 => grp_exp_core_32_32_66_s_fu_479_ap_return,
+        grp_exp_core_32_32_66_s_fu_479_p_start => grp_inner_layer_1_fu_270_grp_exp_core_32_32_66_s_fu_479_p_start,
+        grp_exp_core_32_32_66_s_fu_479_p_ready => grp_exp_core_32_32_66_s_fu_479_ap_ready,
+        grp_exp_core_32_32_66_s_fu_479_p_done => grp_exp_core_32_32_66_s_fu_479_ap_done,
+        grp_exp_core_32_32_66_s_fu_479_p_idle => grp_exp_core_32_32_66_s_fu_479_ap_idle);
+
+    grp_inner_layer_2_fu_292 : component RNI_inner_layer_2
+    port map (
+        ap_clk => ap_clk,
+        ap_rst => ap_rst_n_inv,
+        ap_start => grp_inner_layer_2_fu_292_ap_start,
+        ap_done => grp_inner_layer_2_fu_292_ap_done,
+        ap_idle => grp_inner_layer_2_fu_292_ap_idle,
+        ap_ready => grp_inner_layer_2_fu_292_ap_ready,
+        NEURONS_STATE_address0 => grp_inner_layer_2_fu_292_NEURONS_STATE_address0,
+        NEURONS_STATE_ce0 => grp_inner_layer_2_fu_292_NEURONS_STATE_ce0,
+        NEURONS_STATE_we0 => grp_inner_layer_2_fu_292_NEURONS_STATE_we0,
+        NEURONS_STATE_d0 => grp_inner_layer_2_fu_292_NEURONS_STATE_d0,
+        NEURONS_STATE_q0 => NEURONS_STATE_q0,
+        NEURONS_MEMBRANE_address0 => grp_inner_layer_2_fu_292_NEURONS_MEMBRANE_address0,
+        NEURONS_MEMBRANE_ce0 => grp_inner_layer_2_fu_292_NEURONS_MEMBRANE_ce0,
+        NEURONS_MEMBRANE_we0 => grp_inner_layer_2_fu_292_NEURONS_MEMBRANE_we0,
+        NEURONS_MEMBRANE_d0 => grp_inner_layer_2_fu_292_NEURONS_MEMBRANE_d0,
+        NEURONS_MEMBRANE_q0 => NEURONS_MEMBRANE_q0,
+        NEURONS_MEMBRANE_address1 => grp_inner_layer_2_fu_292_NEURONS_MEMBRANE_address1,
+        NEURONS_MEMBRANE_ce1 => grp_inner_layer_2_fu_292_NEURONS_MEMBRANE_ce1,
+        NEURONS_MEMBRANE_q1 => NEURONS_MEMBRANE_q1,
+        WEIGHTS_INDEX_address0 => grp_inner_layer_2_fu_292_WEIGHTS_INDEX_address0,
+        WEIGHTS_INDEX_ce0 => grp_inner_layer_2_fu_292_WEIGHTS_INDEX_ce0,
+        WEIGHTS_INDEX_q0 => WEIGHTS_INDEX_q0,
+        WEIGHTS_INDEX_address1 => grp_inner_layer_2_fu_292_WEIGHTS_INDEX_address1,
+        WEIGHTS_INDEX_ce1 => grp_inner_layer_2_fu_292_WEIGHTS_INDEX_ce1,
+        WEIGHTS_INDEX_q1 => WEIGHTS_INDEX_q1,
+        grp_exp_core_32_32_66_s_fu_479_p_din1 => grp_inner_layer_2_fu_292_grp_exp_core_32_32_66_s_fu_479_p_din1,
+        grp_exp_core_32_32_66_s_fu_479_p_dout0 => grp_exp_core_32_32_66_s_fu_479_ap_return,
+        grp_exp_core_32_32_66_s_fu_479_p_start => grp_inner_layer_2_fu_292_grp_exp_core_32_32_66_s_fu_479_p_start,
+        grp_exp_core_32_32_66_s_fu_479_p_ready => grp_exp_core_32_32_66_s_fu_479_ap_ready,
+        grp_exp_core_32_32_66_s_fu_479_p_done => grp_exp_core_32_32_66_s_fu_479_ap_done,
+        grp_exp_core_32_32_66_s_fu_479_p_idle => grp_exp_core_32_32_66_s_fu_479_ap_idle);
+
+    grp_inner_layer_3_fu_314 : component RNI_inner_layer_3
+    port map (
+        ap_clk => ap_clk,
+        ap_rst => ap_rst_n_inv,
+        ap_start => grp_inner_layer_3_fu_314_ap_start,
+        ap_done => grp_inner_layer_3_fu_314_ap_done,
+        ap_idle => grp_inner_layer_3_fu_314_ap_idle,
+        ap_ready => grp_inner_layer_3_fu_314_ap_ready,
+        NEURONS_STATE_address0 => grp_inner_layer_3_fu_314_NEURONS_STATE_address0,
+        NEURONS_STATE_ce0 => grp_inner_layer_3_fu_314_NEURONS_STATE_ce0,
+        NEURONS_STATE_we0 => grp_inner_layer_3_fu_314_NEURONS_STATE_we0,
+        NEURONS_STATE_d0 => grp_inner_layer_3_fu_314_NEURONS_STATE_d0,
+        NEURONS_STATE_q0 => NEURONS_STATE_q0,
+        NEURONS_MEMBRANE_address0 => grp_inner_layer_3_fu_314_NEURONS_MEMBRANE_address0,
+        NEURONS_MEMBRANE_ce0 => grp_inner_layer_3_fu_314_NEURONS_MEMBRANE_ce0,
+        NEURONS_MEMBRANE_we0 => grp_inner_layer_3_fu_314_NEURONS_MEMBRANE_we0,
+        NEURONS_MEMBRANE_d0 => grp_inner_layer_3_fu_314_NEURONS_MEMBRANE_d0,
+        NEURONS_MEMBRANE_q0 => NEURONS_MEMBRANE_q0,
+        NEURONS_MEMBRANE_address1 => grp_inner_layer_3_fu_314_NEURONS_MEMBRANE_address1,
+        NEURONS_MEMBRANE_ce1 => grp_inner_layer_3_fu_314_NEURONS_MEMBRANE_ce1,
+        NEURONS_MEMBRANE_q1 => NEURONS_MEMBRANE_q1,
+        WEIGHTS_INDEX_address0 => grp_inner_layer_3_fu_314_WEIGHTS_INDEX_address0,
+        WEIGHTS_INDEX_ce0 => grp_inner_layer_3_fu_314_WEIGHTS_INDEX_ce0,
+        WEIGHTS_INDEX_q0 => WEIGHTS_INDEX_q0,
+        WEIGHTS_INDEX_address1 => grp_inner_layer_3_fu_314_WEIGHTS_INDEX_address1,
+        WEIGHTS_INDEX_ce1 => grp_inner_layer_3_fu_314_WEIGHTS_INDEX_ce1,
+        WEIGHTS_INDEX_q1 => WEIGHTS_INDEX_q1,
+        grp_exp_core_32_32_66_s_fu_479_p_din1 => grp_inner_layer_3_fu_314_grp_exp_core_32_32_66_s_fu_479_p_din1,
+        grp_exp_core_32_32_66_s_fu_479_p_dout0 => grp_exp_core_32_32_66_s_fu_479_ap_return,
+        grp_exp_core_32_32_66_s_fu_479_p_start => grp_inner_layer_3_fu_314_grp_exp_core_32_32_66_s_fu_479_p_start,
+        grp_exp_core_32_32_66_s_fu_479_p_ready => grp_exp_core_32_32_66_s_fu_479_ap_ready,
+        grp_exp_core_32_32_66_s_fu_479_p_done => grp_exp_core_32_32_66_s_fu_479_ap_done,
+        grp_exp_core_32_32_66_s_fu_479_p_idle => grp_exp_core_32_32_66_s_fu_479_ap_idle);
+
+    grp_inner_layer_4_fu_336 : component RNI_inner_layer_4
+    port map (
+        ap_clk => ap_clk,
+        ap_rst => ap_rst_n_inv,
+        ap_start => grp_inner_layer_4_fu_336_ap_start,
+        ap_done => grp_inner_layer_4_fu_336_ap_done,
+        ap_idle => grp_inner_layer_4_fu_336_ap_idle,
+        ap_ready => grp_inner_layer_4_fu_336_ap_ready,
+        NEURONS_STATE_address0 => grp_inner_layer_4_fu_336_NEURONS_STATE_address0,
+        NEURONS_STATE_ce0 => grp_inner_layer_4_fu_336_NEURONS_STATE_ce0,
+        NEURONS_STATE_we0 => grp_inner_layer_4_fu_336_NEURONS_STATE_we0,
+        NEURONS_STATE_d0 => grp_inner_layer_4_fu_336_NEURONS_STATE_d0,
+        NEURONS_STATE_q0 => NEURONS_STATE_q0,
+        NEURONS_MEMBRANE_address0 => grp_inner_layer_4_fu_336_NEURONS_MEMBRANE_address0,
+        NEURONS_MEMBRANE_ce0 => grp_inner_layer_4_fu_336_NEURONS_MEMBRANE_ce0,
+        NEURONS_MEMBRANE_we0 => grp_inner_layer_4_fu_336_NEURONS_MEMBRANE_we0,
+        NEURONS_MEMBRANE_d0 => grp_inner_layer_4_fu_336_NEURONS_MEMBRANE_d0,
+        NEURONS_MEMBRANE_q0 => NEURONS_MEMBRANE_q0,
+        NEURONS_MEMBRANE_address1 => grp_inner_layer_4_fu_336_NEURONS_MEMBRANE_address1,
+        NEURONS_MEMBRANE_ce1 => grp_inner_layer_4_fu_336_NEURONS_MEMBRANE_ce1,
+        NEURONS_MEMBRANE_q1 => NEURONS_MEMBRANE_q1,
+        WEIGHTS_INDEX_address0 => grp_inner_layer_4_fu_336_WEIGHTS_INDEX_address0,
+        WEIGHTS_INDEX_ce0 => grp_inner_layer_4_fu_336_WEIGHTS_INDEX_ce0,
+        WEIGHTS_INDEX_q0 => WEIGHTS_INDEX_q0,
+        WEIGHTS_INDEX_address1 => grp_inner_layer_4_fu_336_WEIGHTS_INDEX_address1,
+        WEIGHTS_INDEX_ce1 => grp_inner_layer_4_fu_336_WEIGHTS_INDEX_ce1,
+        WEIGHTS_INDEX_q1 => WEIGHTS_INDEX_q1,
+        grp_exp_core_32_32_66_s_fu_479_p_din1 => grp_inner_layer_4_fu_336_grp_exp_core_32_32_66_s_fu_479_p_din1,
+        grp_exp_core_32_32_66_s_fu_479_p_dout0 => grp_exp_core_32_32_66_s_fu_479_ap_return,
+        grp_exp_core_32_32_66_s_fu_479_p_start => grp_inner_layer_4_fu_336_grp_exp_core_32_32_66_s_fu_479_p_start,
+        grp_exp_core_32_32_66_s_fu_479_p_ready => grp_exp_core_32_32_66_s_fu_479_ap_ready,
+        grp_exp_core_32_32_66_s_fu_479_p_done => grp_exp_core_32_32_66_s_fu_479_ap_done,
+        grp_exp_core_32_32_66_s_fu_479_p_idle => grp_exp_core_32_32_66_s_fu_479_ap_idle);
+
+    grp_output_layer_fu_358 : component RNI_output_layer
+    port map (
+        ap_clk => ap_clk,
+        ap_rst => ap_rst_n_inv,
+        ap_start => grp_output_layer_fu_358_ap_start,
+        ap_done => grp_output_layer_fu_358_ap_done,
+        ap_idle => grp_output_layer_fu_358_ap_idle,
+        ap_ready => grp_output_layer_fu_358_ap_ready,
+        NEURONS_STATE_address0 => grp_output_layer_fu_358_NEURONS_STATE_address0,
+        NEURONS_STATE_ce0 => grp_output_layer_fu_358_NEURONS_STATE_ce0,
+        NEURONS_STATE_we0 => grp_output_layer_fu_358_NEURONS_STATE_we0,
+        NEURONS_STATE_d0 => grp_output_layer_fu_358_NEURONS_STATE_d0,
+        NEURONS_STATE_q0 => NEURONS_STATE_q0,
+        NEURONS_MEMBRANE_address0 => grp_output_layer_fu_358_NEURONS_MEMBRANE_address0,
+        NEURONS_MEMBRANE_ce0 => grp_output_layer_fu_358_NEURONS_MEMBRANE_ce0,
+        NEURONS_MEMBRANE_we0 => grp_output_layer_fu_358_NEURONS_MEMBRANE_we0,
+        NEURONS_MEMBRANE_d0 => grp_output_layer_fu_358_NEURONS_MEMBRANE_d0,
+        NEURONS_MEMBRANE_q0 => NEURONS_MEMBRANE_q0,
+        NEURONS_MEMBRANE_address1 => grp_output_layer_fu_358_NEURONS_MEMBRANE_address1,
+        NEURONS_MEMBRANE_ce1 => grp_output_layer_fu_358_NEURONS_MEMBRANE_ce1,
+        NEURONS_MEMBRANE_q1 => NEURONS_MEMBRANE_q1,
+        WEIGHTS_INDEX_address0 => grp_output_layer_fu_358_WEIGHTS_INDEX_address0,
+        WEIGHTS_INDEX_ce0 => grp_output_layer_fu_358_WEIGHTS_INDEX_ce0,
+        WEIGHTS_INDEX_q0 => WEIGHTS_INDEX_q0,
+        WEIGHTS_INDEX_address1 => grp_output_layer_fu_358_WEIGHTS_INDEX_address1,
+        WEIGHTS_INDEX_ce1 => grp_output_layer_fu_358_WEIGHTS_INDEX_ce1,
+        WEIGHTS_INDEX_q1 => WEIGHTS_INDEX_q1,
+        grp_exp_core_32_32_66_s_fu_479_p_din1 => grp_output_layer_fu_358_grp_exp_core_32_32_66_s_fu_479_p_din1,
+        grp_exp_core_32_32_66_s_fu_479_p_dout0 => grp_exp_core_32_32_66_s_fu_479_ap_return,
+        grp_exp_core_32_32_66_s_fu_479_p_start => grp_output_layer_fu_358_grp_exp_core_32_32_66_s_fu_479_p_start,
+        grp_exp_core_32_32_66_s_fu_479_p_ready => grp_exp_core_32_32_66_s_fu_479_ap_ready,
+        grp_exp_core_32_32_66_s_fu_479_p_done => grp_exp_core_32_32_66_s_fu_479_ap_done,
+        grp_exp_core_32_32_66_s_fu_479_p_idle => grp_exp_core_32_32_66_s_fu_479_ap_idle);
+
+    grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380 : component RNI_RNI_Pipeline_VITIS_LOOP_41_3
+    port map (
+        ap_clk => ap_clk,
+        ap_rst => ap_rst_n_inv,
+        ap_start => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_ap_start,
+        ap_done => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_ap_done,
+        ap_idle => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_ap_idle,
+        ap_ready => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_ap_ready,
+        out_stream_TREADY => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TREADY,
+        out_pkts_keep => in_pkts_keep_load_reg_459,
+        out_pkts_strb => in_pkts_strb_load_reg_464,
+        out_pkts_user => in_pkts_user_load_reg_445,
+        out_pkts_last => in_pkts_last_load_reg_450,
+        out_pkts_id => in_pkts_id_load_reg_469,
+        out_pkts_dest => in_pkts_dest_load_reg_474,
+        out_stream_TDATA => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TDATA,
+        out_stream_TVALID => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TVALID,
+        out_stream_TKEEP => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TKEEP,
+        out_stream_TSTRB => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TSTRB,
+        out_stream_TUSER => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TUSER,
+        out_stream_TLAST => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TLAST,
+        out_stream_TID => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TID,
+        out_stream_TDEST => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TDEST,
+        NEURONS_MEMBRANE_address0 => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_NEURONS_MEMBRANE_address0,
+        NEURONS_MEMBRANE_ce0 => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_NEURONS_MEMBRANE_ce0,
+        NEURONS_MEMBRANE_q0 => NEURONS_MEMBRANE_q0);
+
+    grp_exp_core_32_32_66_s_fu_479 : component RNI_exp_core_32_32_66_s
+    port map (
+        ap_clk => ap_clk,
+        ap_rst => ap_rst_n_inv,
+        ap_start => grp_exp_core_32_32_66_s_fu_479_ap_start,
+        ap_done => grp_exp_core_32_32_66_s_fu_479_ap_done,
+        ap_idle => grp_exp_core_32_32_66_s_fu_479_ap_idle,
+        ap_ready => grp_exp_core_32_32_66_s_fu_479_ap_ready,
+        x_val => grp_exp_core_32_32_66_s_fu_479_x_val,
+        ap_return => grp_exp_core_32_32_66_s_fu_479_ap_return);
+
+    ctrl_s_axi_U : component RNI_ctrl_s_axi
     generic map (
-        DataWidth => 1)
+        C_S_AXI_ADDR_WIDTH => C_S_AXI_CTRL_ADDR_WIDTH,
+        C_S_AXI_DATA_WIDTH => C_S_AXI_CTRL_DATA_WIDTH)
     port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        data_in => input_stream_TKEEP,
-        vld_in => input_stream_TVALID,
-        ack_in => regslice_both_input_stream_V_keep_V_U_ack_in,
-        data_out => input_stream_TKEEP_int_regslice,
-        vld_out => regslice_both_input_stream_V_keep_V_U_vld_out,
-        ack_out => input_stream_TREADY_int_regslice,
-        apdone_blk => regslice_both_input_stream_V_keep_V_U_apdone_blk);
+        AWVALID => s_axi_ctrl_AWVALID,
+        AWREADY => s_axi_ctrl_AWREADY,
+        AWADDR => s_axi_ctrl_AWADDR,
+        WVALID => s_axi_ctrl_WVALID,
+        WREADY => s_axi_ctrl_WREADY,
+        WDATA => s_axi_ctrl_WDATA,
+        WSTRB => s_axi_ctrl_WSTRB,
+        ARVALID => s_axi_ctrl_ARVALID,
+        ARREADY => s_axi_ctrl_ARREADY,
+        ARADDR => s_axi_ctrl_ARADDR,
+        RVALID => s_axi_ctrl_RVALID,
+        RREADY => s_axi_ctrl_RREADY,
+        RDATA => s_axi_ctrl_RDATA,
+        RRESP => s_axi_ctrl_RRESP,
+        BVALID => s_axi_ctrl_BVALID,
+        BREADY => s_axi_ctrl_BREADY,
+        BRESP => s_axi_ctrl_BRESP,
+        ACLK => ap_clk,
+        ARESET => ap_rst_n_inv,
+        ACLK_EN => ap_const_logic_1,
+        ap_start => ap_start,
+        interrupt => interrupt,
+        ap_ready => ap_ready,
+        ap_done => ap_done,
+        ap_idle => ap_idle);
 
-    regslice_both_input_stream_V_strb_V_U : component RNI_regslice_both
+    regslice_both_in_stream_V_data_V_U : component RNI_regslice_both
     generic map (
-        DataWidth => 1)
+        DataWidth => 32)
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => input_stream_TSTRB,
-        vld_in => input_stream_TVALID,
-        ack_in => regslice_both_input_stream_V_strb_V_U_ack_in,
-        data_out => input_stream_TSTRB_int_regslice,
-        vld_out => regslice_both_input_stream_V_strb_V_U_vld_out,
-        ack_out => input_stream_TREADY_int_regslice,
-        apdone_blk => regslice_both_input_stream_V_strb_V_U_apdone_blk);
+        data_in => in_stream_TDATA,
+        vld_in => in_stream_TVALID,
+        ack_in => regslice_both_in_stream_V_data_V_U_ack_in,
+        data_out => in_stream_TDATA_int_regslice,
+        vld_out => in_stream_TVALID_int_regslice,
+        ack_out => in_stream_TREADY_int_regslice,
+        apdone_blk => regslice_both_in_stream_V_data_V_U_apdone_blk);
 
-    regslice_both_input_stream_V_user_V_U : component RNI_regslice_both
+    regslice_both_in_stream_V_keep_V_U : component RNI_regslice_both
+    generic map (
+        DataWidth => 4)
+    port map (
+        ap_clk => ap_clk,
+        ap_rst => ap_rst_n_inv,
+        data_in => in_stream_TKEEP,
+        vld_in => in_stream_TVALID,
+        ack_in => regslice_both_in_stream_V_keep_V_U_ack_in,
+        data_out => in_stream_TKEEP_int_regslice,
+        vld_out => regslice_both_in_stream_V_keep_V_U_vld_out,
+        ack_out => in_stream_TREADY_int_regslice,
+        apdone_blk => regslice_both_in_stream_V_keep_V_U_apdone_blk);
+
+    regslice_both_in_stream_V_strb_V_U : component RNI_regslice_both
+    generic map (
+        DataWidth => 4)
+    port map (
+        ap_clk => ap_clk,
+        ap_rst => ap_rst_n_inv,
+        data_in => in_stream_TSTRB,
+        vld_in => in_stream_TVALID,
+        ack_in => regslice_both_in_stream_V_strb_V_U_ack_in,
+        data_out => in_stream_TSTRB_int_regslice,
+        vld_out => regslice_both_in_stream_V_strb_V_U_vld_out,
+        ack_out => in_stream_TREADY_int_regslice,
+        apdone_blk => regslice_both_in_stream_V_strb_V_U_apdone_blk);
+
+    regslice_both_in_stream_V_user_V_U : component RNI_regslice_both
     generic map (
         DataWidth => 2)
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => input_stream_TUSER,
-        vld_in => input_stream_TVALID,
-        ack_in => regslice_both_input_stream_V_user_V_U_ack_in,
-        data_out => input_stream_TUSER_int_regslice,
-        vld_out => regslice_both_input_stream_V_user_V_U_vld_out,
-        ack_out => input_stream_TREADY_int_regslice,
-        apdone_blk => regslice_both_input_stream_V_user_V_U_apdone_blk);
+        data_in => in_stream_TUSER,
+        vld_in => in_stream_TVALID,
+        ack_in => regslice_both_in_stream_V_user_V_U_ack_in,
+        data_out => in_stream_TUSER_int_regslice,
+        vld_out => regslice_both_in_stream_V_user_V_U_vld_out,
+        ack_out => in_stream_TREADY_int_regslice,
+        apdone_blk => regslice_both_in_stream_V_user_V_U_apdone_blk);
 
-    regslice_both_input_stream_V_last_V_U : component RNI_regslice_both
+    regslice_both_in_stream_V_last_V_U : component RNI_regslice_both
     generic map (
         DataWidth => 1)
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => input_stream_TLAST,
-        vld_in => input_stream_TVALID,
-        ack_in => regslice_both_input_stream_V_last_V_U_ack_in,
-        data_out => input_stream_TLAST_int_regslice,
-        vld_out => regslice_both_input_stream_V_last_V_U_vld_out,
-        ack_out => input_stream_TREADY_int_regslice,
-        apdone_blk => regslice_both_input_stream_V_last_V_U_apdone_blk);
+        data_in => in_stream_TLAST,
+        vld_in => in_stream_TVALID,
+        ack_in => regslice_both_in_stream_V_last_V_U_ack_in,
+        data_out => in_stream_TLAST_int_regslice,
+        vld_out => regslice_both_in_stream_V_last_V_U_vld_out,
+        ack_out => in_stream_TREADY_int_regslice,
+        apdone_blk => regslice_both_in_stream_V_last_V_U_apdone_blk);
 
-    regslice_both_input_stream_V_id_V_U : component RNI_regslice_both
+    regslice_both_in_stream_V_id_V_U : component RNI_regslice_both
     generic map (
         DataWidth => 5)
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => input_stream_TID,
-        vld_in => input_stream_TVALID,
-        ack_in => regslice_both_input_stream_V_id_V_U_ack_in,
-        data_out => input_stream_TID_int_regslice,
-        vld_out => regslice_both_input_stream_V_id_V_U_vld_out,
-        ack_out => input_stream_TREADY_int_regslice,
-        apdone_blk => regslice_both_input_stream_V_id_V_U_apdone_blk);
+        data_in => in_stream_TID,
+        vld_in => in_stream_TVALID,
+        ack_in => regslice_both_in_stream_V_id_V_U_ack_in,
+        data_out => in_stream_TID_int_regslice,
+        vld_out => regslice_both_in_stream_V_id_V_U_vld_out,
+        ack_out => in_stream_TREADY_int_regslice,
+        apdone_blk => regslice_both_in_stream_V_id_V_U_apdone_blk);
 
-    regslice_both_input_stream_V_dest_V_U : component RNI_regslice_both
+    regslice_both_in_stream_V_dest_V_U : component RNI_regslice_both
     generic map (
         DataWidth => 6)
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => input_stream_TDEST,
-        vld_in => input_stream_TVALID,
-        ack_in => regslice_both_input_stream_V_dest_V_U_ack_in,
-        data_out => input_stream_TDEST_int_regslice,
-        vld_out => regslice_both_input_stream_V_dest_V_U_vld_out,
-        ack_out => input_stream_TREADY_int_regslice,
-        apdone_blk => regslice_both_input_stream_V_dest_V_U_apdone_blk);
+        data_in => in_stream_TDEST,
+        vld_in => in_stream_TVALID,
+        ack_in => regslice_both_in_stream_V_dest_V_U_ack_in,
+        data_out => in_stream_TDEST_int_regslice,
+        vld_out => regslice_both_in_stream_V_dest_V_U_vld_out,
+        ack_out => in_stream_TREADY_int_regslice,
+        apdone_blk => regslice_both_in_stream_V_dest_V_U_apdone_blk);
 
-    regslice_both_output_stream_V_data_V_U : component RNI_regslice_both
+    regslice_both_out_stream_V_data_V_U : component RNI_regslice_both
     generic map (
-        DataWidth => 8)
+        DataWidth => 32)
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_output_buffer_data_out,
-        vld_in => output_stream_TVALID_int_regslice,
-        ack_in => output_stream_TREADY_int_regslice,
-        data_out => output_stream_TDATA,
-        vld_out => regslice_both_output_stream_V_data_V_U_vld_out,
-        ack_out => output_stream_TREADY,
-        apdone_blk => regslice_both_output_stream_V_data_V_U_apdone_blk);
+        data_in => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TDATA,
+        vld_in => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TVALID,
+        ack_in => out_stream_TREADY_int_regslice,
+        data_out => out_stream_TDATA,
+        vld_out => regslice_both_out_stream_V_data_V_U_vld_out,
+        ack_out => out_stream_TREADY,
+        apdone_blk => regslice_both_out_stream_V_data_V_U_apdone_blk);
 
-    regslice_both_output_stream_V_keep_V_U : component RNI_regslice_both
+    regslice_both_out_stream_V_keep_V_U : component RNI_regslice_both
     generic map (
-        DataWidth => 1)
+        DataWidth => 4)
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => ap_const_lv1_0,
-        vld_in => output_stream_TVALID_int_regslice,
-        ack_in => regslice_both_output_stream_V_keep_V_U_ack_in_dummy,
-        data_out => output_stream_TKEEP,
-        vld_out => regslice_both_output_stream_V_keep_V_U_vld_out,
-        ack_out => output_stream_TREADY,
-        apdone_blk => regslice_both_output_stream_V_keep_V_U_apdone_blk);
+        data_in => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TKEEP,
+        vld_in => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TVALID,
+        ack_in => regslice_both_out_stream_V_keep_V_U_ack_in_dummy,
+        data_out => out_stream_TKEEP,
+        vld_out => regslice_both_out_stream_V_keep_V_U_vld_out,
+        ack_out => out_stream_TREADY,
+        apdone_blk => regslice_both_out_stream_V_keep_V_U_apdone_blk);
 
-    regslice_both_output_stream_V_strb_V_U : component RNI_regslice_both
+    regslice_both_out_stream_V_strb_V_U : component RNI_regslice_both
     generic map (
-        DataWidth => 1)
+        DataWidth => 4)
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => ap_const_lv1_0,
-        vld_in => output_stream_TVALID_int_regslice,
-        ack_in => regslice_both_output_stream_V_strb_V_U_ack_in_dummy,
-        data_out => output_stream_TSTRB,
-        vld_out => regslice_both_output_stream_V_strb_V_U_vld_out,
-        ack_out => output_stream_TREADY,
-        apdone_blk => regslice_both_output_stream_V_strb_V_U_apdone_blk);
+        data_in => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TSTRB,
+        vld_in => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TVALID,
+        ack_in => regslice_both_out_stream_V_strb_V_U_ack_in_dummy,
+        data_out => out_stream_TSTRB,
+        vld_out => regslice_both_out_stream_V_strb_V_U_vld_out,
+        ack_out => out_stream_TREADY,
+        apdone_blk => regslice_both_out_stream_V_strb_V_U_apdone_blk);
 
-    regslice_both_output_stream_V_user_V_U : component RNI_regslice_both
+    regslice_both_out_stream_V_user_V_U : component RNI_regslice_both
     generic map (
         DataWidth => 2)
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => ap_const_lv2_0,
-        vld_in => output_stream_TVALID_int_regslice,
-        ack_in => regslice_both_output_stream_V_user_V_U_ack_in_dummy,
-        data_out => output_stream_TUSER,
-        vld_out => regslice_both_output_stream_V_user_V_U_vld_out,
-        ack_out => output_stream_TREADY,
-        apdone_blk => regslice_both_output_stream_V_user_V_U_apdone_blk);
+        data_in => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TUSER,
+        vld_in => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TVALID,
+        ack_in => regslice_both_out_stream_V_user_V_U_ack_in_dummy,
+        data_out => out_stream_TUSER,
+        vld_out => regslice_both_out_stream_V_user_V_U_vld_out,
+        ack_out => out_stream_TREADY,
+        apdone_blk => regslice_both_out_stream_V_user_V_U_apdone_blk);
 
-    regslice_both_output_stream_V_last_V_U : component RNI_regslice_both
+    regslice_both_out_stream_V_last_V_U : component RNI_regslice_both
     generic map (
         DataWidth => 1)
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => ap_const_lv1_0,
-        vld_in => output_stream_TVALID_int_regslice,
-        ack_in => regslice_both_output_stream_V_last_V_U_ack_in_dummy,
-        data_out => output_stream_TLAST,
-        vld_out => regslice_both_output_stream_V_last_V_U_vld_out,
-        ack_out => output_stream_TREADY,
-        apdone_blk => regslice_both_output_stream_V_last_V_U_apdone_blk);
+        data_in => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TLAST,
+        vld_in => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TVALID,
+        ack_in => regslice_both_out_stream_V_last_V_U_ack_in_dummy,
+        data_out => out_stream_TLAST,
+        vld_out => regslice_both_out_stream_V_last_V_U_vld_out,
+        ack_out => out_stream_TREADY,
+        apdone_blk => regslice_both_out_stream_V_last_V_U_apdone_blk);
 
-    regslice_both_output_stream_V_id_V_U : component RNI_regslice_both
+    regslice_both_out_stream_V_id_V_U : component RNI_regslice_both
     generic map (
         DataWidth => 5)
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => ap_const_lv5_0,
-        vld_in => output_stream_TVALID_int_regslice,
-        ack_in => regslice_both_output_stream_V_id_V_U_ack_in_dummy,
-        data_out => output_stream_TID,
-        vld_out => regslice_both_output_stream_V_id_V_U_vld_out,
-        ack_out => output_stream_TREADY,
-        apdone_blk => regslice_both_output_stream_V_id_V_U_apdone_blk);
+        data_in => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TID,
+        vld_in => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TVALID,
+        ack_in => regslice_both_out_stream_V_id_V_U_ack_in_dummy,
+        data_out => out_stream_TID,
+        vld_out => regslice_both_out_stream_V_id_V_U_vld_out,
+        ack_out => out_stream_TREADY,
+        apdone_blk => regslice_both_out_stream_V_id_V_U_apdone_blk);
 
-    regslice_both_output_stream_V_dest_V_U : component RNI_regslice_both
+    regslice_both_out_stream_V_dest_V_U : component RNI_regslice_both
     generic map (
         DataWidth => 6)
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        data_in => ap_const_lv6_0,
-        vld_in => output_stream_TVALID_int_regslice,
-        ack_in => regslice_both_output_stream_V_dest_V_U_ack_in_dummy,
-        data_out => output_stream_TDEST,
-        vld_out => regslice_both_output_stream_V_dest_V_U_vld_out,
-        ack_out => output_stream_TREADY,
-        apdone_blk => regslice_both_output_stream_V_dest_V_U_apdone_blk);
+        data_in => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TDEST,
+        vld_in => grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TVALID,
+        ack_in => regslice_both_out_stream_V_dest_V_U_ack_in_dummy,
+        data_out => out_stream_TDEST,
+        vld_out => regslice_both_out_stream_V_dest_V_U_vld_out,
+        ack_out => out_stream_TREADY,
+        apdone_blk => regslice_both_out_stream_V_dest_V_U_apdone_blk);
 
 
 
@@ -1839,438 +1642,141 @@ begin
     end process;
 
 
-    grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_ap_start_reg_assign_proc : process(ap_clk)
+    grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_ap_start_reg_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst_n_inv = '1') then
-                grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_ap_start_reg <= ap_const_logic_0;
+                grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_ap_start_reg <= ap_const_logic_0;
             else
-                if (((icmp_ln118_fu_1130_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state25))) then 
-                    grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_ap_ready = ap_const_logic_1)) then 
-                    grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_ap_start_reg <= ap_const_logic_0;
+                if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
+                    grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_ap_start_reg <= ap_const_logic_1;
+                elsif ((grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_ap_ready = ap_const_logic_1)) then 
+                    grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_ap_start_reg <= ap_const_logic_0;
                 end if; 
             end if;
         end if;
     end process;
 
 
-    grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_ap_start_reg_assign_proc : process(ap_clk)
+    grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_ap_start_reg_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst_n_inv = '1') then
-                grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_ap_start_reg <= ap_const_logic_0;
+                grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_ap_start_reg <= ap_const_logic_0;
             else
-                if (((icmp_ln142_fu_1308_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state36))) then 
-                    grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_ap_ready = ap_const_logic_1)) then 
-                    grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_ap_start_reg <= ap_const_logic_0;
+                if ((ap_const_logic_1 = ap_CS_fsm_state16)) then 
+                    grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_ap_start_reg <= ap_const_logic_1;
+                elsif ((grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_ap_ready = ap_const_logic_1)) then 
+                    grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_ap_start_reg <= ap_const_logic_0;
                 end if; 
             end if;
         end if;
     end process;
 
 
-    grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_ap_start_reg_assign_proc : process(ap_clk)
+    grp_inner_layer_1_fu_270_ap_start_reg_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst_n_inv = '1') then
-                grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_ap_start_reg <= ap_const_logic_0;
+                grp_inner_layer_1_fu_270_ap_start_reg <= ap_const_logic_0;
             else
-                if (((icmp_ln166_fu_1478_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state47))) then 
-                    grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_ap_ready = ap_const_logic_1)) then 
-                    grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_ap_start_reg <= ap_const_logic_0;
+                if ((ap_const_logic_1 = ap_CS_fsm_state6)) then 
+                    grp_inner_layer_1_fu_270_ap_start_reg <= ap_const_logic_1;
+                elsif ((grp_inner_layer_1_fu_270_ap_ready = ap_const_logic_1)) then 
+                    grp_inner_layer_1_fu_270_ap_start_reg <= ap_const_logic_0;
                 end if; 
             end if;
         end if;
     end process;
 
 
-    grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_ap_start_reg_assign_proc : process(ap_clk)
+    grp_inner_layer_2_fu_292_ap_start_reg_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst_n_inv = '1') then
-                grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_ap_start_reg <= ap_const_logic_0;
+                grp_inner_layer_2_fu_292_ap_start_reg <= ap_const_logic_0;
             else
-                if (((icmp_ln191_fu_1648_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state58))) then 
-                    grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_ap_ready = ap_const_logic_1)) then 
-                    grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_ap_start_reg <= ap_const_logic_0;
+                if ((ap_const_logic_1 = ap_CS_fsm_state8)) then 
+                    grp_inner_layer_2_fu_292_ap_start_reg <= ap_const_logic_1;
+                elsif ((grp_inner_layer_2_fu_292_ap_ready = ap_const_logic_1)) then 
+                    grp_inner_layer_2_fu_292_ap_start_reg <= ap_const_logic_0;
                 end if; 
             end if;
         end if;
     end process;
 
 
-    grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_ap_start_reg_assign_proc : process(ap_clk)
+    grp_inner_layer_3_fu_314_ap_start_reg_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst_n_inv = '1') then
-                grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_ap_start_reg <= ap_const_logic_0;
+                grp_inner_layer_3_fu_314_ap_start_reg <= ap_const_logic_0;
             else
-                if (((icmp_ln94_fu_960_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state14))) then 
-                    grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_ap_ready = ap_const_logic_1)) then 
-                    grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_ap_start_reg <= ap_const_logic_0;
+                if ((ap_const_logic_1 = ap_CS_fsm_state10)) then 
+                    grp_inner_layer_3_fu_314_ap_start_reg <= ap_const_logic_1;
+                elsif ((grp_inner_layer_3_fu_314_ap_ready = ap_const_logic_1)) then 
+                    grp_inner_layer_3_fu_314_ap_start_reg <= ap_const_logic_0;
                 end if; 
             end if;
         end if;
     end process;
 
 
-    grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_ap_start_reg_assign_proc : process(ap_clk)
+    grp_inner_layer_4_fu_336_ap_start_reg_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst_n_inv = '1') then
-                grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_ap_start_reg <= ap_const_logic_0;
+                grp_inner_layer_4_fu_336_ap_start_reg <= ap_const_logic_0;
             else
-                if (((ap_const_logic_1 = ap_CS_fsm_state3) and (input_stream_TVALID_int_regslice = ap_const_logic_1))) then 
-                    grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_ap_ready = ap_const_logic_1)) then 
-                    grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_ap_start_reg <= ap_const_logic_0;
+                if ((ap_const_logic_1 = ap_CS_fsm_state12)) then 
+                    grp_inner_layer_4_fu_336_ap_start_reg <= ap_const_logic_1;
+                elsif ((grp_inner_layer_4_fu_336_ap_ready = ap_const_logic_1)) then 
+                    grp_inner_layer_4_fu_336_ap_start_reg <= ap_const_logic_0;
                 end if; 
             end if;
         end if;
     end process;
 
 
-    grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_ap_start_reg_assign_proc : process(ap_clk)
+    grp_input_layer_fu_247_ap_start_reg_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst_n_inv = '1') then
-                grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_ap_start_reg <= ap_const_logic_0;
+                grp_input_layer_fu_247_ap_start_reg <= ap_const_logic_0;
             else
-                if (((ap_const_logic_1 = ap_CS_fsm_state3) and (input_stream_TVALID_int_regslice = ap_const_logic_1))) then 
-                    grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_ap_ready = ap_const_logic_1)) then 
-                    grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_ap_start_reg <= ap_const_logic_0;
+                if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
+                    grp_input_layer_fu_247_ap_start_reg <= ap_const_logic_1;
+                elsif ((grp_input_layer_fu_247_ap_ready = ap_const_logic_1)) then 
+                    grp_input_layer_fu_247_ap_start_reg <= ap_const_logic_0;
                 end if; 
             end if;
         end if;
     end process;
 
 
-    grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_ap_start_reg_assign_proc : process(ap_clk)
+    grp_output_layer_fu_358_ap_start_reg_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst_n_inv = '1') then
-                grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_ap_start_reg <= ap_const_logic_0;
+                grp_output_layer_fu_358_ap_start_reg <= ap_const_logic_0;
             else
-                if (((icmp_ln191_fu_1648_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state58))) then 
-                    grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_ap_ready = ap_const_logic_1)) then 
-                    grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_ap_start_reg <= ap_const_logic_0;
+                if ((ap_const_logic_1 = ap_CS_fsm_state14)) then 
+                    grp_output_layer_fu_358_ap_start_reg <= ap_const_logic_1;
+                elsif ((grp_output_layer_fu_358_ap_ready = ap_const_logic_1)) then 
+                    grp_output_layer_fu_358_ap_start_reg <= ap_const_logic_0;
                 end if; 
             end if;
         end if;
     end process;
 
-
-    grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_ap_start_reg_assign_proc : process(ap_clk)
-    begin
-        if (ap_clk'event and ap_clk =  '1') then
-            if (ap_rst_n_inv = '1') then
-                grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_ap_start_reg <= ap_const_logic_0;
-            else
-                if ((ap_const_logic_1 = ap_CS_fsm_state19)) then 
-                    grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_ap_ready = ap_const_logic_1)) then 
-                    grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_ap_start_reg <= ap_const_logic_0;
-                end if; 
-            end if;
-        end if;
-    end process;
-
-
-    grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_ap_start_reg_assign_proc : process(ap_clk)
-    begin
-        if (ap_clk'event and ap_clk =  '1') then
-            if (ap_rst_n_inv = '1') then
-                grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_ap_start_reg <= ap_const_logic_0;
-            else
-                if ((ap_const_logic_1 = ap_CS_fsm_state30)) then 
-                    grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_ap_ready = ap_const_logic_1)) then 
-                    grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_ap_start_reg <= ap_const_logic_0;
-                end if; 
-            end if;
-        end if;
-    end process;
-
-
-    grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_ap_start_reg_assign_proc : process(ap_clk)
-    begin
-        if (ap_clk'event and ap_clk =  '1') then
-            if (ap_rst_n_inv = '1') then
-                grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_ap_start_reg <= ap_const_logic_0;
-            else
-                if ((ap_const_logic_1 = ap_CS_fsm_state41)) then 
-                    grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_ap_ready = ap_const_logic_1)) then 
-                    grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_ap_start_reg <= ap_const_logic_0;
-                end if; 
-            end if;
-        end if;
-    end process;
-
-
-    grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_ap_start_reg_assign_proc : process(ap_clk)
-    begin
-        if (ap_clk'event and ap_clk =  '1') then
-            if (ap_rst_n_inv = '1') then
-                grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_ap_start_reg <= ap_const_logic_0;
-            else
-                if ((ap_const_logic_1 = ap_CS_fsm_state52)) then 
-                    grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_ap_ready = ap_const_logic_1)) then 
-                    grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_ap_start_reg <= ap_const_logic_0;
-                end if; 
-            end if;
-        end if;
-    end process;
-
-
-    grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_ap_start_reg_assign_proc : process(ap_clk)
-    begin
-        if (ap_clk'event and ap_clk =  '1') then
-            if (ap_rst_n_inv = '1') then
-                grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_ap_start_reg <= ap_const_logic_0;
-            else
-                if ((ap_const_logic_1 = ap_CS_fsm_state63)) then 
-                    grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_ap_ready = ap_const_logic_1)) then 
-                    grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_ap_start_reg <= ap_const_logic_0;
-                end if; 
-            end if;
-        end if;
-    end process;
-
-
-    grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_ap_start_reg_assign_proc : process(ap_clk)
-    begin
-        if (ap_clk'event and ap_clk =  '1') then
-            if (ap_rst_n_inv = '1') then
-                grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_ap_start_reg <= ap_const_logic_0;
-            else
-                if (((icmp_ln78_fu_944_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state9))) then 
-                    grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_ap_ready = ap_const_logic_1)) then 
-                    grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_ap_start_reg <= ap_const_logic_0;
-                end if; 
-            end if;
-        end if;
-    end process;
-
-
-    empty_37_reg_505_assign_proc : process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if (((icmp_ln78_fu_944_p2 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state9))) then 
-                empty_37_reg_505 <= zext_ln77_fu_940_p1;
-            elsif ((ap_const_logic_1 = ap_CS_fsm_state11)) then 
-                empty_37_reg_505 <= grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_conv4_i11_i_out;
-            end if; 
-        end if;
-    end process;
-
-    neuron_index_1_reg_514_assign_proc : process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if (((icmp_ln74_fu_766_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state5))) then 
-                neuron_index_1_reg_514 <= ap_const_lv8_80;
-            elsif ((ap_const_logic_1 = ap_CS_fsm_state23)) then 
-                neuron_index_1_reg_514 <= add_i_i161_i_reg_1990;
-            end if; 
-        end if;
-    end process;
-
-    neuron_index_2_reg_526_assign_proc : process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if (((grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state24))) then 
-                neuron_index_2_reg_526 <= ap_const_lv7_40;
-            elsif ((ap_const_logic_1 = ap_CS_fsm_state34)) then 
-                neuron_index_2_reg_526 <= add_i_i161_i305_reg_2054;
-            end if; 
-        end if;
-    end process;
-
-    neuron_index_3_reg_538_assign_proc : process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if (((grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state35))) then 
-                neuron_index_3_reg_538 <= ap_const_lv9_E0;
-            elsif ((ap_const_logic_1 = ap_CS_fsm_state45)) then 
-                neuron_index_3_reg_538 <= add_i_i161_i394_reg_2118;
-            end if; 
-        end if;
-    end process;
-
-    neuron_index_4_reg_550_assign_proc : process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if (((grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state46))) then 
-                neuron_index_4_reg_550 <= ap_const_lv9_120;
-            elsif ((ap_const_logic_1 = ap_CS_fsm_state56)) then 
-                neuron_index_4_reg_550 <= add_i_i161_i486_reg_2182;
-            end if; 
-        end if;
-    end process;
-
-    neuron_index_5_reg_562_assign_proc : process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if (((grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state57))) then 
-                neuron_index_5_reg_562 <= ap_const_lv8_A0;
-            elsif ((ap_const_logic_1 = ap_CS_fsm_state67)) then 
-                neuron_index_5_reg_562 <= add_i_i172_i_reg_2246;
-            end if; 
-        end if;
-    end process;
-
-    neuron_index_reg_494_assign_proc : process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if (((ap_const_boolean_0 = ap_block_state4_on_subcall_done) and (ap_const_logic_1 = ap_CS_fsm_state4))) then 
-                neuron_index_reg_494 <= ap_const_lv8_0;
-            elsif ((ap_const_logic_1 = ap_CS_fsm_state13)) then 
-                neuron_index_reg_494 <= add_ln74_reg_1872;
-            end if; 
-        end if;
-    end process;
     process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
-            if (((icmp_ln94_fu_960_p2 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state14))) then
-                    NEURONS_MEMBRANE_addr_1_reg_1954(7 downto 0) <= zext_ln94_fu_966_p1(9 - 1 downto 0)(7 downto 0);
-                    zext_ln94_reg_1948(7 downto 0) <= zext_ln94_fu_966_p1(7 downto 0);
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if (((icmp_ln118_fu_1130_p2 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state25))) then
-                    NEURONS_MEMBRANE_addr_2_reg_2018(7 downto 0) <= zext_ln118_fu_1140_p1(9 - 1 downto 0)(7 downto 0);
-                    zext_ln118_reg_2012(7 downto 0) <= zext_ln118_fu_1140_p1(7 downto 0);
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if (((icmp_ln142_fu_1308_p2 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state36))) then
-                NEURONS_MEMBRANE_addr_3_reg_2082 <= zext_ln142_fu_1314_p1(9 - 1 downto 0);
-                    zext_ln142_reg_2076(8 downto 0) <= zext_ln142_fu_1314_p1(8 downto 0);
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if (((icmp_ln166_fu_1478_p2 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state47))) then
-                NEURONS_MEMBRANE_addr_4_reg_2146 <= zext_ln166_fu_1484_p1(9 - 1 downto 0);
-                    zext_ln166_reg_2140(8 downto 0) <= zext_ln166_fu_1484_p1(8 downto 0);
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if (((icmp_ln191_fu_1648_p2 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state58))) then
-                NEURONS_MEMBRANE_addr_5_reg_2210 <= zext_ln191_fu_1658_p1(9 - 1 downto 0);
-                    zext_ln191_reg_2204(8 downto 0) <= zext_ln191_fu_1658_p1(8 downto 0);
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if (((icmp_ln74_fu_766_p2 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state5))) then
-                    NEURONS_MEMBRANE_addr_reg_1883(7 downto 0) <= zext_ln74_fu_778_p1(9 - 1 downto 0)(7 downto 0);
-                empty_36_reg_1888 <= empty_36_fu_783_p1;
-                    zext_ln74_reg_1877(7 downto 0) <= zext_ln74_fu_778_p1(7 downto 0);
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state29)) then
-                add_i_i161_i305_reg_2054 <= add_i_i161_i305_fu_1288_p2;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state40)) then
-                add_i_i161_i394_reg_2118 <= add_i_i161_i394_fu_1462_p2;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state51)) then
-                add_i_i161_i486_reg_2182 <= add_i_i161_i486_fu_1632_p2;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state18)) then
-                add_i_i161_i_reg_1990 <= add_i_i161_i_fu_1114_p2;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state62)) then
-                add_i_i172_i_reg_2246 <= add_i_i172_i_fu_1806_p2;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state27)) then
-                add_ln121_1_reg_2033 <= add_ln121_1_fu_1205_p2;
-                select_ln121_reg_2028 <= select_ln121_fu_1197_p3;
-                sub_ln121_reg_2039 <= sub_ln121_fu_1211_p2;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state38)) then
-                add_ln145_1_reg_2097 <= add_ln145_1_fu_1379_p2;
-                select_ln145_reg_2092 <= select_ln145_fu_1371_p3;
-                sub_ln145_reg_2103 <= sub_ln145_fu_1385_p2;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state49)) then
-                add_ln169_1_reg_2161 <= add_ln169_1_fu_1549_p2;
-                select_ln169_reg_2156 <= select_ln169_fu_1541_p3;
-                sub_ln169_reg_2167 <= sub_ln169_fu_1555_p2;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state60)) then
-                add_ln194_1_reg_2225 <= add_ln194_1_fu_1723_p2;
-                select_ln194_reg_2220 <= select_ln194_fu_1715_p3;
-                sub_ln194_reg_2231 <= sub_ln194_fu_1729_p2;
+            if ((ap_const_logic_1 = ap_CS_fsm_state16)) then
+                in_pkts_dest_load_reg_474 <= in_pkts_dest_q0;
+                in_pkts_id_load_reg_469 <= in_pkts_id_q0;
+                in_pkts_keep_load_reg_459 <= in_pkts_keep_q0;
+                in_pkts_strb_load_reg_464 <= in_pkts_strb_q0;
             end if;
         end if;
     end process;
@@ -2278,259 +1784,14 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if ((ap_const_logic_1 = ap_CS_fsm_state5)) then
-                add_ln74_reg_1872 <= add_ln74_fu_772_p2;
+                in_pkts_last_load_1_reg_455 <= in_pkts_last_q0;
+                in_pkts_last_load_reg_450 <= in_pkts_last_q1;
+                in_pkts_user_load_reg_445 <= in_pkts_user_q0;
             end if;
         end if;
     end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state7)) then
-                add_ln77_1_reg_1903 <= add_ln77_1_fu_847_p2;
-                select_ln77_reg_1898 <= select_ln77_fu_839_p3;
-                sub_ln77_reg_1909 <= sub_ln77_fu_853_p2;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state16)) then
-                add_ln97_1_reg_1969 <= add_ln97_1_fu_1031_p2;
-                select_ln97_reg_1964 <= select_ln97_fu_1023_p3;
-                sub_ln97_reg_1975 <= sub_ln97_fu_1037_p2;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state22)) then
-                icmp_ln105_reg_2005 <= grp_fu_727_p2;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state33)) then
-                icmp_ln129_reg_2069 <= grp_fu_727_p2;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state44)) then
-                icmp_ln153_reg_2133 <= grp_fu_727_p2;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state55)) then
-                icmp_ln177_reg_2197 <= grp_fu_727_p2;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state66)) then
-                icmp_ln202_reg_2261 <= grp_fu_727_p2;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state12)) then
-                icmp_ln83_reg_1941 <= icmp_ln83_fu_954_p2;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state3)) then
-                input_buffer_data_reg_1860 <= input_stream_TDATA_int_regslice;
-                input_buffer_last_reg_1865 <= input_stream_TLAST_int_regslice;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state28)) then
-                or_ln121_reg_2044 <= or_ln121_fu_1279_p2;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state39)) then
-                or_ln145_reg_2108 <= or_ln145_fu_1453_p2;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state50)) then
-                or_ln169_reg_2172 <= or_ln169_fu_1623_p2;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state61)) then
-                or_ln194_reg_2236 <= or_ln194_fu_1797_p2;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state8)) then
-                or_ln77_reg_1914 <= or_ln77_fu_921_p2;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state17)) then
-                or_ln97_reg_1980 <= or_ln97_fu_1105_p2;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if (((ap_const_logic_1 = ap_CS_fsm_state59) or (ap_const_logic_1 = ap_CS_fsm_state48) or (ap_const_logic_1 = ap_CS_fsm_state37) or (ap_const_logic_1 = ap_CS_fsm_state26) or (ap_const_logic_1 = ap_CS_fsm_state15) or (ap_const_logic_1 = ap_CS_fsm_state6))) then
-                reg_733 <= NEURONS_MEMBRANE_q0;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if (((ap_const_logic_1 = ap_CS_fsm_state63) or (ap_const_logic_1 = ap_CS_fsm_state52) or (ap_const_logic_1 = ap_CS_fsm_state41) or (ap_const_logic_1 = ap_CS_fsm_state30) or (ap_const_logic_1 = ap_CS_fsm_state19) or (ap_const_logic_1 = ap_CS_fsm_state9))) then
-                reg_737 <= WEIGHTS_INDEX_q1;
-                reg_747 <= WEIGHTS_INDEX_q0;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state26)) then
-                tmp_14_reg_2023 <= grp_fu_719_p1(8 downto 8);
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state37)) then
-                tmp_19_reg_2087 <= grp_fu_719_p1(8 downto 8);
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state48)) then
-                tmp_24_reg_2151 <= grp_fu_719_p1(8 downto 8);
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state59)) then
-                tmp_29_reg_2215 <= grp_fu_719_p1(8 downto 8);
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state6)) then
-                tmp_4_reg_1893 <= grp_fu_719_p1(8 downto 8);
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state15)) then
-                tmp_9_reg_1959 <= grp_fu_719_p1(8 downto 8);
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state30)) then
-                trunc_ln122_reg_2064 <= trunc_ln122_fu_1303_p1;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state41)) then
-                trunc_ln146_reg_2128 <= trunc_ln146_fu_1473_p1;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state52)) then
-                trunc_ln170_reg_2192 <= trunc_ln170_fu_1643_p1;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state63)) then
-                trunc_ln195_reg_2256 <= trunc_ln195_fu_1821_p1;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if (((grp_fu_727_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state66))) then
-                trunc_ln206_reg_2265 <= trunc_ln206_fu_1826_p1;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state19)) then
-                trunc_ln98_reg_2000 <= trunc_ln98_fu_1125_p1;
-            end if;
-        end if;
-    end process;
-    zext_ln74_reg_1877(63 downto 8) <= "00000000000000000000000000000000000000000000000000000000";
-    NEURONS_MEMBRANE_addr_reg_1883(8) <= '0';
-    zext_ln94_reg_1948(63 downto 8) <= "00000000000000000000000000000000000000000000000000000000";
-    NEURONS_MEMBRANE_addr_1_reg_1954(8) <= '0';
-    zext_ln118_reg_2012(63 downto 8) <= "00000000000000000000000000000000000000000000000000000000";
-    NEURONS_MEMBRANE_addr_2_reg_2018(8) <= '0';
-    zext_ln142_reg_2076(63 downto 9) <= "0000000000000000000000000000000000000000000000000000000";
-    zext_ln166_reg_2140(63 downto 9) <= "0000000000000000000000000000000000000000000000000000000";
-    zext_ln191_reg_2204(63 downto 9) <= "0000000000000000000000000000000000000000000000000000000";
 
-    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, ap_CS_fsm_state3, ap_CS_fsm_state69, ap_CS_fsm_state70, ap_CS_fsm_state9, input_buffer_last_reg_1865, ap_CS_fsm_state5, icmp_ln74_fu_766_p2, ap_CS_fsm_state14, icmp_ln94_fu_960_p2, ap_CS_fsm_state25, icmp_ln118_fu_1130_p2, ap_CS_fsm_state36, icmp_ln142_fu_1308_p2, ap_CS_fsm_state47, icmp_ln166_fu_1478_p2, ap_CS_fsm_state58, icmp_ln191_fu_1648_p2, grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_ap_done, grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_ap_done, grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_ap_done, grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_ap_done, grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_ap_done, grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_ap_done, grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_ap_done, grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_ap_done, grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_ap_done, grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_ap_done, ap_CS_fsm_state4, ap_block_state4_on_subcall_done, icmp_ln78_fu_944_p2, ap_CS_fsm_state24, ap_CS_fsm_state35, ap_CS_fsm_state46, ap_CS_fsm_state57, ap_CS_fsm_state10, ap_CS_fsm_state20, ap_CS_fsm_state31, ap_CS_fsm_state42, ap_CS_fsm_state53, ap_CS_fsm_state68, ap_CS_fsm_state64, regslice_both_output_stream_V_data_V_U_apdone_blk, ap_block_state68_on_subcall_done, input_stream_TVALID_int_regslice, output_stream_TREADY_int_regslice)
+    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, ap_CS_fsm_state5, in_pkts_last_load_1_reg_455, grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_ap_done, grp_input_layer_fu_247_ap_done, grp_inner_layer_1_fu_270_ap_done, grp_inner_layer_2_fu_292_ap_done, grp_inner_layer_3_fu_314_ap_done, grp_inner_layer_4_fu_336_ap_done, grp_output_layer_fu_358_ap_done, grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_ap_done, ap_CS_fsm_state3, ap_CS_fsm_state7, ap_CS_fsm_state9, ap_CS_fsm_state11, ap_CS_fsm_state13, ap_CS_fsm_state15, ap_CS_fsm_state17, ap_CS_fsm_state18, regslice_both_out_stream_V_data_V_U_apdone_blk)
     begin
         case ap_CS_fsm is
             when ap_ST_fsm_state1 => 
@@ -2542,580 +1803,359 @@ begin
             when ap_ST_fsm_state2 => 
                 ap_NS_fsm <= ap_ST_fsm_state3;
             when ap_ST_fsm_state3 => 
-                if (((ap_const_logic_1 = ap_CS_fsm_state3) and (input_stream_TVALID_int_regslice = ap_const_logic_1))) then
+                if (((ap_const_logic_1 = ap_CS_fsm_state3) and (grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_ap_done = ap_const_logic_1))) then
                     ap_NS_fsm <= ap_ST_fsm_state4;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state3;
                 end if;
             when ap_ST_fsm_state4 => 
-                if (((ap_const_boolean_0 = ap_block_state4_on_subcall_done) and (ap_const_logic_1 = ap_CS_fsm_state4))) then
-                    ap_NS_fsm <= ap_ST_fsm_state5;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state4;
-                end if;
+                ap_NS_fsm <= ap_ST_fsm_state5;
             when ap_ST_fsm_state5 => 
-                if (((icmp_ln74_fu_766_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state5))) then
-                    ap_NS_fsm <= ap_ST_fsm_state14;
-                else
+                if (((grp_input_layer_fu_247_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state5))) then
                     ap_NS_fsm <= ap_ST_fsm_state6;
+                else
+                    ap_NS_fsm <= ap_ST_fsm_state5;
                 end if;
             when ap_ST_fsm_state6 => 
                 ap_NS_fsm <= ap_ST_fsm_state7;
             when ap_ST_fsm_state7 => 
-                ap_NS_fsm <= ap_ST_fsm_state8;
+                if (((grp_inner_layer_1_fu_270_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7))) then
+                    ap_NS_fsm <= ap_ST_fsm_state8;
+                else
+                    ap_NS_fsm <= ap_ST_fsm_state7;
+                end if;
             when ap_ST_fsm_state8 => 
                 ap_NS_fsm <= ap_ST_fsm_state9;
             when ap_ST_fsm_state9 => 
-                if (((icmp_ln78_fu_944_p2 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state9))) then
-                    ap_NS_fsm <= ap_ST_fsm_state12;
-                else
+                if (((grp_inner_layer_2_fu_292_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state9))) then
                     ap_NS_fsm <= ap_ST_fsm_state10;
+                else
+                    ap_NS_fsm <= ap_ST_fsm_state9;
                 end if;
             when ap_ST_fsm_state10 => 
-                if (((grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state10))) then
-                    ap_NS_fsm <= ap_ST_fsm_state11;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state10;
-                end if;
+                ap_NS_fsm <= ap_ST_fsm_state11;
             when ap_ST_fsm_state11 => 
-                ap_NS_fsm <= ap_ST_fsm_state12;
+                if (((grp_inner_layer_3_fu_314_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state11))) then
+                    ap_NS_fsm <= ap_ST_fsm_state12;
+                else
+                    ap_NS_fsm <= ap_ST_fsm_state11;
+                end if;
             when ap_ST_fsm_state12 => 
                 ap_NS_fsm <= ap_ST_fsm_state13;
             when ap_ST_fsm_state13 => 
-                ap_NS_fsm <= ap_ST_fsm_state5;
+                if (((grp_inner_layer_4_fu_336_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state13))) then
+                    ap_NS_fsm <= ap_ST_fsm_state14;
+                else
+                    ap_NS_fsm <= ap_ST_fsm_state13;
+                end if;
             when ap_ST_fsm_state14 => 
-                if (((icmp_ln94_fu_960_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state14))) then
-                    ap_NS_fsm <= ap_ST_fsm_state24;
+                ap_NS_fsm <= ap_ST_fsm_state15;
+            when ap_ST_fsm_state15 => 
+                if (((grp_output_layer_fu_358_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state15))) then
+                    ap_NS_fsm <= ap_ST_fsm_state16;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state15;
                 end if;
-            when ap_ST_fsm_state15 => 
-                ap_NS_fsm <= ap_ST_fsm_state16;
             when ap_ST_fsm_state16 => 
                 ap_NS_fsm <= ap_ST_fsm_state17;
             when ap_ST_fsm_state17 => 
-                ap_NS_fsm <= ap_ST_fsm_state18;
-            when ap_ST_fsm_state18 => 
-                ap_NS_fsm <= ap_ST_fsm_state19;
-            when ap_ST_fsm_state19 => 
-                ap_NS_fsm <= ap_ST_fsm_state20;
-            when ap_ST_fsm_state20 => 
-                if (((grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state20))) then
-                    ap_NS_fsm <= ap_ST_fsm_state21;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state20;
-                end if;
-            when ap_ST_fsm_state21 => 
-                ap_NS_fsm <= ap_ST_fsm_state22;
-            when ap_ST_fsm_state22 => 
-                ap_NS_fsm <= ap_ST_fsm_state23;
-            when ap_ST_fsm_state23 => 
-                ap_NS_fsm <= ap_ST_fsm_state14;
-            when ap_ST_fsm_state24 => 
-                if (((grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state24))) then
-                    ap_NS_fsm <= ap_ST_fsm_state25;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state24;
-                end if;
-            when ap_ST_fsm_state25 => 
-                if (((icmp_ln118_fu_1130_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state25))) then
-                    ap_NS_fsm <= ap_ST_fsm_state35;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state26;
-                end if;
-            when ap_ST_fsm_state26 => 
-                ap_NS_fsm <= ap_ST_fsm_state27;
-            when ap_ST_fsm_state27 => 
-                ap_NS_fsm <= ap_ST_fsm_state28;
-            when ap_ST_fsm_state28 => 
-                ap_NS_fsm <= ap_ST_fsm_state29;
-            when ap_ST_fsm_state29 => 
-                ap_NS_fsm <= ap_ST_fsm_state30;
-            when ap_ST_fsm_state30 => 
-                ap_NS_fsm <= ap_ST_fsm_state31;
-            when ap_ST_fsm_state31 => 
-                if (((grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state31))) then
-                    ap_NS_fsm <= ap_ST_fsm_state32;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state31;
-                end if;
-            when ap_ST_fsm_state32 => 
-                ap_NS_fsm <= ap_ST_fsm_state33;
-            when ap_ST_fsm_state33 => 
-                ap_NS_fsm <= ap_ST_fsm_state34;
-            when ap_ST_fsm_state34 => 
-                ap_NS_fsm <= ap_ST_fsm_state25;
-            when ap_ST_fsm_state35 => 
-                if (((grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state35))) then
-                    ap_NS_fsm <= ap_ST_fsm_state36;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state35;
-                end if;
-            when ap_ST_fsm_state36 => 
-                if (((icmp_ln142_fu_1308_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state36))) then
-                    ap_NS_fsm <= ap_ST_fsm_state46;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state37;
-                end if;
-            when ap_ST_fsm_state37 => 
-                ap_NS_fsm <= ap_ST_fsm_state38;
-            when ap_ST_fsm_state38 => 
-                ap_NS_fsm <= ap_ST_fsm_state39;
-            when ap_ST_fsm_state39 => 
-                ap_NS_fsm <= ap_ST_fsm_state40;
-            when ap_ST_fsm_state40 => 
-                ap_NS_fsm <= ap_ST_fsm_state41;
-            when ap_ST_fsm_state41 => 
-                ap_NS_fsm <= ap_ST_fsm_state42;
-            when ap_ST_fsm_state42 => 
-                if (((grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state42))) then
-                    ap_NS_fsm <= ap_ST_fsm_state43;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state42;
-                end if;
-            when ap_ST_fsm_state43 => 
-                ap_NS_fsm <= ap_ST_fsm_state44;
-            when ap_ST_fsm_state44 => 
-                ap_NS_fsm <= ap_ST_fsm_state45;
-            when ap_ST_fsm_state45 => 
-                ap_NS_fsm <= ap_ST_fsm_state36;
-            when ap_ST_fsm_state46 => 
-                if (((grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state46))) then
-                    ap_NS_fsm <= ap_ST_fsm_state47;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state46;
-                end if;
-            when ap_ST_fsm_state47 => 
-                if (((icmp_ln166_fu_1478_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state47))) then
-                    ap_NS_fsm <= ap_ST_fsm_state57;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state48;
-                end if;
-            when ap_ST_fsm_state48 => 
-                ap_NS_fsm <= ap_ST_fsm_state49;
-            when ap_ST_fsm_state49 => 
-                ap_NS_fsm <= ap_ST_fsm_state50;
-            when ap_ST_fsm_state50 => 
-                ap_NS_fsm <= ap_ST_fsm_state51;
-            when ap_ST_fsm_state51 => 
-                ap_NS_fsm <= ap_ST_fsm_state52;
-            when ap_ST_fsm_state52 => 
-                ap_NS_fsm <= ap_ST_fsm_state53;
-            when ap_ST_fsm_state53 => 
-                if (((grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state53))) then
-                    ap_NS_fsm <= ap_ST_fsm_state54;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state53;
-                end if;
-            when ap_ST_fsm_state54 => 
-                ap_NS_fsm <= ap_ST_fsm_state55;
-            when ap_ST_fsm_state55 => 
-                ap_NS_fsm <= ap_ST_fsm_state56;
-            when ap_ST_fsm_state56 => 
-                ap_NS_fsm <= ap_ST_fsm_state47;
-            when ap_ST_fsm_state57 => 
-                if (((grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state57))) then
-                    ap_NS_fsm <= ap_ST_fsm_state58;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state57;
-                end if;
-            when ap_ST_fsm_state58 => 
-                if (((icmp_ln191_fu_1648_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state58))) then
-                    ap_NS_fsm <= ap_ST_fsm_state68;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state59;
-                end if;
-            when ap_ST_fsm_state59 => 
-                ap_NS_fsm <= ap_ST_fsm_state60;
-            when ap_ST_fsm_state60 => 
-                ap_NS_fsm <= ap_ST_fsm_state61;
-            when ap_ST_fsm_state61 => 
-                ap_NS_fsm <= ap_ST_fsm_state62;
-            when ap_ST_fsm_state62 => 
-                ap_NS_fsm <= ap_ST_fsm_state63;
-            when ap_ST_fsm_state63 => 
-                ap_NS_fsm <= ap_ST_fsm_state64;
-            when ap_ST_fsm_state64 => 
-                if (((grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state64))) then
-                    ap_NS_fsm <= ap_ST_fsm_state65;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state64;
-                end if;
-            when ap_ST_fsm_state65 => 
-                ap_NS_fsm <= ap_ST_fsm_state66;
-            when ap_ST_fsm_state66 => 
-                ap_NS_fsm <= ap_ST_fsm_state67;
-            when ap_ST_fsm_state67 => 
-                ap_NS_fsm <= ap_ST_fsm_state58;
-            when ap_ST_fsm_state68 => 
-                if (((ap_const_boolean_0 = ap_block_state68_on_subcall_done) and (ap_const_logic_1 = ap_CS_fsm_state68))) then
-                    ap_NS_fsm <= ap_ST_fsm_state69;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state68;
-                end if;
-            when ap_ST_fsm_state69 => 
-                if (((output_stream_TREADY_int_regslice = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state69))) then
-                    ap_NS_fsm <= ap_ST_fsm_state70;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state69;
-                end if;
-            when ap_ST_fsm_state70 => 
-                if ((not(((output_stream_TREADY_int_regslice = ap_const_logic_0) or (regslice_both_output_stream_V_data_V_U_apdone_blk = ap_const_logic_1))) and (input_buffer_last_reg_1865 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state70))) then
-                    ap_NS_fsm <= ap_ST_fsm_state1;
-                elsif ((not(((output_stream_TREADY_int_regslice = ap_const_logic_0) or (regslice_both_output_stream_V_data_V_U_apdone_blk = ap_const_logic_1))) and (input_buffer_last_reg_1865 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state70))) then
+                if (((grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state17) and (in_pkts_last_load_1_reg_455 = ap_const_lv1_0))) then
                     ap_NS_fsm <= ap_ST_fsm_state2;
+                elsif (((grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state17) and (in_pkts_last_load_1_reg_455 = ap_const_lv1_1))) then
+                    ap_NS_fsm <= ap_ST_fsm_state18;
                 else
-                    ap_NS_fsm <= ap_ST_fsm_state70;
+                    ap_NS_fsm <= ap_ST_fsm_state17;
+                end if;
+            when ap_ST_fsm_state18 => 
+                if (((regslice_both_out_stream_V_data_V_U_apdone_blk = ap_const_logic_0) and (ap_const_logic_1 = ap_CS_fsm_state18))) then
+                    ap_NS_fsm <= ap_ST_fsm_state1;
+                else
+                    ap_NS_fsm <= ap_ST_fsm_state18;
                 end if;
             when others =>  
-                ap_NS_fsm <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+                ap_NS_fsm <= "XXXXXXXXXXXXXXXXXX";
         end case;
     end process;
 
-    NEURONS_MEMBRANE_address0_assign_proc : process(ap_CS_fsm_state9, ap_CS_fsm_state5, zext_ln74_fu_778_p1, NEURONS_MEMBRANE_addr_reg_1883, zext_ln94_fu_966_p1, ap_CS_fsm_state14, NEURONS_MEMBRANE_addr_1_reg_1954, ap_CS_fsm_state18, zext_ln118_fu_1140_p1, ap_CS_fsm_state25, NEURONS_MEMBRANE_addr_2_reg_2018, ap_CS_fsm_state29, zext_ln142_fu_1314_p1, ap_CS_fsm_state36, NEURONS_MEMBRANE_addr_3_reg_2082, ap_CS_fsm_state40, zext_ln166_fu_1484_p1, ap_CS_fsm_state47, NEURONS_MEMBRANE_addr_4_reg_2146, ap_CS_fsm_state51, zext_ln191_fu_1658_p1, ap_CS_fsm_state58, NEURONS_MEMBRANE_addr_5_reg_2210, ap_CS_fsm_state62, grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_NEURONS_MEMBRANE_address0, grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_NEURONS_MEMBRANE_address0, grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_NEURONS_MEMBRANE_address0, grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_NEURONS_MEMBRANE_address0, grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_NEURONS_MEMBRANE_address0, ap_CS_fsm_state13, ap_CS_fsm_state11, ap_CS_fsm_state23, ap_CS_fsm_state34, ap_CS_fsm_state45, ap_CS_fsm_state56, ap_CS_fsm_state67, ap_CS_fsm_state20, ap_CS_fsm_state31, ap_CS_fsm_state42, ap_CS_fsm_state53, ap_CS_fsm_state64, ap_CS_fsm_state21, ap_CS_fsm_state32, ap_CS_fsm_state43, ap_CS_fsm_state54, ap_CS_fsm_state65)
+    NEURONS_MEMBRANE_address0_assign_proc : process(ap_CS_fsm_state5, grp_input_layer_fu_247_NEURONS_MEMBRANE_address0, grp_inner_layer_1_fu_270_NEURONS_MEMBRANE_address0, grp_inner_layer_2_fu_292_NEURONS_MEMBRANE_address0, grp_inner_layer_3_fu_314_NEURONS_MEMBRANE_address0, grp_inner_layer_4_fu_336_NEURONS_MEMBRANE_address0, grp_output_layer_fu_358_NEURONS_MEMBRANE_address0, grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_NEURONS_MEMBRANE_address0, ap_CS_fsm_state7, ap_CS_fsm_state9, ap_CS_fsm_state11, ap_CS_fsm_state13, ap_CS_fsm_state15, ap_CS_fsm_state17)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state67) or (ap_const_logic_1 = ap_CS_fsm_state62) or (ap_const_logic_1 = ap_CS_fsm_state65))) then 
-            NEURONS_MEMBRANE_address0 <= NEURONS_MEMBRANE_addr_5_reg_2210;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state58)) then 
-            NEURONS_MEMBRANE_address0 <= zext_ln191_fu_1658_p1(9 - 1 downto 0);
-        elsif (((ap_const_logic_1 = ap_CS_fsm_state56) or (ap_const_logic_1 = ap_CS_fsm_state51) or (ap_const_logic_1 = ap_CS_fsm_state54))) then 
-            NEURONS_MEMBRANE_address0 <= NEURONS_MEMBRANE_addr_4_reg_2146;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state47)) then 
-            NEURONS_MEMBRANE_address0 <= zext_ln166_fu_1484_p1(9 - 1 downto 0);
-        elsif (((ap_const_logic_1 = ap_CS_fsm_state45) or (ap_const_logic_1 = ap_CS_fsm_state40) or (ap_const_logic_1 = ap_CS_fsm_state43))) then 
-            NEURONS_MEMBRANE_address0 <= NEURONS_MEMBRANE_addr_3_reg_2082;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state36)) then 
-            NEURONS_MEMBRANE_address0 <= zext_ln142_fu_1314_p1(9 - 1 downto 0);
-        elsif (((ap_const_logic_1 = ap_CS_fsm_state34) or (ap_const_logic_1 = ap_CS_fsm_state29) or (ap_const_logic_1 = ap_CS_fsm_state32))) then 
-            NEURONS_MEMBRANE_address0 <= NEURONS_MEMBRANE_addr_2_reg_2018;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state25)) then 
-            NEURONS_MEMBRANE_address0 <= zext_ln118_fu_1140_p1(9 - 1 downto 0);
-        elsif (((ap_const_logic_1 = ap_CS_fsm_state23) or (ap_const_logic_1 = ap_CS_fsm_state18) or (ap_const_logic_1 = ap_CS_fsm_state21))) then 
-            NEURONS_MEMBRANE_address0 <= NEURONS_MEMBRANE_addr_1_reg_1954;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state14)) then 
-            NEURONS_MEMBRANE_address0 <= zext_ln94_fu_966_p1(9 - 1 downto 0);
-        elsif (((ap_const_logic_1 = ap_CS_fsm_state11) or (ap_const_logic_1 = ap_CS_fsm_state13) or (ap_const_logic_1 = ap_CS_fsm_state9))) then 
-            NEURONS_MEMBRANE_address0 <= NEURONS_MEMBRANE_addr_reg_1883;
+        if ((ap_const_logic_1 = ap_CS_fsm_state17)) then 
+            NEURONS_MEMBRANE_address0 <= grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_NEURONS_MEMBRANE_address0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state15)) then 
+            NEURONS_MEMBRANE_address0 <= grp_output_layer_fu_358_NEURONS_MEMBRANE_address0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state13)) then 
+            NEURONS_MEMBRANE_address0 <= grp_inner_layer_4_fu_336_NEURONS_MEMBRANE_address0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state11)) then 
+            NEURONS_MEMBRANE_address0 <= grp_inner_layer_3_fu_314_NEURONS_MEMBRANE_address0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state9)) then 
+            NEURONS_MEMBRANE_address0 <= grp_inner_layer_2_fu_292_NEURONS_MEMBRANE_address0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            NEURONS_MEMBRANE_address0 <= grp_inner_layer_1_fu_270_NEURONS_MEMBRANE_address0;
         elsif ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            NEURONS_MEMBRANE_address0 <= zext_ln74_fu_778_p1(9 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state64)) then 
-            NEURONS_MEMBRANE_address0 <= grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_NEURONS_MEMBRANE_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state53)) then 
-            NEURONS_MEMBRANE_address0 <= grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_NEURONS_MEMBRANE_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state42)) then 
-            NEURONS_MEMBRANE_address0 <= grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_NEURONS_MEMBRANE_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state31)) then 
-            NEURONS_MEMBRANE_address0 <= grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_NEURONS_MEMBRANE_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state20)) then 
-            NEURONS_MEMBRANE_address0 <= grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_NEURONS_MEMBRANE_address0;
+            NEURONS_MEMBRANE_address0 <= grp_input_layer_fu_247_NEURONS_MEMBRANE_address0;
         else 
             NEURONS_MEMBRANE_address0 <= "XXXXXXXXX";
         end if; 
     end process;
 
 
-    NEURONS_MEMBRANE_ce0_assign_proc : process(ap_CS_fsm_state9, ap_CS_fsm_state5, ap_CS_fsm_state14, ap_CS_fsm_state18, ap_CS_fsm_state25, ap_CS_fsm_state29, ap_CS_fsm_state36, ap_CS_fsm_state40, ap_CS_fsm_state47, ap_CS_fsm_state51, ap_CS_fsm_state58, ap_CS_fsm_state62, grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_NEURONS_MEMBRANE_ce0, grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_NEURONS_MEMBRANE_ce0, grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_NEURONS_MEMBRANE_ce0, grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_NEURONS_MEMBRANE_ce0, grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_NEURONS_MEMBRANE_ce0, ap_CS_fsm_state13, ap_CS_fsm_state11, ap_CS_fsm_state23, ap_CS_fsm_state34, ap_CS_fsm_state45, ap_CS_fsm_state56, ap_CS_fsm_state67, ap_CS_fsm_state20, ap_CS_fsm_state31, ap_CS_fsm_state42, ap_CS_fsm_state53, ap_CS_fsm_state64, ap_CS_fsm_state21, ap_CS_fsm_state32, ap_CS_fsm_state43, ap_CS_fsm_state54, ap_CS_fsm_state65)
+    NEURONS_MEMBRANE_address1_assign_proc : process(grp_inner_layer_1_fu_270_NEURONS_MEMBRANE_address1, grp_inner_layer_2_fu_292_NEURONS_MEMBRANE_address1, grp_inner_layer_3_fu_314_NEURONS_MEMBRANE_address1, grp_inner_layer_4_fu_336_NEURONS_MEMBRANE_address1, grp_output_layer_fu_358_NEURONS_MEMBRANE_address1, ap_CS_fsm_state7, ap_CS_fsm_state9, ap_CS_fsm_state11, ap_CS_fsm_state13, ap_CS_fsm_state15)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state67) or (ap_const_logic_1 = ap_CS_fsm_state56) or (ap_const_logic_1 = ap_CS_fsm_state45) or (ap_const_logic_1 = ap_CS_fsm_state34) or (ap_const_logic_1 = ap_CS_fsm_state23) or (ap_const_logic_1 = ap_CS_fsm_state11) or (ap_const_logic_1 = ap_CS_fsm_state13) or (ap_const_logic_1 = ap_CS_fsm_state62) or (ap_const_logic_1 = ap_CS_fsm_state58) or (ap_const_logic_1 = ap_CS_fsm_state51) or (ap_const_logic_1 = ap_CS_fsm_state47) or (ap_const_logic_1 = ap_CS_fsm_state40) or (ap_const_logic_1 = ap_CS_fsm_state36) or (ap_const_logic_1 = ap_CS_fsm_state29) or (ap_const_logic_1 = ap_CS_fsm_state25) or (ap_const_logic_1 = ap_CS_fsm_state18) or (ap_const_logic_1 = ap_CS_fsm_state14) or (ap_const_logic_1 = ap_CS_fsm_state5) or (ap_const_logic_1 = ap_CS_fsm_state9) or (ap_const_logic_1 = ap_CS_fsm_state65) or (ap_const_logic_1 = ap_CS_fsm_state54) or (ap_const_logic_1 = ap_CS_fsm_state43) or (ap_const_logic_1 = ap_CS_fsm_state32) or (ap_const_logic_1 = ap_CS_fsm_state21))) then 
-            NEURONS_MEMBRANE_ce0 <= ap_const_logic_1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state64)) then 
-            NEURONS_MEMBRANE_ce0 <= grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_NEURONS_MEMBRANE_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state53)) then 
-            NEURONS_MEMBRANE_ce0 <= grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_NEURONS_MEMBRANE_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state42)) then 
-            NEURONS_MEMBRANE_ce0 <= grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_NEURONS_MEMBRANE_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state31)) then 
-            NEURONS_MEMBRANE_ce0 <= grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_NEURONS_MEMBRANE_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state20)) then 
-            NEURONS_MEMBRANE_ce0 <= grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_NEURONS_MEMBRANE_ce0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state15)) then 
+            NEURONS_MEMBRANE_address1 <= grp_output_layer_fu_358_NEURONS_MEMBRANE_address1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state13)) then 
+            NEURONS_MEMBRANE_address1 <= grp_inner_layer_4_fu_336_NEURONS_MEMBRANE_address1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state11)) then 
+            NEURONS_MEMBRANE_address1 <= grp_inner_layer_3_fu_314_NEURONS_MEMBRANE_address1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state9)) then 
+            NEURONS_MEMBRANE_address1 <= grp_inner_layer_2_fu_292_NEURONS_MEMBRANE_address1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            NEURONS_MEMBRANE_address1 <= grp_inner_layer_1_fu_270_NEURONS_MEMBRANE_address1;
+        else 
+            NEURONS_MEMBRANE_address1 <= "XXXXXXXXX";
+        end if; 
+    end process;
+
+
+    NEURONS_MEMBRANE_ce0_assign_proc : process(ap_CS_fsm_state5, grp_input_layer_fu_247_NEURONS_MEMBRANE_ce0, grp_inner_layer_1_fu_270_NEURONS_MEMBRANE_ce0, grp_inner_layer_2_fu_292_NEURONS_MEMBRANE_ce0, grp_inner_layer_3_fu_314_NEURONS_MEMBRANE_ce0, grp_inner_layer_4_fu_336_NEURONS_MEMBRANE_ce0, grp_output_layer_fu_358_NEURONS_MEMBRANE_ce0, grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_NEURONS_MEMBRANE_ce0, ap_CS_fsm_state7, ap_CS_fsm_state9, ap_CS_fsm_state11, ap_CS_fsm_state13, ap_CS_fsm_state15, ap_CS_fsm_state17)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state17)) then 
+            NEURONS_MEMBRANE_ce0 <= grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_NEURONS_MEMBRANE_ce0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state15)) then 
+            NEURONS_MEMBRANE_ce0 <= grp_output_layer_fu_358_NEURONS_MEMBRANE_ce0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state13)) then 
+            NEURONS_MEMBRANE_ce0 <= grp_inner_layer_4_fu_336_NEURONS_MEMBRANE_ce0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state11)) then 
+            NEURONS_MEMBRANE_ce0 <= grp_inner_layer_3_fu_314_NEURONS_MEMBRANE_ce0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state9)) then 
+            NEURONS_MEMBRANE_ce0 <= grp_inner_layer_2_fu_292_NEURONS_MEMBRANE_ce0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            NEURONS_MEMBRANE_ce0 <= grp_inner_layer_1_fu_270_NEURONS_MEMBRANE_ce0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
+            NEURONS_MEMBRANE_ce0 <= grp_input_layer_fu_247_NEURONS_MEMBRANE_ce0;
         else 
             NEURONS_MEMBRANE_ce0 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    NEURONS_MEMBRANE_d0_assign_proc : process(ap_CS_fsm_state9, zext_ln77_fu_940_p1, ap_CS_fsm_state18, ap_CS_fsm_state29, ap_CS_fsm_state40, ap_CS_fsm_state51, ap_CS_fsm_state62, grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_conv4_i11_i_out, grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_NEURONS_MEMBRANE_d0, grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_NEURONS_MEMBRANE_d0, grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_NEURONS_MEMBRANE_d0, grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_NEURONS_MEMBRANE_d0, grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_NEURONS_MEMBRANE_d0, ap_CS_fsm_state13, ap_CS_fsm_state11, ap_CS_fsm_state23, ap_CS_fsm_state34, ap_CS_fsm_state45, ap_CS_fsm_state56, ap_CS_fsm_state67, ap_CS_fsm_state20, ap_CS_fsm_state31, ap_CS_fsm_state42, ap_CS_fsm_state53, ap_CS_fsm_state64, zext_ln97_fu_1110_p1, zext_ln121_fu_1284_p1, zext_ln145_fu_1458_p1, zext_ln169_fu_1628_p1, zext_ln194_fu_1802_p1)
+    NEURONS_MEMBRANE_ce1_assign_proc : process(grp_inner_layer_1_fu_270_NEURONS_MEMBRANE_ce1, grp_inner_layer_2_fu_292_NEURONS_MEMBRANE_ce1, grp_inner_layer_3_fu_314_NEURONS_MEMBRANE_ce1, grp_inner_layer_4_fu_336_NEURONS_MEMBRANE_ce1, grp_output_layer_fu_358_NEURONS_MEMBRANE_ce1, ap_CS_fsm_state7, ap_CS_fsm_state9, ap_CS_fsm_state11, ap_CS_fsm_state13, ap_CS_fsm_state15)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state62)) then 
-            NEURONS_MEMBRANE_d0 <= zext_ln194_fu_1802_p1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state51)) then 
-            NEURONS_MEMBRANE_d0 <= zext_ln169_fu_1628_p1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state40)) then 
-            NEURONS_MEMBRANE_d0 <= zext_ln145_fu_1458_p1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state29)) then 
-            NEURONS_MEMBRANE_d0 <= zext_ln121_fu_1284_p1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state18)) then 
-            NEURONS_MEMBRANE_d0 <= zext_ln97_fu_1110_p1;
-        elsif (((ap_const_logic_1 = ap_CS_fsm_state67) or (ap_const_logic_1 = ap_CS_fsm_state56) or (ap_const_logic_1 = ap_CS_fsm_state45) or (ap_const_logic_1 = ap_CS_fsm_state34) or (ap_const_logic_1 = ap_CS_fsm_state23) or (ap_const_logic_1 = ap_CS_fsm_state13))) then 
-            NEURONS_MEMBRANE_d0 <= ap_const_lv16_0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state15)) then 
+            NEURONS_MEMBRANE_ce1 <= grp_output_layer_fu_358_NEURONS_MEMBRANE_ce1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state13)) then 
+            NEURONS_MEMBRANE_ce1 <= grp_inner_layer_4_fu_336_NEURONS_MEMBRANE_ce1;
         elsif ((ap_const_logic_1 = ap_CS_fsm_state11)) then 
-            NEURONS_MEMBRANE_d0 <= grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_conv4_i11_i_out;
+            NEURONS_MEMBRANE_ce1 <= grp_inner_layer_3_fu_314_NEURONS_MEMBRANE_ce1;
         elsif ((ap_const_logic_1 = ap_CS_fsm_state9)) then 
-            NEURONS_MEMBRANE_d0 <= zext_ln77_fu_940_p1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state64)) then 
-            NEURONS_MEMBRANE_d0 <= grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_NEURONS_MEMBRANE_d0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state53)) then 
-            NEURONS_MEMBRANE_d0 <= grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_NEURONS_MEMBRANE_d0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state42)) then 
-            NEURONS_MEMBRANE_d0 <= grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_NEURONS_MEMBRANE_d0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state31)) then 
-            NEURONS_MEMBRANE_d0 <= grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_NEURONS_MEMBRANE_d0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state20)) then 
-            NEURONS_MEMBRANE_d0 <= grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_NEURONS_MEMBRANE_d0;
+            NEURONS_MEMBRANE_ce1 <= grp_inner_layer_2_fu_292_NEURONS_MEMBRANE_ce1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            NEURONS_MEMBRANE_ce1 <= grp_inner_layer_1_fu_270_NEURONS_MEMBRANE_ce1;
+        else 
+            NEURONS_MEMBRANE_ce1 <= ap_const_logic_0;
+        end if; 
+    end process;
+
+
+    NEURONS_MEMBRANE_d0_assign_proc : process(ap_CS_fsm_state5, grp_input_layer_fu_247_NEURONS_MEMBRANE_d0, grp_inner_layer_1_fu_270_NEURONS_MEMBRANE_d0, grp_inner_layer_2_fu_292_NEURONS_MEMBRANE_d0, grp_inner_layer_3_fu_314_NEURONS_MEMBRANE_d0, grp_inner_layer_4_fu_336_NEURONS_MEMBRANE_d0, grp_output_layer_fu_358_NEURONS_MEMBRANE_d0, ap_CS_fsm_state7, ap_CS_fsm_state9, ap_CS_fsm_state11, ap_CS_fsm_state13, ap_CS_fsm_state15)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state15)) then 
+            NEURONS_MEMBRANE_d0 <= grp_output_layer_fu_358_NEURONS_MEMBRANE_d0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state13)) then 
+            NEURONS_MEMBRANE_d0 <= grp_inner_layer_4_fu_336_NEURONS_MEMBRANE_d0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state11)) then 
+            NEURONS_MEMBRANE_d0 <= grp_inner_layer_3_fu_314_NEURONS_MEMBRANE_d0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state9)) then 
+            NEURONS_MEMBRANE_d0 <= grp_inner_layer_2_fu_292_NEURONS_MEMBRANE_d0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            NEURONS_MEMBRANE_d0 <= grp_inner_layer_1_fu_270_NEURONS_MEMBRANE_d0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
+            NEURONS_MEMBRANE_d0 <= grp_input_layer_fu_247_NEURONS_MEMBRANE_d0;
         else 
             NEURONS_MEMBRANE_d0 <= "XXXXXXXXXXXXXXXX";
         end if; 
     end process;
 
 
-    NEURONS_MEMBRANE_we0_assign_proc : process(ap_CS_fsm_state9, icmp_ln83_reg_1941, ap_CS_fsm_state18, icmp_ln105_reg_2005, ap_CS_fsm_state29, icmp_ln129_reg_2069, ap_CS_fsm_state40, icmp_ln153_reg_2133, ap_CS_fsm_state51, icmp_ln177_reg_2197, ap_CS_fsm_state62, icmp_ln202_reg_2261, grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_NEURONS_MEMBRANE_we0, grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_NEURONS_MEMBRANE_we0, grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_NEURONS_MEMBRANE_we0, grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_NEURONS_MEMBRANE_we0, grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_NEURONS_MEMBRANE_we0, ap_CS_fsm_state13, ap_CS_fsm_state11, ap_CS_fsm_state23, ap_CS_fsm_state34, ap_CS_fsm_state45, ap_CS_fsm_state56, ap_CS_fsm_state67, ap_CS_fsm_state20, ap_CS_fsm_state31, ap_CS_fsm_state42, ap_CS_fsm_state53, ap_CS_fsm_state64)
+    NEURONS_MEMBRANE_we0_assign_proc : process(ap_CS_fsm_state5, grp_input_layer_fu_247_NEURONS_MEMBRANE_we0, grp_inner_layer_1_fu_270_NEURONS_MEMBRANE_we0, grp_inner_layer_2_fu_292_NEURONS_MEMBRANE_we0, grp_inner_layer_3_fu_314_NEURONS_MEMBRANE_we0, grp_inner_layer_4_fu_336_NEURONS_MEMBRANE_we0, grp_output_layer_fu_358_NEURONS_MEMBRANE_we0, ap_CS_fsm_state7, ap_CS_fsm_state9, ap_CS_fsm_state11, ap_CS_fsm_state13, ap_CS_fsm_state15)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state11) or (ap_const_logic_1 = ap_CS_fsm_state62) or (ap_const_logic_1 = ap_CS_fsm_state51) or (ap_const_logic_1 = ap_CS_fsm_state40) or (ap_const_logic_1 = ap_CS_fsm_state29) or (ap_const_logic_1 = ap_CS_fsm_state18) or (ap_const_logic_1 = ap_CS_fsm_state9) or ((icmp_ln202_reg_2261 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state67)) or ((icmp_ln177_reg_2197 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state56)) or ((icmp_ln153_reg_2133 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state45)) or ((icmp_ln129_reg_2069 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state34)) or ((icmp_ln105_reg_2005 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state23)) or ((icmp_ln83_reg_1941 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state13)))) then 
-            NEURONS_MEMBRANE_we0 <= ap_const_logic_1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state64)) then 
-            NEURONS_MEMBRANE_we0 <= grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_NEURONS_MEMBRANE_we0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state53)) then 
-            NEURONS_MEMBRANE_we0 <= grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_NEURONS_MEMBRANE_we0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state42)) then 
-            NEURONS_MEMBRANE_we0 <= grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_NEURONS_MEMBRANE_we0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state31)) then 
-            NEURONS_MEMBRANE_we0 <= grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_NEURONS_MEMBRANE_we0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state20)) then 
-            NEURONS_MEMBRANE_we0 <= grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_NEURONS_MEMBRANE_we0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state15)) then 
+            NEURONS_MEMBRANE_we0 <= grp_output_layer_fu_358_NEURONS_MEMBRANE_we0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state13)) then 
+            NEURONS_MEMBRANE_we0 <= grp_inner_layer_4_fu_336_NEURONS_MEMBRANE_we0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state11)) then 
+            NEURONS_MEMBRANE_we0 <= grp_inner_layer_3_fu_314_NEURONS_MEMBRANE_we0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state9)) then 
+            NEURONS_MEMBRANE_we0 <= grp_inner_layer_2_fu_292_NEURONS_MEMBRANE_we0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            NEURONS_MEMBRANE_we0 <= grp_inner_layer_1_fu_270_NEURONS_MEMBRANE_we0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
+            NEURONS_MEMBRANE_we0 <= grp_input_layer_fu_247_NEURONS_MEMBRANE_we0;
         else 
             NEURONS_MEMBRANE_we0 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    NEURONS_STATE_address0_assign_proc : process(zext_ln74_reg_1877, ap_CS_fsm_state12, zext_ln94_reg_1948, zext_ln118_reg_2012, zext_ln142_reg_2076, zext_ln166_reg_2140, zext_ln191_reg_2204, grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_NEURONS_STATE_address0, grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_NEURONS_STATE_address0, grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_NEURONS_STATE_address0, grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_NEURONS_STATE_address0, grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_NEURONS_STATE_address0, grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_NEURONS_STATE_address0, grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_NEURONS_STATE_address0, grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_NEURONS_STATE_address0, grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_NEURONS_STATE_address0, grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_NEURONS_STATE_address0, ap_CS_fsm_state23, ap_CS_fsm_state34, ap_CS_fsm_state24, ap_CS_fsm_state45, ap_CS_fsm_state35, ap_CS_fsm_state56, ap_CS_fsm_state46, ap_CS_fsm_state67, ap_CS_fsm_state57, ap_CS_fsm_state20, ap_CS_fsm_state31, ap_CS_fsm_state42, ap_CS_fsm_state53, ap_CS_fsm_state68, ap_CS_fsm_state64)
+    NEURONS_STATE_address0_assign_proc : process(ap_CS_fsm_state5, grp_input_layer_fu_247_NEURONS_STATE_address0, grp_inner_layer_1_fu_270_NEURONS_STATE_address0, grp_inner_layer_2_fu_292_NEURONS_STATE_address0, grp_inner_layer_3_fu_314_NEURONS_STATE_address0, grp_inner_layer_4_fu_336_NEURONS_STATE_address0, grp_output_layer_fu_358_NEURONS_STATE_address0, ap_CS_fsm_state7, ap_CS_fsm_state9, ap_CS_fsm_state11, ap_CS_fsm_state13, ap_CS_fsm_state15)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state67)) then 
-            NEURONS_STATE_address0 <= zext_ln191_reg_2204(9 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state56)) then 
-            NEURONS_STATE_address0 <= zext_ln166_reg_2140(9 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state45)) then 
-            NEURONS_STATE_address0 <= zext_ln142_reg_2076(9 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state34)) then 
-            NEURONS_STATE_address0 <= zext_ln118_reg_2012(9 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state23)) then 
-            NEURONS_STATE_address0 <= zext_ln94_reg_1948(9 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state12)) then 
-            NEURONS_STATE_address0 <= zext_ln74_reg_1877(9 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state64)) then 
-            NEURONS_STATE_address0 <= grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_NEURONS_STATE_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state68)) then 
-            NEURONS_STATE_address0 <= grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_NEURONS_STATE_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state53)) then 
-            NEURONS_STATE_address0 <= grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_NEURONS_STATE_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state57)) then 
-            NEURONS_STATE_address0 <= grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_NEURONS_STATE_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state42)) then 
-            NEURONS_STATE_address0 <= grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_NEURONS_STATE_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state46)) then 
-            NEURONS_STATE_address0 <= grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_NEURONS_STATE_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state31)) then 
-            NEURONS_STATE_address0 <= grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_NEURONS_STATE_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state35)) then 
-            NEURONS_STATE_address0 <= grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_NEURONS_STATE_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state20)) then 
-            NEURONS_STATE_address0 <= grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_NEURONS_STATE_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state24)) then 
-            NEURONS_STATE_address0 <= grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_NEURONS_STATE_address0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state15)) then 
+            NEURONS_STATE_address0 <= grp_output_layer_fu_358_NEURONS_STATE_address0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state13)) then 
+            NEURONS_STATE_address0 <= grp_inner_layer_4_fu_336_NEURONS_STATE_address0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state11)) then 
+            NEURONS_STATE_address0 <= grp_inner_layer_3_fu_314_NEURONS_STATE_address0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state9)) then 
+            NEURONS_STATE_address0 <= grp_inner_layer_2_fu_292_NEURONS_STATE_address0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            NEURONS_STATE_address0 <= grp_inner_layer_1_fu_270_NEURONS_STATE_address0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
+            NEURONS_STATE_address0 <= grp_input_layer_fu_247_NEURONS_STATE_address0;
         else 
             NEURONS_STATE_address0 <= "XXXXXXXXX";
         end if; 
     end process;
 
 
-    NEURONS_STATE_ce0_assign_proc : process(ap_CS_fsm_state12, grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_NEURONS_STATE_ce0, grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_NEURONS_STATE_ce0, grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_NEURONS_STATE_ce0, grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_NEURONS_STATE_ce0, grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_NEURONS_STATE_ce0, grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_NEURONS_STATE_ce0, grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_NEURONS_STATE_ce0, grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_NEURONS_STATE_ce0, grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_NEURONS_STATE_ce0, grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_NEURONS_STATE_ce0, ap_CS_fsm_state23, ap_CS_fsm_state34, ap_CS_fsm_state24, ap_CS_fsm_state45, ap_CS_fsm_state35, ap_CS_fsm_state56, ap_CS_fsm_state46, ap_CS_fsm_state67, ap_CS_fsm_state57, ap_CS_fsm_state20, ap_CS_fsm_state31, ap_CS_fsm_state42, ap_CS_fsm_state53, ap_CS_fsm_state68, ap_CS_fsm_state64)
+    NEURONS_STATE_ce0_assign_proc : process(ap_CS_fsm_state5, grp_input_layer_fu_247_NEURONS_STATE_ce0, grp_inner_layer_1_fu_270_NEURONS_STATE_ce0, grp_inner_layer_2_fu_292_NEURONS_STATE_ce0, grp_inner_layer_3_fu_314_NEURONS_STATE_ce0, grp_inner_layer_4_fu_336_NEURONS_STATE_ce0, grp_output_layer_fu_358_NEURONS_STATE_ce0, ap_CS_fsm_state7, ap_CS_fsm_state9, ap_CS_fsm_state11, ap_CS_fsm_state13, ap_CS_fsm_state15)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state67) or (ap_const_logic_1 = ap_CS_fsm_state56) or (ap_const_logic_1 = ap_CS_fsm_state45) or (ap_const_logic_1 = ap_CS_fsm_state34) or (ap_const_logic_1 = ap_CS_fsm_state23) or (ap_const_logic_1 = ap_CS_fsm_state12))) then 
-            NEURONS_STATE_ce0 <= ap_const_logic_1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state64)) then 
-            NEURONS_STATE_ce0 <= grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_NEURONS_STATE_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state68)) then 
-            NEURONS_STATE_ce0 <= grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_NEURONS_STATE_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state53)) then 
-            NEURONS_STATE_ce0 <= grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_NEURONS_STATE_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state57)) then 
-            NEURONS_STATE_ce0 <= grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_NEURONS_STATE_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state42)) then 
-            NEURONS_STATE_ce0 <= grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_NEURONS_STATE_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state46)) then 
-            NEURONS_STATE_ce0 <= grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_NEURONS_STATE_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state31)) then 
-            NEURONS_STATE_ce0 <= grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_NEURONS_STATE_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state35)) then 
-            NEURONS_STATE_ce0 <= grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_NEURONS_STATE_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state20)) then 
-            NEURONS_STATE_ce0 <= grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_NEURONS_STATE_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state24)) then 
-            NEURONS_STATE_ce0 <= grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_NEURONS_STATE_ce0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state15)) then 
+            NEURONS_STATE_ce0 <= grp_output_layer_fu_358_NEURONS_STATE_ce0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state13)) then 
+            NEURONS_STATE_ce0 <= grp_inner_layer_4_fu_336_NEURONS_STATE_ce0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state11)) then 
+            NEURONS_STATE_ce0 <= grp_inner_layer_3_fu_314_NEURONS_STATE_ce0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state9)) then 
+            NEURONS_STATE_ce0 <= grp_inner_layer_2_fu_292_NEURONS_STATE_ce0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            NEURONS_STATE_ce0 <= grp_inner_layer_1_fu_270_NEURONS_STATE_ce0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
+            NEURONS_STATE_ce0 <= grp_input_layer_fu_247_NEURONS_STATE_ce0;
         else 
             NEURONS_STATE_ce0 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    NEURONS_STATE_d0_assign_proc : process(ap_CS_fsm_state12, grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_NEURONS_STATE_d0, grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_NEURONS_STATE_d0, grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_NEURONS_STATE_d0, grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_NEURONS_STATE_d0, grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_NEURONS_STATE_d0, ap_CS_fsm_state23, ap_CS_fsm_state34, ap_CS_fsm_state24, ap_CS_fsm_state45, ap_CS_fsm_state35, ap_CS_fsm_state56, ap_CS_fsm_state46, ap_CS_fsm_state67, ap_CS_fsm_state57, ap_CS_fsm_state68)
+    NEURONS_STATE_d0_assign_proc : process(ap_CS_fsm_state5, grp_input_layer_fu_247_NEURONS_STATE_d0, grp_inner_layer_1_fu_270_NEURONS_STATE_d0, grp_inner_layer_2_fu_292_NEURONS_STATE_d0, grp_inner_layer_3_fu_314_NEURONS_STATE_d0, grp_inner_layer_4_fu_336_NEURONS_STATE_d0, grp_output_layer_fu_358_NEURONS_STATE_d0, ap_CS_fsm_state7, ap_CS_fsm_state9, ap_CS_fsm_state11, ap_CS_fsm_state13, ap_CS_fsm_state15)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state67) or (ap_const_logic_1 = ap_CS_fsm_state56) or (ap_const_logic_1 = ap_CS_fsm_state45) or (ap_const_logic_1 = ap_CS_fsm_state34) or (ap_const_logic_1 = ap_CS_fsm_state23) or (ap_const_logic_1 = ap_CS_fsm_state12))) then 
-            NEURONS_STATE_d0 <= ap_const_lv1_1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state68)) then 
-            NEURONS_STATE_d0 <= grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_NEURONS_STATE_d0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state57)) then 
-            NEURONS_STATE_d0 <= grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_NEURONS_STATE_d0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state46)) then 
-            NEURONS_STATE_d0 <= grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_NEURONS_STATE_d0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state35)) then 
-            NEURONS_STATE_d0 <= grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_NEURONS_STATE_d0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state24)) then 
-            NEURONS_STATE_d0 <= grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_NEURONS_STATE_d0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state15)) then 
+            NEURONS_STATE_d0 <= grp_output_layer_fu_358_NEURONS_STATE_d0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state13)) then 
+            NEURONS_STATE_d0 <= grp_inner_layer_4_fu_336_NEURONS_STATE_d0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state11)) then 
+            NEURONS_STATE_d0 <= grp_inner_layer_3_fu_314_NEURONS_STATE_d0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state9)) then 
+            NEURONS_STATE_d0 <= grp_inner_layer_2_fu_292_NEURONS_STATE_d0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            NEURONS_STATE_d0 <= grp_inner_layer_1_fu_270_NEURONS_STATE_d0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
+            NEURONS_STATE_d0 <= grp_input_layer_fu_247_NEURONS_STATE_d0;
         else 
             NEURONS_STATE_d0 <= "X";
         end if; 
     end process;
 
 
-    NEURONS_STATE_we0_assign_proc : process(icmp_ln83_fu_954_p2, ap_CS_fsm_state12, icmp_ln105_reg_2005, icmp_ln129_reg_2069, icmp_ln153_reg_2133, icmp_ln177_reg_2197, icmp_ln202_reg_2261, grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_NEURONS_STATE_we0, grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_NEURONS_STATE_we0, grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_NEURONS_STATE_we0, grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_NEURONS_STATE_we0, grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_NEURONS_STATE_we0, ap_CS_fsm_state23, ap_CS_fsm_state34, ap_CS_fsm_state24, ap_CS_fsm_state45, ap_CS_fsm_state35, ap_CS_fsm_state56, ap_CS_fsm_state46, ap_CS_fsm_state67, ap_CS_fsm_state57, ap_CS_fsm_state68)
+    NEURONS_STATE_we0_assign_proc : process(ap_CS_fsm_state5, grp_input_layer_fu_247_NEURONS_STATE_we0, grp_inner_layer_1_fu_270_NEURONS_STATE_we0, grp_inner_layer_2_fu_292_NEURONS_STATE_we0, grp_inner_layer_3_fu_314_NEURONS_STATE_we0, grp_inner_layer_4_fu_336_NEURONS_STATE_we0, grp_output_layer_fu_358_NEURONS_STATE_we0, ap_CS_fsm_state7, ap_CS_fsm_state9, ap_CS_fsm_state11, ap_CS_fsm_state13, ap_CS_fsm_state15)
     begin
-        if ((((icmp_ln202_reg_2261 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state67)) or ((icmp_ln177_reg_2197 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state56)) or ((icmp_ln153_reg_2133 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state45)) or ((icmp_ln129_reg_2069 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state34)) or ((icmp_ln105_reg_2005 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state23)) or ((icmp_ln83_fu_954_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state12)))) then 
-            NEURONS_STATE_we0 <= ap_const_logic_1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state68)) then 
-            NEURONS_STATE_we0 <= grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_NEURONS_STATE_we0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state57)) then 
-            NEURONS_STATE_we0 <= grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_NEURONS_STATE_we0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state46)) then 
-            NEURONS_STATE_we0 <= grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_NEURONS_STATE_we0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state35)) then 
-            NEURONS_STATE_we0 <= grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_NEURONS_STATE_we0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state24)) then 
-            NEURONS_STATE_we0 <= grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_NEURONS_STATE_we0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state15)) then 
+            NEURONS_STATE_we0 <= grp_output_layer_fu_358_NEURONS_STATE_we0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state13)) then 
+            NEURONS_STATE_we0 <= grp_inner_layer_4_fu_336_NEURONS_STATE_we0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state11)) then 
+            NEURONS_STATE_we0 <= grp_inner_layer_3_fu_314_NEURONS_STATE_we0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state9)) then 
+            NEURONS_STATE_we0 <= grp_inner_layer_2_fu_292_NEURONS_STATE_we0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            NEURONS_STATE_we0 <= grp_inner_layer_1_fu_270_NEURONS_STATE_we0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
+            NEURONS_STATE_we0 <= grp_input_layer_fu_247_NEURONS_STATE_we0;
         else 
             NEURONS_STATE_we0 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    WEIGHTS_INDEX_address0_assign_proc : process(ap_CS_fsm_state8, ap_CS_fsm_state18, ap_CS_fsm_state29, ap_CS_fsm_state40, ap_CS_fsm_state51, ap_CS_fsm_state62, conv_i60_i_fu_935_p1, conv_i138_i_fu_1120_p1, conv_i138_i306_cast_cast_cast_fu_1298_p1, conv_i138_i395_fu_1468_p1, conv_i138_i487_fu_1638_p1, conv_i149_i_cast_cast_cast_fu_1816_p1)
+    WEIGHTS_INDEX_address0_assign_proc : process(ap_CS_fsm_state5, grp_input_layer_fu_247_WEIGHTS_INDEX_address0, grp_inner_layer_1_fu_270_WEIGHTS_INDEX_address0, grp_inner_layer_2_fu_292_WEIGHTS_INDEX_address0, grp_inner_layer_3_fu_314_WEIGHTS_INDEX_address0, grp_inner_layer_4_fu_336_WEIGHTS_INDEX_address0, grp_output_layer_fu_358_WEIGHTS_INDEX_address0, ap_CS_fsm_state7, ap_CS_fsm_state9, ap_CS_fsm_state11, ap_CS_fsm_state13, ap_CS_fsm_state15)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state62)) then 
-            WEIGHTS_INDEX_address0 <= conv_i149_i_cast_cast_cast_fu_1816_p1(9 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state51)) then 
-            WEIGHTS_INDEX_address0 <= conv_i138_i487_fu_1638_p1(9 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state40)) then 
-            WEIGHTS_INDEX_address0 <= conv_i138_i395_fu_1468_p1(9 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state29)) then 
-            WEIGHTS_INDEX_address0 <= conv_i138_i306_cast_cast_cast_fu_1298_p1(9 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state18)) then 
-            WEIGHTS_INDEX_address0 <= conv_i138_i_fu_1120_p1(9 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state8)) then 
-            WEIGHTS_INDEX_address0 <= conv_i60_i_fu_935_p1(9 - 1 downto 0);
+        if ((ap_const_logic_1 = ap_CS_fsm_state15)) then 
+            WEIGHTS_INDEX_address0 <= grp_output_layer_fu_358_WEIGHTS_INDEX_address0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state13)) then 
+            WEIGHTS_INDEX_address0 <= grp_inner_layer_4_fu_336_WEIGHTS_INDEX_address0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state11)) then 
+            WEIGHTS_INDEX_address0 <= grp_inner_layer_3_fu_314_WEIGHTS_INDEX_address0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state9)) then 
+            WEIGHTS_INDEX_address0 <= grp_inner_layer_2_fu_292_WEIGHTS_INDEX_address0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            WEIGHTS_INDEX_address0 <= grp_inner_layer_1_fu_270_WEIGHTS_INDEX_address0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
+            WEIGHTS_INDEX_address0 <= grp_input_layer_fu_247_WEIGHTS_INDEX_address0;
         else 
             WEIGHTS_INDEX_address0 <= "XXXXXXXXX";
         end if; 
     end process;
 
 
-    WEIGHTS_INDEX_address1_assign_proc : process(zext_ln74_reg_1877, ap_CS_fsm_state8, zext_ln94_reg_1948, ap_CS_fsm_state18, zext_ln118_reg_2012, ap_CS_fsm_state29, zext_ln142_reg_2076, ap_CS_fsm_state40, zext_ln166_reg_2140, ap_CS_fsm_state51, zext_ln191_reg_2204, ap_CS_fsm_state62)
+    WEIGHTS_INDEX_address1_assign_proc : process(ap_CS_fsm_state5, grp_input_layer_fu_247_WEIGHTS_INDEX_address1, grp_inner_layer_1_fu_270_WEIGHTS_INDEX_address1, grp_inner_layer_2_fu_292_WEIGHTS_INDEX_address1, grp_inner_layer_3_fu_314_WEIGHTS_INDEX_address1, grp_inner_layer_4_fu_336_WEIGHTS_INDEX_address1, grp_output_layer_fu_358_WEIGHTS_INDEX_address1, ap_CS_fsm_state7, ap_CS_fsm_state9, ap_CS_fsm_state11, ap_CS_fsm_state13, ap_CS_fsm_state15)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state62)) then 
-            WEIGHTS_INDEX_address1 <= zext_ln191_reg_2204(9 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state51)) then 
-            WEIGHTS_INDEX_address1 <= zext_ln166_reg_2140(9 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state40)) then 
-            WEIGHTS_INDEX_address1 <= zext_ln142_reg_2076(9 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state29)) then 
-            WEIGHTS_INDEX_address1 <= zext_ln118_reg_2012(9 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state18)) then 
-            WEIGHTS_INDEX_address1 <= zext_ln94_reg_1948(9 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state8)) then 
-            WEIGHTS_INDEX_address1 <= zext_ln74_reg_1877(9 - 1 downto 0);
+        if ((ap_const_logic_1 = ap_CS_fsm_state15)) then 
+            WEIGHTS_INDEX_address1 <= grp_output_layer_fu_358_WEIGHTS_INDEX_address1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state13)) then 
+            WEIGHTS_INDEX_address1 <= grp_inner_layer_4_fu_336_WEIGHTS_INDEX_address1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state11)) then 
+            WEIGHTS_INDEX_address1 <= grp_inner_layer_3_fu_314_WEIGHTS_INDEX_address1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state9)) then 
+            WEIGHTS_INDEX_address1 <= grp_inner_layer_2_fu_292_WEIGHTS_INDEX_address1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            WEIGHTS_INDEX_address1 <= grp_inner_layer_1_fu_270_WEIGHTS_INDEX_address1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
+            WEIGHTS_INDEX_address1 <= grp_input_layer_fu_247_WEIGHTS_INDEX_address1;
         else 
             WEIGHTS_INDEX_address1 <= "XXXXXXXXX";
         end if; 
     end process;
 
 
-    WEIGHTS_INDEX_ce0_assign_proc : process(ap_CS_fsm_state8, ap_CS_fsm_state18, ap_CS_fsm_state29, ap_CS_fsm_state40, ap_CS_fsm_state51, ap_CS_fsm_state62)
+    WEIGHTS_INDEX_ce0_assign_proc : process(ap_CS_fsm_state5, grp_input_layer_fu_247_WEIGHTS_INDEX_ce0, grp_inner_layer_1_fu_270_WEIGHTS_INDEX_ce0, grp_inner_layer_2_fu_292_WEIGHTS_INDEX_ce0, grp_inner_layer_3_fu_314_WEIGHTS_INDEX_ce0, grp_inner_layer_4_fu_336_WEIGHTS_INDEX_ce0, grp_output_layer_fu_358_WEIGHTS_INDEX_ce0, ap_CS_fsm_state7, ap_CS_fsm_state9, ap_CS_fsm_state11, ap_CS_fsm_state13, ap_CS_fsm_state15)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state62) or (ap_const_logic_1 = ap_CS_fsm_state51) or (ap_const_logic_1 = ap_CS_fsm_state40) or (ap_const_logic_1 = ap_CS_fsm_state29) or (ap_const_logic_1 = ap_CS_fsm_state18) or (ap_const_logic_1 = ap_CS_fsm_state8))) then 
-            WEIGHTS_INDEX_ce0 <= ap_const_logic_1;
+        if ((ap_const_logic_1 = ap_CS_fsm_state15)) then 
+            WEIGHTS_INDEX_ce0 <= grp_output_layer_fu_358_WEIGHTS_INDEX_ce0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state13)) then 
+            WEIGHTS_INDEX_ce0 <= grp_inner_layer_4_fu_336_WEIGHTS_INDEX_ce0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state11)) then 
+            WEIGHTS_INDEX_ce0 <= grp_inner_layer_3_fu_314_WEIGHTS_INDEX_ce0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state9)) then 
+            WEIGHTS_INDEX_ce0 <= grp_inner_layer_2_fu_292_WEIGHTS_INDEX_ce0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            WEIGHTS_INDEX_ce0 <= grp_inner_layer_1_fu_270_WEIGHTS_INDEX_ce0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
+            WEIGHTS_INDEX_ce0 <= grp_input_layer_fu_247_WEIGHTS_INDEX_ce0;
         else 
             WEIGHTS_INDEX_ce0 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    WEIGHTS_INDEX_ce1_assign_proc : process(ap_CS_fsm_state8, ap_CS_fsm_state18, ap_CS_fsm_state29, ap_CS_fsm_state40, ap_CS_fsm_state51, ap_CS_fsm_state62)
+    WEIGHTS_INDEX_ce1_assign_proc : process(ap_CS_fsm_state5, grp_input_layer_fu_247_WEIGHTS_INDEX_ce1, grp_inner_layer_1_fu_270_WEIGHTS_INDEX_ce1, grp_inner_layer_2_fu_292_WEIGHTS_INDEX_ce1, grp_inner_layer_3_fu_314_WEIGHTS_INDEX_ce1, grp_inner_layer_4_fu_336_WEIGHTS_INDEX_ce1, grp_output_layer_fu_358_WEIGHTS_INDEX_ce1, ap_CS_fsm_state7, ap_CS_fsm_state9, ap_CS_fsm_state11, ap_CS_fsm_state13, ap_CS_fsm_state15)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state62) or (ap_const_logic_1 = ap_CS_fsm_state51) or (ap_const_logic_1 = ap_CS_fsm_state40) or (ap_const_logic_1 = ap_CS_fsm_state29) or (ap_const_logic_1 = ap_CS_fsm_state18) or (ap_const_logic_1 = ap_CS_fsm_state8))) then 
-            WEIGHTS_INDEX_ce1 <= ap_const_logic_1;
+        if ((ap_const_logic_1 = ap_CS_fsm_state15)) then 
+            WEIGHTS_INDEX_ce1 <= grp_output_layer_fu_358_WEIGHTS_INDEX_ce1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state13)) then 
+            WEIGHTS_INDEX_ce1 <= grp_inner_layer_4_fu_336_WEIGHTS_INDEX_ce1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state11)) then 
+            WEIGHTS_INDEX_ce1 <= grp_inner_layer_3_fu_314_WEIGHTS_INDEX_ce1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state9)) then 
+            WEIGHTS_INDEX_ce1 <= grp_inner_layer_2_fu_292_WEIGHTS_INDEX_ce1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            WEIGHTS_INDEX_ce1 <= grp_inner_layer_1_fu_270_WEIGHTS_INDEX_ce1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
+            WEIGHTS_INDEX_ce1 <= grp_input_layer_fu_247_WEIGHTS_INDEX_ce1;
         else 
             WEIGHTS_INDEX_ce1 <= ap_const_logic_0;
         end if; 
     end process;
 
-
-    WEIGHTS_address0_assign_proc : process(grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_WEIGHTS_address0, grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_WEIGHTS_address0, grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_WEIGHTS_address0, grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_WEIGHTS_address0, grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_WEIGHTS_address0, grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_WEIGHTS_address0, ap_CS_fsm_state10, ap_CS_fsm_state20, ap_CS_fsm_state31, ap_CS_fsm_state42, ap_CS_fsm_state53, ap_CS_fsm_state64)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state64)) then 
-            WEIGHTS_address0 <= grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_WEIGHTS_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state53)) then 
-            WEIGHTS_address0 <= grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_WEIGHTS_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state42)) then 
-            WEIGHTS_address0 <= grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_WEIGHTS_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state31)) then 
-            WEIGHTS_address0 <= grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_WEIGHTS_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state20)) then 
-            WEIGHTS_address0 <= grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_WEIGHTS_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state10)) then 
-            WEIGHTS_address0 <= grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_WEIGHTS_address0;
-        else 
-            WEIGHTS_address0 <= "XXXXXXXXXXXXXXX";
-        end if; 
-    end process;
-
-
-    WEIGHTS_ce0_assign_proc : process(grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_WEIGHTS_ce0, grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_WEIGHTS_ce0, grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_WEIGHTS_ce0, grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_WEIGHTS_ce0, grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_WEIGHTS_ce0, grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_WEIGHTS_ce0, ap_CS_fsm_state10, ap_CS_fsm_state20, ap_CS_fsm_state31, ap_CS_fsm_state42, ap_CS_fsm_state53, ap_CS_fsm_state64)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state64)) then 
-            WEIGHTS_ce0 <= grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_WEIGHTS_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state53)) then 
-            WEIGHTS_ce0 <= grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_WEIGHTS_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state42)) then 
-            WEIGHTS_ce0 <= grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_WEIGHTS_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state31)) then 
-            WEIGHTS_ce0 <= grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_WEIGHTS_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state20)) then 
-            WEIGHTS_ce0 <= grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_WEIGHTS_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state10)) then 
-            WEIGHTS_ce0 <= grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_WEIGHTS_ce0;
-        else 
-            WEIGHTS_ce0 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-    add_i_i161_i305_fu_1288_p2 <= std_logic_vector(unsigned(neuron_index_2_reg_526) + unsigned(ap_const_lv7_1));
-    add_i_i161_i394_fu_1462_p2 <= std_logic_vector(unsigned(neuron_index_3_reg_538) + unsigned(ap_const_lv9_1));
-    add_i_i161_i486_fu_1632_p2 <= std_logic_vector(unsigned(neuron_index_4_reg_550) + unsigned(ap_const_lv9_1));
-    add_i_i161_i_fu_1114_p2 <= std_logic_vector(unsigned(neuron_index_1_reg_514) + unsigned(ap_const_lv8_1));
-    add_i_i172_i_fu_1806_p2 <= std_logic_vector(unsigned(neuron_index_5_reg_562) + unsigned(ap_const_lv8_1));
-    add_i_i67_i_fu_929_p2 <= std_logic_vector(unsigned(neuron_index_cast_cast_fu_926_p1) + unsigned(ap_const_lv8_1));
-    add_ln121_1_fu_1205_p2 <= std_logic_vector(signed(sext_ln121_fu_1145_p1) + signed(ap_const_lv17_2));
-    add_ln121_fu_1149_p2 <= std_logic_vector(signed(sext_ln121_fu_1145_p1) + signed(ap_const_lv17_1));
-    add_ln145_1_fu_1379_p2 <= std_logic_vector(signed(sext_ln145_fu_1319_p1) + signed(ap_const_lv17_2));
-    add_ln145_fu_1323_p2 <= std_logic_vector(signed(sext_ln145_fu_1319_p1) + signed(ap_const_lv17_1));
-    add_ln169_1_fu_1549_p2 <= std_logic_vector(signed(sext_ln169_fu_1489_p1) + signed(ap_const_lv17_2));
-    add_ln169_fu_1493_p2 <= std_logic_vector(signed(sext_ln169_fu_1489_p1) + signed(ap_const_lv17_1));
-    add_ln194_1_fu_1723_p2 <= std_logic_vector(signed(sext_ln194_fu_1663_p1) + signed(ap_const_lv17_2));
-    add_ln194_fu_1667_p2 <= std_logic_vector(signed(sext_ln194_fu_1663_p1) + signed(ap_const_lv17_1));
-    add_ln74_fu_772_p2 <= std_logic_vector(unsigned(neuron_index_reg_494) + unsigned(ap_const_lv8_1));
-    add_ln77_1_fu_847_p2 <= std_logic_vector(signed(sext_ln77_fu_787_p1) + signed(ap_const_lv17_2));
-    add_ln77_fu_791_p2 <= std_logic_vector(signed(sext_ln77_fu_787_p1) + signed(ap_const_lv17_1));
-    add_ln97_1_fu_1031_p2 <= std_logic_vector(signed(sext_ln97_fu_971_p1) + signed(ap_const_lv17_2));
-    add_ln97_fu_975_p2 <= std_logic_vector(signed(sext_ln97_fu_971_p1) + signed(ap_const_lv17_1));
     ap_CS_fsm_state1 <= ap_CS_fsm(0);
     ap_CS_fsm_state10 <= ap_CS_fsm(9);
     ap_CS_fsm_state11 <= ap_CS_fsm(10);
@@ -3126,85 +2166,68 @@ begin
     ap_CS_fsm_state16 <= ap_CS_fsm(15);
     ap_CS_fsm_state17 <= ap_CS_fsm(16);
     ap_CS_fsm_state18 <= ap_CS_fsm(17);
-    ap_CS_fsm_state19 <= ap_CS_fsm(18);
     ap_CS_fsm_state2 <= ap_CS_fsm(1);
-    ap_CS_fsm_state20 <= ap_CS_fsm(19);
-    ap_CS_fsm_state21 <= ap_CS_fsm(20);
-    ap_CS_fsm_state22 <= ap_CS_fsm(21);
-    ap_CS_fsm_state23 <= ap_CS_fsm(22);
-    ap_CS_fsm_state24 <= ap_CS_fsm(23);
-    ap_CS_fsm_state25 <= ap_CS_fsm(24);
-    ap_CS_fsm_state26 <= ap_CS_fsm(25);
-    ap_CS_fsm_state27 <= ap_CS_fsm(26);
-    ap_CS_fsm_state28 <= ap_CS_fsm(27);
-    ap_CS_fsm_state29 <= ap_CS_fsm(28);
     ap_CS_fsm_state3 <= ap_CS_fsm(2);
-    ap_CS_fsm_state30 <= ap_CS_fsm(29);
-    ap_CS_fsm_state31 <= ap_CS_fsm(30);
-    ap_CS_fsm_state32 <= ap_CS_fsm(31);
-    ap_CS_fsm_state33 <= ap_CS_fsm(32);
-    ap_CS_fsm_state34 <= ap_CS_fsm(33);
-    ap_CS_fsm_state35 <= ap_CS_fsm(34);
-    ap_CS_fsm_state36 <= ap_CS_fsm(35);
-    ap_CS_fsm_state37 <= ap_CS_fsm(36);
-    ap_CS_fsm_state38 <= ap_CS_fsm(37);
-    ap_CS_fsm_state39 <= ap_CS_fsm(38);
     ap_CS_fsm_state4 <= ap_CS_fsm(3);
-    ap_CS_fsm_state40 <= ap_CS_fsm(39);
-    ap_CS_fsm_state41 <= ap_CS_fsm(40);
-    ap_CS_fsm_state42 <= ap_CS_fsm(41);
-    ap_CS_fsm_state43 <= ap_CS_fsm(42);
-    ap_CS_fsm_state44 <= ap_CS_fsm(43);
-    ap_CS_fsm_state45 <= ap_CS_fsm(44);
-    ap_CS_fsm_state46 <= ap_CS_fsm(45);
-    ap_CS_fsm_state47 <= ap_CS_fsm(46);
-    ap_CS_fsm_state48 <= ap_CS_fsm(47);
-    ap_CS_fsm_state49 <= ap_CS_fsm(48);
     ap_CS_fsm_state5 <= ap_CS_fsm(4);
-    ap_CS_fsm_state50 <= ap_CS_fsm(49);
-    ap_CS_fsm_state51 <= ap_CS_fsm(50);
-    ap_CS_fsm_state52 <= ap_CS_fsm(51);
-    ap_CS_fsm_state53 <= ap_CS_fsm(52);
-    ap_CS_fsm_state54 <= ap_CS_fsm(53);
-    ap_CS_fsm_state55 <= ap_CS_fsm(54);
-    ap_CS_fsm_state56 <= ap_CS_fsm(55);
-    ap_CS_fsm_state57 <= ap_CS_fsm(56);
-    ap_CS_fsm_state58 <= ap_CS_fsm(57);
-    ap_CS_fsm_state59 <= ap_CS_fsm(58);
     ap_CS_fsm_state6 <= ap_CS_fsm(5);
-    ap_CS_fsm_state60 <= ap_CS_fsm(59);
-    ap_CS_fsm_state61 <= ap_CS_fsm(60);
-    ap_CS_fsm_state62 <= ap_CS_fsm(61);
-    ap_CS_fsm_state63 <= ap_CS_fsm(62);
-    ap_CS_fsm_state64 <= ap_CS_fsm(63);
-    ap_CS_fsm_state65 <= ap_CS_fsm(64);
-    ap_CS_fsm_state66 <= ap_CS_fsm(65);
-    ap_CS_fsm_state67 <= ap_CS_fsm(66);
-    ap_CS_fsm_state68 <= ap_CS_fsm(67);
-    ap_CS_fsm_state69 <= ap_CS_fsm(68);
     ap_CS_fsm_state7 <= ap_CS_fsm(6);
-    ap_CS_fsm_state70 <= ap_CS_fsm(69);
     ap_CS_fsm_state8 <= ap_CS_fsm(7);
     ap_CS_fsm_state9 <= ap_CS_fsm(8);
+    ap_ST_fsm_state10_blk <= ap_const_logic_0;
 
-    ap_ST_fsm_state10_blk_assign_proc : process(grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_ap_done)
+    ap_ST_fsm_state11_blk_assign_proc : process(grp_inner_layer_3_fu_314_ap_done)
     begin
-        if ((grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_ap_done = ap_const_logic_0)) then 
-            ap_ST_fsm_state10_blk <= ap_const_logic_1;
+        if ((grp_inner_layer_3_fu_314_ap_done = ap_const_logic_0)) then 
+            ap_ST_fsm_state11_blk <= ap_const_logic_1;
         else 
-            ap_ST_fsm_state10_blk <= ap_const_logic_0;
+            ap_ST_fsm_state11_blk <= ap_const_logic_0;
         end if; 
     end process;
 
-    ap_ST_fsm_state11_blk <= ap_const_logic_0;
     ap_ST_fsm_state12_blk <= ap_const_logic_0;
-    ap_ST_fsm_state13_blk <= ap_const_logic_0;
+
+    ap_ST_fsm_state13_blk_assign_proc : process(grp_inner_layer_4_fu_336_ap_done)
+    begin
+        if ((grp_inner_layer_4_fu_336_ap_done = ap_const_logic_0)) then 
+            ap_ST_fsm_state13_blk <= ap_const_logic_1;
+        else 
+            ap_ST_fsm_state13_blk <= ap_const_logic_0;
+        end if; 
+    end process;
+
     ap_ST_fsm_state14_blk <= ap_const_logic_0;
-    ap_ST_fsm_state15_blk <= ap_const_logic_0;
+
+    ap_ST_fsm_state15_blk_assign_proc : process(grp_output_layer_fu_358_ap_done)
+    begin
+        if ((grp_output_layer_fu_358_ap_done = ap_const_logic_0)) then 
+            ap_ST_fsm_state15_blk <= ap_const_logic_1;
+        else 
+            ap_ST_fsm_state15_blk <= ap_const_logic_0;
+        end if; 
+    end process;
+
     ap_ST_fsm_state16_blk <= ap_const_logic_0;
-    ap_ST_fsm_state17_blk <= ap_const_logic_0;
-    ap_ST_fsm_state18_blk <= ap_const_logic_0;
-    ap_ST_fsm_state19_blk <= ap_const_logic_0;
+
+    ap_ST_fsm_state17_blk_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_ap_done)
+    begin
+        if ((grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_ap_done = ap_const_logic_0)) then 
+            ap_ST_fsm_state17_blk <= ap_const_logic_1;
+        else 
+            ap_ST_fsm_state17_blk <= ap_const_logic_0;
+        end if; 
+    end process;
+
+
+    ap_ST_fsm_state18_blk_assign_proc : process(regslice_both_out_stream_V_data_V_U_apdone_blk)
+    begin
+        if ((regslice_both_out_stream_V_data_V_U_apdone_blk = ap_const_logic_1)) then 
+            ap_ST_fsm_state18_blk <= ap_const_logic_1;
+        else 
+            ap_ST_fsm_state18_blk <= ap_const_logic_0;
+        end if; 
+    end process;
+
 
     ap_ST_fsm_state1_blk_assign_proc : process(ap_start)
     begin
@@ -3215,213 +2238,54 @@ begin
         end if; 
     end process;
 
-
-    ap_ST_fsm_state20_blk_assign_proc : process(grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_ap_done)
-    begin
-        if ((grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_ap_done = ap_const_logic_0)) then 
-            ap_ST_fsm_state20_blk <= ap_const_logic_1;
-        else 
-            ap_ST_fsm_state20_blk <= ap_const_logic_0;
-        end if; 
-    end process;
-
-    ap_ST_fsm_state21_blk <= ap_const_logic_0;
-    ap_ST_fsm_state22_blk <= ap_const_logic_0;
-    ap_ST_fsm_state23_blk <= ap_const_logic_0;
-
-    ap_ST_fsm_state24_blk_assign_proc : process(grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_ap_done)
-    begin
-        if ((grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_ap_done = ap_const_logic_0)) then 
-            ap_ST_fsm_state24_blk <= ap_const_logic_1;
-        else 
-            ap_ST_fsm_state24_blk <= ap_const_logic_0;
-        end if; 
-    end process;
-
-    ap_ST_fsm_state25_blk <= ap_const_logic_0;
-    ap_ST_fsm_state26_blk <= ap_const_logic_0;
-    ap_ST_fsm_state27_blk <= ap_const_logic_0;
-    ap_ST_fsm_state28_blk <= ap_const_logic_0;
-    ap_ST_fsm_state29_blk <= ap_const_logic_0;
     ap_ST_fsm_state2_blk <= ap_const_logic_0;
-    ap_ST_fsm_state30_blk <= ap_const_logic_0;
 
-    ap_ST_fsm_state31_blk_assign_proc : process(grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_ap_done)
+    ap_ST_fsm_state3_blk_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_ap_done)
     begin
-        if ((grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_ap_done = ap_const_logic_0)) then 
-            ap_ST_fsm_state31_blk <= ap_const_logic_1;
-        else 
-            ap_ST_fsm_state31_blk <= ap_const_logic_0;
-        end if; 
-    end process;
-
-    ap_ST_fsm_state32_blk <= ap_const_logic_0;
-    ap_ST_fsm_state33_blk <= ap_const_logic_0;
-    ap_ST_fsm_state34_blk <= ap_const_logic_0;
-
-    ap_ST_fsm_state35_blk_assign_proc : process(grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_ap_done)
-    begin
-        if ((grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_ap_done = ap_const_logic_0)) then 
-            ap_ST_fsm_state35_blk <= ap_const_logic_1;
-        else 
-            ap_ST_fsm_state35_blk <= ap_const_logic_0;
-        end if; 
-    end process;
-
-    ap_ST_fsm_state36_blk <= ap_const_logic_0;
-    ap_ST_fsm_state37_blk <= ap_const_logic_0;
-    ap_ST_fsm_state38_blk <= ap_const_logic_0;
-    ap_ST_fsm_state39_blk <= ap_const_logic_0;
-
-    ap_ST_fsm_state3_blk_assign_proc : process(input_stream_TVALID_int_regslice)
-    begin
-        if ((input_stream_TVALID_int_regslice = ap_const_logic_0)) then 
+        if ((grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_ap_done = ap_const_logic_0)) then 
             ap_ST_fsm_state3_blk <= ap_const_logic_1;
         else 
             ap_ST_fsm_state3_blk <= ap_const_logic_0;
         end if; 
     end process;
 
-    ap_ST_fsm_state40_blk <= ap_const_logic_0;
-    ap_ST_fsm_state41_blk <= ap_const_logic_0;
+    ap_ST_fsm_state4_blk <= ap_const_logic_0;
 
-    ap_ST_fsm_state42_blk_assign_proc : process(grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_ap_done)
+    ap_ST_fsm_state5_blk_assign_proc : process(grp_input_layer_fu_247_ap_done)
     begin
-        if ((grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_ap_done = ap_const_logic_0)) then 
-            ap_ST_fsm_state42_blk <= ap_const_logic_1;
+        if ((grp_input_layer_fu_247_ap_done = ap_const_logic_0)) then 
+            ap_ST_fsm_state5_blk <= ap_const_logic_1;
         else 
-            ap_ST_fsm_state42_blk <= ap_const_logic_0;
-        end if; 
-    end process;
-
-    ap_ST_fsm_state43_blk <= ap_const_logic_0;
-    ap_ST_fsm_state44_blk <= ap_const_logic_0;
-    ap_ST_fsm_state45_blk <= ap_const_logic_0;
-
-    ap_ST_fsm_state46_blk_assign_proc : process(grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_ap_done)
-    begin
-        if ((grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_ap_done = ap_const_logic_0)) then 
-            ap_ST_fsm_state46_blk <= ap_const_logic_1;
-        else 
-            ap_ST_fsm_state46_blk <= ap_const_logic_0;
-        end if; 
-    end process;
-
-    ap_ST_fsm_state47_blk <= ap_const_logic_0;
-    ap_ST_fsm_state48_blk <= ap_const_logic_0;
-    ap_ST_fsm_state49_blk <= ap_const_logic_0;
-
-    ap_ST_fsm_state4_blk_assign_proc : process(ap_block_state4_on_subcall_done)
-    begin
-        if ((ap_const_boolean_1 = ap_block_state4_on_subcall_done)) then 
-            ap_ST_fsm_state4_blk <= ap_const_logic_1;
-        else 
-            ap_ST_fsm_state4_blk <= ap_const_logic_0;
-        end if; 
-    end process;
-
-    ap_ST_fsm_state50_blk <= ap_const_logic_0;
-    ap_ST_fsm_state51_blk <= ap_const_logic_0;
-    ap_ST_fsm_state52_blk <= ap_const_logic_0;
-
-    ap_ST_fsm_state53_blk_assign_proc : process(grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_ap_done)
-    begin
-        if ((grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_ap_done = ap_const_logic_0)) then 
-            ap_ST_fsm_state53_blk <= ap_const_logic_1;
-        else 
-            ap_ST_fsm_state53_blk <= ap_const_logic_0;
-        end if; 
-    end process;
-
-    ap_ST_fsm_state54_blk <= ap_const_logic_0;
-    ap_ST_fsm_state55_blk <= ap_const_logic_0;
-    ap_ST_fsm_state56_blk <= ap_const_logic_0;
-
-    ap_ST_fsm_state57_blk_assign_proc : process(grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_ap_done)
-    begin
-        if ((grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_ap_done = ap_const_logic_0)) then 
-            ap_ST_fsm_state57_blk <= ap_const_logic_1;
-        else 
-            ap_ST_fsm_state57_blk <= ap_const_logic_0;
-        end if; 
-    end process;
-
-    ap_ST_fsm_state58_blk <= ap_const_logic_0;
-    ap_ST_fsm_state59_blk <= ap_const_logic_0;
-    ap_ST_fsm_state5_blk <= ap_const_logic_0;
-    ap_ST_fsm_state60_blk <= ap_const_logic_0;
-    ap_ST_fsm_state61_blk <= ap_const_logic_0;
-    ap_ST_fsm_state62_blk <= ap_const_logic_0;
-    ap_ST_fsm_state63_blk <= ap_const_logic_0;
-
-    ap_ST_fsm_state64_blk_assign_proc : process(grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_ap_done)
-    begin
-        if ((grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_ap_done = ap_const_logic_0)) then 
-            ap_ST_fsm_state64_blk <= ap_const_logic_1;
-        else 
-            ap_ST_fsm_state64_blk <= ap_const_logic_0;
-        end if; 
-    end process;
-
-    ap_ST_fsm_state65_blk <= ap_const_logic_0;
-    ap_ST_fsm_state66_blk <= ap_const_logic_0;
-    ap_ST_fsm_state67_blk <= ap_const_logic_0;
-
-    ap_ST_fsm_state68_blk_assign_proc : process(ap_block_state68_on_subcall_done)
-    begin
-        if ((ap_const_boolean_1 = ap_block_state68_on_subcall_done)) then 
-            ap_ST_fsm_state68_blk <= ap_const_logic_1;
-        else 
-            ap_ST_fsm_state68_blk <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    ap_ST_fsm_state69_blk_assign_proc : process(output_stream_TREADY_int_regslice)
-    begin
-        if ((output_stream_TREADY_int_regslice = ap_const_logic_0)) then 
-            ap_ST_fsm_state69_blk <= ap_const_logic_1;
-        else 
-            ap_ST_fsm_state69_blk <= ap_const_logic_0;
+            ap_ST_fsm_state5_blk <= ap_const_logic_0;
         end if; 
     end process;
 
     ap_ST_fsm_state6_blk <= ap_const_logic_0;
 
-    ap_ST_fsm_state70_blk_assign_proc : process(regslice_both_output_stream_V_data_V_U_apdone_blk, output_stream_TREADY_int_regslice)
+    ap_ST_fsm_state7_blk_assign_proc : process(grp_inner_layer_1_fu_270_ap_done)
     begin
-        if (((output_stream_TREADY_int_regslice = ap_const_logic_0) or (regslice_both_output_stream_V_data_V_U_apdone_blk = ap_const_logic_1))) then 
-            ap_ST_fsm_state70_blk <= ap_const_logic_1;
+        if ((grp_inner_layer_1_fu_270_ap_done = ap_const_logic_0)) then 
+            ap_ST_fsm_state7_blk <= ap_const_logic_1;
         else 
-            ap_ST_fsm_state70_blk <= ap_const_logic_0;
+            ap_ST_fsm_state7_blk <= ap_const_logic_0;
         end if; 
     end process;
 
-    ap_ST_fsm_state7_blk <= ap_const_logic_0;
     ap_ST_fsm_state8_blk <= ap_const_logic_0;
-    ap_ST_fsm_state9_blk <= ap_const_logic_0;
 
-    ap_block_state4_on_subcall_done_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_ap_done, grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_ap_done)
+    ap_ST_fsm_state9_blk_assign_proc : process(grp_inner_layer_2_fu_292_ap_done)
     begin
-                ap_block_state4_on_subcall_done <= ((grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_ap_done = ap_const_logic_0) or (grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_ap_done = ap_const_logic_0));
+        if ((grp_inner_layer_2_fu_292_ap_done = ap_const_logic_0)) then 
+            ap_ST_fsm_state9_blk <= ap_const_logic_1;
+        else 
+            ap_ST_fsm_state9_blk <= ap_const_logic_0;
+        end if; 
     end process;
 
 
-    ap_block_state68_on_subcall_done_assign_proc : process(grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_ap_done, grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_ap_done)
+    ap_done_assign_proc : process(ap_CS_fsm_state18, regslice_both_out_stream_V_data_V_U_apdone_blk)
     begin
-                ap_block_state68_on_subcall_done <= ((grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_ap_done = ap_const_logic_0) or (grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_ap_done = ap_const_logic_0));
-    end process;
-
-
-    ap_block_state70_assign_proc : process(regslice_both_output_stream_V_data_V_U_apdone_blk, output_stream_TREADY_int_regslice)
-    begin
-                ap_block_state70 <= ((output_stream_TREADY_int_regslice = ap_const_logic_0) or (regslice_both_output_stream_V_data_V_U_apdone_blk = ap_const_logic_1));
-    end process;
-
-
-    ap_done_assign_proc : process(ap_CS_fsm_state70, input_buffer_last_reg_1865, regslice_both_output_stream_V_data_V_U_apdone_blk, output_stream_TREADY_int_regslice)
-    begin
-        if ((not(((output_stream_TREADY_int_regslice = ap_const_logic_0) or (regslice_both_output_stream_V_data_V_U_apdone_blk = ap_const_logic_1))) and (input_buffer_last_reg_1865 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state70))) then 
+        if (((regslice_both_out_stream_V_data_V_U_apdone_blk = ap_const_logic_0) and (ap_const_logic_1 = ap_CS_fsm_state18))) then 
             ap_done <= ap_const_logic_1;
         else 
             ap_done <= ap_const_logic_0;
@@ -3439,9 +2303,9 @@ begin
     end process;
 
 
-    ap_ready_assign_proc : process(ap_CS_fsm_state70, input_buffer_last_reg_1865, regslice_both_output_stream_V_data_V_U_apdone_blk, output_stream_TREADY_int_regslice)
+    ap_ready_assign_proc : process(ap_CS_fsm_state18, regslice_both_out_stream_V_data_V_U_apdone_blk)
     begin
-        if ((not(((output_stream_TREADY_int_regslice = ap_const_logic_0) or (regslice_both_output_stream_V_data_V_U_apdone_blk = ap_const_logic_1))) and (input_buffer_last_reg_1865 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state70))) then 
+        if (((regslice_both_out_stream_V_data_V_U_apdone_blk = ap_const_logic_0) and (ap_const_logic_1 = ap_CS_fsm_state18))) then 
             ap_ready <= ap_const_logic_1;
         else 
             ap_ready <= ap_const_logic_0;
@@ -3454,405 +2318,315 @@ begin
                 ap_rst_n_inv <= not(ap_rst_n);
     end process;
 
-    ashr_ln121_1_fu_1239_p2 <= std_logic_vector(shift_right(signed(sext_ln121_2_fu_1224_p1),to_integer(unsigned('0' & sext_ln121_6_fu_1236_p1(31-1 downto 0)))));
-    ashr_ln121_fu_1191_p2 <= std_logic_vector(shift_right(signed(reg_733),to_integer(unsigned('0' & sext_ln121_4cast_fu_1187_p1(16-1 downto 0)))));
-    ashr_ln145_1_fu_1413_p2 <= std_logic_vector(shift_right(signed(sext_ln145_2_fu_1398_p1),to_integer(unsigned('0' & sext_ln145_6_fu_1410_p1(31-1 downto 0)))));
-    ashr_ln145_fu_1365_p2 <= std_logic_vector(shift_right(signed(reg_733),to_integer(unsigned('0' & sext_ln145_4cast_fu_1361_p1(16-1 downto 0)))));
-    ashr_ln169_1_fu_1583_p2 <= std_logic_vector(shift_right(signed(sext_ln169_2_fu_1568_p1),to_integer(unsigned('0' & sext_ln169_6_fu_1580_p1(31-1 downto 0)))));
-    ashr_ln169_fu_1535_p2 <= std_logic_vector(shift_right(signed(reg_733),to_integer(unsigned('0' & sext_ln169_4cast_fu_1531_p1(16-1 downto 0)))));
-    ashr_ln194_1_fu_1757_p2 <= std_logic_vector(shift_right(signed(sext_ln194_2_fu_1742_p1),to_integer(unsigned('0' & sext_ln194_6_fu_1754_p1(31-1 downto 0)))));
-    ashr_ln194_fu_1709_p2 <= std_logic_vector(shift_right(signed(reg_733),to_integer(unsigned('0' & sext_ln194_4cast_fu_1705_p1(16-1 downto 0)))));
-    ashr_ln77_1_fu_881_p2 <= std_logic_vector(shift_right(signed(sext_ln77_2_fu_866_p1),to_integer(unsigned('0' & sext_ln77_6_fu_878_p1(31-1 downto 0)))));
-    ashr_ln77_fu_833_p2 <= std_logic_vector(shift_right(signed(reg_733),to_integer(unsigned('0' & sext_ln77_4cast_fu_829_p1(16-1 downto 0)))));
-    ashr_ln97_1_fu_1065_p2 <= std_logic_vector(shift_right(signed(sext_ln97_2_fu_1050_p1),to_integer(unsigned('0' & sext_ln97_6_fu_1062_p1(31-1 downto 0)))));
-    ashr_ln97_fu_1017_p2 <= std_logic_vector(shift_right(signed(reg_733),to_integer(unsigned('0' & sext_ln97_4cast_fu_1013_p1(16-1 downto 0)))));
-    conv_i138_i306_cast_cast_cast_fu_1298_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(conv_i138_i306_cast_cast_fu_1294_p1),64));
-        conv_i138_i306_cast_cast_fu_1294_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(add_i_i161_i305_fu_1288_p2),8));
+    grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_ap_start <= grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_ap_start_reg;
+    grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_ap_start <= grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_ap_start_reg;
+    grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TREADY <= (out_stream_TREADY_int_regslice and ap_CS_fsm_state17);
 
-    conv_i138_i395_fu_1468_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(add_i_i161_i394_fu_1462_p2),64));
-    conv_i138_i487_fu_1638_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(add_i_i161_i486_fu_1632_p2),64));
-    conv_i138_i_fu_1120_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(add_i_i161_i_fu_1114_p2),64));
-    conv_i149_i_cast_cast_cast_fu_1816_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(conv_i149_i_cast_cast_fu_1812_p1),64));
-        conv_i149_i_cast_cast_fu_1812_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(add_i_i172_i_fu_1806_p2),9));
-
-    conv_i60_i_fu_935_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(add_i_i67_i_fu_929_p2),64));
-    empty_36_fu_783_p1 <= neuron_index_reg_494(7 - 1 downto 0);
-    grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_ap_start <= grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP3_fu_621_ap_start_reg;
-    grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_ap_start <= grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP5_fu_644_ap_start_reg;
-    grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_ap_start <= grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP7_fu_667_ap_start_reg;
-    grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_ap_start <= grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP9_fu_690_ap_start_reg;
-    grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_ap_start <= grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_598_ap_start_reg;
-    grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_ap_start <= grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_ap_start_reg;
-    grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_ap_start <= grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_ap_start_reg;
-    grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_ap_start <= grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_ap_start_reg;
-    grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_ap_start <= grp_RNI_Pipeline_WEIGHTS_LOOP1_fu_604_ap_start_reg;
-    grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_ap_start <= grp_RNI_Pipeline_WEIGHTS_LOOP2_fu_627_ap_start_reg;
-    grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_ap_start <= grp_RNI_Pipeline_WEIGHTS_LOOP4_fu_650_ap_start_reg;
-    grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_ap_start <= grp_RNI_Pipeline_WEIGHTS_LOOP6_fu_673_ap_start_reg;
-    grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_ap_start <= grp_RNI_Pipeline_WEIGHTS_LOOP8_fu_702_ap_start_reg;
-    grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_ap_start <= grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_ap_start_reg;
-    grp_fu_719_p1 <= NEURONS_MEMBRANE_q0;
-    grp_fu_727_p2 <= "1" when (signed(NEURONS_MEMBRANE_q0) > signed(ap_const_lv16_56)) else "0";
-    icmp_ln118_fu_1130_p2 <= "1" when (neuron_index_2_reg_526 = ap_const_lv7_60) else "0";
-    icmp_ln121_fu_1273_p2 <= "0" when (select_ln121_1_fu_1265_p3 = ap_const_lv12_0) else "1";
-    icmp_ln142_fu_1308_p2 <= "1" when (neuron_index_3_reg_538 = ap_const_lv9_120) else "0";
-    icmp_ln145_fu_1447_p2 <= "0" when (select_ln145_1_fu_1439_p3 = ap_const_lv12_0) else "1";
-    icmp_ln166_fu_1478_p2 <= "1" when (neuron_index_4_reg_550 = ap_const_lv9_1A0) else "0";
-    icmp_ln169_fu_1617_p2 <= "0" when (select_ln169_1_fu_1609_p3 = ap_const_lv12_0) else "1";
-    icmp_ln191_fu_1648_p2 <= "1" when (neuron_index_5_reg_562 = ap_const_lv8_A8) else "0";
-    icmp_ln194_fu_1791_p2 <= "0" when (select_ln194_1_fu_1783_p3 = ap_const_lv12_0) else "1";
-    icmp_ln74_fu_766_p2 <= "1" when (neuron_index_reg_494 = ap_const_lv8_80) else "0";
-    icmp_ln77_fu_915_p2 <= "0" when (select_ln77_1_fu_907_p3 = ap_const_lv12_0) else "1";
-    icmp_ln78_fu_944_p2 <= "1" when (unsigned(WEIGHTS_INDEX_q1) < unsigned(WEIGHTS_INDEX_q0)) else "0";
-    icmp_ln83_fu_954_p2 <= "1" when (signed(empty_37_reg_505) > signed(ap_const_lv16_56)) else "0";
-    icmp_ln94_fu_960_p2 <= "1" when (neuron_index_1_reg_514 = ap_const_lv8_C0) else "0";
-    icmp_ln97_fu_1099_p2 <= "0" when (select_ln97_1_fu_1091_p3 = ap_const_lv12_0) else "1";
-
-    input_list_address0_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_input_list_address0, grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_input_list_address0, ap_CS_fsm_state4, ap_CS_fsm_state10, ap_CS_fsm_state2)
+    grp_exp_core_32_32_66_s_fu_479_ap_start_assign_proc : process(ap_CS_fsm_state5, grp_input_layer_fu_247_grp_exp_core_32_32_66_s_fu_479_p_start, grp_inner_layer_1_fu_270_grp_exp_core_32_32_66_s_fu_479_p_start, grp_inner_layer_2_fu_292_grp_exp_core_32_32_66_s_fu_479_p_start, grp_inner_layer_3_fu_314_grp_exp_core_32_32_66_s_fu_479_p_start, grp_inner_layer_4_fu_336_grp_exp_core_32_32_66_s_fu_479_p_start, grp_output_layer_fu_358_grp_exp_core_32_32_66_s_fu_479_p_start, ap_CS_fsm_state7, ap_CS_fsm_state9, ap_CS_fsm_state11, ap_CS_fsm_state13, ap_CS_fsm_state15)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            input_list_address0 <= ap_const_lv64_0(3 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state10)) then 
-            input_list_address0 <= grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_input_list_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            input_list_address0 <= grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_input_list_address0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state15)) then 
+            grp_exp_core_32_32_66_s_fu_479_ap_start <= grp_output_layer_fu_358_grp_exp_core_32_32_66_s_fu_479_p_start;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state13)) then 
+            grp_exp_core_32_32_66_s_fu_479_ap_start <= grp_inner_layer_4_fu_336_grp_exp_core_32_32_66_s_fu_479_p_start;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state11)) then 
+            grp_exp_core_32_32_66_s_fu_479_ap_start <= grp_inner_layer_3_fu_314_grp_exp_core_32_32_66_s_fu_479_p_start;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state9)) then 
+            grp_exp_core_32_32_66_s_fu_479_ap_start <= grp_inner_layer_2_fu_292_grp_exp_core_32_32_66_s_fu_479_p_start;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            grp_exp_core_32_32_66_s_fu_479_ap_start <= grp_inner_layer_1_fu_270_grp_exp_core_32_32_66_s_fu_479_p_start;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
+            grp_exp_core_32_32_66_s_fu_479_ap_start <= grp_input_layer_fu_247_grp_exp_core_32_32_66_s_fu_479_p_start;
         else 
-            input_list_address0 <= "XXX";
+            grp_exp_core_32_32_66_s_fu_479_ap_start <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    input_list_ce0_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_input_list_ce0, grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_input_list_ce0, ap_CS_fsm_state4, ap_CS_fsm_state10, ap_CS_fsm_state2)
+    grp_exp_core_32_32_66_s_fu_479_x_val_assign_proc : process(ap_CS_fsm_state5, grp_input_layer_fu_247_grp_exp_core_32_32_66_s_fu_479_p_din1, grp_inner_layer_1_fu_270_grp_exp_core_32_32_66_s_fu_479_p_din1, grp_inner_layer_2_fu_292_grp_exp_core_32_32_66_s_fu_479_p_din1, grp_inner_layer_3_fu_314_grp_exp_core_32_32_66_s_fu_479_p_din1, grp_inner_layer_4_fu_336_grp_exp_core_32_32_66_s_fu_479_p_din1, grp_output_layer_fu_358_grp_exp_core_32_32_66_s_fu_479_p_din1, ap_CS_fsm_state7, ap_CS_fsm_state9, ap_CS_fsm_state11, ap_CS_fsm_state13, ap_CS_fsm_state15)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            input_list_ce0 <= ap_const_logic_1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state10)) then 
-            input_list_ce0 <= grp_RNI_Pipeline_WEIGHTS_LOOP_fu_585_input_list_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            input_list_ce0 <= grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_input_list_ce0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state15)) then 
+            grp_exp_core_32_32_66_s_fu_479_x_val <= grp_output_layer_fu_358_grp_exp_core_32_32_66_s_fu_479_p_din1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state13)) then 
+            grp_exp_core_32_32_66_s_fu_479_x_val <= grp_inner_layer_4_fu_336_grp_exp_core_32_32_66_s_fu_479_p_din1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state11)) then 
+            grp_exp_core_32_32_66_s_fu_479_x_val <= grp_inner_layer_3_fu_314_grp_exp_core_32_32_66_s_fu_479_p_din1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state9)) then 
+            grp_exp_core_32_32_66_s_fu_479_x_val <= grp_inner_layer_2_fu_292_grp_exp_core_32_32_66_s_fu_479_p_din1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            grp_exp_core_32_32_66_s_fu_479_x_val <= grp_inner_layer_1_fu_270_grp_exp_core_32_32_66_s_fu_479_p_din1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
+            grp_exp_core_32_32_66_s_fu_479_x_val <= grp_input_layer_fu_247_grp_exp_core_32_32_66_s_fu_479_p_din1;
         else 
-            input_list_ce0 <= ap_const_logic_0;
+            grp_exp_core_32_32_66_s_fu_479_x_val <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+        end if; 
+    end process;
+
+    grp_inner_layer_1_fu_270_ap_start <= grp_inner_layer_1_fu_270_ap_start_reg;
+    grp_inner_layer_2_fu_292_ap_start <= grp_inner_layer_2_fu_292_ap_start_reg;
+    grp_inner_layer_3_fu_314_ap_start <= grp_inner_layer_3_fu_314_ap_start_reg;
+    grp_inner_layer_4_fu_336_ap_start <= grp_inner_layer_4_fu_336_ap_start_reg;
+    grp_input_layer_fu_247_ap_start <= grp_input_layer_fu_247_ap_start_reg;
+    grp_output_layer_fu_358_ap_start <= grp_output_layer_fu_358_ap_start_reg;
+
+    in_pkts_data_address0_assign_proc : process(ap_CS_fsm_state5, grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_data_address0, grp_input_layer_fu_247_input_pkts_data_address0, ap_CS_fsm_state3)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
+            in_pkts_data_address0 <= grp_input_layer_fu_247_input_pkts_data_address0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
+            in_pkts_data_address0 <= grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_data_address0;
+        else 
+            in_pkts_data_address0 <= "XXX";
         end if; 
     end process;
 
 
-    input_list_d0_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_input_list_d0, ap_CS_fsm_state4, ap_CS_fsm_state2)
+    in_pkts_data_ce0_assign_proc : process(ap_CS_fsm_state5, grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_data_ce0, grp_input_layer_fu_247_input_pkts_data_ce0, ap_CS_fsm_state3)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            input_list_d0 <= ap_const_lv1_0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            input_list_d0 <= grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_input_list_d0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
+            in_pkts_data_ce0 <= grp_input_layer_fu_247_input_pkts_data_ce0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
+            in_pkts_data_ce0 <= grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_data_ce0;
         else 
-            input_list_d0 <= "X";
+            in_pkts_data_ce0 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    input_list_we0_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_input_list_we0, ap_CS_fsm_state4, ap_CS_fsm_state2)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            input_list_we0 <= ap_const_logic_1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            input_list_we0 <= grp_RNI_Pipeline_VITIS_LOOP_33_2_fu_574_input_list_we0;
-        else 
-            input_list_we0 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    input_stream_TDATA_blk_n_assign_proc : process(ap_CS_fsm_state3, input_stream_TVALID_int_regslice)
+    in_pkts_data_we0_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_data_we0, ap_CS_fsm_state3)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            input_stream_TDATA_blk_n <= input_stream_TVALID_int_regslice;
+            in_pkts_data_we0 <= grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_data_we0;
         else 
-            input_stream_TDATA_blk_n <= ap_const_logic_1;
+            in_pkts_data_we0 <= ap_const_logic_0;
         end if; 
     end process;
 
-    input_stream_TREADY <= regslice_both_input_stream_V_data_V_U_ack_in;
 
-    input_stream_TREADY_int_regslice_assign_proc : process(ap_CS_fsm_state3, input_stream_TVALID_int_regslice)
+    in_pkts_dest_address0_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_dest_address0, ap_CS_fsm_state3, ap_CS_fsm_state15)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state3) and (input_stream_TVALID_int_regslice = ap_const_logic_1))) then 
-            input_stream_TREADY_int_regslice <= ap_const_logic_1;
+        if ((ap_const_logic_1 = ap_CS_fsm_state15)) then 
+            in_pkts_dest_address0 <= ap_const_lv64_0(3 - 1 downto 0);
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
+            in_pkts_dest_address0 <= grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_dest_address0;
         else 
-            input_stream_TREADY_int_regslice <= ap_const_logic_0;
+            in_pkts_dest_address0 <= "XXX";
         end if; 
     end process;
 
-    neuron_index_cast_cast_fu_926_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(empty_36_reg_1888),8));
-    or_ln121_fu_1279_p2 <= (tmp_14_reg_2023 or icmp_ln121_fu_1273_p2);
-    or_ln145_fu_1453_p2 <= (tmp_19_reg_2087 or icmp_ln145_fu_1447_p2);
-    or_ln169_fu_1623_p2 <= (tmp_24_reg_2151 or icmp_ln169_fu_1617_p2);
-    or_ln194_fu_1797_p2 <= (tmp_29_reg_2215 or icmp_ln194_fu_1791_p2);
-    or_ln77_fu_921_p2 <= (tmp_4_reg_1893 or icmp_ln77_fu_915_p2);
-    or_ln97_fu_1105_p2 <= (tmp_9_reg_1959 or icmp_ln97_fu_1099_p2);
 
-    output_list_address0_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_output_list_address0, grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_output_list_address0, ap_CS_fsm_state4, ap_CS_fsm_state67, ap_CS_fsm_state68, zext_ln206_fu_1830_p1, ap_CS_fsm_state2)
+    in_pkts_dest_ce0_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_dest_ce0, grp_output_layer_fu_358_ap_done, ap_CS_fsm_state3, ap_CS_fsm_state15)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state67)) then 
-            output_list_address0 <= zext_ln206_fu_1830_p1(3 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            output_list_address0 <= ap_const_lv64_0(3 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state68)) then 
-            output_list_address0 <= grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_output_list_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            output_list_address0 <= grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_output_list_address0;
+        if (((grp_output_layer_fu_358_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state15))) then 
+            in_pkts_dest_ce0 <= ap_const_logic_1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
+            in_pkts_dest_ce0 <= grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_dest_ce0;
         else 
-            output_list_address0 <= "XXX";
+            in_pkts_dest_ce0 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    output_list_ce0_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_output_list_ce0, grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_output_list_ce0, ap_CS_fsm_state4, ap_CS_fsm_state67, ap_CS_fsm_state68, ap_CS_fsm_state2)
+    in_pkts_dest_we0_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_dest_we0, ap_CS_fsm_state3)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state67) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-            output_list_ce0 <= ap_const_logic_1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state68)) then 
-            output_list_ce0 <= grp_RNI_Pipeline_VITIS_LOOP_55_4_fu_696_output_list_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            output_list_ce0 <= grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_output_list_ce0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
+            in_pkts_dest_we0 <= grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_dest_we0;
         else 
-            output_list_ce0 <= ap_const_logic_0;
+            in_pkts_dest_we0 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    output_list_d0_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_output_list_d0, ap_CS_fsm_state4, ap_CS_fsm_state67, ap_CS_fsm_state2)
+    in_pkts_id_address0_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_id_address0, ap_CS_fsm_state3, ap_CS_fsm_state15)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state67)) then 
-            output_list_d0 <= ap_const_lv1_1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            output_list_d0 <= ap_const_lv1_0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            output_list_d0 <= grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_output_list_d0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state15)) then 
+            in_pkts_id_address0 <= ap_const_lv64_0(3 - 1 downto 0);
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
+            in_pkts_id_address0 <= grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_id_address0;
         else 
-            output_list_d0 <= "X";
+            in_pkts_id_address0 <= "XXX";
         end if; 
     end process;
 
 
-    output_list_we0_assign_proc : process(icmp_ln202_reg_2261, grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_output_list_we0, ap_CS_fsm_state4, ap_CS_fsm_state67, ap_CS_fsm_state2)
+    in_pkts_id_ce0_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_id_ce0, grp_output_layer_fu_358_ap_done, ap_CS_fsm_state3, ap_CS_fsm_state15)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) or ((icmp_ln202_reg_2261 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state67)))) then 
-            output_list_we0 <= ap_const_logic_1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            output_list_we0 <= grp_RNI_Pipeline_VITIS_LOOP_39_3_fu_580_output_list_we0;
+        if (((grp_output_layer_fu_358_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state15))) then 
+            in_pkts_id_ce0 <= ap_const_logic_1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
+            in_pkts_id_ce0 <= grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_id_ce0;
         else 
-            output_list_we0 <= ap_const_logic_0;
+            in_pkts_id_ce0 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    output_stream_TDATA_blk_n_assign_proc : process(ap_CS_fsm_state69, ap_CS_fsm_state70, output_stream_TREADY_int_regslice)
+    in_pkts_id_we0_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_id_we0, ap_CS_fsm_state3)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state70) or (ap_const_logic_1 = ap_CS_fsm_state69))) then 
-            output_stream_TDATA_blk_n <= output_stream_TREADY_int_regslice;
+        if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
+            in_pkts_id_we0 <= grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_id_we0;
         else 
-            output_stream_TDATA_blk_n <= ap_const_logic_1;
+            in_pkts_id_we0 <= ap_const_logic_0;
         end if; 
     end process;
 
-    output_stream_TVALID <= regslice_both_output_stream_V_data_V_U_vld_out;
 
-    output_stream_TVALID_int_regslice_assign_proc : process(ap_CS_fsm_state69, output_stream_TREADY_int_regslice)
+    in_pkts_keep_address0_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_keep_address0, ap_CS_fsm_state3, ap_CS_fsm_state15)
     begin
-        if (((output_stream_TREADY_int_regslice = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state69))) then 
-            output_stream_TVALID_int_regslice <= ap_const_logic_1;
+        if ((ap_const_logic_1 = ap_CS_fsm_state15)) then 
+            in_pkts_keep_address0 <= ap_const_lv64_0(3 - 1 downto 0);
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
+            in_pkts_keep_address0 <= grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_keep_address0;
         else 
-            output_stream_TVALID_int_regslice <= ap_const_logic_0;
+            in_pkts_keep_address0 <= "XXX";
         end if; 
     end process;
 
-    select_ln121_1_fu_1265_p3 <= 
-        tmp_12_fu_1245_p4 when (tmp_11_fu_1217_p3(0) = '1') else 
-        tmp_13_fu_1255_p4;
-    select_ln121_fu_1197_p3 <= 
-        shl_ln121_fu_1177_p2 when (tmp_10_fu_1155_p3(0) = '1') else 
-        ashr_ln121_fu_1191_p2;
-    select_ln145_1_fu_1439_p3 <= 
-        tmp_17_fu_1419_p4 when (tmp_16_fu_1391_p3(0) = '1') else 
-        tmp_18_fu_1429_p4;
-    select_ln145_fu_1371_p3 <= 
-        shl_ln145_fu_1351_p2 when (tmp_15_fu_1329_p3(0) = '1') else 
-        ashr_ln145_fu_1365_p2;
-    select_ln169_1_fu_1609_p3 <= 
-        tmp_22_fu_1589_p4 when (tmp_21_fu_1561_p3(0) = '1') else 
-        tmp_23_fu_1599_p4;
-    select_ln169_fu_1541_p3 <= 
-        shl_ln169_fu_1521_p2 when (tmp_20_fu_1499_p3(0) = '1') else 
-        ashr_ln169_fu_1535_p2;
-    select_ln194_1_fu_1783_p3 <= 
-        tmp_27_fu_1763_p4 when (tmp_26_fu_1735_p3(0) = '1') else 
-        tmp_28_fu_1773_p4;
-    select_ln194_fu_1715_p3 <= 
-        shl_ln194_fu_1695_p2 when (tmp_25_fu_1673_p3(0) = '1') else 
-        ashr_ln194_fu_1709_p2;
-    select_ln77_1_fu_907_p3 <= 
-        tmp_2_fu_887_p4 when (tmp_1_fu_859_p3(0) = '1') else 
-        tmp_3_fu_897_p4;
-    select_ln77_fu_839_p3 <= 
-        shl_ln77_fu_819_p2 when (tmp_fu_797_p3(0) = '1') else 
-        ashr_ln77_fu_833_p2;
-    select_ln97_1_fu_1091_p3 <= 
-        tmp_7_fu_1071_p4 when (tmp_6_fu_1043_p3(0) = '1') else 
-        tmp_8_fu_1081_p4;
-    select_ln97_fu_1023_p3 <= 
-        shl_ln97_fu_1003_p2 when (tmp_5_fu_981_p3(0) = '1') else 
-        ashr_ln97_fu_1017_p2;
-        sext_ln118_fu_1136_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(neuron_index_2_reg_526),8));
 
-        sext_ln121_2_fu_1224_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(select_ln121_reg_2028),32));
+    in_pkts_keep_ce0_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_keep_ce0, grp_output_layer_fu_358_ap_done, ap_CS_fsm_state3, ap_CS_fsm_state15)
+    begin
+        if (((grp_output_layer_fu_358_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state15))) then 
+            in_pkts_keep_ce0 <= ap_const_logic_1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
+            in_pkts_keep_ce0 <= grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_keep_ce0;
+        else 
+            in_pkts_keep_ce0 <= ap_const_logic_0;
+        end if; 
+    end process;
 
-        sext_ln121_3_fu_1169_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(xor_ln121_fu_1163_p2),32));
 
-    sext_ln121_3cast_fu_1173_p1 <= sext_ln121_3_fu_1169_p1(16 - 1 downto 0);
-        sext_ln121_4_fu_1183_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(add_ln121_fu_1149_p2),32));
+    in_pkts_keep_we0_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_keep_we0, ap_CS_fsm_state3)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
+            in_pkts_keep_we0 <= grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_keep_we0;
+        else 
+            in_pkts_keep_we0 <= ap_const_logic_0;
+        end if; 
+    end process;
 
-    sext_ln121_4cast_fu_1187_p1 <= sext_ln121_4_fu_1183_p1(16 - 1 downto 0);
-        sext_ln121_5_fu_1227_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(sub_ln121_reg_2039),32));
 
-        sext_ln121_6_fu_1236_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(add_ln121_1_reg_2033),32));
+    in_pkts_last_address0_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_last_address0, ap_CS_fsm_state3, ap_CS_fsm_state4)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
+            in_pkts_last_address0 <= ap_const_lv64_7(3 - 1 downto 0);
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
+            in_pkts_last_address0 <= grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_last_address0;
+        else 
+            in_pkts_last_address0 <= "XXX";
+        end if; 
+    end process;
 
-        sext_ln121_fu_1145_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(reg_733),17));
+    in_pkts_last_address1 <= ap_const_lv64_0(3 - 1 downto 0);
 
-        sext_ln145_2_fu_1398_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(select_ln145_reg_2092),32));
+    in_pkts_last_ce0_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_last_ce0, ap_CS_fsm_state3, ap_CS_fsm_state4)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
+            in_pkts_last_ce0 <= ap_const_logic_1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
+            in_pkts_last_ce0 <= grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_last_ce0;
+        else 
+            in_pkts_last_ce0 <= ap_const_logic_0;
+        end if; 
+    end process;
 
-        sext_ln145_3_fu_1343_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(xor_ln145_fu_1337_p2),32));
 
-    sext_ln145_3cast_fu_1347_p1 <= sext_ln145_3_fu_1343_p1(16 - 1 downto 0);
-        sext_ln145_4_fu_1357_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(add_ln145_fu_1323_p2),32));
+    in_pkts_last_ce1_assign_proc : process(ap_CS_fsm_state4)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
+            in_pkts_last_ce1 <= ap_const_logic_1;
+        else 
+            in_pkts_last_ce1 <= ap_const_logic_0;
+        end if; 
+    end process;
 
-    sext_ln145_4cast_fu_1361_p1 <= sext_ln145_4_fu_1357_p1(16 - 1 downto 0);
-        sext_ln145_5_fu_1401_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(sub_ln145_reg_2103),32));
 
-        sext_ln145_6_fu_1410_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(add_ln145_1_reg_2097),32));
+    in_pkts_last_we0_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_last_we0, ap_CS_fsm_state3)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
+            in_pkts_last_we0 <= grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_last_we0;
+        else 
+            in_pkts_last_we0 <= ap_const_logic_0;
+        end if; 
+    end process;
 
-        sext_ln145_fu_1319_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(reg_733),17));
 
-        sext_ln169_2_fu_1568_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(select_ln169_reg_2156),32));
+    in_pkts_strb_address0_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_strb_address0, ap_CS_fsm_state3, ap_CS_fsm_state15)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state15)) then 
+            in_pkts_strb_address0 <= ap_const_lv64_0(3 - 1 downto 0);
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
+            in_pkts_strb_address0 <= grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_strb_address0;
+        else 
+            in_pkts_strb_address0 <= "XXX";
+        end if; 
+    end process;
 
-        sext_ln169_3_fu_1513_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(xor_ln169_fu_1507_p2),32));
 
-    sext_ln169_3cast_fu_1517_p1 <= sext_ln169_3_fu_1513_p1(16 - 1 downto 0);
-        sext_ln169_4_fu_1527_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(add_ln169_fu_1493_p2),32));
+    in_pkts_strb_ce0_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_strb_ce0, grp_output_layer_fu_358_ap_done, ap_CS_fsm_state3, ap_CS_fsm_state15)
+    begin
+        if (((grp_output_layer_fu_358_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state15))) then 
+            in_pkts_strb_ce0 <= ap_const_logic_1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
+            in_pkts_strb_ce0 <= grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_strb_ce0;
+        else 
+            in_pkts_strb_ce0 <= ap_const_logic_0;
+        end if; 
+    end process;
 
-    sext_ln169_4cast_fu_1531_p1 <= sext_ln169_4_fu_1527_p1(16 - 1 downto 0);
-        sext_ln169_5_fu_1571_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(sub_ln169_reg_2167),32));
 
-        sext_ln169_6_fu_1580_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(add_ln169_1_reg_2161),32));
+    in_pkts_strb_we0_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_strb_we0, ap_CS_fsm_state3)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
+            in_pkts_strb_we0 <= grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_strb_we0;
+        else 
+            in_pkts_strb_we0 <= ap_const_logic_0;
+        end if; 
+    end process;
 
-        sext_ln169_fu_1489_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(reg_733),17));
 
-        sext_ln191_fu_1654_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(neuron_index_5_reg_562),9));
+    in_pkts_user_address0_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_user_address0, ap_CS_fsm_state3, ap_CS_fsm_state4)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
+            in_pkts_user_address0 <= ap_const_lv64_0(3 - 1 downto 0);
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
+            in_pkts_user_address0 <= grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_user_address0;
+        else 
+            in_pkts_user_address0 <= "XXX";
+        end if; 
+    end process;
 
-        sext_ln194_2_fu_1742_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(select_ln194_reg_2220),32));
 
-        sext_ln194_3_fu_1687_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(xor_ln194_fu_1681_p2),32));
+    in_pkts_user_ce0_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_user_ce0, ap_CS_fsm_state3, ap_CS_fsm_state4)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
+            in_pkts_user_ce0 <= ap_const_logic_1;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
+            in_pkts_user_ce0 <= grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_user_ce0;
+        else 
+            in_pkts_user_ce0 <= ap_const_logic_0;
+        end if; 
+    end process;
 
-    sext_ln194_3cast_fu_1691_p1 <= sext_ln194_3_fu_1687_p1(16 - 1 downto 0);
-        sext_ln194_4_fu_1701_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(add_ln194_fu_1667_p2),32));
 
-    sext_ln194_4cast_fu_1705_p1 <= sext_ln194_4_fu_1701_p1(16 - 1 downto 0);
-        sext_ln194_5_fu_1745_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(sub_ln194_reg_2231),32));
+    in_pkts_user_we0_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_user_we0, ap_CS_fsm_state3)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
+            in_pkts_user_we0 <= grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_pkts_user_we0;
+        else 
+            in_pkts_user_we0 <= ap_const_logic_0;
+        end if; 
+    end process;
 
-        sext_ln194_6_fu_1754_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(add_ln194_1_reg_2225),32));
+    in_stream_TREADY <= regslice_both_in_stream_V_data_V_U_ack_in;
 
-        sext_ln194_fu_1663_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(reg_733),17));
+    in_stream_TREADY_int_regslice_assign_proc : process(grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_stream_TREADY, ap_CS_fsm_state3)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
+            in_stream_TREADY_int_regslice <= grp_RNI_Pipeline_VITIS_LOOP_29_2_fu_222_in_stream_TREADY;
+        else 
+            in_stream_TREADY_int_regslice <= ap_const_logic_0;
+        end if; 
+    end process;
 
-        sext_ln77_2_fu_866_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(select_ln77_reg_1898),32));
-
-        sext_ln77_3_fu_811_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(xor_ln77_fu_805_p2),32));
-
-    sext_ln77_3cast_fu_815_p1 <= sext_ln77_3_fu_811_p1(16 - 1 downto 0);
-        sext_ln77_4_fu_825_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(add_ln77_fu_791_p2),32));
-
-    sext_ln77_4cast_fu_829_p1 <= sext_ln77_4_fu_825_p1(16 - 1 downto 0);
-        sext_ln77_5_fu_869_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(sub_ln77_reg_1909),32));
-
-        sext_ln77_6_fu_878_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(add_ln77_1_reg_1903),32));
-
-        sext_ln77_fu_787_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(reg_733),17));
-
-        sext_ln97_2_fu_1050_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(select_ln97_reg_1964),32));
-
-        sext_ln97_3_fu_995_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(xor_ln97_fu_989_p2),32));
-
-    sext_ln97_3cast_fu_999_p1 <= sext_ln97_3_fu_995_p1(16 - 1 downto 0);
-        sext_ln97_4_fu_1009_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(add_ln97_fu_975_p2),32));
-
-    sext_ln97_4cast_fu_1013_p1 <= sext_ln97_4_fu_1009_p1(16 - 1 downto 0);
-        sext_ln97_5_fu_1053_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(sub_ln97_reg_1975),32));
-
-        sext_ln97_6_fu_1062_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(add_ln97_1_reg_1969),32));
-
-        sext_ln97_fu_971_p1 <= std_logic_vector(IEEE.numeric_std.resize(signed(reg_733),17));
-
-    shl_ln121_1_fu_1230_p2 <= std_logic_vector(shift_left(unsigned(sext_ln121_2_fu_1224_p1),to_integer(unsigned('0' & sext_ln121_5_fu_1227_p1(31-1 downto 0)))));
-    shl_ln121_fu_1177_p2 <= std_logic_vector(shift_left(unsigned(reg_733),to_integer(unsigned('0' & sext_ln121_3cast_fu_1173_p1(16-1 downto 0)))));
-    shl_ln145_1_fu_1404_p2 <= std_logic_vector(shift_left(unsigned(sext_ln145_2_fu_1398_p1),to_integer(unsigned('0' & sext_ln145_5_fu_1401_p1(31-1 downto 0)))));
-    shl_ln145_fu_1351_p2 <= std_logic_vector(shift_left(unsigned(reg_733),to_integer(unsigned('0' & sext_ln145_3cast_fu_1347_p1(16-1 downto 0)))));
-    shl_ln169_1_fu_1574_p2 <= std_logic_vector(shift_left(unsigned(sext_ln169_2_fu_1568_p1),to_integer(unsigned('0' & sext_ln169_5_fu_1571_p1(31-1 downto 0)))));
-    shl_ln169_fu_1521_p2 <= std_logic_vector(shift_left(unsigned(reg_733),to_integer(unsigned('0' & sext_ln169_3cast_fu_1517_p1(16-1 downto 0)))));
-    shl_ln194_1_fu_1748_p2 <= std_logic_vector(shift_left(unsigned(sext_ln194_2_fu_1742_p1),to_integer(unsigned('0' & sext_ln194_5_fu_1745_p1(31-1 downto 0)))));
-    shl_ln194_fu_1695_p2 <= std_logic_vector(shift_left(unsigned(reg_733),to_integer(unsigned('0' & sext_ln194_3cast_fu_1691_p1(16-1 downto 0)))));
-    shl_ln77_1_fu_872_p2 <= std_logic_vector(shift_left(unsigned(sext_ln77_2_fu_866_p1),to_integer(unsigned('0' & sext_ln77_5_fu_869_p1(31-1 downto 0)))));
-    shl_ln77_fu_819_p2 <= std_logic_vector(shift_left(unsigned(reg_733),to_integer(unsigned('0' & sext_ln77_3cast_fu_815_p1(16-1 downto 0)))));
-    shl_ln97_1_fu_1056_p2 <= std_logic_vector(shift_left(unsigned(sext_ln97_2_fu_1050_p1),to_integer(unsigned('0' & sext_ln97_5_fu_1053_p1(31-1 downto 0)))));
-    shl_ln97_fu_1003_p2 <= std_logic_vector(shift_left(unsigned(reg_733),to_integer(unsigned('0' & sext_ln97_3cast_fu_999_p1(16-1 downto 0)))));
-    sub_ln121_fu_1211_p2 <= std_logic_vector(signed(ap_const_lv17_1FFFE) - signed(sext_ln121_fu_1145_p1));
-    sub_ln145_fu_1385_p2 <= std_logic_vector(signed(ap_const_lv17_1FFFE) - signed(sext_ln145_fu_1319_p1));
-    sub_ln169_fu_1555_p2 <= std_logic_vector(signed(ap_const_lv17_1FFFE) - signed(sext_ln169_fu_1489_p1));
-    sub_ln194_fu_1729_p2 <= std_logic_vector(signed(ap_const_lv17_1FFFE) - signed(sext_ln194_fu_1663_p1));
-    sub_ln77_fu_853_p2 <= std_logic_vector(signed(ap_const_lv17_1FFFE) - signed(sext_ln77_fu_787_p1));
-    sub_ln97_fu_1037_p2 <= std_logic_vector(signed(ap_const_lv17_1FFFE) - signed(sext_ln97_fu_971_p1));
-    tmp_10_fu_1155_p3 <= add_ln121_fu_1149_p2(16 downto 16);
-    tmp_11_fu_1217_p3 <= add_ln121_1_reg_2033(16 downto 16);
-    tmp_12_fu_1245_p4 <= shl_ln121_1_fu_1230_p2(15 downto 4);
-    tmp_13_fu_1255_p4 <= ashr_ln121_1_fu_1239_p2(15 downto 4);
-    tmp_15_fu_1329_p3 <= add_ln145_fu_1323_p2(16 downto 16);
-    tmp_16_fu_1391_p3 <= add_ln145_1_reg_2097(16 downto 16);
-    tmp_17_fu_1419_p4 <= shl_ln145_1_fu_1404_p2(15 downto 4);
-    tmp_18_fu_1429_p4 <= ashr_ln145_1_fu_1413_p2(15 downto 4);
-    tmp_1_fu_859_p3 <= add_ln77_1_reg_1903(16 downto 16);
-    tmp_20_fu_1499_p3 <= add_ln169_fu_1493_p2(16 downto 16);
-    tmp_21_fu_1561_p3 <= add_ln169_1_reg_2161(16 downto 16);
-    tmp_22_fu_1589_p4 <= shl_ln169_1_fu_1574_p2(15 downto 4);
-    tmp_23_fu_1599_p4 <= ashr_ln169_1_fu_1583_p2(15 downto 4);
-    tmp_25_fu_1673_p3 <= add_ln194_fu_1667_p2(16 downto 16);
-    tmp_26_fu_1735_p3 <= add_ln194_1_reg_2225(16 downto 16);
-    tmp_27_fu_1763_p4 <= shl_ln194_1_fu_1748_p2(15 downto 4);
-    tmp_28_fu_1773_p4 <= ashr_ln194_1_fu_1757_p2(15 downto 4);
-    tmp_2_fu_887_p4 <= shl_ln77_1_fu_872_p2(15 downto 4);
-    tmp_3_fu_897_p4 <= ashr_ln77_1_fu_881_p2(15 downto 4);
-    tmp_5_fu_981_p3 <= add_ln97_fu_975_p2(16 downto 16);
-    tmp_6_fu_1043_p3 <= add_ln97_1_reg_1969(16 downto 16);
-    tmp_7_fu_1071_p4 <= shl_ln97_1_fu_1056_p2(15 downto 4);
-    tmp_8_fu_1081_p4 <= ashr_ln97_1_fu_1065_p2(15 downto 4);
-    tmp_fu_797_p3 <= add_ln77_fu_791_p2(16 downto 16);
-    trunc_ln122_fu_1303_p1 <= WEIGHTS_INDEX_q1(9 - 1 downto 0);
-    trunc_ln146_fu_1473_p1 <= WEIGHTS_INDEX_q1(9 - 1 downto 0);
-    trunc_ln170_fu_1643_p1 <= WEIGHTS_INDEX_q1(9 - 1 downto 0);
-    trunc_ln195_fu_1821_p1 <= WEIGHTS_INDEX_q1(9 - 1 downto 0);
-    trunc_ln206_fu_1826_p1 <= neuron_index_5_reg_562(3 - 1 downto 0);
-    trunc_ln98_fu_1125_p1 <= WEIGHTS_INDEX_q1(9 - 1 downto 0);
-    xor_ln121_fu_1163_p2 <= (reg_733 xor ap_const_lv16_FFFF);
-    xor_ln145_fu_1337_p2 <= (reg_733 xor ap_const_lv16_FFFF);
-    xor_ln169_fu_1507_p2 <= (reg_733 xor ap_const_lv16_FFFF);
-    xor_ln194_fu_1681_p2 <= (reg_733 xor ap_const_lv16_FFFF);
-    xor_ln77_fu_805_p2 <= (reg_733 xor ap_const_lv16_FFFF);
-    xor_ln97_fu_989_p2 <= (reg_733 xor ap_const_lv16_FFFF);
-    zext_ln118_fu_1140_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(sext_ln118_fu_1136_p1),64));
-    zext_ln121_fu_1284_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(or_ln121_reg_2044),16));
-    zext_ln142_fu_1314_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(neuron_index_3_reg_538),64));
-    zext_ln145_fu_1458_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(or_ln145_reg_2108),16));
-    zext_ln166_fu_1484_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(neuron_index_4_reg_550),64));
-    zext_ln169_fu_1628_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(or_ln169_reg_2172),16));
-    zext_ln191_fu_1658_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(sext_ln191_fu_1654_p1),64));
-    zext_ln194_fu_1802_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(or_ln194_reg_2236),16));
-    zext_ln206_fu_1830_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(trunc_ln206_reg_2265),64));
-    zext_ln74_fu_778_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(neuron_index_reg_494),64));
-    zext_ln77_fu_940_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(or_ln77_reg_1914),16));
-    zext_ln94_fu_966_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(neuron_index_1_reg_514),64));
-    zext_ln97_fu_1110_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(or_ln97_reg_1980),16));
+    out_stream_TVALID <= regslice_both_out_stream_V_data_V_U_vld_out;
+    out_stream_TVALID_int_regslice <= grp_RNI_Pipeline_VITIS_LOOP_41_3_fu_380_out_stream_TVALID;
 end behav;

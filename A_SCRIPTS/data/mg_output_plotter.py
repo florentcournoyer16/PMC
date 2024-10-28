@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Load data from a CSV file
-file_path = "A_SCRIPTS/data/input/output_FINAL_CLIENT.csv"
-#file_path = "A_SCRIPTS/data/input/tb_output3.txt"  # Replace with your file path
+#file_path = "A_SCRIPTS/data/input/output_FINAL_CLIENT.csv"
+file_path = "B_RNI_HLS/tb/tb_output.txt"  # Replace with your file path
 data = np.genfromtxt(file_path, delimiter=",")
 
 # Time vector (10 steps, 0.05 ms apart)
@@ -19,6 +19,7 @@ def plot_neurons(neuron_indices):
     plt.figure(figsize=(10, 6))
     for neuron in neuron_indices:
         if 1 <= neuron <= data.shape[1]:  # Check if neuron index is within range
+            #y = [e if e > 30 else 0 for e in data[:, neuron - 1]] # optional
             plt.plot(time, data[:, neuron - 1], label=f"Neuron {neuron}")
         else:
             print(f"Neuron {neuron} is out of range.")
