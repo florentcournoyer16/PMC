@@ -124,7 +124,7 @@ set bCheckIPsPassed 1
 ##################################################################
 
 update_compile_order -fileset sources_1
-set_property  ip_repo_paths  {../../../E_HLS_STREAM_EXPLORATION/FIFO/output/export ../../ip} [current_project]
+set_property  ip_repo_paths  {../../../B_RNI_HLS/output/export ../../ip} [current_project]
 #set_property  ip_repo_paths  ../../ip [current_project]
 update_ip_catalog
 
@@ -142,7 +142,7 @@ xilinx.com:ip:axi_dma:7.1\
 xilinx.com:ip:axi_gpio:2.0\
 xilinx.com:ip:processing_system7:5.5\
 xilinx.com:ip:proc_sys_reset:5.0\
-xilinx.com:hls:LIGHT_MODULE:1.0\
+xilinx.com:hls:RNI:1.0\
 xilinx.com:user:dff_en_reset_vector:1.0\
 xilinx.com:user:io_switch:1.1\
 xilinx.com:ip:xlconstant:1.1\
@@ -1594,7 +1594,7 @@ proc create_root_design { parentCell } {
 
 
   # Create instance: example_0, and set properties
-  set example_0 [ create_bd_cell -type ip -vlnv xilinx.com:hls:LIGHT_MODULE:1.0 example_0 ]
+  set example_0 [ create_bd_cell -type ip -vlnv xilinx.com:hls:RNI:1.0 example_0 ]
 
   # Create interface connections
   connect_bd_intf_net -intf_net DEBUG_1 [get_bd_intf_pins iop_arduino/DEBUG] [get_bd_intf_pins mdm_1/MBDEBUG_0]

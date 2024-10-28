@@ -1,0 +1,175 @@
+
+
+================================================================
+== Synthesis Summary Report of 'RNI'
+================================================================
++ General Information: 
+    * Date:           Mon Oct 28 16:02:35 2024
+    * Version:        2023.1.1 (Build 3869133 on Jun 15 2023)
+    * Project:        RNI
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: zynq
+    * Target device:  xc7z020-clg400-1
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +---------------------------------------------+------+------+---------+-----------+----------+---------+-------+----------+---------+---------+-----------+-----------+-----+
+    |                   Modules                   | Issue|      | Latency |  Latency  | Iteration|         |  Trip |          |         |         |           |           |     |
+    |                   & Loops                   | Type | Slack| (cycles)|    (ns)   |  Latency | Interval| Count | Pipelined|  BRAM   |   DSP   |     FF    |    LUT    | URAM|
+    +---------------------------------------------+------+------+---------+-----------+----------+---------+-------+----------+---------+---------+-----------+-----------+-----+
+    |+ RNI                                        |     -|  0.02|        -|          -|         -|        -|      -|        no|  10 (3%)|  1 (~0%)|  846 (~0%)|  1691 (3%)|    -|
+    | o VITIS_LOOP_25_1                           |     -|  7.30|        -|          -|   8390922|        -|      -|        no|        -|        -|          -|          -|    -|
+    |  + RNI_Pipeline_VITIS_LOOP_27_2             |     -|  2.93|        6|     60.000|         -|        6|      -|        no|        -|        -|  156 (~0%)|  239 (~0%)|    -|
+    |   o VITIS_LOOP_27_2                         |     -|  7.30|        4|     40.000|         1|        1|      4|       yes|        -|        -|          -|          -|    -|
+    |  + input_layer                              |     -|  0.06|  8390529|  8.391e+07|         -|  8390529|      -|        no|   9 (3%)|  1 (~0%)|  312 (~0%)|   605 (1%)|    -|
+    |   o NEURONS_LOOP_0                          |     -|  7.30|  8390528|  8.391e+07|     65551|        -|    128|        no|        -|        -|          -|          -|    -|
+    |    + input_layer_Pipeline_NEURON_LEAK_LOOP  |     -|  3.31|        4|     40.000|         -|        4|      -|        no|        -|        -|   37 (~0%)|  125 (~0%)|    -|
+    |     o NEURON_LEAK_LOOP                      |     -|  7.30|        2|     20.000|         2|        1|      2|       yes|        -|        -|          -|          -|    -|
+    |    + input_layer_Pipeline_WEIGHTS_LOOP_0    |     -|  2.19|    65540|  6.554e+05|         -|    65540|      -|        no|   8 (2%)|  1 (~0%)|  171 (~0%)|  250 (~0%)|    -|
+    |     o WEIGHTS_LOOP_0                        |     -|  7.30|    65538|  6.554e+05|         5|        1|  65535|       yes|        -|        -|          -|          -|    -|
+    |  + RNI_Pipeline_NEURONS_LOOP_1              |     -|  0.02|       67|    670.000|         -|       67|      -|        no|        -|        -|   30 (~0%)|  137 (~0%)|    -|
+    |   o NEURONS_LOOP_1                          |     -|  7.30|       65|    650.000|         3|        1|     64|       yes|        -|        -|          -|          -|    -|
+    |  + RNI_Pipeline_NEURONS_LOOP_2              |     -|  0.02|       35|    350.000|         -|       35|      -|        no|        -|        -|   29 (~0%)|  135 (~0%)|    -|
+    |   o NEURONS_LOOP_2                          |     -|  7.30|       33|    330.000|         3|        1|     32|       yes|        -|        -|          -|          -|    -|
+    |  + RNI_Pipeline_NEURONS_LOOP_3              |     -|  0.02|       19|    190.000|         -|       19|      -|        no|        -|        -|   28 (~0%)|  135 (~0%)|    -|
+    |   o NEURONS_LOOP_3                          |     -|  7.30|       17|    170.000|         3|        1|     16|       yes|        -|        -|          -|          -|    -|
+    |  + RNI_Pipeline_NEURONS_LOOP_4              |     -|  2.27|        6|     60.000|         -|        6|      -|        no|        -|        -|    7 (~0%)|   53 (~0%)|    -|
+    |   o NEURONS_LOOP_4                          |     -|  7.30|        4|     40.000|         1|        1|      4|       yes|        -|        -|          -|          -|    -|
+    |  + RNI_Pipeline_VITIS_LOOP_38_3             |     -|  3.80|      246|  2.460e+03|         -|      246|      -|        no|        -|        -|   11 (~0%)|   79 (~0%)|    -|
+    |   o VITIS_LOOP_38_3                         |     -|  7.30|      244|  2.440e+03|         2|        1|    244|       yes|        -|        -|          -|          -|    -|
+    +---------------------------------------------+------+------+---------+-----------+----------+---------+-------+----------+---------+---------+-----------+-----------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* S_AXILITE Interfaces
++------------+------------+---------------+
+| Interface  | Data Width | Address Width |
++------------+------------+---------------+
+| s_axi_ctrl | 32         | 4             |
++------------+------------+---------------+
+
+* S_AXILITE Registers
++------------+----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| Interface  | Register | Offset | Width | Access | Description                      | Bit Fields                                                           |
++------------+----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| s_axi_ctrl | CTRL     | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_ctrl | GIER     | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                             |
+| s_axi_ctrl | IP_IER   | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                        |
+| s_axi_ctrl | IP_ISR   | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                        |
++------------+----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+
+* AXIS
++------------+-----------+---------------+-------+-------+-----+-------+-------+--------+-------+-------+--------+
+| Interface  | Direction | Register Mode | TDATA | TDEST | TID | TKEEP | TLAST | TREADY | TSTRB | TUSER | TVALID |
++------------+-----------+---------------+-------+-------+-----+-------+-------+--------+-------+-------+--------+
+| in_stream  | in        | both          | 32    | 6     | 5   | 4     | 1     | 1      | 4     | 2     | 1      |
+| out_stream | out       | both          | 32    | 6     | 5   | 4     | 1     | 1      | 4     | 2     | 1      |
++------------+-----------+---------------+-------+-------+-----+-------+-------+--------+-------+-------+--------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++------------+-----------+--------------------------------------------+
+| Argument   | Direction | Datatype                                   |
++------------+-----------+--------------------------------------------+
+| in_stream  | in        | stream<hls::axis<ap_int<32>, 2, 5, 6>, 0>& |
+| out_stream | out       | stream<hls::axis<ap_int<32>, 2, 5, 6>, 0>& |
++------------+-----------+--------------------------------------------+
+
+* SW-to-HW Mapping
++------------+--------------+-----------+
+| Argument   | HW Interface | HW Type   |
++------------+--------------+-----------+
+| in_stream  | in_stream    | interface |
+| out_stream | out_stream   | interface |
++------------+--------------+-----------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+
+================================================================
+== Bind Op Report
+================================================================
++-------------------------------------------+-----+--------+-----------------------------+-----+--------+---------+
+| Name                                      | DSP | Pragma | Variable                    | Op  | Impl   | Latency |
++-------------------------------------------+-----+--------+-----------------------------+-----+--------+---------+
+| + RNI                                     | 1   |        |                             |     |        |         |
+|  + RNI_Pipeline_VITIS_LOOP_27_2           | 0   |        |                             |     |        |         |
+|    add_ln27_fu_398_p2                     | -   |        | add_ln27                    | add | fabric | 0       |
+|  + input_layer                            | 1   |        |                             |     |        |         |
+|    add_ln57_fu_178_p2                     | -   |        | add_ln57                    | add | fabric | 0       |
+|    add_i_i41_fu_197_p2                    | -   |        | add_i_i41                   | add | fabric | 0       |
+|   + input_layer_Pipeline_NEURON_LEAK_LOOP | 0   |        |                             |     |        |         |
+|     membrane_leak_accumulator_1_fu_96_p2  | -   |        | membrane_leak_accumulator_1 | add | fabric | 0       |
+|     beta_index_3_fu_82_p2                 | -   |        | beta_index_3                | add | fabric | 0       |
+|   + input_layer_Pipeline_WEIGHTS_LOOP_0   | 1   |        |                             |     |        |         |
+|     mac_muladd_16s_8s_16ns_16_4_1_U32     | 1   |        | mul_ln63                    | mul | dsp48  | 3       |
+|     mac_muladd_16s_8s_16ns_16_4_1_U32     | 1   |        | add_ln63                    | add | dsp48  | 3       |
+|     add_ln61_fu_157_p2                    | -   |        | add_ln61                    | add | fabric | 0       |
+|  + RNI_Pipeline_NEURONS_LOOP_1            | 0   |        |                             |     |        |         |
+|    add_ln153_fu_155_p2                    | -   |        | add_ln153                   | add | fabric | 0       |
+|    add_ln155_fu_177_p2                    | -   |        | add_ln155                   | add | fabric | 0       |
+|    add_ln74_fu_96_p2                      | -   |        | add_ln74                    | add | fabric | 0       |
+|  + RNI_Pipeline_NEURONS_LOOP_2            | 0   |        |                             |     |        |         |
+|    add_ln153_fu_159_p2                    | -   |        | add_ln153                   | add | fabric | 0       |
+|    add_ln155_fu_181_p2                    | -   |        | add_ln155                   | add | fabric | 0       |
+|    add_ln93_fu_100_p2                     | -   |        | add_ln93                    | add | fabric | 0       |
+|  + RNI_Pipeline_NEURONS_LOOP_3            | 0   |        |                             |     |        |         |
+|    add_ln153_fu_159_p2                    | -   |        | add_ln153                   | add | fabric | 0       |
+|    add_ln155_fu_181_p2                    | -   |        | add_ln155                   | add | fabric | 0       |
+|    add_ln112_fu_100_p2                    | -   |        | add_ln112                   | add | fabric | 0       |
+|  + RNI_Pipeline_NEURONS_LOOP_4            | 0   |        |                             |     |        |         |
+|    add_ln131_fu_71_p2                     | -   |        | add_ln131                   | add | fabric | 0       |
+|  + RNI_Pipeline_VITIS_LOOP_38_3           | 0   |        |                             |     |        |         |
+|    add_ln38_fu_170_p2                     | -   |        | add_ln38                    | add | fabric | 0       |
++-------------------------------------------+-----+--------+-----------------------------+-----+--------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
++-----------------------------------------+------+------+--------+------------------+---------+------+---------+
+| Name                                    | BRAM | URAM | Pragma | Variable         | Storage | Impl | Latency |
++-----------------------------------------+------+------+--------+------------------+---------+------+---------+
+| + RNI                                   | 10   | 0    |        |                  |         |      |         |
+|   NEURONS_MEMBRANE_U                    | 1    | -    |        | NEURONS_MEMBRANE | ram_s2p | auto | 1       |
+|  + input_layer                          | 9    | 0    |        |                  |         |      |         |
+|    WEIGHTS_INDEX_U                      | 1    | -    |        | WEIGHTS_INDEX    | rom_1p  | auto | 1       |
+|   + input_layer_Pipeline_WEIGHTS_LOOP_0 | 8    | 0    |        |                  |         |      |         |
+|     WEIGHTS_U                           | 8    | -    |        | WEIGHTS          | rom_1p  | auto | 1       |
++-----------------------------------------+------+------+--------+------------------+---------+------+---------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------+-----------------------------------+-------------------------------+
+| Type      | Options                           | Location                      |
++-----------+-----------------------------------+-------------------------------+
+| interface | axis port = in_stream             | src/RNI.cpp:17 in rni         |
+| interface | axis port = out_stream            | src/RNI.cpp:18 in rni         |
+| interface | s_axilite port=return bundle=ctrl | src/RNI.cpp:19 in rni, return |
++-----------+-----------------------------------+-------------------------------+
+
+

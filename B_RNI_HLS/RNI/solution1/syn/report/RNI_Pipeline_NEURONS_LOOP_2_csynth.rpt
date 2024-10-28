@@ -1,0 +1,151 @@
+
+
+================================================================
+== Vitis HLS Report for 'RNI_Pipeline_NEURONS_LOOP_2'
+================================================================
+* Date:           Mon Oct 28 16:02:34 2024
+
+* Version:        2023.1.1 (Build 3869133 on Jun 15 2023)
+* Project:        RNI
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  7.276 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       35|       35|  0.350 us|  0.350 us|   35|   35|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                  |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |     Loop Name    |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- NEURONS_LOOP_2  |       33|       33|         3|          1|          1|    32|       yes|
+        +------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|     99|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |        -|    -|       -|      -|    -|
+|Memory           |        -|    -|       -|      -|    -|
+|Multiplexer      |        -|    -|       -|     36|    -|
+|Register         |        -|    -|      29|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        0|    0|      29|    135|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      280|  220|  106400|  53200|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |        0|    0|      ~0|     ~0|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------+----------+----+---+----+------------+------------+
+    |     Variable Name    | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------+----------+----+---+----+------------+------------+
+    |add_ln153_fu_159_p2   |         +|   0|  0|  23|          16|          16|
+    |add_ln155_fu_181_p2   |         +|   0|  0|  14|           9|           9|
+    |add_ln93_fu_100_p2    |         +|   0|  0|  14|           7|           1|
+    |icmp_ln155_fu_211_p2  |      icmp|   0|  0|  23|          16|           1|
+    |icmp_ln93_fu_85_p2    |      icmp|   0|  0|  14|           7|           7|
+    |or_ln155_fu_187_p2    |        or|   0|  0|   9|           9|           9|
+    |ap_enable_pp0         |       xor|   0|  0|   2|           1|           2|
+    +----------------------+----------+----+---+----+------------+------------+
+    |Total                 |          |   0|  0|  99|          65|          45|
+    +----------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------------+----+-----------+-----+-----------+
+    |              Name             | LUT| Input Size| Bits| Total Bits|
+    +-------------------------------+----+-----------+-----+-----------+
+    |ap_done_int                    |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1        |   9|          2|    1|          2|
+    |ap_sig_allocacmp_neuron_index  |   9|          2|    7|         14|
+    |neuron_index_1_fu_56           |   9|          2|    7|         14|
+    +-------------------------------+----+-----------+-----+-----------+
+    |Total                          |  36|          8|   16|         32|
+    +-------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +---------------------------------------------+---+----+-----+-----------+
+    |                     Name                    | FF| LUT| Bits| Const Bits|
+    +---------------------------------------------+---+----+-----+-----------+
+    |NEURONS_MEMBRANE_addr_reg_232                |  8|   0|    8|          0|
+    |NEURONS_MEMBRANE_addr_reg_232_pp0_iter1_reg  |  8|   0|    8|          0|
+    |ap_CS_fsm                                    |  1|   0|    1|          0|
+    |ap_done_reg                                  |  1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1                      |  1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2                      |  1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter1_reg             |  1|   0|    1|          0|
+    |icmp_ln155_reg_238                           |  1|   0|    1|          0|
+    |neuron_index_1_fu_56                         |  7|   0|    7|          0|
+    +---------------------------------------------+---+----+-----+-----------+
+    |Total                                        | 29|   0|   29|          0|
+    +---------------------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------+-----+-----+------------+-----------------------------+--------------+
+|         RTL Ports         | Dir | Bits|  Protocol  |        Source Object        |    C Type    |
++---------------------------+-----+-----+------------+-----------------------------+--------------+
+|ap_clk                     |   in|    1|  ap_ctrl_hs|  RNI_Pipeline_NEURONS_LOOP_2|  return value|
+|ap_rst                     |   in|    1|  ap_ctrl_hs|  RNI_Pipeline_NEURONS_LOOP_2|  return value|
+|ap_start                   |   in|    1|  ap_ctrl_hs|  RNI_Pipeline_NEURONS_LOOP_2|  return value|
+|ap_done                    |  out|    1|  ap_ctrl_hs|  RNI_Pipeline_NEURONS_LOOP_2|  return value|
+|ap_idle                    |  out|    1|  ap_ctrl_hs|  RNI_Pipeline_NEURONS_LOOP_2|  return value|
+|ap_ready                   |  out|    1|  ap_ctrl_hs|  RNI_Pipeline_NEURONS_LOOP_2|  return value|
+|NEURONS_MEMBRANE_address0  |  out|    8|   ap_memory|             NEURONS_MEMBRANE|         array|
+|NEURONS_MEMBRANE_ce0       |  out|    1|   ap_memory|             NEURONS_MEMBRANE|         array|
+|NEURONS_MEMBRANE_we0       |  out|    1|   ap_memory|             NEURONS_MEMBRANE|         array|
+|NEURONS_MEMBRANE_d0        |  out|   16|   ap_memory|             NEURONS_MEMBRANE|         array|
+|NEURONS_MEMBRANE_address1  |  out|    8|   ap_memory|             NEURONS_MEMBRANE|         array|
+|NEURONS_MEMBRANE_ce1       |  out|    1|   ap_memory|             NEURONS_MEMBRANE|         array|
+|NEURONS_MEMBRANE_q1        |   in|   16|   ap_memory|             NEURONS_MEMBRANE|         array|
++---------------------------+-----+-----+------------+-----------------------------+--------------+
+

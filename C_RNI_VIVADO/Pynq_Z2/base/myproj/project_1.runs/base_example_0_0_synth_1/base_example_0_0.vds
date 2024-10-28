@@ -1,0 +1,519 @@
+#-----------------------------------------------------------
+# Vivado v2023.1.1 (64-bit)
+# SW Build 3900603 on Fri Jun 16 19:30:25 MDT 2023
+# IP Build 3900379 on Sat Jun 17 05:28:05 MDT 2023
+# SharedData Build 3899622 on Fri Jun 16 03:34:24 MDT 2023
+# Start of session at: Mon Oct 28 16:30:52 2024
+# Process ID: 52781
+# Current directory: /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_example_0_0_synth_1
+# Command line: vivado -log base_example_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source base_example_0_0.tcl
+# Log file: /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_example_0_0_synth_1/base_example_0_0.vds
+# Journal file: /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_example_0_0_synth_1/vivado.jou
+# Running On: GRAMS-NSOC, OS: Linux, CPU Frequency: 3692.342 MHz, CPU Physical cores: 4, Host memory: 16721 MB
+#-----------------------------------------------------------
+source base_example_0_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1332.699 ; gain = 0.023 ; free physical = 2085 ; free virtual = 7601
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/mohr0901/Documents/PMC/B_RNI_HLS/output/export'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/mohr0901/Documents/PMC/C_RNI_VIVADO/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2023.1/data/ip'.
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: base_example_0_0
+Command: synth_design -top base_example_0_0 -part xc7z020clg400-1 -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 53010
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2045.031 ; gain = 379.738 ; free physical = 3021 ; free virtual = 8538
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'base_example_0_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_example_0_0/synth/base_example_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'RNI' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-3876] $readmem data file './RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W.dat' is read successfully [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W.v:40]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6157] synthesizing module 'RNI_RNI_Pipeline_VITIS_LOOP_27_2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_RNI_Pipeline_VITIS_LOOP_27_2.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_flow_control_loop_pipe_sequential_init' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_flow_control_loop_pipe_sequential_init.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_flow_control_loop_pipe_sequential_init' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_flow_control_loop_pipe_sequential_init.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_RNI_Pipeline_VITIS_LOOP_27_2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_RNI_Pipeline_VITIS_LOOP_27_2.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_input_layer' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_input_layer.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_input_layer_WEIGHTS_INDEX_ROM_AUTO_1R' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_input_layer_WEIGHTS_INDEX_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-3876] $readmem data file './RNI_input_layer_WEIGHTS_INDEX_ROM_AUTO_1R.dat' is read successfully [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_input_layer_WEIGHTS_INDEX_ROM_AUTO_1R.v:28]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_input_layer_WEIGHTS_INDEX_ROM_AUTO_1R' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_input_layer_WEIGHTS_INDEX_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-6157] synthesizing module 'RNI_input_layer_Pipeline_NEURON_LEAK_LOOP' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_input_layer_Pipeline_NEURON_LEAK_LOOP.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_input_layer_Pipeline_NEURON_LEAK_LOOP' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_input_layer_Pipeline_NEURON_LEAK_LOOP.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_input_layer_Pipeline_WEIGHTS_LOOP_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_input_layer_Pipeline_WEIGHTS_LOOP_0.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_input_layer_Pipeline_WEIGHTS_LOOP_0_WEIGHTS_ROM_AUTO_1R' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_input_layer_Pipeline_WEIGHTS_LOOP_0_WEIGHTS_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-3876] $readmem data file './RNI_input_layer_Pipeline_WEIGHTS_LOOP_0_WEIGHTS_ROM_AUTO_1R.dat' is read successfully [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_input_layer_Pipeline_WEIGHTS_LOOP_0_WEIGHTS_ROM_AUTO_1R.v:28]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_input_layer_Pipeline_WEIGHTS_LOOP_0_WEIGHTS_ROM_AUTO_1R' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_input_layer_Pipeline_WEIGHTS_LOOP_0_WEIGHTS_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-6157] synthesizing module 'RNI_mux_4_2_16_1_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_mux_4_2_16_1_1.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_mux_4_2_16_1_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_mux_4_2_16_1_1.v:11]
+INFO: [Synth 8-6157] synthesizing module 'RNI_mac_muladd_16s_8s_16ns_16_4_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v:49]
+INFO: [Synth 8-6157] synthesizing module 'RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_mac_muladd_16s_8s_16ns_16_4_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v:49]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_input_layer_Pipeline_WEIGHTS_LOOP_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_input_layer_Pipeline_WEIGHTS_LOOP_0.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_input_layer' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_input_layer.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_RNI_Pipeline_NEURONS_LOOP_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_RNI_Pipeline_NEURONS_LOOP_1.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_RNI_Pipeline_NEURONS_LOOP_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_RNI_Pipeline_NEURONS_LOOP_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_RNI_Pipeline_NEURONS_LOOP_2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_RNI_Pipeline_NEURONS_LOOP_2.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_RNI_Pipeline_NEURONS_LOOP_2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_RNI_Pipeline_NEURONS_LOOP_2.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_RNI_Pipeline_NEURONS_LOOP_3' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_RNI_Pipeline_NEURONS_LOOP_3.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_RNI_Pipeline_NEURONS_LOOP_3' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_RNI_Pipeline_NEURONS_LOOP_3.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_RNI_Pipeline_NEURONS_LOOP_4' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_RNI_Pipeline_NEURONS_LOOP_4.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_RNI_Pipeline_NEURONS_LOOP_4' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_RNI_Pipeline_NEURONS_LOOP_4.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_RNI_Pipeline_VITIS_LOOP_38_3' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_RNI_Pipeline_VITIS_LOOP_38_3.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_RNI_Pipeline_VITIS_LOOP_38_3' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_RNI_Pipeline_VITIS_LOOP_38_3.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_ctrl_s_axi' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_ctrl_s_axi.v:9]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_ctrl_s_axi.v:195]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_ctrl_s_axi' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_ctrl_s_axi.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both__parameterized0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both__parameterized0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both__parameterized1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both__parameterized1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both__parameterized2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both__parameterized2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both__parameterized3' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both__parameterized3' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both__parameterized4' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both__parameterized4' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'base_example_0_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_example_0_0/synth/base_example_0_0.v:53]
+WARNING: [Synth 8-6014] Unused sequential element int_ap_done_reg was removed.  [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_ctrl_s_axi.v:252]
+WARNING: [Synth 8-7129] Port WDATA[31] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[30] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[29] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[28] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[27] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[26] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[25] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[24] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[23] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[22] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[21] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[20] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[19] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[18] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[17] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[16] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[15] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[14] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[13] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[12] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[11] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[10] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[9] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[8] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[6] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[5] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[4] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[3] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[2] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WSTRB[3] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WSTRB[2] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WSTRB[1] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port NEURONS_MEMBRANE_q1[0] in module RNI_RNI_Pipeline_NEURONS_LOOP_3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port NEURONS_MEMBRANE_q1[0] in module RNI_RNI_Pipeline_NEURONS_LOOP_2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port NEURONS_MEMBRANE_q1[0] in module RNI_RNI_Pipeline_NEURONS_LOOP_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rst in module RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module RNI_input_layer_Pipeline_WEIGHTS_LOOP_0_WEIGHTS_ROM_AUTO_1R is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module RNI_input_layer_WEIGHTS_INDEX_ROM_AUTO_1R is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2134.938 ; gain = 469.645 ; free physical = 2908 ; free virtual = 8425
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2149.781 ; gain = 484.488 ; free physical = 2908 ; free virtual = 8425
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2149.781 ; gain = 484.488 ; free physical = 2908 ; free virtual = 8425
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2149.781 ; gain = 0.000 ; free physical = 2908 ; free virtual = 8425
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_example_0_0/constraints/RNI_ooc.xdc] for cell 'inst'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_example_0_0/constraints/RNI_ooc.xdc] for cell 'inst'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_example_0_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_example_0_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2296.531 ; gain = 0.000 ; free physical = 2903 ; free virtual = 8419
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2296.531 ; gain = 0.000 ; free physical = 2903 ; free virtual = 8419
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2296.531 ; gain = 631.238 ; free physical = 2595 ; free virtual = 8112
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2296.531 ; gain = 631.238 ; free physical = 2595 ; free virtual = 8112
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_example_0_0_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2296.531 ; gain = 631.238 ; free physical = 2595 ; free virtual = 8112
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-802] inferred FSM for state register 'wstate_reg' in module 'RNI_ctrl_s_axi'
+INFO: [Synth 8-802] inferred FSM for state register 'rstate_reg' in module 'RNI_ctrl_s_axi'
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                             0001 |                               11
+*
+                  WRIDLE |                             0010 |                               00
+                  WRDATA |                             0100 |                               01
+                  WRRESP |                             1000 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'wstate_reg' using encoding 'one-hot' in module 'RNI_ctrl_s_axi'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                              001 |                               10
+*
+                  RDIDLE |                              010 |                               00
+                  RDDATA |                              100 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'rstate_reg' using encoding 'one-hot' in module 'RNI_ctrl_s_axi'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 2296.531 ; gain = 631.238 ; free physical = 3691 ; free virtual = 9209
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   16 Bit       Adders := 3     
+	   2 Input    9 Bit       Adders := 3     
+	   2 Input    8 Bit       Adders := 4     
+	   2 Input    7 Bit       Adders := 1     
+	   2 Input    6 Bit       Adders := 1     
+	   2 Input    5 Bit       Adders := 1     
+	   2 Input    3 Bit       Adders := 1     
+	   2 Input    2 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 2     
++---Registers : 
+	               50 Bit    Registers := 1     
+	               32 Bit    Registers := 13    
+	               18 Bit    Registers := 1     
+	               16 Bit    Registers := 11    
+	               14 Bit    Registers := 3     
+	               13 Bit    Registers := 1     
+	                8 Bit    Registers := 9     
+	                7 Bit    Registers := 4     
+	                6 Bit    Registers := 9     
+	                5 Bit    Registers := 7     
+	                4 Bit    Registers := 13    
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 23    
+	                1 Bit    Registers := 114   
++---RAMs : 
+	               3K Bit	(244 X 16 bit)          RAMs := 1     
++---ROMs : 
+	                    ROMs := 2     
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 6     
+	   5 Input   32 Bit        Muxes := 1     
+	   4 Input   16 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 12    
+	   3 Input   16 Bit        Muxes := 1     
+	   2 Input   14 Bit        Muxes := 1     
+	   2 Input   12 Bit        Muxes := 1     
+	   2 Input   10 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 7     
+	   2 Input    7 Bit        Muxes := 4     
+	   2 Input    6 Bit        Muxes := 7     
+	   2 Input    5 Bit        Muxes := 7     
+	   2 Input    4 Bit        Muxes := 12    
+	   4 Input    4 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 4     
+	   3 Input    3 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 21    
+	   4 Input    2 Bit        Muxes := 14    
+	   2 Input    1 Bit        Muxes := 103   
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3936] Found unconnected internal register 'grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_149/mac_muladd_16s_8s_16ns_16_4_1_U32/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/p_reg_reg' and it is trimmed from '44' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v:41]
+WARNING: [Synth 8-3936] Found unconnected internal register 'grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_149/mac_muladd_16s_8s_16ns_16_4_1_U32/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/m_reg_reg' and it is trimmed from '43' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v:34]
+WARNING: [Synth 8-3936] Found unconnected internal register 'grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_149/mac_muladd_16s_8s_16ns_16_4_1_U32/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/b_reg_reg' and it is trimmed from '18' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v:33]
+WARNING: [Synth 8-3936] Found unconnected internal register 'grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_149/mac_muladd_16s_8s_16ns_16_4_1_U32/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/a_reg_reg' and it is trimmed from '25' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/6258/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v:33]
+DSP Report: Generating DSP grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_149/mac_muladd_16s_8s_16ns_16_4_1_U32/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/p_reg_reg, operation Mode is: (C+(A2*B'')')'.
+DSP Report: register grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_149/mac_muladd_16s_8s_16ns_16_4_1_U32/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/p_reg_reg is absorbed into DSP grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_149/mac_muladd_16s_8s_16ns_16_4_1_U32/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/p_reg_reg.
+DSP Report: register grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_149/mac_muladd_16s_8s_16ns_16_4_1_U32/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/p_reg_reg is absorbed into DSP grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_149/mac_muladd_16s_8s_16ns_16_4_1_U32/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/p_reg_reg.
+DSP Report: register grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_149/mac_muladd_16s_8s_16ns_16_4_1_U32/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/a_reg_reg is absorbed into DSP grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_149/mac_muladd_16s_8s_16ns_16_4_1_U32/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/p_reg_reg.
+DSP Report: register grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_149/mac_muladd_16s_8s_16ns_16_4_1_U32/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/p_reg_reg is absorbed into DSP grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_149/mac_muladd_16s_8s_16ns_16_4_1_U32/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/p_reg_reg.
+DSP Report: register grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_149/mac_muladd_16s_8s_16ns_16_4_1_U32/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/m_reg_reg is absorbed into DSP grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_149/mac_muladd_16s_8s_16ns_16_4_1_U32/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/p_reg_reg.
+DSP Report: operator grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_149/mac_muladd_16s_8s_16ns_16_4_1_U32/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/p is absorbed into DSP grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_149/mac_muladd_16s_8s_16ns_16_4_1_U32/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/p_reg_reg.
+DSP Report: operator grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_149/mac_muladd_16s_8s_16ns_16_4_1_U32/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/m is absorbed into DSP grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_149/mac_muladd_16s_8s_16ns_16_4_1_U32/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/p_reg_reg.
+WARNING: [Synth 8-7129] Port WDATA[31] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[30] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[29] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[28] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[27] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[26] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[25] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[24] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[23] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[22] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[21] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[20] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[19] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[18] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[17] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[16] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[15] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[14] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[13] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[12] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[11] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[10] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[9] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[8] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[6] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[5] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[4] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[3] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WDATA[2] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WSTRB[3] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WSTRB[2] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WSTRB[1] in module RNI_ctrl_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port NEURONS_MEMBRANE_q1[0] in module RNI_RNI_Pipeline_NEURONS_LOOP_3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port NEURONS_MEMBRANE_q1[0] in module RNI_RNI_Pipeline_NEURONS_LOOP_2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port NEURONS_MEMBRANE_q1[0] in module RNI_RNI_Pipeline_NEURONS_LOOP_1 is either unconnected or has no load
+WARNING: [Synth 8-3332] Sequential element (ctrl_s_axi_U/FSM_onehot_wstate_reg[0]) is unused and will be removed from module RNI.
+WARNING: [Synth 8-3332] Sequential element (ctrl_s_axi_U/FSM_onehot_rstate_reg[0]) is unused and will be removed from module RNI.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 2296.531 ; gain = 631.238 ; free physical = 3146 ; free virtual = 8663
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+ROM: Preliminary Mapping Report
++----------------+---------------------------------------------------------------------------+---------------+----------------+
+|Module Name     | RTL Object                                                                | Depth x Width | Implemented As | 
++----------------+---------------------------------------------------------------------------+---------------+----------------+
+|RNI_input_layer | WEIGHTS_INDEX_U/q0_reg                                                    | 256x13        | Block RAM      | 
+|RNI_input_layer | grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_149/weight_index_fu_56_reg_rep | 16384x8       | Block RAM      | 
++----------------+---------------------------------------------------------------------------+---------------+----------------+
+
+
+Block RAM: Preliminary Mapping Report (see note below)
++------------+----------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object                 | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+----------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|inst        | NEURONS_MEMBRANE_U/ram_reg | 244 x 16(READ_FIRST)   | W | R | 244 x 16(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
++------------+----------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++----------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name     | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++----------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|RNI_input_layer | (C+(A2*B'')')' | 16     | 9      | 16     | -      | 16     | 1    | 2    | 0    | -    | -     | 1    | 1    | 
++----------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 2296.531 ; gain = 631.238 ; free physical = 2548 ; free virtual = 8067
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 2296.531 ; gain = 631.238 ; free physical = 2400 ; free virtual = 7918
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++------------+----------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object                 | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+----------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|inst        | NEURONS_MEMBRANE_U/ram_reg | 244 x 16(READ_FIRST)   | W | R | 244 x 16(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
++------------+----------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance inst/NEURONS_MEMBRANE_U/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/NEURONS_MEMBRANE_U/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/grp_input_layer_fu_209/WEIGHTS_INDEX_U/q0_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/grp_input_layer_fu_209/grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_149/weight_index_fu_56_reg_rep_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/grp_input_layer_fu_209/grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_149/weight_index_fu_56_reg_rep_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/grp_input_layer_fu_209/grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_149/weight_index_fu_56_reg_rep_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/grp_input_layer_fu_209/grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_149/weight_index_fu_56_reg_rep_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 2296.531 ; gain = 631.238 ; free physical = 2324 ; free virtual = 7843
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:38 ; elapsed = 00:00:38 . Memory (MB): peak = 2296.531 ; gain = 631.238 ; free physical = 1749 ; free virtual = 7269
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:38 ; elapsed = 00:00:38 . Memory (MB): peak = 2296.531 ; gain = 631.238 ; free physical = 1749 ; free virtual = 7269
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:38 ; elapsed = 00:00:38 . Memory (MB): peak = 2296.531 ; gain = 631.238 ; free physical = 1751 ; free virtual = 7270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:38 ; elapsed = 00:00:38 . Memory (MB): peak = 2296.531 ; gain = 631.238 ; free physical = 1751 ; free virtual = 7270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2296.531 ; gain = 631.238 ; free physical = 1743 ; free virtual = 7262
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2296.531 ; gain = 631.238 ; free physical = 1743 ; free virtual = 7262
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++------------+------------------------------------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name | RTL Name                                                                                                   | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++------------+------------------------------------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|RNI         | grp_input_layer_fu_209/grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_149/ap_loop_exit_ready_pp0_iter4_reg_reg | 3      | 1     | NO           | NO                 | YES               | 1      | 0       | 
++------------+------------------------------------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++----------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name     | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++----------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|RNI_input_layer | (C+(A'*B'')')' | 30     | 18     | 16     | -      | 16     | 1    | 2    | 2    | -    | -     | 1    | 1    | 
++----------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |CARRY4   |    53|
+|2     |DSP48E1  |     1|
+|3     |LUT1     |     7|
+|4     |LUT2     |   133|
+|5     |LUT3     |   243|
+|6     |LUT4     |   102|
+|7     |LUT5     |   204|
+|8     |LUT6     |   143|
+|9     |RAMB18E1 |     2|
+|11    |RAMB36E1 |     4|
+|15    |SRL16E   |     1|
+|16    |FDRE     |   822|
+|17    |FDSE     |     5|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2296.531 ; gain = 631.238 ; free physical = 1743 ; free virtual = 7262
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 42 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:36 ; elapsed = 00:00:36 . Memory (MB): peak = 2296.531 ; gain = 484.488 ; free physical = 1726 ; free virtual = 7246
+Synthesis Optimization Complete : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2296.531 ; gain = 631.238 ; free physical = 1720 ; free virtual = 7240
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2296.531 ; gain = 0.000 ; free physical = 1831 ; free virtual = 7351
+INFO: [Netlist 29-17] Analyzing 60 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2304.531 ; gain = 0.000 ; free physical = 1594 ; free virtual = 7113
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: b388ad10
+INFO: [Common 17-83] Releasing license: Synthesis
+88 Infos, 82 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:48 ; elapsed = 00:00:45 . Memory (MB): peak = 2304.531 ; gain = 971.832 ; free physical = 1563 ; free virtual = 7082
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1672.512; main = 1399.649; forked = 310.112
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3226.324; main = 2304.535; forked = 961.805
+INFO: [Common 17-1381] The checkpoint '/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_example_0_0_synth_1/base_example_0_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP base_example_0_0, cache-ID = 19842cbb3da48811
+INFO: [Coretcl 2-1174] Renamed 38 cell refs.
+INFO: [Common 17-1381] The checkpoint '/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_example_0_0_synth_1/base_example_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file base_example_0_0_utilization_synth.rpt -pb base_example_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Oct 28 16:31:52 2024...
