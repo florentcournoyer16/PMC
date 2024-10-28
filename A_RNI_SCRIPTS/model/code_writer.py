@@ -3,12 +3,13 @@ def write_code(code_filepath, network_name, output_model_dict, add_membrane_prob
     __append_inclusions__(code_segments, network_name, add_membrane_probe)
     __append_declarations__(code_segments, output_model_dict, add_membrane_probe)
     __append_main_function__(code_segments, output_model_dict, add_membrane_probe)
+    __append_input_stream_reception_definition__(code_segments)
     __append_input_layer_definition__(code_segments, add_membrane_probe)
     __append_inner_layer_definitions__(code_segments, output_model_dict, add_membrane_probe)
     __append_output_layer_definition__(code_segments, output_model_dict, add_membrane_probe)
     __append_leak_neuron_definition__(code_segments)
     __append_update_neuron_state_reset_membrane_definition__(code_segments)
-    __append_reset_neuron_states_definition__(code_segments)
+    __append_output_stream_dispatch_definition__(code_segments)
     if add_membrane_probe:
         __append_update_membrane_probe_definition__(code_segments)
         __append_write_probe_file_definition__(code_segments)
@@ -21,9 +22,7 @@ def __append_main_function__(code_segments, output_model_dict, add_membrane_prob
     __append_main_function_signature__(code_segments)
     if add_membrane_probe:
         __append_debugging_probe_input__(code_segments)
-    __append_input_stream_reception__(code_segments)
-    __append_inner_layer_calls__(code_segments, output_model_dict)
-    __append_output_stream_dispatch__(code_segments)
+    __append_RNI_function_calls__(code_segments, output_model_dict)
     if add_membrane_probe:
         __append_debugging_probe_closing__(code_segments)
     __append_main_function_return_statement__(code_segments)
@@ -33,7 +32,8 @@ def __append_main_function__(code_segments, output_model_dict, add_membrane_prob
 # -----------------------------------------------
 
 def __append_inclusions__(code_segments, network_name, add_membrane_probe):
-    code_segments.append(f'#include "../inc/{network_name}.h"\n')
+    code_segments.append(f'#include "../inc/{network_name}.h"\n\n')
+    code_segments.append('#include "hls_math"\n\n')
     if add_membrane_probe:
         __append_debugging_probe_inclusions__(code_segments)
 
@@ -57,10 +57,12 @@ def __append_declarations__(code_segments, output_model_dict, add_membrane_probe
         code_segments.append(f"void inner_layer_{i}(void);\n")
     code_segments.append("void output_layer(void);\n\n")
 
+    code_segments.append("void input_stream_reception(pkt_stream& in_stream, pkt in_pkts[INPUT_LENGHT]);\n")
     code_segments.append("void leak_neuron(INDEX_TYPE layer_index, INDEX_TYPE neuron_index);\n")
     code_segments.append("void update_neuron_state_reset_membrane(INDEX_TYPE layer_index, INDEX_TYPE neuron_index);\n")
     code_segments.append("void reset_neuron_states(INDEX_TYPE layer_index);\n")
-    code_segments.append("void update_membrane_probe(INDEX_TYPE neuron_index);\n\n")
+    code_segments.append("void update_membrane_probe(INDEX_TYPE neuron_index);\n")
+    code_segments.append("void output_stream_dispatch(pkt_stream& out_stream, pkt out_pkts[OUTPUT_LENGHT]);\n\n")
     
     if add_membrane_probe:
         code_segments.append("void write_probe_file(void);\n")
@@ -92,46 +94,28 @@ def __append_debugging_probe_input__(code_segments):
 # -----------------------------------------------
 # -----------------------------------------------
 
-def __append_input_stream_reception__(code_segments):
+def __append_RNI_function_calls__(code_segments, output_model_dict):
     code_segments.append("""
 	while(true)
 	{
-		for(INDEX_TYPE i = 0; i < INPUT_LENGHT; i++)
-			in_stream.read(in_pkts[i]);
+        input_stream_reception(in_stream, in_pkts);
 
 		input_layer(in_pkts);
 
 """)
 
-# -----------------------------------------------
-# -----------------------------------------------
-
-def __append_inner_layer_calls__(code_segments, output_model_dict):
-
     for i in range(1, len(output_model_dict['NEURONS_INDEX'])-2):
         code_segments.append(f"\t\tinner_layer_{i}();\n")
 
-# -----------------------------------------------
-# -----------------------------------------------
-
-
-def __append_output_stream_dispatch__(code_segments):
     code_segments.append("""
 		output_layer();
 
-		for(INDEX_TYPE i = 0; i < NEURONS_MEMBRANE_LENGHT; i++)
-        {
-			out_pkts[i] = in_pkts[0];
-			out_pkts[i].data = NEURONS_MEMBRANE[i];
-			out_stream.write(out_pkts[i]);
-        }
-
+        output_stream_dispatch(pkt_stream& out_stream, pkt out_pkts[OUTPUT_LENGHT]);
 
 		if(in_pkts[INPUT_LENGHT-1].last)
 			break;
 	}
 """)
-
 
 # -----------------------------------------------
 # -----------------------------------------------
@@ -149,6 +133,21 @@ def __append_debugging_probe_closing__(code_segments):
 def __append_main_function_return_statement__(code_segments):
     code_segments.append("""
     return;
+}
+
+""")
+    
+# -----------------------------------------------
+# -----------------------------------------------
+
+def __append_input_stream_reception_definition__(code_segments):
+    code_segments.append("""
+void input_stream_reception(pkt_stream& in_stream, pkt in_pkts[INPUT_LENGHT])
+{
+    for(INDEX_TYPE i = 0; i < INPUT_LENGHT; i++)
+    {
+        in_stream.read(in_pkts[i]);
+    }
 }
 
 """)
@@ -240,7 +239,9 @@ void output_layer(void)
         {
 			STATE_TYPE neuron_state = NEURONS_STATE[NEURONS_INDEX[layer_index - 1] + weight_index - WEIGHTS_INDEX[neuron_index]];
 			if(neuron_state == 1)
+            {
 				NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
+            }
 		}
 """)
 
@@ -250,7 +251,6 @@ void output_layer(void)
     code_segments.append("""
         update_neuron_state_reset_membrane(layer_index, neuron_index);
 	}
-
 	reset_neuron_states(layer_index-1);
 }
 
@@ -263,12 +263,11 @@ def __append_leak_neuron_definition__(code_segments):
     code_segments.append("""
 void leak_neuron(INDEX_TYPE layer_index, INDEX_TYPE neuron_index)
 {
-	MEMBRANE_TYPE sign = NEURONS_MEMBRANE[neuron_index] & 0x100;
 	MEMBRANE_TYPE membrane_leak_accumulator = 0x0;
 	NEURON_LEAK_LOOP: for(INDEX_TYPE beta_index = 1; beta_index < BETAS[layer_index]; beta_index++) {
-		membrane_leak_accumulator += NEURONS_MEMBRANE[neuron_index] >> 1 * beta_index;
+        membrane_leak_accumulator += NEURONS_MEMBRANE[neuron_index] / hls::pow(2, beta_index);
 	}
-	NEURONS_MEMBRANE[neuron_index] = membrane_leak_accumulator || sign;
+	NEURONS_MEMBRANE[neuron_index] = membrane_leak_accumulator;
 }
 
 """)
@@ -296,8 +295,39 @@ def __append_reset_neuron_states_definition__(code_segments):
     code_segments.append("""
 void reset_neuron_states(INDEX_TYPE layer_index)
 {
-	NEURONS_STATE_RESET_LOOP: for(INDEX_TYPE neuron_state_index = NEURONS_INDEX[layer_index]; neuron_state_index < NEURONS_INDEX[layer_index];  neuron_state_index++)
+	NEURONS_STATE_RESET_LOOP: for(INDEX_TYPE neuron_state_index = NEURONS_INDEX[layer_index]; neuron_state_index < NEURONS_INDEX[layer_index + 1];  neuron_state_index++)
 		NEURONS_STATE[neuron_state_index] = 0;
+}
+
+""")
+
+# -----------------------------------------------
+# -----------------------------------------------
+
+def __append_output_stream_dispatch_definition__(code_segments):
+    code_segments.append("""
+void output_stream_dispatch(pkt_stream& out_stream, pkt out_pkts[OUTPUT_LENGHT])
+{
+    for(INDEX_TYPE i = 0; i < NEURONS_MEMBRANE_LENGHT; i++)
+    {
+        out_pkts[i] = in_pkts[0];
+        out_pkts[i].data = NEURONS_MEMBRANE[i];
+        out_stream.write(out_pkts[i]);
+    }
+    
+    for (INDEX_TYPE i = NEURONS_MEMBRANE_LENGHT; i < OUTPUT_LENGHT; i++)
+    {
+        out_pkts[i] = in_pkts[0]
+        if(i == OUTPUT_LENGHT - 1)
+        {
+            out_pkts[i] = in_pkts[INPUT_LENGHT-1];
+        }
+        out_pkts[i].data = NEURONS_STATE[i - (OUTPUT_LENGHT - NEURONS_MEMBRANE_LENGHT)];
+        out_stream.write(out_pkts[i]);
+    }
+    
+    INDEX_TYPE layer_index = NEURONS_INDEX_LENGHT - 2;
+    reset_neuron_states(layer_index);
 }
 
 """)

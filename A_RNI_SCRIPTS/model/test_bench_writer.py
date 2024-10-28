@@ -1,7 +1,7 @@
-def write_test_bench(test_bench_filepath, network_name, output_model_dict, add_membrane_probe):
+def write_test_bench(test_bench_filepath, network_name, output_model_dict, weight_type_lenght, membrane_type_lenght):
     tb_segments = []
     __append_inclusions__(tb_segments)
-    __append_definitions__(tb_segments)
+    __append_definitions__(tb_segments, membrane_type_lenght)
     __append_declarations__(tb_segments)
     __append_main__(tb_segments)
     __write_tb_segments__(tb_segments, test_bench_filepath)
@@ -22,14 +22,14 @@ def __append_inclusions__(code_segments):
 # -----------------------------------------------
 # -----------------------------------------------
 
-def __append_definitions__(code_segments):
-    code_segments.append("""
+def __append_definitions__(code_segments, membrane_type_lenght):
+    code_segments.append(f"""
 #define PKT_SIZE 32
 typedef ap_axis<PKT_SIZE, 2, 5, 6> pkt;
 typedef hls::stream<pkt> pkt_stream;
 
-#define BASE_TYPE_LENGHTT 8
-#define BASE_TYPEE ap_int< BASE_TYPE_LENGHTT >
+#define MEMBRANE_TYPE_LENGHT_TB {membrane_type_lenght}
+#define MEMBRANE_TYPE_TB ap_int< MEMBRANE_TYPE_LENGHT_TB >
 #define INPUT_LAYER_LENGHTT 8
 #define OUTPUT_LAYER_LENGHTT 424
 #define WINDOW_LENGHT 128

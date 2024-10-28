@@ -21,7 +21,7 @@ def parse_model(model_filepath, header_filepath, code_filepath, test_bench_filep
 
         output_model_dict = write_header(input_model_dict, header_filepath, weight_type_lenght, membrane_type_lenght, add_membrane_probe, membrane_probe_lenght)
         write_code(code_filepath, network_name, output_model_dict, add_membrane_probe)
-        write_test_bench(test_bench_filepath, network_name, output_model_dict, add_membrane_probe)
+        write_test_bench(test_bench_filepath, network_name, output_model_dict, weight_type_lenght, membrane_type_lenght)
 
     else:
         print("file doesn't exist")
@@ -43,8 +43,8 @@ if __name__ == "__main__":
 
     model_filepath = Path(os.getcwd()).joinpath(model_filepath)
     network_name = model_filepath.stem
-    header_filepath = Path(os.getcwd()).joinpath('B_RNI_HLS/inc/RNI.h')
-    code_filepath = Path(os.getcwd()).joinpath('B_RNI_HLS/src/RNI.cpp')
-    test_bench_filepath = Path(os.getcwd()).joinpath('B_RNI_HLS/tb/tb.cpp')
+    header_filepath = Path(os.getcwd()).joinpath(f'B_RNI_HLS/inc/{network_name}.h')
+    code_filepath = Path(os.getcwd()).joinpath(f'B_RNI_HLS/src/{network_name}.cpp')
+    test_bench_filepath = Path(os.getcwd()).joinpath(f'B_RNI_HLS/tb/{network_name}_tb.cpp')
 
     parse_model(model_filepath, header_filepath, code_filepath, test_bench_filepath, weight_type_lenght, membrane_type_lenght, add_membrane_probe, membrane_probe_lenght, network_name)

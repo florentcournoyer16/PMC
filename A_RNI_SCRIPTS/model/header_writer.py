@@ -1,4 +1,4 @@
-def write_header(input_model_dict, header_filepath, weight_type_lenght = 8, membrane_type_lenght = 16, add_membrane_probe = False, membrane_probe_lenght = 200):
+def write_header(input_model_dict, header_filepath, weight_type_lenght, membrane_type_lenght, add_membrane_probe, membrane_probe_lenght):
     output_model_dict = {
         "NEURONS_INDEX": [],
         "WEIGHTS_INDEX": [],
@@ -39,7 +39,7 @@ def write_header(input_model_dict, header_filepath, weight_type_lenght = 8, memb
         header_file.write("#define INDEX_TYPE ap_int< INDEX_TYPE_LENGHT >\n\n")
         
         header_file.write("#define STATE_TYPE_LENGHT 1\n")
-        header_file.write("#define STATE_TYPE ap_int< STATE_TYPE_LENGHT >\n\n")
+        header_file.write("#define STATE_TYPE ap_uint< STATE_TYPE_LENGHT >\n\n")
 
         for key, values in output_model_dict.items():
             type_str = "WEIGHT_TYPE"
@@ -60,7 +60,8 @@ def write_header(input_model_dict, header_filepath, weight_type_lenght = 8, memb
         header_file.write(f"#define INDEX_TYPE_MAX {2**(index_type_lenght-1)}\n\n")
 
         header_file.write(f"#define INPUT_LENGHT {output_model_dict['WEIGHTS_INDEX'][1]}\n")
-        header_file.write(f"#define OUTPUT_LENGHT {output_model_dict['NEURONS_INDEX'][-1]}\n\n")
+        output_lenght = 2 * output_model_dict['NEURONS_INDEX'][-1] - output_model_dict['NEURONS_INDEX'][-2]
+        header_file.write(f"#define OUTPUT_LENGHT {output_lenght}\n\n")
 
         header_file.write("#define PKT_SIZE 32\n")
         header_file.write("typedef ap_axis<PKT_SIZE, 2, 5, 6> pkt;\n")
