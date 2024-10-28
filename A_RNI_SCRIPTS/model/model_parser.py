@@ -1,50 +1,50 @@
+import sys
+import os
+
 from json import load
 from pathlib import Path
 from code_writer import write_code
 from header_writer import write_header
-import sys
-import os
+from test_bench_writer import write_test_bench
 
-def main():
-    print("input_file =", INPUT_FILE_PATH)
-    print("output_file_1 =", OUTPUT_HEADER_PATH)
-    print("output_file_2 =", OUTPUT_CODE_PATH)
-    if Path.exists(INPUT_FILE_PATH):
-        with open(INPUT_FILE_PATH, mode='r', encoding='utf8') as model_file:
+
+def parse_model(model_filepath, header_filepath, code_filepath, test_bench_filepath, weight_type_lenght, membrane_type_lenght, add_membrane_probe, membrane_probe_lenght, network_name):
+
+    print("model_filepath =", model_filepath)
+    print("header_filepath =", header_filepath)
+    print("code_filepath =", code_filepath)
+    print("code_filepath =", test_bench_filepath)
+    
+    if Path.exists(model_filepath):
+        with open(model_filepath, mode='r', encoding='utf8') as model_file:
             input_model_dict = load(model_file)
 
-        output_model_dict = write_header(
-            input_model_dict,
-            OUTPUT_HEADER_PATH,
-            WEIGHT_TYPE_LENGHT,
-            MEMBRANE_TYPE_LENGHT,
-            ADD_MEMBRANE_PROBE,
-            MEMBRANE_PROBE_LENGHT
-        )
-        write_code(OUTPUT_CODE_PATH, NETWORK_NAME, output_model_dict, ADD_MEMBRANE_PROBE)
+        output_model_dict = write_header(input_model_dict, header_filepath, weight_type_lenght, membrane_type_lenght, add_membrane_probe, membrane_probe_lenght)
+        write_code(code_filepath, network_name, output_model_dict, add_membrane_probe)
+        write_test_bench(test_bench_filepath, network_name, output_model_dict, weight_type_lenght, membrane_type_lenght)
+
     else:
         print("file doesn't exist")
 
 if __name__ == "__main__":
 
-    global FILE_NAME, WEIGHT_TYPE_LENGHT, MEMBRANE_TYPE_LENGHT, ADD_MEMBRANE_PROBE, MEMBRANE_PROBE_LENGHT, INPUT_FILE_PATH, NETWORK_NAME, OUTPUT_HEADER_PATH, OUTPUT_CODE_PATH
-
-    FILE_NAME = 'model_info_smoll.json'
-    WEIGHT_TYPE_LENGHT = 8
-    MEMBRANE_TYPE_LENGHT = WEIGHT_TYPE_LENGHT * 2
-    ADD_MEMBRANE_PROBE = False
-    MEMBRANE_PROBE_LENGHT = 200
+    model_filepath = 'A_RNI_SCRIPTS/model/input/model_info_smoll.json'
+    weight_type_lenght = 8
+    membrane_type_lenght = weight_type_lenght * 2
+    add_membrane_probe = False
+    membrane_probe_lenght = 200
 
     if len(sys.argv) == 6:
-        FILE_NAME = sys.argv[1]
-        WEIGHT_TYPE_LENGHT = sys.argv[2]
-        MEMBRANE_TYPE_LENGHT = sys.argv[3]
-        ADD_MEMBRANE_PROBE = sys.argv[4]
-        MEMBRANE_PROBE_LENGHT = sys.argv[5]
+        model_filepath = sys.argv[1]
+        weight_type_lenght = sys.argv[2]
+        membrane_type_lenght = sys.argv[3]
+        add_membrane_probe = sys.argv[4]
+        membrane_probe_lenght = sys.argv[5]
 
+    model_filepath = Path(os.getcwd()).joinpath(model_filepath)
+    network_name = model_filepath.stem
+    header_filepath = Path(os.getcwd()).joinpath(f'B_RNI_HLS/inc/{network_name}.h')
+    code_filepath = Path(os.getcwd()).joinpath(f'B_RNI_HLS/src/{network_name}.cpp')
+    test_bench_filepath = Path(os.getcwd()).joinpath(f'B_RNI_HLS/tb/{network_name}_tb.cpp')
 
-    INPUT_FILE_PATH = Path(__file__).parent.absolute().joinpath(f'input/{FILE_NAME}')
-    NETWORK_NAME = FILE_NAME.strip('.json')
-    OUTPUT_HEADER_PATH = Path(os.getcwd()).joinpath(f'B_RNI_HLS/inc/RNI.h')
-    OUTPUT_CODE_PATH = Path(os.getcwd()).joinpath(f'B_RNI_HLS/src/RNI.cpp')
-    main()
+    parse_model(model_filepath, header_filepath, code_filepath, test_bench_filepath, weight_type_lenght, membrane_type_lenght, add_membrane_probe, membrane_probe_lenght, network_name)
