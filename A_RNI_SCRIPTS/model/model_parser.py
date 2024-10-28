@@ -1,5 +1,4 @@
 import sys
-import os
 
 from json import load
 from pathlib import Path
@@ -28,7 +27,7 @@ def parse_model(model_filepath, header_filepath, code_filepath, test_bench_filep
 
 if __name__ == "__main__":
 
-    model_filepath = 'A_RNI_SCRIPTS/model/input/model_info_smoll.json'
+    model_filepath = 'A_RNI_SCRIPTS/model/input/RNI.json'
     weight_type_lenght = 8
     membrane_type_lenght = weight_type_lenght * 2
     add_membrane_probe = False
@@ -41,10 +40,10 @@ if __name__ == "__main__":
         add_membrane_probe = sys.argv[4]
         membrane_probe_lenght = sys.argv[5]
 
-    model_filepath = Path(os.getcwd()).joinpath(model_filepath)
+    model_filepath = Path(__file__).parent.parent.parent.absolute().joinpath(model_filepath)
     network_name = model_filepath.stem
-    header_filepath = Path(os.getcwd()).joinpath(f'B_RNI_HLS/inc/{network_name}.h')
-    code_filepath = Path(os.getcwd()).joinpath(f'B_RNI_HLS/src/{network_name}.cpp')
-    test_bench_filepath = Path(os.getcwd()).joinpath(f'B_RNI_HLS/tb/{network_name}_tb.cpp')
+    header_filepath = Path(__file__).parent.parent.parent.absolute().joinpath(f'B_RNI_HLS/inc/{network_name}.h')
+    code_filepath = Path(__file__).parent.parent.parent.absolute().joinpath(f'B_RNI_HLS/src/{network_name}.cpp')
+    test_bench_filepath = Path(__file__).parent.parent.parent.absolute().joinpath(f'B_RNI_HLS/tb/{network_name}_tb.cpp')
 
     parse_model(model_filepath, header_filepath, code_filepath, test_bench_filepath, weight_type_lenght, membrane_type_lenght, add_membrane_probe, membrane_probe_lenght, network_name)

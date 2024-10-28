@@ -1,7 +1,7 @@
 def write_test_bench(test_bench_filepath, network_name, output_model_dict, weight_type_lenght, membrane_type_lenght):
     tb_segments = []
     __append_inclusions__(tb_segments)
-    __append_definitions__(tb_segments, membrane_type_lenght)
+    __append_definitions__(tb_segments, membrane_type_lenght, output_model_dict)
     __append_declarations__(tb_segments)
     __append_main__(tb_segments)
     __write_tb_segments__(tb_segments, test_bench_filepath)
@@ -22,7 +22,9 @@ def __append_inclusions__(code_segments):
 # -----------------------------------------------
 # -----------------------------------------------
 
-def __append_definitions__(code_segments, membrane_type_lenght):
+def __append_definitions__(code_segments, membrane_type_lenght, output_model_dict):
+    output_lenght = 2 * output_model_dict['NEURONS_INDEX'][-1] - output_model_dict['NEURONS_INDEX'][-2]
+    
     code_segments.append(f"""
 #define PKT_SIZE 32
 typedef ap_axis<PKT_SIZE, 2, 5, 6> pkt;
@@ -30,12 +32,11 @@ typedef hls::stream<pkt> pkt_stream;
 
 #define MEMBRANE_TYPE_LENGHT_TB {membrane_type_lenght}
 #define MEMBRANE_TYPE_TB ap_int< MEMBRANE_TYPE_LENGHT_TB >
-#define INPUT_LAYER_LENGHTT 8
-#define OUTPUT_LAYER_LENGHTT 424
+#define INPUT_LENGHT {output_model_dict['WEIGHTS_INDEX'][1]}
+#define OUTPUT_LAYER_LENGHTT {output_lenght}
 #define WINDOW_LENGHT 128
-//#define INPUT_FILENAME "left_side_seizure_encode_test_set.csv"
-#define INPUT_FILENAME "inputs.csv"
-#define OUTPUT_FILENAME "../../../../tb/tb_output.txt"
+#define INPUT_FILENAME "tb_inputs.csv"
+#define OUTPUT_FILENAME "tb_outputs.csv"
 
 """)
 
