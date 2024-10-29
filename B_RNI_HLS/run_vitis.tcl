@@ -38,7 +38,7 @@ set_part {xc7z020-clg400-1}
 create_clock -period 10 -name default
 config_compile -design_size_maximum_warning 1000000 -name_max_length 800 -pipeline_flush_in_task never
 config_export -flow syn -format ip_catalog -output output -rtl verilog -vivado_clock 10
-source "./RNI/solution1/directives.tcl"
+source "RNI/solution1/directives.tcl"
 
 # Conditional operations
 if {$run_csim} {
@@ -53,4 +53,4 @@ if {$run_csynth} {
 
 if {$run_export} {
     puts "Exporting Design..."
-    export_design -flow syn -rtl verilog -format ip_catalog -output $output_path }
+    export_design -flow syn -rtl verilog -format ip_catalog -output output }
