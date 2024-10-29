@@ -21,8 +21,8 @@ RUN_CSYNTH=1
 RUN_EXPORT=1
 OUTPUT_PATH="$CURRENT_PATH/B_RNI_HLS/output"
 CURRENT_PATH=cwd
-
-vitis_hls $VITIS_ALL_FILEPATH --run_csim $RUN_CSIM --run_csynth $RUN_CSYNTH --run_export $RUN_EXPORT --output_path $OUTPUT_PATH 
+-
+vitis_hls $VITIS_ALL_FILEPATH -run_csim $RUN_CSIM -run_csynth $RUN_CSYNTH -run_export $RUN_EXPORT -output_path $OUTPUT_PATH 
 
 # -----------------------------------------
 # -----------------------------------------
@@ -41,7 +41,7 @@ python3 $INOUT_PLOTTER_FILEPATH --file_path "$FILE_PATH" --start_index "$START_I
 VIVADO_ALL_FILEPATH = "C_RNI_VIVADO/run_all_vivado.tcl"
 GEN_BITSTREAM=1
 
-vivado -mode batch $VIVADO_ALL_FILEPATH --generate_bitstream $GEN_BITSTREAM
+vivado -mode batch $VIVADO_ALL_FILEPATH -generate_bitstream $GEN_BITSTREAM
 
 # -----------------------------------------
 # -----------------------------------------

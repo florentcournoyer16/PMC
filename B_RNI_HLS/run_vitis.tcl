@@ -1,12 +1,12 @@
 # Parse arguments for custom flags
 foreach {arg value} $::argv {
-    if {$arg == "--run_csim"} {
+    if {$arg == "-run_csim"} {
         set run_csim $value
-    } elseif {$arg == "--run_csynth"} {
+    } elseif {$arg == "-run_csynth"} {
         set run_csynth $value
-    } elseif {$arg == "--run_export"} {
+    } elseif {$arg == "-run_export"} {
         set run_export $value
-    } elseif {$arg == "--output_path"} {
+    } elseif {$arg == "-output_path"} {
         set output_path $value
     }
 }
