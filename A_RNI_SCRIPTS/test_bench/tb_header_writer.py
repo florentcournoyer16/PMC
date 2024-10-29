@@ -30,7 +30,7 @@ def write_tb_header(tb_header_filepath, network_name, output_model_dict, weight_
 
         header_file.write('#define TB_OUTPUT_FILEPATH "../../../../tb/tb_outputs.csv"\n\n')
 
-        header_file.write(f'#define TB_INPUTS_LENGHT {len(tb_inputs)};\n')
+        header_file.write(f'#define TB_INPUTS_LENGHT {len(tb_inputs)}\n')
         header_file.write(f'RNI_WEIGHT_TYPE TB_INPUTS[{len(tb_inputs)}][{output_model_dict["WEIGHTS_INDEX"][1]}] = {{ ')
         for row in tb_inputs:
             header_file.write('{ ')
@@ -39,7 +39,7 @@ def write_tb_header(tb_header_filepath, network_name, output_model_dict, weight_
             header_file.write('}, ')
         header_file.write('};\n\n')
 
-        header_file.write(f'#define TB_INPUT_BUFFER_LENGHT {int(len(tb_inputs) * output_model_dict["WEIGHTS_INDEX"][1])};\n')
-        header_file.write(f'#define TB_OUTPUT_BUFFER_LENGHT {int(len(tb_inputs) * output_lenght)};\n\n')
+        header_file.write(f'#define TB_INPUT_BUFFER_LENGHT {int(len(tb_inputs) * output_model_dict["WEIGHTS_INDEX"][1])}\n')
+        header_file.write(f'#define TB_OUTPUT_BUFFER_LENGHT {int(len(tb_inputs) * output_lenght)}\n\n')
         
         header_file.write('#endif // TEST_H\n')

@@ -23,10 +23,10 @@ void RNI(pkt_stream& in_stream, pkt_stream& out_stream);
 
 void fill_input_buffer(pkt input_buffer[TB_INPUT_BUFFER_LENGHT]);
 void send_data_to_RNI_and_fill_output_buffer(pkt input_buffer[TB_INPUT_BUFFER_LENGHT], pkt output_buffer[RNI_OUTPUT_LENGHT * TB_INPUTS_LENGHT]);
-int write_data_to_csv(pkt& output_buffer);
+int write_data_to_csv(pkt output_buffer[TB_OUTPUT_BUFFER_LENGHT]);
 
 """)
-    
+
 # -----------------------------------------------
 # -----------------------------------------------
 
@@ -35,7 +35,6 @@ def __append_main_definition__(code_segments):
     code_segments.append("""
 int main(void)
 {
-
 	pkt input_buffer[TB_INPUT_BUFFER_LENGHT];
 	pkt output_buffer[TB_OUTPUT_BUFFER_LENGHT];
 
@@ -45,26 +44,26 @@ int main(void)
 
 	return write_data_to_csv(output_buffer);
 }
-                     
+       
 """)
-    
+
 # -----------------------------------------------
 # -----------------------------------------------
 
 
 def __append_fill_input_buffer_definition__(code_segments):
     code_segments.append("""
-void fill_input_buffer(pkt input_buffer[TB_OUTPUTS_LENGHT])
+void fill_input_buffer(pkt input_buffer[TB_INPUT_BUFFER_LENGHT])
 {
 	for(int row = 0; row < TB_INPUTS_LENGHT; row++)
 	{
 		for(int col = 0; col < RNI_INPUT_LENGHT; col++)
 		{
-			inputs_buffer[row * RNI_INPUT_LENGHT + col] = TB_INPUTS[row][col];
+			input_buffer[row * RNI_INPUT_LENGHT + col] = TB_INPUTS[row][col];
 		}
 	}
 }
-                     
+       
 """)
 
 # -----------------------------------------------
@@ -93,7 +92,7 @@ void send_data_to_RNI_and_fill_output_buffer(pkt input_buffer[TB_INPUT_BUFFER_LE
 		}
 	}
 }
-    
+
 """)
 
 # -----------------------------------------------
@@ -129,7 +128,7 @@ int write_data_to_csv(pkt output_buffer[TB_OUTPUT_BUFFER_LENGHT])
 
 	return 0;
 }
-           
+
 """)
 
 # -----------------------------------------------
