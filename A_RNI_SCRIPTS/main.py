@@ -20,10 +20,11 @@ if __name__ == "__main__":
 
     if len(argv) == 6:
         model_filepath = argv[1]
-        weight_type_lenght = argv[2]
-        membrane_type_lenght = argv[3]
-        add_membrane_probe = argv[4]
-        membrane_probe_lenght = argv[5]
+        tb_inputs_filepath = argv[2]
+        weight_type_lenght = argv[3]
+        membrane_type_lenght = argv[4]
+        add_membrane_probe = argv[5]
+        membrane_probe_lenght = argv[6]
 
     model_filepath = Path(__file__).parent.parent.absolute().joinpath(model_filepath)
     network_name = model_filepath.stem
