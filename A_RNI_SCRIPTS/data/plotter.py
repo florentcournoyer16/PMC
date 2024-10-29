@@ -34,6 +34,6 @@ if __name__ == "__main__":
         data = np.genfromtxt(file_path, delimiter=",")
         plot(data, np.arange(int(argv[3]), int(argv[4]), 1))
     else:
-        file_path = Path(__file__).parent.parent.absolute().joinpath("B_RNI_HLS/tb/tb_outputs.csv")
+        file_path = Path(__file__).parent.parent.parent.absolute().joinpath("B_RNI_HLS/tb/tb_outputs.csv")
         data = np.genfromtxt(file_path, delimiter=",")
         plot(data, np.arange(int(argv[1]), int(argv[2]), 1))
