@@ -26,6 +26,7 @@ RUN_EXPORT=1
 cd $VITIS_PROJECT_PATH
 rm -f RNI -r
 vitis_hls $VITIS_SCRIPT_FILEPATH -tclargs run_csim $RUN_CSIM run_csynth $RUN_CSYNTH run_export $RUN_EXPORT
+unzip "output/export.zip" -d "output/export"
 cd $ROOT_DIR
 
 # -----------------------------------------
