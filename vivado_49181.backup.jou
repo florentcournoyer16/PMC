@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.1.1 (64-bit)
+# SW Build 3900603 on Fri Jun 16 19:30:25 MDT 2023
+# IP Build 3900379 on Sat Jun 17 05:28:05 MDT 2023
+# SharedData Build 3899622 on Fri Jun 16 03:34:24 MDT 2023
+# Start of session at: Tue Oct 29 14:39:45 2024
+# Process ID: 49181
+# Current directory: /home/mohr0901/Documents/PMC
+# Command line: vivado -mode batch -source C_RNI_VIVADO/run_all_vivado.tcl -tclargs -project_path /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/myproj -generate_bitstream 1
+# Log file: /home/mohr0901/Documents/PMC/vivado.log
+# Journal file: /home/mohr0901/Documents/PMC/vivado.jou
+# Running On: GRAMS-NSOC, OS: Linux, CPU Frequency: 3691.234 MHz, CPU Physical cores: 4, Host memory: 16721 MB
+#-----------------------------------------------------------
+source C_RNI_VIVADO/run_all_vivado.tcl
