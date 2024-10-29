@@ -29,7 +29,6 @@ def plot(data, plot_index_list):
 
 
 if __name__ == "__main__":
-
     if len(argv) == 4:
         file_path = argv[1]
         data = np.genfromtxt(file_path, delimiter=",")
