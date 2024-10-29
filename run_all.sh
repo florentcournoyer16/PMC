@@ -15,13 +15,13 @@ python3 $MODEL_PARSER_FILEPATH --model_filepath "$MODEL_FILEPATH" --tb_inputs_fi
 # -----------------------------------------
 # -----------------------------------------
 
-VITIS_ALL_FILEPATH="B_RNI_HLS/run_vitis.tcl"
-PROJECT_PATH="$(pwd)/B_RNI_HLS"
+VITIS_SCRIPT_FILEPATH="B_RNI_HLS/run_vitis.tcl"
+VITIS_PROJECT_PATH="$(pwd)/B_RNI_HLS"
 RUN_CSIM=1
 RUN_CSYNTH=1
 RUN_EXPORT=1
 
-vitis_hls $VITIS_ALL_FILEPATH -tclargs project_path $PROJECT_PATH run_csim $RUN_CSIM run_csynth $RUN_CSYNTH run_export $RUN_EXPORT
+vitis_hls $VITIS_SCRIPT_FILEPATH -tclargs project_path $PROJECT_PATH run_csim $RUN_CSIM run_csynth $RUN_CSYNTH run_export $RUN_EXPORT
 
 # -----------------------------------------
 # -----------------------------------------
@@ -37,10 +37,11 @@ python3 $INOUT_PLOTTER_FILEPATH --data_filepath "$DATA_FILEPATH" --start_index "
 # -----------------------------------------
 # -----------------------------------------
 
-VIVADO_ALL_FILEPATH="C_RNI_VIVADO/run_all_vivado.tcl"
+VIVADO_SCRIPT_FILEPATH="C_RNI_VIVADO/run_all_vivado.tcl"
+VIVADO_PROJECT_PATH="$(pwd)/C_RNI_VIVADO/Pynq_Z2/myproj"
 GEN_BITSTREAM=1
 
-vivado -mode batch $VIVADO_ALL_FILEPATH -tclargs -generate_bitstream $GEN_BITSTREAM
+vivado -mode batch -source $VIVADO_SCRIPT_FILEPATH -tclargs -project_path $VIVADO_PROJECT_PATH -generate_bitstream $GEN_BITSTREAM
 
 # -----------------------------------------
 # -----------------------------------------
