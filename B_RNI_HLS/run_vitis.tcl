@@ -10,18 +10,13 @@ foreach {arg value} $::argv {
         set run_csynth $value
     } elseif {$arg == "run_export"} {
         set run_export $value
-    } elseif {$arg == "project_path"} {
-        set project_path $value
     }
 }
 
 puts "run_csim=$run_csim"
 puts "run_csynth=$run_csynth"
 puts "run_export=$run_export"
-puts "project_path=$project_path"
 
-set current_dir [pwd]
-cd $project_path
 open_project RNI
 
 set_top RNI
@@ -40,7 +35,7 @@ set_part {xc7z020-clg400-1}
 create_clock -period 10 -name default
 config_compile -design_size_maximum_warning 1000000 -name_max_length 800 -pipeline_flush_in_task never
 config_export -flow syn -format ip_catalog -output output -rtl verilog -vivado_clock 10
-source "./RNI/solution1/directives.tcl"
+set_directive_top -name RNI "RNI"
 
 if {$run_csim} {
     puts "Running C Simulation..."
@@ -55,5 +50,3 @@ if {$run_csynth} {
 if {$run_export} {
     puts "Exporting Design..."
     export_design -flow syn -rtl verilog -format ip_catalog -output output }
-
-cd $current_dir
