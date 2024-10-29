@@ -21,8 +21,8 @@ def __append_declarations__(code_segments):
     code_segments.append("""
 void RNI(pkt_stream& in_stream, pkt_stream& out_stream);
 
-void fill_input_buffer(pkt input_buffer[TB_OUTPUTS_LENGHT]);
-void send_data_to_RNI_and_fill_output_buffer(pkt input_buffer[TB_OUTPUTS_LENGHT], pkt output_buffer[RNI_OUTPUT_LENGHT * TB_INPUTS_LENGHT]);
+void fill_input_buffer(pkt input_buffer[TB_INPUT_BUFFER_LENGHT]);
+void send_data_to_RNI_and_fill_output_buffer(pkt input_buffer[TB_INPUT_BUFFER_LENGHT], pkt output_buffer[RNI_OUTPUT_LENGHT * TB_INPUTS_LENGHT]);
 int write_data_to_csv(pkt& output_buffer);
 
 """)
@@ -36,12 +36,12 @@ def __append_main_definition__(code_segments):
 int main(void)
 {
 
-	pkt input_buffer[TB_OUTPUTS_LENGHT];
-	pkt output_buffer[RNI_OUTPUT_LENGHT * TB_INPUTS_LENGHT];
+	pkt input_buffer[TB_INPUT_BUFFER_LENGHT];
+	pkt output_buffer[TB_OUTPUT_BUFFER_LENGHT];
 
 	fill_input_buffer(input_buffer);
 
-	send_data_to_RNI_and_fill_output_buffer(input_buffer, output_buffer, input_stream, output_buffer);
+	send_data_to_RNI_and_fill_output_buffer(input_buffer, output_buffer);
 
 	return write_data_to_csv(output_buffer);
 }
@@ -73,7 +73,7 @@ void fill_input_buffer(pkt input_buffer[TB_OUTPUTS_LENGHT])
 
 def __append_send_data_to_RNI_and_fill_output_buffer_definition__(code_segments):
     code_segments.append("""
-void send_data_to_RNI_and_fill_output_buffer(pkt input_buffer[TB_OUTPUTS_LENGHT], pkt output_buffer[RNI_OUTPUT_LENGHT * TB_INPUTS_LENGHT])
+void send_data_to_RNI_and_fill_output_buffer(pkt input_buffer[TB_INPUT_BUFFER_LENGHT], pkt output_buffer[TB_OUTPUT_BUFFER_LENGHT])
 {
 	pkt_stream input_stream;
 	pkt_stream output_stream;
@@ -101,7 +101,7 @@ void send_data_to_RNI_and_fill_output_buffer(pkt input_buffer[TB_OUTPUTS_LENGHT]
 
 def __append_write_data_to_csv_definition__(code_segments):
     code_segments.append("""
-int write_data_to_csv(pkt output_buffer[RNI_OUTPUT_LENGHT * TB_INPUTS_LENGHT])
+int write_data_to_csv(pkt output_buffer[TB_OUTPUT_BUFFER_LENGHT])
 {
 	FILE* output_file = fopen(TB_OUTPUT_FILEPATH, "w");
 	if (output_file == NULL)
