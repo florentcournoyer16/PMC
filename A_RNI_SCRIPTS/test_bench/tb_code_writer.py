@@ -61,9 +61,10 @@ void fill_input_buffer(pkt input_buffer[TB_INPUT_BUFFER_LENGHT])
 		{
 			input_buffer[row * RNI_INPUT_LENGHT + col].data = TB_INPUTS[row][col];
 		}
+ 		input_buffer[row * RNI_INPUT_LENGHT + RNI_INPUT_LENGHT - 1].last = true;
 	}
 }
-       
+
 """)
 
 # -----------------------------------------------
