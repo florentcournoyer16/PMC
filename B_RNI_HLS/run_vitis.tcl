@@ -21,21 +21,23 @@ puts "run_csim=$run_csim"
 puts "run_csynth=$run_csynth"
 puts "project_path=$project_path"
 
+cd $project_path
+
 # Open project and setup files
-open_project $project_path/RNI
-set_top $project_path/RNI
-add_files $project_path/src/RNI.cpp
-add_files $project_path/inc/RNI.h
-add_files -tb $project_path/tb/RNI_tb.cpp
-add_files -tb $project_path/tb/tb_inputs.csv
-add_files -tb $project_path/tb/tb_outputs.csv
+open_project RNI
+set_top RNI
+add_files src/RNI.cpp
+add_files inc/RNI.h
+add_files -tb tb/RNI_tb.cpp
+add_files -tb tb/tb_inputs.csv
+add_files -tb tb/tb_outputs.csv
 
 # Set up solution
 open_solution "solution1" -flow_target vivado
 set_part {xc7z020-clg400-1}
 create_clock -period 10 -name default
 config_compile -design_size_maximum_warning 1000000 -name_max_length 800 -pipeline_flush_in_task never
-config_export -flow syn -format ip_catalog -output $project_path/output -rtl verilog -vivado_clock 10
+config_export -flow syn -format ip_catalog -output output -rtl verilog -vivado_clock 10
 source "./RNI/solution1/directives.tcl"
 
 # Conditional operations

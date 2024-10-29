@@ -16,12 +16,12 @@ python3 $MODEL_PARSER_FILEPATH --model_filepath "$MODEL_FILEPATH" --tb_inputs_fi
 # -----------------------------------------
 
 VITIS_ALL_FILEPATH="B_RNI_HLS/run_vitis.tcl"
-PROJECT_PATH="$pwd/B_RNI_HLS"
+PROJECT_PATH="$(pwd)/B_RNI_HLS"
 RUN_CSIM=1
 RUN_CSYNTH=1
 RUN_EXPORT=1
 
-vitis_hls $VITIS_ALL_FILEPATH -tclargs project_path $OUTPUT_PATH run_csim $RUN_CSIM run_csynth $RUN_CSYNTH run_export $RUN_EXPORT
+vitis_hls $VITIS_ALL_FILEPATH -tclargs project_path $PROJECT_PATH run_csim $RUN_CSIM run_csynth $RUN_CSYNTH run_export $RUN_EXPORT
 
 # -----------------------------------------
 # -----------------------------------------
