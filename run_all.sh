@@ -27,12 +27,12 @@ vitis_hls $VITIS_ALL_FILEPATH -tclargs project_path $PROJECT_PATH run_csim $RUN_
 # -----------------------------------------
 
 INOUT_PLOTTER_FILEPATH="A_RNI_SCRIPTS/data/run_inout_plotter.py"
-FILE_TO_PLOT_FILEPATH="B_RNI_HLS/tb/tb_outputs.csv"
+DATA_FILEPATH="B_RNI_HLS/tb/tb_outputs.csv"
 START_INDEX=1
 END_INDEX=10
 STEP_SIZE=1
 
-python3 $INOUT_PLOTTER_FILEPATH --file_path "$FILE_PATH" --start_index "$START_INDEX" --end_index "$END_INDEX" --step "$STEP_SIZE"
+python3 $INOUT_PLOTTER_FILEPATH --data_filepath "$DATA_FILEPATH" --start_index "$START_INDEX" --end_index "$END_INDEX" --step "$STEP_SIZE"
 
 # -----------------------------------------
 # -----------------------------------------

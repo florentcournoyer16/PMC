@@ -33,15 +33,15 @@ if __name__ == "__main__":
     
     argument_parser = ArgumentParser(description="Plot neuron membrane values over time.")
 
-    argument_parser.add_argument("--file_path", type=str, required=True, help="Path to the CSV file containing neuron data")
+    argument_parser.add_argument("--data_filepath", type=str, required=True, help="Path to the CSV file containing neuron data")
     argument_parser.add_argument("--start_index", type=int, required=True, help="Starting neuron index to plot")
     argument_parser.add_argument("--end_index", type=int, required=True, help="Ending neuron index to plot")
     argument_parser.add_argument("--step", type=int, default=1, help="Step size for neuron indices to plot")
     
     args = argument_parser.parse_args()
 
-    file_path = Path(args.file_path)
-    data = np.genfromtxt(file_path, delimiter=",")
+    data_filepath = Path(args.data_filepath)
+    data = np.genfromtxt(data_filepath, delimiter=",")
 
     plot_index_list = np.arange(args.start_index, args.end_index, args.step)
     plot(data, plot_index_list)
