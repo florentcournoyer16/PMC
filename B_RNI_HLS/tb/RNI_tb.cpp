@@ -1,24 +1,11 @@
-#include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
-#include "ap_axi_sdata.h"
-#include "hls_stream.h"
-
-
-#define PKT_SIZE 32
-typedef ap_axis<PKT_SIZE, 2, 5, 6> pkt;
-typedef hls::stream<pkt> pkt_stream;
-
-#define MEMBRANE_TYPE_LENGHT_TB 16
-#define MEMBRANE_TYPE_TB ap_int< MEMBRANE_TYPE_LENGHT_TB >
-#define INPUT_LENGHT 4
-#define OUTPUT_LAYER_LENGHTT 248
-#define WINDOW_LENGHT 128
-#define INPUT_FILENAME "tb_inputs.csv"
-#define OUTPUT_FILENAME "tb_outputs.csv"
+#include "../inc/RNI_tb.h"
 
 
 void RNI(pkt_stream& in_stream, pkt_stream& out_stream);
+
+void fill_input_buffer(pkt& input_buffer);
+void send_data_to_RNI_and_fill_output_buffer(pkt& input_buffer, pkt& output_buffer, pkt_stream& input_stream, pkt_stream& output_stream);
+int write_data_to_csv(pkt& output_buffer);
 
 
 int main(void)
@@ -26,109 +13,63 @@ int main(void)
 	pkt_stream input_stream;
 	pkt_stream output_stream;
 
-	// ------------------------------------------------------------
-	// READ FILE INTO INPUT BUFF
-	// ------------------------------------------------------------
+	pkt input_buffer[RNI_INPUT_LENGHT*TB_INPUTS_LENGHT];
+	pkt output_buffer[RNI_OUTPUT_LENGHT];
 
-	pkt input_buffer[WINDOW_LENGHT*INPUT_LENGHT];
-	pkt output_buffer[WINDOW_LENGHT*OUTPUT_LAYER_LENGHTT];
+	fill_input_buffer(input_buffer);
 
-	FILE* input_file = fopen(INPUT_FILENAME, "r");
-    if (input_file == NULL) {
-        printf("Error opening file.");
-        return -1;
-    }
-    int row = 0;
-	int col = 0;
-	char c = fgetc(input_file);
-	while((c != EOF) && (row < WINDOW_LENGHT)) {
-		col = 0;
-		while (col < INPUT_LENGHT) {
-			//printf(&c);
-			if(c == '1'){
-				input_buffer[INPUT_LENGHT*row + col].last = false;
-				input_buffer[INPUT_LENGHT*row + col].data = 1;
-			}
-			else if(c == '0') {
-				input_buffer[INPUT_LENGHT*row + col].last = false;
-				input_buffer[INPUT_LENGHT*row + col].data = 0;
-			}
-			else if(c == ','){
-				col++;
-			}
-			if (col == INPUT_LENGHT - 1) {
-				c = fgetc(input_file);
-				//printf(&c);
-				if(c == '1') {
-					input_buffer[INPUT_LENGHT*row + col].last = true;
-					input_buffer[INPUT_LENGHT*row + col].data = 1;
-				}
+	send_data_to_RNI_and_fill_output_buffer(input_buffer, output_buffer, input_stream, output_buffer);
 
-				else if(c == '0') {
-					input_buffer[INPUT_LENGHT*row + col].last = true;
-					input_buffer[INPUT_LENGHT*row + col].data = 0;
-				}
-				col++;
-			}
-			c = fgetc(input_file);
-		}
-		row++;
-	 }
-	 fclose(input_file);
+	return write_data_to_csv(output_buffer);
+}
+                     
 
-	// std::cout << "csv file inputs: " << std::endl;
-	// for (int row = 0; row < WINDOW_LENGHT; row++) {
-	// 	printBinary(input_buffer[row].data.to_char());
-	// }
-	// input_buffer[WINDOW_LENGHT-1].last = true;
-	// std::cout << std::endl;
-
-	// ------------------------------------------------------------
-	// SEND INPUT DATA TO RNI
-	// ------------------------------------------------------------
-	for (int row = 0; row < WINDOW_LENGHT; row++){
-		
-		for(int col = 0; col < INPUT_LENGHT; col++){
-			input_stream.write(input_buffer[row*INPUT_LENGHT+col]);
+void send_data_to_RNI_and_fill_output_buffer(pkt& input_buffer, pkt& output_buffer, pkt_stream& input_stream, pkt_stream& output_stream)
+{
+	for (int row = 0; row < WINDOW_LENGHT; row++)
+	{
+		for(int col = 0; col < INPUT_LAYER_LENGHTT; col++)
+		{
+			input_stream.write(input_buffer[row*INPUT_LAYER_LENGHTT+col]);
 		}
 
 		RNI(input_stream, output_stream);
 
-		for(int col = 0; col < OUTPUT_LAYER_LENGHTT; col++){
+		for(int col = 0; col < OUTPUT_LAYER_LENGHTT; col++)
+		{
 			output_stream.read(output_buffer[row*OUTPUT_LAYER_LENGHTT+col]);
 		}
 	}
+}
+    
 
-	 //std::cout << "RNI outputs: " << std::endl;
-	 //for (int row = 0; row < WINDOW_LENGHT; row++)
-	 //	printBinary(output_buffer[row].data.to_char());
-	 //std::cout << std::endl;
+int write_data_to_csv(pkt& output_buffer)
+{
+	FILE* output_file = fopen(OUTPUT_FILEPATH, "w");
+	if (output_file == NULL)
+	{
+		printf("Error opening file.");
+		return -1;
+	}
 
-	 FILE* output_file = fopen(OUTPUT_FILENAME, "w");
-     if (output_file == NULL) {
-         printf("Error opening file.");
-         return -1;
-     }
-     row = 0;
-	 col = 0;
-	 int nxt_int;
-	 while (row < WINDOW_LENGHT) {
-	 	col = 0;
-	 	while (col < OUTPUT_LAYER_LENGHTT) {
-			nxt_int = output_buffer[row*OUTPUT_LAYER_LENGHTT+col].data;
-			std::string str_batard = std::to_string(nxt_int);
-	 		fwrite(str_batard.c_str(), sizeof(char), strlen(str_batard.c_str()), output_file);
-	 		if (col < OUTPUT_LAYER_LENGHTT-1)
-	 			fwrite(",", sizeof(char), 1, output_file);
-	 		else
-	 			fwrite("\n", sizeof(char), 1, output_file);
-
-	 		col++;
-	 	}
-	 	row++;
-     }
-	 fclose(output_file);
+	int current_val_int;
+	for (int row = 0; row < TB_INPUTS_LENGHT; row++)
+	{
+		for (int col = 0; col < RNI_OUTPUT_LENGHT; col++)
+		{
+			current_val_int = output_buffer[row * RNI_OUTPUT_LENGHT + col].data;
+			char* current_val_str = std::to_string(current_val_int).c_str();
+			fwrite(current_val_str, sizeof(char), strlen(str_batard), output_file);
+			if (col < RNI_OUTPUT_LENGHT - 1)
+			{
+				fwrite(",", sizeof(char), 1, output_file);
+			}
+		}
+		fwrite("
+", sizeof(char), 1, output_file);
+	}
+	fclose(output_file);
 
 	return 0;
-}     
-                     
+}
+           

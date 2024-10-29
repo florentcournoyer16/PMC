@@ -8,6 +8,7 @@ open_project RNI
 set_top RNI
 add_files src/RNI.cpp
 add_files inc/RNI.h
+add_files -tb tb/RNI_tb.h
 add_files -tb tb/RNI_tb.cpp
 add_files -tb tb/tb_inputs.csv
 add_files -tb tb/tb_outputs.csv
