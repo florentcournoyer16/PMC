@@ -126,7 +126,6 @@ set rc [catch {
   set_param runs.launchOptions { -jobs 4  }
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7z020clg400-1
-  set_property board_part_repo_paths {/home/mohr0901/Downloads/pynq-z2/A.0} [current_project]
   set_property board_part tul.com.tw:pynq-z2:part0:1.0 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0

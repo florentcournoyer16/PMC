@@ -3,16 +3,16 @@
 # SW Build 3900603 on Fri Jun 16 19:30:25 MDT 2023
 # IP Build 3900379 on Sat Jun 17 05:28:05 MDT 2023
 # SharedData Build 3899622 on Fri Jun 16 03:34:24 MDT 2023
-# Start of session at: Mon Oct 28 19:38:22 2024
-# Process ID: 111462
+# Start of session at: Tue Oct 29 15:36:30 2024
+# Process ID: 66458
 # Current directory: /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_example_0_0_synth_1
 # Command line: vivado -log base_example_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source base_example_0_0.tcl
 # Log file: /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_example_0_0_synth_1/base_example_0_0.vds
 # Journal file: /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_example_0_0_synth_1/vivado.jou
-# Running On: GRAMS-NSOC, OS: Linux, CPU Frequency: 3835.498 MHz, CPU Physical cores: 4, Host memory: 16721 MB
+# Running On: GRAMS-NSOC, OS: Linux, CPU Frequency: 1600.000 MHz, CPU Physical cores: 4, Host memory: 16721 MB
 #-----------------------------------------------------------
 source base_example_0_0.tcl -notrace
-create_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1329.695 ; gain = 0.023 ; free physical = 2317 ; free virtual = 8149
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1331.695 ; gain = 0.023 ; free physical = 5405 ; free virtual = 10957
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/mohr0901/Documents/PMC/B_RNI_HLS/output/export'.
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/mohr0901/Documents/PMC/C_RNI_VIVADO/ip'.
@@ -25,142 +25,142 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020
 INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 111598
+INFO: [Synth 8-7075] Helper process launched with PID 66680
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2043.090 ; gain = 377.801 ; free physical = 1508 ; free virtual = 7345
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2041.027 ; gain = 377.770 ; free physical = 3759 ; free virtual = 9308
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'base_example_0_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_example_0_0/synth/base_example_0_0.v:53]
-INFO: [Synth 8-6157] synthesizing module 'RNI' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W.v:7]
-INFO: [Synth 8-3876] $readmem data file './RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W.dat' is read successfully [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W.v:31]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W.v:7]
-INFO: [Synth 8-6157] synthesizing module 'RNI_WEIGHTS_INDEX_ROM_AUTO_1R' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_WEIGHTS_INDEX_ROM_AUTO_1R.v:7]
-INFO: [Synth 8-3876] $readmem data file './RNI_WEIGHTS_INDEX_ROM_AUTO_1R.dat' is read successfully [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_WEIGHTS_INDEX_ROM_AUTO_1R.v:33]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_WEIGHTS_INDEX_ROM_AUTO_1R' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_WEIGHTS_INDEX_ROM_AUTO_1R.v:7]
-INFO: [Synth 8-6157] synthesizing module 'RNI_NEURONS_STATE_RAM_AUTO_1R1W' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_NEURONS_STATE_RAM_AUTO_1R1W.v:7]
-INFO: [Synth 8-3876] $readmem data file './RNI_NEURONS_STATE_RAM_AUTO_1R1W.dat' is read successfully [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_NEURONS_STATE_RAM_AUTO_1R1W.v:31]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_NEURONS_STATE_RAM_AUTO_1R1W' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_NEURONS_STATE_RAM_AUTO_1R1W.v:7]
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI.v:494]
-INFO: [Synth 8-6157] synthesizing module 'RNI_out_pkts_data_RAM_AUTO_0R0W' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_out_pkts_data_RAM_AUTO_0R0W.v:7]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_out_pkts_data_RAM_AUTO_0R0W' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_out_pkts_data_RAM_AUTO_0R0W.v:7]
-INFO: [Synth 8-6157] synthesizing module 'RNI_out_pkts_keep_RAM_AUTO_1R1W' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_out_pkts_keep_RAM_AUTO_1R1W.v:7]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_out_pkts_keep_RAM_AUTO_1R1W' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_out_pkts_keep_RAM_AUTO_1R1W.v:7]
-INFO: [Synth 8-6157] synthesizing module 'RNI_out_pkts_user_RAM_AUTO_1R1W' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_out_pkts_user_RAM_AUTO_1R1W.v:7]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_out_pkts_user_RAM_AUTO_1R1W' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_out_pkts_user_RAM_AUTO_1R1W.v:7]
-INFO: [Synth 8-6157] synthesizing module 'RNI_out_pkts_last_RAM_AUTO_1R1W' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_out_pkts_last_RAM_AUTO_1R1W.v:7]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_out_pkts_last_RAM_AUTO_1R1W' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_out_pkts_last_RAM_AUTO_1R1W.v:7]
-INFO: [Synth 8-6157] synthesizing module 'RNI_out_pkts_id_RAM_AUTO_1R1W' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_out_pkts_id_RAM_AUTO_1R1W.v:7]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_out_pkts_id_RAM_AUTO_1R1W' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_out_pkts_id_RAM_AUTO_1R1W.v:7]
-INFO: [Synth 8-6157] synthesizing module 'RNI_out_pkts_dest_RAM_AUTO_1R1W' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_out_pkts_dest_RAM_AUTO_1R1W.v:7]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_out_pkts_dest_RAM_AUTO_1R1W' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_out_pkts_dest_RAM_AUTO_1R1W.v:7]
-INFO: [Synth 8-6157] synthesizing module 'RNI_input_layer' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_input_layer.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_input_layer_Pipeline_NEURON_LEAK_LOOP' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_input_layer_Pipeline_NEURON_LEAK_LOOP.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_mul_2ns_67ns_67_5_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_mul_2ns_67ns_67_5_1.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_mul_2ns_67ns_67_5_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_mul_2ns_67ns_67_5_1.v:5]
-INFO: [Synth 8-6157] synthesizing module 'RNI_sdiv_17s_31ns_16_21_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:74]
-INFO: [Synth 8-6157] synthesizing module 'RNI_sdiv_17s_31ns_16_21_1_divider' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:8]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_sdiv_17s_31ns_16_21_1_divider' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:8]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_sdiv_17s_31ns_16_21_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:74]
-INFO: [Synth 8-6157] synthesizing module 'RNI_flow_control_loop_pipe_sequential_init' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_flow_control_loop_pipe_sequential_init.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_flow_control_loop_pipe_sequential_init' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_flow_control_loop_pipe_sequential_init.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_input_layer_Pipeline_NEURON_LEAK_LOOP' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_input_layer_Pipeline_NEURON_LEAK_LOOP.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_input_layer_Pipeline_WEIGHTS_LOOP_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_input_layer_Pipeline_WEIGHTS_LOOP_0.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_input_layer_Pipeline_WEIGHTS_LOOP_0_WEIGHTS_ROM_AUTO_1R' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_input_layer_Pipeline_WEIGHTS_LOOP_0_WEIGHTS_ROM_AUTO_1R.v:7]
-INFO: [Synth 8-3876] $readmem data file './RNI_input_layer_Pipeline_WEIGHTS_LOOP_0_WEIGHTS_ROM_AUTO_1R.dat' is read successfully [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_input_layer_Pipeline_WEIGHTS_LOOP_0_WEIGHTS_ROM_AUTO_1R.v:28]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_input_layer_Pipeline_WEIGHTS_LOOP_0_WEIGHTS_ROM_AUTO_1R' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_input_layer_Pipeline_WEIGHTS_LOOP_0_WEIGHTS_ROM_AUTO_1R.v:7]
-INFO: [Synth 8-6157] synthesizing module 'RNI_mux_4_2_16_1_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_mux_4_2_16_1_1.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_mux_4_2_16_1_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_mux_4_2_16_1_1.v:11]
-INFO: [Synth 8-6157] synthesizing module 'RNI_mac_muladd_16s_8s_16ns_16_4_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v:49]
-INFO: [Synth 8-6157] synthesizing module 'RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v:10]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v:10]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_mac_muladd_16s_8s_16ns_16_4_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v:49]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_input_layer_Pipeline_WEIGHTS_LOOP_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_input_layer_Pipeline_WEIGHTS_LOOP_0.v:9]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_input_layer' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_input_layer.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_inner_layer_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_1.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_inner_layer_1_Pipeline_NEURONS_STATE_RESET_LOOP' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_1_Pipeline_NEURONS_STATE_RESET_LOOP.v:9]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_inner_layer_1_Pipeline_NEURONS_STATE_RESET_LOOP' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_1_Pipeline_NEURONS_STATE_RESET_LOOP.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_inner_layer_1_Pipeline_NEURON_LEAK_LOOP' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_1_Pipeline_NEURON_LEAK_LOOP.v:9]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_inner_layer_1_Pipeline_NEURON_LEAK_LOOP' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_1_Pipeline_NEURON_LEAK_LOOP.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_inner_layer_1_Pipeline_WEIGHTS_LOOP_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_1_Pipeline_WEIGHTS_LOOP_1.v:9]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_inner_layer_1_Pipeline_WEIGHTS_LOOP_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_1_Pipeline_WEIGHTS_LOOP_1.v:9]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_inner_layer_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_1.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_inner_layer_2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_2.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_inner_layer_2_Pipeline_NEURONS_STATE_RESET_LOOP' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_2_Pipeline_NEURONS_STATE_RESET_LOOP.v:9]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_inner_layer_2_Pipeline_NEURONS_STATE_RESET_LOOP' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_2_Pipeline_NEURONS_STATE_RESET_LOOP.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_inner_layer_2_Pipeline_NEURON_LEAK_LOOP' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_2_Pipeline_NEURON_LEAK_LOOP.v:9]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_inner_layer_2_Pipeline_NEURON_LEAK_LOOP' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_2_Pipeline_NEURON_LEAK_LOOP.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_inner_layer_2_Pipeline_WEIGHTS_LOOP_2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_2_Pipeline_WEIGHTS_LOOP_2.v:9]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_inner_layer_2_Pipeline_WEIGHTS_LOOP_2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_2_Pipeline_WEIGHTS_LOOP_2.v:9]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_inner_layer_2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_2.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_inner_layer_3' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_3.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_inner_layer_3_Pipeline_NEURONS_STATE_RESET_LOOP' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_3_Pipeline_NEURONS_STATE_RESET_LOOP.v:9]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_inner_layer_3_Pipeline_NEURONS_STATE_RESET_LOOP' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_3_Pipeline_NEURONS_STATE_RESET_LOOP.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_inner_layer_3_Pipeline_NEURON_LEAK_LOOP' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_3_Pipeline_NEURON_LEAK_LOOP.v:9]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_inner_layer_3_Pipeline_NEURON_LEAK_LOOP' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_3_Pipeline_NEURON_LEAK_LOOP.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_inner_layer_3_Pipeline_WEIGHTS_LOOP_3' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_3_Pipeline_WEIGHTS_LOOP_3.v:9]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_inner_layer_3_Pipeline_WEIGHTS_LOOP_3' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_3_Pipeline_WEIGHTS_LOOP_3.v:9]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_inner_layer_3' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_3.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_output_layer' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_output_layer.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_output_layer_Pipeline_NEURONS_STATE_RESET_LOOP' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_output_layer_Pipeline_NEURONS_STATE_RESET_LOOP.v:9]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_output_layer_Pipeline_NEURONS_STATE_RESET_LOOP' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_output_layer_Pipeline_NEURONS_STATE_RESET_LOOP.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_output_layer_Pipeline_WEIGHTS_LOOP_4' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_output_layer_Pipeline_WEIGHTS_LOOP_4.v:9]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_output_layer_Pipeline_WEIGHTS_LOOP_4' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_output_layer_Pipeline_WEIGHTS_LOOP_4.v:9]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_output_layer' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_output_layer.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_output_stream_dispatch' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_output_stream_dispatch.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_output_stream_dispatch_Pipeline_VITIS_LOOP_197_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_output_stream_dispatch_Pipeline_VITIS_LOOP_197_1.v:9]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_output_stream_dispatch_Pipeline_VITIS_LOOP_197_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_output_stream_dispatch_Pipeline_VITIS_LOOP_197_1.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_output_stream_dispatch_Pipeline_VITIS_LOOP_204_2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_output_stream_dispatch_Pipeline_VITIS_LOOP_204_2.v:9]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_output_stream_dispatch_Pipeline_VITIS_LOOP_204_2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_output_stream_dispatch_Pipeline_VITIS_LOOP_204_2.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_output_stream_dispatch_Pipeline_NEURONS_STATE_RESET_LOOP' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_output_stream_dispatch_Pipeline_NEURONS_STATE_RESET_LOOP.v:9]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_output_stream_dispatch_Pipeline_NEURONS_STATE_RESET_LOOP' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_output_stream_dispatch_Pipeline_NEURONS_STATE_RESET_LOOP.v:9]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_output_stream_dispatch' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_output_stream_dispatch.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_exp_core_32_32_66_s' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_exp_core_32_32_66_s_f_x_msb_4_table_ROM_AUTO_1R' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_4_table_ROM_AUTO_1R.v:7]
-INFO: [Synth 8-3876] $readmem data file './RNI_exp_core_32_32_66_s_f_x_msb_4_table_ROM_AUTO_1R.dat' is read successfully [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_4_table_ROM_AUTO_1R.v:28]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_exp_core_32_32_66_s_f_x_msb_4_table_ROM_AUTO_1R' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_4_table_ROM_AUTO_1R.v:7]
-INFO: [Synth 8-6157] synthesizing module 'RNI_exp_core_32_32_66_s_f_x_msb_5_table_ROM_AUTO_1R' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_5_table_ROM_AUTO_1R.v:7]
-INFO: [Synth 8-3876] $readmem data file './RNI_exp_core_32_32_66_s_f_x_msb_5_table_ROM_AUTO_1R.dat' is read successfully [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_5_table_ROM_AUTO_1R.v:28]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_exp_core_32_32_66_s_f_x_msb_5_table_ROM_AUTO_1R' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_5_table_ROM_AUTO_1R.v:7]
-INFO: [Synth 8-6157] synthesizing module 'RNI_exp_core_32_32_66_s_f_x_msb_3_table_ROM_AUTO_1R' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_3_table_ROM_AUTO_1R.v:7]
-INFO: [Synth 8-3876] $readmem data file './RNI_exp_core_32_32_66_s_f_x_msb_3_table_ROM_AUTO_1R.dat' is read successfully [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_3_table_ROM_AUTO_1R.v:28]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_exp_core_32_32_66_s_f_x_msb_3_table_ROM_AUTO_1R' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_3_table_ROM_AUTO_1R.v:7]
-INFO: [Synth 8-6157] synthesizing module 'RNI_exp_core_32_32_66_s_f_x_msb_2_table_ROM_AUTO_1R' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_2_table_ROM_AUTO_1R.v:7]
-INFO: [Synth 8-3876] $readmem data file './RNI_exp_core_32_32_66_s_f_x_msb_2_table_ROM_AUTO_1R.dat' is read successfully [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_2_table_ROM_AUTO_1R.v:28]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_exp_core_32_32_66_s_f_x_msb_2_table_ROM_AUTO_1R' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_2_table_ROM_AUTO_1R.v:7]
-INFO: [Synth 8-6157] synthesizing module 'RNI_exp_core_32_32_66_s_exp_x_msb_1_table_ROM_AUTO_1R' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s_exp_x_msb_1_table_ROM_AUTO_1R.v:7]
-INFO: [Synth 8-3876] $readmem data file './RNI_exp_core_32_32_66_s_exp_x_msb_1_table_ROM_AUTO_1R.dat' is read successfully [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s_exp_x_msb_1_table_ROM_AUTO_1R.v:28]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_exp_core_32_32_66_s_exp_x_msb_1_table_ROM_AUTO_1R' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s_exp_x_msb_1_table_ROM_AUTO_1R.v:7]
-INFO: [Synth 8-6157] synthesizing module 'RNI_mul_32ns_8ns_40_2_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_mul_32ns_8ns_40_2_1.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_mul_32ns_8ns_40_2_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_mul_32ns_8ns_40_2_1.v:5]
-INFO: [Synth 8-6157] synthesizing module 'RNI_mul_51ns_50ns_101_5_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_mul_51ns_50ns_101_5_1.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_mul_51ns_50ns_101_5_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_mul_51ns_50ns_101_5_1.v:5]
-INFO: [Synth 8-6157] synthesizing module 'RNI_mul_67ns_63ns_130_5_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_mul_67ns_63ns_130_5_1.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_mul_67ns_63ns_130_5_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_mul_67ns_63ns_130_5_1.v:5]
-INFO: [Synth 8-6157] synthesizing module 'RNI_mul_72ns_68ns_140_5_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_mul_72ns_68ns_140_5_1.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_mul_72ns_68ns_140_5_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_mul_72ns_68ns_140_5_1.v:5]
-INFO: [Synth 8-6157] synthesizing module 'RNI_mul_25ns_8ns_33_1_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_mul_25ns_8ns_33_1_1.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_mul_25ns_8ns_33_1_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_mul_25ns_8ns_33_1_1.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_exp_core_32_32_66_s' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_ctrl_s_axi' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_ctrl_s_axi.v:9]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_ctrl_s_axi.v:195]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_ctrl_s_axi' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_ctrl_s_axi.v:9]
-INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_regslice_both.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_regslice_both.v:11]
-INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both__parameterized0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_regslice_both.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both__parameterized0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_regslice_both.v:11]
-INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both__parameterized1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_regslice_both.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both__parameterized1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_regslice_both.v:11]
-INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both__parameterized2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_regslice_both.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both__parameterized2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_regslice_both.v:11]
-INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both__parameterized3' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_regslice_both.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both__parameterized3' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_regslice_both.v:11]
-INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both__parameterized4' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_regslice_both.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both__parameterized4' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_regslice_both.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'RNI' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-3876] $readmem data file './RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W.dat' is read successfully [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W.v:31]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6157] synthesizing module 'RNI_WEIGHTS_INDEX_ROM_AUTO_1R' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_WEIGHTS_INDEX_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-3876] $readmem data file './RNI_WEIGHTS_INDEX_ROM_AUTO_1R.dat' is read successfully [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_WEIGHTS_INDEX_ROM_AUTO_1R.v:33]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_WEIGHTS_INDEX_ROM_AUTO_1R' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_WEIGHTS_INDEX_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-6157] synthesizing module 'RNI_NEURONS_STATE_RAM_AUTO_1R1W' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_NEURONS_STATE_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-3876] $readmem data file './RNI_NEURONS_STATE_RAM_AUTO_1R1W.dat' is read successfully [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_NEURONS_STATE_RAM_AUTO_1R1W.v:31]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_NEURONS_STATE_RAM_AUTO_1R1W' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_NEURONS_STATE_RAM_AUTO_1R1W.v:7]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI.v:494]
+INFO: [Synth 8-6157] synthesizing module 'RNI_out_pkts_data_RAM_AUTO_0R0W' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_out_pkts_data_RAM_AUTO_0R0W.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_out_pkts_data_RAM_AUTO_0R0W' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_out_pkts_data_RAM_AUTO_0R0W.v:7]
+INFO: [Synth 8-6157] synthesizing module 'RNI_out_pkts_keep_RAM_AUTO_1R1W' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_out_pkts_keep_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_out_pkts_keep_RAM_AUTO_1R1W' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_out_pkts_keep_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6157] synthesizing module 'RNI_out_pkts_user_RAM_AUTO_1R1W' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_out_pkts_user_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_out_pkts_user_RAM_AUTO_1R1W' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_out_pkts_user_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6157] synthesizing module 'RNI_out_pkts_last_RAM_AUTO_1R1W' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_out_pkts_last_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_out_pkts_last_RAM_AUTO_1R1W' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_out_pkts_last_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6157] synthesizing module 'RNI_out_pkts_id_RAM_AUTO_1R1W' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_out_pkts_id_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_out_pkts_id_RAM_AUTO_1R1W' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_out_pkts_id_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6157] synthesizing module 'RNI_out_pkts_dest_RAM_AUTO_1R1W' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_out_pkts_dest_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_out_pkts_dest_RAM_AUTO_1R1W' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_out_pkts_dest_RAM_AUTO_1R1W.v:7]
+INFO: [Synth 8-6157] synthesizing module 'RNI_input_layer' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_input_layer.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_input_layer_Pipeline_NEURON_LEAK_LOOP' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_input_layer_Pipeline_NEURON_LEAK_LOOP.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_mul_2ns_67ns_67_5_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_mul_2ns_67ns_67_5_1.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_mul_2ns_67ns_67_5_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_mul_2ns_67ns_67_5_1.v:5]
+INFO: [Synth 8-6157] synthesizing module 'RNI_sdiv_17s_31ns_16_21_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:74]
+INFO: [Synth 8-6157] synthesizing module 'RNI_sdiv_17s_31ns_16_21_1_divider' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_sdiv_17s_31ns_16_21_1_divider' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_sdiv_17s_31ns_16_21_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:74]
+INFO: [Synth 8-6157] synthesizing module 'RNI_flow_control_loop_pipe_sequential_init' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_flow_control_loop_pipe_sequential_init.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_flow_control_loop_pipe_sequential_init' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_flow_control_loop_pipe_sequential_init.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_input_layer_Pipeline_NEURON_LEAK_LOOP' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_input_layer_Pipeline_NEURON_LEAK_LOOP.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_input_layer_Pipeline_WEIGHTS_LOOP_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_input_layer_Pipeline_WEIGHTS_LOOP_0.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_input_layer_Pipeline_WEIGHTS_LOOP_0_WEIGHTS_ROM_AUTO_1R' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_input_layer_Pipeline_WEIGHTS_LOOP_0_WEIGHTS_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-3876] $readmem data file './RNI_input_layer_Pipeline_WEIGHTS_LOOP_0_WEIGHTS_ROM_AUTO_1R.dat' is read successfully [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_input_layer_Pipeline_WEIGHTS_LOOP_0_WEIGHTS_ROM_AUTO_1R.v:28]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_input_layer_Pipeline_WEIGHTS_LOOP_0_WEIGHTS_ROM_AUTO_1R' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_input_layer_Pipeline_WEIGHTS_LOOP_0_WEIGHTS_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-6157] synthesizing module 'RNI_mux_4_2_16_1_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_mux_4_2_16_1_1.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_mux_4_2_16_1_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_mux_4_2_16_1_1.v:11]
+INFO: [Synth 8-6157] synthesizing module 'RNI_mac_muladd_16s_8s_16ns_16_4_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v:49]
+INFO: [Synth 8-6157] synthesizing module 'RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_mac_muladd_16s_8s_16ns_16_4_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v:49]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_input_layer_Pipeline_WEIGHTS_LOOP_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_input_layer_Pipeline_WEIGHTS_LOOP_0.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_input_layer' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_input_layer.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_inner_layer_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_inner_layer_1_Pipeline_NEURONS_STATE_RESET_LOOP' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_1_Pipeline_NEURONS_STATE_RESET_LOOP.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_inner_layer_1_Pipeline_NEURONS_STATE_RESET_LOOP' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_1_Pipeline_NEURONS_STATE_RESET_LOOP.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_inner_layer_1_Pipeline_NEURON_LEAK_LOOP' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_1_Pipeline_NEURON_LEAK_LOOP.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_inner_layer_1_Pipeline_NEURON_LEAK_LOOP' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_1_Pipeline_NEURON_LEAK_LOOP.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_inner_layer_1_Pipeline_WEIGHTS_LOOP_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_1_Pipeline_WEIGHTS_LOOP_1.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_inner_layer_1_Pipeline_WEIGHTS_LOOP_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_1_Pipeline_WEIGHTS_LOOP_1.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_inner_layer_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_inner_layer_2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_2.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_inner_layer_2_Pipeline_NEURONS_STATE_RESET_LOOP' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_2_Pipeline_NEURONS_STATE_RESET_LOOP.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_inner_layer_2_Pipeline_NEURONS_STATE_RESET_LOOP' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_2_Pipeline_NEURONS_STATE_RESET_LOOP.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_inner_layer_2_Pipeline_NEURON_LEAK_LOOP' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_2_Pipeline_NEURON_LEAK_LOOP.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_inner_layer_2_Pipeline_NEURON_LEAK_LOOP' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_2_Pipeline_NEURON_LEAK_LOOP.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_inner_layer_2_Pipeline_WEIGHTS_LOOP_2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_2_Pipeline_WEIGHTS_LOOP_2.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_inner_layer_2_Pipeline_WEIGHTS_LOOP_2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_2_Pipeline_WEIGHTS_LOOP_2.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_inner_layer_2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_2.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_inner_layer_3' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_3.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_inner_layer_3_Pipeline_NEURONS_STATE_RESET_LOOP' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_3_Pipeline_NEURONS_STATE_RESET_LOOP.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_inner_layer_3_Pipeline_NEURONS_STATE_RESET_LOOP' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_3_Pipeline_NEURONS_STATE_RESET_LOOP.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_inner_layer_3_Pipeline_NEURON_LEAK_LOOP' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_3_Pipeline_NEURON_LEAK_LOOP.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_inner_layer_3_Pipeline_NEURON_LEAK_LOOP' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_3_Pipeline_NEURON_LEAK_LOOP.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_inner_layer_3_Pipeline_WEIGHTS_LOOP_3' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_3_Pipeline_WEIGHTS_LOOP_3.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_inner_layer_3_Pipeline_WEIGHTS_LOOP_3' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_3_Pipeline_WEIGHTS_LOOP_3.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_inner_layer_3' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_3.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_output_layer' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_output_layer.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_output_layer_Pipeline_NEURONS_STATE_RESET_LOOP' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_output_layer_Pipeline_NEURONS_STATE_RESET_LOOP.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_output_layer_Pipeline_NEURONS_STATE_RESET_LOOP' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_output_layer_Pipeline_NEURONS_STATE_RESET_LOOP.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_output_layer_Pipeline_WEIGHTS_LOOP_4' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_output_layer_Pipeline_WEIGHTS_LOOP_4.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_output_layer_Pipeline_WEIGHTS_LOOP_4' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_output_layer_Pipeline_WEIGHTS_LOOP_4.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_output_layer' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_output_layer.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_output_stream_dispatch' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_output_stream_dispatch.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_output_stream_dispatch_Pipeline_VITIS_LOOP_213_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_output_stream_dispatch_Pipeline_VITIS_LOOP_213_1.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_output_stream_dispatch_Pipeline_VITIS_LOOP_213_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_output_stream_dispatch_Pipeline_VITIS_LOOP_213_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_output_stream_dispatch_Pipeline_VITIS_LOOP_220_2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_output_stream_dispatch_Pipeline_VITIS_LOOP_220_2.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_output_stream_dispatch_Pipeline_VITIS_LOOP_220_2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_output_stream_dispatch_Pipeline_VITIS_LOOP_220_2.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_output_stream_dispatch_Pipeline_NEURONS_STATE_RESET_LOOP' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_output_stream_dispatch_Pipeline_NEURONS_STATE_RESET_LOOP.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_output_stream_dispatch_Pipeline_NEURONS_STATE_RESET_LOOP' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_output_stream_dispatch_Pipeline_NEURONS_STATE_RESET_LOOP.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_output_stream_dispatch' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_output_stream_dispatch.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_exp_core_32_32_66_s' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_exp_core_32_32_66_s_f_x_msb_4_table_ROM_AUTO_1R' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_4_table_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-3876] $readmem data file './RNI_exp_core_32_32_66_s_f_x_msb_4_table_ROM_AUTO_1R.dat' is read successfully [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_4_table_ROM_AUTO_1R.v:28]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_exp_core_32_32_66_s_f_x_msb_4_table_ROM_AUTO_1R' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_4_table_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-6157] synthesizing module 'RNI_exp_core_32_32_66_s_f_x_msb_5_table_ROM_AUTO_1R' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_5_table_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-3876] $readmem data file './RNI_exp_core_32_32_66_s_f_x_msb_5_table_ROM_AUTO_1R.dat' is read successfully [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_5_table_ROM_AUTO_1R.v:28]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_exp_core_32_32_66_s_f_x_msb_5_table_ROM_AUTO_1R' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_5_table_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-6157] synthesizing module 'RNI_exp_core_32_32_66_s_f_x_msb_3_table_ROM_AUTO_1R' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_3_table_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-3876] $readmem data file './RNI_exp_core_32_32_66_s_f_x_msb_3_table_ROM_AUTO_1R.dat' is read successfully [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_3_table_ROM_AUTO_1R.v:28]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_exp_core_32_32_66_s_f_x_msb_3_table_ROM_AUTO_1R' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_3_table_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-6157] synthesizing module 'RNI_exp_core_32_32_66_s_f_x_msb_2_table_ROM_AUTO_1R' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_2_table_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-3876] $readmem data file './RNI_exp_core_32_32_66_s_f_x_msb_2_table_ROM_AUTO_1R.dat' is read successfully [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_2_table_ROM_AUTO_1R.v:28]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_exp_core_32_32_66_s_f_x_msb_2_table_ROM_AUTO_1R' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_2_table_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-6157] synthesizing module 'RNI_exp_core_32_32_66_s_exp_x_msb_1_table_ROM_AUTO_1R' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s_exp_x_msb_1_table_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-3876] $readmem data file './RNI_exp_core_32_32_66_s_exp_x_msb_1_table_ROM_AUTO_1R.dat' is read successfully [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s_exp_x_msb_1_table_ROM_AUTO_1R.v:28]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_exp_core_32_32_66_s_exp_x_msb_1_table_ROM_AUTO_1R' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s_exp_x_msb_1_table_ROM_AUTO_1R.v:7]
+INFO: [Synth 8-6157] synthesizing module 'RNI_mul_32ns_8ns_40_2_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_mul_32ns_8ns_40_2_1.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_mul_32ns_8ns_40_2_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_mul_32ns_8ns_40_2_1.v:5]
+INFO: [Synth 8-6157] synthesizing module 'RNI_mul_51ns_50ns_101_5_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_mul_51ns_50ns_101_5_1.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_mul_51ns_50ns_101_5_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_mul_51ns_50ns_101_5_1.v:5]
+INFO: [Synth 8-6157] synthesizing module 'RNI_mul_67ns_63ns_130_5_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_mul_67ns_63ns_130_5_1.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_mul_67ns_63ns_130_5_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_mul_67ns_63ns_130_5_1.v:5]
+INFO: [Synth 8-6157] synthesizing module 'RNI_mul_72ns_68ns_140_5_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_mul_72ns_68ns_140_5_1.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_mul_72ns_68ns_140_5_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_mul_72ns_68ns_140_5_1.v:5]
+INFO: [Synth 8-6157] synthesizing module 'RNI_mul_25ns_8ns_33_1_1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_mul_25ns_8ns_33_1_1.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_mul_25ns_8ns_33_1_1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_mul_25ns_8ns_33_1_1.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_exp_core_32_32_66_s' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_ctrl_s_axi' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_ctrl_s_axi.v:9]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_ctrl_s_axi.v:195]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_ctrl_s_axi' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_ctrl_s_axi.v:9]
+INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both__parameterized0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both__parameterized0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both__parameterized1' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both__parameterized1' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both__parameterized2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both__parameterized2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both__parameterized3' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both__parameterized3' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6157] synthesizing module 'RNI_regslice_both__parameterized4' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI_regslice_both__parameterized4' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'RNI' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI.v:9]
 INFO: [Synth 8-6155] done synthesizing module 'base_example_0_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_example_0_0/synth/base_example_0_0.v:53]
-WARNING: [Synth 8-6014] Unused sequential element loop[16].divisor_tmp_reg[17] was removed.  [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:57]
-WARNING: [Synth 8-6014] Unused sequential element remd_reg was removed.  [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:146]
-WARNING: [Synth 8-6014] Unused sequential element int_ap_done_reg was removed.  [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_ctrl_s_axi.v:252]
+WARNING: [Synth 8-6014] Unused sequential element loop[16].divisor_tmp_reg[17] was removed.  [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:57]
+WARNING: [Synth 8-6014] Unused sequential element remd_reg was removed.  [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:146]
+WARNING: [Synth 8-6014] Unused sequential element int_ap_done_reg was removed.  [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_ctrl_s_axi.v:252]
 WARNING: [Synth 8-7129] Port WDATA[31] in module RNI_ctrl_s_axi is either unconnected or has no load
 WARNING: [Synth 8-7129] Port WDATA[30] in module RNI_ctrl_s_axi is either unconnected or has no load
 WARNING: [Synth 8-7129] Port WDATA[29] in module RNI_ctrl_s_axi is either unconnected or has no load
@@ -263,18 +263,18 @@ WARNING: [Synth 8-7129] Port d0[0] in module RNI_out_pkts_data_RAM_AUTO_0R0W is 
 WARNING: [Synth 8-7129] Port we0 in module RNI_out_pkts_data_RAM_AUTO_0R0W is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2173.965 ; gain = 508.676 ; free physical = 2514 ; free virtual = 8353
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2171.902 ; gain = 508.645 ; free physical = 3006 ; free virtual = 8553
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2185.840 ; gain = 520.551 ; free physical = 2498 ; free virtual = 8337
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2186.746 ; gain = 523.488 ; free physical = 2943 ; free virtual = 8490
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2185.840 ; gain = 520.551 ; free physical = 2498 ; free virtual = 8337
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2186.746 ; gain = 523.488 ; free physical = 2943 ; free virtual = 8490
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.12 . Memory (MB): peak = 2185.840 ; gain = 0.000 ; free physical = 2868 ; free virtual = 8706
+Netlist sorting complete. Time (s): cpu = 00:00:00.19 ; elapsed = 00:00:00.19 . Memory (MB): peak = 2186.746 ; gain = 0.000 ; free physical = 2521 ; free virtual = 8068
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -285,47 +285,47 @@ Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/
 Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_example_0_0_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2322.621 ; gain = 0.000 ; free physical = 2460 ; free virtual = 8299
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2323.527 ; gain = 0.000 ; free physical = 1197 ; free virtual = 6744
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.51 ; elapsed = 00:00:00.22 . Memory (MB): peak = 2322.621 ; gain = 0.000 ; free physical = 2460 ; free virtual = 8299
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.56 ; elapsed = 00:00:00.3 . Memory (MB): peak = 2323.527 ; gain = 0.000 ; free physical = 1142 ; free virtual = 6689
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 2322.621 ; gain = 657.332 ; free physical = 2159 ; free virtual = 7998
+Finished Constraint Validation : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 2323.527 ; gain = 660.270 ; free physical = 273 ; free virtual = 5821
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 2322.621 ; gain = 657.332 ; free physical = 2159 ; free virtual = 7998
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 2323.527 ; gain = 660.270 ; free physical = 273 ; free virtual = 5821
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_example_0_0_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 2322.621 ; gain = 657.332 ; free physical = 2159 ; free virtual = 7998
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 2323.527 ; gain = 660.270 ; free physical = 273 ; free virtual = 5821
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-3936] Found unconnected internal register 'loop[16].remd_tmp_reg[17]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
-WARNING: [Synth 8-3936] Found unconnected internal register 'loop[16].dividend_tmp_reg[17]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
-WARNING: [Synth 8-3936] Found unconnected internal register 'loop[15].remd_tmp_reg[16]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
-WARNING: [Synth 8-3936] Found unconnected internal register 'loop[14].remd_tmp_reg[15]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
-WARNING: [Synth 8-3936] Found unconnected internal register 'loop[13].remd_tmp_reg[14]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
-WARNING: [Synth 8-3936] Found unconnected internal register 'loop[12].remd_tmp_reg[13]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
-WARNING: [Synth 8-3936] Found unconnected internal register 'loop[11].remd_tmp_reg[12]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
-WARNING: [Synth 8-3936] Found unconnected internal register 'loop[10].remd_tmp_reg[11]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
-WARNING: [Synth 8-3936] Found unconnected internal register 'loop[9].remd_tmp_reg[10]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
-WARNING: [Synth 8-3936] Found unconnected internal register 'loop[8].remd_tmp_reg[9]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
-WARNING: [Synth 8-3936] Found unconnected internal register 'loop[7].remd_tmp_reg[8]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
-WARNING: [Synth 8-3936] Found unconnected internal register 'loop[6].remd_tmp_reg[7]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
-WARNING: [Synth 8-3936] Found unconnected internal register 'loop[5].remd_tmp_reg[6]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
-WARNING: [Synth 8-3936] Found unconnected internal register 'loop[4].remd_tmp_reg[5]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
-WARNING: [Synth 8-3936] Found unconnected internal register 'loop[3].remd_tmp_reg[4]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
-WARNING: [Synth 8-3936] Found unconnected internal register 'loop[2].remd_tmp_reg[3]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
-WARNING: [Synth 8-3936] Found unconnected internal register 'loop[1].remd_tmp_reg[2]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
-WARNING: [Synth 8-3936] Found unconnected internal register 'loop[0].remd_tmp_reg[1]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[16].remd_tmp_reg[17]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[16].dividend_tmp_reg[17]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[15].remd_tmp_reg[16]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[14].remd_tmp_reg[15]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[13].remd_tmp_reg[14]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[12].remd_tmp_reg[13]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[11].remd_tmp_reg[12]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[10].remd_tmp_reg[11]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[9].remd_tmp_reg[10]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[8].remd_tmp_reg[9]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[7].remd_tmp_reg[8]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[6].remd_tmp_reg[7]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[5].remd_tmp_reg[6]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[4].remd_tmp_reg[5]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[3].remd_tmp_reg[4]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[2].remd_tmp_reg[3]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[1].remd_tmp_reg[2]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[0].remd_tmp_reg[1]' and it is trimmed from '17' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v:56]
 INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
 INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
 INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
@@ -340,9 +340,9 @@ INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' throug
 INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
 INFO: [Synth 8-802] inferred FSM for state register 'wstate_reg' in module 'RNI_ctrl_s_axi'
 INFO: [Synth 8-802] inferred FSM for state register 'rstate_reg' in module 'RNI_ctrl_s_axi'
-WARNING: [Synth 8-3936] Found unconnected internal register 'in_pkts_data_3_fu_160_reg' and it is trimmed from '32' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI.v:1241]
-WARNING: [Synth 8-3936] Found unconnected internal register 'in_pkts_data_3_2_fu_168_reg' and it is trimmed from '32' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI.v:1216]
-WARNING: [Synth 8-3936] Found unconnected internal register 'in_pkts_data_3_1_fu_164_reg' and it is trimmed from '32' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI.v:1210]
+WARNING: [Synth 8-3936] Found unconnected internal register 'in_pkts_data_3_fu_160_reg' and it is trimmed from '32' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI.v:1241]
+WARNING: [Synth 8-3936] Found unconnected internal register 'in_pkts_data_3_2_fu_168_reg' and it is trimmed from '32' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI.v:1216]
+WARNING: [Synth 8-3936] Found unconnected internal register 'in_pkts_data_3_1_fu_164_reg' and it is trimmed from '32' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI.v:1210]
 INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
 INFO: [Synth 8-3971] The signal "RNI_out_pkts_keep_RAM_AUTO_1R1W:/ram_reg" was recognized as a true dual port RAM template.
 INFO: [Synth 8-3971] The signal "RNI_out_pkts_user_RAM_AUTO_1R1W:/ram_reg" was recognized as a true dual port RAM template.
@@ -369,7 +369,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'wstate_reg' using encoding
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'rstate_reg' using encoding 'one-hot' in module 'RNI_ctrl_s_axi'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 2322.621 ; gain = 657.332 ; free physical = 2147 ; free virtual = 7988
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 2323.527 ; gain = 660.270 ; free physical = 209 ; free virtual = 5761
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -388,7 +388,7 @@ Detailed RTL Component Info :
 	   3 Input   25 Bit       Adders := 1     
 	   2 Input   17 Bit       Adders := 4     
 	   2 Input   16 Bit       Adders := 8     
-	   2 Input   15 Bit       Adders := 1     
+	   2 Input   15 Bit       Adders := 4     
 	   2 Input    9 Bit       Adders := 1     
 	   2 Input    8 Bit       Adders := 6     
 	   3 Input    8 Bit       Adders := 4     
@@ -424,8 +424,8 @@ Detailed RTL Component Info :
 	               25 Bit    Registers := 1     
 	               18 Bit    Registers := 1     
 	               17 Bit    Registers := 76    
-	               16 Bit    Registers := 113   
-	               15 Bit    Registers := 1     
+	               16 Bit    Registers := 107   
+	               15 Bit    Registers := 4     
 	               14 Bit    Registers := 15    
 	               13 Bit    Registers := 2     
 	               11 Bit    Registers := 3     
@@ -434,10 +434,10 @@ Detailed RTL Component Info :
 	                7 Bit    Registers := 6     
 	                6 Bit    Registers := 14    
 	                5 Bit    Registers := 16    
-	                4 Bit    Registers := 18    
-	                3 Bit    Registers := 18    
+	                4 Bit    Registers := 15    
+	                3 Bit    Registers := 21    
 	                2 Bit    Registers := 106   
-	                1 Bit    Registers := 777   
+	                1 Bit    Registers := 774   
 +---Multipliers : 
 	              69x73  Multipliers := 1     
 	              64x68  Multipliers := 1     
@@ -461,7 +461,7 @@ Detailed RTL Component Info :
 	   5 Input   32 Bit        Muxes := 1     
 	   2 Input   31 Bit        Muxes := 5     
 	   2 Input   17 Bit        Muxes := 4     
-	   2 Input   16 Bit        Muxes := 92    
+	   2 Input   16 Bit        Muxes := 89    
 	   3 Input   16 Bit        Muxes := 1     
 	   2 Input   14 Bit        Muxes := 1     
 	   2 Input   12 Bit        Muxes := 1     
@@ -473,11 +473,10 @@ Detailed RTL Component Info :
 	   2 Input    6 Bit        Muxes := 7     
 	   2 Input    5 Bit        Muxes := 12    
 	   3 Input    5 Bit        Muxes := 1     
-	   5 Input    4 Bit        Muxes := 3     
 	   2 Input    4 Bit        Muxes := 12    
 	   4 Input    4 Bit        Muxes := 1     
-	   2 Input    3 Bit        Muxes := 6     
-	   5 Input    3 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 3     
+	   5 Input    3 Bit        Muxes := 4     
 	   3 Input    3 Bit        Muxes := 1     
 	   2 Input    2 Bit        Muxes := 33    
 	   5 Input    2 Bit        Muxes := 1     
@@ -499,12 +498,12 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-WARNING: [Synth 8-3936] Found unconnected internal register 'grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_179/mac_muladd_16s_8s_16ns_16_4_1_U24/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/p_reg_reg' and it is trimmed from '44' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v:41]
-WARNING: [Synth 8-3936] Found unconnected internal register 'grp_input_layer_Pipeline_NEURON_LEAK_LOOP_fu_162/sext_ln170_cast_reg_183_reg' and it is trimmed from '31' to '17' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_input_layer_Pipeline_NEURON_LEAK_LOOP.v:1031]
-WARNING: [Synth 8-3936] Found unconnected internal register 'grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_179/mac_muladd_16s_8s_16ns_16_4_1_U24/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/m_reg_reg' and it is trimmed from '43' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v:34]
-WARNING: [Synth 8-3936] Found unconnected internal register 'grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_179/mac_muladd_16s_8s_16ns_16_4_1_U24/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/b_reg_reg' and it is trimmed from '18' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v:33]
-WARNING: [Synth 8-3936] Found unconnected internal register 'grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_179/mac_muladd_16s_8s_16ns_16_4_1_U24/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/a_reg_reg' and it is trimmed from '25' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v:33]
-WARNING: [Synth 8-6014] Unused sequential element grp_input_layer_Pipeline_NEURON_LEAK_LOOP_fu_162/mul_2ns_67ns_67_5_1_U17/buff0_reg was removed.  [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_mul_2ns_67ns_67_5_1.v:53]
+WARNING: [Synth 8-3936] Found unconnected internal register 'grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_179/mac_muladd_16s_8s_16ns_16_4_1_U24/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/p_reg_reg' and it is trimmed from '44' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v:41]
+WARNING: [Synth 8-3936] Found unconnected internal register 'grp_input_layer_Pipeline_NEURON_LEAK_LOOP_fu_162/sext_ln186_cast_reg_183_reg' and it is trimmed from '31' to '17' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_input_layer_Pipeline_NEURON_LEAK_LOOP.v:1031]
+WARNING: [Synth 8-3936] Found unconnected internal register 'grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_179/mac_muladd_16s_8s_16ns_16_4_1_U24/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/m_reg_reg' and it is trimmed from '43' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v:34]
+WARNING: [Synth 8-3936] Found unconnected internal register 'grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_179/mac_muladd_16s_8s_16ns_16_4_1_U24/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/b_reg_reg' and it is trimmed from '18' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v:33]
+WARNING: [Synth 8-3936] Found unconnected internal register 'grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_179/mac_muladd_16s_8s_16ns_16_4_1_U24/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/a_reg_reg' and it is trimmed from '25' to '16' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v:33]
+WARNING: [Synth 8-6014] Unused sequential element grp_input_layer_Pipeline_NEURON_LEAK_LOOP_fu_162/mul_2ns_67ns_67_5_1_U17/buff0_reg was removed.  [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_mul_2ns_67ns_67_5_1.v:53]
 DSP Report: Generating DSP grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_179/mac_muladd_16s_8s_16ns_16_4_1_U24/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/p_reg_reg, operation Mode is: (C+(A2*B'')')'.
 DSP Report: register grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_179/mac_muladd_16s_8s_16ns_16_4_1_U24/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/p_reg_reg is absorbed into DSP grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_179/mac_muladd_16s_8s_16ns_16_4_1_U24/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/p_reg_reg.
 DSP Report: register grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_179/mac_muladd_16s_8s_16ns_16_4_1_U24/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/p_reg_reg is absorbed into DSP grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_179/mac_muladd_16s_8s_16ns_16_4_1_U24/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/p_reg_reg.
@@ -513,12 +512,12 @@ DSP Report: register grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_179/mac_muladd_1
 DSP Report: register grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_179/mac_muladd_16s_8s_16ns_16_4_1_U24/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/m_reg_reg is absorbed into DSP grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_179/mac_muladd_16s_8s_16ns_16_4_1_U24/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/p_reg_reg.
 DSP Report: operator grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_179/mac_muladd_16s_8s_16ns_16_4_1_U24/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/p is absorbed into DSP grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_179/mac_muladd_16s_8s_16ns_16_4_1_U24/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/p_reg_reg.
 DSP Report: operator grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_179/mac_muladd_16s_8s_16ns_16_4_1_U24/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/m is absorbed into DSP grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_179/mac_muladd_16s_8s_16ns_16_4_1_U24/RNI_mac_muladd_16s_8s_16ns_16_4_1_DSP48_0_U/p_reg_reg.
-WARNING: [Synth 8-3936] Found unconnected internal register 'sext_ln170_cast_reg_183_reg' and it is trimmed from '31' to '17' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_1_Pipeline_NEURON_LEAK_LOOP.v:1031]
-WARNING: [Synth 8-6014] Unused sequential element mul_2ns_67ns_67_5_1_U43/buff0_reg was removed.  [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_mul_2ns_67ns_67_5_1.v:53]
-WARNING: [Synth 8-3936] Found unconnected internal register 'sext_ln170_cast_reg_183_reg' and it is trimmed from '31' to '17' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_2_Pipeline_NEURON_LEAK_LOOP.v:1031]
-WARNING: [Synth 8-6014] Unused sequential element mul_2ns_67ns_67_5_1_U57/buff0_reg was removed.  [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_mul_2ns_67ns_67_5_1.v:53]
-WARNING: [Synth 8-3936] Found unconnected internal register 'sext_ln170_cast_reg_183_reg' and it is trimmed from '31' to '17' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_inner_layer_3_Pipeline_NEURON_LEAK_LOOP.v:1031]
-WARNING: [Synth 8-6014] Unused sequential element mul_2ns_67ns_67_5_1_U71/buff0_reg was removed.  [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/f285/hdl/verilog/RNI_mul_2ns_67ns_67_5_1.v:53]
+WARNING: [Synth 8-3936] Found unconnected internal register 'sext_ln186_cast_reg_183_reg' and it is trimmed from '31' to '17' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_1_Pipeline_NEURON_LEAK_LOOP.v:1031]
+WARNING: [Synth 8-6014] Unused sequential element mul_2ns_67ns_67_5_1_U43/buff0_reg was removed.  [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_mul_2ns_67ns_67_5_1.v:53]
+WARNING: [Synth 8-3936] Found unconnected internal register 'sext_ln186_cast_reg_183_reg' and it is trimmed from '31' to '17' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_2_Pipeline_NEURON_LEAK_LOOP.v:1031]
+WARNING: [Synth 8-6014] Unused sequential element mul_2ns_67ns_67_5_1_U57/buff0_reg was removed.  [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_mul_2ns_67ns_67_5_1.v:53]
+WARNING: [Synth 8-3936] Found unconnected internal register 'sext_ln186_cast_reg_183_reg' and it is trimmed from '31' to '17' bits. [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_inner_layer_3_Pipeline_NEURON_LEAK_LOOP.v:1031]
+WARNING: [Synth 8-6014] Unused sequential element mul_2ns_67ns_67_5_1_U71/buff0_reg was removed.  [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/a40c/hdl/verilog/RNI_mul_2ns_67ns_67_5_1.v:53]
 DSP Report: Generating DSP mul_25ns_8ns_33_1_1_U5/tmp_product, operation Mode is: A''*B''.
 DSP Report: register mul_25ns_8ns_33_1_1_U5/tmp_product is absorbed into DSP mul_25ns_8ns_33_1_1_U5/tmp_product.
 DSP Report: register mul_25ns_8ns_33_1_1_U5/tmp_product is absorbed into DSP mul_25ns_8ns_33_1_1_U5/tmp_product.
@@ -997,7 +996,7 @@ WARNING: [Synth 8-3332] Sequential element (grp_input_layer_Pipeline_NEURON_LEAK
 WARNING: [Synth 8-3332] Sequential element (grp_input_layer_Pipeline_NEURON_LEAK_LOOP_fu_162/mul_2ns_67ns_67_5_1_U17/buff2_reg[2]__0) is unused and will be removed from module RNI_input_layer.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:53 ; elapsed = 00:00:54 . Memory (MB): peak = 2322.621 ; gain = 657.332 ; free physical = 1163 ; free virtual = 7012
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:56 ; elapsed = 00:00:57 . Memory (MB): peak = 2323.527 ; gain = 660.270 ; free physical = 2354 ; free virtual = 7724
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -1008,9 +1007,9 @@ ROM: Preliminary Mapping Report
 |Module Name                               | RTL Object                                                                    | Depth x Width | Implemented As | 
 +------------------------------------------+-------------------------------------------------------------------------------+---------------+----------------+
 |RNI_input_layer                           | grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_179/weight_index_fu_60_reg_rep     | 16384x8       | Block RAM      | 
-|RNI_inner_layer_1_Pipeline_WEIGHTS_LOOP_1 | weight_index_5_reg_213_reg_rep                                                | 16384x8       | Block RAM      | 
-|RNI_inner_layer_2_Pipeline_WEIGHTS_LOOP_2 | weight_index_4_reg_227_reg_rep                                                | 16384x8       | Block RAM      | 
-|RNI_inner_layer_3_Pipeline_WEIGHTS_LOOP_3 | weight_index_3_reg_227_reg_rep                                                | 16384x8       | Block RAM      | 
+|RNI_inner_layer_1_Pipeline_WEIGHTS_LOOP_1 | weight_index_5_reg_229_reg_rep                                                | 16384x8       | Block RAM      | 
+|RNI_inner_layer_2_Pipeline_WEIGHTS_LOOP_2 | weight_index_4_reg_243_reg_rep                                                | 16384x8       | Block RAM      | 
+|RNI_inner_layer_3_Pipeline_WEIGHTS_LOOP_3 | weight_index_3_reg_243_reg_rep                                                | 16384x8       | Block RAM      | 
 |RNI_output_layer                          | grp_output_layer_Pipeline_WEIGHTS_LOOP_4_fu_97/weight_index_1_reg_243_reg_rep | 16384x8       | Block RAM      | 
 |RNI_exp_core_32_32_66_s                   | x_msb_ind_2_reg_648_pp0_iter8_reg_reg_rep                                     | 256x64        | Block RAM      | 
 |RNI_exp_core_32_32_66_s                   | f_x_msb_4_table_U/q0_reg                                                      | 256x29        | Block RAM      | 
@@ -1106,13 +1105,13 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:01 ; elapsed = 00:01:02 . Memory (MB): peak = 2322.621 ; gain = 657.332 ; free physical = 1355 ; free virtual = 7203
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:05 ; elapsed = 00:01:06 . Memory (MB): peak = 2323.527 ; gain = 660.270 ; free physical = 3615 ; free virtual = 9026
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:05 ; elapsed = 00:01:06 . Memory (MB): peak = 2322.621 ; gain = 657.332 ; free physical = 1323 ; free virtual = 7172
+Finished Timing Optimization : Time (s): cpu = 00:01:09 ; elapsed = 00:01:11 . Memory (MB): peak = 2323.527 ; gain = 660.270 ; free physical = 3590 ; free virtual = 8998
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -1161,7 +1160,7 @@ INFO: [Synth 8-7052] The timing for the instance inst/grp_exp_core_32_32_66_s_fu
 INFO: [Synth 8-7052] The timing for the instance inst/WEIGHTS_INDEX_U/q0_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance inst/WEIGHTS_INDEX_U/q0_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:12 ; elapsed = 00:01:13 . Memory (MB): peak = 2332.652 ; gain = 667.363 ; free physical = 2731 ; free virtual = 8580
+Finished Technology Mapping : Time (s): cpu = 00:01:17 ; elapsed = 00:01:19 . Memory (MB): peak = 2330.559 ; gain = 667.301 ; free physical = 2752 ; free virtual = 8165
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -1179,37 +1178,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:17 ; elapsed = 00:01:19 . Memory (MB): peak = 2335.621 ; gain = 670.332 ; free physical = 2416 ; free virtual = 8261
+Finished IO Insertion : Time (s): cpu = 00:01:24 ; elapsed = 00:01:26 . Memory (MB): peak = 2333.527 ; gain = 670.270 ; free physical = 684 ; free virtual = 6098
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:18 ; elapsed = 00:01:19 . Memory (MB): peak = 2335.621 ; gain = 670.332 ; free physical = 2416 ; free virtual = 8261
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:24 ; elapsed = 00:01:26 . Memory (MB): peak = 2333.527 ; gain = 670.270 ; free physical = 676 ; free virtual = 6090
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:19 ; elapsed = 00:01:20 . Memory (MB): peak = 2335.621 ; gain = 670.332 ; free physical = 2421 ; free virtual = 8266
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:25 ; elapsed = 00:01:27 . Memory (MB): peak = 2333.527 ; gain = 670.270 ; free physical = 574 ; free virtual = 5988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:19 ; elapsed = 00:01:20 . Memory (MB): peak = 2335.621 ; gain = 670.332 ; free physical = 2421 ; free virtual = 8266
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:25 ; elapsed = 00:01:27 . Memory (MB): peak = 2333.527 ; gain = 670.270 ; free physical = 566 ; free virtual = 5980
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:19 ; elapsed = 00:01:20 . Memory (MB): peak = 2335.621 ; gain = 670.332 ; free physical = 2421 ; free virtual = 8266
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:26 ; elapsed = 00:01:27 . Memory (MB): peak = 2333.527 ; gain = 670.270 ; free physical = 550 ; free virtual = 5964
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:19 ; elapsed = 00:01:20 . Memory (MB): peak = 2335.621 ; gain = 670.332 ; free physical = 2421 ; free virtual = 8266
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:26 ; elapsed = 00:01:27 . Memory (MB): peak = 2333.527 ; gain = 670.270 ; free physical = 550 ; free virtual = 5964
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -1234,7 +1233,7 @@ Static Shift Register Report:
 |RNI         | grp_input_layer_fu_263/grp_input_layer_Pipeline_NEURON_LEAK_LOOP_fu_162/sdiv_17s_31ns_16_21_1_U18/RNI_sdiv_17s_31ns_16_21_1_divider_u/loop[13].dividend_tmp_reg[14][16]     | 15     | 1     | NO           | NO                 | YES               | 1      | 0       | 
 |RNI         | grp_input_layer_fu_263/grp_input_layer_Pipeline_NEURON_LEAK_LOOP_fu_162/sdiv_17s_31ns_16_21_1_U18/RNI_sdiv_17s_31ns_16_21_1_divider_u/loop[14].dividend_tmp_reg[15][16]     | 16     | 1     | NO           | NO                 | YES               | 1      | 0       | 
 |RNI         | grp_input_layer_fu_263/grp_input_layer_Pipeline_NEURON_LEAK_LOOP_fu_162/sdiv_17s_31ns_16_21_1_U18/RNI_sdiv_17s_31ns_16_21_1_divider_u/loop[15].dividend_tmp_reg[16][16]     | 17     | 1     | NO           | NO                 | YES               | 1      | 0       | 
-|RNI         | grp_input_layer_fu_263/grp_input_layer_Pipeline_NEURON_LEAK_LOOP_fu_162/icmp_ln169_reg_188_pp0_iter3_reg_reg[0]                                                             | 4      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|RNI         | grp_input_layer_fu_263/grp_input_layer_Pipeline_NEURON_LEAK_LOOP_fu_162/icmp_ln185_reg_188_pp0_iter3_reg_reg[0]                                                             | 4      | 1     | NO           | NO                 | YES               | 1      | 0       | 
 |RNI         | grp_input_layer_fu_263/grp_input_layer_Pipeline_NEURON_LEAK_LOOP_fu_162/mul_y_ln_s_reg_197_reg[23]                                                                          | 3      | 2     | NO           | NO                 | YES               | 2      | 0       | 
 |RNI         | grp_input_layer_fu_263/grp_input_layer_Pipeline_NEURON_LEAK_LOOP_fu_162/mul_y_ln_s_reg_197_reg[1]                                                                           | 4      | 1     | NO           | YES                | YES               | 1      | 0       | 
 |RNI         | grp_input_layer_fu_263/grp_input_layer_Pipeline_NEURON_LEAK_LOOP_fu_162/ap_loop_exit_ready_pp0_iter48_reg_reg                                                               | 48     | 1     | NO           | NO                 | YES               | 0      | 2       | 
@@ -1282,7 +1281,7 @@ Static Shift Register Report:
 |RNI         | grp_inner_layer_1_fu_289/grp_inner_layer_1_Pipeline_NEURON_LEAK_LOOP_fu_123/sdiv_17s_31ns_16_21_1_U44/RNI_sdiv_17s_31ns_16_21_1_divider_u/loop[16].dividend_tmp_reg[17][4]  | 5      | 1     | NO           | YES                | YES               | 1      | 0       | 
 |RNI         | grp_inner_layer_1_fu_289/grp_inner_layer_1_Pipeline_NEURON_LEAK_LOOP_fu_123/sdiv_17s_31ns_16_21_1_U44/RNI_sdiv_17s_31ns_16_21_1_divider_u/loop[16].dividend_tmp_reg[17][3]  | 4      | 1     | NO           | YES                | YES               | 1      | 0       | 
 |RNI         | grp_inner_layer_1_fu_289/grp_inner_layer_1_Pipeline_NEURON_LEAK_LOOP_fu_123/sdiv_17s_31ns_16_21_1_U44/RNI_sdiv_17s_31ns_16_21_1_divider_u/loop[16].sign_tmp_reg[17][1]      | 18     | 1     | NO           | NO                 | YES               | 0      | 1       | 
-|RNI         | grp_inner_layer_1_fu_289/grp_inner_layer_1_Pipeline_NEURON_LEAK_LOOP_fu_123/icmp_ln169_reg_188_pp0_iter3_reg_reg[0]                                                         | 4      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|RNI         | grp_inner_layer_1_fu_289/grp_inner_layer_1_Pipeline_NEURON_LEAK_LOOP_fu_123/icmp_ln185_reg_188_pp0_iter3_reg_reg[0]                                                         | 4      | 1     | NO           | NO                 | YES               | 1      | 0       | 
 |RNI         | grp_inner_layer_1_fu_289/grp_inner_layer_1_Pipeline_NEURON_LEAK_LOOP_fu_123/mul_y_ln_s_reg_197_reg[23]                                                                      | 3      | 2     | NO           | NO                 | YES               | 2      | 0       | 
 |RNI         | grp_inner_layer_1_fu_289/grp_inner_layer_1_Pipeline_NEURON_LEAK_LOOP_fu_123/mul_y_ln_s_reg_197_reg[1]                                                                       | 4      | 1     | NO           | YES                | YES               | 1      | 0       | 
 |RNI         | grp_inner_layer_1_fu_289/grp_inner_layer_1_Pipeline_NEURON_LEAK_LOOP_fu_123/ap_loop_exit_ready_pp0_iter48_reg_reg                                                           | 48     | 1     | NO           | NO                 | YES               | 0      | 2       | 
@@ -1315,7 +1314,7 @@ Static Shift Register Report:
 |RNI         | grp_inner_layer_2_fu_311/grp_inner_layer_2_Pipeline_NEURON_LEAK_LOOP_fu_123/sdiv_17s_31ns_16_21_1_U58/RNI_sdiv_17s_31ns_16_21_1_divider_u/loop[16].dividend_tmp_reg[17][4]  | 5      | 1     | NO           | YES                | YES               | 1      | 0       | 
 |RNI         | grp_inner_layer_2_fu_311/grp_inner_layer_2_Pipeline_NEURON_LEAK_LOOP_fu_123/sdiv_17s_31ns_16_21_1_U58/RNI_sdiv_17s_31ns_16_21_1_divider_u/loop[16].dividend_tmp_reg[17][3]  | 4      | 1     | NO           | YES                | YES               | 1      | 0       | 
 |RNI         | grp_inner_layer_2_fu_311/grp_inner_layer_2_Pipeline_NEURON_LEAK_LOOP_fu_123/sdiv_17s_31ns_16_21_1_U58/RNI_sdiv_17s_31ns_16_21_1_divider_u/loop[16].sign_tmp_reg[17][1]      | 18     | 1     | NO           | NO                 | YES               | 0      | 1       | 
-|RNI         | grp_inner_layer_2_fu_311/grp_inner_layer_2_Pipeline_NEURON_LEAK_LOOP_fu_123/icmp_ln169_reg_188_pp0_iter3_reg_reg[0]                                                         | 4      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|RNI         | grp_inner_layer_2_fu_311/grp_inner_layer_2_Pipeline_NEURON_LEAK_LOOP_fu_123/icmp_ln185_reg_188_pp0_iter3_reg_reg[0]                                                         | 4      | 1     | NO           | NO                 | YES               | 1      | 0       | 
 |RNI         | grp_inner_layer_2_fu_311/grp_inner_layer_2_Pipeline_NEURON_LEAK_LOOP_fu_123/mul_y_ln_s_reg_197_reg[23]                                                                      | 3      | 2     | NO           | NO                 | YES               | 2      | 0       | 
 |RNI         | grp_inner_layer_2_fu_311/grp_inner_layer_2_Pipeline_NEURON_LEAK_LOOP_fu_123/mul_y_ln_s_reg_197_reg[1]                                                                       | 4      | 1     | NO           | YES                | YES               | 1      | 0       | 
 |RNI         | grp_inner_layer_2_fu_311/grp_inner_layer_2_Pipeline_NEURON_LEAK_LOOP_fu_123/ap_loop_exit_ready_pp0_iter48_reg_reg                                                           | 48     | 1     | NO           | NO                 | YES               | 0      | 2       | 
@@ -1348,7 +1347,7 @@ Static Shift Register Report:
 |RNI         | grp_inner_layer_3_fu_333/grp_inner_layer_3_Pipeline_NEURON_LEAK_LOOP_fu_123/sdiv_17s_31ns_16_21_1_U72/RNI_sdiv_17s_31ns_16_21_1_divider_u/loop[16].dividend_tmp_reg[17][4]  | 5      | 1     | NO           | YES                | YES               | 1      | 0       | 
 |RNI         | grp_inner_layer_3_fu_333/grp_inner_layer_3_Pipeline_NEURON_LEAK_LOOP_fu_123/sdiv_17s_31ns_16_21_1_U72/RNI_sdiv_17s_31ns_16_21_1_divider_u/loop[16].dividend_tmp_reg[17][3]  | 4      | 1     | NO           | YES                | YES               | 1      | 0       | 
 |RNI         | grp_inner_layer_3_fu_333/grp_inner_layer_3_Pipeline_NEURON_LEAK_LOOP_fu_123/sdiv_17s_31ns_16_21_1_U72/RNI_sdiv_17s_31ns_16_21_1_divider_u/loop[16].sign_tmp_reg[17][1]      | 18     | 1     | NO           | NO                 | YES               | 0      | 1       | 
-|RNI         | grp_inner_layer_3_fu_333/grp_inner_layer_3_Pipeline_NEURON_LEAK_LOOP_fu_123/icmp_ln169_reg_188_pp0_iter3_reg_reg[0]                                                         | 4      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|RNI         | grp_inner_layer_3_fu_333/grp_inner_layer_3_Pipeline_NEURON_LEAK_LOOP_fu_123/icmp_ln185_reg_188_pp0_iter3_reg_reg[0]                                                         | 4      | 1     | NO           | NO                 | YES               | 1      | 0       | 
 |RNI         | grp_inner_layer_3_fu_333/grp_inner_layer_3_Pipeline_NEURON_LEAK_LOOP_fu_123/mul_y_ln_s_reg_197_reg[23]                                                                      | 3      | 2     | NO           | NO                 | YES               | 2      | 0       | 
 |RNI         | grp_inner_layer_3_fu_333/grp_inner_layer_3_Pipeline_NEURON_LEAK_LOOP_fu_123/mul_y_ln_s_reg_197_reg[1]                                                                       | 4      | 1     | NO           | YES                | YES               | 1      | 0       | 
 |RNI         | grp_inner_layer_3_fu_333/grp_inner_layer_3_Pipeline_NEURON_LEAK_LOOP_fu_123/ap_loop_exit_ready_pp0_iter48_reg_reg                                                           | 48     | 1     | NO           | NO                 | YES               | 0      | 2       | 
@@ -1445,12 +1444,12 @@ Report Cell Usage:
 +------+----------+------+
 |1     |CARRY4    |  1019|
 |2     |DSP48E1   |    45|
-|8     |LUT1      |  1227|
-|9     |LUT2      |  1841|
+|8     |LUT1      |  1230|
+|9     |LUT2      |  1887|
 |10    |LUT3      |  1766|
-|11    |LUT4      |   592|
-|12    |LUT5      |   270|
-|13    |LUT6      |   557|
+|11    |LUT4      |   547|
+|12    |LUT5      |   280|
+|13    |LUT6      |   537|
 |14    |RAM128X1S |     1|
 |15    |RAM16X1S  |     2|
 |16    |RAM32X1S  |     1|
@@ -1459,22 +1458,22 @@ Report Cell Usage:
 |25    |RAMB36E1  |    14|
 |39    |SRL16E    |   486|
 |40    |SRLC32E   |    20|
-|41    |FDRE      |  6679|
+|41    |FDRE      |  6667|
 |42    |FDSE      |    49|
 +------+----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:19 ; elapsed = 00:01:20 . Memory (MB): peak = 2335.621 ; gain = 670.332 ; free physical = 2421 ; free virtual = 8266
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:26 ; elapsed = 00:01:27 . Memory (MB): peak = 2333.527 ; gain = 670.270 ; free physical = 550 ; free virtual = 5964
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1211 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:14 ; elapsed = 00:01:16 . Memory (MB): peak = 2335.621 ; gain = 533.551 ; free physical = 2421 ; free virtual = 8266
-Synthesis Optimization Complete : Time (s): cpu = 00:01:19 ; elapsed = 00:01:20 . Memory (MB): peak = 2335.629 ; gain = 670.332 ; free physical = 2421 ; free virtual = 8266
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:19 ; elapsed = 00:01:21 . Memory (MB): peak = 2333.527 ; gain = 533.488 ; free physical = 535 ; free virtual = 5948
+Synthesis Optimization Complete : Time (s): cpu = 00:01:26 ; elapsed = 00:01:27 . Memory (MB): peak = 2333.535 ; gain = 670.270 ; free physical = 535 ; free virtual = 5948
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.13 ; elapsed = 00:00:00.14 . Memory (MB): peak = 2335.629 ; gain = 0.000 ; free physical = 2680 ; free virtual = 8525
+Netlist sorting complete. Time (s): cpu = 00:00:00.17 ; elapsed = 00:00:00.18 . Memory (MB): peak = 2333.535 ; gain = 0.000 ; free physical = 476 ; free virtual = 5891
 INFO: [Netlist 29-17] Analyzing 1095 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2367.637 ; gain = 0.000 ; free physical = 3922 ; free virtual = 9767
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2365.543 ; gain = 0.000 ; free physical = 370 ; free virtual = 5784
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 5 instances were transformed.
   RAM128X1S => RAM128X1S (MUXF7, RAMS64E(x2)): 1 instance 
@@ -1482,16 +1481,16 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM32X1S => RAM32X1S (RAMS32): 1 instance 
   RAM64X1S => RAM64X1S (RAMS64E): 1 instance 
 
-Synth Design complete | Checksum: bcdf0cdd
+Synth Design complete | Checksum: 19fd2ba3
 INFO: [Common 17-83] Releasing license: Synthesis
 193 Infos, 238 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:30 ; elapsed = 00:01:28 . Memory (MB): peak = 2367.637 ; gain = 1037.941 ; free physical = 3922 ; free virtual = 9767
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1805.406; main = 1533.748; forked = 307.265
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3286.523; main = 2367.641; forked = 953.867
+synth_design: Time (s): cpu = 00:01:38 ; elapsed = 00:01:36 . Memory (MB): peak = 2365.543 ; gain = 1033.848 ; free physical = 357 ; free virtual = 5771
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1832.837; main = 1494.099; forked = 343.225
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3288.332; main = 2365.547; forked = 957.770
 INFO: [Common 17-1381] The checkpoint '/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_example_0_0_synth_1/base_example_0_0.dcp' has been generated.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP base_example_0_0, cache-ID = 0c9d7b662b9548d1
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP base_example_0_0, cache-ID = ab179aecdebf7652
 INFO: [Coretcl 2-1174] Renamed 85 cell refs.
 INFO: [Common 17-1381] The checkpoint '/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_example_0_0_synth_1/base_example_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file base_example_0_0_utilization_synth.rpt -pb base_example_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Oct 28 19:40:10 2024...
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 29 15:38:25 2024...

@@ -1,0 +1,48 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'input_layer'" level="0">
+<item name = "Date">Tue Oct 29 15:19:11 2024
+</item>
+<item name = "Version">2023.1.1 (Build 3869133 on Jun 15 2023)</item>
+<item name = "Project">RNI</item>
+<item name = "Solution">solution1 (Vivado IP Flow Target)</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020-clg400-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00 ns, 7.215 ns, 2.70 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">7425, 8396673, 74.250 us, 83.967 ms, 7425, 8396673, no</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_input_layer_Pipeline_NEURON_LEAK_LOOP_fu_162">input_layer_Pipeline_NEURON_LEAK_LOOP, 52, 52, 0.520 us, 0.520 us, 52, 52, no</column>
+<column name="grp_input_layer_Pipeline_WEIGHTS_LOOP_0_fu_179">input_layer_Pipeline_WEIGHTS_LOOP_0, 2, 65540, 20.000 ns, 0.655 ms, 2, 65540, no</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- NEURONS_LOOP_0">7424, 8396672, 58 ~ 65599, -, -, 128, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

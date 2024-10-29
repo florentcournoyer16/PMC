@@ -1205,11 +1205,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Oct 28 23:40:10 UTC 2024</spirit:value>
+            <spirit:value>Tue Oct 29 19:38:25 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:8f4b6e23</spirit:value>
+            <spirit:value>9:48bff901</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1223,11 +1223,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Oct 28 23:29:36 UTC 2024</spirit:value>
+            <spirit:value>Tue Oct 29 19:34:20 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:8f4b6e23</spirit:value>
+            <spirit:value>9:48bff901</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1238,7 +1238,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:8f4b6e23</spirit:value>
+            <spirit:value>9:48bff901</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1254,11 +1254,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Oct 28 23:29:36 UTC 2024</spirit:value>
+            <spirit:value>Tue Oct 29 19:34:20 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:85ab93af</spirit:value>
+            <spirit:value>9:425f048d</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1274,11 +1274,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Oct 28 23:29:36 UTC 2024</spirit:value>
+            <spirit:value>Tue Oct 29 19:34:20 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:85ab93af</spirit:value>
+            <spirit:value>9:425f048d</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1294,11 +1294,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Oct 28 23:29:36 UTC 2024</spirit:value>
+            <spirit:value>Tue Oct 29 19:34:20 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:8f4b6e23</spirit:value>
+            <spirit:value>9:48bff901</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1314,11 +1314,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Oct 28 23:29:36 UTC 2024</spirit:value>
+            <spirit:value>Tue Oct 29 19:34:20 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:8f4b6e23</spirit:value>
+            <spirit:value>9:48bff901</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2007,12 +2007,12 @@
     <spirit:fileSet>
       <spirit:name>xilinx_verilogbehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_ctrl_s_axi.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_ctrl_s_axi.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -2021,7 +2021,7 @@
         <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s_exp_x_msb_1_table_ROM_AUTO_1R.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s_exp_x_msb_1_table_ROM_AUTO_1R.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -2030,7 +2030,7 @@
         <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_2_table_ROM_AUTO_1R.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_2_table_ROM_AUTO_1R.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -2039,7 +2039,7 @@
         <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_3_table_ROM_AUTO_1R.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_3_table_ROM_AUTO_1R.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -2048,7 +2048,7 @@
         <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_4_table_ROM_AUTO_1R.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_4_table_ROM_AUTO_1R.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -2057,102 +2057,102 @@
         <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_5_table_ROM_AUTO_1R.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_5_table_ROM_AUTO_1R.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_flow_control_loop_pipe_sequential_init.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_flow_control_loop_pipe_sequential_init.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_hls_deadlock_idx0_monitor.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_hls_deadlock_idx0_monitor.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_hls_deadlock_idx1_monitor.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_hls_deadlock_idx1_monitor.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_hls_deadlock_kernel_monitor_top.vh</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_hls_deadlock_kernel_monitor_top.vh</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_inner_layer_1.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_inner_layer_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_inner_layer_1_Pipeline_NEURON_LEAK_LOOP.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_inner_layer_1_Pipeline_NEURON_LEAK_LOOP.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_inner_layer_1_Pipeline_NEURONS_STATE_RESET_LOOP.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_inner_layer_1_Pipeline_NEURONS_STATE_RESET_LOOP.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_inner_layer_1_Pipeline_WEIGHTS_LOOP_1.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_inner_layer_1_Pipeline_WEIGHTS_LOOP_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_inner_layer_2.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_inner_layer_2.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_inner_layer_2_Pipeline_NEURON_LEAK_LOOP.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_inner_layer_2_Pipeline_NEURON_LEAK_LOOP.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_inner_layer_2_Pipeline_NEURONS_STATE_RESET_LOOP.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_inner_layer_2_Pipeline_NEURONS_STATE_RESET_LOOP.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_inner_layer_2_Pipeline_WEIGHTS_LOOP_2.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_inner_layer_2_Pipeline_WEIGHTS_LOOP_2.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_inner_layer_3.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_inner_layer_3.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_inner_layer_3_Pipeline_NEURON_LEAK_LOOP.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_inner_layer_3_Pipeline_NEURON_LEAK_LOOP.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_inner_layer_3_Pipeline_NEURONS_STATE_RESET_LOOP.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_inner_layer_3_Pipeline_NEURONS_STATE_RESET_LOOP.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_inner_layer_3_Pipeline_WEIGHTS_LOOP_3.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_inner_layer_3_Pipeline_WEIGHTS_LOOP_3.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_input_layer.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_input_layer.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_input_layer_Pipeline_NEURON_LEAK_LOOP.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_input_layer_Pipeline_NEURON_LEAK_LOOP.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_input_layer_Pipeline_WEIGHTS_LOOP_0.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_input_layer_Pipeline_WEIGHTS_LOOP_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -2161,51 +2161,47 @@
         <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_input_layer_Pipeline_WEIGHTS_LOOP_0_WEIGHTS_ROM_AUTO_1R.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_input_layer_Pipeline_WEIGHTS_LOOP_0_WEIGHTS_ROM_AUTO_1R.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/RNI_input_layer_WEIGHTS_INDEX_ROM_AUTO_1R.dat</spirit:name>
-        <spirit:userFileType>mif</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_mul_2ns_67ns_67_5_1.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_mul_2ns_67ns_67_5_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_mul_25ns_8ns_33_1_1.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_mul_25ns_8ns_33_1_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_mul_32ns_8ns_40_2_1.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_mul_32ns_8ns_40_2_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_mul_51ns_50ns_101_5_1.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_mul_51ns_50ns_101_5_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_mul_67ns_63ns_130_5_1.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_mul_67ns_63ns_130_5_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_mul_72ns_68ns_140_5_1.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_mul_72ns_68ns_140_5_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_mux_4_2_16_1_1.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_mux_4_2_16_1_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -2214,7 +2210,7 @@
         <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -2223,82 +2219,82 @@
         <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_NEURONS_STATE_RAM_AUTO_1R1W.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_NEURONS_STATE_RAM_AUTO_1R1W.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_out_pkts_data_RAM_AUTO_0R0W.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_out_pkts_data_RAM_AUTO_0R0W.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_out_pkts_dest_RAM_AUTO_1R1W.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_out_pkts_dest_RAM_AUTO_1R1W.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_out_pkts_id_RAM_AUTO_1R1W.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_out_pkts_id_RAM_AUTO_1R1W.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_out_pkts_keep_RAM_AUTO_1R1W.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_out_pkts_keep_RAM_AUTO_1R1W.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_out_pkts_last_RAM_AUTO_1R1W.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_out_pkts_last_RAM_AUTO_1R1W.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_out_pkts_user_RAM_AUTO_1R1W.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_out_pkts_user_RAM_AUTO_1R1W.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_output_layer.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_output_layer.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_output_layer_Pipeline_NEURONS_STATE_RESET_LOOP.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_output_layer_Pipeline_NEURONS_STATE_RESET_LOOP.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_output_layer_Pipeline_WEIGHTS_LOOP_4.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_output_layer_Pipeline_WEIGHTS_LOOP_4.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_output_stream_dispatch.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_output_stream_dispatch.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_output_stream_dispatch_Pipeline_NEURONS_STATE_RESET_LOOP.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_output_stream_dispatch_Pipeline_NEURONS_STATE_RESET_LOOP.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_output_stream_dispatch_Pipeline_VITIS_LOOP_197_1.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_output_stream_dispatch_Pipeline_VITIS_LOOP_213_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_output_stream_dispatch_Pipeline_VITIS_LOOP_204_2.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_output_stream_dispatch_Pipeline_VITIS_LOOP_220_2.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_regslice_both.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_regslice_both.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -2307,12 +2303,12 @@
         <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_WEIGHTS_INDEX_ROM_AUTO_1R.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_WEIGHTS_INDEX_ROM_AUTO_1R.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -2333,11 +2329,11 @@
         <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_ctrl_s_axi.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_ctrl_s_axi.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -2345,7 +2341,7 @@
         <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s_exp_x_msb_1_table_ROM_AUTO_1R.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s_exp_x_msb_1_table_ROM_AUTO_1R.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -2353,7 +2349,7 @@
         <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_2_table_ROM_AUTO_1R.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_2_table_ROM_AUTO_1R.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -2361,7 +2357,7 @@
         <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_3_table_ROM_AUTO_1R.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_3_table_ROM_AUTO_1R.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -2369,7 +2365,7 @@
         <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_4_table_ROM_AUTO_1R.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_4_table_ROM_AUTO_1R.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -2377,83 +2373,83 @@
         <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_5_table_ROM_AUTO_1R.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_exp_core_32_32_66_s_f_x_msb_5_table_ROM_AUTO_1R.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_flow_control_loop_pipe_sequential_init.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_flow_control_loop_pipe_sequential_init.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_hls_deadlock_idx0_monitor.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_hls_deadlock_idx0_monitor.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_hls_deadlock_idx1_monitor.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_hls_deadlock_idx1_monitor.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_hls_deadlock_kernel_monitor_top.vh</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_hls_deadlock_kernel_monitor_top.vh</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_inner_layer_1.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_inner_layer_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_inner_layer_1_Pipeline_NEURON_LEAK_LOOP.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_inner_layer_1_Pipeline_NEURON_LEAK_LOOP.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_inner_layer_1_Pipeline_NEURONS_STATE_RESET_LOOP.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_inner_layer_1_Pipeline_NEURONS_STATE_RESET_LOOP.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_inner_layer_1_Pipeline_WEIGHTS_LOOP_1.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_inner_layer_1_Pipeline_WEIGHTS_LOOP_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_inner_layer_2.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_inner_layer_2.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_inner_layer_2_Pipeline_NEURON_LEAK_LOOP.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_inner_layer_2_Pipeline_NEURON_LEAK_LOOP.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_inner_layer_2_Pipeline_NEURONS_STATE_RESET_LOOP.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_inner_layer_2_Pipeline_NEURONS_STATE_RESET_LOOP.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_inner_layer_2_Pipeline_WEIGHTS_LOOP_2.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_inner_layer_2_Pipeline_WEIGHTS_LOOP_2.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_inner_layer_3.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_inner_layer_3.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_inner_layer_3_Pipeline_NEURON_LEAK_LOOP.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_inner_layer_3_Pipeline_NEURON_LEAK_LOOP.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_inner_layer_3_Pipeline_NEURONS_STATE_RESET_LOOP.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_inner_layer_3_Pipeline_NEURONS_STATE_RESET_LOOP.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_inner_layer_3_Pipeline_WEIGHTS_LOOP_3.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_inner_layer_3_Pipeline_WEIGHTS_LOOP_3.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_input_layer.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_input_layer.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_input_layer_Pipeline_NEURON_LEAK_LOOP.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_input_layer_Pipeline_NEURON_LEAK_LOOP.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_input_layer_Pipeline_WEIGHTS_LOOP_0.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_input_layer_Pipeline_WEIGHTS_LOOP_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -2461,43 +2457,39 @@
         <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_input_layer_Pipeline_WEIGHTS_LOOP_0_WEIGHTS_ROM_AUTO_1R.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_input_layer_Pipeline_WEIGHTS_LOOP_0_WEIGHTS_ROM_AUTO_1R.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/RNI_input_layer_WEIGHTS_INDEX_ROM_AUTO_1R.dat</spirit:name>
-        <spirit:userFileType>mif</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_mac_muladd_16s_8s_16ns_16_4_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_mul_2ns_67ns_67_5_1.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_mul_2ns_67ns_67_5_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_mul_25ns_8ns_33_1_1.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_mul_25ns_8ns_33_1_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_mul_32ns_8ns_40_2_1.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_mul_32ns_8ns_40_2_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_mul_51ns_50ns_101_5_1.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_mul_51ns_50ns_101_5_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_mul_67ns_63ns_130_5_1.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_mul_67ns_63ns_130_5_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_mul_72ns_68ns_140_5_1.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_mul_72ns_68ns_140_5_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_mux_4_2_16_1_1.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_mux_4_2_16_1_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -2505,7 +2497,7 @@
         <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_NEURONS_MEMBRANE_RAM_AUTO_1R1W.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -2513,67 +2505,67 @@
         <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_NEURONS_STATE_RAM_AUTO_1R1W.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_NEURONS_STATE_RAM_AUTO_1R1W.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_out_pkts_data_RAM_AUTO_0R0W.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_out_pkts_data_RAM_AUTO_0R0W.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_out_pkts_dest_RAM_AUTO_1R1W.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_out_pkts_dest_RAM_AUTO_1R1W.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_out_pkts_id_RAM_AUTO_1R1W.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_out_pkts_id_RAM_AUTO_1R1W.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_out_pkts_keep_RAM_AUTO_1R1W.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_out_pkts_keep_RAM_AUTO_1R1W.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_out_pkts_last_RAM_AUTO_1R1W.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_out_pkts_last_RAM_AUTO_1R1W.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_out_pkts_user_RAM_AUTO_1R1W.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_out_pkts_user_RAM_AUTO_1R1W.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_output_layer.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_output_layer.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_output_layer_Pipeline_NEURONS_STATE_RESET_LOOP.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_output_layer_Pipeline_NEURONS_STATE_RESET_LOOP.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_output_layer_Pipeline_WEIGHTS_LOOP_4.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_output_layer_Pipeline_WEIGHTS_LOOP_4.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_output_stream_dispatch.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_output_stream_dispatch.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_output_stream_dispatch_Pipeline_NEURONS_STATE_RESET_LOOP.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_output_stream_dispatch_Pipeline_NEURONS_STATE_RESET_LOOP.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_output_stream_dispatch_Pipeline_VITIS_LOOP_197_1.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_output_stream_dispatch_Pipeline_VITIS_LOOP_213_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_output_stream_dispatch_Pipeline_VITIS_LOOP_204_2.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_output_stream_dispatch_Pipeline_VITIS_LOOP_220_2.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_regslice_both.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_regslice_both.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_sdiv_17s_31ns_16_21_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -2581,11 +2573,11 @@
         <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI_WEIGHTS_INDEX_ROM_AUTO_1R.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI_WEIGHTS_INDEX_ROM_AUTO_1R.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f285/hdl/verilog/RNI.v</spirit:name>
+        <spirit:name>../../ipshared/a40c/hdl/verilog/RNI.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -2664,7 +2656,7 @@
     <xilinx:coreExtensions>
       <xilinx:displayName>Rni</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>2113798099</xilinx:coreRevision>
+      <xilinx:coreRevision>2113799299</xilinx:coreRevision>
       <xilinx:sdxKernelAttributes>
         <xilinx:sdx_kernel>true</xilinx:sdx_kernel>
         <xilinx:sdx_kernel_type>hls</xilinx:sdx_kernel_type>
@@ -2742,7 +2734,7 @@
       <xilinx:xilinxVersion>2023.1.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="aca35e6c"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="e278e9b0"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="877b4fd6"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="ae1e7af7"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="83b0f721"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="79893713"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="91ef88b2"/>

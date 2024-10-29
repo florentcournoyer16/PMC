@@ -3,12 +3,12 @@
 # SW Build 3900603 on Fri Jun 16 19:30:25 MDT 2023
 # IP Build 3900379 on Sat Jun 17 05:28:05 MDT 2023
 # SharedData Build 3899622 on Fri Jun 16 03:34:24 MDT 2023
-# Start of session at: Mon Oct 28 19:40:14 2024
-# Process ID: 112439
+# Start of session at: Tue Oct 29 15:36:40 2024
+# Process ID: 66586
 # Current directory: /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_auto_pc_8_synth_1
 # Command line: vivado -log base_auto_pc_8.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source base_auto_pc_8.tcl
 # Log file: /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_auto_pc_8_synth_1/base_auto_pc_8.vds
 # Journal file: /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_auto_pc_8_synth_1/vivado.jou
-# Running On: GRAMS-NSOC, OS: Linux, CPU Frequency: 3882.425 MHz, CPU Physical cores: 4, Host memory: 16721 MB
+# Running On: GRAMS-NSOC, OS: Linux, CPU Frequency: 3785.971 MHz, CPU Physical cores: 4, Host memory: 16721 MB
 #-----------------------------------------------------------
 source base_auto_pc_8.tcl -notrace

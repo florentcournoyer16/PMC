@@ -4,7 +4,7 @@
     "xci_name": "base_example_0_0",
     "cell_name": "example_0",
     "component_reference": "xilinx.com:hls:RNI:1.0",
-    "ip_revision": "2113798099",
+    "ip_revision": "2113799299",
     "gen_directory": "../../../../../../project_1.gen/sources_1/bd/base/ip/base_example_0_0",
     "parameters": {
       "component_parameters": {
@@ -34,7 +34,7 @@
       },
       "runtime_parameters": {
         "IPCONTEXT": [ { "value": "IP_Integrator" } ],
-        "IPREVISION": [ { "value": "2113798099" } ],
+        "IPREVISION": [ { "value": "2113799299" } ],
         "MANAGED": [ { "value": "TRUE" } ],
         "OUTPUTDIR": [ { "value": "../../../../../../project_1.gen/sources_1/bd/base/ip/base_example_0_0" } ],
         "SELECTEDSIMMODEL": [ { "value": "" } ],

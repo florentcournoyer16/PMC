@@ -2,11 +2,11 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.1.1 (lin64) Build 3900603 Fri Jun 16 19:30:25 MDT 2023
-// Date        : Mon Oct 28 19:30:51 2024
+// Date        : Tue Oct 29 15:35:28 2024
 // Host        : GRAMS-NSOC running 64-bit Ubuntu 22.04.5 LTS
 // Command     : write_verilog -force -mode synth_stub -rename_top base_timer_2_0 -prefix
-//               base_timer_2_0_ base_timer_3_0_stub.v
-// Design      : base_timer_3_0
+//               base_timer_2_0_ base_timer_5_0_stub.v
+// Design      : base_timer_5_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z020clg400-1
 // --------------------------------------------------------------------------------

@@ -82,7 +82,6 @@ set_property parent.project_path /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_
 set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property board_part_repo_paths {/home/mohr0901/Downloads/pynq-z2/A.0} [current_project]
 set_property board_part tul.com.tw:pynq-z2:part0:1.0 [current_project]
 set_property ip_repo_paths {
   /home/mohr0901/Documents/PMC/B_RNI_HLS/output/export

@@ -2,18 +2,18 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.1.1 (lin64) Build 3900603 Fri Jun 16 19:30:25 MDT 2023
-// Date        : Mon Oct 28 19:41:07 2024
+// Date        : Tue Oct 29 15:39:25 2024
 // Host        : GRAMS-NSOC running 64-bit Ubuntu 22.04.5 LTS
-// Command     : write_verilog -force -mode funcsim
-//               /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_rst_ps7_0_100M_0/base_rst_ps7_0_100M_0_sim_netlist.v
-// Design      : base_rst_ps7_0_100M_0
+// Command     : write_verilog -force -mode funcsim -rename_top base_rst_ps7_0_100M_0 -prefix
+//               base_rst_ps7_0_100M_0_ base_rst_ps7_0_fclk3_0_sim_netlist.v
+// Design      : base_rst_ps7_0_fclk3_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
 // Device      : xc7z020clg400-1
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "base_rst_ps7_0_100M_0,proc_sys_reset,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "proc_sys_reset,Vivado 2023.1.1" *) 
+(* CHECK_LICENSE_TYPE = "base_rst_ps7_0_fclk3_0,proc_sys_reset,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "proc_sys_reset,Vivado 2023.1.1" *) 
 (* NotValidForBitStream *)
 module base_rst_ps7_0_100M_0
    (slowest_sync_clk,
@@ -70,7 +70,6 @@ module base_rst_ps7_0_100M_0
         .slowest_sync_clk(slowest_sync_clk));
 endmodule
 
-(* ORIG_REF_NAME = "cdc_sync" *) 
 module base_rst_ps7_0_100M_0_cdc_sync
    (lpf_asr_reg,
     scndry_out,
@@ -266,7 +265,6 @@ module base_rst_ps7_0_100M_0_cdc_sync_0
         .O(lpf_exr_reg));
 endmodule
 
-(* ORIG_REF_NAME = "lpf" *) 
 module base_rst_ps7_0_100M_0_lpf
    (lpf_int,
     slowest_sync_clk,
@@ -421,7 +419,6 @@ endmodule
 (* C_AUX_RESET_HIGH = "1'b0" *) (* C_AUX_RST_WIDTH = "4" *) (* C_EXT_RESET_HIGH = "1'b0" *) 
 (* C_EXT_RST_WIDTH = "4" *) (* C_FAMILY = "zynq" *) (* C_NUM_BUS_RST = "1" *) 
 (* C_NUM_INTERCONNECT_ARESETN = "1" *) (* C_NUM_PERP_ARESETN = "1" *) (* C_NUM_PERP_RST = "1" *) 
-(* ORIG_REF_NAME = "proc_sys_reset" *) 
 module base_rst_ps7_0_100M_0_proc_sys_reset
    (slowest_sync_clk,
     ext_reset_in,
@@ -538,7 +535,6 @@ module base_rst_ps7_0_100M_0_proc_sys_reset
         .slowest_sync_clk(slowest_sync_clk));
 endmodule
 
-(* ORIG_REF_NAME = "sequence_psr" *) 
 module base_rst_ps7_0_100M_0_sequence_psr
    (MB_out,
     Bsr_out,
@@ -779,7 +775,6 @@ module base_rst_ps7_0_100M_0_sequence_psr
         .R(lpf_int));
 endmodule
 
-(* ORIG_REF_NAME = "upcnt_n" *) 
 module base_rst_ps7_0_100M_0_upcnt_n
    (Q,
     seq_clr,
