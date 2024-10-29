@@ -107,3 +107,4 @@ proj/
 !README.md
 !*.cff
 !*.mp4
+!*.sh
