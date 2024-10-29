@@ -37,7 +37,7 @@ python3 $INOUT_PLOTTER_FILEPATH --data_filepath "$DATA_FILEPATH" --start_index "
 # -----------------------------------------
 # -----------------------------------------
 
-VIVADO_ALL_FILEPATH = "C_RNI_VIVADO/run_all_vivado.tcl"
+VIVADO_ALL_FILEPATH="C_RNI_VIVADO/run_all_vivado.tcl"
 GEN_BITSTREAM=1
 
 vivado -mode batch $VIVADO_ALL_FILEPATH -tclargs -generate_bitstream $GEN_BITSTREAM
