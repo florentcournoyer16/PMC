@@ -21,7 +21,11 @@ RUN_CSIM=1
 RUN_CSYNTH=1
 RUN_EXPORT=1
 
-vitis_hls $VITIS_SCRIPT_FILEPATH -tclargs -project_path $VITIS_PROJECT_PATH -run_csim $RUN_CSIM -run_csynth $RUN_CSYNTH -run_export $RUN_EXPORT
+vitis_hls $VITIS_SCRIPT_FILEPATH -tclargs \
+    -project_path $VITIS_PROJECT_PATH \
+    -run_csim $RUN_CSIM \
+    -run_csynth $RUN_CSYNTH \
+    -run_export $RUN_EXPORT
 
 # -----------------------------------------
 # -----------------------------------------
