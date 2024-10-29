@@ -169,6 +169,10 @@ void input_layer(pkt input_pkts[INPUT_LENGHT])
 		WEIGHTS_LOOP_0: for(INDEX_TYPE weight_index = WEIGHTS_INDEX[neuron_index]; weight_index < WEIGHTS_INDEX[neuron_index + 1]; weight_index++)
 		{
 			NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index] * input_pkts[weight_index % INPUT_LENGHT].data;
+            if (NEURONS_MEMBRANE[neuron_index] < 0)
+            {
+                NEURONS_MEMBRANE[neuron_index] = 0;
+            }
 		}
 """)
 
@@ -203,7 +207,13 @@ def __append_inner_layer_definitions__(code_segments, output_model_dict, add_mem
 		{
 			STATE_TYPE neuron_state = NEURONS_STATE[NEURONS_INDEX[layer_index - 1] + weight_index - WEIGHTS_INDEX[neuron_index]];
 			if(neuron_state == 1)
+            {
 				NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
+                if (NEURONS_MEMBRANE[neuron_index] < 0)
+                {
+                    NEURONS_MEMBRANE[neuron_index] = 0;
+                }
+            }
 		}
 """)
         if add_membrane_probe:
@@ -242,6 +252,10 @@ void output_layer(void)
 			if(neuron_state == 1)
             {
 				NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
+                if (NEURONS_MEMBRANE[neuron_index] < 0)
+                {
+                    NEURONS_MEMBRANE[neuron_index] = 0;
+                }
             }
 		}
 """)

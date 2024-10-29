@@ -27,12 +27,11 @@ def plot(data, plot_index_list):
 
 
 if __name__ == "__main__":
-    if isinstance(sys.argv[1], str) :
-        file_path = sys.argv[1]
+    if sys.argv[1] == "--file" :
+        file_path = sys.argv[2]
         data = np.genfromtxt(file_path, delimiter=",")
-        plot(data, np.arange(int(sys.argv[2]), int(sys.argv[3]), 1))
+        plot(data, np.arange(int(sys.argv[3]), int(sys.argv[4]), 1))
     else:
         file_path = "./input/tb_outputs.csv"
         data = np.genfromtxt(file_path, delimiter=",")
         plot(data, np.arange(int(sys.argv[1]), int(sys.argv[2]), 1))
-        
