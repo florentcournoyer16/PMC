@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import sys
+
+from sys import argv
+from pathlib import Path
 
 
 def plot(data, plot_index_list):
@@ -27,11 +29,11 @@ def plot(data, plot_index_list):
 
 
 if __name__ == "__main__":
-    if sys.argv[1] == "--file" :
-        file_path = sys.argv[2]
+    if argv[1] == "--file" :
+        file_path = argv[2]
         data = np.genfromtxt(file_path, delimiter=",")
-        plot(data, np.arange(int(sys.argv[3]), int(sys.argv[4]), 1))
+        plot(data, np.arange(int(argv[3]), int(argv[4]), 1))
     else:
-        file_path = "./input/tb_outputs.csv"
+        file_path = Path(__file__).parent.parent.absolute().joinpath("B_RNI_HLS/tb/tb_outputs.csv")
         data = np.genfromtxt(file_path, delimiter=",")
-        plot(data, np.arange(int(sys.argv[1]), int(sys.argv[2]), 1))
+        plot(data, np.arange(int(argv[1]), int(argv[2]), 1))
