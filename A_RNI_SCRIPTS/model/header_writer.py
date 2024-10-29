@@ -52,7 +52,6 @@ def write_header(header_filepath, output_model_dict, weight_type_lenght, membran
         header_file.write("typedef hls::stream<pkt> pkt_stream;\n")
         header_file.write("void RNI(pkt_stream& in_stream, pkt_stream& out_stream);\n\n")
 
-
         if add_membrane_probe:
             header_file.write(f"MEMBRANE_TYPE MEMBRANE_PROBE[{membrane_probe_lenght}] = {{ ")
             for _ in range(membrane_probe_lenght):
