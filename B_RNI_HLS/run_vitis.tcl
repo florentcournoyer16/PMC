@@ -21,12 +21,16 @@ puts "run_export=$run_export"
 puts "project_path=$project_path"
 
 # Open project and setup files
-open_project RNI
+open_project $project_path/RNI
+
 set_top $project_path/RNI
-add_files $project_path/src/RNI.cpp
+
 add_files $project_path/inc/RNI.h
+add_files $project_path/src/RNI.cpp
+
 add_files -tb $project_path/inc/RNI_tb.h
 add_files -tb $project_path/tb/RNI_tb.cpp
+
 add_files -tb $project_path/tb/tb_inputs.csv
 add_files -tb $project_path/tb/tb_outputs.csv
 
