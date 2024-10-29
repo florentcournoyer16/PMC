@@ -23,26 +23,24 @@ puts "project_path=$project_path"
 set current_dir [pwd]
 cd $project_path
 open_project RNI
-cd $current_dir
 
-set_top $project_path/RNI
+set_top RNI
 
-add_files $project_path/inc/RNI.h
-add_files $project_path/src/RNI.cpp
+add_files inc/RNI.h
+add_files src/RNI.cpp
 
-add_files -tb $project_path/inc/RNI_tb.h
-add_files -tb $project_path/tb/RNI_tb.cpp
+add_files -tb inc/RNI_tb.h
+add_files -tb tb/RNI_tb.cpp
 
-add_files -tb $project_path/tb/tb_inputs.csv
-add_files -tb $project_path/tb/tb_outputs.csv
+add_files -tb tb/tb_inputs.csv
+add_files -tb tb/tb_outputs.csv
 
-cd $project_path
 open_solution "solution1" -flow_target vivado
 set_part {xc7z020-clg400-1}
 create_clock -period 10 -name default
 config_compile -design_size_maximum_warning 1000000 -name_max_length 800 -pipeline_flush_in_task never
 config_export -flow syn -format ip_catalog -output output -rtl verilog -vivado_clock 10
-source "$./RNI/solution1/directives.tcl"
+source "./RNI/solution1/directives.tcl"
 
 if {$run_csim} {
     puts "Running C Simulation..."
