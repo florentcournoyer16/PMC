@@ -59,7 +59,7 @@ void fill_input_buffer(pkt input_buffer[TB_INPUT_BUFFER_LENGHT])
 	{
 		for(int col = 0; col < RNI_INPUT_LENGHT; col++)
 		{
-			input_buffer[row * RNI_INPUT_LENGHT + col] = TB_INPUTS[row][col];
+			input_buffer[row * RNI_INPUT_LENGHT + col].data = TB_INPUTS[row][col];
 		}
 	}
 }
@@ -115,7 +115,7 @@ int write_data_to_csv(pkt output_buffer[TB_OUTPUT_BUFFER_LENGHT])
 		for (int col = 0; col < RNI_OUTPUT_LENGHT; col++)
 		{
 			current_val_int = output_buffer[row * RNI_OUTPUT_LENGHT + col].data;
-			char* current_val_str = std::to_string(current_val_int).c_str();
+			const char* current_val_str = std::to_string(current_val_int).c_str();
 			fwrite(current_val_str, sizeof(char), strlen(current_val_str), output_file);
 			if (col < RNI_OUTPUT_LENGHT - 1)
 			{
