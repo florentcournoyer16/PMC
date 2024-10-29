@@ -26,6 +26,7 @@ set_property platform.design_intent.embedded "true" [current_project]
 set_property platform.design_intent.server_managed "false" [current_project]
 set_property platform.design_intent.external_host "false" [current_project]
 set_property platform.design_intent.datacenter "false" [current_project]
+validate_bd_design -force
 
 # call implement
 launch_runs impl_1 -to_step write_bitstream -jobs 4

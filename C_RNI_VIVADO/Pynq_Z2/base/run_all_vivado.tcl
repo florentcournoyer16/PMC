@@ -4,7 +4,7 @@ set generate_bitstream 0
 
 # Parse arguments to check if the user provided a generate_bitstream flag
 foreach {arg value} $::argv {
-    if {$arg == "-generate_bitstream"} {
+    if {$arg == "generate_bitstream"} {
         set generate_bitstream $value
     }
 }
