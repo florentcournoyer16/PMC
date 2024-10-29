@@ -1,4 +1,4 @@
-def write_header(output_model_dict, header_filepath, weight_type_lenght, membrane_type_lenght, add_membrane_probe, membrane_probe_lenght):
+def write_header(header_filepath, output_model_dict, weight_type_lenght, membrane_type_lenght, add_membrane_probe, membrane_probe_lenght):
     with open(header_filepath, mode='w', encoding="utf8") as header_file:
         header_file.write('#ifndef MODEL_H\n')
         header_file.write('#define MODEL_H\n\n')
