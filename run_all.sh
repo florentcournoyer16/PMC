@@ -17,8 +17,8 @@ python3 $MODEL_PARSER_FILEPATH --model_filepath "$MODEL_FILEPATH" --tb_inputs_fi
 # -----------------------------------------
 # -----------------------------------------
 
-VITIS_SCRIPT_FILEPATH=B_RNI_HLS/run_vitis.tcl
 VITIS_PROJECT_PATH="$ROOT_DIR/B_RNI_HLS"
+VITIS_SCRIPT_FILEPATH=run_vitis.tcl
 RUN_CSIM=1
 RUN_CSYNTH=1
 RUN_EXPORT=1
@@ -43,8 +43,8 @@ python3 $INOUT_PLOTTER_FILEPATH --data_filepath "$DATA_FILEPATH" --start_index "
 # -----------------------------------------
 # -----------------------------------------
 
-VIVADO_SCRIPT_FILEPATH=C_RNI_VIVADO/run_all_vivado.tcl
 VIVADO_PROJECT_PATH="$ROOT_DIR/C_RNI_VIVADO/Pynq_Z2"
+VIVADO_SCRIPT_FILEPATH=run_all_vivado.tcl
 GEN_BITSTREAM=1
 
 cd $VIVADO_PROJECT_PATH
