@@ -37,7 +37,8 @@ if __name__ == "__main__":
     print("model_filepath =", model_filepath)
     print("header_filepath =", header_filepath)
     print("code_filepath =", code_filepath)
-    
+    print("")
+    print("tb_inputs_filepath =", tb_inputs_filepath)
     print("tb_header_filepath =", tb_header_filepath)
     print("tb_code_filepath =", tb_code_filepath)
 
