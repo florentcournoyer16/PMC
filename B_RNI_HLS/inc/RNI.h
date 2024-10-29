@@ -17,7 +17,7 @@
 #define INDEX_TYPE ap_int< INDEX_TYPE_LENGHT >
 
 #define STATE_TYPE_LENGHT 1
-#define STATE_TYPE ap_int< STATE_TYPE_LENGHT >
+#define STATE_TYPE ap_uint< STATE_TYPE_LENGHT >
 
 INDEX_TYPE NEURONS_INDEX[6] = { 0, 128, 192, 224, 240, 244, };
 #define NEURONS_INDEX_LENGHT 6
@@ -57,7 +57,7 @@ STATE_TYPE NEURONS_STATE[244] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 #define INDEX_TYPE_MAX 32768
 
 #define INPUT_LENGHT 4
-#define OUTPUT_LENGHT 244
+#define OUTPUT_LENGHT 248
 
 #define PKT_SIZE 32
 typedef ap_axis<PKT_SIZE, 2, 5, 6> pkt;

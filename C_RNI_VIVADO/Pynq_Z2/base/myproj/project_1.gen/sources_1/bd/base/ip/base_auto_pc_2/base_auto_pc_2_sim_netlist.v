@@ -2,11 +2,11 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.1.1 (lin64) Build 3900603 Fri Jun 16 19:30:25 MDT 2023
-// Date        : Mon Oct 28 16:33:03 2024
+// Date        : Mon Oct 28 19:30:58 2024
 // Host        : GRAMS-NSOC running 64-bit Ubuntu 22.04.5 LTS
 // Command     : write_verilog -force -mode funcsim -rename_top base_auto_pc_2 -prefix
-//               base_auto_pc_2_ base_auto_pc_3_sim_netlist.v
-// Design      : base_auto_pc_3
+//               base_auto_pc_2_ base_auto_pc_4_sim_netlist.v
+// Design      : base_auto_pc_4
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
 // Device      : xc7z020clg400-1
@@ -12674,7 +12674,7 @@ module base_auto_pc_2_axi_register_slice_v2_1_28_axic_register_slice__parameteri
         .R(1'b0));
 endmodule
 
-(* CHECK_LICENSE_TYPE = "base_auto_pc_3,axi_protocol_converter_v2_1_28_axi_protocol_converter,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* X_CORE_INFO = "axi_protocol_converter_v2_1_28_axi_protocol_converter,Vivado 2023.1.1" *) 
+(* CHECK_LICENSE_TYPE = "base_auto_pc_4,axi_protocol_converter_v2_1_28_axi_protocol_converter,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* X_CORE_INFO = "axi_protocol_converter_v2_1_28_axi_protocol_converter,Vivado 2023.1.1" *) 
 (* NotValidForBitStream *)
 module base_auto_pc_2
    (aclk,

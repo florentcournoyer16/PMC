@@ -1,6 +1,6 @@
 # This script segment is generated automatically by AutoPilot
 
-set id 31
+set id 23
 set name RNI_mux_4_2_16_1_1
 set corename simcore_mux
 set op mux
@@ -51,7 +51,7 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_pipemux, check your
 }
 
 
-set id 32
+set id 24
 set name RNI_mac_muladd_16s_8s_16ns_16_4_1
 set corename simcore_mac
 set op mac
@@ -125,52 +125,52 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 36 \
-    name zext_ln61 \
+    id 28 \
+    name zext_ln68 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_zext_ln61 \
+    corename dc_zext_ln68 \
     op interface \
-    ports { zext_ln61 { I 14 vector } } \
+    ports { zext_ln68 { I 14 vector } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 37 \
-    name zext_ln155 \
+    id 29 \
+    name membrane_leak_accumulator_reload \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_zext_ln155 \
+    corename dc_membrane_leak_accumulator_reload \
     op interface \
-    ports { zext_ln155 { I 1 vector } } \
+    ports { membrane_leak_accumulator_reload { I 16 vector } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 38 \
-    name zext_ln61_1 \
+    id 30 \
+    name zext_ln68_1 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_zext_ln61_1 \
+    corename dc_zext_ln68_1 \
     op interface \
-    ports { zext_ln61_1 { I 14 vector } } \
+    ports { zext_ln68_1 { I 14 vector } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 39 \
+    id 31 \
     name p_read \
     type other \
     dir I \
@@ -185,7 +185,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 40 \
+    id 32 \
     name p_read1 \
     type other \
     dir I \
@@ -200,7 +200,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 41 \
+    id 33 \
     name p_read2 \
     type other \
     dir I \
@@ -215,7 +215,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 42 \
+    id 34 \
     name p_read3 \
     type other \
     dir I \
@@ -230,15 +230,15 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 43 \
-    name conv3_i7_out \
+    id 35 \
+    name conv3_i9_out \
     type other \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_conv3_i7_out \
+    corename dc_conv3_i9_out \
     op interface \
-    ports { conv3_i7_out { O 16 vector } conv3_i7_out_ap_vld { O 1 bit } } \
+    ports { conv3_i9_out { O 16 vector } conv3_i9_out_ap_vld { O 1 bit } } \
 } "
 }
 

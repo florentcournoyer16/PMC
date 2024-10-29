@@ -1,5 +1,17 @@
 # This script segment is generated automatically by AutoPilot
 
+set name RNI_mul_2ns_67ns_67_5_1
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $name BINDTYPE {op} TYPE {mul} IMPL {auto} LATENCY 4 ALLOW_PRAGMA 1
+}
+
+
+set name RNI_sdiv_17s_31ns_16_21_1
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $name BINDTYPE {op} TYPE {sdiv} IMPL {auto} LATENCY 20 ALLOW_PRAGMA 1
+}
+
+
 # clear list
 if {${::AESL::PGuard_autoexp_gen}} {
     cg_default_interface_gen_dc_begin
@@ -10,22 +22,22 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 29 \
-    name NEURONS_MEMBRANE_load \
+    id 21 \
+    name sext_ln170 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_NEURONS_MEMBRANE_load \
+    corename dc_sext_ln170 \
     op interface \
-    ports { NEURONS_MEMBRANE_load { I 16 vector } } \
+    ports { sext_ln170 { I 16 vector } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 30 \
+    id 22 \
     name membrane_leak_accumulator_out \
     type other \
     dir O \

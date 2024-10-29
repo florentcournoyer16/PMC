@@ -2,11 +2,11 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.1.1 (lin64) Build 3900603 Fri Jun 16 19:30:25 MDT 2023
-// Date        : Mon Oct 28 16:24:55 2024
+// Date        : Mon Oct 28 19:30:51 2024
 // Host        : GRAMS-NSOC running 64-bit Ubuntu 22.04.5 LTS
 // Command     : write_verilog -force -mode funcsim -rename_top base_timer_4_0 -prefix
-//               base_timer_4_0_ base_timer_0_0_sim_netlist.v
-// Design      : base_timer_0_0
+//               base_timer_4_0_ base_timer_3_0_sim_netlist.v
+// Design      : base_timer_3_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
 // Device      : xc7z020clg400-1
@@ -2475,7 +2475,7 @@ module base_timer_4_0_axi_timer
         .s_axi_wdata({s_axi_wdata[11:9],s_axi_wdata[6:0]}));
 endmodule
 
-(* CHECK_LICENSE_TYPE = "base_timer_0_0,axi_timer,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "axi_timer,Vivado 2023.1.1" *) 
+(* CHECK_LICENSE_TYPE = "base_timer_3_0,axi_timer,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "axi_timer,Vivado 2023.1.1" *) 
 (* NotValidForBitStream *)
 module base_timer_4_0
    (capturetrig0,

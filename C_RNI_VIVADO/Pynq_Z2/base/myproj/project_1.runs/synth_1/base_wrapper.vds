@@ -3,16 +3,16 @@
 # SW Build 3900603 on Fri Jun 16 19:30:25 MDT 2023
 # IP Build 3900379 on Sat Jun 17 05:28:05 MDT 2023
 # SharedData Build 3899622 on Fri Jun 16 03:34:24 MDT 2023
-# Start of session at: Mon Oct 28 16:37:57 2024
-# Process ID: 57339
+# Start of session at: Mon Oct 28 19:45:38 2024
+# Process ID: 115565
 # Current directory: /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1
 # Command line: vivado -log base_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source base_wrapper.tcl
 # Log file: /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/base_wrapper.vds
 # Journal file: /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/vivado.jou
-# Running On: GRAMS-NSOC, OS: Linux, CPU Frequency: 3544.425 MHz, CPU Physical cores: 4, Host memory: 16721 MB
+# Running On: GRAMS-NSOC, OS: Linux, CPU Frequency: 3892.074 MHz, CPU Physical cores: 4, Host memory: 16721 MB
 #-----------------------------------------------------------
 source base_wrapper.tcl -notrace
-create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1282.641 ; gain = 7.023 ; free physical = 6020 ; free virtual = 11603
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1331.695 ; gain = 0.023 ; free physical = 5955 ; free virtual = 11662
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/mohr0901/Documents/PMC/B_RNI_HLS/output/export'.
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/mohr0901/Documents/PMC/C_RNI_VIVADO/ip'.
@@ -24,16 +24,16 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020
 INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 57377
+INFO: [Synth 8-7075] Helper process launched with PID 115597
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2098.746 ; gain = 376.770 ; free physical = 4979 ; free virtual = 10563
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2100.910 ; gain = 378.738 ; free physical = 4915 ; free virtual = 10623
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'base_wrapper' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/hdl/base_wrapper.v:13]
 INFO: [Synth 8-6157] synthesizing module 'IOBUF' [/tools/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:76334]
 INFO: [Synth 8-6155] done synthesizing module 'IOBUF' (0#1) [/tools/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:76334]
 INFO: [Synth 8-6157] synthesizing module 'base' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:13]
-INFO: [Synth 8-6157] synthesizing module 'base_axi_dma_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_axi_dma_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_axi_dma_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_axi_dma_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_axi_dma_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_axi_dma_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_axi_dma_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_axi_dma_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'mm2s_prmry_reset_out_n' of module 'base_axi_dma_0' is unconnected for instance 'axi_dma' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:616]
 WARNING: [Synth 8-7071] port 's2mm_prmry_reset_out_n' of module 'base_axi_dma_0' is unconnected for instance 'axi_dma' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:616]
 WARNING: [Synth 8-7071] port 'mm2s_introut' of module 'base_axi_dma_0' is unconnected for instance 'axi_dma' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:616]
@@ -42,32 +42,32 @@ WARNING: [Synth 8-7071] port 'axi_dma_tstvec' of module 'base_axi_dma_0' is unco
 WARNING: [Synth 8-7023] instance 'axi_dma' of module 'base_axi_dma_0' has 64 connections declared, but only 59 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:616]
 INFO: [Synth 8-6157] synthesizing module 'base_axi_interconnect_2_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:1589]
 INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_9G9U9R' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:15273]
-INFO: [Synth 8-6157] synthesizing module 'base_auto_pc_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_auto_pc_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_auto_pc_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_auto_pc_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_auto_pc_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_auto_pc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_auto_pc_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_auto_pc_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_9G9U9R' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:15273]
 INFO: [Synth 8-6155] done synthesizing module 'base_axi_interconnect_2_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:1589]
 INFO: [Synth 8-6157] synthesizing module 'base_axi_mem_intercon_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:1879]
 INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_FF1AKS' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:15553]
-INFO: [Synth 8-6157] synthesizing module 'base_auto_pc_7' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_auto_pc_7_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_auto_pc_7' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_auto_pc_7_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'base_auto_us_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_auto_us_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_auto_us_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_auto_us_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_auto_pc_7' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_auto_pc_7_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_auto_pc_7' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_auto_pc_7_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_auto_us_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_auto_us_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_auto_us_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_auto_us_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_FF1AKS' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:15553]
 INFO: [Synth 8-6155] done synthesizing module 'base_axi_mem_intercon_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:1879]
 INFO: [Synth 8-6157] synthesizing module 'base_axi_mem_intercon_1_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:2079]
 INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_SZHNAZ' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:15803]
-INFO: [Synth 8-6157] synthesizing module 'base_auto_pc_8' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_auto_pc_8_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_auto_pc_8' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_auto_pc_8_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_auto_pc_8' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_auto_pc_8_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_auto_pc_8' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_auto_pc_8_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_SZHNAZ' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:15803]
 INFO: [Synth 8-6155] done synthesizing module 'base_axi_mem_intercon_1_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:2079]
-INFO: [Synth 8-6157] synthesizing module 'base_btns_gpio_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_btns_gpio_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_btns_gpio_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_btns_gpio_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_btns_gpio_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_btns_gpio_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_btns_gpio_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_btns_gpio_0_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'base_concat_interrupts_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_concat_interrupts_0/synth/base_concat_interrupts_0.v:53]
 INFO: [Synth 8-6157] synthesizing module 'xlconcat_v2_1_4_xlconcat' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v:14]
 INFO: [Synth 8-6155] done synthesizing module 'xlconcat_v2_1_4_xlconcat' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v:14]
 INFO: [Synth 8-6155] done synthesizing module 'base_concat_interrupts_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_concat_interrupts_0/synth/base_concat_interrupts_0.v:53]
-INFO: [Synth 8-6157] synthesizing module 'base_example_0_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_example_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_example_0_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_example_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_example_0_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_example_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_example_0_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_example_0_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'interrupt' of module 'base_example_0_0' is unconnected for instance 'example_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:839]
 WARNING: [Synth 8-7071] port 'out_stream_TDEST' of module 'base_example_0_0' is unconnected for instance 'example_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:839]
 WARNING: [Synth 8-7071] port 'out_stream_TSTRB' of module 'base_example_0_0' is unconnected for instance 'example_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:839]
@@ -75,174 +75,174 @@ WARNING: [Synth 8-7071] port 'out_stream_TUSER' of module 'base_example_0_0' is 
 WARNING: [Synth 8-7071] port 'out_stream_TID' of module 'base_example_0_0' is unconnected for instance 'example_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:839]
 WARNING: [Synth 8-7023] instance 'example_0' of module 'base_example_0_0' has 38 connections declared, but only 33 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:839]
 INFO: [Synth 8-6157] synthesizing module 'iop_arduino_imp_HQH550' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:6699]
-INFO: [Synth 8-6157] synthesizing module 'base_arduino_gpio_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_arduino_gpio_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_arduino_gpio_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_arduino_gpio_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'base_dff_en_reset_vector_0_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_dff_en_reset_vector_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_dff_en_reset_vector_0_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_dff_en_reset_vector_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'base_iic_direct_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_iic_direct_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_iic_direct_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_iic_direct_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_arduino_gpio_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_arduino_gpio_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_arduino_gpio_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_arduino_gpio_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_dff_en_reset_vector_0_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_dff_en_reset_vector_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_dff_en_reset_vector_0_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_dff_en_reset_vector_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_iic_direct_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_iic_direct_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_iic_direct_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_iic_direct_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'gpo' of module 'base_iic_direct_0' is unconnected for instance 'iic_direct' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:7486]
 WARNING: [Synth 8-7023] instance 'iic_direct' of module 'base_iic_direct_0' has 27 connections declared, but only 26 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:7486]
-INFO: [Synth 8-6157] synthesizing module 'base_intc_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_intc_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_intc_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_intc_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_intc_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_intc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_intc_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_intc_0_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'base_interrupt_concat_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_interrupt_concat_0/synth/base_interrupt_concat_0.v:53]
 INFO: [Synth 8-6157] synthesizing module 'xlconcat_v2_1_4_xlconcat__parameterized0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v:14]
 INFO: [Synth 8-6155] done synthesizing module 'xlconcat_v2_1_4_xlconcat__parameterized0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v:14]
 INFO: [Synth 8-6155] done synthesizing module 'base_interrupt_concat_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_interrupt_concat_0/synth/base_interrupt_concat_0.v:53]
-INFO: [Synth 8-6157] synthesizing module 'base_intr_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_intr_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_intr_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_intr_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'base_io_switch_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_io_switch_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_io_switch_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_io_switch_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_intr_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_intr_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_intr_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_intr_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_io_switch_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_io_switch_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_io_switch_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_io_switch_0_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'lmb_imp_1LYQ59K' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:8314]
-INFO: [Synth 8-6157] synthesizing module 'base_dlmb_v10_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_dlmb_v10_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_dlmb_v10_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_dlmb_v10_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_dlmb_v10_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_dlmb_v10_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_dlmb_v10_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_dlmb_v10_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'LMB_Rst' of module 'base_dlmb_v10_0' is unconnected for instance 'dlmb_v10' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:8458]
 WARNING: [Synth 8-7023] instance 'dlmb_v10' of module 'base_dlmb_v10_0' has 25 connections declared, but only 24 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:8458]
-INFO: [Synth 8-6157] synthesizing module 'base_ilmb_v10_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_ilmb_v10_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_ilmb_v10_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_ilmb_v10_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_ilmb_v10_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_ilmb_v10_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_ilmb_v10_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_ilmb_v10_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'LMB_Rst' of module 'base_ilmb_v10_0' is unconnected for instance 'ilmb_v10' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:8483]
 WARNING: [Synth 8-7023] instance 'ilmb_v10' of module 'base_ilmb_v10_0' has 25 connections declared, but only 24 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:8483]
-INFO: [Synth 8-6157] synthesizing module 'base_lmb_bram_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_lmb_bram_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_lmb_bram_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_lmb_bram_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_lmb_bram_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_lmb_bram_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_lmb_bram_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_lmb_bram_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'rsta_busy' of module 'base_lmb_bram_0' is unconnected for instance 'lmb_bram' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:8508]
 WARNING: [Synth 8-7071] port 'rstb_busy' of module 'base_lmb_bram_0' is unconnected for instance 'lmb_bram' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:8508]
 WARNING: [Synth 8-7023] instance 'lmb_bram' of module 'base_lmb_bram_0' has 16 connections declared, but only 14 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:8508]
-INFO: [Synth 8-6157] synthesizing module 'base_lmb_bram_if_cntlr_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_lmb_bram_if_cntlr_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_lmb_bram_if_cntlr_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_lmb_bram_if_cntlr_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_lmb_bram_if_cntlr_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_lmb_bram_if_cntlr_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_lmb_bram_if_cntlr_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_lmb_bram_if_cntlr_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'lmb_imp_1LYQ59K' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:8314]
 INFO: [Synth 8-6157] synthesizing module 'base_logic_1_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_logic_1_0/synth/base_logic_1_0.v:53]
 INFO: [Synth 8-6157] synthesizing module 'xlconstant_v1_1_7_xlconstant' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/b0f2/hdl/xlconstant_v1_1_vl_rfs.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'xlconstant_v1_1_7_xlconstant' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ipshared/b0f2/hdl/xlconstant_v1_1_vl_rfs.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'base_logic_1_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_logic_1_0/synth/base_logic_1_0.v:53]
-INFO: [Synth 8-6157] synthesizing module 'base_mb_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_mb_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_mb_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_mb_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_mb_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_mb_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_mb_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_mb_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'Interrupt_Ack' of module 'base_mb_0' is unconnected for instance 'mb' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:7641]
 WARNING: [Synth 8-7023] instance 'mb' of module 'base_mb_0' has 52 connections declared, but only 51 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:7641]
-INFO: [Synth 8-6157] synthesizing module 'base_mb_bram_ctrl_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_mb_bram_ctrl_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_mb_bram_ctrl_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_mb_bram_ctrl_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_mb_bram_ctrl_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_mb_bram_ctrl_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_mb_bram_ctrl_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_mb_bram_ctrl_0_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'base_microblaze_0_axi_periph_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:2249]
 INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_83OWNR' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:8923]
-INFO: [Synth 8-6157] synthesizing module 'base_m00_regslice_2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m00_regslice_2_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_m00_regslice_2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m00_regslice_2_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_m00_regslice_2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m00_regslice_2_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_m00_regslice_2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m00_regslice_2_stub.v:6]
 WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'base_m00_regslice_2' is unconnected for instance 'm00_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:9082]
 WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'base_m00_regslice_2' is unconnected for instance 'm00_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:9082]
 WARNING: [Synth 8-7023] instance 'm00_regslice' of module 'base_m00_regslice_2' has 40 connections declared, but only 38 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:9082]
 INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_83OWNR' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:8923]
 INFO: [Synth 8-6157] synthesizing module 'm01_couplers_imp_ZKWTUP' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:9770]
-INFO: [Synth 8-6157] synthesizing module 'base_m01_regslice_2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m01_regslice_2_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_m01_regslice_2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m01_regslice_2_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_m01_regslice_2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m01_regslice_2_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_m01_regslice_2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m01_regslice_2_stub.v:6]
 WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'base_m01_regslice_2' is unconnected for instance 'm01_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:9929]
 WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'base_m01_regslice_2' is unconnected for instance 'm01_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:9929]
 WARNING: [Synth 8-7023] instance 'm01_regslice' of module 'base_m01_regslice_2' has 40 connections declared, but only 38 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:9929]
 INFO: [Synth 8-6155] done synthesizing module 'm01_couplers_imp_ZKWTUP' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:9770]
 INFO: [Synth 8-6157] synthesizing module 'm02_couplers_imp_1Y0SZJU' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:10334]
-INFO: [Synth 8-6157] synthesizing module 'base_m02_regslice_2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m02_regslice_2_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_m02_regslice_2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m02_regslice_2_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_m02_regslice_2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m02_regslice_2_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_m02_regslice_2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m02_regslice_2_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'm02_couplers_imp_1Y0SZJU' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:10334]
 INFO: [Synth 8-6157] synthesizing module 'm03_couplers_imp_R04NF0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:10544]
-INFO: [Synth 8-6157] synthesizing module 'base_m03_regslice_2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m03_regslice_2_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_m03_regslice_2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m03_regslice_2_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_m03_regslice_2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m03_regslice_2_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_m03_regslice_2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m03_regslice_2_stub.v:6]
 WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'base_m03_regslice_2' is unconnected for instance 'm03_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:10703]
 WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'base_m03_regslice_2' is unconnected for instance 'm03_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:10703]
 WARNING: [Synth 8-7023] instance 'm03_regslice' of module 'base_m03_regslice_2' has 40 connections declared, but only 38 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:10703]
 INFO: [Synth 8-6155] done synthesizing module 'm03_couplers_imp_R04NF0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:10544]
 INFO: [Synth 8-6157] synthesizing module 'm04_couplers_imp_1A5ZKC' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:11108]
-INFO: [Synth 8-6157] synthesizing module 'base_m04_regslice_2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m04_regslice_2_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_m04_regslice_2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m04_regslice_2_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_m04_regslice_2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m04_regslice_2_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_m04_regslice_2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m04_regslice_2_stub.v:6]
 WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'base_m04_regslice_2' is unconnected for instance 'm04_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:11267]
 WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'base_m04_regslice_2' is unconnected for instance 'm04_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:11267]
 WARNING: [Synth 8-7023] instance 'm04_regslice' of module 'base_m04_regslice_2' has 40 connections declared, but only 38 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:11267]
 INFO: [Synth 8-6155] done synthesizing module 'm04_couplers_imp_1A5ZKC' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:11108]
 INFO: [Synth 8-6157] synthesizing module 'm05_couplers_imp_16LXAGQ' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:12036]
-INFO: [Synth 8-6157] synthesizing module 'base_m05_regslice_2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m05_regslice_2_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_m05_regslice_2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m05_regslice_2_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_m05_regslice_2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m05_regslice_2_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_m05_regslice_2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m05_regslice_2_stub.v:6]
 WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'base_m05_regslice_2' is unconnected for instance 'm05_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:12195]
 WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'base_m05_regslice_2' is unconnected for instance 'm05_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:12195]
 WARNING: [Synth 8-7023] instance 'm05_regslice' of module 'base_m05_regslice_2' has 40 connections declared, but only 38 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:12195]
 INFO: [Synth 8-6155] done synthesizing module 'm05_couplers_imp_16LXAGQ' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:12036]
 INFO: [Synth 8-6157] synthesizing module 'm06_couplers_imp_1RSUW2P' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:12236]
-INFO: [Synth 8-6157] synthesizing module 'base_m06_regslice_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m06_regslice_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_m06_regslice_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m06_regslice_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_m06_regslice_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m06_regslice_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_m06_regslice_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m06_regslice_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'base_m06_regslice_0' is unconnected for instance 'm06_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:12395]
 WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'base_m06_regslice_0' is unconnected for instance 'm06_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:12395]
 WARNING: [Synth 8-7023] instance 'm06_regslice' of module 'base_m06_regslice_0' has 40 connections declared, but only 38 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:12395]
 INFO: [Synth 8-6155] done synthesizing module 'm06_couplers_imp_1RSUW2P' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:12236]
 INFO: [Synth 8-6157] synthesizing module 'm07_couplers_imp_XKK68N' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:12436]
-INFO: [Synth 8-6157] synthesizing module 'base_m07_regslice_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m07_regslice_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_m07_regslice_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m07_regslice_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_m07_regslice_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m07_regslice_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_m07_regslice_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m07_regslice_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'base_m07_regslice_0' is unconnected for instance 'm07_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:12595]
 WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'base_m07_regslice_0' is unconnected for instance 'm07_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:12595]
 WARNING: [Synth 8-7023] instance 'm07_regslice' of module 'base_m07_regslice_0' has 40 connections declared, but only 38 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:12595]
 INFO: [Synth 8-6155] done synthesizing module 'm07_couplers_imp_XKK68N' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:12436]
 INFO: [Synth 8-6157] synthesizing module 'm08_couplers_imp_CVN3HD' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:12636]
-INFO: [Synth 8-6157] synthesizing module 'base_m08_regslice_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m08_regslice_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_m08_regslice_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m08_regslice_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_m08_regslice_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m08_regslice_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_m08_regslice_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m08_regslice_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'base_m08_regslice_0' is unconnected for instance 'm08_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:12795]
 WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'base_m08_regslice_0' is unconnected for instance 'm08_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:12795]
 WARNING: [Synth 8-7023] instance 'm08_regslice' of module 'base_m08_regslice_0' has 40 connections declared, but only 38 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:12795]
 INFO: [Synth 8-6155] done synthesizing module 'm08_couplers_imp_CVN3HD' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:12636]
 INFO: [Synth 8-6157] synthesizing module 'm09_couplers_imp_1DRXJPZ' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:12836]
-INFO: [Synth 8-6157] synthesizing module 'base_m09_regslice_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m09_regslice_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_m09_regslice_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m09_regslice_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_m09_regslice_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m09_regslice_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_m09_regslice_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m09_regslice_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'base_m09_regslice_0' is unconnected for instance 'm09_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:12995]
 WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'base_m09_regslice_0' is unconnected for instance 'm09_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:12995]
 WARNING: [Synth 8-7023] instance 'm09_regslice' of module 'base_m09_regslice_0' has 40 connections declared, but only 38 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:12995]
 INFO: [Synth 8-6155] done synthesizing module 'm09_couplers_imp_1DRXJPZ' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:12836]
 INFO: [Synth 8-6157] synthesizing module 'm10_couplers_imp_19PYWFZ' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:13036]
-INFO: [Synth 8-6157] synthesizing module 'base_m10_regslice_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m10_regslice_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_m10_regslice_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m10_regslice_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_m10_regslice_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m10_regslice_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_m10_regslice_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m10_regslice_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'base_m10_regslice_0' is unconnected for instance 'm10_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:13195]
 WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'base_m10_regslice_0' is unconnected for instance 'm10_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:13195]
 WARNING: [Synth 8-7023] instance 'm10_regslice' of module 'base_m10_regslice_0' has 40 connections declared, but only 38 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:13195]
 INFO: [Synth 8-6155] done synthesizing module 'm10_couplers_imp_19PYWFZ' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:13036]
 INFO: [Synth 8-6157] synthesizing module 'm11_couplers_imp_G15421' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:13236]
-INFO: [Synth 8-6157] synthesizing module 'base_m11_regslice_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m11_regslice_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_m11_regslice_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m11_regslice_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_m11_regslice_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m11_regslice_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_m11_regslice_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m11_regslice_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'base_m11_regslice_0' is unconnected for instance 'm11_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:13395]
 WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'base_m11_regslice_0' is unconnected for instance 'm11_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:13395]
 WARNING: [Synth 8-7023] instance 'm11_regslice' of module 'base_m11_regslice_0' has 40 connections declared, but only 38 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:13395]
 INFO: [Synth 8-6155] done synthesizing module 'm11_couplers_imp_G15421' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:13236]
 INFO: [Synth 8-6157] synthesizing module 'm12_couplers_imp_JBQ1HU' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:13436]
-INFO: [Synth 8-6157] synthesizing module 'base_m12_regslice_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m12_regslice_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_m12_regslice_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m12_regslice_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_m12_regslice_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m12_regslice_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_m12_regslice_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m12_regslice_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'base_m12_regslice_0' is unconnected for instance 'm12_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:13595]
 WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'base_m12_regslice_0' is unconnected for instance 'm12_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:13595]
 WARNING: [Synth 8-7023] instance 'm12_regslice' of module 'base_m12_regslice_0' has 40 connections declared, but only 38 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:13595]
 INFO: [Synth 8-6155] done synthesizing module 'm12_couplers_imp_JBQ1HU' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:13436]
 INFO: [Synth 8-6157] synthesizing module 'm13_couplers_imp_1O461D0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:13636]
-INFO: [Synth 8-6157] synthesizing module 'base_m13_regslice_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m13_regslice_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_m13_regslice_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m13_regslice_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_m13_regslice_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m13_regslice_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_m13_regslice_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m13_regslice_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'base_m13_regslice_0' is unconnected for instance 'm13_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:13795]
 WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'base_m13_regslice_0' is unconnected for instance 'm13_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:13795]
 WARNING: [Synth 8-7023] instance 'm13_regslice' of module 'base_m13_regslice_0' has 40 connections declared, but only 38 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:13795]
 INFO: [Synth 8-6155] done synthesizing module 'm13_couplers_imp_1O461D0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:13636]
 INFO: [Synth 8-6157] synthesizing module 'm14_couplers_imp_1GJT0H0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:13836]
-INFO: [Synth 8-6157] synthesizing module 'base_m14_regslice_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m14_regslice_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_m14_regslice_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m14_regslice_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_m14_regslice_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m14_regslice_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_m14_regslice_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m14_regslice_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'm14_couplers_imp_1GJT0H0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:13836]
 INFO: [Synth 8-6157] synthesizing module 'm15_couplers_imp_8ZTDCI' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:14046]
-INFO: [Synth 8-6157] synthesizing module 'base_m15_regslice_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m15_regslice_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_m15_regslice_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_m15_regslice_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_m15_regslice_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m15_regslice_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_m15_regslice_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_m15_regslice_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'base_m15_regslice_0' is unconnected for instance 'm15_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:14205]
 WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'base_m15_regslice_0' is unconnected for instance 'm15_regslice' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:14205]
 WARNING: [Synth 8-7023] instance 'm15_regslice' of module 'base_m15_regslice_0' has 40 connections declared, but only 38 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:14205]
 INFO: [Synth 8-6155] done synthesizing module 'm15_couplers_imp_8ZTDCI' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:14046]
 INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_1OXEFDU' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:14758]
-INFO: [Synth 8-6157] synthesizing module 'base_s00_regslice_2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_s00_regslice_2_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_s00_regslice_2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_s00_regslice_2_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_s00_regslice_2' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_s00_regslice_2_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_s00_regslice_2' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_s00_regslice_2_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_1OXEFDU' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:14758]
-INFO: [Synth 8-6157] synthesizing module 'base_xbar_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_xbar_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_xbar_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_xbar_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_xbar_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_xbar_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_xbar_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_xbar_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'base_microblaze_0_axi_periph_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:2249]
-INFO: [Synth 8-6157] synthesizing module 'base_rst_clk_wiz_1_100M_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_rst_clk_wiz_1_100M_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_rst_clk_wiz_1_100M_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_rst_clk_wiz_1_100M_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_rst_clk_wiz_1_100M_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_rst_clk_wiz_1_100M_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_rst_clk_wiz_1_100M_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_rst_clk_wiz_1_100M_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'base_rst_clk_wiz_1_100M_0' is unconnected for instance 'rst_clk_wiz_1_100M' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:8072]
 WARNING: [Synth 8-7023] instance 'rst_clk_wiz_1_100M' of module 'base_rst_clk_wiz_1_100M_0' has 10 connections declared, but only 9 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:8072]
 INFO: [Synth 8-6157] synthesizing module 'spi_subsystem_imp_O4QPRN' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:15966]
-INFO: [Synth 8-6157] synthesizing module 'base_spi_direct_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_spi_direct_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_spi_direct_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_spi_direct_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'base_spi_shared_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_spi_shared_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_spi_shared_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_spi_shared_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_spi_direct_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_spi_direct_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_spi_direct_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_spi_direct_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_spi_shared_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_spi_shared_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_spi_shared_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_spi_shared_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'spi_subsystem_imp_O4QPRN' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:15966]
 INFO: [Synth 8-6157] synthesizing module 'timers_subsystem_imp_1NTZ26T' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:16287]
 INFO: [Synth 8-6157] synthesizing module 'base_mb3_timer_capture_0_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_mb3_timer_capture_0_0/synth/base_mb3_timer_capture_0_0.v:53]
@@ -287,21 +287,21 @@ INFO: [Synth 8-6155] done synthesizing module 'xlconcat_v2_1_4_xlconcat__paramet
 INFO: [Synth 8-6155] done synthesizing module 'base_mb3_timer_pwm_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_mb3_timer_pwm_0/synth/base_mb3_timer_pwm_0.v:53]
 INFO: [Synth 8-6157] synthesizing module 'base_mb3_timers_interrupt_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_mb3_timers_interrupt_0/synth/base_mb3_timers_interrupt_0.v:53]
 INFO: [Synth 8-6155] done synthesizing module 'base_mb3_timers_interrupt_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_mb3_timers_interrupt_0/synth/base_mb3_timers_interrupt_0.v:53]
-INFO: [Synth 8-6157] synthesizing module 'base_timer_0_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_timer_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_timer_0_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_timer_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_timer_0_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_timer_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_timer_0_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_timer_0_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'generateout1' of module 'base_timer_0_0' is unconnected for instance 'timer_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:16804]
 WARNING: [Synth 8-7023] instance 'timer_0' of module 'base_timer_0_0' has 26 connections declared, but only 25 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:16804]
-INFO: [Synth 8-6157] synthesizing module 'base_timer_1_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_timer_1_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'base_timer_1_0' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_timer_1_0_stub.v:6]
 INFO: [Common 17-14] Message 'Synth 8-6157' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-6155] done synthesizing module 'base_timer_1_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_timer_1_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_timer_2_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_timer_2_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'base_timer_3_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_timer_3_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_timer_1_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_timer_1_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_timer_2_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_timer_2_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_timer_3_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_timer_3_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'generateout1' of module 'base_timer_3_0' is unconnected for instance 'timer_3' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:16884]
 WARNING: [Synth 8-7023] instance 'timer_3' of module 'base_timer_3_0' has 26 connections declared, but only 25 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:16884]
-INFO: [Synth 8-6155] done synthesizing module 'base_timer_4_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_timer_4_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_timer_4_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_timer_4_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'generateout1' of module 'base_timer_4_0' is unconnected for instance 'timer_4' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:16910]
 WARNING: [Synth 8-7023] instance 'timer_4' of module 'base_timer_4_0' has 26 connections declared, but only 25 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:16910]
-INFO: [Synth 8-6155] done synthesizing module 'base_timer_5_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-57339-GRAMS-NSOC/realtime/base_timer_5_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'base_timer_5_0' (0#1) [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/.Xil/Vivado-115565-GRAMS-NSOC/realtime/base_timer_5_0_stub.v:6]
 INFO: [Common 17-14] Message 'Synth 8-6155' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 WARNING: [Synth 8-7071] port 'generateout1' of module 'base_timer_5_0' is unconnected for instance 'timer_5' [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:16936]
 WARNING: [Synth 8-7023] instance 'timer_5' of module 'base_timer_5_0' has 26 connections declared, but only 25 given [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/synth/base.v:16936]
@@ -471,18 +471,18 @@ WARNING: [Synth 8-7129] Port In114[0] in module xlconcat_v2_1_4_xlconcat__parame
 WARNING: [Synth 8-7129] Port In115[0] in module xlconcat_v2_1_4_xlconcat__parameterized4 is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2209.559 ; gain = 487.582 ; free physical = 4822 ; free virtual = 10407
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2209.754 ; gain = 487.582 ; free physical = 4789 ; free virtual = 10499
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2227.371 ; gain = 505.395 ; free physical = 4822 ; free virtual = 10407
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2227.566 ; gain = 505.395 ; free physical = 4789 ; free virtual = 10499
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2227.371 ; gain = 505.395 ; free physical = 4822 ; free virtual = 10407
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2227.566 ; gain = 505.395 ; free physical = 4789 ; free virtual = 10499
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.08 . Memory (MB): peak = 2233.309 ; gain = 0.000 ; free physical = 4822 ; free virtual = 10407
+Netlist sorting complete. Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.09 . Memory (MB): peak = 2233.504 ; gain = 0.000 ; free physical = 4785 ; free virtual = 10495
 INFO: [Netlist 29-17] Analyzing 26 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -513,54 +513,54 @@ Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/
 Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_spi_direct_0/base_spi_direct_0/base_spi_shared_0_in_context.xdc] for cell 'base_i/iop_arduino/spi_subsystem/spi_direct'
 Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_spi_shared_0/base_spi_shared_0/base_spi_shared_0_in_context.xdc] for cell 'base_i/iop_arduino/spi_subsystem/spi_shared'
 Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_spi_shared_0/base_spi_shared_0/base_spi_shared_0_in_context.xdc] for cell 'base_i/iop_arduino/spi_subsystem/spi_shared'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_timer_0_0/base_timer_0_0/base_timer_0_0_in_context.xdc] for cell 'base_i/iop_arduino/timers_subsystem/timer_0'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_timer_0_0/base_timer_0_0/base_timer_0_0_in_context.xdc] for cell 'base_i/iop_arduino/timers_subsystem/timer_0'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_timer_1_0/base_timer_1_0/base_timer_0_0_in_context.xdc] for cell 'base_i/iop_arduino/timers_subsystem/timer_1'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_timer_1_0/base_timer_1_0/base_timer_0_0_in_context.xdc] for cell 'base_i/iop_arduino/timers_subsystem/timer_1'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_timer_2_0/base_timer_2_0/base_timer_0_0_in_context.xdc] for cell 'base_i/iop_arduino/timers_subsystem/timer_2'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_timer_2_0/base_timer_2_0/base_timer_0_0_in_context.xdc] for cell 'base_i/iop_arduino/timers_subsystem/timer_2'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_timer_3_0/base_timer_3_0/base_timer_0_0_in_context.xdc] for cell 'base_i/iop_arduino/timers_subsystem/timer_3'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_timer_3_0/base_timer_3_0/base_timer_0_0_in_context.xdc] for cell 'base_i/iop_arduino/timers_subsystem/timer_3'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_timer_4_0/base_timer_4_0/base_timer_0_0_in_context.xdc] for cell 'base_i/iop_arduino/timers_subsystem/timer_4'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_timer_4_0/base_timer_4_0/base_timer_0_0_in_context.xdc] for cell 'base_i/iop_arduino/timers_subsystem/timer_4'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_timer_5_0/base_timer_5_0/base_timer_0_0_in_context.xdc] for cell 'base_i/iop_arduino/timers_subsystem/timer_5'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_timer_5_0/base_timer_5_0/base_timer_0_0_in_context.xdc] for cell 'base_i/iop_arduino/timers_subsystem/timer_5'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_timer_0_0/base_timer_0_0/base_timer_3_0_in_context.xdc] for cell 'base_i/iop_arduino/timers_subsystem/timer_0'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_timer_0_0/base_timer_0_0/base_timer_3_0_in_context.xdc] for cell 'base_i/iop_arduino/timers_subsystem/timer_0'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_timer_1_0/base_timer_1_0/base_timer_3_0_in_context.xdc] for cell 'base_i/iop_arduino/timers_subsystem/timer_1'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_timer_1_0/base_timer_1_0/base_timer_3_0_in_context.xdc] for cell 'base_i/iop_arduino/timers_subsystem/timer_1'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_timer_2_0/base_timer_2_0/base_timer_3_0_in_context.xdc] for cell 'base_i/iop_arduino/timers_subsystem/timer_2'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_timer_2_0/base_timer_2_0/base_timer_3_0_in_context.xdc] for cell 'base_i/iop_arduino/timers_subsystem/timer_2'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_timer_3_0/base_timer_3_0/base_timer_3_0_in_context.xdc] for cell 'base_i/iop_arduino/timers_subsystem/timer_3'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_timer_3_0/base_timer_3_0/base_timer_3_0_in_context.xdc] for cell 'base_i/iop_arduino/timers_subsystem/timer_3'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_timer_4_0/base_timer_4_0/base_timer_3_0_in_context.xdc] for cell 'base_i/iop_arduino/timers_subsystem/timer_4'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_timer_4_0/base_timer_4_0/base_timer_3_0_in_context.xdc] for cell 'base_i/iop_arduino/timers_subsystem/timer_4'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_timer_5_0/base_timer_5_0/base_timer_3_0_in_context.xdc] for cell 'base_i/iop_arduino/timers_subsystem/timer_5'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_timer_5_0/base_timer_5_0/base_timer_3_0_in_context.xdc] for cell 'base_i/iop_arduino/timers_subsystem/timer_5'
 Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_xadc_0/base_xadc_0/base_xadc_0_in_context.xdc] for cell 'base_i/iop_arduino/xadc'
 Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_xadc_0/base_xadc_0/base_xadc_0_in_context.xdc] for cell 'base_i/iop_arduino/xadc'
 Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_xbar_0/base_xbar_0/base_xbar_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/xbar'
 Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_xbar_0/base_xbar_0/base_xbar_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/xbar'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_s00_regslice_2/base_s00_regslice_2/base_m14_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/s00_couplers/s00_regslice'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_s00_regslice_2/base_s00_regslice_2/base_m14_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/s00_couplers/s00_regslice'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_s00_regslice_2/base_s00_regslice_2/base_s00_regslice_2_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/s00_couplers/s00_regslice'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_s00_regslice_2/base_s00_regslice_2/base_s00_regslice_2_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/s00_couplers/s00_regslice'
 Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m00_regslice_2/base_m00_regslice_2/base_m06_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m00_couplers/m00_regslice'
 Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m00_regslice_2/base_m00_regslice_2/base_m06_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m00_couplers/m00_regslice'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m01_regslice_2/base_m01_regslice_2/base_m05_regslice_2_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m01_couplers/m01_regslice'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m01_regslice_2/base_m01_regslice_2/base_m05_regslice_2_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m01_couplers/m01_regslice'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m01_regslice_2/base_m01_regslice_2/base_m00_regslice_1_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m01_couplers/m01_regslice'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m01_regslice_2/base_m01_regslice_2/base_m00_regslice_1_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m01_couplers/m01_regslice'
 Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m02_regslice_2/base_m02_regslice_2/base_m02_regslice_2_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m02_couplers/m02_regslice'
 Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m02_regslice_2/base_m02_regslice_2/base_m02_regslice_2_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m02_couplers/m02_regslice'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m03_regslice_2/base_m03_regslice_2/base_m05_regslice_2_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m03_couplers/m03_regslice'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m03_regslice_2/base_m03_regslice_2/base_m05_regslice_2_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m03_couplers/m03_regslice'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m04_regslice_2/base_m04_regslice_2/base_m05_regslice_2_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m04_couplers/m04_regslice'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m04_regslice_2/base_m04_regslice_2/base_m05_regslice_2_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m04_couplers/m04_regslice'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m05_regslice_2/base_m05_regslice_2/base_m05_regslice_2_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m05_couplers/m05_regslice'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m05_regslice_2/base_m05_regslice_2/base_m05_regslice_2_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m05_couplers/m05_regslice'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m03_regslice_2/base_m03_regslice_2/base_m00_regslice_1_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m03_couplers/m03_regslice'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m03_regslice_2/base_m03_regslice_2/base_m00_regslice_1_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m03_couplers/m03_regslice'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m04_regslice_2/base_m04_regslice_2/base_m00_regslice_1_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m04_couplers/m04_regslice'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m04_regslice_2/base_m04_regslice_2/base_m00_regslice_1_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m04_couplers/m04_regslice'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m05_regslice_2/base_m05_regslice_2/base_m00_regslice_1_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m05_couplers/m05_regslice'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m05_regslice_2/base_m05_regslice_2/base_m00_regslice_1_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m05_couplers/m05_regslice'
 Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m06_regslice_0/base_m06_regslice_0/base_m06_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m06_couplers/m06_regslice'
 Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m06_regslice_0/base_m06_regslice_0/base_m06_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m06_couplers/m06_regslice'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m07_regslice_0/base_m07_regslice_0/base_m13_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m07_couplers/m07_regslice'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m07_regslice_0/base_m07_regslice_0/base_m13_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m07_couplers/m07_regslice'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m07_regslice_0/base_m07_regslice_0/base_m07_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m07_couplers/m07_regslice'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m07_regslice_0/base_m07_regslice_0/base_m07_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m07_couplers/m07_regslice'
 Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m08_regslice_0/base_m08_regslice_0/base_m08_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m08_couplers/m08_regslice'
 Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m08_regslice_0/base_m08_regslice_0/base_m08_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m08_couplers/m08_regslice'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m09_regslice_0/base_m09_regslice_0/base_m13_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m09_couplers/m09_regslice'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m09_regslice_0/base_m09_regslice_0/base_m13_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m09_couplers/m09_regslice'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m10_regslice_0/base_m10_regslice_0/base_m13_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m10_couplers/m10_regslice'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m10_regslice_0/base_m10_regslice_0/base_m13_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m10_couplers/m10_regslice'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m11_regslice_0/base_m11_regslice_0/base_m13_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m11_couplers/m11_regslice'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m11_regslice_0/base_m11_regslice_0/base_m13_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m11_couplers/m11_regslice'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m12_regslice_0/base_m12_regslice_0/base_m13_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m12_couplers/m12_regslice'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m12_regslice_0/base_m12_regslice_0/base_m13_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m12_couplers/m12_regslice'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m13_regslice_0/base_m13_regslice_0/base_m13_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m13_couplers/m13_regslice'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m13_regslice_0/base_m13_regslice_0/base_m13_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m13_couplers/m13_regslice'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m14_regslice_0/base_m14_regslice_0/base_m14_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m14_couplers/m14_regslice'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m14_regslice_0/base_m14_regslice_0/base_m14_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m14_couplers/m14_regslice'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m09_regslice_0/base_m09_regslice_0/base_m07_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m09_couplers/m09_regslice'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m09_regslice_0/base_m09_regslice_0/base_m07_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m09_couplers/m09_regslice'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m10_regslice_0/base_m10_regslice_0/base_m07_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m10_couplers/m10_regslice'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m10_regslice_0/base_m10_regslice_0/base_m07_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m10_couplers/m10_regslice'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m11_regslice_0/base_m11_regslice_0/base_m07_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m11_couplers/m11_regslice'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m11_regslice_0/base_m11_regslice_0/base_m07_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m11_couplers/m11_regslice'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m12_regslice_0/base_m12_regslice_0/base_m07_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m12_couplers/m12_regslice'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m12_regslice_0/base_m12_regslice_0/base_m07_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m12_couplers/m12_regslice'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m13_regslice_0/base_m13_regslice_0/base_m07_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m13_couplers/m13_regslice'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m13_regslice_0/base_m13_regslice_0/base_m07_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m13_couplers/m13_regslice'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m14_regslice_0/base_m14_regslice_0/base_s00_regslice_2_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m14_couplers/m14_regslice'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m14_regslice_0/base_m14_regslice_0/base_s00_regslice_2_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m14_couplers/m14_regslice'
 Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m15_regslice_0/base_m15_regslice_0/base_m15_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m15_couplers/m15_regslice'
 Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m15_regslice_0/base_m15_regslice_0/base_m15_regslice_0_in_context.xdc] for cell 'base_i/iop_arduino/microblaze_0_axi_periph/m15_couplers/m15_regslice'
 Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_arduino_gpio_0/base_arduino_gpio_0/base_arduino_gpio_0_in_context.xdc] for cell 'base_i/iop_arduino/arduino_gpio'
@@ -581,28 +581,28 @@ Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/
 Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_s00_regslice_1/base_s00_regslice_1/base_s00_regslice_1_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/s00_couplers/s00_regslice'
 Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_auto_pc_6/base_auto_pc_6/base_auto_pc_6_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/s00_couplers/auto_pc'
 Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_auto_pc_6/base_auto_pc_6/base_auto_pc_6_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/s00_couplers/auto_pc'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m00_regslice_1/base_m00_regslice_1/base_m05_regslice_2_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m00_couplers/m00_regslice'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m00_regslice_1/base_m00_regslice_1/base_m05_regslice_2_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m00_couplers/m00_regslice'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_auto_pc_1/base_auto_pc_1/base_auto_pc_3_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m00_couplers/auto_pc'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_auto_pc_1/base_auto_pc_1/base_auto_pc_3_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m00_couplers/auto_pc'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m00_regslice_1/base_m00_regslice_1/base_m00_regslice_1_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m00_couplers/m00_regslice'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m00_regslice_1/base_m00_regslice_1/base_m00_regslice_1_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m00_couplers/m00_regslice'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_auto_pc_1/base_auto_pc_1/base_auto_pc_4_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m00_couplers/auto_pc'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_auto_pc_1/base_auto_pc_1/base_auto_pc_4_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m00_couplers/auto_pc'
 Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m01_regslice_1/base_m01_regslice_1/base_m01_regslice_1_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m01_couplers/m01_regslice'
 Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m01_regslice_1/base_m01_regslice_1/base_m01_regslice_1_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m01_couplers/m01_regslice'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m02_regslice_1/base_m02_regslice_1/base_m05_regslice_2_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m02_couplers/m02_regslice'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m02_regslice_1/base_m02_regslice_1/base_m05_regslice_2_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m02_couplers/m02_regslice'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_auto_pc_2/base_auto_pc_2/base_auto_pc_3_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m02_couplers/auto_pc'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_auto_pc_2/base_auto_pc_2/base_auto_pc_3_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m02_couplers/auto_pc'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m03_regslice_1/base_m03_regslice_1/base_m05_regslice_2_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m03_couplers/m03_regslice'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m03_regslice_1/base_m03_regslice_1/base_m05_regslice_2_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m03_couplers/m03_regslice'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_auto_pc_3/base_auto_pc_3/base_auto_pc_3_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m03_couplers/auto_pc'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_auto_pc_3/base_auto_pc_3/base_auto_pc_3_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m03_couplers/auto_pc'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m04_regslice_1/base_m04_regslice_1/base_m05_regslice_2_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m04_couplers/m04_regslice'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m04_regslice_1/base_m04_regslice_1/base_m05_regslice_2_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m04_couplers/m04_regslice'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_auto_pc_4/base_auto_pc_4/base_auto_pc_3_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m04_couplers/auto_pc'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_auto_pc_4/base_auto_pc_4/base_auto_pc_3_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m04_couplers/auto_pc'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m05_regslice_1/base_m05_regslice_1/base_m05_regslice_2_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m05_couplers/m05_regslice'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m05_regslice_1/base_m05_regslice_1/base_m05_regslice_2_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m05_couplers/m05_regslice'
-Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_auto_pc_5/base_auto_pc_5/base_auto_pc_3_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m05_couplers/auto_pc'
-Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_auto_pc_5/base_auto_pc_5/base_auto_pc_3_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m05_couplers/auto_pc'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m02_regslice_1/base_m02_regslice_1/base_m00_regslice_1_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m02_couplers/m02_regslice'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m02_regslice_1/base_m02_regslice_1/base_m00_regslice_1_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m02_couplers/m02_regslice'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_auto_pc_2/base_auto_pc_2/base_auto_pc_4_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m02_couplers/auto_pc'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_auto_pc_2/base_auto_pc_2/base_auto_pc_4_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m02_couplers/auto_pc'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m03_regslice_1/base_m03_regslice_1/base_m00_regslice_1_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m03_couplers/m03_regslice'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m03_regslice_1/base_m03_regslice_1/base_m00_regslice_1_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m03_couplers/m03_regslice'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_auto_pc_3/base_auto_pc_3/base_auto_pc_4_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m03_couplers/auto_pc'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_auto_pc_3/base_auto_pc_3/base_auto_pc_4_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m03_couplers/auto_pc'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m04_regslice_1/base_m04_regslice_1/base_m00_regslice_1_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m04_couplers/m04_regslice'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m04_regslice_1/base_m04_regslice_1/base_m00_regslice_1_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m04_couplers/m04_regslice'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_auto_pc_4/base_auto_pc_4/base_auto_pc_4_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m04_couplers/auto_pc'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_auto_pc_4/base_auto_pc_4/base_auto_pc_4_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m04_couplers/auto_pc'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m05_regslice_1/base_m05_regslice_1/base_m00_regslice_1_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m05_couplers/m05_regslice'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_m05_regslice_1/base_m05_regslice_1/base_m00_regslice_1_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m05_couplers/m05_regslice'
+Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_auto_pc_5/base_auto_pc_5/base_auto_pc_4_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m05_couplers/auto_pc'
+Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_auto_pc_5/base_auto_pc_5/base_auto_pc_4_in_context.xdc] for cell 'base_i/ps7_0_axi_periph_2/m05_couplers/auto_pc'
 Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_system_interrupts_1_0/base_system_interrupts_1_0/base_system_interrupts_1_0_in_context.xdc] for cell 'base_i/system_interrupts_1'
 Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_system_interrupts_1_0/base_system_interrupts_1_0/base_system_interrupts_1_0_in_context.xdc] for cell 'base_i/system_interrupts_1'
 Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.gen/sources_1/bd/base/ip/base_axi_dma_0/base_axi_dma_0/base_axi_dma_0_in_context.xdc] for cell 'base_i/axi_dma'
@@ -718,24 +718,24 @@ Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/
 Finished Parsing XDC File [/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2355.121 ; gain = 0.000 ; free physical = 4822 ; free virtual = 10408
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2352.316 ; gain = 0.000 ; free physical = 4766 ; free virtual = 10477
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 26 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 26 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2355.121 ; gain = 0.000 ; free physical = 4822 ; free virtual = 10407
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2352.316 ; gain = 0.000 ; free physical = 4766 ; free virtual = 10476
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'base_i/iop_arduino/lmb/lmb_bram' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'base_i/iop_arduino/spi_subsystem/spi_direct' at clock pin 'ext_spi_clk' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'base_i/iop_arduino/spi_subsystem/spi_shared' at clock pin 'ext_spi_clk' is different from the actual clock period '10.000', this can lead to different synthesis results.
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2355.121 ; gain = 633.145 ; free physical = 4829 ; free virtual = 10416
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 2352.316 ; gain = 630.145 ; free physical = 4751 ; free virtual = 10463
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2355.121 ; gain = 633.145 ; free physical = 4829 ; free virtual = 10416
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 2352.316 ; gain = 630.145 ; free physical = 4751 ; free virtual = 10463
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -1098,10 +1098,10 @@ Applied set_property KEEP_HIERARCHY = SOFT for base_i/rst_ps7_0_fclk3. (constrai
 Applied set_property KEEP_HIERARCHY = SOFT for base_i/switches_gpio. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for base_i/example_0. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 2355.121 ; gain = 633.145 ; free physical = 4830 ; free virtual = 10417
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 2352.316 ; gain = 630.145 ; free physical = 4751 ; free virtual = 10463
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2355.121 ; gain = 633.145 ; free physical = 4798 ; free virtual = 10386
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2352.316 ; gain = 630.145 ; free physical = 4749 ; free virtual = 10463
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -1124,25 +1124,25 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2355.121 ; gain = 633.145 ; free physical = 4798 ; free virtual = 10392
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2352.316 ; gain = 630.145 ; free physical = 4749 ; free virtual = 10469
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2355.121 ; gain = 633.145 ; free physical = 4832 ; free virtual = 10427
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 2352.316 ; gain = 630.145 ; free physical = 4749 ; free virtual = 10469
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2355.121 ; gain = 633.145 ; free physical = 4832 ; free virtual = 10427
+Finished Timing Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 2352.316 ; gain = 630.145 ; free physical = 4749 ; free virtual = 10469
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 2355.121 ; gain = 633.145 ; free physical = 4832 ; free virtual = 10427
+Finished Technology Mapping : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 2352.316 ; gain = 630.145 ; free physical = 4748 ; free virtual = 10468
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -1160,37 +1160,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 2355.121 ; gain = 633.145 ; free physical = 4836 ; free virtual = 10431
+Finished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2352.316 ; gain = 630.145 ; free physical = 4753 ; free virtual = 10473
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 2355.121 ; gain = 633.145 ; free physical = 4836 ; free virtual = 10431
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2352.316 ; gain = 630.145 ; free physical = 4753 ; free virtual = 10473
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 2355.121 ; gain = 633.145 ; free physical = 4836 ; free virtual = 10431
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2352.316 ; gain = 630.145 ; free physical = 4753 ; free virtual = 10474
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2355.121 ; gain = 633.145 ; free physical = 4836 ; free virtual = 10431
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2352.316 ; gain = 630.145 ; free physical = 4753 ; free virtual = 10474
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2355.121 ; gain = 633.145 ; free physical = 4836 ; free virtual = 10431
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2352.316 ; gain = 630.145 ; free physical = 4753 ; free virtual = 10474
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2355.121 ; gain = 633.145 ; free physical = 4836 ; free virtual = 10431
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2352.316 ; gain = 630.145 ; free physical = 4753 ; free virtual = 10474
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1337,18 +1337,18 @@ Report Cell Usage:
 |75    |OBUF                       |    10|
 +------+---------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2355.121 ; gain = 633.145 ; free physical = 4836 ; free virtual = 10431
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2352.316 ; gain = 630.145 ; free physical = 4753 ; free virtual = 10474
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 93 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 2355.121 ; gain = 505.395 ; free physical = 4836 ; free virtual = 10431
-Synthesis Optimization Complete : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2355.121 ; gain = 633.145 ; free physical = 4836 ; free virtual = 10431
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2352.316 ; gain = 505.395 ; free physical = 4753 ; free virtual = 10474
+Synthesis Optimization Complete : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2352.316 ; gain = 630.145 ; free physical = 4753 ; free virtual = 10474
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.08 . Memory (MB): peak = 2355.121 ; gain = 0.000 ; free physical = 5103 ; free virtual = 10698
+Netlist sorting complete. Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.09 . Memory (MB): peak = 2352.316 ; gain = 0.000 ; free physical = 5023 ; free virtual = 10744
 INFO: [Netlist 29-17] Analyzing 26 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2355.121 ; gain = 0.000 ; free physical = 5103 ; free virtual = 10697
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2352.316 ; gain = 0.000 ; free physical = 5025 ; free virtual = 10745
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 26 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 26 instances
@@ -1357,9 +1357,9 @@ Synth Design complete | Checksum: d9ed9e1
 INFO: [Common 17-83] Releasing license: Synthesis
 225 Infos, 319 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:34 . Memory (MB): peak = 2355.121 ; gain = 992.582 ; free physical = 5103 ; free virtual = 10697
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1890.232; main = 1576.821; forked = 362.513
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3280.879; main = 2323.109; forked = 957.770
+synth_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:34 . Memory (MB): peak = 2352.316 ; gain = 988.551 ; free physical = 5025 ; free virtual = 10745
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1890.090; main = 1576.229; forked = 362.624
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3278.074; main = 2320.305; forked = 957.770
 INFO: [Common 17-1381] The checkpoint '/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/synth_1/base_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file base_wrapper_utilization_synth.rpt -pb base_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Oct 28 16:38:48 2024...
+INFO: [Common 17-206] Exiting Vivado at Mon Oct 28 19:46:30 2024...

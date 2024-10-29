@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'input_layer_Pipeline_WEIGHTS_LOOP_0'" level="0">
-<item name = "Date">Mon Oct 28 16:02:34 2024
+<item name = "Date">Mon Oct 28 19:19:51 2024
 </item>
 <item name = "Version">2023.1.1 (Build 3869133 on Jun 15 2023)</item>
 <item name = "Project">RNI</item>
@@ -48,7 +48,7 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="DSP">-, 1, -, -, -</column>
-<column name="Expression">-, -, 0, 144, -</column>
+<column name="Expression">-, -, 0, 159, -</column>
 <column name="FIFO">-, -, -, -, -</column>
 <column name="Instance">-, -, 0, 20, -</column>
 <column name="Memory">8, -, 0, 0, -</column>
@@ -62,12 +62,12 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="mux_4_2_16_1_1_U31">mux_4_2_16_1_1, 0, 0, 0, 20, 0</column>
+<column name="mux_4_2_16_1_1_U23">mux_4_2_16_1_1, 0, 0, 0, 20, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
 <keys size="3">Instance, Module, Expression</keys>
-<column name="mac_muladd_16s_8s_16ns_16_4_1_U32">mac_muladd_16s_8s_16ns_16_4_1, i0 * i1 + i2</column>
+<column name="mac_muladd_16s_8s_16ns_16_4_1_U24">mac_muladd_16s_8s_16ns_16_4_1, i0 * i1 + i2</column>
 </table>
 </item>
 <item name = "Memory"><table name="" hasTotal="1">
@@ -81,8 +81,9 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln61_fu_157_p2">+, 0, 0, 71, 64, 1</column>
-<column name="icmp_ln61_fu_148_p2">icmp, 0, 0, 71, 64, 64</column>
+<column name="add_ln68_fu_157_p2">+, 0, 0, 71, 64, 1</column>
+<column name="icmp_ln68_fu_148_p2">icmp, 0, 0, 71, 64, 64</column>
+<column name="select_ln71_fu_194_p3">select, 0, 0, 15, 1, 1</column>
 <column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
 </table>
 </item>
@@ -91,9 +92,9 @@
 <column name="ap_done_int">9, 2, 1, 2</column>
 <column name="ap_enable_reg_pp0_iter1">9, 2, 1, 2</column>
 <column name="ap_enable_reg_pp0_iter2">9, 2, 1, 2</column>
-<column name="ap_sig_allocacmp_conv3_i7_load">9, 2, 16, 32</column>
-<column name="conv3_i7_fu_52">9, 2, 16, 32</column>
-<column name="weight_index_fu_56">9, 2, 64, 128</column>
+<column name="ap_sig_allocacmp_conv3_i9_load">9, 2, 16, 32</column>
+<column name="conv3_i9_fu_56">9, 2, 16, 32</column>
+<column name="weight_index_fu_60">9, 2, 64, 128</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
@@ -108,12 +109,12 @@
 <column name="ap_loop_exit_ready_pp0_iter2_reg">1, 0, 1, 0</column>
 <column name="ap_loop_exit_ready_pp0_iter3_reg">1, 0, 1, 0</column>
 <column name="ap_loop_exit_ready_pp0_iter4_reg">1, 0, 1, 0</column>
-<column name="conv3_i7_fu_52">16, 0, 16, 0</column>
-<column name="icmp_ln61_reg_241">1, 0, 1, 0</column>
-<column name="trunc_ln63_reg_250">2, 0, 2, 0</column>
-<column name="weight_index_fu_56">64, 0, 64, 0</column>
-<column name="zext_ln61_1_cast_reg_236">14, 0, 64, 50</column>
-<column name="icmp_ln61_reg_241">64, 32, 1, 0</column>
+<column name="conv3_i9_fu_56">16, 0, 16, 0</column>
+<column name="icmp_ln68_reg_265">1, 0, 1, 0</column>
+<column name="trunc_ln70_reg_274">2, 0, 2, 0</column>
+<column name="weight_index_fu_60">64, 0, 64, 0</column>
+<column name="zext_ln68_1_cast_reg_260">14, 0, 64, 50</column>
+<column name="icmp_ln68_reg_265">64, 32, 1, 0</column>
 </table>
 </item>
 </section>
@@ -129,15 +130,15 @@
 <column name="ap_done">out, 1, ap_ctrl_hs, input_layer_Pipeline_WEIGHTS_LOOP_0, return value</column>
 <column name="ap_idle">out, 1, ap_ctrl_hs, input_layer_Pipeline_WEIGHTS_LOOP_0, return value</column>
 <column name="ap_ready">out, 1, ap_ctrl_hs, input_layer_Pipeline_WEIGHTS_LOOP_0, return value</column>
-<column name="zext_ln61">in, 14, ap_none, zext_ln61, scalar</column>
-<column name="zext_ln155">in, 1, ap_none, zext_ln155, scalar</column>
-<column name="zext_ln61_1">in, 14, ap_none, zext_ln61_1, scalar</column>
+<column name="zext_ln68">in, 14, ap_none, zext_ln68, scalar</column>
+<column name="membrane_leak_accumulator_reload">in, 16, ap_none, membrane_leak_accumulator_reload, scalar</column>
+<column name="zext_ln68_1">in, 14, ap_none, zext_ln68_1, scalar</column>
 <column name="p_read">in, 16, ap_none, p_read, scalar</column>
 <column name="p_read1">in, 16, ap_none, p_read1, scalar</column>
 <column name="p_read2">in, 16, ap_none, p_read2, scalar</column>
 <column name="p_read3">in, 16, ap_none, p_read3, scalar</column>
-<column name="conv3_i7_out">out, 16, ap_vld, conv3_i7_out, pointer</column>
-<column name="conv3_i7_out_ap_vld">out, 1, ap_vld, conv3_i7_out, pointer</column>
+<column name="conv3_i9_out">out, 16, ap_vld, conv3_i9_out, pointer</column>
+<column name="conv3_i9_out_ap_vld">out, 1, ap_vld, conv3_i9_out, pointer</column>
 </table>
 </item>
 </section>

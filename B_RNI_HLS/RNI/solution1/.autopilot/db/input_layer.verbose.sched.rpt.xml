@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'input_layer'" level="0">
-<item name = "Date">Mon Oct 28 16:02:32 2024
+<item name = "Date">Mon Oct 28 19:19:43 2024
 </item>
 <item name = "Version">2023.1.1 (Build 3869133 on Jun 15 2023)</item>
 <item name = "Project">RNI</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 7.242 ns, 2.70 ns</column>
+<column name="ap_clk">10.00 ns, 7.215 ns, 2.70 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">1281, 8390529, 12.810 us, 83.905 ms, 1281, 8390529, no</column>
+<column name="">7425, 8396673, 74.250 us, 83.967 ms, 7425, 8396673, no</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- NEURONS_LOOP_0">1280, 8390528, 10 ~ 65551, -, -, 128, no</column>
+<column name="- NEURONS_LOOP_0">7424, 8396672, 58 ~ 65599, -, -, 128, no</column>
 </table>
 </item>
 </section>

@@ -2,7 +2,7 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.1.1 (lin64) Build 3900603 Fri Jun 16 19:30:25 MDT 2023
-// Date        : Mon Oct 28 16:23:25 2024
+// Date        : Mon Oct 28 19:33:38 2024
 // Host        : GRAMS-NSOC running 64-bit Ubuntu 22.04.5 LTS
 // Command     : write_verilog -force -mode synth_stub -rename_top base_spi_direct_0 -prefix
 //               base_spi_direct_0_ base_spi_shared_0_stub.v

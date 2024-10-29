@@ -3,26 +3,26 @@
 # SW Build 3900603 on Fri Jun 16 19:30:25 MDT 2023
 # IP Build 3900379 on Sat Jun 17 05:28:05 MDT 2023
 # SharedData Build 3899622 on Fri Jun 16 03:34:24 MDT 2023
-# Start of session at: Mon Oct 28 16:36:40 2024
-# Process ID: 56655
+# Start of session at: Mon Oct 28 19:35:05 2024
+# Process ID: 109278
 # Current directory: /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_m02_regslice_1_synth_1
 # Command line: vivado -log base_m02_regslice_1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source base_m02_regslice_1.tcl
 # Log file: /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_m02_regslice_1_synth_1/base_m02_regslice_1.vds
 # Journal file: /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_m02_regslice_1_synth_1/vivado.jou
-# Running On: GRAMS-NSOC, OS: Linux, CPU Frequency: 3861.594 MHz, CPU Physical cores: 4, Host memory: 16721 MB
+# Running On: GRAMS-NSOC, OS: Linux, CPU Frequency: 3692.898 MHz, CPU Physical cores: 4, Host memory: 16721 MB
 #-----------------------------------------------------------
 source base_m02_regslice_1.tcl -notrace
-create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1331.695 ; gain = 0.023 ; free physical = 5373 ; free virtual = 10944
+create_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1326.824 ; gain = 0.023 ; free physical = 2790 ; free virtual = 8604
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/mohr0901/Documents/PMC/B_RNI_HLS/output/export'.
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/mohr0901/Documents/PMC/C_RNI_VIVADO/ip'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2023.1/data/ip'.
 INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: base_m02_regslice_1
 INFO: [IP_Flow 19-6922] IPCACHE: Exporting cached entry 38a584a1f630448b to dir: /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_m02_regslice_1_synth_1
-INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.cache/ip/2023.1.1/3/8/38a584a1f630448b/base_m05_regslice_2_stub.v to /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_m02_regslice_1_synth_1/base_m02_regslice_1_stub.v.
-INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.cache/ip/2023.1.1/3/8/38a584a1f630448b/base_m05_regslice_2_sim_netlist.vhdl to /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_m02_regslice_1_synth_1/base_m02_regslice_1_sim_netlist.vhdl.
-INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.cache/ip/2023.1.1/3/8/38a584a1f630448b/base_m05_regslice_2_stub.vhdl to /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_m02_regslice_1_synth_1/base_m02_regslice_1_stub.vhdl.
-INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.cache/ip/2023.1.1/3/8/38a584a1f630448b/base_m05_regslice_2_sim_netlist.v to /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_m02_regslice_1_synth_1/base_m02_regslice_1_sim_netlist.v.
-INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.cache/ip/2023.1.1/3/8/38a584a1f630448b/base_m05_regslice_2.dcp to /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_m02_regslice_1_synth_1/base_m02_regslice_1.dcp.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.cache/ip/2023.1.1/3/8/38a584a1f630448b/base_m00_regslice_1_sim_netlist.v to /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_m02_regslice_1_synth_1/base_m02_regslice_1_sim_netlist.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.cache/ip/2023.1.1/3/8/38a584a1f630448b/base_m00_regslice_1_stub.vhdl to /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_m02_regslice_1_synth_1/base_m02_regslice_1_stub.vhdl.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.cache/ip/2023.1.1/3/8/38a584a1f630448b/base_m00_regslice_1_sim_netlist.vhdl to /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_m02_regslice_1_synth_1/base_m02_regslice_1_sim_netlist.vhdl.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.cache/ip/2023.1.1/3/8/38a584a1f630448b/base_m00_regslice_1_stub.v to /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_m02_regslice_1_synth_1/base_m02_regslice_1_stub.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.cache/ip/2023.1.1/3/8/38a584a1f630448b/base_m00_regslice_1.dcp to /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_m02_regslice_1_synth_1/base_m02_regslice_1.dcp.
 INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP base_m02_regslice_1, cache-ID = 38a584a1f630448b.
-INFO: [Common 17-206] Exiting Vivado at Mon Oct 28 16:36:52 2024...
+INFO: [Common 17-206] Exiting Vivado at Mon Oct 28 19:35:19 2024...

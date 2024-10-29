@@ -3,16 +3,16 @@
 # SW Build 3900603 on Fri Jun 16 19:30:25 MDT 2023
 # IP Build 3900379 on Sat Jun 17 05:28:05 MDT 2023
 # SharedData Build 3899622 on Fri Jun 16 03:34:24 MDT 2023
-# Start of session at: Mon Oct 28 16:31:07 2024
-# Process ID: 52945
+# Start of session at: Mon Oct 28 19:41:19 2024
+# Process ID: 113116
 # Current directory: /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_rst_ps7_0_fclk3_0_synth_1
 # Command line: vivado -log base_rst_ps7_0_fclk3_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source base_rst_ps7_0_fclk3_0.tcl
 # Log file: /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_rst_ps7_0_fclk3_0_synth_1/base_rst_ps7_0_fclk3_0.vds
 # Journal file: /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_rst_ps7_0_fclk3_0_synth_1/vivado.jou
-# Running On: GRAMS-NSOC, OS: Linux, CPU Frequency: 3691.551 MHz, CPU Physical cores: 4, Host memory: 16721 MB
+# Running On: GRAMS-NSOC, OS: Linux, CPU Frequency: 3880.011 MHz, CPU Physical cores: 4, Host memory: 16721 MB
 #-----------------------------------------------------------
 source base_rst_ps7_0_fclk3_0.tcl -notrace
-create_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1329.793 ; gain = 0.023 ; free physical = 2908 ; free virtual = 8425
+create_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1282.703 ; gain = 15.023 ; free physical = 4293 ; free virtual = 9968
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/mohr0901/Documents/PMC/B_RNI_HLS/output/export'.
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/mohr0901/Documents/PMC/C_RNI_VIVADO/ip'.
@@ -25,4 +25,4 @@ INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/mohr0901/Documents/PMC
 INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.cache/ip/2023.1.1/e/0/e0f7e4a64550f0e8/base_rst_ps7_0_100M_0_sim_netlist.v to /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_rst_ps7_0_fclk3_0_synth_1/base_rst_ps7_0_fclk3_0_sim_netlist.v.
 INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.cache/ip/2023.1.1/e/0/e0f7e4a64550f0e8/base_rst_ps7_0_100M_0.dcp to /home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_rst_ps7_0_fclk3_0_synth_1/base_rst_ps7_0_fclk3_0.dcp.
 INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP base_rst_ps7_0_fclk3_0, cache-ID = e0f7e4a64550f0e8.
-INFO: [Common 17-206] Exiting Vivado at Mon Oct 28 16:31:21 2024...
+INFO: [Common 17-206] Exiting Vivado at Mon Oct 28 19:41:33 2024...

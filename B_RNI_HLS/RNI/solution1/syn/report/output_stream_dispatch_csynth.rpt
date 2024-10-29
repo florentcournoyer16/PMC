@@ -1,0 +1,280 @@
+
+
+================================================================
+== Vitis HLS Report for 'output_stream_dispatch'
+================================================================
+* Date:           Mon Oct 28 19:19:54 2024
+
+* Version:        2023.1.1 (Build 3869133 on Jun 15 2023)
+* Project:        RNI
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  6.508 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |      269|      269|  2.690 us|  2.690 us|  269|  269|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        +---------------------------------------------------------------------+----------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
+        |                                                                     |                                                          |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+        |                               Instance                              |                          Module                          |   min   |   max   |    min    |    max    | min | max |   Type  |
+        +---------------------------------------------------------------------+----------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
+        |grp_output_stream_dispatch_Pipeline_VITIS_LOOP_197_1_fu_172          |output_stream_dispatch_Pipeline_VITIS_LOOP_197_1          |      246|      246|   2.460 us|   2.460 us|  246|  246|       no|
+        |grp_output_stream_dispatch_Pipeline_VITIS_LOOP_204_2_fu_212          |output_stream_dispatch_Pipeline_VITIS_LOOP_204_2          |       10|       10|   0.100 us|   0.100 us|   10|   10|       no|
+        |grp_output_stream_dispatch_Pipeline_NEURONS_STATE_RESET_LOOP_fu_259  |output_stream_dispatch_Pipeline_NEURONS_STATE_RESET_LOOP  |        6|        6|  60.000 ns|  60.000 ns|    6|    6|       no|
+        +---------------------------------------------------------------------+----------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|      4|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |        -|    -|      99|    377|    -|
+|Memory           |        -|    -|       -|      -|    -|
+|Multiplexer      |        -|    -|       -|    697|    -|
+|Register         |        -|    -|      11|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        0|    0|     110|   1078|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      280|  220|  106400|  53200|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |        0|    0|      ~0|      2|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +---------------------------------------------------------------------+----------------------------------------------------------+---------+----+----+-----+-----+
+    |                               Instance                              |                          Module                          | BRAM_18K| DSP| FF | LUT | URAM|
+    +---------------------------------------------------------------------+----------------------------------------------------------+---------+----+----+-----+-----+
+    |grp_output_stream_dispatch_Pipeline_NEURONS_STATE_RESET_LOOP_fu_259  |output_stream_dispatch_Pipeline_NEURONS_STATE_RESET_LOOP  |        0|   0|   7|   53|    0|
+    |grp_output_stream_dispatch_Pipeline_VITIS_LOOP_197_1_fu_172          |output_stream_dispatch_Pipeline_VITIS_LOOP_197_1          |        0|   0|  19|   79|    0|
+    |grp_output_stream_dispatch_Pipeline_VITIS_LOOP_204_2_fu_212          |output_stream_dispatch_Pipeline_VITIS_LOOP_204_2          |        0|   0|  73|  245|    0|
+    +---------------------------------------------------------------------+----------------------------------------------------------+---------+----+----+-----+-----+
+    |Total                                                                |                                                          |        0|   0|  99|  377|    0|
+    +---------------------------------------------------------------------+----------------------------------------------------------+---------+----+----+-----+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-------------------------------------------------------------------------------+----------+----+---+----+------------+------------+
+    |                                 Variable Name                                 | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-------------------------------------------------------------------------------+----------+----+---+----+------------+------------+
+    |grp_output_stream_dispatch_Pipeline_VITIS_LOOP_197_1_fu_172_out_stream_TREADY  |       and|   0|  0|   2|           1|           1|
+    |grp_output_stream_dispatch_Pipeline_VITIS_LOOP_204_2_fu_212_out_stream_TREADY  |       and|   0|  0|   2|           1|           1|
+    +-------------------------------------------------------------------------------+----------+----+---+----+------------+------------+
+    |Total                                                                          |          |   0|  0|   4|           2|           2|
+    +-------------------------------------------------------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +------------------------+----+-----------+-----+-----------+
+    |          Name          | LUT| Input Size| Bits| Total Bits|
+    +------------------------+----+-----------+-----+-----------+
+    |NEURONS_STATE_address0  |  14|          3|    8|         24|
+    |NEURONS_STATE_ce0       |  14|          3|    1|          3|
+    |NEURONS_STATE_we0       |   9|          2|    1|          2|
+    |ap_NS_fsm               |  48|          9|    1|          9|
+    |out_pkts_data_address0  |  14|          3|    8|         24|
+    |out_pkts_data_ce0       |  14|          3|    1|          3|
+    |out_pkts_data_d0        |  14|          3|   32|         96|
+    |out_pkts_data_we0       |  14|          3|    1|          3|
+    |out_pkts_dest_address0  |  14|          3|    8|         24|
+    |out_pkts_dest_ce0       |  14|          3|    1|          3|
+    |out_pkts_dest_ce1       |   9|          2|    1|          2|
+    |out_pkts_dest_d0        |  14|          3|    6|         18|
+    |out_pkts_dest_we0       |  14|          3|    1|          3|
+    |out_pkts_dest_we1       |   9|          2|    1|          2|
+    |out_pkts_id_address0    |  14|          3|    8|         24|
+    |out_pkts_id_ce0         |  14|          3|    1|          3|
+    |out_pkts_id_ce1         |   9|          2|    1|          2|
+    |out_pkts_id_d0          |  14|          3|    5|         15|
+    |out_pkts_id_we0         |  14|          3|    1|          3|
+    |out_pkts_id_we1         |   9|          2|    1|          2|
+    |out_pkts_keep_address0  |  14|          3|    8|         24|
+    |out_pkts_keep_ce0       |  14|          3|    1|          3|
+    |out_pkts_keep_ce1       |   9|          2|    1|          2|
+    |out_pkts_keep_d0        |  14|          3|    4|         12|
+    |out_pkts_keep_we0       |  14|          3|    1|          3|
+    |out_pkts_keep_we1       |   9|          2|    1|          2|
+    |out_pkts_last_address0  |  14|          3|    8|         24|
+    |out_pkts_last_ce0       |  14|          3|    1|          3|
+    |out_pkts_last_ce1       |   9|          2|    1|          2|
+    |out_pkts_last_d0        |  14|          3|    1|          3|
+    |out_pkts_last_we0       |  14|          3|    1|          3|
+    |out_pkts_last_we1       |   9|          2|    1|          2|
+    |out_pkts_strb_address0  |  14|          3|    8|         24|
+    |out_pkts_strb_ce0       |  14|          3|    1|          3|
+    |out_pkts_strb_ce1       |   9|          2|    1|          2|
+    |out_pkts_strb_d0        |  14|          3|    4|         12|
+    |out_pkts_strb_we0       |  14|          3|    1|          3|
+    |out_pkts_strb_we1       |   9|          2|    1|          2|
+    |out_pkts_user_address0  |  14|          3|    8|         24|
+    |out_pkts_user_ce0       |  14|          3|    1|          3|
+    |out_pkts_user_ce1       |   9|          2|    1|          2|
+    |out_pkts_user_d0        |  14|          3|    2|          6|
+    |out_pkts_user_we0       |  14|          3|    1|          3|
+    |out_pkts_user_we1       |   9|          2|    1|          2|
+    |out_stream_TDATA        |  14|          3|   32|         96|
+    |out_stream_TDEST        |  14|          3|    6|         18|
+    |out_stream_TID          |  14|          3|    5|         15|
+    |out_stream_TKEEP        |  14|          3|    4|         12|
+    |out_stream_TLAST        |  14|          3|    1|          3|
+    |out_stream_TSTRB        |  14|          3|    4|         12|
+    |out_stream_TUSER        |  14|          3|    2|          6|
+    |out_stream_TVALID       |  14|          3|    1|          3|
+    +------------------------+----+-----------+-----+-----------+
+    |Total                   | 697|        149|  202|        599|
+    +------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------------------------------------------------------------------+---+----+-----+-----------+
+    |                                       Name                                       | FF| LUT| Bits| Const Bits|
+    +----------------------------------------------------------------------------------+---+----+-----+-----------+
+    |ap_CS_fsm                                                                         |  8|   0|    8|          0|
+    |grp_output_stream_dispatch_Pipeline_NEURONS_STATE_RESET_LOOP_fu_259_ap_start_reg  |  1|   0|    1|          0|
+    |grp_output_stream_dispatch_Pipeline_VITIS_LOOP_197_1_fu_172_ap_start_reg          |  1|   0|    1|          0|
+    |grp_output_stream_dispatch_Pipeline_VITIS_LOOP_204_2_fu_212_ap_start_reg          |  1|   0|    1|          0|
+    +----------------------------------------------------------------------------------+---+----+-----+-----------+
+    |Total                                                                             | 11|   0|   11|          0|
+    +----------------------------------------------------------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------+-----+-----+------------+------------------------+--------------+
+|         RTL Ports         | Dir | Bits|  Protocol  |      Source Object     |    C Type    |
++---------------------------+-----+-----+------------+------------------------+--------------+
+|ap_clk                     |   in|    1|  ap_ctrl_hs|  output_stream_dispatch|  return value|
+|ap_rst                     |   in|    1|  ap_ctrl_hs|  output_stream_dispatch|  return value|
+|ap_start                   |   in|    1|  ap_ctrl_hs|  output_stream_dispatch|  return value|
+|ap_done                    |  out|    1|  ap_ctrl_hs|  output_stream_dispatch|  return value|
+|ap_idle                    |  out|    1|  ap_ctrl_hs|  output_stream_dispatch|  return value|
+|ap_ready                   |  out|    1|  ap_ctrl_hs|  output_stream_dispatch|  return value|
+|out_stream_TDATA           |  out|   32|        axis|     out_stream_V_data_V|       pointer|
+|out_stream_TVALID          |  out|    1|        axis|     out_stream_V_dest_V|       pointer|
+|out_stream_TREADY          |   in|    1|        axis|     out_stream_V_dest_V|       pointer|
+|out_stream_TDEST           |  out|    6|        axis|     out_stream_V_dest_V|       pointer|
+|out_stream_TKEEP           |  out|    4|        axis|     out_stream_V_keep_V|       pointer|
+|out_stream_TSTRB           |  out|    4|        axis|     out_stream_V_strb_V|       pointer|
+|out_stream_TUSER           |  out|    2|        axis|     out_stream_V_user_V|       pointer|
+|out_stream_TLAST           |  out|    1|        axis|     out_stream_V_last_V|       pointer|
+|out_stream_TID             |  out|    5|        axis|       out_stream_V_id_V|       pointer|
+|out_pkts_data_address0     |  out|    8|   ap_memory|           out_pkts_data|         array|
+|out_pkts_data_ce0          |  out|    1|   ap_memory|           out_pkts_data|         array|
+|out_pkts_data_we0          |  out|    1|   ap_memory|           out_pkts_data|         array|
+|out_pkts_data_d0           |  out|   32|   ap_memory|           out_pkts_data|         array|
+|out_pkts_keep_address0     |  out|    8|   ap_memory|           out_pkts_keep|         array|
+|out_pkts_keep_ce0          |  out|    1|   ap_memory|           out_pkts_keep|         array|
+|out_pkts_keep_we0          |  out|    1|   ap_memory|           out_pkts_keep|         array|
+|out_pkts_keep_d0           |  out|    4|   ap_memory|           out_pkts_keep|         array|
+|out_pkts_keep_q0           |   in|    4|   ap_memory|           out_pkts_keep|         array|
+|out_pkts_keep_address1     |  out|    8|   ap_memory|           out_pkts_keep|         array|
+|out_pkts_keep_ce1          |  out|    1|   ap_memory|           out_pkts_keep|         array|
+|out_pkts_keep_we1          |  out|    1|   ap_memory|           out_pkts_keep|         array|
+|out_pkts_keep_d1           |  out|    4|   ap_memory|           out_pkts_keep|         array|
+|out_pkts_strb_address0     |  out|    8|   ap_memory|           out_pkts_strb|         array|
+|out_pkts_strb_ce0          |  out|    1|   ap_memory|           out_pkts_strb|         array|
+|out_pkts_strb_we0          |  out|    1|   ap_memory|           out_pkts_strb|         array|
+|out_pkts_strb_d0           |  out|    4|   ap_memory|           out_pkts_strb|         array|
+|out_pkts_strb_q0           |   in|    4|   ap_memory|           out_pkts_strb|         array|
+|out_pkts_strb_address1     |  out|    8|   ap_memory|           out_pkts_strb|         array|
+|out_pkts_strb_ce1          |  out|    1|   ap_memory|           out_pkts_strb|         array|
+|out_pkts_strb_we1          |  out|    1|   ap_memory|           out_pkts_strb|         array|
+|out_pkts_strb_d1           |  out|    4|   ap_memory|           out_pkts_strb|         array|
+|out_pkts_user_address0     |  out|    8|   ap_memory|           out_pkts_user|         array|
+|out_pkts_user_ce0          |  out|    1|   ap_memory|           out_pkts_user|         array|
+|out_pkts_user_we0          |  out|    1|   ap_memory|           out_pkts_user|         array|
+|out_pkts_user_d0           |  out|    2|   ap_memory|           out_pkts_user|         array|
+|out_pkts_user_q0           |   in|    2|   ap_memory|           out_pkts_user|         array|
+|out_pkts_user_address1     |  out|    8|   ap_memory|           out_pkts_user|         array|
+|out_pkts_user_ce1          |  out|    1|   ap_memory|           out_pkts_user|         array|
+|out_pkts_user_we1          |  out|    1|   ap_memory|           out_pkts_user|         array|
+|out_pkts_user_d1           |  out|    2|   ap_memory|           out_pkts_user|         array|
+|out_pkts_last_address0     |  out|    8|   ap_memory|           out_pkts_last|         array|
+|out_pkts_last_ce0          |  out|    1|   ap_memory|           out_pkts_last|         array|
+|out_pkts_last_we0          |  out|    1|   ap_memory|           out_pkts_last|         array|
+|out_pkts_last_d0           |  out|    1|   ap_memory|           out_pkts_last|         array|
+|out_pkts_last_q0           |   in|    1|   ap_memory|           out_pkts_last|         array|
+|out_pkts_last_address1     |  out|    8|   ap_memory|           out_pkts_last|         array|
+|out_pkts_last_ce1          |  out|    1|   ap_memory|           out_pkts_last|         array|
+|out_pkts_last_we1          |  out|    1|   ap_memory|           out_pkts_last|         array|
+|out_pkts_last_d1           |  out|    1|   ap_memory|           out_pkts_last|         array|
+|out_pkts_id_address0       |  out|    8|   ap_memory|             out_pkts_id|         array|
+|out_pkts_id_ce0            |  out|    1|   ap_memory|             out_pkts_id|         array|
+|out_pkts_id_we0            |  out|    1|   ap_memory|             out_pkts_id|         array|
+|out_pkts_id_d0             |  out|    5|   ap_memory|             out_pkts_id|         array|
+|out_pkts_id_q0             |   in|    5|   ap_memory|             out_pkts_id|         array|
+|out_pkts_id_address1       |  out|    8|   ap_memory|             out_pkts_id|         array|
+|out_pkts_id_ce1            |  out|    1|   ap_memory|             out_pkts_id|         array|
+|out_pkts_id_we1            |  out|    1|   ap_memory|             out_pkts_id|         array|
+|out_pkts_id_d1             |  out|    5|   ap_memory|             out_pkts_id|         array|
+|out_pkts_dest_address0     |  out|    8|   ap_memory|           out_pkts_dest|         array|
+|out_pkts_dest_ce0          |  out|    1|   ap_memory|           out_pkts_dest|         array|
+|out_pkts_dest_we0          |  out|    1|   ap_memory|           out_pkts_dest|         array|
+|out_pkts_dest_d0           |  out|    6|   ap_memory|           out_pkts_dest|         array|
+|out_pkts_dest_q0           |   in|    6|   ap_memory|           out_pkts_dest|         array|
+|out_pkts_dest_address1     |  out|    8|   ap_memory|           out_pkts_dest|         array|
+|out_pkts_dest_ce1          |  out|    1|   ap_memory|           out_pkts_dest|         array|
+|out_pkts_dest_we1          |  out|    1|   ap_memory|           out_pkts_dest|         array|
+|out_pkts_dest_d1           |  out|    6|   ap_memory|           out_pkts_dest|         array|
+|in_pkts_data_0_3_val       |   in|   32|     ap_none|    in_pkts_data_0_3_val|        scalar|
+|in_pkts_keep_0_0_val       |   in|    4|     ap_none|    in_pkts_keep_0_0_val|        scalar|
+|in_pkts_keep_0_3_val       |   in|    4|     ap_none|    in_pkts_keep_0_3_val|        scalar|
+|in_pkts_strb_0_0_val       |   in|    4|     ap_none|    in_pkts_strb_0_0_val|        scalar|
+|in_pkts_strb_0_3_val       |   in|    4|     ap_none|    in_pkts_strb_0_3_val|        scalar|
+|in_pkts_user_0_0_val       |   in|    2|     ap_none|    in_pkts_user_0_0_val|        scalar|
+|in_pkts_user_0_3_val       |   in|    2|     ap_none|    in_pkts_user_0_3_val|        scalar|
+|in_pkts_last_0_0_val       |   in|    1|     ap_none|    in_pkts_last_0_0_val|        scalar|
+|in_pkts_last_0_3_val       |   in|    1|     ap_none|    in_pkts_last_0_3_val|        scalar|
+|in_pkts_id_0_0_val         |   in|    5|     ap_none|      in_pkts_id_0_0_val|        scalar|
+|in_pkts_id_0_3_val         |   in|    5|     ap_none|      in_pkts_id_0_3_val|        scalar|
+|in_pkts_dest_0_0_val       |   in|    6|     ap_none|    in_pkts_dest_0_0_val|        scalar|
+|in_pkts_dest_0_3_val       |   in|    6|     ap_none|    in_pkts_dest_0_3_val|        scalar|
+|NEURONS_MEMBRANE_address0  |  out|    8|   ap_memory|        NEURONS_MEMBRANE|         array|
+|NEURONS_MEMBRANE_ce0       |  out|    1|   ap_memory|        NEURONS_MEMBRANE|         array|
+|NEURONS_MEMBRANE_q0        |   in|   16|   ap_memory|        NEURONS_MEMBRANE|         array|
+|NEURONS_STATE_address0     |  out|    8|   ap_memory|           NEURONS_STATE|         array|
+|NEURONS_STATE_ce0          |  out|    1|   ap_memory|           NEURONS_STATE|         array|
+|NEURONS_STATE_we0          |  out|    1|   ap_memory|           NEURONS_STATE|         array|
+|NEURONS_STATE_d0           |  out|    1|   ap_memory|           NEURONS_STATE|         array|
+|NEURONS_STATE_q0           |   in|    1|   ap_memory|           NEURONS_STATE|         array|
++---------------------------+-----+-----+------------+------------------------+--------------+
+

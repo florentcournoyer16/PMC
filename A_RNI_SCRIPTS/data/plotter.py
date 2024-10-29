@@ -30,9 +30,9 @@ if __name__ == "__main__":
     if isinstance(sys.argv[1], str) :
         file_path = sys.argv[1]
         data = np.genfromtxt(file_path, delimiter=",")
-        plot(data, np.arange(sys.argv[2], sys.argv[3], 1))
+        plot(data, np.arange(int(sys.argv[2]), int(sys.argv[3]), 1))
     else:
-        file_path = "A_SCRIPTS/data/input/output_FINAL_CLIENT.csv"
+        file_path = "./input/tb_outputs.csv"
         data = np.genfromtxt(file_path, delimiter=",")
-        plot(data, np.arange(sys.argv[1], sys.argv[2], 1))
+        plot(data, np.arange(int(sys.argv[1]), int(sys.argv[2]), 1))
         

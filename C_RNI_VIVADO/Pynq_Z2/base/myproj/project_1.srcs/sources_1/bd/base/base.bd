@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x8290A365862932C8",
+      "boundary_crc": "0x8290A365B9025452",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../project_1.gen/sources_1/bd/base",
       "name": "base",
@@ -8460,7 +8460,7 @@
             "value": "200"
           },
           "PCW_PERIPHERAL_BOARD_PRESET": {
-            "value": "part0"
+            "value": "None"
           },
           "PCW_PJTAG_PERIPHERAL_ENABLE": {
             "value": "0"

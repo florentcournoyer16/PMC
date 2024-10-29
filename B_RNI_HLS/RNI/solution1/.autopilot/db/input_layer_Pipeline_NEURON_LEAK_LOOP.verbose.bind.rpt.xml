@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'input_layer_Pipeline_NEURON_LEAK_LOOP'" level="0">
-<item name = "Date">Mon Oct 28 16:02:32 2024
+<item name = "Date">Mon Oct 28 19:19:43 2024
 </item>
 <item name = "Version">2023.1.1 (Build 3869133 on Jun 15 2023)</item>
 <item name = "Project">RNI</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 3.988 ns, 2.70 ns</column>
+<column name="ap_clk">10.00 ns, 7.215 ns, 2.70 ns</column>
 </table>
 </item>
 </section>
@@ -24,18 +24,19 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">4, 4, 40.000 ns, 40.000 ns, 4, 4, no</column>
+<column name="">52, 52, 0.520 us, 0.520 us, 52, 52, no</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_exp_core_32_32_66_s_fu_73">exp_core_32_32_66_s, 23, 23, 0.230 us, 0.230 us, 1, 1, yes</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- NEURON_LEAK_LOOP">2, 2, 2, 1, 1, 2, yes</column>
+<column name="- NEURON_LEAK_LOOP">50, 50, 50, 1, 1, 2, yes</column>
 </table>
 </item>
 </section>

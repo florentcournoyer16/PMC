@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'input_layer_Pipeline_WEIGHTS_LOOP_0'
 ================================================================
-* Date:           Mon Oct 28 16:02:34 2024
+* Date:           Mon Oct 28 19:19:51 2024
 
 * Version:        2023.1.1 (Build 3869133 on Jun 15 2023)
 * Project:        RNI
@@ -54,14 +54,14 @@
 |       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
 +-----------------+---------+-----+--------+-------+-----+
 |DSP              |        -|    1|       -|      -|    -|
-|Expression       |        -|    -|       0|    144|    -|
+|Expression       |        -|    -|       0|    159|    -|
 |FIFO             |        -|    -|       -|      -|    -|
 |Instance         |        -|    -|       0|     20|    -|
 |Memory           |        8|    -|       0|      0|    -|
 |Multiplexer      |        -|    -|       -|     54|    -|
 |Register         |        -|    -|     171|     32|    -|
 +-----------------+---------+-----+--------+-------+-----+
-|Total            |        8|    1|     171|    250|    0|
+|Total            |        8|    1|     171|    265|    0|
 +-----------------+---------+-----+--------+-------+-----+
 |Available        |      280|  220|  106400|  53200|    0|
 +-----------------+---------+-----+--------+-------+-----+
@@ -73,7 +73,7 @@
     +--------------------+----------------+---------+----+---+----+-----+
     |      Instance      |     Module     | BRAM_18K| DSP| FF| LUT| URAM|
     +--------------------+----------------+---------+----+---+----+-----+
-    |mux_4_2_16_1_1_U31  |mux_4_2_16_1_1  |        0|   0|  0|  20|    0|
+    |mux_4_2_16_1_1_U23  |mux_4_2_16_1_1  |        0|   0|  0|  20|    0|
     +--------------------+----------------+---------+----+---+----+-----+
     |Total               |                |        0|   0|  0|  20|    0|
     +--------------------+----------------+---------+----+---+----+-----+
@@ -82,7 +82,7 @@
     +-----------------------------------+-------------------------------+--------------+
     |              Instance             |             Module            |  Expression  |
     +-----------------------------------+-------------------------------+--------------+
-    |mac_muladd_16s_8s_16ns_16_4_1_U32  |mac_muladd_16s_8s_16ns_16_4_1  |  i0 * i1 + i2|
+    |mac_muladd_16s_8s_16ns_16_4_1_U24  |mac_muladd_16s_8s_16ns_16_4_1  |  i0 * i1 + i2|
     +-----------------------------------+-------------------------------+--------------+
 
     * Memory: 
@@ -98,15 +98,16 @@
     N/A
 
     * Expression: 
-    +---------------------+----------+----+---+----+------------+------------+
-    |    Variable Name    | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
-    +---------------------+----------+----+---+----+------------+------------+
-    |add_ln61_fu_157_p2   |         +|   0|  0|  71|          64|           1|
-    |icmp_ln61_fu_148_p2  |      icmp|   0|  0|  71|          64|          64|
-    |ap_enable_pp0        |       xor|   0|  0|   2|           1|           2|
-    +---------------------+----------+----+---+----+------------+------------+
-    |Total                |          |   0|  0| 144|         129|          67|
-    +---------------------+----------+----+---+----+------------+------------+
+    +-----------------------+----------+----+---+----+------------+------------+
+    |     Variable Name     | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------+----------+----+---+----+------------+------------+
+    |add_ln68_fu_157_p2     |         +|   0|  0|  71|          64|           1|
+    |icmp_ln68_fu_148_p2    |      icmp|   0|  0|  71|          64|          64|
+    |select_ln71_fu_194_p3  |    select|   0|  0|  15|           1|           1|
+    |ap_enable_pp0          |       xor|   0|  0|   2|           1|           2|
+    +-----------------------+----------+----+---+----+------------+------------+
+    |Total                  |          |   0|  0| 159|         130|          68|
+    +-----------------------+----------+----+---+----+------------+------------+
 
     * Multiplexer: 
     +--------------------------------+----+-----------+-----+-----------+
@@ -115,9 +116,9 @@
     |ap_done_int                     |   9|          2|    1|          2|
     |ap_enable_reg_pp0_iter1         |   9|          2|    1|          2|
     |ap_enable_reg_pp0_iter2         |   9|          2|    1|          2|
-    |ap_sig_allocacmp_conv3_i7_load  |   9|          2|   16|         32|
-    |conv3_i7_fu_52                  |   9|          2|   16|         32|
-    |weight_index_fu_56              |   9|          2|   64|        128|
+    |ap_sig_allocacmp_conv3_i9_load  |   9|          2|   16|         32|
+    |conv3_i9_fu_56                  |   9|          2|   16|         32|
+    |weight_index_fu_60              |   9|          2|   64|        128|
     +--------------------------------+----+-----------+-----+-----------+
     |Total                           |  54|         12|   99|        198|
     +--------------------------------+----+-----------+-----+-----------+
@@ -136,12 +137,12 @@
     |ap_loop_exit_ready_pp0_iter2_reg  |   1|   0|    1|          0|
     |ap_loop_exit_ready_pp0_iter3_reg  |   1|   0|    1|          0|
     |ap_loop_exit_ready_pp0_iter4_reg  |   1|   0|    1|          0|
-    |conv3_i7_fu_52                    |  16|   0|   16|          0|
-    |icmp_ln61_reg_241                 |   1|   0|    1|          0|
-    |trunc_ln63_reg_250                |   2|   0|    2|          0|
-    |weight_index_fu_56                |  64|   0|   64|          0|
-    |zext_ln61_1_cast_reg_236          |  14|   0|   64|         50|
-    |icmp_ln61_reg_241                 |  64|  32|    1|          0|
+    |conv3_i9_fu_56                    |  16|   0|   16|          0|
+    |icmp_ln68_reg_265                 |   1|   0|    1|          0|
+    |trunc_ln70_reg_274                |   2|   0|    2|          0|
+    |weight_index_fu_60                |  64|   0|   64|          0|
+    |zext_ln68_1_cast_reg_260          |  14|   0|   64|         50|
+    |icmp_ln68_reg_265                 |  64|  32|    1|          0|
     +----------------------------------+----+----+-----+-----------+
     |Total                             | 171|  32|  158|         50|
     +----------------------------------+----+----+-----+-----------+
@@ -152,23 +153,23 @@
 == Interface
 ================================================================
 * Summary: 
-+---------------------+-----+-----+------------+-------------------------------------+--------------+
-|      RTL Ports      | Dir | Bits|  Protocol  |            Source Object            |    C Type    |
-+---------------------+-----+-----+------------+-------------------------------------+--------------+
-|ap_clk               |   in|    1|  ap_ctrl_hs|  input_layer_Pipeline_WEIGHTS_LOOP_0|  return value|
-|ap_rst               |   in|    1|  ap_ctrl_hs|  input_layer_Pipeline_WEIGHTS_LOOP_0|  return value|
-|ap_start             |   in|    1|  ap_ctrl_hs|  input_layer_Pipeline_WEIGHTS_LOOP_0|  return value|
-|ap_done              |  out|    1|  ap_ctrl_hs|  input_layer_Pipeline_WEIGHTS_LOOP_0|  return value|
-|ap_idle              |  out|    1|  ap_ctrl_hs|  input_layer_Pipeline_WEIGHTS_LOOP_0|  return value|
-|ap_ready             |  out|    1|  ap_ctrl_hs|  input_layer_Pipeline_WEIGHTS_LOOP_0|  return value|
-|zext_ln61            |   in|   14|     ap_none|                            zext_ln61|        scalar|
-|zext_ln155           |   in|    1|     ap_none|                           zext_ln155|        scalar|
-|zext_ln61_1          |   in|   14|     ap_none|                          zext_ln61_1|        scalar|
-|p_read               |   in|   16|     ap_none|                               p_read|        scalar|
-|p_read1              |   in|   16|     ap_none|                              p_read1|        scalar|
-|p_read2              |   in|   16|     ap_none|                              p_read2|        scalar|
-|p_read3              |   in|   16|     ap_none|                              p_read3|        scalar|
-|conv3_i7_out         |  out|   16|      ap_vld|                         conv3_i7_out|       pointer|
-|conv3_i7_out_ap_vld  |  out|    1|      ap_vld|                         conv3_i7_out|       pointer|
-+---------------------+-----+-----+------------+-------------------------------------+--------------+
++----------------------------------+-----+-----+------------+-------------------------------------+--------------+
+|             RTL Ports            | Dir | Bits|  Protocol  |            Source Object            |    C Type    |
++----------------------------------+-----+-----+------------+-------------------------------------+--------------+
+|ap_clk                            |   in|    1|  ap_ctrl_hs|  input_layer_Pipeline_WEIGHTS_LOOP_0|  return value|
+|ap_rst                            |   in|    1|  ap_ctrl_hs|  input_layer_Pipeline_WEIGHTS_LOOP_0|  return value|
+|ap_start                          |   in|    1|  ap_ctrl_hs|  input_layer_Pipeline_WEIGHTS_LOOP_0|  return value|
+|ap_done                           |  out|    1|  ap_ctrl_hs|  input_layer_Pipeline_WEIGHTS_LOOP_0|  return value|
+|ap_idle                           |  out|    1|  ap_ctrl_hs|  input_layer_Pipeline_WEIGHTS_LOOP_0|  return value|
+|ap_ready                          |  out|    1|  ap_ctrl_hs|  input_layer_Pipeline_WEIGHTS_LOOP_0|  return value|
+|zext_ln68                         |   in|   14|     ap_none|                            zext_ln68|        scalar|
+|membrane_leak_accumulator_reload  |   in|   16|     ap_none|     membrane_leak_accumulator_reload|        scalar|
+|zext_ln68_1                       |   in|   14|     ap_none|                          zext_ln68_1|        scalar|
+|p_read                            |   in|   16|     ap_none|                               p_read|        scalar|
+|p_read1                           |   in|   16|     ap_none|                              p_read1|        scalar|
+|p_read2                           |   in|   16|     ap_none|                              p_read2|        scalar|
+|p_read3                           |   in|   16|     ap_none|                              p_read3|        scalar|
+|conv3_i9_out                      |  out|   16|      ap_vld|                         conv3_i9_out|       pointer|
+|conv3_i9_out_ap_vld               |  out|    1|      ap_vld|                         conv3_i9_out|       pointer|
++----------------------------------+-----+-----+------------+-------------------------------------+--------------+
 

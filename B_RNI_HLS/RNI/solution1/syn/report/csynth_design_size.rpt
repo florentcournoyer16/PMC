@@ -3,30 +3,109 @@
 ================================================================
 
 * Instructions per Function for each Compilation Phase
-+-------------------------------------+-------------+--------------+---------------+----------------------+---------------+
-| Function                            | Location    | Compile/Link | Unroll/Inline | Performance/Pipeline | Optimizations |
-+-------------------------------------+-------------+--------------+---------------+----------------------+---------------+
-| + RNI                               | RNI.cpp:14  | 9,463        | 967           | 273                  | 315           |
-|  + input_layer                      | RNI.cpp:54  | 1,399        | 156           |  64                  |  72           |
-|     leak_neuron                     | RNI.cpp:148 |   670        |  73           |                      |               |
-|     update_neuron_state_reset_me... | RNI.cpp:159 |   128        |  22           |                      |               |
-|  + inner_layer_1                    | RNI.cpp:71  | 1,856        | 148           |                      |               |
-|     leak_neuron                     | RNI.cpp:148 |   670        |  73           |                      |               |
-|     update_neuron_state_reset_me... | RNI.cpp:159 |   128        |  22           |                      |               |
-|     reset_neuron_states             | RNI.cpp:169 |   126        |  27           |                      |               |
-|  + inner_layer_2                    | RNI.cpp:90  | 1,856        | 148           |                      |               |
-|     leak_neuron                     | RNI.cpp:148 |   670        |  73           |                      |               |
-|     update_neuron_state_reset_me... | RNI.cpp:159 |   128        |  22           |                      |               |
-|     reset_neuron_states             | RNI.cpp:169 |   126        |  27           |                      |               |
-|  + inner_layer_3                    | RNI.cpp:109 | 1,856        | 148           |                      |               |
-|     leak_neuron                     | RNI.cpp:148 |   670        |  73           |                      |               |
-|     update_neuron_state_reset_me... | RNI.cpp:159 |   128        |  22           |                      |               |
-|     reset_neuron_states             | RNI.cpp:169 |   126        |  27           |                      |               |
-|  + output_layer                     | RNI.cpp:128 | 1,856        | 148           |                      |               |
-|     leak_neuron                     | RNI.cpp:148 |   670        |  73           |                      |               |
-|     update_neuron_state_reset_me... | RNI.cpp:159 |   128        |  22           |                      |               |
-|     reset_neuron_states             | RNI.cpp:169 |   126        |  27           |                      |               |
-+-------------------------------------+-------------+--------------+---------------+----------------------+---------------+
++-------------------------------------------+----------------------------------+--------------+---------------+----------------------+---------------+
+| Function                                  | Location                         | Compile/Link | Unroll/Inline | Performance/Pipeline | Optimizations |
++-------------------------------------------+----------------------------------+--------------+---------------+----------------------+---------------+
+| + RNI                                     | RNI.cpp:19                       | 405,591      | 13,391        | 2,370                | 2,384         |
+|    input_stream_reception                 | RNI.cpp:52                       |     224      |     60        |                      |               |
+|  + input_layer                            | RNI.cpp:61                       |  80,419      |  2,564        |   499                |   499         |
+|   + leak_neuron                           | RNI.cpp:166                      |  79,619      |  2,472        |                      |               |
+|    + pow                                  | powint32.cpp:7                   |  79,394      |  2,426        |                      |               |
+|     + pow<32>                             | hls_pow_apfixed.h:492            |  79,335      |  2,418        |                      |               |
+|      + pow<32, 32>                        | hls_pow_apfixed.h:53             |  78,987      |  2,392        |                      |               |
+|         fabs_fixed<33, 33>                | hls_round_copysign_apfixed.h:176 |     177      |     42        |                      |               |
+|       + log<99, 33>                       | hls_log_apfixed.h:499            |  11,050      |  1,158        |                      |               |
+|        + range_reduction<81>              | hls_log_apfixed.h:381            |   7,581      |    836        |                      |               |
+|           range_reduce<ap_fixed<89, 7,... | hls_log_apfixed.h:170            |   1,302      |    130        |                      |               |
+|           range_reduce<ap_fixed<89, 7,... | hls_log_apfixed.h:170            |   1,278      |    127        |                      |               |
+|           range_reduce<ap_fixed<89, 7,... | hls_log_apfixed.h:170            |   1,278      |    127        |                      |               |
+|           range_reduce<ap_fixed<89, 7,... | hls_log_apfixed.h:170            |   1,283      |    127        |                      |               |
+|           range_reduce<ap_fixed<89, 7,... | hls_log_apfixed.h:170            |   1,286      |    127        |                      |               |
+|         exp_core<32, 32, 66>              | hls_exp_apfixed.h:957            |  66,394      |    984        |                      |               |
+|     update_neuron_state_reset_me...       | RNI.cpp:176                      |     128      |     22        |                      |               |
+|   + pow<32, 32>                           | hls_pow_apfixed.h:53             |              |               |   428                |   423         |
+|    + log<99, 33>                          | hls_log_apfixed.h:499            |              |               |    71                |    66         |
+|       range_reduction<81>                 | hls_log_apfixed.h:381            |              |               |    25                |    25         |
+|      exp_core<32, 32, 66>                 | hls_exp_apfixed.h:957            |              |               |   304                |   310         |
+|  + inner_layer_1                          | RNI.cpp:80                       |  80,975      |  2,608        |   512                |   513         |
+|   + leak_neuron                           | RNI.cpp:166                      |  79,619      |  2,472        |                      |               |
+|    + pow                                  | powint32.cpp:7                   |  79,394      |  2,426        |                      |               |
+|     + pow<32>                             | hls_pow_apfixed.h:492            |  79,335      |  2,418        |                      |               |
+|      + pow<32, 32>                        | hls_pow_apfixed.h:53             |  78,987      |  2,392        |                      |               |
+|         fabs_fixed<33, 33>                | hls_round_copysign_apfixed.h:176 |     177      |     42        |                      |               |
+|       + log<99, 33>                       | hls_log_apfixed.h:499            |  11,050      |  1,158        |                      |               |
+|        + range_reduction<81>              | hls_log_apfixed.h:381            |   7,581      |    836        |                      |               |
+|           range_reduce<ap_fixed<89, 7,... | hls_log_apfixed.h:170            |   1,302      |    130        |                      |               |
+|           range_reduce<ap_fixed<89, 7,... | hls_log_apfixed.h:170            |   1,278      |    127        |                      |               |
+|           range_reduce<ap_fixed<89, 7,... | hls_log_apfixed.h:170            |   1,278      |    127        |                      |               |
+|           range_reduce<ap_fixed<89, 7,... | hls_log_apfixed.h:170            |   1,283      |    127        |                      |               |
+|           range_reduce<ap_fixed<89, 7,... | hls_log_apfixed.h:170            |   1,286      |    127        |                      |               |
+|         exp_core<32, 32, 66>              | hls_exp_apfixed.h:957            |  66,394      |    984        |                      |               |
+|     update_neuron_state_reset_me...       | RNI.cpp:176                      |     128      |     22        |                      |               |
+|     reset_neuron_states                   | RNI.cpp:186                      |     225      |     29        |                      |               |
+|   + pow<32, 32>                           | hls_pow_apfixed.h:53             |              |               |   428                |   423         |
+|    + log<99, 33>                          | hls_log_apfixed.h:499            |              |               |    71                |    66         |
+|       range_reduction<81>                 | hls_log_apfixed.h:381            |              |               |    25                |    25         |
+|      exp_core<32, 32, 66>                 | hls_exp_apfixed.h:957            |              |               |   304                |   310         |
+|  + inner_layer_2                          | RNI.cpp:101                      |  80,975      |  2,608        |   515                |   516         |
+|   + leak_neuron                           | RNI.cpp:166                      |  79,619      |  2,472        |                      |               |
+|    + pow                                  | powint32.cpp:7                   |  79,394      |  2,426        |                      |               |
+|     + pow<32>                             | hls_pow_apfixed.h:492            |  79,335      |  2,418        |                      |               |
+|      + pow<32, 32>                        | hls_pow_apfixed.h:53             |  78,987      |  2,392        |                      |               |
+|         fabs_fixed<33, 33>                | hls_round_copysign_apfixed.h:176 |     177      |     42        |                      |               |
+|       + log<99, 33>                       | hls_log_apfixed.h:499            |  11,050      |  1,158        |                      |               |
+|        + range_reduction<81>              | hls_log_apfixed.h:381            |   7,581      |    836        |                      |               |
+|           range_reduce<ap_fixed<89, 7,... | hls_log_apfixed.h:170            |   1,302      |    130        |                      |               |
+|           range_reduce<ap_fixed<89, 7,... | hls_log_apfixed.h:170            |   1,278      |    127        |                      |               |
+|           range_reduce<ap_fixed<89, 7,... | hls_log_apfixed.h:170            |   1,278      |    127        |                      |               |
+|           range_reduce<ap_fixed<89, 7,... | hls_log_apfixed.h:170            |   1,283      |    127        |                      |               |
+|           range_reduce<ap_fixed<89, 7,... | hls_log_apfixed.h:170            |   1,286      |    127        |                      |               |
+|         exp_core<32, 32, 66>              | hls_exp_apfixed.h:957            |  66,394      |    984        |                      |               |
+|     update_neuron_state_reset_me...       | RNI.cpp:176                      |     128      |     22        |                      |               |
+|     reset_neuron_states                   | RNI.cpp:186                      |     225      |     29        |                      |               |
+|   + pow<32, 32>                           | hls_pow_apfixed.h:53             |              |               |   428                |   423         |
+|    + log<99, 33>                          | hls_log_apfixed.h:499            |              |               |    71                |    66         |
+|       range_reduction<81>                 | hls_log_apfixed.h:381            |              |               |    25                |    25         |
+|      exp_core<32, 32, 66>                 | hls_exp_apfixed.h:957            |              |               |   304                |   310         |
+|  + inner_layer_3                          | RNI.cpp:122                      |  80,975      |  2,608        |   515                |   516         |
+|   + leak_neuron                           | RNI.cpp:166                      |  79,619      |  2,472        |                      |               |
+|    + pow                                  | powint32.cpp:7                   |  79,394      |  2,426        |                      |               |
+|     + pow<32>                             | hls_pow_apfixed.h:492            |  79,335      |  2,418        |                      |               |
+|      + pow<32, 32>                        | hls_pow_apfixed.h:53             |  78,987      |  2,392        |                      |               |
+|         fabs_fixed<33, 33>                | hls_round_copysign_apfixed.h:176 |     177      |     42        |                      |               |
+|       + log<99, 33>                       | hls_log_apfixed.h:499            |  11,050      |  1,158        |                      |               |
+|        + range_reduction<81>              | hls_log_apfixed.h:381            |   7,581      |    836        |                      |               |
+|           range_reduce<ap_fixed<89, 7,... | hls_log_apfixed.h:170            |   1,302      |    130        |                      |               |
+|           range_reduce<ap_fixed<89, 7,... | hls_log_apfixed.h:170            |   1,278      |    127        |                      |               |
+|           range_reduce<ap_fixed<89, 7,... | hls_log_apfixed.h:170            |   1,278      |    127        |                      |               |
+|           range_reduce<ap_fixed<89, 7,... | hls_log_apfixed.h:170            |   1,283      |    127        |                      |               |
+|           range_reduce<ap_fixed<89, 7,... | hls_log_apfixed.h:170            |   1,286      |    127        |                      |               |
+|         exp_core<32, 32, 66>              | hls_exp_apfixed.h:957            |  66,394      |    984        |                      |               |
+|     update_neuron_state_reset_me...       | RNI.cpp:176                      |     128      |     22        |                      |               |
+|     reset_neuron_states                   | RNI.cpp:186                      |     225      |     29        |                      |               |
+|   + pow<32, 32>                           | hls_pow_apfixed.h:53             |              |               |   428                |   423         |
+|    + log<99, 33>                          | hls_log_apfixed.h:499            |              |               |    71                |    66         |
+|       range_reduction<81>                 | hls_log_apfixed.h:381            |              |               |    25                |    25         |
+|      exp_core<32, 32, 66>                 | hls_exp_apfixed.h:957            |              |               |   304                |   310         |
+|  + output_layer                           | RNI.cpp:143                      |  80,975      |  2,608        |    63                |    70         |
+|   + leak_neuron                           | RNI.cpp:166                      |  79,619      |  2,472        |                      |               |
+|    + pow                                  | powint32.cpp:7                   |  79,394      |  2,426        |                      |               |
+|     + pow<32>                             | hls_pow_apfixed.h:492            |  79,335      |  2,418        |                      |               |
+|      + pow<32, 32>                        | hls_pow_apfixed.h:53             |  78,987      |  2,392        |                      |               |
+|         fabs_fixed<33, 33>                | hls_round_copysign_apfixed.h:176 |     177      |     42        |                      |               |
+|       + log<99, 33>                       | hls_log_apfixed.h:499            |  11,050      |  1,158        |                      |               |
+|        + range_reduction<81>              | hls_log_apfixed.h:381            |   7,581      |    836        |                      |               |
+|           range_reduce<ap_fixed<89, 7,... | hls_log_apfixed.h:170            |   1,302      |    130        |                      |               |
+|           range_reduce<ap_fixed<89, 7,... | hls_log_apfixed.h:170            |   1,278      |    127        |                      |               |
+|           range_reduce<ap_fixed<89, 7,... | hls_log_apfixed.h:170            |   1,278      |    127        |                      |               |
+|           range_reduce<ap_fixed<89, 7,... | hls_log_apfixed.h:170            |   1,283      |    127        |                      |               |
+|           range_reduce<ap_fixed<89, 7,... | hls_log_apfixed.h:170            |   1,286      |    127        |                      |               |
+|         exp_core<32, 32, 66>              | hls_exp_apfixed.h:957            |  66,394      |    984        |                      |               |
+|     update_neuron_state_reset_me...       | RNI.cpp:176                      |     128      |     22        |                      |               |
+|     reset_neuron_states                   | RNI.cpp:186                      |     225      |     29        |                      |               |
+|  + output_stream_dispatch                 | RNI.cpp:195                      |     859      |    243        |   138                |   146         |
+|     reset_neuron_states                   | RNI.cpp:186                      |     225      |     29        |                      |               |
++-------------------------------------------+----------------------------------+--------------+---------------+----------------------+---------------+
 
 * Description of Compilation Phases
 +----------------------+------------------------------------------------------------+

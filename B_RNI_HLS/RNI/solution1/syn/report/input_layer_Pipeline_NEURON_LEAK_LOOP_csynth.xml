@@ -18,27 +18,27 @@
 <PipelineType>no</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>3.988</EstimatedClockPeriod>
+<EstimatedClockPeriod>7.215</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>4</Best-caseLatency>
-<Average-caseLatency>4</Average-caseLatency>
-<Worst-caseLatency>4</Worst-caseLatency>
-<Best-caseRealTimeLatency>40.000 ns</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>40.000 ns</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>40.000 ns</Worst-caseRealTimeLatency>
-<Interval-min>4</Interval-min>
-<Interval-max>4</Interval-max>
+<Best-caseLatency>52</Best-caseLatency>
+<Average-caseLatency>52</Average-caseLatency>
+<Worst-caseLatency>52</Worst-caseLatency>
+<Best-caseRealTimeLatency>0.520 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>0.520 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>0.520 us</Worst-caseRealTimeLatency>
+<Interval-min>52</Interval-min>
+<Interval-max>52</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <NEURON_LEAK_LOOP>
 <Slack>7.30</Slack>
 <TripCount>2</TripCount>
-<Latency>2</Latency>
-<AbsoluteTimeLatency>20</AbsoluteTimeLatency>
+<Latency>50</Latency>
+<AbsoluteTimeLatency>500</AbsoluteTimeLatency>
 <PipelineII>1</PipelineII>
-<PipelineDepth>2</PipelineDepth>
+<PipelineDepth>50</PipelineDepth>
 <InstanceList>
 </InstanceList>
 </NEURON_LEAK_LOOP>
@@ -47,10 +47,10 @@
 
 <AreaEstimates>
 <Resources>
-<FF>37</FF>
-<LUT>125</LUT>
-<BRAM_18K>0</BRAM_18K>
 <DSP>0</DSP>
+<FF>2886</FF>
+<LUT>2037</LUT>
+<BRAM_18K>0</BRAM_18K>
 <URAM>0</URAM>
 </Resources>
 <AvailableResources>
@@ -130,8 +130,74 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>NEURONS_MEMBRANE_load</name>
-<Object>NEURONS_MEMBRANE_load</Object>
+<name>grp_exp_core_32_32_66_s_fu_373_p_din1</name>
+<Object>input_layer_Pipeline_NEURON_LEAK_LOOP</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>35</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>grp_exp_core_32_32_66_s_fu_373_p_dout0</name>
+<Object>input_layer_Pipeline_NEURON_LEAK_LOOP</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>31</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>grp_exp_core_32_32_66_s_fu_373_p_start</name>
+<Object>input_layer_Pipeline_NEURON_LEAK_LOOP</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>grp_exp_core_32_32_66_s_fu_373_p_ready</name>
+<Object>input_layer_Pipeline_NEURON_LEAK_LOOP</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>grp_exp_core_32_32_66_s_fu_373_p_done</name>
+<Object>input_layer_Pipeline_NEURON_LEAK_LOOP</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>grp_exp_core_32_32_66_s_fu_373_p_idle</name>
+<Object>input_layer_Pipeline_NEURON_LEAK_LOOP</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>sext_ln170</name>
+<Object>sext_ln170</Object>
 <Type>scalar</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>

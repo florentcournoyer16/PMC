@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'input_layer_Pipeline_WEIGHTS_LOOP_0'
 ================================================================
-* Date:           Mon Oct 28 16:02:32 2024
+* Date:           Mon Oct 28 19:19:43 2024
 
 * Version:        2023.1.1 (Build 3869133 on Jun 15 2023)
 * Project:        RNI
@@ -89,56 +89,59 @@ IsGatedGlobalClock: 0
 * FSM state operations: 
 
 State 1 <SV = 0> <Delay = 1.58>
-ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%conv3_i7 = alloca i32 1"   --->   Operation 8 'alloca' 'conv3_i7' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%conv3_i9 = alloca i32 1"   --->   Operation 8 'alloca' 'conv3_i9' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%weight_index = alloca i32 1"   --->   Operation 9 'alloca' 'weight_index' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%p_read_1 = read i16 @_ssdm_op_Read.ap_auto.i16, i16 %p_read3"   --->   Operation 10 'read' 'p_read_1' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%p_read_2 = read i16 @_ssdm_op_Read.ap_auto.i16, i16 %p_read2"   --->   Operation 11 'read' 'p_read_2' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%p_read_3 = read i16 @_ssdm_op_Read.ap_auto.i16, i16 %p_read1"   --->   Operation 12 'read' 'p_read_3' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%p_read_4 = read i16 @_ssdm_op_Read.ap_auto.i16, i16 %p_read"   --->   Operation 13 'read' 'p_read_4' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%zext_ln61_1_read = read i14 @_ssdm_op_Read.ap_auto.i14, i14 %zext_ln61_1"   --->   Operation 14 'read' 'zext_ln61_1_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%zext_ln155_read = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %zext_ln155"   --->   Operation 15 'read' 'zext_ln155_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%zext_ln61_read = read i14 @_ssdm_op_Read.ap_auto.i14, i14 %zext_ln61"   --->   Operation 16 'read' 'zext_ln61_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%zext_ln61_1_cast = zext i14 %zext_ln61_1_read"   --->   Operation 17 'zext' 'zext_ln61_1_cast' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%zext_ln155_cast = zext i1 %zext_ln155_read"   --->   Operation 18 'zext' 'zext_ln155_cast' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%zext_ln61_cast = zext i14 %zext_ln61_read"   --->   Operation 19 'zext' 'zext_ln61_cast' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 20 [1/1] (1.58ns)   --->   "%store_ln0 = store i64 %zext_ln61_cast, i64 %weight_index"   --->   Operation 20 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
-ST_1 : Operation 21 [1/1] (1.58ns)   --->   "%store_ln0 = store i16 %zext_ln155_cast, i16 %conv3_i7"   --->   Operation 21 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
-ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc"   --->   Operation 22 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%zext_ln68_1_read = read i14 @_ssdm_op_Read.ap_auto.i14, i14 %zext_ln68_1"   --->   Operation 14 'read' 'zext_ln68_1_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%membrane_leak_accumulator_reload_read = read i16 @_ssdm_op_Read.ap_auto.i16, i16 %membrane_leak_accumulator_reload"   --->   Operation 15 'read' 'membrane_leak_accumulator_reload_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%zext_ln68_read = read i14 @_ssdm_op_Read.ap_auto.i14, i14 %zext_ln68"   --->   Operation 16 'read' 'zext_ln68_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%zext_ln68_1_cast = zext i14 %zext_ln68_1_read"   --->   Operation 17 'zext' 'zext_ln68_1_cast' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%zext_ln68_cast = zext i14 %zext_ln68_read"   --->   Operation 18 'zext' 'zext_ln68_cast' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (1.58ns)   --->   "%store_ln0 = store i64 %zext_ln68_cast, i64 %weight_index"   --->   Operation 19 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 20 [1/1] (1.58ns)   --->   "%store_ln0 = store i16 %membrane_leak_accumulator_reload_read, i16 %conv3_i9"   --->   Operation 20 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.body13"   --->   Operation 21 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
 
 State 2 <SV = 1> <Delay = 5.10>
-ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%weight_index_1 = load i64 %weight_index" [src/RNI.cpp:63]   --->   Operation 23 'load' 'weight_index_1' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%specpipeline_ln0 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 1, i32 0, void @p_str"   --->   Operation 24 'specpipeline' 'specpipeline_ln0' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 25 [1/1] (3.52ns)   --->   "%icmp_ln61 = icmp_eq  i64 %weight_index_1, i64 %zext_ln61_1_cast" [src/RNI.cpp:61]   --->   Operation 25 'icmp' 'icmp_ln61' <Predicate = true> <Delay = 3.52> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 3.52> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%br_ln61 = br i1 %icmp_ln61, void %for.inc.split, void %for.inc25.loopexit.exitStub" [src/RNI.cpp:61]   --->   Operation 26 'br' 'br_ln61' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 27 [1/1] (0.00ns)   --->   "%WEIGHTS_addr = getelementptr i8 %WEIGHTS, i64 0, i64 %weight_index_1" [src/RNI.cpp:63]   --->   Operation 27 'getelementptr' 'WEIGHTS_addr' <Predicate = (!icmp_ln61)> <Delay = 0.00>
-ST_2 : Operation 28 [2/2] (3.25ns)   --->   "%WEIGHTS_load = load i14 %WEIGHTS_addr" [src/RNI.cpp:63]   --->   Operation 28 'load' 'WEIGHTS_load' <Predicate = (!icmp_ln61)> <Delay = 3.25> <CoreInst = "ROM">   --->   Core 95 'ROM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 11328> <ROM>
-ST_2 : Operation 29 [1/1] (0.00ns)   --->   "%trunc_ln63 = trunc i64 %weight_index_1" [src/RNI.cpp:63]   --->   Operation 29 'trunc' 'trunc_ln63' <Predicate = (!icmp_ln61)> <Delay = 0.00>
-ST_2 : Operation 30 [1/1] (3.52ns)   --->   "%add_ln61 = add i64 %weight_index_1, i64 1" [src/RNI.cpp:61]   --->   Operation 30 'add' 'add_ln61' <Predicate = (!icmp_ln61)> <Delay = 3.52> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 3.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 31 [1/1] (1.58ns)   --->   "%store_ln61 = store i64 %add_ln61, i64 %weight_index" [src/RNI.cpp:61]   --->   Operation 31 'store' 'store_ln61' <Predicate = (!icmp_ln61)> <Delay = 1.58>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%weight_index_2 = load i64 %weight_index" [src/RNI.cpp:70]   --->   Operation 22 'load' 'weight_index_2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%specpipeline_ln0 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 1, i32 0, void @p_str"   --->   Operation 23 'specpipeline' 'specpipeline_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 24 [1/1] (3.52ns)   --->   "%icmp_ln68 = icmp_eq  i64 %weight_index_2, i64 %zext_ln68_1_cast" [src/RNI.cpp:68]   --->   Operation 24 'icmp' 'icmp_ln68' <Predicate = true> <Delay = 3.52> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 3.52> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%br_ln68 = br i1 %icmp_ln68, void %for.body13.split, void %for.inc31.loopexit.exitStub" [src/RNI.cpp:68]   --->   Operation 25 'br' 'br_ln68' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%WEIGHTS_addr = getelementptr i8 %WEIGHTS, i64 0, i64 %weight_index_2" [src/RNI.cpp:70]   --->   Operation 26 'getelementptr' 'WEIGHTS_addr' <Predicate = (!icmp_ln68)> <Delay = 0.00>
+ST_2 : Operation 27 [2/2] (3.25ns)   --->   "%WEIGHTS_load = load i14 %WEIGHTS_addr" [src/RNI.cpp:70]   --->   Operation 27 'load' 'WEIGHTS_load' <Predicate = (!icmp_ln68)> <Delay = 3.25> <CoreInst = "ROM">   --->   Core 95 'ROM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 11328> <ROM>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "%trunc_ln70 = trunc i64 %weight_index_2" [src/RNI.cpp:70]   --->   Operation 28 'trunc' 'trunc_ln70' <Predicate = (!icmp_ln68)> <Delay = 0.00>
+ST_2 : Operation 29 [1/1] (3.52ns)   --->   "%add_ln68 = add i64 %weight_index_2, i64 1" [src/RNI.cpp:68]   --->   Operation 29 'add' 'add_ln68' <Predicate = (!icmp_ln68)> <Delay = 3.52> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 3.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 30 [1/1] (1.58ns)   --->   "%store_ln68 = store i64 %add_ln68, i64 %weight_index" [src/RNI.cpp:68]   --->   Operation 30 'store' 'store_ln68' <Predicate = (!icmp_ln68)> <Delay = 1.58>
 
 State 3 <SV = 2> <Delay = 4.30>
-ST_3 : Operation 32 [1/2] (3.25ns)   --->   "%WEIGHTS_load = load i14 %WEIGHTS_addr" [src/RNI.cpp:63]   --->   Operation 32 'load' 'WEIGHTS_load' <Predicate = true> <Delay = 3.25> <CoreInst = "ROM">   --->   Core 95 'ROM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 11328> <ROM>
-ST_3 : Operation 33 [1/1] (0.00ns)   --->   "%sext_ln63 = sext i8 %WEIGHTS_load" [src/RNI.cpp:63]   --->   Operation 33 'sext' 'sext_ln63' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 34 [1/1] (1.82ns)   --->   "%trunc_ln63_1 = mux i16 @_ssdm_op_Mux.ap_auto.4i16.i2, i16 %p_read_4, i16 %p_read_3, i16 %p_read_2, i16 %p_read_1, i2 %trunc_ln63" [src/RNI.cpp:63]   --->   Operation 34 'mux' 'trunc_ln63_1' <Predicate = true> <Delay = 1.82> <CoreInst = "Multiplexer">   --->   Core 76 'Multiplexer' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 35 [3/3] (1.05ns) (grouped into DSP with root node add_ln63)   --->   "%mul_ln63 = mul i16 %trunc_ln63_1, i16 %sext_ln63" [src/RNI.cpp:63]   --->   Operation 35 'mul' 'mul_ln63' <Predicate = true> <Delay = 1.05> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : '<invalid operator> ' 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_3 : Operation 31 [1/2] (3.25ns)   --->   "%WEIGHTS_load = load i14 %WEIGHTS_addr" [src/RNI.cpp:70]   --->   Operation 31 'load' 'WEIGHTS_load' <Predicate = true> <Delay = 3.25> <CoreInst = "ROM">   --->   Core 95 'ROM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 11328> <ROM>
+ST_3 : Operation 32 [1/1] (0.00ns)   --->   "%sext_ln70 = sext i8 %WEIGHTS_load" [src/RNI.cpp:70]   --->   Operation 32 'sext' 'sext_ln70' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 33 [1/1] (1.82ns)   --->   "%trunc_ln70_1 = mux i16 @_ssdm_op_Mux.ap_auto.4i16.i2, i16 %p_read_4, i16 %p_read_3, i16 %p_read_2, i16 %p_read_1, i2 %trunc_ln70" [src/RNI.cpp:70]   --->   Operation 33 'mux' 'trunc_ln70_1' <Predicate = true> <Delay = 1.82> <CoreInst = "Multiplexer">   --->   Core 76 'Multiplexer' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 34 [3/3] (1.05ns) (grouped into DSP with root node add_ln70)   --->   "%mul_ln70 = mul i16 %trunc_ln70_1, i16 %sext_ln70" [src/RNI.cpp:70]   --->   Operation 34 'mul' 'mul_ln70' <Predicate = true> <Delay = 1.05> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : '<invalid operator> ' 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
 
 State 4 <SV = 3> <Delay = 1.05>
-ST_4 : Operation 36 [2/3] (1.05ns) (grouped into DSP with root node add_ln63)   --->   "%mul_ln63 = mul i16 %trunc_ln63_1, i16 %sext_ln63" [src/RNI.cpp:63]   --->   Operation 36 'mul' 'mul_ln63' <Predicate = true> <Delay = 1.05> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : '<invalid operator> ' 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 35 [2/3] (1.05ns) (grouped into DSP with root node add_ln70)   --->   "%mul_ln70 = mul i16 %trunc_ln70_1, i16 %sext_ln70" [src/RNI.cpp:70]   --->   Operation 35 'mul' 'mul_ln70' <Predicate = true> <Delay = 1.05> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : '<invalid operator> ' 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
 
 State 5 <SV = 4> <Delay = 2.10>
-ST_5 : Operation 37 [1/1] (0.00ns)   --->   "%conv3_i7_load = load i16 %conv3_i7" [src/RNI.cpp:63]   --->   Operation 37 'load' 'conv3_i7_load' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 38 [1/3] (0.00ns) (grouped into DSP with root node add_ln63)   --->   "%mul_ln63 = mul i16 %trunc_ln63_1, i16 %sext_ln63" [src/RNI.cpp:63]   --->   Operation 38 'mul' 'mul_ln63' <Predicate = true> <Delay = 0.00> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : '<invalid operator> ' 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
-ST_5 : Operation 39 [2/2] (2.10ns) (root node of the DSP)   --->   "%add_ln63 = add i16 %mul_ln63, i16 %conv3_i7_load" [src/RNI.cpp:63]   --->   Operation 39 'add' 'add_ln63' <Predicate = true> <Delay = 2.10> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : '<invalid operator> ' 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
-ST_5 : Operation 45 [1/1] (0.00ns)   --->   "%conv3_i7_load_1 = load i16 %conv3_i7"   --->   Operation 45 'load' 'conv3_i7_load_1' <Predicate = (icmp_ln61)> <Delay = 0.00>
-ST_5 : Operation 46 [1/1] (0.00ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_auto.i16P0A, i16 %conv3_i7_out, i16 %conv3_i7_load_1"   --->   Operation 46 'write' 'write_ln0' <Predicate = (icmp_ln61)> <Delay = 0.00>
-ST_5 : Operation 47 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 47 'ret' 'ret_ln0' <Predicate = (icmp_ln61)> <Delay = 0.00>
+ST_5 : Operation 36 [1/1] (0.00ns)   --->   "%conv3_i9_load = load i16 %conv3_i9" [src/RNI.cpp:70]   --->   Operation 36 'load' 'conv3_i9_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 37 [1/3] (0.00ns) (grouped into DSP with root node add_ln70)   --->   "%mul_ln70 = mul i16 %trunc_ln70_1, i16 %sext_ln70" [src/RNI.cpp:70]   --->   Operation 37 'mul' 'mul_ln70' <Predicate = true> <Delay = 0.00> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : '<invalid operator> ' 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_5 : Operation 38 [2/2] (2.10ns) (root node of the DSP)   --->   "%add_ln70 = add i16 %mul_ln70, i16 %conv3_i9_load" [src/RNI.cpp:70]   --->   Operation 38 'add' 'add_ln70' <Predicate = true> <Delay = 2.10> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : '<invalid operator> ' 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_5 : Operation 48 [1/1] (0.00ns)   --->   "%conv3_i9_load_1 = load i16 %conv3_i9"   --->   Operation 48 'load' 'conv3_i9_load_1' <Predicate = (icmp_ln68)> <Delay = 0.00>
+ST_5 : Operation 49 [1/1] (0.00ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_auto.i16P0A, i16 %conv3_i9_out, i16 %conv3_i9_load_1"   --->   Operation 49 'write' 'write_ln0' <Predicate = (icmp_ln68)> <Delay = 0.00>
+ST_5 : Operation 50 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 50 'ret' 'ret_ln0' <Predicate = (icmp_ln68)> <Delay = 0.00>
 
-State 6 <SV = 5> <Delay = 3.68>
-ST_6 : Operation 40 [1/1] (0.00ns)   --->   "%speclooptripcount_ln61 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 0, i64 65535, i64 32767" [src/RNI.cpp:61]   --->   Operation 40 'speclooptripcount' 'speclooptripcount_ln61' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 41 [1/1] (0.00ns)   --->   "%specloopname_ln61 = specloopname void @_ssdm_op_SpecLoopName, void @empty_14" [src/RNI.cpp:61]   --->   Operation 41 'specloopname' 'specloopname_ln61' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 42 [1/2] (2.10ns) (root node of the DSP)   --->   "%add_ln63 = add i16 %mul_ln63, i16 %conv3_i7_load" [src/RNI.cpp:63]   --->   Operation 42 'add' 'add_ln63' <Predicate = true> <Delay = 2.10> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : '<invalid operator> ' 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
-ST_6 : Operation 43 [1/1] (1.58ns)   --->   "%store_ln61 = store i16 %add_ln63, i16 %conv3_i7" [src/RNI.cpp:61]   --->   Operation 43 'store' 'store_ln61' <Predicate = true> <Delay = 1.58>
-ST_6 : Operation 44 [1/1] (0.00ns)   --->   "%br_ln61 = br void %for.inc" [src/RNI.cpp:61]   --->   Operation 44 'br' 'br_ln61' <Predicate = true> <Delay = 0.00>
+State 6 <SV = 5> <Delay = 4.44>
+ST_6 : Operation 39 [1/1] (0.00ns)   --->   "%speclooptripcount_ln68 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 0, i64 65535, i64 32767" [src/RNI.cpp:68]   --->   Operation 39 'speclooptripcount' 'speclooptripcount_ln68' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 40 [1/1] (0.00ns)   --->   "%specloopname_ln68 = specloopname void @_ssdm_op_SpecLoopName, void @empty_22" [src/RNI.cpp:68]   --->   Operation 40 'specloopname' 'specloopname_ln68' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 41 [1/2] (2.10ns) (root node of the DSP)   --->   "%add_ln70 = add i16 %mul_ln70, i16 %conv3_i9_load" [src/RNI.cpp:70]   --->   Operation 41 'add' 'add_ln70' <Predicate = true> <Delay = 2.10> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : '<invalid operator> ' 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 42 [1/1] (0.00ns)   --->   "%trunc_ln71 = trunc i16 %add_ln70" [src/RNI.cpp:71]   --->   Operation 42 'trunc' 'trunc_ln71' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 43 [1/1] (0.00ns)   --->   "%tmp = bitselect i1 @_ssdm_op_BitSelect.i1.i16.i32, i16 %add_ln70, i32 15" [src/RNI.cpp:71]   --->   Operation 43 'bitselect' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 44 [1/1] (0.75ns)   --->   "%select_ln71 = select i1 %tmp, i15 0, i15 %trunc_ln71" [src/RNI.cpp:71]   --->   Operation 44 'select' 'select_ln71' <Predicate = true> <Delay = 0.75> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.75> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_6 : Operation 45 [1/1] (0.00ns)   --->   "%zext_ln68_2 = zext i15 %select_ln71" [src/RNI.cpp:68]   --->   Operation 45 'zext' 'zext_ln68_2' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 46 [1/1] (1.58ns)   --->   "%store_ln68 = store i16 %zext_ln68_2, i16 %conv3_i9" [src/RNI.cpp:68]   --->   Operation 46 'store' 'store_ln68' <Predicate = true> <Delay = 1.58>
+ST_6 : Operation 47 [1/1] (0.00ns)   --->   "%br_ln68 = br void %for.body13" [src/RNI.cpp:68]   --->   Operation 47 'br' 'br_ln68' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -149,32 +152,33 @@ Target clock period: 10.000ns, clock uncertainty: 2.700ns.
  <State 1>: 1.588ns
 The critical path consists of the following:
 	'alloca' operation ('weight_index') [11]  (0.000 ns)
-	'store' operation ('store_ln0') of variable 'zext_ln61_cast' on local variable 'weight_index' [22]  (1.588 ns)
+	'store' operation ('store_ln0') of variable 'zext_ln68_cast' on local variable 'weight_index' [21]  (1.588 ns)
 
  <State 2>: 5.108ns
 The critical path consists of the following:
-	'load' operation ('weight_index', src/RNI.cpp:63) on local variable 'weight_index' [26]  (0.000 ns)
-	'add' operation ('add_ln61', src/RNI.cpp:61) [41]  (3.520 ns)
-	'store' operation ('store_ln61', src/RNI.cpp:61) of variable 'add_ln61', src/RNI.cpp:61 on local variable 'weight_index' [42]  (1.588 ns)
+	'load' operation ('weight_index', src/RNI.cpp:70) on local variable 'weight_index' [25]  (0.000 ns)
+	'add' operation ('add_ln68', src/RNI.cpp:68) [44]  (3.520 ns)
+	'store' operation ('store_ln68', src/RNI.cpp:68) of variable 'add_ln68', src/RNI.cpp:68 on local variable 'weight_index' [45]  (1.588 ns)
 
  <State 3>: 4.304ns
 The critical path consists of the following:
-	'load' operation ('WEIGHTS_load', src/RNI.cpp:63) on array 'WEIGHTS' [35]  (3.254 ns)
-	'mul' operation of DSP[40] ('mul_ln63', src/RNI.cpp:63) [39]  (1.050 ns)
+	'load' operation ('WEIGHTS_load', src/RNI.cpp:70) on array 'WEIGHTS' [34]  (3.254 ns)
+	'mul' operation of DSP[39] ('mul_ln70', src/RNI.cpp:70) [38]  (1.050 ns)
 
  <State 4>: 1.050ns
 The critical path consists of the following:
-	'mul' operation of DSP[40] ('mul_ln63', src/RNI.cpp:63) [39]  (1.050 ns)
+	'mul' operation of DSP[39] ('mul_ln70', src/RNI.cpp:70) [38]  (1.050 ns)
 
  <State 5>: 2.100ns
 The critical path consists of the following:
-	'load' operation ('conv3_i7_load', src/RNI.cpp:63) on local variable 'conv3_i7' [31]  (0.000 ns)
-	'add' operation of DSP[40] ('add_ln63', src/RNI.cpp:63) [40]  (2.100 ns)
+	'load' operation ('conv3_i9_load', src/RNI.cpp:70) on local variable 'conv3_i9' [30]  (0.000 ns)
+	'add' operation of DSP[39] ('add_ln70', src/RNI.cpp:70) [39]  (2.100 ns)
 
- <State 6>: 3.688ns
+ <State 6>: 4.442ns
 The critical path consists of the following:
-	'add' operation of DSP[40] ('add_ln63', src/RNI.cpp:63) [40]  (2.100 ns)
-	'store' operation ('store_ln61', src/RNI.cpp:61) of variable 'add_ln63', src/RNI.cpp:63 on local variable 'conv3_i7' [43]  (1.588 ns)
+	'add' operation of DSP[39] ('add_ln70', src/RNI.cpp:70) [39]  (2.100 ns)
+	'select' operation ('select_ln71', src/RNI.cpp:71) [42]  (0.754 ns)
+	'store' operation ('store_ln68', src/RNI.cpp:68) of variable 'zext_ln68_2', src/RNI.cpp:68 on local variable 'conv3_i9' [46]  (1.588 ns)
 
 
 ============================================================

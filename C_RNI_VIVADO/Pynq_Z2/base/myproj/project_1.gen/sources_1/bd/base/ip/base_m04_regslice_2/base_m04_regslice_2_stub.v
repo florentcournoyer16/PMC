@@ -2,11 +2,11 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.1.1 (lin64) Build 3900603 Fri Jun 16 19:30:25 MDT 2023
-// Date        : Mon Oct 28 16:34:47 2024
+// Date        : Mon Oct 28 19:34:51 2024
 // Host        : GRAMS-NSOC running 64-bit Ubuntu 22.04.5 LTS
 // Command     : write_verilog -force -mode synth_stub -rename_top base_m04_regslice_2 -prefix
-//               base_m04_regslice_2_ base_m05_regslice_2_stub.v
-// Design      : base_m05_regslice_2
+//               base_m04_regslice_2_ base_m00_regslice_1_stub.v
+// Design      : base_m00_regslice_1
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z020clg400-1
 // --------------------------------------------------------------------------------

@@ -4,7 +4,7 @@
 == Synthesis Summary Report of 'RNI'
 ================================================================
 + General Information: 
-    * Date:           Mon Oct 28 16:02:35 2024
+    * Date:           Mon Oct 28 19:19:56 2024
     * Version:        2023.1.1 (Build 3869133 on Jun 15 2023)
     * Project:        RNI
     * Solution:       solution1 (Vivado IP Flow Target)
@@ -15,31 +15,61 @@
 + Performance & Resource Estimates: 
     
     PS: '+' for module; 'o' for loop; '*' for dataflow
-    +---------------------------------------------+------+------+---------+-----------+----------+---------+-------+----------+---------+---------+-----------+-----------+-----+
-    |                   Modules                   | Issue|      | Latency |  Latency  | Iteration|         |  Trip |          |         |         |           |           |     |
-    |                   & Loops                   | Type | Slack| (cycles)|    (ns)   |  Latency | Interval| Count | Pipelined|  BRAM   |   DSP   |     FF    |    LUT    | URAM|
-    +---------------------------------------------+------+------+---------+-----------+----------+---------+-------+----------+---------+---------+-----------+-----------+-----+
-    |+ RNI                                        |     -|  0.02|        -|          -|         -|        -|      -|        no|  10 (3%)|  1 (~0%)|  846 (~0%)|  1691 (3%)|    -|
-    | o VITIS_LOOP_25_1                           |     -|  7.30|        -|          -|   8390922|        -|      -|        no|        -|        -|          -|          -|    -|
-    |  + RNI_Pipeline_VITIS_LOOP_27_2             |     -|  2.93|        6|     60.000|         -|        6|      -|        no|        -|        -|  156 (~0%)|  239 (~0%)|    -|
-    |   o VITIS_LOOP_27_2                         |     -|  7.30|        4|     40.000|         1|        1|      4|       yes|        -|        -|          -|          -|    -|
-    |  + input_layer                              |     -|  0.06|  8390529|  8.391e+07|         -|  8390529|      -|        no|   9 (3%)|  1 (~0%)|  312 (~0%)|   605 (1%)|    -|
-    |   o NEURONS_LOOP_0                          |     -|  7.30|  8390528|  8.391e+07|     65551|        -|    128|        no|        -|        -|          -|          -|    -|
-    |    + input_layer_Pipeline_NEURON_LEAK_LOOP  |     -|  3.31|        4|     40.000|         -|        4|      -|        no|        -|        -|   37 (~0%)|  125 (~0%)|    -|
-    |     o NEURON_LEAK_LOOP                      |     -|  7.30|        2|     20.000|         2|        1|      2|       yes|        -|        -|          -|          -|    -|
-    |    + input_layer_Pipeline_WEIGHTS_LOOP_0    |     -|  2.19|    65540|  6.554e+05|         -|    65540|      -|        no|   8 (2%)|  1 (~0%)|  171 (~0%)|  250 (~0%)|    -|
-    |     o WEIGHTS_LOOP_0                        |     -|  7.30|    65538|  6.554e+05|         5|        1|  65535|       yes|        -|        -|          -|          -|    -|
-    |  + RNI_Pipeline_NEURONS_LOOP_1              |     -|  0.02|       67|    670.000|         -|       67|      -|        no|        -|        -|   30 (~0%)|  137 (~0%)|    -|
-    |   o NEURONS_LOOP_1                          |     -|  7.30|       65|    650.000|         3|        1|     64|       yes|        -|        -|          -|          -|    -|
-    |  + RNI_Pipeline_NEURONS_LOOP_2              |     -|  0.02|       35|    350.000|         -|       35|      -|        no|        -|        -|   29 (~0%)|  135 (~0%)|    -|
-    |   o NEURONS_LOOP_2                          |     -|  7.30|       33|    330.000|         3|        1|     32|       yes|        -|        -|          -|          -|    -|
-    |  + RNI_Pipeline_NEURONS_LOOP_3              |     -|  0.02|       19|    190.000|         -|       19|      -|        no|        -|        -|   28 (~0%)|  135 (~0%)|    -|
-    |   o NEURONS_LOOP_3                          |     -|  7.30|       17|    170.000|         3|        1|     16|       yes|        -|        -|          -|          -|    -|
-    |  + RNI_Pipeline_NEURONS_LOOP_4              |     -|  2.27|        6|     60.000|         -|        6|      -|        no|        -|        -|    7 (~0%)|   53 (~0%)|    -|
-    |   o NEURONS_LOOP_4                          |     -|  7.30|        4|     40.000|         1|        1|      4|       yes|        -|        -|          -|          -|    -|
-    |  + RNI_Pipeline_VITIS_LOOP_38_3             |     -|  3.80|      246|  2.460e+03|         -|      246|      -|        no|        -|        -|   11 (~0%)|   79 (~0%)|    -|
-    |   o VITIS_LOOP_38_3                         |     -|  7.30|      244|  2.440e+03|         2|        1|    244|       yes|        -|        -|          -|          -|    -|
-    +---------------------------------------------+------+------+---------+-----------+----------+---------+-------+----------+---------+---------+-----------+-----------+-----+
+    +---------------------------------------------------------------+------+------+----------+-----------+----------+----------+-------+----------+----------+----------+-------------+-------------+-----+
+    |                            Modules                            | Issue|      | Latency  |  Latency  | Iteration|          |  Trip |          |          |          |             |             |     |
+    |                            & Loops                            | Type | Slack| (cycles) |    (ns)   |  Latency | Interval | Count | Pipelined|   BRAM   |    DSP   |      FF     |     LUT     | URAM|
+    +---------------------------------------------------------------+------+------+----------+-----------+----------+----------+-------+----------+----------+----------+-------------+-------------+-----+
+    |+ RNI                                                          |     -|  0.08|         -|          -|         -|         -|      -|        no|  53 (18%)|  45 (20%)|  16481 (15%)|  14533 (27%)|    -|
+    | o VITIS_LOOP_30_1                                             |     -|  7.30|         -|          -|  38550407|         -|      -|        no|         -|         -|            -|            -|    -|
+    |  + input_layer                                                |     -|  0.08|   8396673|  8.397e+07|         -|   8396673|      -|        no|    8 (2%)|   1 (~0%)|    3168 (2%)|    2495 (4%)|    -|
+    |   o NEURONS_LOOP_0                                            |     -|  7.30|   8396672|  8.397e+07|     65599|         -|    128|        no|         -|         -|            -|            -|    -|
+    |    + input_layer_Pipeline_NEURON_LEAK_LOOP                    |     -|  0.08|        52|    520.000|         -|        52|      -|        no|         -|         -|    2886 (2%)|    2037 (3%)|    -|
+    |     o NEURON_LEAK_LOOP                                        |     -|  7.30|        50|    500.000|        50|         1|      2|       yes|         -|         -|            -|            -|    -|
+    |      + exp_core_32_32_66_s                                    |    II|  0.08|        23|    230.000|         -|         1|      -|       yes|    8 (2%)|  44 (20%)|    2994 (2%)|    1775 (3%)|    -|
+    |    + input_layer_Pipeline_WEIGHTS_LOOP_0                      |     -|  2.19|     65540|  6.554e+05|         -|     65540|      -|        no|    8 (2%)|   1 (~0%)|    171 (~0%)|    265 (~0%)|    -|
+    |     o WEIGHTS_LOOP_0                                          |     -|  7.30|     65538|  6.554e+05|         5|         1|  65535|       yes|         -|         -|            -|            -|    -|
+    |  + inner_layer_1                                              |     -|  0.08|  16781124|  1.678e+08|         -|  16781124|      -|        no|    8 (2%)|         -|    3195 (3%)|    2638 (4%)|    -|
+    |   + inner_layer_1_Pipeline_NEURONS_STATE_RESET_LOOP           |     -|  3.06|       130|  1.300e+03|         -|       130|      -|        no|         -|         -|     10 (~0%)|     56 (~0%)|    -|
+    |    o NEURONS_STATE_RESET_LOOP                                 |     -|  7.30|       128|  1.280e+03|         1|         1|    128|       yes|         -|         -|            -|            -|    -|
+    |   o NEURONS_LOOP_1                                            |     -|  7.30|  16780992|  1.678e+08|    262203|         -|     64|        no|         -|         -|            -|            -|    -|
+    |    + inner_layer_1_Pipeline_NEURON_LEAK_LOOP                  |     -|  0.08|        52|    520.000|         -|        52|      -|        no|         -|         -|    2886 (2%)|    2037 (3%)|    -|
+    |     o NEURON_LEAK_LOOP                                        |     -|  7.30|        50|    500.000|        50|         1|      2|       yes|         -|         -|            -|            -|    -|
+    |      + exp_core_32_32_66_s                                    |    II|  0.08|        23|    230.000|         -|         1|      -|       yes|    8 (2%)|  44 (20%)|    2994 (2%)|    1775 (3%)|    -|
+    |    + inner_layer_1_Pipeline_WEIGHTS_LOOP_1                    |     -|  1.97|    262142|  2.621e+06|         -|    262142|      -|        no|    8 (2%)|         -|    200 (~0%)|    282 (~0%)|    -|
+    |     o WEIGHTS_LOOP_1                                          |    II|  7.30|    262140|  2.621e+06|         5|         4|  65535|       yes|         -|         -|            -|            -|    -|
+    |  + inner_layer_2                                              |     -|  0.08|   8390564|  8.391e+07|         -|   8390564|      -|        no|    8 (2%)|         -|    3193 (3%)|    2646 (4%)|    -|
+    |   + inner_layer_2_Pipeline_NEURONS_STATE_RESET_LOOP           |     -|  3.06|        66|    660.000|         -|        66|      -|        no|         -|         -|     10 (~0%)|     57 (~0%)|    -|
+    |    o NEURONS_STATE_RESET_LOOP                                 |     -|  7.30|        64|    640.000|         1|         1|     64|       yes|         -|         -|            -|            -|    -|
+    |   o NEURONS_LOOP_2                                            |     -|  7.30|   8390496|  8.390e+07|    262203|         -|     32|        no|         -|         -|            -|            -|    -|
+    |    + inner_layer_2_Pipeline_NEURON_LEAK_LOOP                  |     -|  0.08|        52|    520.000|         -|        52|      -|        no|         -|         -|    2886 (2%)|    2037 (3%)|    -|
+    |     o NEURON_LEAK_LOOP                                        |     -|  7.30|        50|    500.000|        50|         1|      2|       yes|         -|         -|            -|            -|    -|
+    |      + exp_core_32_32_66_s                                    |    II|  0.08|        23|    230.000|         -|         1|      -|       yes|    8 (2%)|  44 (20%)|    2994 (2%)|    1775 (3%)|    -|
+    |    + inner_layer_2_Pipeline_WEIGHTS_LOOP_2                    |     -|  1.97|    262142|  2.621e+06|         -|    262142|      -|        no|    8 (2%)|         -|    200 (~0%)|    291 (~0%)|    -|
+    |     o WEIGHTS_LOOP_2                                          |    II|  7.30|    262140|  2.621e+06|         5|         4|  65535|       yes|         -|         -|            -|            -|    -|
+    |  + inner_layer_3                                              |     -|  0.08|   4195284|  4.195e+07|         -|   4195284|      -|        no|    8 (2%)|         -|    3190 (2%)|    2636 (4%)|    -|
+    |   + inner_layer_3_Pipeline_NEURONS_STATE_RESET_LOOP           |     -|  3.11|        34|    340.000|         -|        34|      -|        no|         -|         -|      9 (~0%)|     55 (~0%)|    -|
+    |    o NEURONS_STATE_RESET_LOOP                                 |     -|  7.30|        32|    320.000|         1|         1|     32|       yes|         -|         -|            -|            -|    -|
+    |   o NEURONS_LOOP_3                                            |     -|  7.30|   4195248|  4.195e+07|    262203|         -|     16|        no|         -|         -|            -|            -|    -|
+    |    + inner_layer_3_Pipeline_NEURON_LEAK_LOOP                  |     -|  0.08|        52|    520.000|         -|        52|      -|        no|         -|         -|    2886 (2%)|    2037 (3%)|    -|
+    |     o NEURON_LEAK_LOOP                                        |     -|  7.30|        50|    500.000|        50|         1|      2|       yes|         -|         -|            -|            -|    -|
+    |      + exp_core_32_32_66_s                                    |    II|  0.08|        23|    230.000|         -|         1|      -|       yes|    8 (2%)|  44 (20%)|    2994 (2%)|    1775 (3%)|    -|
+    |    + inner_layer_3_Pipeline_WEIGHTS_LOOP_3                    |     -|  1.31|    262142|  2.621e+06|         -|    262142|      -|        no|    8 (2%)|         -|    200 (~0%)|    283 (~0%)|    -|
+    |     o WEIGHTS_LOOP_3                                          |    II|  7.30|    262140|  2.621e+06|         5|         4|  65535|       yes|         -|         -|            -|            -|    -|
+    |  + output_layer                                               |     -|  1.22|    786472|  7.865e+06|         -|    786472|      -|        no|    8 (2%)|         -|    262 (~0%)|     574 (1%)|    -|
+    |   + output_layer_Pipeline_NEURONS_STATE_RESET_LOOP            |     -|  3.15|        18|    180.000|         -|        18|      -|        no|         -|         -|      8 (~0%)|     55 (~0%)|    -|
+    |    o NEURONS_STATE_RESET_LOOP                                 |     -|  7.30|        16|    160.000|         1|         1|     16|       yes|         -|         -|            -|            -|    -|
+    |   o NEURONS_LOOP_4                                            |     -|  7.30|    786452|  7.865e+06|    196613|         -|      4|        no|         -|         -|            -|            -|    -|
+    |    + output_layer_Pipeline_WEIGHTS_LOOP_4                     |     -|  1.22|    196607|  1.966e+06|         -|    196607|      -|        no|    8 (2%)|         -|    181 (~0%)|    283 (~0%)|    -|
+    |     o WEIGHTS_LOOP_4                                          |    II|  7.30|    196605|  1.966e+06|         4|         3|  65535|       yes|         -|         -|            -|            -|    -|
+    |  + output_stream_dispatch                                     |     -|  0.79|       269|  2.690e+03|         -|       269|      -|        no|         -|         -|    110 (~0%)|    1078 (2%)|    -|
+    |   + output_stream_dispatch_Pipeline_VITIS_LOOP_197_1          |     -|  0.79|       246|  2.460e+03|         -|       246|      -|        no|         -|         -|     19 (~0%)|     79 (~0%)|    -|
+    |    o VITIS_LOOP_197_1                                         |     -|  7.30|       244|  2.440e+03|         2|         1|    244|       yes|         -|         -|            -|            -|    -|
+    |   + output_stream_dispatch_Pipeline_VITIS_LOOP_204_2          |     -|  1.29|        10|    100.000|         -|        10|      -|        no|         -|         -|     73 (~0%)|    245 (~0%)|    -|
+    |    o VITIS_LOOP_204_2                                         |    II|  7.30|         8|     80.000|         3|         2|      4|       yes|         -|         -|            -|            -|    -|
+    |   + output_stream_dispatch_Pipeline_NEURONS_STATE_RESET_LOOP  |     -|  3.20|         6|     60.000|         -|         6|      -|        no|         -|         -|      7 (~0%)|     53 (~0%)|    -|
+    |    o NEURONS_STATE_RESET_LOOP                                 |     -|  7.30|         4|     40.000|         1|         1|      4|       yes|         -|         -|            -|            -|    -|
+    |  o VITIS_LOOP_54_1                                            |     -|  7.30|         8|     80.000|         2|         -|      4|        no|         -|         -|            -|            -|    -|
+    +---------------------------------------------------------------+------+------+----------+-----------+----------+----------+-------+----------+----------+----------+-------------+-------------+-----+
 
 
 ================================================================
@@ -110,54 +140,197 @@
 ================================================================
 == Bind Op Report
 ================================================================
-+-------------------------------------------+-----+--------+-----------------------------+-----+--------+---------+
-| Name                                      | DSP | Pragma | Variable                    | Op  | Impl   | Latency |
-+-------------------------------------------+-----+--------+-----------------------------+-----+--------+---------+
-| + RNI                                     | 1   |        |                             |     |        |         |
-|  + RNI_Pipeline_VITIS_LOOP_27_2           | 0   |        |                             |     |        |         |
-|    add_ln27_fu_398_p2                     | -   |        | add_ln27                    | add | fabric | 0       |
-|  + input_layer                            | 1   |        |                             |     |        |         |
-|    add_ln57_fu_178_p2                     | -   |        | add_ln57                    | add | fabric | 0       |
-|    add_i_i41_fu_197_p2                    | -   |        | add_i_i41                   | add | fabric | 0       |
-|   + input_layer_Pipeline_NEURON_LEAK_LOOP | 0   |        |                             |     |        |         |
-|     membrane_leak_accumulator_1_fu_96_p2  | -   |        | membrane_leak_accumulator_1 | add | fabric | 0       |
-|     beta_index_3_fu_82_p2                 | -   |        | beta_index_3                | add | fabric | 0       |
-|   + input_layer_Pipeline_WEIGHTS_LOOP_0   | 1   |        |                             |     |        |         |
-|     mac_muladd_16s_8s_16ns_16_4_1_U32     | 1   |        | mul_ln63                    | mul | dsp48  | 3       |
-|     mac_muladd_16s_8s_16ns_16_4_1_U32     | 1   |        | add_ln63                    | add | dsp48  | 3       |
-|     add_ln61_fu_157_p2                    | -   |        | add_ln61                    | add | fabric | 0       |
-|  + RNI_Pipeline_NEURONS_LOOP_1            | 0   |        |                             |     |        |         |
-|    add_ln153_fu_155_p2                    | -   |        | add_ln153                   | add | fabric | 0       |
-|    add_ln155_fu_177_p2                    | -   |        | add_ln155                   | add | fabric | 0       |
-|    add_ln74_fu_96_p2                      | -   |        | add_ln74                    | add | fabric | 0       |
-|  + RNI_Pipeline_NEURONS_LOOP_2            | 0   |        |                             |     |        |         |
-|    add_ln153_fu_159_p2                    | -   |        | add_ln153                   | add | fabric | 0       |
-|    add_ln155_fu_181_p2                    | -   |        | add_ln155                   | add | fabric | 0       |
-|    add_ln93_fu_100_p2                     | -   |        | add_ln93                    | add | fabric | 0       |
-|  + RNI_Pipeline_NEURONS_LOOP_3            | 0   |        |                             |     |        |         |
-|    add_ln153_fu_159_p2                    | -   |        | add_ln153                   | add | fabric | 0       |
-|    add_ln155_fu_181_p2                    | -   |        | add_ln155                   | add | fabric | 0       |
-|    add_ln112_fu_100_p2                    | -   |        | add_ln112                   | add | fabric | 0       |
-|  + RNI_Pipeline_NEURONS_LOOP_4            | 0   |        |                             |     |        |         |
-|    add_ln131_fu_71_p2                     | -   |        | add_ln131                   | add | fabric | 0       |
-|  + RNI_Pipeline_VITIS_LOOP_38_3           | 0   |        |                             |     |        |         |
-|    add_ln38_fu_170_p2                     | -   |        | add_ln38                    | add | fabric | 0       |
-+-------------------------------------------+-----+--------+-----------------------------+-----+--------+---------+
++--------------------------------------------------------------+-----+--------+-----------------------------+-----+--------+---------+
+| Name                                                         | DSP | Pragma | Variable                    | Op  | Impl   | Latency |
++--------------------------------------------------------------+-----+--------+-----------------------------+-----+--------+---------+
+| + RNI                                                        | 45  |        |                             |     |        |         |
+|   add_ln54_fu_416_p2                                         | -   |        | add_ln54                    | add | fabric | 0       |
+|  + input_layer                                               | 1   |        |                             |     |        |         |
+|    add_ln64_fu_209_p2                                        | -   |        | add_ln64                    | add | fabric | 0       |
+|    add_i_i53_fu_227_p2                                       | -   |        | add_i_i53                   | add | fabric | 0       |
+|   + input_layer_Pipeline_NEURON_LEAK_LOOP                    | 0   |        |                             |     |        |         |
+|     mul_2ns_67ns_67_5_1_U17                                  | -   |        | mul_y_ln                    | mul | auto   | 4       |
+|     membrane_leak_accumulator_1_fu_153_p2                    | -   |        | membrane_leak_accumulator_1 | add | fabric | 0       |
+|     add_ln169_fu_121_p2                                      | -   |        | add_ln169                   | add | fabric | 0       |
+|    + exp_core_32_32_66_s (grp_exp_core_32_32_66_s_fu_73)     | 44  |        |                             |     |        |         |
+|      mul_25ns_8ns_33_1_1_U5                                  | 1   |        | mul_ln1818                  | mul | auto   | 0       |
+|      mul_32ns_8ns_40_2_1_U1                                  | 2   |        | mul_ln1821                  | mul | auto   | 1       |
+|      exp_x_msb_4_5_lsb_m_1_m3_1_fu_332_p2                    | -   |        | exp_x_msb_4_5_lsb_m_1_m3_1  | add | fabric | 0       |
+|      exp_x_msb_4_5_lsb_m_1_m4_fu_342_p2                      | -   |        | exp_x_msb_4_5_lsb_m_1_m4    | add | fabric | 0       |
+|      exp_x_msb_4_5_lsb_m_1_m5_1_fu_354_p2                    | -   |        | exp_x_msb_4_5_lsb_m_1_m5_1  | add | fabric | 0       |
+|      mul_51ns_50ns_101_5_1_U2                                | 9   |        | mul_ln1921                  | mul | auto   | 4       |
+|      exp_x_msb_2_m_1_h_fu_468_p2                             | -   |        | exp_x_msb_2_m_1_h           | add | fabric | 0       |
+|      mul_67ns_63ns_130_5_1_U3                                | 16  |        | f_x_msb_2_3_4_5_lsb         | mul | auto   | 4       |
+|      add_ln2002_fu_537_p2                                    | -   |        | add_ln2002                  | add | fabric | 0       |
+|      exp_x_msb_2_3_4_5_lsb_m_1_fu_547_p2                     | -   |        | exp_x_msb_2_3_4_5_lsb_m_1   | add | fabric | 0       |
+|      mul_72ns_68ns_140_5_1_U4                                | 16  |        | y_lo                        | mul | auto   | 4       |
+|      y_l_fu_571_p2                                           | -   |        | y_l                         | add | fabric | 0       |
+|      y_1_fu_599_p2                                           | -   |        | y_1                         | add | fabric | 0       |
+|      add_ln1632_fu_605_p2                                    | -   |        | add_ln1632                  | add | fabric | 0       |
+|   + input_layer_Pipeline_WEIGHTS_LOOP_0                      | 1   |        |                             |     |        |         |
+|     mac_muladd_16s_8s_16ns_16_4_1_U24                        | 1   |        | mul_ln70                    | mul | dsp48  | 3       |
+|     mac_muladd_16s_8s_16ns_16_4_1_U24                        | 1   |        | add_ln70                    | add | dsp48  | 3       |
+|     add_ln68_fu_157_p2                                       | -   |        | add_ln68                    | add | fabric | 0       |
+|  + inner_layer_1                                             | 0   |        |                             |     |        |         |
+|    add_i_i162_fu_179_p2                                      | -   |        | add_i_i162                  | add | fabric | 0       |
+|   + inner_layer_1_Pipeline_NEURONS_STATE_RESET_LOOP          | 0   |        |                             |     |        |         |
+|     add_ln188_fu_62_p2                                       | -   |        | add_ln188                   | add | fabric | 0       |
+|   + inner_layer_1_Pipeline_NEURON_LEAK_LOOP                  | 0   |        |                             |     |        |         |
+|     mul_2ns_67ns_67_5_1_U43                                  | -   |        | mul_y_ln                    | mul | auto   | 4       |
+|     membrane_leak_accumulator_4_fu_153_p2                    | -   |        | membrane_leak_accumulator_4 | add | fabric | 0       |
+|     add_ln169_fu_121_p2                                      | -   |        | add_ln169                   | add | fabric | 0       |
+|    + exp_core_32_32_66_s (grp_exp_core_32_32_66_s_fu_73)     | 44  |        |                             |     |        |         |
+|      mul_25ns_8ns_33_1_1_U5                                  | 1   |        | mul_ln1818                  | mul | auto   | 0       |
+|      mul_32ns_8ns_40_2_1_U1                                  | 2   |        | mul_ln1821                  | mul | auto   | 1       |
+|      exp_x_msb_4_5_lsb_m_1_m3_1_fu_332_p2                    | -   |        | exp_x_msb_4_5_lsb_m_1_m3_1  | add | fabric | 0       |
+|      exp_x_msb_4_5_lsb_m_1_m4_fu_342_p2                      | -   |        | exp_x_msb_4_5_lsb_m_1_m4    | add | fabric | 0       |
+|      exp_x_msb_4_5_lsb_m_1_m5_1_fu_354_p2                    | -   |        | exp_x_msb_4_5_lsb_m_1_m5_1  | add | fabric | 0       |
+|      mul_51ns_50ns_101_5_1_U2                                | 9   |        | mul_ln1921                  | mul | auto   | 4       |
+|      exp_x_msb_2_m_1_h_fu_468_p2                             | -   |        | exp_x_msb_2_m_1_h           | add | fabric | 0       |
+|      mul_67ns_63ns_130_5_1_U3                                | 16  |        | f_x_msb_2_3_4_5_lsb         | mul | auto   | 4       |
+|      add_ln2002_fu_537_p2                                    | -   |        | add_ln2002                  | add | fabric | 0       |
+|      exp_x_msb_2_3_4_5_lsb_m_1_fu_547_p2                     | -   |        | exp_x_msb_2_3_4_5_lsb_m_1   | add | fabric | 0       |
+|      mul_72ns_68ns_140_5_1_U4                                | 16  |        | y_lo                        | mul | auto   | 4       |
+|      y_l_fu_571_p2                                           | -   |        | y_l                         | add | fabric | 0       |
+|      y_1_fu_599_p2                                           | -   |        | y_1                         | add | fabric | 0       |
+|      add_ln1632_fu_605_p2                                    | -   |        | add_ln1632                  | add | fabric | 0       |
+|   + inner_layer_1_Pipeline_WEIGHTS_LOOP_1                    | 0   |        |                             |     |        |         |
+|     sub_ln88_fu_153_p2                                       | -   |        | sub_ln88                    | sub | fabric | 0       |
+|     add_ln90_fu_177_p2                                       | -   |        | add_ln90                    | add | fabric | 0       |
+|     add_ln86_fu_163_p2                                       | -   |        | add_ln86                    | add | fabric | 0       |
+|  + inner_layer_2                                             | 0   |        |                             |     |        |         |
+|    add_i_i162_fu_183_p2                                      | -   |        | add_i_i162                  | add | fabric | 0       |
+|   + inner_layer_2_Pipeline_NEURONS_STATE_RESET_LOOP          | 0   |        |                             |     |        |         |
+|     add_ln188_fu_67_p2                                       | -   |        | add_ln188                   | add | fabric | 0       |
+|   + inner_layer_2_Pipeline_NEURON_LEAK_LOOP                  | 0   |        |                             |     |        |         |
+|     mul_2ns_67ns_67_5_1_U57                                  | -   |        | mul_y_ln                    | mul | auto   | 4       |
+|     membrane_leak_accumulator_3_fu_153_p2                    | -   |        | membrane_leak_accumulator_3 | add | fabric | 0       |
+|     add_ln169_fu_121_p2                                      | -   |        | add_ln169                   | add | fabric | 0       |
+|    + exp_core_32_32_66_s (grp_exp_core_32_32_66_s_fu_73)     | 44  |        |                             |     |        |         |
+|      mul_25ns_8ns_33_1_1_U5                                  | 1   |        | mul_ln1818                  | mul | auto   | 0       |
+|      mul_32ns_8ns_40_2_1_U1                                  | 2   |        | mul_ln1821                  | mul | auto   | 1       |
+|      exp_x_msb_4_5_lsb_m_1_m3_1_fu_332_p2                    | -   |        | exp_x_msb_4_5_lsb_m_1_m3_1  | add | fabric | 0       |
+|      exp_x_msb_4_5_lsb_m_1_m4_fu_342_p2                      | -   |        | exp_x_msb_4_5_lsb_m_1_m4    | add | fabric | 0       |
+|      exp_x_msb_4_5_lsb_m_1_m5_1_fu_354_p2                    | -   |        | exp_x_msb_4_5_lsb_m_1_m5_1  | add | fabric | 0       |
+|      mul_51ns_50ns_101_5_1_U2                                | 9   |        | mul_ln1921                  | mul | auto   | 4       |
+|      exp_x_msb_2_m_1_h_fu_468_p2                             | -   |        | exp_x_msb_2_m_1_h           | add | fabric | 0       |
+|      mul_67ns_63ns_130_5_1_U3                                | 16  |        | f_x_msb_2_3_4_5_lsb         | mul | auto   | 4       |
+|      add_ln2002_fu_537_p2                                    | -   |        | add_ln2002                  | add | fabric | 0       |
+|      exp_x_msb_2_3_4_5_lsb_m_1_fu_547_p2                     | -   |        | exp_x_msb_2_3_4_5_lsb_m_1   | add | fabric | 0       |
+|      mul_72ns_68ns_140_5_1_U4                                | 16  |        | y_lo                        | mul | auto   | 4       |
+|      y_l_fu_571_p2                                           | -   |        | y_l                         | add | fabric | 0       |
+|      y_1_fu_599_p2                                           | -   |        | y_1                         | add | fabric | 0       |
+|      add_ln1632_fu_605_p2                                    | -   |        | add_ln1632                  | add | fabric | 0       |
+|   + inner_layer_2_Pipeline_WEIGHTS_LOOP_2                    | 0   |        |                             |     |        |         |
+|     sub_ln109_fu_167_p2                                      | -   |        | sub_ln109                   | sub | fabric | 0       |
+|     add_ln111_fu_191_p2                                      | -   |        | add_ln111                   | add | fabric | 0       |
+|     add_ln107_fu_177_p2                                      | -   |        | add_ln107                   | add | fabric | 0       |
+|  + inner_layer_3                                             | 0   |        |                             |     |        |         |
+|    add_i_i162_fu_183_p2                                      | -   |        | add_i_i162                  | add | fabric | 0       |
+|   + inner_layer_3_Pipeline_NEURONS_STATE_RESET_LOOP          | 0   |        |                             |     |        |         |
+|     add_ln188_fu_71_p2                                       | -   |        | add_ln188                   | add | fabric | 0       |
+|   + inner_layer_3_Pipeline_NEURON_LEAK_LOOP                  | 0   |        |                             |     |        |         |
+|     mul_2ns_67ns_67_5_1_U71                                  | -   |        | mul_y_ln                    | mul | auto   | 4       |
+|     membrane_leak_accumulator_2_fu_153_p2                    | -   |        | membrane_leak_accumulator_2 | add | fabric | 0       |
+|     add_ln169_fu_121_p2                                      | -   |        | add_ln169                   | add | fabric | 0       |
+|    + exp_core_32_32_66_s (grp_exp_core_32_32_66_s_fu_73)     | 44  |        |                             |     |        |         |
+|      mul_25ns_8ns_33_1_1_U5                                  | 1   |        | mul_ln1818                  | mul | auto   | 0       |
+|      mul_32ns_8ns_40_2_1_U1                                  | 2   |        | mul_ln1821                  | mul | auto   | 1       |
+|      exp_x_msb_4_5_lsb_m_1_m3_1_fu_332_p2                    | -   |        | exp_x_msb_4_5_lsb_m_1_m3_1  | add | fabric | 0       |
+|      exp_x_msb_4_5_lsb_m_1_m4_fu_342_p2                      | -   |        | exp_x_msb_4_5_lsb_m_1_m4    | add | fabric | 0       |
+|      exp_x_msb_4_5_lsb_m_1_m5_1_fu_354_p2                    | -   |        | exp_x_msb_4_5_lsb_m_1_m5_1  | add | fabric | 0       |
+|      mul_51ns_50ns_101_5_1_U2                                | 9   |        | mul_ln1921                  | mul | auto   | 4       |
+|      exp_x_msb_2_m_1_h_fu_468_p2                             | -   |        | exp_x_msb_2_m_1_h           | add | fabric | 0       |
+|      mul_67ns_63ns_130_5_1_U3                                | 16  |        | f_x_msb_2_3_4_5_lsb         | mul | auto   | 4       |
+|      add_ln2002_fu_537_p2                                    | -   |        | add_ln2002                  | add | fabric | 0       |
+|      exp_x_msb_2_3_4_5_lsb_m_1_fu_547_p2                     | -   |        | exp_x_msb_2_3_4_5_lsb_m_1   | add | fabric | 0       |
+|      mul_72ns_68ns_140_5_1_U4                                | 16  |        | y_lo                        | mul | auto   | 4       |
+|      y_l_fu_571_p2                                           | -   |        | y_l                         | add | fabric | 0       |
+|      y_1_fu_599_p2                                           | -   |        | y_1                         | add | fabric | 0       |
+|      add_ln1632_fu_605_p2                                    | -   |        | add_ln1632                  | add | fabric | 0       |
+|   + inner_layer_3_Pipeline_WEIGHTS_LOOP_3                    | 0   |        |                             |     |        |         |
+|     add_ln132_fu_191_p2                                      | -   |        | add_ln132                   | add | fabric | 0       |
+|     add_ln128_fu_177_p2                                      | -   |        | add_ln128                   | add | fabric | 0       |
+|  + output_layer                                              | 0   |        |                             |     |        |         |
+|    add_i_i162_fu_137_p2                                      | -   |        | add_i_i162                  | add | fabric | 0       |
+|   + output_layer_Pipeline_NEURONS_STATE_RESET_LOOP           | 0   |        |                             |     |        |         |
+|     add_ln188_fu_71_p2                                       | -   |        | add_ln188                   | add | fabric | 0       |
+|   + output_layer_Pipeline_WEIGHTS_LOOP_4                     | 0   |        |                             |     |        |         |
+|     add_ln154_fu_189_p2                                      | -   |        | add_ln154                   | add | fabric | 0       |
+|     add_ln155_fu_195_p2                                      | -   |        | add_ln155                   | add | fabric | 0       |
+|     add_ln149_fu_167_p2                                      | -   |        | add_ln149                   | add | fabric | 0       |
+|  + output_stream_dispatch                                    | 0   |        |                             |     |        |         |
+|   + output_stream_dispatch_Pipeline_VITIS_LOOP_197_1         | 0   |        |                             |     |        |         |
+|     add_ln197_fu_281_p2                                      | -   |        | add_ln197                   | add | fabric | 0       |
+|   + output_stream_dispatch_Pipeline_VITIS_LOOP_204_2         | 0   |        |                             |     |        |         |
+|     add_ln211_fu_465_p2                                      | -   |        | add_ln211                   | add | fabric | 0       |
+|     add_ln204_fu_485_p2                                      | -   |        | add_ln204                   | add | fabric | 0       |
+|   + output_stream_dispatch_Pipeline_NEURONS_STATE_RESET_LOOP | 0   |        |                             |     |        |         |
+|     add_ln188_fu_71_p2                                       | -   |        | add_ln188                   | add | fabric | 0       |
++--------------------------------------------------------------+-----+--------+-----------------------------+-----+--------+---------+
 
 
 ================================================================
 == Bind Storage Report
 ================================================================
-+-----------------------------------------+------+------+--------+------------------+---------+------+---------+
-| Name                                    | BRAM | URAM | Pragma | Variable         | Storage | Impl | Latency |
-+-----------------------------------------+------+------+--------+------------------+---------+------+---------+
-| + RNI                                   | 10   | 0    |        |                  |         |      |         |
-|   NEURONS_MEMBRANE_U                    | 1    | -    |        | NEURONS_MEMBRANE | ram_s2p | auto | 1       |
-|  + input_layer                          | 9    | 0    |        |                  |         |      |         |
-|    WEIGHTS_INDEX_U                      | 1    | -    |        | WEIGHTS_INDEX    | rom_1p  | auto | 1       |
-|   + input_layer_Pipeline_WEIGHTS_LOOP_0 | 8    | 0    |        |                  |         |      |         |
-|     WEIGHTS_U                           | 8    | -    |        | WEIGHTS          | rom_1p  | auto | 1       |
-+-----------------------------------------+------+------+--------+------------------+---------+------+---------+
++----------------------------------------------------------+------+------+--------+-------------------+---------+------+---------+
+| Name                                                     | BRAM | URAM | Pragma | Variable          | Storage | Impl | Latency |
++----------------------------------------------------------+------+------+--------+-------------------+---------+------+---------+
+| + RNI                                                    | 53   | 0    |        |                   |         |      |         |
+|   out_pkts_data_U                                        | 2    | -    |        | out_pkts_data     | ram_1p  | auto | 1       |
+|   out_pkts_keep_U                                        | -    | -    |        | out_pkts_keep     | ram_t2p | auto | 1       |
+|   out_pkts_strb_U                                        | -    | -    |        | out_pkts_strb     | ram_t2p | auto | 1       |
+|   out_pkts_user_U                                        | -    | -    |        | out_pkts_user     | ram_t2p | auto | 1       |
+|   out_pkts_last_U                                        | -    | -    |        | out_pkts_last     | ram_t2p | auto | 1       |
+|   out_pkts_id_U                                          | 1    | -    |        | out_pkts_id       | ram_t2p | auto | 1       |
+|   out_pkts_dest_U                                        | 1    | -    |        | out_pkts_dest     | ram_t2p | auto | 1       |
+|   NEURONS_MEMBRANE_U                                     | 1    | -    |        | NEURONS_MEMBRANE  | ram_1p  | auto | 1       |
+|   WEIGHTS_INDEX_U                                        | 1    | -    |        | WEIGHTS_INDEX     | rom_2p  | auto | 1       |
+|   NEURONS_STATE_U                                        | -    | -    |        | NEURONS_STATE     | ram_1p  | auto | 1       |
+|  + input_layer                                           | 8    | 0    |        |                   |         |      |         |
+|   + input_layer_Pipeline_NEURON_LEAK_LOOP                | 0    | 0    |        |                   |         |      |         |
+|    + exp_core_32_32_66_s (grp_exp_core_32_32_66_s_fu_73) | 8    | 0    |        |                   |         |      |         |
+|      f_x_msb_4_table_U                                   | 1    | -    |        | f_x_msb_4_table   | rom_1p  | auto | 1       |
+|      f_x_msb_5_table_U                                   | 1    | -    |        | f_x_msb_5_table   | rom_1p  | auto | 1       |
+|      f_x_msb_3_table_U                                   | 2    | -    |        | f_x_msb_3_table   | rom_1p  | auto | 1       |
+|      f_x_msb_2_table_U                                   | 2    | -    |        | f_x_msb_2_table   | rom_1p  | auto | 1       |
+|      exp_x_msb_1_table_U                                 | 2    | -    |        | exp_x_msb_1_table | rom_1p  | auto | 1       |
+|   + input_layer_Pipeline_WEIGHTS_LOOP_0                  | 8    | 0    |        |                   |         |      |         |
+|     WEIGHTS_U                                            | 8    | -    |        | WEIGHTS           | rom_1p  | auto | 1       |
+|  + inner_layer_1                                         | 8    | 0    |        |                   |         |      |         |
+|   + inner_layer_1_Pipeline_NEURON_LEAK_LOOP              | 0    | 0    |        |                   |         |      |         |
+|    + exp_core_32_32_66_s (grp_exp_core_32_32_66_s_fu_73) | 8    | 0    |        |                   |         |      |         |
+|      f_x_msb_4_table_U                                   | 1    | -    |        | f_x_msb_4_table   | rom_1p  | auto | 1       |
+|      f_x_msb_5_table_U                                   | 1    | -    |        | f_x_msb_5_table   | rom_1p  | auto | 1       |
+|      f_x_msb_3_table_U                                   | 2    | -    |        | f_x_msb_3_table   | rom_1p  | auto | 1       |
+|      f_x_msb_2_table_U                                   | 2    | -    |        | f_x_msb_2_table   | rom_1p  | auto | 1       |
+|      exp_x_msb_1_table_U                                 | 2    | -    |        | exp_x_msb_1_table | rom_1p  | auto | 1       |
+|   + inner_layer_1_Pipeline_WEIGHTS_LOOP_1                | 8    | 0    |        |                   |         |      |         |
+|     WEIGHTS_U                                            | 8    | -    |        | WEIGHTS           | rom_1p  | auto | 1       |
+|  + inner_layer_2                                         | 8    | 0    |        |                   |         |      |         |
+|   + inner_layer_2_Pipeline_NEURON_LEAK_LOOP              | 0    | 0    |        |                   |         |      |         |
+|    + exp_core_32_32_66_s (grp_exp_core_32_32_66_s_fu_73) | 8    | 0    |        |                   |         |      |         |
+|      f_x_msb_4_table_U                                   | 1    | -    |        | f_x_msb_4_table   | rom_1p  | auto | 1       |
+|      f_x_msb_5_table_U                                   | 1    | -    |        | f_x_msb_5_table   | rom_1p  | auto | 1       |
+|      f_x_msb_3_table_U                                   | 2    | -    |        | f_x_msb_3_table   | rom_1p  | auto | 1       |
+|      f_x_msb_2_table_U                                   | 2    | -    |        | f_x_msb_2_table   | rom_1p  | auto | 1       |
+|      exp_x_msb_1_table_U                                 | 2    | -    |        | exp_x_msb_1_table | rom_1p  | auto | 1       |
+|   + inner_layer_2_Pipeline_WEIGHTS_LOOP_2                | 8    | 0    |        |                   |         |      |         |
+|     WEIGHTS_U                                            | 8    | -    |        | WEIGHTS           | rom_1p  | auto | 1       |
+|  + inner_layer_3                                         | 8    | 0    |        |                   |         |      |         |
+|   + inner_layer_3_Pipeline_NEURON_LEAK_LOOP              | 0    | 0    |        |                   |         |      |         |
+|    + exp_core_32_32_66_s (grp_exp_core_32_32_66_s_fu_73) | 8    | 0    |        |                   |         |      |         |
+|      f_x_msb_4_table_U                                   | 1    | -    |        | f_x_msb_4_table   | rom_1p  | auto | 1       |
+|      f_x_msb_5_table_U                                   | 1    | -    |        | f_x_msb_5_table   | rom_1p  | auto | 1       |
+|      f_x_msb_3_table_U                                   | 2    | -    |        | f_x_msb_3_table   | rom_1p  | auto | 1       |
+|      f_x_msb_2_table_U                                   | 2    | -    |        | f_x_msb_2_table   | rom_1p  | auto | 1       |
+|      exp_x_msb_1_table_U                                 | 2    | -    |        | exp_x_msb_1_table | rom_1p  | auto | 1       |
+|   + inner_layer_3_Pipeline_WEIGHTS_LOOP_3                | 8    | 0    |        |                   |         |      |         |
+|     WEIGHTS_U                                            | 8    | -    |        | WEIGHTS           | rom_1p  | auto | 1       |
+|  + output_layer                                          | 8    | 0    |        |                   |         |      |         |
+|   + output_layer_Pipeline_WEIGHTS_LOOP_4                 | 8    | 0    |        |                   |         |      |         |
+|     WEIGHTS_U                                            | 8    | -    |        | WEIGHTS           | rom_1p  | auto | 1       |
++----------------------------------------------------------+------+------+--------+-------------------+---------+------+---------+
 
 
 ================================================================
@@ -167,9 +340,9 @@
 +-----------+-----------------------------------+-------------------------------+
 | Type      | Options                           | Location                      |
 +-----------+-----------------------------------+-------------------------------+
-| interface | axis port = in_stream             | src/RNI.cpp:17 in rni         |
-| interface | axis port = out_stream            | src/RNI.cpp:18 in rni         |
-| interface | s_axilite port=return bundle=ctrl | src/RNI.cpp:19 in rni, return |
+| interface | axis port = in_stream             | src/RNI.cpp:22 in rni         |
+| interface | axis port = out_stream            | src/RNI.cpp:23 in rni         |
+| interface | s_axilite port=return bundle=ctrl | src/RNI.cpp:24 in rni, return |
 +-----------+-----------------------------------+-------------------------------+
 
 

@@ -1,0 +1,188 @@
+
+
+================================================================
+== Vitis HLS Report for 'inner_layer_3'
+================================================================
+* Date:           Mon Oct 28 19:19:53 2024
+
+* Version:        2023.1.1 (Build 3869133 on Jun 15 2023)
+* Project:        RNI
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  7.215 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+------+---------+---------+
+    |  Latency (cycles) |   Latency (absolute)  |    Interval    | Pipeline|
+    |   min   |   max   |    min    |    max    |  min |   max   |   Type  |
+    +---------+---------+-----------+-----------+------+---------+---------+
+    |     1044|  4195284|  10.440 us|  41.953 ms|  1044|  4195284|       no|
+    +---------+---------+-----------+-----------+------+---------+---------+
+
+    + Detail: 
+        * Instance: 
+        +------------------------------------------------------------+-------------------------------------------------+---------+---------+-----------+----------+-----+--------+---------+
+        |                                                            |                                                 |  Latency (cycles) |  Latency (absolute)  |   Interval   | Pipeline|
+        |                          Instance                          |                      Module                     |   min   |   max   |    min    |    max   | min |   max  |   Type  |
+        +------------------------------------------------------------+-------------------------------------------------+---------+---------+-----------+----------+-----+--------+---------+
+        |grp_inner_layer_3_Pipeline_NEURONS_STATE_RESET_LOOP_fu_117  |inner_layer_3_Pipeline_NEURONS_STATE_RESET_LOOP  |       34|       34|   0.340 us|  0.340 us|   34|      34|       no|
+        |grp_inner_layer_3_Pipeline_NEURON_LEAK_LOOP_fu_123          |inner_layer_3_Pipeline_NEURON_LEAK_LOOP          |       52|       52|   0.520 us|  0.520 us|   52|      52|       no|
+        |grp_inner_layer_3_Pipeline_WEIGHTS_LOOP_3_fu_140            |inner_layer_3_Pipeline_WEIGHTS_LOOP_3            |        2|   262142|  20.000 ns|  2.621 ms|    2|  262142|       no|
+        +------------------------------------------------------------+-------------------------------------------------+---------+---------+-----------+----------+-----+--------+---------+
+
+        * Loop: 
+        +------------------+---------+---------+-------------+-----------+-----------+------+----------+
+        |                  |  Latency (cycles) |  Iteration  |  Initiation Interval  | Trip |          |
+        |     Loop Name    |   min   |   max   |   Latency   |  achieved |   target  | Count| Pipelined|
+        +------------------+---------+---------+-------------+-----------+-----------+------+----------+
+        |- NEURONS_LOOP_3  |     1008|  4195248|  63 ~ 262203|          -|          -|    16|        no|
+        +------------------+---------+---------+-------------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|     42|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |        8|    0|    3095|   2375|    -|
+|Memory           |        -|    -|       -|      -|    -|
+|Multiplexer      |        -|    -|       -|    219|    -|
+|Register         |        -|    -|      95|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        8|    0|    3190|   2636|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      280|  220|  106400|  53200|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |        2|    0|       2|      4|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +------------------------------------------------------------+-------------------------------------------------+---------+----+------+------+-----+
+    |                          Instance                          |                      Module                     | BRAM_18K| DSP|  FF  |  LUT | URAM|
+    +------------------------------------------------------------+-------------------------------------------------+---------+----+------+------+-----+
+    |grp_inner_layer_3_Pipeline_NEURONS_STATE_RESET_LOOP_fu_117  |inner_layer_3_Pipeline_NEURONS_STATE_RESET_LOOP  |        0|   0|     9|    55|    0|
+    |grp_inner_layer_3_Pipeline_NEURON_LEAK_LOOP_fu_123          |inner_layer_3_Pipeline_NEURON_LEAK_LOOP          |        0|   0|  2886|  2037|    0|
+    |grp_inner_layer_3_Pipeline_WEIGHTS_LOOP_3_fu_140            |inner_layer_3_Pipeline_WEIGHTS_LOOP_3            |        8|   0|   200|   283|    0|
+    +------------------------------------------------------------+-------------------------------------------------+---------+----+------+------+-----+
+    |Total                                                       |                                                 |        8|   0|  3095|  2375|    0|
+    +------------------------------------------------------------+-------------------------------------------------+---------+----+------+------+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------+----------+----+---+----+------------+------------+
+    |     Variable Name    | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------+----------+----+---+----+------------+------------+
+    |add_i_i162_fu_183_p2  |         +|   0|  0|  14|           6|           1|
+    |icmp_ln125_fu_164_p2  |      icmp|   0|  0|  14|           6|           6|
+    |icmp_ln178_fu_212_p2  |      icmp|   0|  0|  14|           9|           1|
+    +----------------------+----------+----+---+----+------------+------------+
+    |Total                 |          |   0|  0|  42|          21|           8|
+    +----------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------------------------------------+----+-----------+-----+-----------+
+    |                   Name                  | LUT| Input Size| Bits| Total Bits|
+    +-----------------------------------------+----+-----------+-----+-----------+
+    |NEURONS_MEMBRANE_address0                |  20|          4|    8|         32|
+    |NEURONS_MEMBRANE_ce0                     |  14|          3|    1|          3|
+    |NEURONS_MEMBRANE_d0                      |  20|          4|   16|         64|
+    |NEURONS_MEMBRANE_we0                     |  14|          3|    1|          3|
+    |NEURONS_STATE_address0                   |  20|          4|    8|         32|
+    |NEURONS_STATE_ce0                        |  20|          4|    1|          4|
+    |NEURONS_STATE_d0                         |  14|          3|    1|          3|
+    |NEURONS_STATE_we0                        |  14|          3|    1|          3|
+    |ap_NS_fsm                                |  65|         12|    1|         12|
+    |grp_exp_core_32_32_66_s_fu_291_ap_start  |   9|          2|    1|          2|
+    |neuron_index_fu_56                       |   9|          2|    6|         12|
+    +-----------------------------------------+----+-----------+-----+-----------+
+    |Total                                    | 219|         44|   45|        170|
+    +-----------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------------------------------------------------------+----+----+-----+-----------+
+    |                                   Name                                  | FF | LUT| Bits| Const Bits|
+    +-------------------------------------------------------------------------+----+----+-----+-----------+
+    |NEURONS_MEMBRANE_addr_reg_247                                            |   8|   0|    8|          0|
+    |NEURONS_MEMBRANE_load_reg_252                                            |  16|   0|   16|          0|
+    |WEIGHTS_INDEX_load_reg_277                                               |  14|   0|   14|          0|
+    |add_i_i162_reg_262                                                       |   6|   0|    6|          0|
+    |ap_CS_fsm                                                                |  11|   0|   11|          0|
+    |grp_inner_layer_3_Pipeline_NEURONS_STATE_RESET_LOOP_fu_117_ap_start_reg  |   1|   0|    1|          0|
+    |grp_inner_layer_3_Pipeline_NEURON_LEAK_LOOP_fu_123_ap_start_reg          |   1|   0|    1|          0|
+    |grp_inner_layer_3_Pipeline_WEIGHTS_LOOP_3_fu_140_ap_start_reg            |   1|   0|    1|          0|
+    |icmp_ln178_reg_287                                                       |   1|   0|    1|          0|
+    |neuron_index_fu_56                                                       |   6|   0|    6|          0|
+    |trunc_ln128_reg_282                                                      |   8|   0|    8|          0|
+    |weight_index_reg_272                                                     |  14|   0|   14|          0|
+    |zext_ln125_reg_241                                                       |   8|   0|   64|         56|
+    +-------------------------------------------------------------------------+----+----+-----+-----------+
+    |Total                                                                    |  95|   0|  151|         56|
+    +-------------------------------------------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------------------------+-----+-----+------------+------------------+--------------+
+|                RTL Ports               | Dir | Bits|  Protocol  |   Source Object  |    C Type    |
++----------------------------------------+-----+-----+------------+------------------+--------------+
+|ap_clk                                  |   in|    1|  ap_ctrl_hs|     inner_layer_3|  return value|
+|ap_rst                                  |   in|    1|  ap_ctrl_hs|     inner_layer_3|  return value|
+|ap_start                                |   in|    1|  ap_ctrl_hs|     inner_layer_3|  return value|
+|ap_done                                 |  out|    1|  ap_ctrl_hs|     inner_layer_3|  return value|
+|ap_idle                                 |  out|    1|  ap_ctrl_hs|     inner_layer_3|  return value|
+|ap_ready                                |  out|    1|  ap_ctrl_hs|     inner_layer_3|  return value|
+|grp_exp_core_32_32_66_s_fu_778_p_din1   |  out|   35|  ap_ctrl_hs|     inner_layer_3|  return value|
+|grp_exp_core_32_32_66_s_fu_778_p_dout0  |   in|   31|  ap_ctrl_hs|     inner_layer_3|  return value|
+|grp_exp_core_32_32_66_s_fu_778_p_start  |  out|    1|  ap_ctrl_hs|     inner_layer_3|  return value|
+|grp_exp_core_32_32_66_s_fu_778_p_ready  |   in|    1|  ap_ctrl_hs|     inner_layer_3|  return value|
+|grp_exp_core_32_32_66_s_fu_778_p_done   |   in|    1|  ap_ctrl_hs|     inner_layer_3|  return value|
+|grp_exp_core_32_32_66_s_fu_778_p_idle   |   in|    1|  ap_ctrl_hs|     inner_layer_3|  return value|
+|NEURONS_STATE_address0                  |  out|    8|   ap_memory|     NEURONS_STATE|         array|
+|NEURONS_STATE_ce0                       |  out|    1|   ap_memory|     NEURONS_STATE|         array|
+|NEURONS_STATE_we0                       |  out|    1|   ap_memory|     NEURONS_STATE|         array|
+|NEURONS_STATE_d0                        |  out|    1|   ap_memory|     NEURONS_STATE|         array|
+|NEURONS_STATE_q0                        |   in|    1|   ap_memory|     NEURONS_STATE|         array|
+|NEURONS_MEMBRANE_address0               |  out|    8|   ap_memory|  NEURONS_MEMBRANE|         array|
+|NEURONS_MEMBRANE_ce0                    |  out|    1|   ap_memory|  NEURONS_MEMBRANE|         array|
+|NEURONS_MEMBRANE_we0                    |  out|    1|   ap_memory|  NEURONS_MEMBRANE|         array|
+|NEURONS_MEMBRANE_d0                     |  out|   16|   ap_memory|  NEURONS_MEMBRANE|         array|
+|NEURONS_MEMBRANE_q0                     |   in|   16|   ap_memory|  NEURONS_MEMBRANE|         array|
+|WEIGHTS_INDEX_address0                  |  out|    8|   ap_memory|     WEIGHTS_INDEX|         array|
+|WEIGHTS_INDEX_ce0                       |  out|    1|   ap_memory|     WEIGHTS_INDEX|         array|
+|WEIGHTS_INDEX_q0                        |   in|   14|   ap_memory|     WEIGHTS_INDEX|         array|
+|WEIGHTS_INDEX_address1                  |  out|    8|   ap_memory|     WEIGHTS_INDEX|         array|
+|WEIGHTS_INDEX_ce1                       |  out|    1|   ap_memory|     WEIGHTS_INDEX|         array|
+|WEIGHTS_INDEX_q1                        |   in|   14|   ap_memory|     WEIGHTS_INDEX|         array|
++----------------------------------------+-----+-----+------------+------------------+--------------+
+
