@@ -21,7 +21,7 @@ RUN_CSIM=1
 RUN_CSYNTH=1
 RUN_EXPORT=1
 
-vitis_hls $VITIS_SCRIPT_FILEPATH -tclargs project_path $VITIS_PROJECT_PATH run_csim $RUN_CSIM run_csynth $RUN_CSYNTH run_export $RUN_EXPORT
+vitis_hls $VITIS_SCRIPT_FILEPATH -tclargs -project_path $VITIS_PROJECT_PATH -run_csim $RUN_CSIM -run_csynth $RUN_CSYNTH -run_export $RUN_EXPORT
 
 # -----------------------------------------
 # -----------------------------------------
@@ -37,7 +37,7 @@ python3 $INOUT_PLOTTER_FILEPATH --data_filepath "$DATA_FILEPATH" --start_index "
 # -----------------------------------------
 # -----------------------------------------
 
-VIVADO_SCRIPT_FILEPATH="C_RNI_VIVADO/run_all_vivado.tcl"
+VIVADO_SCRIPT_FILEPATH=C_RNI_VIVADO/run_all_vivado.tcl
 VIVADO_PROJECT_PATH="$(pwd)/C_RNI_VIVADO/Pynq_Z2/myproj"
 GEN_BITSTREAM=1
 
