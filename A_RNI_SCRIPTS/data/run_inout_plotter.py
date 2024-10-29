@@ -34,8 +34,8 @@ if __name__ == "__main__":
     argument_parser = ArgumentParser(description="Plot neuron membrane values over time.")
 
     argument_parser.add_argument("--data_filepath", type=str, required=False, help="Path to the CSV file containing neuron data", default="B_RNI_HLS/tb/tb_outputs.csv")
-    argument_parser.add_argument("--start_index", type=int, required=False, help="Starting neuron index to plot", default=1)
-    argument_parser.add_argument("--end_index", type=int, required=False, help="Ending neuron index to plot", default=4)
+    argument_parser.add_argument("-s", "--start_index", type=int, required=False, help="Starting neuron index to plot", default=1)
+    argument_parser.add_argument("-e", "--end_index", type=int, required=False, help="Ending neuron index to plot", default=4)
     argument_parser.add_argument("--step", type=int, default=1, help="Step size for neuron indices to plot")
     
     args = argument_parser.parse_args()
