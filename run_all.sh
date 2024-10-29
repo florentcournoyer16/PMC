@@ -1,5 +1,9 @@
 
+# -----------------------------------------
+# -----------------------------------------
+
 set -x
+exec > log.txt 2>&1
 ROOT_DIR=$(pwd)
 
 # -----------------------------------------
@@ -44,13 +48,13 @@ python3 $INOUT_PLOTTER_FILEPATH --data_filepath "$DATA_FILEPATH" --start_index "
 # -----------------------------------------
 # -----------------------------------------
 
-VIVADO_PROJECT_PATH="$ROOT_DIR/C_RNI_VIVADO/Pynq_Z2"
+VIVADO_PROJECT_PATH="$ROOT_DIR/C_RNI_VIVADO/Pynq_Z2/base"
 VIVADO_SCRIPT_FILEPATH=run_all_vivado.tcl
 GEN_BITSTREAM=1
 
 cd $VIVADO_PROJECT_PATH
-rm -f mrproj -r
-vivado -mode batch -source $VIVADO_SCRIPT_FILEPATH -tclargs -generate_bitstream $GEN_BITSTREAM
+rm -f myproj -r
+vivado -mode batch -source $VIVADO_SCRIPT_FILEPATH -tclargs generate_bitstream $GEN_BITSTREAM
 cd $ROOT_DIR
 
 # -----------------------------------------
