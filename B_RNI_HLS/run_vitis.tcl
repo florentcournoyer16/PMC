@@ -1,3 +1,5 @@
+puts "\n ---------- Running Vitis ---------- \n" 
+
 set run_csim 0
 set run_csynth 0
 set run_export 0
@@ -50,3 +52,5 @@ if {$run_csynth} {
 if {$run_export} {
     puts "Exporting Design..."
     export_design -flow syn -rtl verilog -format ip_catalog -output output }
+
+puts "\n ---------- Successfully ran Vitis ---------- \n"

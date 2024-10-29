@@ -1,3 +1,5 @@
+puts "\n ---------- Running Vivado ---------- \n"
+
 set generate_bitstream 0
 
 # Parse arguments to check if the user provided a generate_bitstream flag
@@ -44,3 +46,5 @@ if {$generate_bitstream} {
 }
 
 puts "Sourcing Vivado project done"
+
+puts "\n ---------- Successfully ran Vivado ---------- \n"
