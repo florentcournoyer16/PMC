@@ -4,13 +4,13 @@ set run_export 0
 
 # Parse arguments for custom flags
 foreach {arg value} $::argv {
-    if {$arg == "-run_csim"} {
+    if {$arg == "run_csim"} {
         set run_csim $value   
-    } elseif {$arg == "-run_csynth"} {
+    } elseif {$arg == "run_csynth"} {
         set run_csynth $value
-    } elseif {$arg == "-run_export"} {
+    } elseif {$arg == "run_export"} {
         set run_export $value
-    } elseif {$arg == "-project_path"} {
+    } elseif {$arg == "project_path"} {
         set project_path $value
     }
 }
@@ -25,6 +25,7 @@ open_project RNI
 set_top $project_path/RNI
 add_files $project_path/src/RNI.cpp
 add_files $project_path/inc/RNI.h
+add_files -tb $project_path/inc/RNI_tb.h
 add_files -tb $project_path/tb/RNI_tb.cpp
 add_files -tb $project_path/tb/tb_inputs.csv
 add_files -tb $project_path/tb/tb_outputs.csv
