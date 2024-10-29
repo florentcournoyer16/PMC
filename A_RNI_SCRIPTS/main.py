@@ -18,7 +18,7 @@ if __name__ == "__main__":
     add_membrane_probe = False
     membrane_probe_lenght = 200
 
-    if len(argv) == 6:
+    if len(argv) == 7:
         model_filepath = argv[1]
         tb_inputs_filepath = argv[2]
         weight_type_lenght = argv[3]
