@@ -14,13 +14,12 @@ if __name__ == "__main__":
     print("\n ---------- Running model parser ---------- \n")
 
     argument_parser = ArgumentParser(description="Parse and process new RNI model")
-
-    argument_parser.add_argument("--model_filepath", type=str, required=True, help="Path to the model JSON file")
-    argument_parser.add_argument("--tb_inputs_filepath", type=str, required=True, help="Path to the testbench inputs CSV file")
-    argument_parser.add_argument("--weight_type_length", type=int, required=True, help="Weight type length")
-    argument_parser.add_argument("--membrane_type_length", type=int, required=True, help="Membrane type length")
-    argument_parser.add_argument("--add_membrane_probe", type=str, required=True, help="Whether to add membrane probe (True/False)")
-    argument_parser.add_argument("--membrane_probe_length", type=int, required=True, help="Membrane probe length")
+    argument_parser.add_argument("--model_filepath", type=str, required=False, help="Path to the model JSON file", default="A_RNI_SCRIPTS/model/input/RNI.json")
+    argument_parser.add_argument("--tb_inputs_filepath", type=str, required=False, help="Path to the testbench inputs CSV file", default="A_RNI_SCRIPTS/data/input/tb_inputs.csv")
+    argument_parser.add_argument("--weight_type_length", type=int, required=False, help="Weight type length", default=8)
+    argument_parser.add_argument("--membrane_type_length", type=int, required=False, help="Membrane type length", default=16)
+    argument_parser.add_argument("--add_membrane_probe", type=str, required=False, help="Whether to add membrane probe (True/False)", default="false")
+    argument_parser.add_argument("--membrane_probe_length", type=int, required=False, help="Membrane probe length", default=128)
 
     args = argument_parser.parse_args()
 

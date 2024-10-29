@@ -3,7 +3,6 @@
 # -----------------------------------------
 
 set -x
-exec > log.txt 2>&1
 ROOT_DIR=$(pwd)
 
 # -----------------------------------------
@@ -31,6 +30,7 @@ RUN_EXPORT=1
 cd $VITIS_PROJECT_PATH
 rm -f RNI -r
 vitis_hls $VITIS_SCRIPT_FILEPATH -tclargs run_csim $RUN_CSIM run_csynth $RUN_CSYNTH run_export $RUN_EXPORT
+rm -f "output/export" -r
 unzip "output/export.zip" -d "output/export"
 cd $ROOT_DIR
 
