@@ -10,8 +10,6 @@ foreach {arg value} $::argv {
         set run_csynth $value
     } elseif {$arg == "run_export"} {
         set run_export $value
-        puts "run_export="
-        puts $run_export
     } elseif {$arg == "project_path"} {
         set project_path $value
     }
@@ -19,6 +17,7 @@ foreach {arg value} $::argv {
 
 puts "run_csim=$run_csim"
 puts "run_csynth=$run_csynth"
+puts "run_export=$run_export"
 puts "project_path=$project_path"
 
 # Open project and setup files
