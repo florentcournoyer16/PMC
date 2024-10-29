@@ -492,3 +492,121 @@ Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:27 ; elapsed = 
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 2288.680 ; gain = 625.332 ; free physical = 324 ; free virtual = 5651
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 2288.680 ; gain = 625.332 ; free physical = 325 ; free virtual = 5651
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 2288.680 ; gain = 625.332 ; free physical = 544 ; free virtual = 5875
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 2288.680 ; gain = 625.332 ; free physical = 544 ; free virtual = 5875
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 2288.680 ; gain = 625.332 ; free physical = 540 ; free virtual = 5871
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 2288.680 ; gain = 625.332 ; free physical = 540 ; free virtual = 5871
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 2288.680 ; gain = 625.332 ; free physical = 538 ; free virtual = 5869
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 2288.680 ; gain = 625.332 ; free physical = 536 ; free virtual = 5867
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |CARRY4  |    10|
+|2     |LUT1    |     7|
+|3     |LUT2    |    56|
+|4     |LUT3    |    52|
+|5     |LUT4    |    78|
+|6     |LUT5    |    72|
+|7     |LUT6    |   187|
+|8     |MUXCY_L |     9|
+|9     |MUXF7   |     8|
+|10    |MUXF8   |     4|
+|11    |SRL16E  |    18|
+|12    |XORCY   |    12|
+|13    |FDR     |    11|
+|14    |FDRE    |   313|
+|15    |FDSE    |    50|
++------+--------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 2288.680 ; gain = 625.332 ; free physical = 532 ; free virtual = 5863
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 52 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2288.680 ; gain = 480.582 ; free physical = 527 ; free virtual = 5858
+Synthesis Optimization Complete : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 2288.680 ; gain = 625.332 ; free physical = 527 ; free virtual = 5858
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2288.680 ; gain = 0.000 ; free physical = 779 ; free virtual = 6110
+INFO: [Netlist 29-17] Analyzing 54 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2288.680 ; gain = 0.000 ; free physical = 795 ; free virtual = 6125
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 14 instances were transformed.
+  (MUXCY,XORCY) => CARRY4: 3 instances
+  FDR => FDRE: 11 instances
+
+Synth Design complete | Checksum: 77267fd8
+INFO: [Common 17-83] Releasing license: Synthesis
+206 Infos, 105 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:49 ; elapsed = 00:00:46 . Memory (MB): peak = 2288.680 ; gain = 961.926 ; free physical = 801 ; free virtual = 6131
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1634.760; main = 1343.556; forked = 304.100
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3218.469; main = 2288.684; forked = 961.801
+INFO: [Common 17-1381] The checkpoint '/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_iic_direct_0_synth_1/base_iic_direct_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP base_iic_direct_0, cache-ID = b18d0de61e502453
+INFO: [Coretcl 2-1174] Renamed 24 cell refs.
+INFO: [Common 17-1381] The checkpoint '/home/mohr0901/Documents/PMC/C_RNI_VIVADO/Pynq_Z2/base/myproj/project_1.runs/base_iic_direct_0_synth_1/base_iic_direct_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file base_iic_direct_0_utilization_synth.rpt -pb base_iic_direct_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 29 15:43:15 2024...

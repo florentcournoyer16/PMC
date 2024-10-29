@@ -60,7 +60,10 @@
     <Option Name="IPUserFilesDir" Val="$PIPUSERFILESDIR"/>
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
-    <Option Name="DSABoardId" Val="pynq-z2"/>
+    <Option Name="DSAVendor" Val="xilinx.com"/>
+    <Option Name="DSABoardId" Val="xd"/>
+    <Option Name="DSAName" Val="${overlay_name}"/>
+    <Option Name="DSAVersion" Val="1.0"/>
     <Option Name="DSADefaultOutputType" Val="sd_card"/>
     <Option Name="DSADesignIntentServerManaged" Val="false"/>
     <Option Name="DSADesignIntentExternalHost" Val="false"/>
@@ -91,6 +94,7 @@
     <Option Name="SimTypes" Val="tlm_dpi"/>
     <Option Name="MEMEnableMemoryMapGeneration" Val="TRUE"/>
     <Option Name="DcpsUptoDate" Val="TRUE"/>
+    <Option Name="DSAExtensible" Val="TRUE"/>
     <Option Name="ClassicSocBoot" Val="FALSE"/>
     <Option Name="LocalIPRepoLeafDirName" Val="ip_repo"/>
   </Configuration>
