@@ -19,8 +19,7 @@ VITIS_ALL_FILEPATH="B_RNI_HLS/run_vitis.tcl"
 RUN_CSIM=1
 RUN_CSYNTH=1
 RUN_EXPORT=1
-OUTPUT_PATH="$CURRENT_PATH/B_RNI_HLS/output"
-CURRENT_PATH=cwd
+OUTPUT_PATH="$pwd/B_RNI_HLS/output"
 
 vitis_hls $VITIS_ALL_FILEPATH -tclargs run_csim $RUN_CSIM run_csynth $RUN_CSYNTH run_export $RUN_EXPORT output_path $OUTPUT_PATH 
 
