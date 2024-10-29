@@ -20,8 +20,10 @@ puts "run_csynth=$run_csynth"
 puts "run_export=$run_export"
 puts "project_path=$project_path"
 
-# Open project and setup files
-open_project $project_path/RNI
+set current_dir [pwd]
+cd $project_path
+open_project RNI
+cd cd ~/$current_dir
 
 set_top $project_path/RNI
 
