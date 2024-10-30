@@ -15,7 +15,7 @@ if __name__ == "__main__":
 
     argument_parser = ArgumentParser(description="Parse and process new RNI model")
     argument_parser.add_argument("--model_filepath", type=str, required=False, help="Path to the model JSON file", default="A_RNI_SCRIPTS/model/input/RNI.json")
-    argument_parser.add_argument("--tb_inputs_filepath", type=str, required=False, help="Path to the testbench inputs CSV file", default="A_RNI_SCRIPTS/data/input/tb_inputs.csv")
+    argument_parser.add_argument("-t", "--tb_inputs_filepath", type=str, required=False, help="Path to the testbench inputs CSV file", default="tb_inputs.csv")
     argument_parser.add_argument("--weight_type_length", type=int, required=False, help="Weight type length", default=8)
     argument_parser.add_argument("--membrane_type_length", type=int, required=False, help="Membrane type length", default=16)
     argument_parser.add_argument("--add_membrane_probe", type=str, required=False, help="Whether to add membrane probe (True/False)", default="false")
@@ -24,7 +24,7 @@ if __name__ == "__main__":
     args = argument_parser.parse_args()
 
     model_filepath = Path(__file__).parent.parent.absolute().joinpath(args.model_filepath)
-    tb_inputs_filepath = Path(__file__).parent.parent.absolute().joinpath(args.tb_inputs_filepath)
+    tb_inputs_filepath = Path(__file__).parent.parent.absolute().joinpath("A_RNI_SCRIPTS/data/input/" + args.tb_inputs_filepath)
     weight_type_length = args.weight_type_length
     membrane_type_length = args.membrane_type_length
 
