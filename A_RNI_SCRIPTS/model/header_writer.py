@@ -39,9 +39,12 @@ def write_header(header_filepath, output_model_dict, weight_type_lenght, membran
             header_file.write("};\n")
             header_file.write(f"#define {key}_LENGHT {len(values)}\n\n")
 
-        header_file.write(f"#define WEIGHT_TYPE_MAX {2**(weight_type_lenght-1)}\n")
-        header_file.write(f"#define MEMBRANE_TYPE_MAX {2**(membrane_type_lenght-1)}\n")
-        header_file.write(f"#define INDEX_TYPE_MAX {2**(index_type_lenght-1)}\n\n")
+        header_file.write(f"#define WEIGHT_TYPE_MAX {2**(weight_type_lenght-1)-1}\n")
+        header_file.write(f"#define WEIGHT_TYPE_MIN {-2**(weight_type_lenght-1)}\n")
+        header_file.write(f"#define MEMBRANE_TYPE_MAX {2**(membrane_type_lenght-1)-1}\n")
+        header_file.write(f"#define MEMBRANE_TYPE_MIN {-2**(membrane_type_lenght-1)}\n")
+        header_file.write(f"#define INDEX_TYPE_MAX {2**(index_type_lenght-1)-1}\n\n")
+        header_file.write(f"#define INDEX_TYPE_MIN {-2**(index_type_lenght-1)}\n\n")
 
         header_file.write(f"#define INPUT_LENGHT {output_model_dict['WEIGHTS_INDEX'][1]}\n")
         output_lenght = 2 * output_model_dict['NEURONS_INDEX'][-1] - output_model_dict['NEURONS_INDEX'][-2]
