@@ -315,7 +315,7 @@ def __append_update_neuron_state_reset_membrane_definition__(code_segments):
     code_segments.append("""
 void update_neuron_state_reset_membrane(INDEX_TYPE layer_index, INDEX_TYPE neuron_index)
 {
-	if(NEURONS_MEMBRANE[neuron_index] > THRESHOLDS[layer_index])
+	if(NEURONS_MEMBRANE[neuron_index] >= THRESHOLDS[layer_index])
 	{
 		NEURONS_STATE[neuron_index] = 1;
 		NEURONS_MEMBRANE[neuron_index] = RESET[layer_index];
