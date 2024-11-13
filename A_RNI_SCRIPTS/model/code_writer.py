@@ -376,26 +376,12 @@ def __append_output_stream_dispatch_definition__(code_segments):
     code_segments.append("""
 void output_stream_dispatch(pkt_stream& out_stream, pkt out_pkts[OUTPUT_LENGHT], pkt in_pkts[INPUT_LENGHT])
 {
-    for(INDEX_TYPE i = 0; i < NEURONS_MEMBRANE_LENGHT; i++)
+    for(INDEX_TYPE i = 0; i < OUTPUT_LENGHT; i++)
     {
         out_pkts[i] = in_pkts[0];
         out_pkts[i].data = NEURONS_MEMBRANE[i];
         out_stream.write(out_pkts[i]);
     }
-    
-    for (INDEX_TYPE i = NEURONS_MEMBRANE_LENGHT; i < OUTPUT_LENGHT; i++)
-    {
-        out_pkts[i] = in_pkts[0];
-        if(i == OUTPUT_LENGHT - 1)
-        {
-            out_pkts[i] = in_pkts[INPUT_LENGHT-1];
-        }
-        out_pkts[i].data = NEURONS_STATE[i - (OUTPUT_LENGHT - NEURONS_MEMBRANE_LENGHT)];
-        out_stream.write(out_pkts[i]);
-    }
-    
-    INDEX_TYPE layer_index = NEURONS_INDEX_LENGHT - 2;
-    reset_neuron_states(layer_index);
 }
 
 """)

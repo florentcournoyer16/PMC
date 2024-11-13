@@ -53,10 +53,10 @@ if __name__ == "__main__":
     print("output_neuron1 =", output_neuron1)
     print("output_neuron2 =", output_neuron2)
     print("output_neuron3 =", output_neuron3)
-    print("probability of left side seizure     =", output_neuron0/ (output_neuron0 + output_neuron1))
-    print("probability of no left side seizure  =", output_neuron1/ (output_neuron0 + output_neuron1))
-    print("probability of right side seizure    =", output_neuron2/ (output_neuron2 + output_neuron3))
-    print("probability of no right side seizure =", output_neuron3/ (output_neuron2 + output_neuron3))
+    print("probability of left side seizure     =", output_neuron0 / (output_neuron0 + output_neuron1))
+    print("probability of no left side seizure  =", output_neuron1 / (output_neuron0 + output_neuron1))
+    print("probability of right side seizure    =", output_neuron2 / (output_neuron2 + output_neuron3))
+    print("probability of no right side seizure =", output_neuron3 / (output_neuron2 + output_neuron3))
 
     plot(data, plot_index_list)
 
