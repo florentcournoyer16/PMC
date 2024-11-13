@@ -37,13 +37,13 @@ cd $ROOT_DIR
 # -----------------------------------------
 # -----------------------------------------
 
-INOUT_PLOTTER_FILEPATH="A_RNI_SCRIPTS/data/run_inout_plotter.py"
-DATA_FILEPATH="B_RNI_HLS/tb/tb_outputs.csv"
-START_INDEX=1
-END_INDEX=10
-STEP_SIZE=1
+# INOUT_PLOTTER_FILEPATH="A_RNI_SCRIPTS/data/run_inout_plotter.py"
+# DATA_FILEPATH="B_RNI_HLS/tb/tb_outputs.csv"
+# START_INDEX=1
+# END_INDEX=10
+# STEP_SIZE=1
 
-python3 $INOUT_PLOTTER_FILEPATH --data_filepath "$DATA_FILEPATH" --start_index "$START_INDEX" --end_index "$END_INDEX" --step "$STEP_SIZE"
+# python3 $INOUT_PLOTTER_FILEPATH --data_filepath "$DATA_FILEPATH" --start_index "$START_INDEX" --end_index "$END_INDEX" --step "$STEP_SIZE"
 
 # -----------------------------------------
 # -----------------------------------------
