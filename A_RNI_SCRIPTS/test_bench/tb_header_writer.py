@@ -39,6 +39,6 @@ def write_tb_header(tb_header_filepath, network_name, output_model_dict, weight_
         header_file.write('};\n\n')
 
         header_file.write(f'#define TB_INPUT_BUFFER_LENGHT {int(len(tb_inputs) * output_model_dict["WEIGHTS_INDEX"][1])}\n')
-        header_file.write(f'#define TB_OUTPUT_BUFFER_LENGHT {int(len(tb_inputs) * output_model_dict['NEURONS_INDEX'][-1])}\n\n')
+        header_file.write(f'#define TB_OUTPUT_BUFFER_LENGHT {int(len(tb_inputs) * output_model_dict["NEURONS_INDEX"][-1])}\n\n')
         
         header_file.write('#endif // TEST_H\n')
