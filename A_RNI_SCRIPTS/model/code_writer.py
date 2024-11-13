@@ -315,7 +315,6 @@ void output_layer(void)
         code_segments.append("\t\tupdate_membrane_probe(neuron_index);\n")
 
     code_segments.append("""
-        update_neuron_state_reset_membrane(layer_index, neuron_index);
 	}
 	reset_neuron_states(layer_index-1);
 }
