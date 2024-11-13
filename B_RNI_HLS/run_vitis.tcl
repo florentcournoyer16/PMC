@@ -28,7 +28,6 @@ add_files src/RNI.cpp
 
 add_files -tb inc/RNI_tb.h
 add_files -tb tb/RNI_tb.cpp
-add_files -tb tb/tb_outputs.csv
 
 open_solution "solution1" -flow_target vivado
 set_part {xc7z020-clg400-1}
