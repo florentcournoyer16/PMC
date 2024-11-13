@@ -28,7 +28,7 @@ def write_tb_header(tb_header_filepath, network_name, output_model_dict, weight_
         output_lenght = 2 * output_model_dict['NEURONS_INDEX'][-1] - output_model_dict['NEURONS_INDEX'][-2]
         header_file.write(f"#define RNI_OUTPUT_LENGHT {output_lenght}\n\n")
 
-        header_file.write('#define TB_OUTPUT_FILEPATH "../../../../tb/tb_outputs.csv"\n\n')
+        header_file.write('#define TB_OUTPUT_FILEPATH "../../../../../A_RNI_SCRIPTS/input/tb_outputs.csv"\n\n')
 
         header_file.write(f'#define TB_INPUTS_LENGHT {len(tb_inputs)}\n')
         header_file.write(f'RNI_WEIGHT_TYPE TB_INPUTS[{len(tb_inputs)}][{output_model_dict["WEIGHTS_INDEX"][1]}] = {{ ')
