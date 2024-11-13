@@ -25,8 +25,7 @@ def write_tb_header(tb_header_filepath, network_name, output_model_dict, weight_
         header_file.write("#define RNI_MEMBRANE_TYPE ap_int< RNI_MEMBRANE_TYPE_LENGHT >\n\n")
 
         header_file.write(f"#define RNI_INPUT_LENGHT {output_model_dict['WEIGHTS_INDEX'][1]}\n")
-        output_lenght = 2 * output_model_dict['NEURONS_INDEX'][-1] - output_model_dict['NEURONS_INDEX'][-2]
-        header_file.write(f"#define RNI_OUTPUT_LENGHT {output_lenght}\n\n")
+        header_file.write(f"#define RNI_OUTPUT_LENGHT {output_model_dict['NEURONS_INDEX'][-1]}\n\n")
 
         header_file.write('#define TB_OUTPUT_FILEPATH "../../../../../A_RNI_SCRIPTS/input/tb_outputs.csv"\n\n')
 
@@ -40,6 +39,6 @@ def write_tb_header(tb_header_filepath, network_name, output_model_dict, weight_
         header_file.write('};\n\n')
 
         header_file.write(f'#define TB_INPUT_BUFFER_LENGHT {int(len(tb_inputs) * output_model_dict["WEIGHTS_INDEX"][1])}\n')
-        header_file.write(f'#define TB_OUTPUT_BUFFER_LENGHT {int(len(tb_inputs) * output_lenght)}\n\n')
+        header_file.write(f'#define TB_OUTPUT_BUFFER_LENGHT {int(len(tb_inputs) * output_model_dict['NEURONS_INDEX'][-1])}\n\n')
         
         header_file.write('#endif // TEST_H\n')
