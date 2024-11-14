@@ -397,7 +397,7 @@ def __append_update_membrane_probe_definition__(code_segments):
 void update_membrane_probe(INDEX_TYPE neuron_index)
 {
 	if(neuron_index == MEMBRANE_PROBE_NEURON_INDEX)
-	{>
+	{
 		if(MEMBRANE_PROBE_NEURON_INDEX == MEMBRANE_PROBE_LENGHT-1)
         {
 			write_probe_file();
