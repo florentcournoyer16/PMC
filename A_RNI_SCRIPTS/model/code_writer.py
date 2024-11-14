@@ -207,7 +207,6 @@ def __append_inner_layer_definitions__(code_segments, output_model_dict, add_mem
 			STATE_TYPE neuron_state = NEURONS_STATE[NEURONS_INDEX[layer_index - 1] + weight_index - WEIGHTS_INDEX[neuron_index]];
 			if(neuron_state == 1)
             {
-
                 NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
             }
 		}
