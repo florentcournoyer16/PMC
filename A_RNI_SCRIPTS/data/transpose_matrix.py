@@ -32,6 +32,9 @@ if __name__ == "__main__":
     # Read and transpose the matrix
     transposed_matrix = read_and_transpose_csv(input_file)
     
+    print(len(transposed_matrix))
+    print(len(transposed_matrix[0]))
+    
     if transposed_matrix is not None:
         # Save the transposed matrix to a new CSV file
         save_transposed_matrix(transposed_matrix, output_file)

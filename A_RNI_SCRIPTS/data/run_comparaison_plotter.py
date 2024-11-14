@@ -26,8 +26,7 @@ def plot(data1, data2, indexes):
         a.legend()
         a.grid(True)
     fig.suptitle(f"Membrane potential of neurons {indexes[0]} to {indexes[-1]} against timestep")
-    fig.show()
-    fig.savefig('neuron_plot.png')
+    plt.show()
 
 
 if __name__ == "__main__":
