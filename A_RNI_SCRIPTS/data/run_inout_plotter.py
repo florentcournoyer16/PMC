@@ -19,10 +19,9 @@ def plot(data, indexes):
         else:
             print(f"Neuron {index} is out of range.")
 
-    plt.xlabel("Temps (ms)")
-    plt.ylabel("Potentiel")
-    plt.title("Potentiel membranaire")
-    plt.legend()
+    plt.xlabel("Timestep Index")
+    plt.ylabel("Membrane Potentional")
+    plt.title(f"Membrane Potential vs Timestep of Neuron {indexes[0]} to {indexes[-1]}")
     plt.grid(True)
     plt.show()
 
@@ -44,18 +43,14 @@ if __name__ == "__main__":
 
     plot_index_list = np.arange(args.start_index, args.end_index, args.step)
 
-    output_neuron0 = sum(data[:, -1])
-    output_neuron1 = sum(data[:, -2])
-    output_neuron2 = sum(data[:, -3])
-    output_neuron3 = sum(data[:, -4])
+    output_neuron0 = data[-1, -1]
+    output_neuron1 = data[-1, -2]
+    output_neuron2 = data[-1, -3]
+    output_neuron3 = data[-1, -4]
     print("output_neuron0 =", output_neuron0)
     print("output_neuron1 =", output_neuron1)
     print("output_neuron2 =", output_neuron2)
     print("output_neuron3 =", output_neuron3)
-    print("probability of left side seizure     =", output_neuron0 / (output_neuron0 + output_neuron1))
-    print("probability of no left side seizure  =", output_neuron1 / (output_neuron0 + output_neuron1))
-    print("probability of right side seizure    =", output_neuron2 / (output_neuron2 + output_neuron3))
-    print("probability of no right side seizure =", output_neuron3 / (output_neuron2 + output_neuron3))
 
     plot(data, plot_index_list)
 

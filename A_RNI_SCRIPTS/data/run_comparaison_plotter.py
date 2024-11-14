@@ -21,11 +21,11 @@ def plot(data1, data2, indexes):
             print(f"Neuron {index} is out of range.")
 
     for a in axs:
-        a.set_xlabel("Timestep index")
-        a.set_ylabel("Membrane potential")
+        a.set_xlabel("Timestep Index")
+        a.set_ylabel("Membrane Potential")
         a.legend()
         a.grid(True)
-    fig.suptitle(f"Membrane potential of neurons {indexes[0]} to {indexes[-1]} against timestep")
+    fig.suptitle(f"Membrane Potential vs Timestep of Neuron {indexes[0]} to {indexes[-1]}")
     plt.show()
 
 
