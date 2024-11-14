@@ -50,14 +50,19 @@ if __name__ == "__main__":
 
     plot_index_list = np.arange(args.start_index, args.end_index, args.step)
 
-    output_neuron0 = data_2[-1, -1]
-    output_neuron1 = data_2[-1, -2]
-    output_neuron2 = data_2[-1, -3]
-    output_neuron3 = data_2[-1, -4]
-    print("output_neuron0 =", output_neuron0)
-    print("output_neuron1 =", output_neuron1)
-    print("output_neuron2 =", output_neuron2)
-    print("output_neuron3 =", output_neuron3)
+    on_d1_1 = sum(data_1[:, -1])
+    on_d1_2 = sum(data_1[:, -2])
+    on_d1_3 = sum(data_1[:, -3])
+    on_d1_4 = sum(data_1[:, -4])
+    
+    on_d2_1 = data_2[-1, -1]
+    on_d2_2 = data_2[-1, -2]
+    on_d2_3 = data_2[-1, -3]
+    on_d2_4 = data_2[-1, -4]
+
+    print(f"{'n_index':<10} {-1:<10} {-2:<10} {-3:<10} {-4:<10} ")
+    print(f"{'data_1':<10} {on_d1_1:<10} {on_d1_2:<10} {on_d1_3:<10} {on_d1_4:<10}")
+    print(f"{'data_2':<10} {on_d2_1:<10} {on_d2_2:<10} {on_d2_3:<10} {on_d2_4:<10}")
 
     plot(data_1, data_2, plot_index_list)
 
