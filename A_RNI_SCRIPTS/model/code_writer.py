@@ -327,11 +327,8 @@ def __append_leak_neuron_definition__(code_segments):
     code_segments.append("""
 void leak_neuron(INDEX_TYPE layer_index, INDEX_TYPE neuron_index)
 {
-    MEMBRANE_TYPE membrane_leak_accumulator = 0x0;
-    NEURON_LEAK_LOOP: for(INDEX_TYPE beta_index = 1; beta_index < BETAS[layer_index]; beta_index++) {
-        membrane_leak_accumulator += NEURONS_MEMBRANE[neuron_index] / hls::pow(2, beta_index);
-    }
-    NEURONS_MEMBRANE[neuron_index] = membrane_leak_accumulator;
+    MEMBRANE_TYPE leaked_membrane = NEURONS_MEMBRANE[neuron_index] * BETAS[layer_index];
+    NEURONS_MEMBRANE[neuron_index] = leaked_membrane;
 }
 
 """)
@@ -383,7 +380,6 @@ void output_stream_dispatch(pkt_stream& out_stream, pkt out_pkts[OUTPUT_LENGHT],
 }
 
 """)
-
 
 # -----------------------------------------------
 # -----------------------------------------------

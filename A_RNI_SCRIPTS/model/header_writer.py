@@ -1,4 +1,4 @@
-def write_header(header_filepath, output_model_dict, weight_type_lenght, membrane_type_lenght, add_membrane_probe, membrane_probe_lenght):
+def write_header(header_filepath, output_model_dict, weight_type_lenght, membrane_type_lenght, bias_type_lenght, add_membrane_probe, membrane_probe_lenght):
     with open(header_filepath, mode='w', encoding="utf8") as header_file:
         header_file.write('#ifndef MODEL_H\n')
         header_file.write('#define MODEL_H\n\n')
@@ -14,6 +14,9 @@ def write_header(header_filepath, output_model_dict, weight_type_lenght, membran
 
         header_file.write(f"#define MEMBRANE_TYPE_LENGHT {membrane_type_lenght}\n")
         header_file.write("#define MEMBRANE_TYPE ap_int< MEMBRANE_TYPE_LENGHT >\n\n")
+        
+        header_file.write(f"#define BETA_TYPE_LENGHT {bias_type_lenght}\n")
+        header_file.write("#define BETA_TYPE ap_fixed< 2, BETA_TYPE_LENGHT >\n\n")
 
         index_type_lenght = 2
         while (2**(index_type_lenght-1) < output_model_dict["WEIGHTS_INDEX"][-1]):
@@ -31,6 +34,8 @@ def write_header(header_filepath, output_model_dict, weight_type_lenght, membran
                 type_str = "INDEX_TYPE"
             if "MEMBRANE" in key:
                 type_str = "MEMBRANE_TYPE"
+            if "BETA" in key:
+                type_str = "BETA_TYPE"
             if "STATE" in key:
                 type_str = "STATE_TYPE"
             header_file.write(f"{type_str} {key}[{len(values)}] = {{ ")
@@ -40,10 +45,15 @@ def write_header(header_filepath, output_model_dict, weight_type_lenght, membran
             header_file.write(f"#define {key}_LENGHT {len(values)}\n\n")
 
         header_file.write(f"#define WEIGHT_TYPE_MAX {2**(weight_type_lenght-1)-1}\n")
-        header_file.write(f"#define WEIGHT_TYPE_MIN {-2**(weight_type_lenght-1)}\n")
+        header_file.write(f"#define WEIGHT_TYPE_MIN {-2**(weight_type_lenght-1)}\n\n")
+        
         header_file.write(f"#define MEMBRANE_TYPE_MAX {2**(membrane_type_lenght-1)-1}\n")
-        header_file.write(f"#define MEMBRANE_TYPE_MIN {-2**(membrane_type_lenght-1)}\n")
-        header_file.write(f"#define INDEX_TYPE_MAX {2**(index_type_lenght-1)-1}\n\n")
+        header_file.write(f"#define MEMBRANE_TYPE_MIN {-2**(membrane_type_lenght-1)}\n\n")
+        
+        header_file.write(f"#define BETA_TYPE_MAX {2**(bias_type_lenght-1)-1}.{2**(bias_type_lenght-1)-1}\n")
+        header_file.write(f"#define BETA_TYPE_MIN {-2**(bias_type_lenght-1)}.{-2**(bias_type_lenght-1)}\n\n")
+        
+        header_file.write(f"#define INDEX_TYPE_MAX {2**(index_type_lenght-1)-1}\n")
         header_file.write(f"#define INDEX_TYPE_MIN {-2**(index_type_lenght-1)}\n\n")
 
         header_file.write(f"#define INPUT_LENGHT {output_model_dict['WEIGHTS_INDEX'][1]}\n")

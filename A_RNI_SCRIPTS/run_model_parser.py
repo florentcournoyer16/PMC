@@ -18,6 +18,7 @@ if __name__ == "__main__":
     argument_parser.add_argument("-t", "--tb_inputs_filepath", type=str, required=False, help="Path to the testbench inputs CSV file", default="tb_inputs.csv")
     argument_parser.add_argument("--weight_type_length", type=int, required=False, help="Weight type length", default=8)
     argument_parser.add_argument("--membrane_type_length", type=int, required=False, help="Membrane type length", default=16)
+    argument_parser.add_argument("--beta_type_lenght", type=int, required=False, help="Beta type lenght", default=16)
     argument_parser.add_argument("--add_membrane_probe", type=str, required=False, help="Whether to add membrane probe (True/False)", default="false")
     argument_parser.add_argument("--membrane_probe_length", type=int, required=False, help="Membrane probe length", default=128)
 
@@ -27,6 +28,7 @@ if __name__ == "__main__":
     tb_inputs_filepath = Path(__file__).parent.parent.absolute().joinpath("A_RNI_SCRIPTS/data/input/" + args.tb_inputs_filepath)
     weight_type_length = args.weight_type_length
     membrane_type_length = args.membrane_type_length
+    beta_type_lenght = args.beta_type_lenght
 
     add_membrane_probe = True if args.add_membrane_probe == "true" else False
     membrane_probe_length = args.membrane_probe_length
@@ -47,9 +49,9 @@ if __name__ == "__main__":
 
     with open(model_filepath, mode='r', encoding='utf8') as model_file:
         input_model_dict = load(model_file)
-        output_model_dict = parse_model(input_model_dict, weight_type_length)
-    
-    write_header(header_filepath, output_model_dict, weight_type_length, membrane_type_length, add_membrane_probe, membrane_probe_length)
+        output_model_dict = parse_model(input_model_dict, weight_type_length, beta_type_lenght)
+
+    write_header(header_filepath, output_model_dict, weight_type_length, membrane_type_length, beta_type_lenght, add_membrane_probe, membrane_probe_length)
     write_code(code_filepath, network_name, output_model_dict, add_membrane_probe)
 
     tb_inputs = []
