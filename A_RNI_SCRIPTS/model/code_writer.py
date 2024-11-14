@@ -276,7 +276,6 @@ void output_layer(void)
     code_segments.append(f'\tNEURONS_LOOP_{layer_index}: for(INDEX_TYPE neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1];  neuron_index++)')
     code_segments.append("""
     {
-		leak_neuron(layer_index, neuron_index);
 """)
 
     code_segments.append(f'\t\tWEIGHTS_LOOP_{layer_index}: for(INDEX_TYPE weight_index = WEIGHTS_INDEX[neuron_index]; weight_index <  WEIGHTS_INDEX[neuron_index + 1]; weight_index++)')

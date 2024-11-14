@@ -50,18 +50,14 @@ if __name__ == "__main__":
 
     plot_index_list = np.arange(args.start_index, args.end_index, args.step)
 
-    output_neuron0 = sum(data_2[:, -1])
-    output_neuron1 = sum(data_2[:, -2])
-    output_neuron2 = sum(data_2[:, -3])
-    output_neuron3 = sum(data_2[:, -4])
+    output_neuron0 = data_2[-1, -1]
+    output_neuron1 = data_2[-1, -2]
+    output_neuron2 = data_2[-1, -3]
+    output_neuron3 = data_2[-1, -4]
     print("output_neuron0 =", output_neuron0)
     print("output_neuron1 =", output_neuron1)
     print("output_neuron2 =", output_neuron2)
     print("output_neuron3 =", output_neuron3)
-    print("probability of left side seizure     =", output_neuron0 / (output_neuron0 + output_neuron1))
-    print("probability of no left side seizure  =", output_neuron1 / (output_neuron0 + output_neuron1))
-    print("probability of right side seizure    =", output_neuron2 / (output_neuron2 + output_neuron3))
-    print("probability of no right side seizure =", output_neuron3 / (output_neuron2 + output_neuron3))
 
     plot(data_1, data_2, plot_index_list)
 
