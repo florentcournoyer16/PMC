@@ -55,13 +55,13 @@ def __compress__(output_model_dict, weight_type_lenght, beta_type_lenght):
     for i in range(len(output_model_dict["BIASES"])):
         output_model_dict["BIASES"][i] = int(round(output_model_dict["BIASES"][i] / max_val * (2**(weight_type_lenght-1)-1), 0))
     for i in range(len(output_model_dict["THRESHOLDS"])):
-        output_model_dict["THRESHOLDS"][i] = int(output_model_dict["THRESHOLDS"][i] / max_val * (2**(weight_type_lenght-1)-1))
+        output_model_dict["THRESHOLDS"][i] = int(round(output_model_dict["THRESHOLDS"][i] / max_val * (2**(weight_type_lenght-1)-1), 0))
     for i in range(len(output_model_dict["GRADED_SPIKES_FACTORS"])):
-        output_model_dict["GRADED_SPIKES_FACTORS"][i] = int(output_model_dict["GRADED_SPIKES_FACTORS"][i] / max_val * (2**(weight_type_lenght-1)-1))
+        output_model_dict["GRADED_SPIKES_FACTORS"][i] = int(round(output_model_dict["GRADED_SPIKES_FACTORS"][i] / max_val * (2**(weight_type_lenght-1)-1), 0))
     for i in range(len(output_model_dict["RESET"])):
-        output_model_dict["RESET"][i] = int(output_model_dict["RESET"][i] / max_val * (2**(weight_type_lenght-1)-1))
+        output_model_dict["RESET"][i] = int(round(output_model_dict["RESET"][i] / max_val * (2**(weight_type_lenght-1)-1), 0))
     for i in range(len(output_model_dict["LEAK"])):
-        output_model_dict["LEAK"][i] = int(output_model_dict["LEAK"][i] / max_val * (2**(weight_type_lenght-1)-1))
+        output_model_dict["LEAK"][i] = int(round(output_model_dict["LEAK"][i] / max_val * (2**(weight_type_lenght-1)-1), 0))
     for i in range(len(output_model_dict["BETAS"])):
         beta_string = str(output_model_dict["BETAS"][i]).split('.')[-1]
         beta_int = int(beta_string)
