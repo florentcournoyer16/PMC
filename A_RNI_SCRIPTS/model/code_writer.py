@@ -165,31 +165,11 @@ void input_layer(pkt input_pkts[INPUT_LENGHT])
 	NEURONS_LOOP_0: for(INDEX_TYPE neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1];  neuron_index++)
 	{
 		leak_neuron(layer_index, neuron_index);
+        NEURONS_MEMBRANE[neuron_index] += BIASES[neuron_index];
 
 		WEIGHTS_LOOP_0: for(INDEX_TYPE weight_index = WEIGHTS_INDEX[neuron_index]; weight_index < WEIGHTS_INDEX[neuron_index + 1]; weight_index++)
 		{
-            if (WEIGHTS[weight_index] > 0)
-            {
-                if (NEURONS_MEMBRANE[neuron_index] > MEMBRANE_TYPE_MAX - WEIGHTS[weight_index]) 
-                {
-                    NEURONS_MEMBRANE[neuron_index] = MEMBRANE_TYPE_MAX;
-                }
-                else
-                {
-                    NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index] * input_pkts[weight_index % INPUT_LENGHT].data;
-                }
-            }
-			else 
-            {
-                if (NEURONS_MEMBRANE[neuron_index] < MEMBRANE_TYPE_MIN - WEIGHTS[weight_index])
-                {
-                    NEURONS_MEMBRANE[neuron_index] = MEMBRANE_TYPE_MIN;
-                }
-                else
-                {
-                    NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index] * input_pkts[weight_index % INPUT_LENGHT].data;
-                }
-            }
+            NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index] * input_pkts[weight_index % INPUT_LENGHT].data;
 		}
 """)
 
@@ -217,6 +197,8 @@ def __append_inner_layer_definitions__(code_segments, output_model_dict, add_mem
         code_segments.append("""
 	{
 		leak_neuron(layer_index, neuron_index);
+        NEURONS_MEMBRANE[neuron_index] += BIASES[neuron_index];
+
 """)
 
         code_segments.append(f"\t\tWEIGHTS_LOOP_{i}: for(INDEX_TYPE weight_index = WEIGHTS_INDEX[neuron_index]; weight_index <  WEIGHTS_INDEX[neuron_index + 1]; weight_index++)")
@@ -225,28 +207,8 @@ def __append_inner_layer_definitions__(code_segments, output_model_dict, add_mem
 			STATE_TYPE neuron_state = NEURONS_STATE[NEURONS_INDEX[layer_index - 1] + weight_index - WEIGHTS_INDEX[neuron_index]];
 			if(neuron_state == 1)
             {
-                if (WEIGHTS[weight_index] > 0)
-                {
-                    if (NEURONS_MEMBRANE[neuron_index] > MEMBRANE_TYPE_MAX - WEIGHTS[weight_index]) 
-                    {
-                        NEURONS_MEMBRANE[neuron_index] = MEMBRANE_TYPE_MAX;
-                    }
-                    else
-                    {
-                        NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
-                    }
-                }
-                else
-                {
-                    if (NEURONS_MEMBRANE[neuron_index] < MEMBRANE_TYPE_MIN - WEIGHTS[weight_index])
-                    {
-                        NEURONS_MEMBRANE[neuron_index] = MEMBRANE_TYPE_MIN;
-                    }
-                    else
-                    {
-                        NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
-                    }
-                }
+
+                NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
             }
 		}
 """)
@@ -276,36 +238,17 @@ void output_layer(void)
     code_segments.append(f'\tNEURONS_LOOP_{layer_index}: for(INDEX_TYPE neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1];  neuron_index++)')
     code_segments.append("""
     {
+        NEURONS_MEMBRANE[neuron_index] += BIASES[neuron_index];
+
 """)
 
     code_segments.append(f'\t\tWEIGHTS_LOOP_{layer_index}: for(INDEX_TYPE weight_index = WEIGHTS_INDEX[neuron_index]; weight_index <  WEIGHTS_INDEX[neuron_index + 1]; weight_index++)')
     code_segments.append("""
         {
 			STATE_TYPE neuron_state = NEURONS_STATE[NEURONS_INDEX[layer_index - 1] + weight_index - WEIGHTS_INDEX[neuron_index]];
-			if(neuron_state == 1)
+            if(neuron_state == 1)
             {
-                if (WEIGHTS[weight_index] > 0)
-                {
-                    if (NEURONS_MEMBRANE[neuron_index] > MEMBRANE_TYPE_MAX - WEIGHTS[weight_index]) 
-                    {
-                        NEURONS_MEMBRANE[neuron_index] = MEMBRANE_TYPE_MAX;
-                    }
-                    else
-                    {
-                        NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
-                    }
-                }
-                else
-                {
-                    if (NEURONS_MEMBRANE[neuron_index] < MEMBRANE_TYPE_MIN - WEIGHTS[weight_index])
-                    {
-                        NEURONS_MEMBRANE[neuron_index] = MEMBRANE_TYPE_MIN;
-                    }
-                    else
-                    {
-                        NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
-                    }
-                }
+                NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
             }
 		}
 """)
