@@ -63,5 +63,10 @@ def __compress__(output_model_dict, weight_type_lenght, beta_type_lenght):
     for i in range(len(output_model_dict["LEAK"])):
         output_model_dict["LEAK"][i] = int(output_model_dict["LEAK"][i] / max_val * (2**(weight_type_lenght-1)-1))
     for i in range(len(output_model_dict["BETAS"])):
-        output_model_dict["BETAS"][i] = round(output_model_dict["BETAS"][i], beta_type_lenght-1)
+        beta_string = str(output_model_dict["BETAS"][i]).split('.')[-1]
+        beta_int = int(beta_string)
+        while beta_int > 2**(beta_type_lenght-1):
+            beta_int = int(beta_int/10)
+        beta_float = float("0." + str(beta_int))
+        output_model_dict["BETAS"][i] = beta_float
     return output_model_dict

@@ -15,8 +15,8 @@ def write_header(header_filepath, output_model_dict, weight_type_lenght, membran
         header_file.write(f"#define MEMBRANE_TYPE_LENGHT {membrane_type_lenght}\n")
         header_file.write("#define MEMBRANE_TYPE ap_int< MEMBRANE_TYPE_LENGHT >\n\n")
         
-        header_file.write(f"#define BETA_TYPE_LENGHT {bias_type_lenght}\n")
-        header_file.write("#define BETA_TYPE ap_fixed< 2, BETA_TYPE_LENGHT >\n\n")
+        header_file.write(f"#define BETA_TYPE_LENGHT {bias_type_lenght+2}\n")
+        header_file.write("#define BETA_TYPE ap_fixed< BETA_TYPE_LENGHT, 2 >\n\n")
 
         index_type_lenght = 2
         while (2**(index_type_lenght-1) < output_model_dict["WEIGHTS_INDEX"][-1]):
@@ -49,9 +49,6 @@ def write_header(header_filepath, output_model_dict, weight_type_lenght, membran
         
         header_file.write(f"#define MEMBRANE_TYPE_MAX {2**(membrane_type_lenght-1)-1}\n")
         header_file.write(f"#define MEMBRANE_TYPE_MIN {-2**(membrane_type_lenght-1)}\n\n")
-        
-        header_file.write(f"#define BETA_TYPE_MAX {2**(bias_type_lenght-1)-1}.{2**(bias_type_lenght-1)-1}\n")
-        header_file.write(f"#define BETA_TYPE_MIN {-2**(bias_type_lenght-1)}.{-2**(bias_type_lenght-1)}\n\n")
         
         header_file.write(f"#define INDEX_TYPE_MAX {2**(index_type_lenght-1)-1}\n")
         header_file.write(f"#define INDEX_TYPE_MIN {-2**(index_type_lenght-1)}\n\n")
