@@ -317,6 +317,10 @@ void output_stream_dispatch(pkt_stream& out_stream, pkt out_pkts[OUTPUT_LENGHT],
     for(INDEX_TYPE i = 0; i < OUTPUT_LENGHT; i++)
     {
         out_pkts[i] = in_pkts[0];
+        if (i == OUTPUT_LENGHT - 1)
+        {
+            out_pkts[i] = in_pkts[INPUT_LENGHT - 1];
+        }
         out_pkts[i].data = NEURONS_MEMBRANE[i];
         out_stream.write(out_pkts[i]);
     }
