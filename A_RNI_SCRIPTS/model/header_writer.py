@@ -12,12 +12,12 @@ def write_header(header_filepath, output_model_dict, weight_type_lenght, membran
         header_file.write(f"#define WEIGHT_TYPE_MIN {-2**(weight_type_lenght-1)+1}\n")
         header_file.write(f"#define WEIGHT_TYPE_MAX {2**(weight_type_lenght-1)-1}\n")
         header_file.write(f"#define WEIGHT_TYPE_LENGHT {weight_type_lenght}\n")
-        header_file.write("#define WEIGHT_TYPE ap_fixed< WEIGHT_TYPE_LENGHT, 0, AP_SAT >\n\n")
+        header_file.write("#define WEIGHT_TYPE ap_fixed< WEIGHT_TYPE_LENGHT, WEIGHT_TYPE_LENGHT, AP_RND, AP_SAT >\n\n")
 
         header_file.write(f"#define MEMBRANE_TYPE_MIN {-2**(membrane_type_lenght-1)+1}\n")
         header_file.write(f"#define MEMBRANE_TYPE_MAX {2**(membrane_type_lenght-1)-1}\n")
         header_file.write(f"#define MEMBRANE_TYPE_LENGHT {membrane_type_lenght}\n")
-        header_file.write("#define MEMBRANE_TYPE ap_fixed< MEMBRANE_TYPE_LENGHT, 0, AP_SAT >\n\n")
+        header_file.write("#define MEMBRANE_TYPE ap_fixed< MEMBRANE_TYPE_LENGHT, MEMBRANE_TYPE_LENGHT, AP_RND, AP_SAT >\n\n")
 
         header_file.write(f"#define BETA_TYPE_LENGHT {bias_type_lenght+2}\n")
         header_file.write("#define BETA_TYPE ap_fixed< BETA_TYPE_LENGHT, 2 >\n\n")
