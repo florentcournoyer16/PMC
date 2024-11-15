@@ -42,7 +42,6 @@ def plot(data_dict, indexes):
         for col in row:
             col.set_xlabel("Timestep Index")
             col.set_ylabel("Mem Pot")
-            col.legend()
             col.grid(True)
 
     fig.suptitle(f"Membrane Potential vs Timestep of Neuron {indexes[0]} to {indexes[-1]}")
@@ -58,7 +57,7 @@ def print_predictions(data_dict):
             data_dict_python[key] = val
     
     rows_str = []
-    rows_str.append(f"{'prediction':<15} {'LSNS':<10} {'LSS':<10} {'RSNS':<10} {'RSS':<10}")
+    rows_str.append(f"{'prediction':<15}{'LSNS':<10}{'LSS':<10}{'RSNS':<10}{'RSS':<10}")
     rows_str_index = 1
     for key_python, val_python in data_dict_python.items():
         key_tb = key_python.strip('.csv') + '_tb.csv'
@@ -73,12 +72,11 @@ def print_predictions(data_dict):
         rows_str.append("")
         scenario_name_python = key_python.strip('_mem_pot.csv').split('/')[-1] + " python"
         scenario_name_tb = key_tb.strip('_mem_pot_tb.csv').split('/')[-1] + " tb"
-        rows_str[rows_str_index] += f"{scenario_name_python:<15} "
-        rows_str[rows_str_index+1] += f"{scenario_name_tb:<15} "
-        print(rows_str)
+        rows_str[rows_str_index] += f"{scenario_name_python:<15}"
+        rows_str[rows_str_index+1] += f"{scenario_name_tb:<15}"
         for i in range(4):
-            rows_str[rows_str_index] += f"{val_python[-1, -i]:<10}"
-            rows_str[rows_str_index+1] += f"{val_tb[-1, -i]:<10}"
+            rows_str[rows_str_index] += f"{sum(val_python[:, -i]):<10}"
+            rows_str[rows_str_index+1] += f"{sum(val_tb[:, -i]):<10}"
         rows_str_index += 2
     for row in rows_str:
         print(row)
