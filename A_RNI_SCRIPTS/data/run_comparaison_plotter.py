@@ -59,10 +59,23 @@ if __name__ == "__main__":
     on_d2_2 = data_2[-1, -2]
     on_d2_3 = data_2[-1, -3]
     on_d2_4 = data_2[-1, -4]
+    
+    on_d1_1_pc = (on_d1_1 / (on_d1_1 + on_d1_2)) * 100
+    on_d1_2_pc = (on_d1_2 / (on_d1_1 + on_d1_2)) * 100
+    on_d1_3_pc = (on_d1_3 / (on_d1_3 + on_d1_4)) * 100
+    on_d1_4_pc = (on_d1_4 / (on_d1_3 + on_d1_4)) * 100
+    
+    on_d2_1_pc = (on_d2_1 / (on_d2_1 + on_d2_2)) * 100
+    on_d2_2_pc = (on_d2_2 / (on_d2_1 + on_d2_2)) * 100
+    on_d2_3_pc = (on_d2_3 / (on_d2_3 + on_d2_4)) * 100
+    on_d2_4_pc = (on_d2_4 / (on_d2_3 + on_d2_4)) * 100
+    
 
     print(f"{'n_index':<10} {'LSNS':<10} {'LSS':<10} {'RSNS':<10} {'RSS':<10} ")
-    print(f"{'data_1':<10} {on_d1_1:<10} {on_d1_2:<10} {on_d1_3:<10} {on_d1_4:<10}")
-    print(f"{'data_2':<10} {on_d2_1:<10} {on_d2_2:<10} {on_d2_3:<10} {on_d2_4:<10}")
+    print(f"{'data_1 (raw)':<10} {on_d1_1:<10} {on_d1_2:<10} {on_d1_3:<10} {on_d1_4:<10}")
+    print(f"{'data_1 (%)':<10} {on_d1_1_pc:<10.2f} {on_d1_2_pc:<10.2f} {on_d1_3_pc:<10.2f} {on_d1_4_pc:<10.2f}")
+    print(f"{'data_2 (raw)':<10} {on_d2_1:<10} {on_d2_2:<10} {on_d2_3:<10} {on_d2_4:<10}")
+    print(f"{'data_2 (%)':<10} {on_d2_1_pc:<10.2f} {on_d2_2_pc:<10.2f} {on_d2_3_pc:<10.2f} {on_d2_4_pc:<10.2f}")
 
     plot(data_1, data_2, plot_index_list)
 
