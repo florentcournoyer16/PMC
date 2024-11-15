@@ -35,8 +35,9 @@ def write_tb_header(tb_header_filepath, network_name, output_model_dict, weight_
 
         header_file.write(f'RNI_WEIGHT_TYPE TB_INPUTS[TB_SCENARIOS_LENGHT][TB_INPUTS_LENGHT][{output_model_dict["WEIGHTS_INDEX"][1]}] = {{\n')
         for tb_scenario_data in tb_scenarios_dict.values():
+            header_file.write('\t{ ')
             for row in tb_scenario_data:
-                header_file.write('\t{ ')
+                header_file.write('{ ')
                 for col in row:
                     header_file.write(f'{col}, ')
                 header_file.write('}, ')
