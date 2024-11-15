@@ -85,7 +85,7 @@ def print_predictions(data_dict):
         
 
 if __name__ == "__main__":
-    print("\n ---------- Running comparaison output plotter ---------- \n")
+    print("\n ---------- Running ubiquitious plotter ---------- \n")
     
     argument_parser = ArgumentParser(description="Plot neuron membrane values over time.")
 
@@ -107,5 +107,5 @@ if __name__ == "__main__":
     print_predictions(data_dict)
     plot(data_dict, plot_index_list)
 
-    print("\n ---------- Successfully ran Comparaison output ---------- \n")
+    print("\n ---------- Successfully ran unbiquitous plotter ---------- \n")
     

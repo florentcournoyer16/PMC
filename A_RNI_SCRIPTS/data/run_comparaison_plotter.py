@@ -78,5 +78,5 @@ if __name__ == "__main__":
 
     plot(data_1, data_2, plot_index_list)
 
-    print("\n ---------- Successfully ran Comparaison output ---------- \n")
+    print("\n ---------- Successfully ran comparaison output plotter ---------- \n")
     

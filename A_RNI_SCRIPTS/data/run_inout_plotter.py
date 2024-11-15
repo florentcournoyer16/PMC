@@ -54,5 +54,5 @@ if __name__ == "__main__":
 
     plot(data, plot_index_list)
 
-    print("\n ---------- Input / output successfully plotted ---------- \n")
+    print("\n ---------- Successfully ran input / output plotter ---------- \n")
     
