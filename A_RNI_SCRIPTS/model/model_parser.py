@@ -51,7 +51,7 @@ def parse_model(input_model_dict, weight_type_lenght, beta_type_lenght):
 def __compress__(output_model_dict, weight_type_lenght, beta_type_lenght):
     max_val = max(output_model_dict["WEIGHTS"] + output_model_dict["BIASES"] + output_model_dict["THRESHOLDS"] + output_model_dict["GRADED_SPIKES_FACTORS"] + output_model_dict["RESET"] + output_model_dict["BETAS"])
     for i in range(len(output_model_dict["WEIGHTS"])):
-        output_model_dict["WEIGHTS"][i] = int(round(output_model_dict["WEIGHTS"][i] / max_val * (2**(weight_type_lenght-1)-1) / 1.9, 0))
+        output_model_dict["WEIGHTS"][i] = int(round(output_model_dict["WEIGHTS"][i] / max_val * (2**(weight_type_lenght-1)-1) / 2, 0))
     for i in range(len(output_model_dict["BIASES"])):
         output_model_dict["BIASES"][i] = int(round(output_model_dict["BIASES"][i] / max_val * (2**(weight_type_lenght-1)-1), 0))
     for i in range(len(output_model_dict["THRESHOLDS"])):
