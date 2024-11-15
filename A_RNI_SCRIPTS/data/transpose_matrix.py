@@ -24,10 +24,10 @@ def save_transposed_matrix(transposed_data, output_path):
 
 if __name__ == "__main__":
     # Specify the path to the input CSV file
-    input_file = Path("A_RNI_SCRIPTS/data/input/LSS_mem_pot_trans.csv")
+    input_file = Path("A_RNI_SCRIPTS/data/input/LSS_mem_pot_trans2.csv")
     
     # Specify the path to save the transposed matrix
-    output_file = Path("A_RNI_SCRIPTS/data/input/LSS_mem_pot.csv")
+    output_file = Path("A_RNI_SCRIPTS/data/input/LSS_mem_pot2.csv")
     
     # Read and transpose the matrix
     transposed_matrix = read_and_transpose_csv(input_file)
