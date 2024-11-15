@@ -6,7 +6,6 @@ import time
 
 
 def plot(data_dict, indexes):
-
     fig, axs = plt.subplots(int(len(data_dict)/2), 2, figsize=(10, 4))
 
     data_dict_python = {}
