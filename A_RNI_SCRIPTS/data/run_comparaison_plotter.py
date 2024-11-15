@@ -17,6 +17,8 @@ def plot(data1, data2, indexes):
         if 1 <= index <= data1.shape[1]:
             axs[0].plot(x_axis1, data1[:, index - 1], label=f"Neuron {index}")
             axs[1].plot(x_axis1, data2[:, index - 1], label=f"Neuron {index}")
+            axs[0].set_title("Python")
+            axs[0].set_title("Test bench")
         else:
             print(f"Neuron {index} is out of range.")
 
