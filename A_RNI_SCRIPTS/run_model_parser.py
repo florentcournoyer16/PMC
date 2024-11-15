@@ -58,7 +58,7 @@ if __name__ == "__main__":
     for tb_scenario_filepath in tb_scenarios_folderpath.iterdir():
         with open(tb_scenario_filepath, mode='r', encoding='utf-8') as tb_inputs_file:
             csv_reader = reader(tb_inputs_file)
-            tb_scenario_name = str(tb_scenario_filepath).split('/')[-1].split('.')[0]
+            tb_scenario_name = str(tb_scenario_filepath).split('/')[-1].split('_')[0]
             tb_scenarios_dict[tb_scenario_name] = []
             for row in csv_reader:
                 tb_scenarios_dict[tb_scenario_name].append([int(value) for value in row])
