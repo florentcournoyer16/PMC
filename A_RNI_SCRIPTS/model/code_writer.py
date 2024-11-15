@@ -237,7 +237,7 @@ void output_layer(void)
     code_segments.append(f'\tNEURONS_LOOP_{layer_index}: for(INDEX_TYPE neuron_index = NEURONS_INDEX[layer_index]; neuron_index < NEURONS_INDEX[layer_index + 1];  neuron_index++)')
     code_segments.append("""
     {
-        NEURONS_MEMBRANE[neuron_index] += BIASES[neuron_index];
+        NEURONS_MEMBRANE[neuron_index] = BIASES[neuron_index];
 
 """)
 
