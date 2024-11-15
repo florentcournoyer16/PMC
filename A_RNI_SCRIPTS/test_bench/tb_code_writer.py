@@ -21,9 +21,9 @@ def __append_declarations__(code_segments):
     code_segments.append("""
 void RNI(pkt_stream& in_stream, pkt_stream& out_stream);
 
-void fill_input_buffer(pkt input_buffer[TB_INPUT_BUFFER_LENGHT]);
+void fill_input_buffer(pkt input_buffer[TB_INPUT_BUFFER_LENGHT], int tb_scenario_index);
 void send_data_to_RNI_and_fill_output_buffer(pkt input_buffer[TB_INPUT_BUFFER_LENGHT], pkt output_buffer[RNI_OUTPUT_LENGHT * TB_INPUTS_LENGHT]);
-int write_data_to_csv(pkt output_buffer[TB_OUTPUT_BUFFER_LENGHT]);
+int write_data_to_csv(pkt output_buffer[TB_OUTPUT_BUFFER_LENGHT], std::string output_filepath);
 
 """)
 
@@ -35,14 +35,22 @@ def __append_main_definition__(code_segments):
     code_segments.append("""
 int main(void)
 {
-	pkt input_buffer[TB_INPUT_BUFFER_LENGHT];
-	pkt output_buffer[TB_OUTPUT_BUFFER_LENGHT];
+	for(int tb_scenario_index = 0; tb_scenario_index < TB_SCENARIOS_LENGHT; tb_scenario_index++)
+	{
+		pkt input_buffer[TB_INPUT_BUFFER_LENGHT];
+		pkt output_buffer[TB_OUTPUT_BUFFER_LENGHT];
 
-	fill_input_buffer(input_buffer);
+		fill_input_buffer(input_buffer, tb_scenario_index);
 
-	send_data_to_RNI_and_fill_output_buffer(input_buffer, output_buffer);
+		send_data_to_RNI_and_fill_output_buffer(input_buffer, output_buffer);
 
-	return write_data_to_csv(output_buffer);
+		if (write_data_to_csv(output_buffer, TB_SCNEARIOS_NAME[tb_scenario_index]) != 0)
+		{
+			return -1;
+		}
+	}
+
+	return 0;
 }
        
 """)
@@ -53,13 +61,13 @@ int main(void)
 
 def __append_fill_input_buffer_definition__(code_segments):
     code_segments.append("""
-void fill_input_buffer(pkt input_buffer[TB_INPUT_BUFFER_LENGHT])
+void fill_input_buffer(pkt input_buffer[TB_INPUT_BUFFER_LENGHT], int tb_scenario_index)
 {
 	for(int row = 0; row < TB_INPUTS_LENGHT; row++)
 	{
 		for(int col = 0; col < RNI_INPUT_LENGHT; col++)
 		{
-			input_buffer[row * RNI_INPUT_LENGHT + col].data = TB_INPUTS[row][col];
+			input_buffer[row * RNI_INPUT_LENGHT + col].data = TB_INPUTS[tb_scenario_index][row][col];
 		}
  		input_buffer[row * RNI_INPUT_LENGHT + RNI_INPUT_LENGHT - 1].last = true;
 	}
@@ -101,9 +109,9 @@ void send_data_to_RNI_and_fill_output_buffer(pkt input_buffer[TB_INPUT_BUFFER_LE
 
 def __append_write_data_to_csv_definition__(code_segments):
     code_segments.append("""
-int write_data_to_csv(pkt output_buffer[TB_OUTPUT_BUFFER_LENGHT])
+int write_data_to_csv(pkt output_buffer[TB_OUTPUT_BUFFER_LENGHT], std::string tb_scenario_name)
 {
-	FILE* output_file = fopen(TB_OUTPUT_FILEPATH, "w");
+	FILE* output_file = fopen(TB_OUTPUTS_FOLDERPATH + tb_scenario_name  + "_tb.csv", "w");
 	if (output_file == NULL)
 	{
 		printf("Error opening file.");
