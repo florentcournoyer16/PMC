@@ -111,7 +111,8 @@ def __append_write_data_to_csv_definition__(code_segments):
     code_segments.append("""
 int write_data_to_csv(pkt output_buffer[TB_OUTPUT_BUFFER_LENGHT], std::string tb_scenario_name)
 {
-	FILE* output_file = fopen(TB_OUTPUTS_FOLDERPATH + tb_scenario_name  + "mem_pot_tb.csv", "w");
+    std:string output_filepath = TB_OUTPUTS_FOLDERPATH + tb_scenario_name  + "_mem_pot_tb.csv";
+	FILE* output_file = fopen(output_filepath.c_str(), "w");
 	if (output_file == NULL)
 	{
 		printf("Error opening file.");

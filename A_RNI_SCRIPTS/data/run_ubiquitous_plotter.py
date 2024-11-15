@@ -49,9 +49,41 @@ def plot(data_dict, indexes):
     fig.suptitle(f"Membrane Potential vs Timestep of Neuron {indexes[0]} to {indexes[-1]}")
     plt.show()
 
-def print_predictions():
-    pass
-
+def print_predictions(data_dict):
+    data_dict_python = {}
+    data_dict_tb = {}
+    for key, val in data_dict.items():
+        if "_tb.csv" in key: 
+            data_dict_tb[key] = val
+        else:
+            data_dict_python[key] = val
+    
+    rows_str = []
+    rows_str.append(f"{'prediction':<15} {'LSNS':<10} {'LSS':<10} {'RSNS':<10} {'RSS':<10}")
+    rows_str_index = 1
+    for key_python, val_python in data_dict_python.items():
+        key_tb = key_python.strip('.csv') + '_tb.csv'
+        val_tb = data_dict_tb.get(key_tb)
+        if val_tb is None:
+            print("no test bench data to compare: " + key_python)
+            continue
+        if val_python.shape[0] != val_tb.shape[0]:
+            print("datas to compare should have the same size: " + key_python + " and " + key_tb)
+            continue
+        rows_str.append("")
+        rows_str.append("")
+        scenario_name_python = key_python.strip('_mem_pot.csv').split('/')[-1] + " python"
+        scenario_name_tb = key_tb.strip('_mem_pot_tb.csv').split('/')[-1] + " tb"
+        rows_str[rows_str_index] += f"{scenario_name_python:<15} "
+        rows_str[rows_str_index+1] += f"{scenario_name_tb:<15} "
+        print(rows_str)
+        for i in range(4):
+            rows_str[rows_str_index] += f"{val_python[-1, -i]:<10}"
+            rows_str[rows_str_index+1] += f"{val_tb[-1, -i]:<10}"
+        rows_str_index += 2
+    for row in rows_str:
+        print(row)
+        
 
 if __name__ == "__main__":
     print("\n ---------- Running comparaison output plotter ---------- \n")
@@ -73,8 +105,8 @@ if __name__ == "__main__":
 
     plot_index_list = np.arange(args.start_index, args.end_index, args.step)
 
+    print_predictions(data_dict)
     plot(data_dict, plot_index_list)
-    print_predictions()
 
     print("\n ---------- Successfully ran Comparaison output ---------- \n")
     
