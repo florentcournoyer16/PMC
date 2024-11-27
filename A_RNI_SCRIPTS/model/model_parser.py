@@ -12,6 +12,7 @@ def parse_model(input_model_dict, weight_type_lenght, beta_type_lenght):
         "LEAK": [],
         "BETAS": [],
         "NEURONS_MEMBRANE": [],
+        "NEURONS_MEMBRANE_COPY" : [],
         "NEURONS_STATE": [],
     }
     layers = input_model_dict['model']['state_dict']
@@ -26,6 +27,7 @@ def parse_model(input_model_dict, weight_type_lenght, beta_type_lenght):
                 total_weights += len(weights)
                 output_model_dict["WEIGHTS_INDEX"].append(total_weights)
                 output_model_dict["NEURONS_MEMBRANE"].append(0)
+                output_model_dict["NEURONS_MEMBRANE_COPY"].append(0)
                 output_model_dict["NEURONS_STATE"].append(0)
                 for weight in weights:
                     output_model_dict["WEIGHTS"].append(weight)

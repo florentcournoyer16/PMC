@@ -282,6 +282,7 @@ def __append_update_neuron_state_reset_membrane_definition__(code_segments):
     code_segments.append("""
 void update_neuron_state_reset_membrane(INDEX_TYPE layer_index, INDEX_TYPE neuron_index)
 {
+    NEURONS_MEMBRANE_COPY[neuron_index] = NEURONS_MEMBRANE[neuron_index];
 	if(NEURONS_MEMBRANE[neuron_index] >= THRESHOLDS[layer_index])
 	{
 		NEURONS_STATE[neuron_index] = 1;
@@ -320,7 +321,7 @@ void output_stream_dispatch(pkt_stream& out_stream, pkt out_pkts[OUTPUT_LENGHT],
         {
             out_pkts[i] = in_pkts[INPUT_LENGHT - 1];
         }
-        out_pkts[i].data = NEURONS_MEMBRANE[i];
+        out_pkts[i].data = NEURONS_MEMBRANE_COPY[i];
         out_stream.write(out_pkts[i]);
     }
 }
