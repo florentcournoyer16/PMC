@@ -1,0 +1,177 @@
+
+
+================================================================
+== Vitis HLS Report for 'inner_layer_1_Pipeline_WEIGHTS_LOOP_1'
+================================================================
+* Date:           Tue Nov 26 16:00:54 2024
+
+* Version:        2023.1.1 (Build 3869133 on Jun 15 2023)
+* Project:        RNI
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  6.309 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+----------+-----+--------+---------+
+    |  Latency (cycles) |  Latency (absolute)  |   Interval   | Pipeline|
+    |   min   |   max   |    min    |    max   | min |   max  |   Type  |
+    +---------+---------+-----------+----------+-----+--------+---------+
+    |        2|   262142|  20.000 ns|  2.621 ms|    2|  262142|       no|
+    +---------+---------+-----------+----------+-----+--------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +------------------+---------+---------+----------+-----------+-----------+-----------+----------+
+        |                  |  Latency (cycles) | Iteration|  Initiation Interval  |    Trip   |          |
+        |     Loop Name    |   min   |   max   |  Latency |  achieved |   target  |   Count   | Pipelined|
+        +------------------+---------+---------+----------+-----------+-----------+-----------+----------+
+        |- WEIGHTS_LOOP_1  |        0|   262140|         5|          4|          1|  0 ~ 65535|       yes|
+        +------------------+---------+---------+----------+-----------+-----------+-----------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|    220|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |        -|    -|       -|      -|    -|
+|Memory           |        8|    -|       0|      0|    -|
+|Multiplexer      |        -|    -|       -|     90|    -|
+|Register         |        -|    -|     186|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        8|    0|     186|    310|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      280|  220|  106400|  53200|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |        2|    0|      ~0|     ~0|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    +-----------+---------------------------------------------------------+---------+---+----+-----+-------+-----+------+-------------+
+    |   Memory  |                          Module                         | BRAM_18K| FF| LUT| URAM| Words | Bits| Banks| W*Bits*Banks|
+    +-----------+---------------------------------------------------------+---------+---+----+-----+-------+-----+------+-------------+
+    |WEIGHTS_U  |input_layer_Pipeline_WEIGHTS_LOOP_0_WEIGHTS_ROM_AUTO_1R  |        8|  0|   0|    0|  11312|    8|     1|        90496|
+    +-----------+---------------------------------------------------------+---------+---+----+-----+-------+-----+------+-------------+
+    |Total      |                                                         |        8|  0|   0|    0|  11312|    8|     1|        90496|
+    +-----------+---------------------------------------------------------+---------+---+----+-----+-------+-----+------+-------------+
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------+----------+----+---+----+------------+------------+
+    |     Variable Name    | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------+----------+----+---+----+------------+------------+
+    |add_ln87_fu_163_p2    |         +|   0|  0|  71|          64|           1|
+    |add_ln92_1_fu_199_p2  |         +|   0|  0|  23|          16|          16|
+    |add_ln92_fu_185_p2    |         +|   0|  0|  24|          17|          17|
+    |sub_ln89_fu_153_p2    |         -|   0|  0|  15|           8|           8|
+    |and_ln92_1_fu_231_p2  |       and|   0|  0|   2|           1|           1|
+    |and_ln92_fu_219_p2    |       and|   0|  0|   2|           1|           1|
+    |ap_condition_331      |       and|   0|  0|   2|           1|           1|
+    |ap_condition_337      |       and|   0|  0|   2|           1|           1|
+    |icmp_ln87_fu_144_p2   |      icmp|   0|  0|  71|          64|          64|
+    |ap_enable_pp0         |       xor|   0|  0|   2|           1|           2|
+    |xor_ln92_1_fu_225_p2  |       xor|   0|  0|   2|           1|           2|
+    |xor_ln92_2_fu_237_p2  |       xor|   0|  0|   2|           1|           1|
+    |xor_ln92_fu_213_p2    |       xor|   0|  0|   2|           1|           2|
+    +----------------------+----------+----+---+----+------------+------------+
+    |Total                 |          |   0|  0| 220|         177|         117|
+    +----------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------------------------+----+-----------+-----+-----------+
+    |             Name            | LUT| Input Size| Bits| Total Bits|
+    +-----------------------------+----+-----------+-----+-----------+
+    |NEURONS_MEMBRANE_d0          |  20|          4|   16|         64|
+    |ap_NS_fsm                    |  25|          5|    1|          5|
+    |ap_done_int                  |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter0      |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter0_reg  |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1      |   9|          2|    1|          2|
+    |weight_index_fu_56           |   9|          2|   64|        128|
+    +-----------------------------+----+-----------+-----+-----------+
+    |Total                        |  90|         19|   85|        205|
+    +-----------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------------+----+----+-----+-----------+
+    |              Name             | FF | LUT| Bits| Const Bits|
+    +-------------------------------+----+----+-----+-----------+
+    |NEURONS_MEMBRANE_addr_reg_271  |   8|   0|    8|          0|
+    |add_ln92_1_reg_294             |  16|   0|   16|          0|
+    |and_ln92_1_reg_303             |   1|   0|    1|          0|
+    |and_ln92_reg_299               |   1|   0|    1|          0|
+    |ap_CS_fsm                      |   4|   0|    4|          0|
+    |ap_done_reg                    |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter0_reg    |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1        |   1|   0|    1|          0|
+    |icmp_ln87_reg_276              |   1|   0|    1|          0|
+    |neuron_state_reg_285           |   1|   0|    1|          0|
+    |weight_index_4_reg_265         |  64|   0|   64|          0|
+    |weight_index_fu_56             |  64|   0|   64|          0|
+    |xor_ln92_2_reg_307             |   1|   0|    1|          0|
+    |zext_ln82_cast_reg_260         |   8|   0|   64|         56|
+    |zext_ln87_1_cast_reg_255       |  14|   0|   64|         50|
+    +-------------------------------+----+----+-----+-----------+
+    |Total                          | 186|   0|  292|        106|
+    +-------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------+-----+-----+------------+---------------------------------------+--------------+
+|         RTL Ports         | Dir | Bits|  Protocol  |             Source Object             |    C Type    |
++---------------------------+-----+-----+------------+---------------------------------------+--------------+
+|ap_clk                     |   in|    1|  ap_ctrl_hs|  inner_layer_1_Pipeline_WEIGHTS_LOOP_1|  return value|
+|ap_rst                     |   in|    1|  ap_ctrl_hs|  inner_layer_1_Pipeline_WEIGHTS_LOOP_1|  return value|
+|ap_start                   |   in|    1|  ap_ctrl_hs|  inner_layer_1_Pipeline_WEIGHTS_LOOP_1|  return value|
+|ap_done                    |  out|    1|  ap_ctrl_hs|  inner_layer_1_Pipeline_WEIGHTS_LOOP_1|  return value|
+|ap_idle                    |  out|    1|  ap_ctrl_hs|  inner_layer_1_Pipeline_WEIGHTS_LOOP_1|  return value|
+|ap_ready                   |  out|    1|  ap_ctrl_hs|  inner_layer_1_Pipeline_WEIGHTS_LOOP_1|  return value|
+|zext_ln87                  |   in|   14|     ap_none|                              zext_ln87|        scalar|
+|zext_ln82                  |   in|    8|     ap_none|                              zext_ln82|        scalar|
+|zext_ln87_1                |   in|   14|     ap_none|                            zext_ln87_1|        scalar|
+|trunc_ln                   |   in|    8|     ap_none|                               trunc_ln|        scalar|
+|NEURONS_STATE_address0     |  out|    8|   ap_memory|                          NEURONS_STATE|         array|
+|NEURONS_STATE_ce0          |  out|    1|   ap_memory|                          NEURONS_STATE|         array|
+|NEURONS_STATE_q0           |   in|    1|   ap_memory|                          NEURONS_STATE|         array|
+|NEURONS_MEMBRANE_address0  |  out|    8|   ap_memory|                       NEURONS_MEMBRANE|         array|
+|NEURONS_MEMBRANE_ce0       |  out|    1|   ap_memory|                       NEURONS_MEMBRANE|         array|
+|NEURONS_MEMBRANE_we0       |  out|    1|   ap_memory|                       NEURONS_MEMBRANE|         array|
+|NEURONS_MEMBRANE_d0        |  out|   16|   ap_memory|                       NEURONS_MEMBRANE|         array|
+|NEURONS_MEMBRANE_q0        |   in|   16|   ap_memory|                       NEURONS_MEMBRANE|         array|
++---------------------------+-----+-----+------------+---------------------------------------+--------------+
+

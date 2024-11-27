@@ -1,0 +1,48 @@
+================================================================
+== Design Size Report
+================================================================
+
+* Instructions per Function for each Compilation Phase
++-------------------------------------+-------------+--------------+---------------+----------------------+---------------+
+| Function                            | Location    | Compile/Link | Unroll/Inline | Performance/Pipeline | Optimizations |
++-------------------------------------+-------------+--------------+---------------+----------------------+---------------+
+| + RNI                               | RNI.cpp:19  | 11,860       | 1,952         | 939                  | 971           |
+|    input_stream_reception           | RNI.cpp:52  |    224       |    60         |                      |               |
+|  + input_layer                      | RNI.cpp:61  |  2,197       |   348         | 152                  | 158           |
+|     leak_neuron                     | RNI.cpp:169 |    557       |    93         |                      |               |
+|     update_neuron_state_reset_me... | RNI.cpp:176 |    134       |    25         |                      |               |
+|  + inner_layer_1                    | RNI.cpp:79  |  2,447       |   381         | 168                  | 175           |
+|     leak_neuron                     | RNI.cpp:169 |    557       |    93         |                      |               |
+|     update_neuron_state_reset_me... | RNI.cpp:176 |    134       |    25         |                      |               |
+|     reset_neuron_states             | RNI.cpp:186 |    225       |    29         |                      |               |
+|  + inner_layer_2                    | RNI.cpp:102 |  2,447       |   381         | 171                  | 178           |
+|     leak_neuron                     | RNI.cpp:169 |    557       |    93         |                      |               |
+|     update_neuron_state_reset_me... | RNI.cpp:176 |    134       |    25         |                      |               |
+|     reset_neuron_states             | RNI.cpp:186 |    225       |    29         |                      |               |
+|  + inner_layer_3                    | RNI.cpp:125 |  2,447       |   381         | 171                  | 178           |
+|     leak_neuron                     | RNI.cpp:169 |    557       |    93         |                      |               |
+|     update_neuron_state_reset_me... | RNI.cpp:176 |    134       |    25         |                      |               |
+|     reset_neuron_states             | RNI.cpp:186 |    225       |    29         |                      |               |
+|  + output_layer                     | RNI.cpp:148 |  1,492       |   187         |                      |               |
+|     reset_neuron_states             | RNI.cpp:186 |    225       |    29         |                      |               |
+|    output_stream_dispatch           | RNI.cpp:195 |    417       |   122         |                      |               |
++-------------------------------------+-------------+--------------+---------------+----------------------+---------------+
+
+* Description of Compilation Phases
++----------------------+------------------------------------------------------------+
+| Compilation Phase    | Description                                                |
++----------------------+------------------------------------------------------------+
+| Compile/Link         | All functions are compiled and linked into a single design |
+| Unroll/Inline        | After user unroll and inline pragmas are applied           |
+| Performance/Pipeline | After performance and pipeline pragmas are applied         |
+| Optimizations        | After high level synthesis optimizations                   |
++----------------------+------------------------------------------------------------+
+
+* Design Size Message Settings
++---------------------------------------------+---------+------------------------------------------------------------------+
+| Message Setting                             | Value   | Description                                                      |
++---------------------------------------------+---------+------------------------------------------------------------------+
+| config_compile -design_size_maximum_warning | 1000000 | Show a warning when total design instructions exceeds this value |
++---------------------------------------------+---------+------------------------------------------------------------------+
+
+

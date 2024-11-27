@@ -1,0 +1,400 @@
+
+
+================================================================
+== Vitis HLS Report for 'RNI'
+================================================================
+* Date:           Tue Nov 26 16:00:53 2024
+
+* Version:        2023.1.1 (Build 3869133 on Jun 15 2023)
+* Project:        RNI
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  7.077 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------------+---------+---------+-----------------+-----------+-----------+------+----------+
+        |                   |  Latency (cycles) |    Iteration    |  Initiation Interval  | Trip |          |
+        |     Loop Name     |   min   |   max   |     Latency     |  achieved |   target  | Count| Pipelined|
+        +-------------------+---------+---------+-----------------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_30_1  |        ?|        ?|  3518 ~ 38538994|          -|          -|     ?|        no|
+        | + NEURONS_LOOP_4  |       18|   786438|       6 ~ 262146|          -|          -|     3|        no|
+        +-------------------+---------+---------+-----------------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 19
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 16 
+13 --> 14 
+14 --> 15 
+15 --> 12 
+16 --> 17 
+17 --> 18 
+18 --> 19 2 
+19 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%in_pkts_last_0_0113 = alloca i32 1"   --->   Operation 20 'alloca' 'in_pkts_last_0_0113' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%in_pkts_keep_0_0107 = alloca i32 1"   --->   Operation 21 'alloca' 'in_pkts_keep_0_0107' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%in_pkts_keep_3_0108 = alloca i32 1"   --->   Operation 22 'alloca' 'in_pkts_keep_3_0108' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%in_pkts_strb_0_0109 = alloca i32 1"   --->   Operation 23 'alloca' 'in_pkts_strb_0_0109' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%in_pkts_strb_3_0110 = alloca i32 1"   --->   Operation 24 'alloca' 'in_pkts_strb_3_0110' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%in_pkts_user_0_0111 = alloca i32 1"   --->   Operation 25 'alloca' 'in_pkts_user_0_0111' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%in_pkts_user_3_0112 = alloca i32 1"   --->   Operation 26 'alloca' 'in_pkts_user_3_0112' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%in_pkts_id_0_0115 = alloca i32 1"   --->   Operation 27 'alloca' 'in_pkts_id_0_0115' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%in_pkts_id_3_0116 = alloca i32 1"   --->   Operation 28 'alloca' 'in_pkts_id_3_0116' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%in_pkts_dest_0_0117 = alloca i32 1"   --->   Operation 29 'alloca' 'in_pkts_dest_0_0117' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%in_pkts_dest_3_0118 = alloca i32 1"   --->   Operation 30 'alloca' 'in_pkts_dest_3_0118' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%in_pkts_data_0_05 = alloca i32 1"   --->   Operation 31 'alloca' 'in_pkts_data_0_05' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%in_pkts_data_1_06 = alloca i32 1"   --->   Operation 32 'alloca' 'in_pkts_data_1_06' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%in_pkts_data_2_07 = alloca i32 1"   --->   Operation 33 'alloca' 'in_pkts_data_2_07' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%in_pkts_data_3_08 = alloca i32 1"   --->   Operation 34 'alloca' 'in_pkts_data_3_08' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%in_pkts_keep_0_1_loc = alloca i64 1"   --->   Operation 35 'alloca' 'in_pkts_keep_0_1_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%in_pkts_keep_3_1_loc = alloca i64 1"   --->   Operation 36 'alloca' 'in_pkts_keep_3_1_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%in_pkts_strb_0_1_loc = alloca i64 1"   --->   Operation 37 'alloca' 'in_pkts_strb_0_1_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "%in_pkts_strb_3_1_loc = alloca i64 1"   --->   Operation 38 'alloca' 'in_pkts_strb_3_1_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "%in_pkts_user_0_1_loc = alloca i64 1"   --->   Operation 39 'alloca' 'in_pkts_user_0_1_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%in_pkts_user_3_1_loc = alloca i64 1"   --->   Operation 40 'alloca' 'in_pkts_user_3_1_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%in_pkts_last_0_1_loc = alloca i64 1"   --->   Operation 41 'alloca' 'in_pkts_last_0_1_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%in_pkts_last_3_1_loc = alloca i64 1"   --->   Operation 42 'alloca' 'in_pkts_last_3_1_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 43 [1/1] (0.00ns)   --->   "%in_pkts_id_0_1_loc = alloca i64 1"   --->   Operation 43 'alloca' 'in_pkts_id_0_1_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 44 [1/1] (0.00ns)   --->   "%in_pkts_id_3_1_loc = alloca i64 1"   --->   Operation 44 'alloca' 'in_pkts_id_3_1_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 45 [1/1] (0.00ns)   --->   "%in_pkts_dest_0_1_loc = alloca i64 1"   --->   Operation 45 'alloca' 'in_pkts_dest_0_1_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 46 [1/1] (0.00ns)   --->   "%in_pkts_dest_3_1_loc = alloca i64 1"   --->   Operation 46 'alloca' 'in_pkts_dest_3_1_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 47 [1/1] (0.00ns)   --->   "%in_pkts_data_0_1_loc = alloca i64 1"   --->   Operation 47 'alloca' 'in_pkts_data_0_1_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 48 [1/1] (0.00ns)   --->   "%in_pkts_data_1_1_loc = alloca i64 1"   --->   Operation 48 'alloca' 'in_pkts_data_1_1_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%in_pkts_data_2_1_loc = alloca i64 1"   --->   Operation 49 'alloca' 'in_pkts_data_2_1_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 50 [1/1] (0.00ns)   --->   "%in_pkts_data_3_1_loc = alloca i64 1"   --->   Operation 50 'alloca' 'in_pkts_data_3_1_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 51 [1/1] (0.00ns)   --->   "%spectopmodule_ln19 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_6" [src/RNI.cpp:19]   --->   Operation 51 'spectopmodule' 'spectopmodule_ln19' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 52 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %in_stream_V_data_V, i4 %in_stream_V_keep_V, i4 %in_stream_V_strb_V, i2 %in_stream_V_user_V, i1 %in_stream_V_last_V, i5 %in_stream_V_id_V, i6 %in_stream_V_dest_V, void @empty_3, i32 1, i32 1, void @empty_4, i32 0, i32 0, void @empty_5, void @empty_5, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0"   --->   Operation 52 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 53 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %in_stream_V_data_V"   --->   Operation 53 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 54 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i4 %in_stream_V_keep_V"   --->   Operation 54 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 55 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i4 %in_stream_V_strb_V"   --->   Operation 55 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 56 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i2 %in_stream_V_user_V"   --->   Operation 56 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 57 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %in_stream_V_last_V"   --->   Operation 57 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 58 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i5 %in_stream_V_id_V"   --->   Operation 58 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 59 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i6 %in_stream_V_dest_V"   --->   Operation 59 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 60 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %out_stream_V_data_V, i4 %out_stream_V_keep_V, i4 %out_stream_V_strb_V, i2 %out_stream_V_user_V, i1 %out_stream_V_last_V, i5 %out_stream_V_id_V, i6 %out_stream_V_dest_V, void @empty_3, i32 1, i32 1, void @empty_4, i32 0, i32 0, void @empty_5, void @empty_5, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0"   --->   Operation 60 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 61 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %out_stream_V_data_V"   --->   Operation 61 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 62 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i4 %out_stream_V_keep_V"   --->   Operation 62 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 63 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i4 %out_stream_V_strb_V"   --->   Operation 63 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 64 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i2 %out_stream_V_user_V"   --->   Operation 64 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 65 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %out_stream_V_last_V"   --->   Operation 65 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 66 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i5 %out_stream_V_id_V"   --->   Operation 66 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 67 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i6 %out_stream_V_dest_V"   --->   Operation 67 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 68 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 0, void @empty_14, i32 0, i32 0, void @empty_5, i32 0, i32 0, void @empty_12, void @empty_5, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0"   --->   Operation 68 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 69 [1/1] (0.00ns)   --->   "%out_pkts_keep = alloca i64 1" [src/RNI.cpp:27]   --->   Operation 69 'alloca' 'out_pkts_keep' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 70 [1/1] (0.00ns)   --->   "%out_pkts_strb = alloca i64 1" [src/RNI.cpp:27]   --->   Operation 70 'alloca' 'out_pkts_strb' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 71 [1/1] (0.00ns)   --->   "%out_pkts_user = alloca i64 1" [src/RNI.cpp:27]   --->   Operation 71 'alloca' 'out_pkts_user' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 72 [1/1] (0.00ns)   --->   "%out_pkts_last = alloca i64 1" [src/RNI.cpp:27]   --->   Operation 72 'alloca' 'out_pkts_last' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 73 [1/1] (0.00ns)   --->   "%out_pkts_id = alloca i64 1" [src/RNI.cpp:27]   --->   Operation 73 'alloca' 'out_pkts_id' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 74 [1/1] (0.00ns)   --->   "%out_pkts_dest = alloca i64 1" [src/RNI.cpp:27]   --->   Operation 74 'alloca' 'out_pkts_dest' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 75 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln30 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i32 %out_stream_V_data_V, i4 %out_stream_V_keep_V, i4 %out_stream_V_strb_V, i2 %out_stream_V_user_V, i1 %out_stream_V_last_V, i5 %out_stream_V_id_V, i6 %out_stream_V_dest_V, void @empty_13" [src/RNI.cpp:30]   --->   Operation 75 'specaxissidechannel' 'specaxissidechannel_ln30' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 76 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln30 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i32 %in_stream_V_data_V, i4 %in_stream_V_keep_V, i4 %in_stream_V_strb_V, i2 %in_stream_V_user_V, i1 %in_stream_V_last_V, i5 %in_stream_V_id_V, i6 %in_stream_V_dest_V, void @empty_11" [src/RNI.cpp:30]   --->   Operation 76 'specaxissidechannel' 'specaxissidechannel_ln30' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 77 [1/1] (0.00ns)   --->   "%br_ln30 = br void %while.body" [src/RNI.cpp:30]   --->   Operation 77 'br' 'br_ln30' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 1.58>
+ST_2 : Operation 78 [1/1] (0.00ns)   --->   "%in_pkts_last_0_0113_load = load i1 %in_pkts_last_0_0113"   --->   Operation 78 'load' 'in_pkts_last_0_0113_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 79 [1/1] (0.00ns)   --->   "%in_pkts_keep_0_0107_load = load i4 %in_pkts_keep_0_0107"   --->   Operation 79 'load' 'in_pkts_keep_0_0107_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 80 [1/1] (0.00ns)   --->   "%in_pkts_keep_3_0108_load = load i4 %in_pkts_keep_3_0108"   --->   Operation 80 'load' 'in_pkts_keep_3_0108_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 81 [1/1] (0.00ns)   --->   "%in_pkts_strb_0_0109_load = load i4 %in_pkts_strb_0_0109"   --->   Operation 81 'load' 'in_pkts_strb_0_0109_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 82 [1/1] (0.00ns)   --->   "%in_pkts_strb_3_0110_load = load i4 %in_pkts_strb_3_0110"   --->   Operation 82 'load' 'in_pkts_strb_3_0110_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 83 [1/1] (0.00ns)   --->   "%in_pkts_user_0_0111_load = load i2 %in_pkts_user_0_0111"   --->   Operation 83 'load' 'in_pkts_user_0_0111_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 84 [1/1] (0.00ns)   --->   "%in_pkts_user_3_0112_load = load i2 %in_pkts_user_3_0112"   --->   Operation 84 'load' 'in_pkts_user_3_0112_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 85 [1/1] (0.00ns)   --->   "%in_pkts_id_0_0115_load = load i5 %in_pkts_id_0_0115"   --->   Operation 85 'load' 'in_pkts_id_0_0115_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 86 [1/1] (0.00ns)   --->   "%in_pkts_id_3_0116_load = load i5 %in_pkts_id_3_0116"   --->   Operation 86 'load' 'in_pkts_id_3_0116_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 87 [1/1] (0.00ns)   --->   "%in_pkts_dest_0_0117_load = load i6 %in_pkts_dest_0_0117"   --->   Operation 87 'load' 'in_pkts_dest_0_0117_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 88 [1/1] (0.00ns)   --->   "%in_pkts_dest_3_0118_load = load i6 %in_pkts_dest_3_0118"   --->   Operation 88 'load' 'in_pkts_dest_3_0118_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 89 [1/1] (0.00ns)   --->   "%in_pkts_data_0_05_load = load i32 %in_pkts_data_0_05"   --->   Operation 89 'load' 'in_pkts_data_0_05_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 90 [1/1] (0.00ns)   --->   "%in_pkts_data_1_06_load = load i32 %in_pkts_data_1_06"   --->   Operation 90 'load' 'in_pkts_data_1_06_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 91 [1/1] (0.00ns)   --->   "%in_pkts_data_2_07_load = load i32 %in_pkts_data_2_07"   --->   Operation 91 'load' 'in_pkts_data_2_07_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 92 [1/1] (0.00ns)   --->   "%in_pkts_data_3_08_load = load i32 %in_pkts_data_3_08"   --->   Operation 92 'load' 'in_pkts_data_3_08_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 93 [1/1] (0.00ns)   --->   "%empty = wait i32 @_ssdm_op_Wait"   --->   Operation 93 'wait' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 94 [2/2] (1.58ns)   --->   "%call_ln0 = call void @RNI_Pipeline_VITIS_LOOP_54_1, i32 %in_pkts_data_3_08_load, i32 %in_pkts_data_2_07_load, i32 %in_pkts_data_1_06_load, i32 %in_pkts_data_0_05_load, i6 %in_pkts_dest_3_0118_load, i6 %in_pkts_dest_0_0117_load, i5 %in_pkts_id_3_0116_load, i5 %in_pkts_id_0_0115_load, i1 %in_pkts_last_0_0113_load, i2 %in_pkts_user_3_0112_load, i2 %in_pkts_user_0_0111_load, i4 %in_pkts_strb_3_0110_load, i4 %in_pkts_strb_0_0109_load, i4 %in_pkts_keep_3_0108_load, i4 %in_pkts_keep_0_0107_load, i32 %in_stream_V_data_V, i4 %in_stream_V_keep_V, i4 %in_stream_V_strb_V, i2 %in_stream_V_user_V, i1 %in_stream_V_last_V, i5 %in_stream_V_id_V, i6 %in_stream_V_dest_V, i32 %in_pkts_data_3_1_loc, i32 %in_pkts_data_2_1_loc, i32 %in_pkts_data_1_1_loc, i32 %in_pkts_data_0_1_loc, i6 %in_pkts_dest_3_1_loc, i6 %in_pkts_dest_0_1_loc, i5 %in_pkts_id_3_1_loc, i5 %in_pkts_id_0_1_loc, i1 %in_pkts_last_3_1_loc, i1 %in_pkts_last_0_1_loc, i2 %in_pkts_user_3_1_loc, i2 %in_pkts_user_0_1_loc, i4 %in_pkts_strb_3_1_loc, i4 %in_pkts_strb_0_1_loc, i4 %in_pkts_keep_3_1_loc, i4 %in_pkts_keep_0_1_loc"   --->   Operation 94 'call' 'call_ln0' <Predicate = true> <Delay = 1.58> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 3 <SV = 2> <Delay = 3.23>
+ST_3 : Operation 95 [1/2] (3.23ns)   --->   "%call_ln0 = call void @RNI_Pipeline_VITIS_LOOP_54_1, i32 %in_pkts_data_3_08_load, i32 %in_pkts_data_2_07_load, i32 %in_pkts_data_1_06_load, i32 %in_pkts_data_0_05_load, i6 %in_pkts_dest_3_0118_load, i6 %in_pkts_dest_0_0117_load, i5 %in_pkts_id_3_0116_load, i5 %in_pkts_id_0_0115_load, i1 %in_pkts_last_0_0113_load, i2 %in_pkts_user_3_0112_load, i2 %in_pkts_user_0_0111_load, i4 %in_pkts_strb_3_0110_load, i4 %in_pkts_strb_0_0109_load, i4 %in_pkts_keep_3_0108_load, i4 %in_pkts_keep_0_0107_load, i32 %in_stream_V_data_V, i4 %in_stream_V_keep_V, i4 %in_stream_V_strb_V, i2 %in_stream_V_user_V, i1 %in_stream_V_last_V, i5 %in_stream_V_id_V, i6 %in_stream_V_dest_V, i32 %in_pkts_data_3_1_loc, i32 %in_pkts_data_2_1_loc, i32 %in_pkts_data_1_1_loc, i32 %in_pkts_data_0_1_loc, i6 %in_pkts_dest_3_1_loc, i6 %in_pkts_dest_0_1_loc, i5 %in_pkts_id_3_1_loc, i5 %in_pkts_id_0_1_loc, i1 %in_pkts_last_3_1_loc, i1 %in_pkts_last_0_1_loc, i2 %in_pkts_user_3_1_loc, i2 %in_pkts_user_0_1_loc, i4 %in_pkts_strb_3_1_loc, i4 %in_pkts_strb_0_1_loc, i4 %in_pkts_keep_3_1_loc, i4 %in_pkts_keep_0_1_loc"   --->   Operation 95 'call' 'call_ln0' <Predicate = true> <Delay = 3.23> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 4 <SV = 3> <Delay = 0.00>
+ST_4 : Operation 96 [1/1] (0.00ns)   --->   "%in_pkts_data_3_1_loc_load = load i32 %in_pkts_data_3_1_loc"   --->   Operation 96 'load' 'in_pkts_data_3_1_loc_load' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 97 [1/1] (0.00ns)   --->   "%in_pkts_data_2_1_loc_load = load i32 %in_pkts_data_2_1_loc"   --->   Operation 97 'load' 'in_pkts_data_2_1_loc_load' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 98 [1/1] (0.00ns)   --->   "%in_pkts_data_1_1_loc_load = load i32 %in_pkts_data_1_1_loc"   --->   Operation 98 'load' 'in_pkts_data_1_1_loc_load' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 99 [1/1] (0.00ns)   --->   "%in_pkts_data_0_1_loc_load = load i32 %in_pkts_data_0_1_loc"   --->   Operation 99 'load' 'in_pkts_data_0_1_loc_load' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 100 [1/1] (0.00ns)   --->   "%empty_49 = wait i32 @_ssdm_op_Wait"   --->   Operation 100 'wait' 'empty_49' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 101 [2/2] (0.00ns)   --->   "%call_ln34 = call void @input_layer, i32 %in_pkts_data_0_1_loc_load, i32 %in_pkts_data_1_1_loc_load, i32 %in_pkts_data_2_1_loc_load, i32 %in_pkts_data_3_1_loc_load, i16 %NEURONS_MEMBRANE, i8 %BIASES, i14 %WEIGHTS_INDEX, i8 %WEIGHTS, i1 %NEURONS_STATE" [src/RNI.cpp:34]   --->   Operation 101 'call' 'call_ln34' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 5 <SV = 4> <Delay = 0.00>
+ST_5 : Operation 102 [1/2] (0.00ns)   --->   "%call_ln34 = call void @input_layer, i32 %in_pkts_data_0_1_loc_load, i32 %in_pkts_data_1_1_loc_load, i32 %in_pkts_data_2_1_loc_load, i32 %in_pkts_data_3_1_loc_load, i16 %NEURONS_MEMBRANE, i8 %BIASES, i14 %WEIGHTS_INDEX, i8 %WEIGHTS, i1 %NEURONS_STATE" [src/RNI.cpp:34]   --->   Operation 102 'call' 'call_ln34' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 6 <SV = 5> <Delay = 0.00>
+ST_6 : Operation 103 [2/2] (0.00ns)   --->   "%call_ln36 = call void @inner_layer_1, i1 %NEURONS_STATE, i16 %NEURONS_MEMBRANE, i8 %BIASES, i14 %WEIGHTS_INDEX, i8 %WEIGHTS" [src/RNI.cpp:36]   --->   Operation 103 'call' 'call_ln36' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 7 <SV = 6> <Delay = 0.00>
+ST_7 : Operation 104 [1/2] (0.00ns)   --->   "%call_ln36 = call void @inner_layer_1, i1 %NEURONS_STATE, i16 %NEURONS_MEMBRANE, i8 %BIASES, i14 %WEIGHTS_INDEX, i8 %WEIGHTS" [src/RNI.cpp:36]   --->   Operation 104 'call' 'call_ln36' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 8 <SV = 7> <Delay = 0.00>
+ST_8 : Operation 105 [2/2] (0.00ns)   --->   "%call_ln37 = call void @inner_layer_2, i1 %NEURONS_STATE, i16 %NEURONS_MEMBRANE, i8 %BIASES, i14 %WEIGHTS_INDEX, i8 %WEIGHTS" [src/RNI.cpp:37]   --->   Operation 105 'call' 'call_ln37' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 9 <SV = 8> <Delay = 0.00>
+ST_9 : Operation 106 [1/2] (0.00ns)   --->   "%call_ln37 = call void @inner_layer_2, i1 %NEURONS_STATE, i16 %NEURONS_MEMBRANE, i8 %BIASES, i14 %WEIGHTS_INDEX, i8 %WEIGHTS" [src/RNI.cpp:37]   --->   Operation 106 'call' 'call_ln37' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 10 <SV = 9> <Delay = 0.00>
+ST_10 : Operation 107 [2/2] (0.00ns)   --->   "%call_ln38 = call void @inner_layer_3, i1 %NEURONS_STATE, i16 %NEURONS_MEMBRANE, i8 %BIASES, i14 %WEIGHTS_INDEX, i8 %WEIGHTS" [src/RNI.cpp:38]   --->   Operation 107 'call' 'call_ln38' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 11 <SV = 10> <Delay = 1.58>
+ST_11 : Operation 108 [1/1] (0.00ns)   --->   "%specloopname_ln30 = specloopname void @_ssdm_op_SpecLoopName, void @empty_16" [src/RNI.cpp:30]   --->   Operation 108 'specloopname' 'specloopname_ln30' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 109 [1/1] (0.00ns)   --->   "%in_pkts_dest_3_1_loc_load = load i6 %in_pkts_dest_3_1_loc"   --->   Operation 109 'load' 'in_pkts_dest_3_1_loc_load' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 110 [1/1] (0.00ns)   --->   "%in_pkts_dest_0_1_loc_load = load i6 %in_pkts_dest_0_1_loc"   --->   Operation 110 'load' 'in_pkts_dest_0_1_loc_load' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 111 [1/1] (0.00ns)   --->   "%in_pkts_id_3_1_loc_load = load i5 %in_pkts_id_3_1_loc"   --->   Operation 111 'load' 'in_pkts_id_3_1_loc_load' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 112 [1/1] (0.00ns)   --->   "%in_pkts_id_0_1_loc_load = load i5 %in_pkts_id_0_1_loc"   --->   Operation 112 'load' 'in_pkts_id_0_1_loc_load' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 113 [1/1] (0.00ns)   --->   "%in_pkts_last_3_1_loc_load = load i1 %in_pkts_last_3_1_loc"   --->   Operation 113 'load' 'in_pkts_last_3_1_loc_load' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 114 [1/1] (0.00ns)   --->   "%in_pkts_last_0_1_loc_load = load i1 %in_pkts_last_0_1_loc"   --->   Operation 114 'load' 'in_pkts_last_0_1_loc_load' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 115 [1/1] (0.00ns)   --->   "%in_pkts_user_3_1_loc_load = load i2 %in_pkts_user_3_1_loc"   --->   Operation 115 'load' 'in_pkts_user_3_1_loc_load' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 116 [1/1] (0.00ns)   --->   "%in_pkts_user_0_1_loc_load = load i2 %in_pkts_user_0_1_loc"   --->   Operation 116 'load' 'in_pkts_user_0_1_loc_load' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 117 [1/1] (0.00ns)   --->   "%in_pkts_strb_3_1_loc_load = load i4 %in_pkts_strb_3_1_loc"   --->   Operation 117 'load' 'in_pkts_strb_3_1_loc_load' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 118 [1/1] (0.00ns)   --->   "%in_pkts_strb_0_1_loc_load = load i4 %in_pkts_strb_0_1_loc"   --->   Operation 118 'load' 'in_pkts_strb_0_1_loc_load' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 119 [1/1] (0.00ns)   --->   "%in_pkts_keep_3_1_loc_load = load i4 %in_pkts_keep_3_1_loc"   --->   Operation 119 'load' 'in_pkts_keep_3_1_loc_load' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 120 [1/1] (0.00ns)   --->   "%in_pkts_keep_0_1_loc_load = load i4 %in_pkts_keep_0_1_loc"   --->   Operation 120 'load' 'in_pkts_keep_0_1_loc_load' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 121 [1/2] (0.00ns)   --->   "%call_ln38 = call void @inner_layer_3, i1 %NEURONS_STATE, i16 %NEURONS_MEMBRANE, i8 %BIASES, i14 %WEIGHTS_INDEX, i8 %WEIGHTS" [src/RNI.cpp:38]   --->   Operation 121 'call' 'call_ln38' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_11 : Operation 122 [1/1] (0.00ns)   --->   "%store_ln151 = store i1 %in_pkts_last_0_1_loc_load, i1 %in_pkts_last_0_0113" [src/RNI.cpp:151->src/RNI.cpp:40]   --->   Operation 122 'store' 'store_ln151' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 123 [1/1] (1.58ns)   --->   "%br_ln151 = br void %for.body.i" [src/RNI.cpp:151->src/RNI.cpp:40]   --->   Operation 123 'br' 'br_ln151' <Predicate = true> <Delay = 1.58>
+
+State 12 <SV = 11> <Delay = 3.25>
+ST_12 : Operation 124 [1/1] (0.00ns)   --->   "%neuron_index = phi i5 %add_i_i132_i, void %for.body.i.split, i5 16, void %while.body"   --->   Operation 124 'phi' 'neuron_index' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 125 [1/1] (1.78ns)   --->   "%icmp_ln151 = icmp_eq  i5 %neuron_index, i5 19" [src/RNI.cpp:151->src/RNI.cpp:40]   --->   Operation 125 'icmp' 'icmp_ln151' <Predicate = true> <Delay = 1.78> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 126 [1/1] (0.00ns)   --->   "%br_ln151 = br i1 %icmp_ln151, void %for.body.i.split, void %for.inc.i.i.preheader" [src/RNI.cpp:151->src/RNI.cpp:40]   --->   Operation 126 'br' 'br_ln151' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 127 [1/1] (0.00ns)   --->   "%sext_ln151 = sext i5 %neuron_index" [src/RNI.cpp:151->src/RNI.cpp:40]   --->   Operation 127 'sext' 'sext_ln151' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_12 : Operation 128 [1/1] (0.00ns)   --->   "%zext_ln151 = zext i8 %sext_ln151" [src/RNI.cpp:151->src/RNI.cpp:40]   --->   Operation 128 'zext' 'zext_ln151' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_12 : Operation 129 [1/1] (0.00ns)   --->   "%BIASES_addr = getelementptr i8 %BIASES, i64 0, i64 %zext_ln151" [src/RNI.cpp:153->src/RNI.cpp:40]   --->   Operation 129 'getelementptr' 'BIASES_addr' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_12 : Operation 130 [2/2] (3.25ns)   --->   "%BIASES_load = load i8 %BIASES_addr" [src/RNI.cpp:153->src/RNI.cpp:40]   --->   Operation 130 'load' 'BIASES_load' <Predicate = (!icmp_ln151)> <Delay = 3.25> <CoreInst = "ROM">   --->   Core 95 'ROM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 243> <ROM>
+ST_12 : Operation 131 [2/2] (0.00ns)   --->   "%call_ln0 = call void @RNI_Pipeline_NEURONS_STATE_RESET_LOOP, i1 %NEURONS_STATE"   --->   Operation 131 'call' 'call_ln0' <Predicate = (icmp_ln151)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 13 <SV = 12> <Delay = 6.50>
+ST_13 : Operation 132 [1/2] (3.25ns)   --->   "%BIASES_load = load i8 %BIASES_addr" [src/RNI.cpp:153->src/RNI.cpp:40]   --->   Operation 132 'load' 'BIASES_load' <Predicate = true> <Delay = 3.25> <CoreInst = "ROM">   --->   Core 95 'ROM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 243> <ROM>
+ST_13 : Operation 133 [1/1] (0.00ns)   --->   "%sext_ln153 = sext i8 %BIASES_load" [src/RNI.cpp:153->src/RNI.cpp:40]   --->   Operation 133 'sext' 'sext_ln153' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 134 [1/1] (0.00ns)   --->   "%NEURONS_MEMBRANE_addr = getelementptr i16 %NEURONS_MEMBRANE, i64 0, i64 %zext_ln151" [src/RNI.cpp:153->src/RNI.cpp:40]   --->   Operation 134 'getelementptr' 'NEURONS_MEMBRANE_addr' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 135 [1/1] (3.25ns)   --->   "%store_ln153 = store i16 %sext_ln153, i8 %NEURONS_MEMBRANE_addr" [src/RNI.cpp:153->src/RNI.cpp:40]   --->   Operation 135 'store' 'store_ln153' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 243> <RAM>
+ST_13 : Operation 136 [1/1] (0.00ns)   --->   "%WEIGHTS_INDEX_addr = getelementptr i14 %WEIGHTS_INDEX, i64 0, i64 %zext_ln151" [src/RNI.cpp:155->src/RNI.cpp:40]   --->   Operation 136 'getelementptr' 'WEIGHTS_INDEX_addr' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 137 [2/2] (3.25ns)   --->   "%weight_index = load i8 %WEIGHTS_INDEX_addr" [src/RNI.cpp:155->src/RNI.cpp:40]   --->   Operation 137 'load' 'weight_index' <Predicate = true> <Delay = 3.25> <CoreInst = "ROM">   --->   Core 95 'ROM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 14> <Depth = 244> <ROM>
+ST_13 : Operation 138 [1/1] (1.78ns)   --->   "%add_i_i132_i = add i5 %neuron_index, i5 1"   --->   Operation 138 'add' 'add_i_i132_i' <Predicate = true> <Delay = 1.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 139 [1/1] (0.00ns)   --->   "%conv_i109_i_cast_cast = sext i5 %add_i_i132_i"   --->   Operation 139 'sext' 'conv_i109_i_cast_cast' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 140 [1/1] (0.00ns)   --->   "%conv_i109_i_cast_cast_cast = zext i8 %conv_i109_i_cast_cast"   --->   Operation 140 'zext' 'conv_i109_i_cast_cast_cast' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 141 [1/1] (0.00ns)   --->   "%WEIGHTS_INDEX_addr_5 = getelementptr i14 %WEIGHTS_INDEX, i64 0, i64 %conv_i109_i_cast_cast_cast"   --->   Operation 141 'getelementptr' 'WEIGHTS_INDEX_addr_5' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 142 [2/2] (3.25ns)   --->   "%WEIGHTS_INDEX_load = load i8 %WEIGHTS_INDEX_addr_5"   --->   Operation 142 'load' 'WEIGHTS_INDEX_load' <Predicate = true> <Delay = 3.25> <CoreInst = "ROM">   --->   Core 95 'ROM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 14> <Depth = 244> <ROM>
+
+State 14 <SV = 13> <Delay = 4.84>
+ST_14 : Operation 143 [1/2] (3.25ns)   --->   "%weight_index = load i8 %WEIGHTS_INDEX_addr" [src/RNI.cpp:155->src/RNI.cpp:40]   --->   Operation 143 'load' 'weight_index' <Predicate = true> <Delay = 3.25> <CoreInst = "ROM">   --->   Core 95 'ROM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 14> <Depth = 244> <ROM>
+ST_14 : Operation 144 [1/2] (3.25ns)   --->   "%WEIGHTS_INDEX_load = load i8 %WEIGHTS_INDEX_addr_5"   --->   Operation 144 'load' 'WEIGHTS_INDEX_load' <Predicate = true> <Delay = 3.25> <CoreInst = "ROM">   --->   Core 95 'ROM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 14> <Depth = 244> <ROM>
+ST_14 : Operation 145 [1/1] (0.00ns)   --->   "%trunc_ln155 = trunc i14 %weight_index" [src/RNI.cpp:155->src/RNI.cpp:40]   --->   Operation 145 'trunc' 'trunc_ln155' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 146 [2/2] (1.58ns)   --->   "%call_ln155 = call void @RNI_Pipeline_WEIGHTS_LOOP_4, i14 %weight_index, i5 %neuron_index, i14 %WEIGHTS_INDEX_load, i8 %trunc_ln155, i1 %NEURONS_STATE, i16 %NEURONS_MEMBRANE, i8 %WEIGHTS" [src/RNI.cpp:155->src/RNI.cpp:40]   --->   Operation 146 'call' 'call_ln155' <Predicate = true> <Delay = 1.58> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 15 <SV = 14> <Delay = 0.00>
+ST_15 : Operation 147 [1/1] (0.00ns)   --->   "%speclooptripcount_ln151 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 3, i64 3, i64 3" [src/RNI.cpp:151->src/RNI.cpp:40]   --->   Operation 147 'speclooptripcount' 'speclooptripcount_ln151' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 148 [1/1] (0.00ns)   --->   "%specloopname_ln151 = specloopname void @_ssdm_op_SpecLoopName, void @empty_0" [src/RNI.cpp:151->src/RNI.cpp:40]   --->   Operation 148 'specloopname' 'specloopname_ln151' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 149 [1/2] (0.00ns)   --->   "%call_ln155 = call void @RNI_Pipeline_WEIGHTS_LOOP_4, i14 %weight_index, i5 %neuron_index, i14 %WEIGHTS_INDEX_load, i8 %trunc_ln155, i1 %NEURONS_STATE, i16 %NEURONS_MEMBRANE, i8 %WEIGHTS" [src/RNI.cpp:155->src/RNI.cpp:40]   --->   Operation 149 'call' 'call_ln155' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_15 : Operation 150 [1/1] (0.00ns)   --->   "%br_ln151 = br void %for.body.i" [src/RNI.cpp:151->src/RNI.cpp:40]   --->   Operation 150 'br' 'br_ln151' <Predicate = true> <Delay = 0.00>
+
+State 16 <SV = 12> <Delay = 0.00>
+ST_16 : Operation 151 [1/2] (0.00ns)   --->   "%call_ln0 = call void @RNI_Pipeline_NEURONS_STATE_RESET_LOOP, i1 %NEURONS_STATE"   --->   Operation 151 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 17 <SV = 13> <Delay = 3.25>
+ST_17 : Operation 152 [1/1] (0.00ns)   --->   "%empty_50 = wait i32 @_ssdm_op_Wait"   --->   Operation 152 'wait' 'empty_50' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 153 [2/2] (3.25ns)   --->   "%call_ln0 = call void @RNI_Pipeline_VITIS_LOOP_197_1, i6 %out_pkts_dest, i5 %out_pkts_id, i1 %out_pkts_last, i2 %out_pkts_user, i4 %out_pkts_strb, i4 %out_pkts_keep, i32 %out_stream_V_data_V, i4 %out_stream_V_keep_V, i4 %out_stream_V_strb_V, i2 %out_stream_V_user_V, i1 %out_stream_V_last_V, i5 %out_stream_V_id_V, i6 %out_stream_V_dest_V, i4 %in_pkts_keep_0_1_loc_load, i4 %in_pkts_strb_0_1_loc_load, i2 %in_pkts_user_0_1_loc_load, i1 %in_pkts_last_0_1_loc_load, i5 %in_pkts_id_0_1_loc_load, i6 %in_pkts_dest_0_1_loc_load, i4 %in_pkts_keep_3_1_loc_load, i4 %in_pkts_strb_3_1_loc_load, i2 %in_pkts_user_3_1_loc_load, i1 %in_pkts_last_3_1_loc_load, i5 %in_pkts_id_3_1_loc_load, i6 %in_pkts_dest_3_1_loc_load, i16 %NEURONS_MEMBRANE"   --->   Operation 153 'call' 'call_ln0' <Predicate = true> <Delay = 3.25> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 18 <SV = 14> <Delay = 3.25>
+ST_18 : Operation 154 [1/2] (3.25ns)   --->   "%call_ln0 = call void @RNI_Pipeline_VITIS_LOOP_197_1, i6 %out_pkts_dest, i5 %out_pkts_id, i1 %out_pkts_last, i2 %out_pkts_user, i4 %out_pkts_strb, i4 %out_pkts_keep, i32 %out_stream_V_data_V, i4 %out_stream_V_keep_V, i4 %out_stream_V_strb_V, i2 %out_stream_V_user_V, i1 %out_stream_V_last_V, i5 %out_stream_V_id_V, i6 %out_stream_V_dest_V, i4 %in_pkts_keep_0_1_loc_load, i4 %in_pkts_strb_0_1_loc_load, i2 %in_pkts_user_0_1_loc_load, i1 %in_pkts_last_0_1_loc_load, i5 %in_pkts_id_0_1_loc_load, i6 %in_pkts_dest_0_1_loc_load, i4 %in_pkts_keep_3_1_loc_load, i4 %in_pkts_strb_3_1_loc_load, i2 %in_pkts_user_3_1_loc_load, i1 %in_pkts_last_3_1_loc_load, i5 %in_pkts_id_3_1_loc_load, i6 %in_pkts_dest_3_1_loc_load, i16 %NEURONS_MEMBRANE"   --->   Operation 154 'call' 'call_ln0' <Predicate = true> <Delay = 3.25> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_18 : Operation 155 [1/1] (0.00ns)   --->   "%br_ln44 = br i1 %in_pkts_last_3_1_loc_load, void %if.end, void %while.end" [src/RNI.cpp:44]   --->   Operation 155 'br' 'br_ln44' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 156 [1/1] (0.00ns)   --->   "%store_ln30 = store i32 %in_pkts_data_3_1_loc_load, i32 %in_pkts_data_3_08" [src/RNI.cpp:30]   --->   Operation 156 'store' 'store_ln30' <Predicate = (!in_pkts_last_3_1_loc_load)> <Delay = 0.00>
+ST_18 : Operation 157 [1/1] (0.00ns)   --->   "%store_ln30 = store i32 %in_pkts_data_2_1_loc_load, i32 %in_pkts_data_2_07" [src/RNI.cpp:30]   --->   Operation 157 'store' 'store_ln30' <Predicate = (!in_pkts_last_3_1_loc_load)> <Delay = 0.00>
+ST_18 : Operation 158 [1/1] (0.00ns)   --->   "%store_ln30 = store i32 %in_pkts_data_1_1_loc_load, i32 %in_pkts_data_1_06" [src/RNI.cpp:30]   --->   Operation 158 'store' 'store_ln30' <Predicate = (!in_pkts_last_3_1_loc_load)> <Delay = 0.00>
+ST_18 : Operation 159 [1/1] (0.00ns)   --->   "%store_ln30 = store i32 %in_pkts_data_0_1_loc_load, i32 %in_pkts_data_0_05" [src/RNI.cpp:30]   --->   Operation 159 'store' 'store_ln30' <Predicate = (!in_pkts_last_3_1_loc_load)> <Delay = 0.00>
+ST_18 : Operation 160 [1/1] (0.00ns)   --->   "%store_ln30 = store i6 %in_pkts_dest_3_1_loc_load, i6 %in_pkts_dest_3_0118" [src/RNI.cpp:30]   --->   Operation 160 'store' 'store_ln30' <Predicate = (!in_pkts_last_3_1_loc_load)> <Delay = 0.00>
+ST_18 : Operation 161 [1/1] (0.00ns)   --->   "%store_ln30 = store i6 %in_pkts_dest_0_1_loc_load, i6 %in_pkts_dest_0_0117" [src/RNI.cpp:30]   --->   Operation 161 'store' 'store_ln30' <Predicate = (!in_pkts_last_3_1_loc_load)> <Delay = 0.00>
+ST_18 : Operation 162 [1/1] (0.00ns)   --->   "%store_ln30 = store i5 %in_pkts_id_3_1_loc_load, i5 %in_pkts_id_3_0116" [src/RNI.cpp:30]   --->   Operation 162 'store' 'store_ln30' <Predicate = (!in_pkts_last_3_1_loc_load)> <Delay = 0.00>
+ST_18 : Operation 163 [1/1] (0.00ns)   --->   "%store_ln30 = store i5 %in_pkts_id_0_1_loc_load, i5 %in_pkts_id_0_0115" [src/RNI.cpp:30]   --->   Operation 163 'store' 'store_ln30' <Predicate = (!in_pkts_last_3_1_loc_load)> <Delay = 0.00>
+ST_18 : Operation 164 [1/1] (0.00ns)   --->   "%store_ln30 = store i2 %in_pkts_user_3_1_loc_load, i2 %in_pkts_user_3_0112" [src/RNI.cpp:30]   --->   Operation 164 'store' 'store_ln30' <Predicate = (!in_pkts_last_3_1_loc_load)> <Delay = 0.00>
+ST_18 : Operation 165 [1/1] (0.00ns)   --->   "%store_ln30 = store i2 %in_pkts_user_0_1_loc_load, i2 %in_pkts_user_0_0111" [src/RNI.cpp:30]   --->   Operation 165 'store' 'store_ln30' <Predicate = (!in_pkts_last_3_1_loc_load)> <Delay = 0.00>
+ST_18 : Operation 166 [1/1] (0.00ns)   --->   "%store_ln30 = store i4 %in_pkts_strb_3_1_loc_load, i4 %in_pkts_strb_3_0110" [src/RNI.cpp:30]   --->   Operation 166 'store' 'store_ln30' <Predicate = (!in_pkts_last_3_1_loc_load)> <Delay = 0.00>
+ST_18 : Operation 167 [1/1] (0.00ns)   --->   "%store_ln30 = store i4 %in_pkts_strb_0_1_loc_load, i4 %in_pkts_strb_0_0109" [src/RNI.cpp:30]   --->   Operation 167 'store' 'store_ln30' <Predicate = (!in_pkts_last_3_1_loc_load)> <Delay = 0.00>
+ST_18 : Operation 168 [1/1] (0.00ns)   --->   "%store_ln30 = store i4 %in_pkts_keep_3_1_loc_load, i4 %in_pkts_keep_3_0108" [src/RNI.cpp:30]   --->   Operation 168 'store' 'store_ln30' <Predicate = (!in_pkts_last_3_1_loc_load)> <Delay = 0.00>
+ST_18 : Operation 169 [1/1] (0.00ns)   --->   "%store_ln30 = store i4 %in_pkts_keep_0_1_loc_load, i4 %in_pkts_keep_0_0107" [src/RNI.cpp:30]   --->   Operation 169 'store' 'store_ln30' <Predicate = (!in_pkts_last_3_1_loc_load)> <Delay = 0.00>
+ST_18 : Operation 170 [1/1] (0.00ns)   --->   "%br_ln30 = br void %while.body" [src/RNI.cpp:30]   --->   Operation 170 'br' 'br_ln30' <Predicate = (!in_pkts_last_3_1_loc_load)> <Delay = 0.00>
+
+State 19 <SV = 15> <Delay = 0.00>
+ST_19 : Operation 171 [1/1] (0.00ns)   --->   "%ret_ln49 = ret" [src/RNI.cpp:49]   --->   Operation 171 'ret' 'ret_ln49' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10.000ns, clock uncertainty: 2.700ns.
+
+ <State 1>: 0.000ns
+The critical path consists of the following:
+
+ <State 2>: 1.588ns
+The critical path consists of the following:
+	'load' operation ('in_pkts_last_0_0113_load') on local variable 'in_pkts_last_0_0113' [79]  (0.000 ns)
+	'call' operation ('call_ln0') to 'RNI_Pipeline_VITIS_LOOP_54_1' [96]  (1.588 ns)
+
+ <State 3>: 3.238ns
+The critical path consists of the following:
+	'call' operation ('call_ln0') to 'RNI_Pipeline_VITIS_LOOP_54_1' [96]  (3.238 ns)
+
+ <State 4>: 0.000ns
+The critical path consists of the following:
+
+ <State 5>: 0.000ns
+The critical path consists of the following:
+
+ <State 6>: 0.000ns
+The critical path consists of the following:
+
+ <State 7>: 0.000ns
+The critical path consists of the following:
+
+ <State 8>: 0.000ns
+The critical path consists of the following:
+
+ <State 9>: 0.000ns
+The critical path consists of the following:
+
+ <State 10>: 0.000ns
+The critical path consists of the following:
+
+ <State 11>: 1.588ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('neuron_index') with incoming values : ('add_i_i132_i') [121]  (1.588 ns)
+
+ <State 12>: 3.254ns
+The critical path consists of the following:
+	'phi' operation ('neuron_index') with incoming values : ('add_i_i132_i') [121]  (0.000 ns)
+	'getelementptr' operation ('BIASES_addr', src/RNI.cpp:153->src/RNI.cpp:40) [129]  (0.000 ns)
+	'load' operation ('BIASES_load', src/RNI.cpp:153->src/RNI.cpp:40) on array 'BIASES' [130]  (3.254 ns)
+
+ <State 13>: 6.508ns
+The critical path consists of the following:
+	'load' operation ('BIASES_load', src/RNI.cpp:153->src/RNI.cpp:40) on array 'BIASES' [130]  (3.254 ns)
+	'store' operation ('store_ln153', src/RNI.cpp:153->src/RNI.cpp:40) of variable 'sext_ln153', src/RNI.cpp:153->src/RNI.cpp:40 on array 'NEURONS_MEMBRANE' [133]  (3.254 ns)
+
+ <State 14>: 4.842ns
+The critical path consists of the following:
+	'load' operation ('weight_index', src/RNI.cpp:155->src/RNI.cpp:40) on array 'WEIGHTS_INDEX' [135]  (3.254 ns)
+	'call' operation ('call_ln155', src/RNI.cpp:155->src/RNI.cpp:40) to 'RNI_Pipeline_WEIGHTS_LOOP_4' [142]  (1.588 ns)
+
+ <State 15>: 0.000ns
+The critical path consists of the following:
+
+ <State 16>: 0.000ns
+The critical path consists of the following:
+
+ <State 17>: 3.254ns
+The critical path consists of the following:
+	'call' operation ('call_ln0') to 'RNI_Pipeline_VITIS_LOOP_197_1' [147]  (3.254 ns)
+
+ <State 18>: 3.254ns
+The critical path consists of the following:
+	'call' operation ('call_ln0') to 'RNI_Pipeline_VITIS_LOOP_197_1' [147]  (3.254 ns)
+
+ <State 19>: 0.000ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

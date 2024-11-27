@@ -1,0 +1,252 @@
+
+
+================================================================
+== Vitis HLS Report for 'RNI'
+================================================================
+* Date:           Tue Nov 26 16:00:56 2024
+
+* Version:        2023.1.1 (Build 3869133 on Jun 15 2023)
+* Project:        RNI
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  7.077 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        +--------------------------------------------------+---------------------------------------+---------+----------+-----------+-----------+------+----------+---------+
+        |                                                  |                                       |  Latency (cycles)  |   Latency (absolute)  |     Interval    | Pipeline|
+        |                     Instance                     |                 Module                |   min   |    max   |    min    |    max    |  min |    max   |   Type  |
+        +--------------------------------------------------+---------------------------------------+---------+----------+-----------+-----------+------+----------+---------+
+        |grp_RNI_Pipeline_VITIS_LOOP_54_1_fu_317           |RNI_Pipeline_VITIS_LOOP_54_1           |        6|         6|  60.000 ns|  60.000 ns|     6|         6|       no|
+        |grp_input_layer_fu_366                            |input_layer                            |     1281|   8390657|  12.810 us|  83.907 ms|  1281|   8390657|       no|
+        |grp_inner_layer_1_fu_384                          |inner_layer_1                          |      964|  16777924|   9.640 us|  0.168 sec|   964|  16777924|       no|
+        |grp_inner_layer_2_fu_398                          |inner_layer_2                          |      484|   8388964|   4.840 us|  83.890 ms|   484|   8388964|       no|
+        |grp_inner_layer_3_fu_412                          |inner_layer_3                          |      244|   4194484|   2.440 us|  41.945 ms|   244|   4194484|       no|
+        |grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_426  |RNI_Pipeline_NEURONS_STATE_RESET_LOOP  |       18|        18|   0.180 us|   0.180 us|    18|        18|       no|
+        |grp_RNI_Pipeline_WEIGHTS_LOOP_4_fu_432            |RNI_Pipeline_WEIGHTS_LOOP_4            |        2|    262142|  20.000 ns|   2.621 ms|     2|    262142|       no|
+        |grp_RNI_Pipeline_VITIS_LOOP_197_1_fu_449          |RNI_Pipeline_VITIS_LOOP_197_1          |      489|       489|   4.890 us|   4.890 us|   489|       489|       no|
+        +--------------------------------------------------+---------------------------------------+---------+----------+-----------+-----------+------+----------+---------+
+
+        * Loop: 
+        +-------------------+---------+---------+-----------------+-----------+-----------+------+----------+
+        |                   |  Latency (cycles) |    Iteration    |  Initiation Interval  | Trip |          |
+        |     Loop Name     |   min   |   max   |     Latency     |  achieved |   target  | Count| Pipelined|
+        +-------------------+---------+---------+-----------------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_30_1  |        ?|        ?|  3518 ~ 38538994|          -|          -|     ?|        no|
+        | + NEURONS_LOOP_4  |       18|   786438|       6 ~ 262146|          -|          -|     3|        no|
+        +-------------------+---------+---------+-----------------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|     28|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |       40|    6|    2266|   4142|    -|
+|Memory           |       13|    -|      23|     48|    0|
+|Multiplexer      |        -|    -|       -|    636|    -|
+|Register         |        -|    -|     253|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |       53|    6|    2542|   4854|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      280|  220|  106400|  53200|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |       18|    2|       2|      9|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +--------------------------------------------------+---------------------------------------+---------+----+-----+-----+-----+
+    |                     Instance                     |                 Module                | BRAM_18K| DSP|  FF | LUT | URAM|
+    +--------------------------------------------------+---------------------------------------+---------+----+-----+-----+-----+
+    |grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_426  |RNI_Pipeline_NEURONS_STATE_RESET_LOOP  |        0|   0|    8|   55|    0|
+    |grp_RNI_Pipeline_VITIS_LOOP_197_1_fu_449          |RNI_Pipeline_VITIS_LOOP_197_1          |        0|   0|   79|  285|    0|
+    |grp_RNI_Pipeline_VITIS_LOOP_54_1_fu_317           |RNI_Pipeline_VITIS_LOOP_54_1           |        0|   0|  177|  208|    0|
+    |grp_RNI_Pipeline_WEIGHTS_LOOP_4_fu_432            |RNI_Pipeline_WEIGHTS_LOOP_4            |        0|   0|  186|  311|    0|
+    |ctrl_s_axi_U                                      |ctrl_s_axi                             |        0|   0|   36|   40|    0|
+    |grp_inner_layer_1_fu_384                          |inner_layer_1                          |       10|   1|  376|  795|    0|
+    |grp_inner_layer_2_fu_398                          |inner_layer_2                          |       10|   1|  374|  803|    0|
+    |grp_inner_layer_3_fu_412                          |inner_layer_3                          |       10|   1|  371|  793|    0|
+    |grp_input_layer_fu_366                            |input_layer                            |       10|   3|  659|  852|    0|
+    +--------------------------------------------------+---------------------------------------+---------+----+-----+-----+-----+
+    |Total                                             |                                       |       40|   6| 2266| 4142|    0|
+    +--------------------------------------------------+---------------------------------------+---------+----+-----+-----+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    +--------------------+---------------------------------------------------------+---------+---+----+-----+-------+-----+------+-------------+
+    |       Memory       |                          Module                         | BRAM_18K| FF| LUT| URAM| Words | Bits| Banks| W*Bits*Banks|
+    +--------------------+---------------------------------------------------------+---------+---+----+-----+-------+-----+------+-------------+
+    |NEURONS_MEMBRANE_U  |NEURONS_MEMBRANE_RAM_AUTO_1R1W                           |        1|  0|   0|    0|    243|   16|     1|         3888|
+    |NEURONS_STATE_U     |NEURONS_STATE_RAM_AUTO_1R1W                              |        0|  1|   4|    0|    243|    1|     1|          243|
+    |BIASES_U            |input_layer_BIASES_ROM_AUTO_1R                           |        1|  0|   0|    0|    243|    8|     1|         1944|
+    |WEIGHTS_U           |input_layer_Pipeline_WEIGHTS_LOOP_0_WEIGHTS_ROM_AUTO_1R  |        8|  0|   0|    0|  11312|    8|     1|        90496|
+    |WEIGHTS_INDEX_U     |input_layer_WEIGHTS_INDEX_ROM_AUTO_1R                    |        1|  0|   0|    0|    244|   14|     1|         3416|
+    |out_pkts_dest_U     |out_pkts_dest_RAM_AUTO_1R1W                              |        1|  0|   0|    0|    243|    6|     1|         1458|
+    |out_pkts_id_U       |out_pkts_id_RAM_AUTO_1R1W                                |        1|  0|   0|    0|    243|    5|     1|         1215|
+    |out_pkts_keep_U     |out_pkts_keep_RAM_AUTO_1R1W                              |        0|  8|  16|    0|    243|    4|     1|          972|
+    |out_pkts_strb_U     |out_pkts_keep_RAM_AUTO_1R1W                              |        0|  8|  16|    0|    243|    4|     1|          972|
+    |out_pkts_last_U     |out_pkts_last_RAM_AUTO_1R1W                              |        0|  2|   4|    0|    243|    1|     1|          243|
+    |out_pkts_user_U     |out_pkts_user_RAM_AUTO_1R1W                              |        0|  4|   8|    0|    243|    2|     1|          486|
+    +--------------------+---------------------------------------------------------+---------+---+----+-----+-------+-----+------+-------------+
+    |Total               |                                                         |       13| 23|  48|    0|  13743|   69|    11|       105333|
+    +--------------------+---------------------------------------------------------+---------+---+----+-----+-------+-----+------+-------------+
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +------------------------------------------------------------+----------+----+---+----+------------+------------+
+    |                        Variable Name                       | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------------------------------------------+----------+----+---+----+------------+------------+
+    |add_i_i132_i_fu_624_p2                                      |         +|   0|  0|  13|           5|           1|
+    |grp_RNI_Pipeline_VITIS_LOOP_197_1_fu_449_out_stream_TREADY  |       and|   0|  0|   2|           1|           1|
+    |icmp_ln151_fu_604_p2                                        |      icmp|   0|  0|  13|           5|           5|
+    +------------------------------------------------------------+----------+----+---+----+------------+------------+
+    |Total                                                       |          |   0|  0|  28|          11|           7|
+    +------------------------------------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------------+-----+-----------+-----+-----------+
+    |              Name             | LUT | Input Size| Bits| Total Bits|
+    +-------------------------------+-----+-----------+-----+-----------+
+    |BIASES_address0                |   31|          6|    8|         48|
+    |BIASES_ce0                     |   25|          5|    1|          5|
+    |NEURONS_MEMBRANE_address0      |   42|          8|    8|         64|
+    |NEURONS_MEMBRANE_ce0           |   42|          8|    1|          8|
+    |NEURONS_MEMBRANE_d0            |   37|          7|   16|        112|
+    |NEURONS_MEMBRANE_we0           |   37|          7|    1|          7|
+    |NEURONS_STATE_address0         |   37|          7|    8|         56|
+    |NEURONS_STATE_ce0              |   37|          7|    1|          7|
+    |NEURONS_STATE_d0               |   31|          6|    1|          6|
+    |NEURONS_STATE_we0              |   31|          6|    1|          6|
+    |WEIGHTS_INDEX_address0         |   31|          6|    8|         48|
+    |WEIGHTS_INDEX_address1         |   31|          6|    8|         48|
+    |WEIGHTS_INDEX_ce0              |   25|          5|    1|          5|
+    |WEIGHTS_INDEX_ce1              |   25|          5|    1|          5|
+    |WEIGHTS_address0               |   31|          6|   14|         84|
+    |WEIGHTS_ce0                    |   25|          5|    1|          5|
+    |ap_NS_fsm                      |  100|         20|    1|         20|
+    |in_stream_TREADY_int_regslice  |    9|          2|    1|          2|
+    |neuron_index_reg_305           |    9|          2|    5|         10|
+    +-------------------------------+-----+-----------+-----+-----------+
+    |Total                          |  636|        124|   86|        546|
+    +-------------------------------+-----+-----------+-----+-----------+
+
+    * Register: 
+    +---------------------------------------------------------------+----+----+-----+-----------+
+    |                              Name                             | FF | LUT| Bits| Const Bits|
+    +---------------------------------------------------------------+----+----+-----+-----------+
+    |WEIGHTS_INDEX_load_reg_1014                                    |  14|   0|   14|          0|
+    |add_i_i132_i_reg_999                                           |   5|   0|    5|          0|
+    |ap_CS_fsm                                                      |  19|   0|   19|          0|
+    |grp_RNI_Pipeline_NEURONS_STATE_RESET_LOOP_fu_426_ap_start_reg  |   1|   0|    1|          0|
+    |grp_RNI_Pipeline_VITIS_LOOP_197_1_fu_449_ap_start_reg          |   1|   0|    1|          0|
+    |grp_RNI_Pipeline_VITIS_LOOP_54_1_fu_317_ap_start_reg           |   1|   0|    1|          0|
+    |grp_RNI_Pipeline_WEIGHTS_LOOP_4_fu_432_ap_start_reg            |   1|   0|    1|          0|
+    |grp_inner_layer_1_fu_384_ap_start_reg                          |   1|   0|    1|          0|
+    |grp_inner_layer_2_fu_398_ap_start_reg                          |   1|   0|    1|          0|
+    |grp_inner_layer_3_fu_412_ap_start_reg                          |   1|   0|    1|          0|
+    |grp_input_layer_fu_366_ap_start_reg                            |   1|   0|    1|          0|
+    |in_pkts_data_0_05_fu_150                                       |  32|   0|   32|          0|
+    |in_pkts_data_1_06_fu_154                                       |  32|   0|   32|          0|
+    |in_pkts_data_2_07_fu_158                                       |  32|   0|   32|          0|
+    |in_pkts_data_3_08_fu_162                                       |  32|   0|   32|          0|
+    |in_pkts_dest_0_0117_fu_142                                     |   6|   0|    6|          0|
+    |in_pkts_dest_3_0118_fu_146                                     |   6|   0|    6|          0|
+    |in_pkts_id_0_0115_fu_134                                       |   5|   0|    5|          0|
+    |in_pkts_id_3_0116_fu_138                                       |   5|   0|    5|          0|
+    |in_pkts_keep_0_0107_fu_110                                     |   4|   0|    4|          0|
+    |in_pkts_keep_3_0108_fu_114                                     |   4|   0|    4|          0|
+    |in_pkts_last_0_0113_fu_106                                     |   1|   0|    1|          0|
+    |in_pkts_last_3_1_loc_load_reg_955                              |   1|   0|    1|          0|
+    |in_pkts_strb_0_0109_fu_118                                     |   4|   0|    4|          0|
+    |in_pkts_strb_3_0110_fu_122                                     |   4|   0|    4|          0|
+    |in_pkts_user_0_0111_fu_126                                     |   2|   0|    2|          0|
+    |in_pkts_user_3_0112_fu_130                                     |   2|   0|    2|          0|
+    |neuron_index_reg_305                                           |   5|   0|    5|          0|
+    |trunc_ln155_reg_1019                                           |   8|   0|    8|          0|
+    |weight_index_reg_1009                                          |  14|   0|   14|          0|
+    |zext_ln151_reg_983                                             |   8|   0|   64|         56|
+    +---------------------------------------------------------------+----+----+-----+-----------+
+    |Total                                                          | 253|   0|  309|         56|
+    +---------------------------------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------+-----+-----+------------+---------------------+--------------+
+|      RTL Ports     | Dir | Bits|  Protocol  |    Source Object    |    C Type    |
++--------------------+-----+-----+------------+---------------------+--------------+
+|s_axi_ctrl_AWVALID  |   in|    1|       s_axi|                 ctrl|   return void|
+|s_axi_ctrl_AWREADY  |  out|    1|       s_axi|                 ctrl|   return void|
+|s_axi_ctrl_AWADDR   |   in|    4|       s_axi|                 ctrl|   return void|
+|s_axi_ctrl_WVALID   |   in|    1|       s_axi|                 ctrl|   return void|
+|s_axi_ctrl_WREADY   |  out|    1|       s_axi|                 ctrl|   return void|
+|s_axi_ctrl_WDATA    |   in|   32|       s_axi|                 ctrl|   return void|
+|s_axi_ctrl_WSTRB    |   in|    4|       s_axi|                 ctrl|   return void|
+|s_axi_ctrl_ARVALID  |   in|    1|       s_axi|                 ctrl|   return void|
+|s_axi_ctrl_ARREADY  |  out|    1|       s_axi|                 ctrl|   return void|
+|s_axi_ctrl_ARADDR   |   in|    4|       s_axi|                 ctrl|   return void|
+|s_axi_ctrl_RVALID   |  out|    1|       s_axi|                 ctrl|   return void|
+|s_axi_ctrl_RREADY   |   in|    1|       s_axi|                 ctrl|   return void|
+|s_axi_ctrl_RDATA    |  out|   32|       s_axi|                 ctrl|   return void|
+|s_axi_ctrl_RRESP    |  out|    2|       s_axi|                 ctrl|   return void|
+|s_axi_ctrl_BVALID   |  out|    1|       s_axi|                 ctrl|   return void|
+|s_axi_ctrl_BREADY   |   in|    1|       s_axi|                 ctrl|   return void|
+|s_axi_ctrl_BRESP    |  out|    2|       s_axi|                 ctrl|   return void|
+|ap_clk              |   in|    1|  ap_ctrl_hs|                  RNI|  return value|
+|ap_rst_n            |   in|    1|  ap_ctrl_hs|                  RNI|  return value|
+|interrupt           |  out|    1|  ap_ctrl_hs|                  RNI|  return value|
+|in_stream_TDATA     |   in|   32|        axis|   in_stream_V_data_V|       pointer|
+|in_stream_TVALID    |   in|    1|        axis|   in_stream_V_dest_V|       pointer|
+|in_stream_TREADY    |  out|    1|        axis|   in_stream_V_dest_V|       pointer|
+|in_stream_TDEST     |   in|    6|        axis|   in_stream_V_dest_V|       pointer|
+|in_stream_TKEEP     |   in|    4|        axis|   in_stream_V_keep_V|       pointer|
+|in_stream_TSTRB     |   in|    4|        axis|   in_stream_V_strb_V|       pointer|
+|in_stream_TUSER     |   in|    2|        axis|   in_stream_V_user_V|       pointer|
+|in_stream_TLAST     |   in|    1|        axis|   in_stream_V_last_V|       pointer|
+|in_stream_TID       |   in|    5|        axis|     in_stream_V_id_V|       pointer|
+|out_stream_TDATA    |  out|   32|        axis|  out_stream_V_data_V|       pointer|
+|out_stream_TVALID   |  out|    1|        axis|  out_stream_V_dest_V|       pointer|
+|out_stream_TREADY   |   in|    1|        axis|  out_stream_V_dest_V|       pointer|
+|out_stream_TDEST    |  out|    6|        axis|  out_stream_V_dest_V|       pointer|
+|out_stream_TKEEP    |  out|    4|        axis|  out_stream_V_keep_V|       pointer|
+|out_stream_TSTRB    |  out|    4|        axis|  out_stream_V_strb_V|       pointer|
+|out_stream_TUSER    |  out|    2|        axis|  out_stream_V_user_V|       pointer|
+|out_stream_TLAST    |  out|    1|        axis|  out_stream_V_last_V|       pointer|
+|out_stream_TID      |  out|    5|        axis|    out_stream_V_id_V|       pointer|
++--------------------+-----+-----+------------+---------------------+--------------+
+
