@@ -249,6 +249,7 @@ void output_layer(void)
             {
                 NEURONS_MEMBRANE[neuron_index] += WEIGHTS[weight_index];
             }
+            NEURONS_MEMBRANE_COPY[neuron_index] = NEURONS_MEMBRANE[neuron_index];
 		}
 """)
 
